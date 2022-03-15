@@ -20,3 +20,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 Route::resource('categories', App\Http\Controllers\API\CategoryAPIController::class);
+
+
+Route::resource('discounts', App\Http\Controllers\API\DiscountAPIController::class);

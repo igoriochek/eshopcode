@@ -28,3 +28,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 //Route::resource('categories', App\Http\Controllers\CategoryController::class);
+
+
+Route::resource('discounts', App\Http\Controllers\DiscountController::class);
