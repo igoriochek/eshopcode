@@ -1,21 +1,21 @@
-<div class="table-responsive">
-    <table class="table" id="categories-table">
+<div class="table table-responsive">
+    <table class="table" id="categories">
         <thead>
         <tr>
             <th>Name</th>
-        <th>Description</th>
-        <th>Parent Id</th>
-        <th>Visible</th>
-            <th colspan="3">Action</th>
+            <th>Description</th>
+            <th>Parent Id</th>
+            <th>Visible</th>
+            <th>Action</th>
         </tr>
         </thead>
         <tbody>
         @foreach($categories as $category)
             <tr>
                 <td>{{ $category->name }}</td>
-            <td>{{ $category->description }}</td>
-            <td>{{ $category->parent_id }}</td>
-            <td>{{ $category->visible }}</td>
+                <td>{{ $category->description }}</td>
+                <td>{{ $category->parent_id }}</td>
+                <td>{{ $category->visible }}</td>
                 <td width="120">
                     {!! Form::open(['route' => ['categories.destroy', $category->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>

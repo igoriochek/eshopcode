@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
+use App\Models\Category;
 use App\Repositories\CategoryRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
@@ -14,6 +15,18 @@ class CategoryController extends AppBaseController
 {
     /** @var CategoryRepository $categoryRepository*/
     private $categoryRepository;
+    protected $visible_list = ['invisible', 'visible'];
+
+
+    public function categoriesForSelector() {
+        $c = array();
+        Category::all()->map(function($item) use(&$c) {
+            $c[$item->id] = $item->name;
+        });
+        return $c;
+
+
+    }
 
     public function __construct(CategoryRepository $categoryRepo)
     {
@@ -42,7 +55,7 @@ class CategoryController extends AppBaseController
      */
     public function create()
     {
-        return view('categories.create');
+        return view('categories.create', [ 'visible_list' => $this->visible_list, 'categories' => $this->categoriesForSelector()]);
     }
 
     /**
@@ -55,7 +68,7 @@ class CategoryController extends AppBaseController
     public function store(CreateCategoryRequest $request)
     {
         $input = $request->all();
-
+//        dd($input);
         $category = $this->categoryRepository->create($input);
 
         Flash::success('Category saved successfully.');
@@ -99,8 +112,12 @@ class CategoryController extends AppBaseController
 
             return redirect(route('categories.index'));
         }
+//        dd($category);
 
-        return view('categories.edit')->with('category', $category);
+        return view('categories.edit', [ 'visible_list' => $this->visible_list,
+            'categories' => $this->categoriesForSelector(),
+            'category'=>$category]);
+//        )->with('category', $category);
     }
 
     /**
