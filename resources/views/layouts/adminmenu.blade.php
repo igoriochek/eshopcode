@@ -1,1 +1,1 @@
-<a href="/admin/category">Categories</a>
+<a href="/admin/categories">Categories</a>

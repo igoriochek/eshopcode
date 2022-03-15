@@ -18,14 +18,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  */
 class Category extends Model
 {
-    use SoftDeletes;
+//    use SoftDeletes;
 
     use HasFactory;
 
     public $table = 'categories';
-    
 
-    protected $dates = ['deleted_at'];
+
+//    protected $dates = ['deleted_at'];
 
 
 
@@ -58,5 +58,5 @@ class Category extends Model
         'description' => 'required'
     ];
 
-    
+
 }

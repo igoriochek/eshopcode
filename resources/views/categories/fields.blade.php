@@ -13,12 +13,12 @@
 <!-- Parent Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('parent_id', 'Parent Id:') !!}
-    {!! Form::select('parent_id', ], null, ['class' => 'form-control custom-select']) !!}
+{{--    {!! Form::select('parent_id', null, ['class' => 'form-control custom-select']) !!}--}}
 </div>
 
 
 <!-- Visible Field -->
 <div class="form-group col-sm-12">
     {!! Form::label('visible', 'Visible', ['class' => 'form-check-label']) !!}
-    
+
 </div>

@@ -2,8 +2,9 @@
 
 namespace Database\Seeders;
 
+use Faker\Factory as Faker;
 use Illuminate\Database\Seeder;
-
+use DB;
 class CategorySeeder extends Seeder
 {
     /**
@@ -13,6 +14,12 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        //
+        $faker = Faker::create();
+        for ($i=0; $i<10; $i++){
+            DB::table('categories')->insert([
+                'name' => $faker->name,
+                'description' => $faker->text,
+            ]);
+        }
     }
 }
