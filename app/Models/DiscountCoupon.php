@@ -7,21 +7,21 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
- * Class Discount
+ * Class DiscountCoupon
  * @package App\Models
- * @version March 15, 2022, 11:07 am UTC
+ * @version March 15, 2022, 5:29 pm UTC
  *
- * @property string $name
- * @property string $description
- * @property integer $proc
+ * @property string $code
+ * @property integer $used
+ * @property number $value
  */
-class Discount extends Model
+class DiscountCoupon extends Model
 {
 //    use SoftDeletes;
 
     use HasFactory;
 
-    public $table = 'discounts';
+    public $table = 'discount_coupons';
 
 
 //    protected $dates = ['deleted_at'];
@@ -29,9 +29,9 @@ class Discount extends Model
 
 
     public $fillable = [
-        'name',
-        'description',
-        'proc'
+        'code',
+        'used',
+        'value'
     ];
 
     /**
@@ -40,9 +40,9 @@ class Discount extends Model
      * @var array
      */
     protected $casts = [
-        'name' => 'string',
-        'description' => 'string',
-        'proc' => 'integer'
+        'code' => 'string',
+        'used' => 'integer',
+        'value' => 'double'
     ];
 
     /**
@@ -51,9 +51,9 @@ class Discount extends Model
      * @var array
      */
     public static $rules = [
-        'name' => 'required',
-        'description' => 'required',
-        'proc' => 'required'
+        'code' => 'required',
+        'used' => 'required',
+        'value' => 'required'
     ];
 
 

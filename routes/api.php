@@ -23,3 +23,12 @@ Route::resource('categories', App\Http\Controllers\API\CategoryAPIController::cl
 
 
 Route::resource('discounts', App\Http\Controllers\API\DiscountAPIController::class);
+
+
+Route::resource('discount_coupons', App\Http\Controllers\API\DiscountCouponAPIController::class);
+
+
+Route::resource('promotions', App\Http\Controllers\API\PromotionAPIController::class);
+
+
+Route::resource('products', App\Http\Controllers\API\ProductAPIController::class);
