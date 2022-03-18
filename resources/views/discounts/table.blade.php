@@ -1,11 +1,11 @@
-<div class="table-responsive">
-    <table class="table" id="discounts-table">
+<div class="table table-responsive">
+    <table class="table" id="categories">
         <thead>
         <tr>
             <th>Name</th>
-        <th>Description</th>
-        <th>Proc</th>
-            <th colspan="3">Action</th>
+            <th>Description</th>
+            <th>Proc</th>
+            <th>Action</th>
         </tr>
         </thead>
         <tbody>

@@ -21,3 +21,4 @@
     {!! Form::label('finish', 'Finish:') !!}
     {!! Form::text('finish', null, ['class' => 'form-control']) !!}
 </div>
+

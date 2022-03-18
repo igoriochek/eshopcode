@@ -5,16 +5,17 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreateProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use App\Repositories\ProductRepository;
-use App\Http\Controllers\AppBaseController;
-use Illuminate\Http\Request;
 use Flash;
+use Illuminate\Http\Request;
 use Response;
+use DB;
 
 class ProductController extends AppBaseController
 {
     /** @var ProductRepository $productRepository*/
     private $productRepository;
 
+    use \App\Http\Controllers\forSelector;
     public function __construct(ProductRepository $productRepo)
     {
         $this->productRepository = $productRepo;
@@ -42,7 +43,13 @@ class ProductController extends AppBaseController
      */
     public function create()
     {
-        return view('products.create');
+        return view('products.create',
+        [ 'visible_list' => $this->visible_list,
+          'categories' => $this->categoriesForSelector(),
+          'promotions' => $this->promotionForSelector(),
+          'discounts' => $this->discountForSelector(),
+        ]
+        );
     }
 
     /**
@@ -56,7 +63,12 @@ class ProductController extends AppBaseController
     {
         $input = $request->all();
 
+//        dd($input);
+
         $product = $this->productRepository->create($input);
+
+        if ($input['categories'] != null)
+            $this->saveCategories($input['categories'], $product->id);
 
         Flash::success('Product saved successfully.');
 
@@ -100,7 +112,15 @@ class ProductController extends AppBaseController
             return redirect(route('products.index'));
         }
 
-        return view('products.edit')->with('product', $product);
+        return view('products.edit')->with(
+            [
+                'product' => $product,
+                'visible_list' => $this->visible_list,
+                'categories' => $this->categoriesForSelector(),
+                'promotions' => $this->promotionForSelector(),
+                'discounts' => $this->discountForSelector(),
+            ]
+            );
     }
 
     /**
@@ -120,12 +140,23 @@ class ProductController extends AppBaseController
 
             return redirect(route('products.index'));
         }
-
+        $input = $request->all();
         $product = $this->productRepository->update($request->all(), $id);
-
+        if ($input['categories'] != null)
+            $this->saveCategories($input['categories'], $product->id);
         Flash::success('Product updated successfully.');
 
         return redirect(route('products.index'));
+    }
+
+
+    public function saveCategories( $cats, $prod_id)  {
+        foreach ($cats as $cat ){
+            DB::table('category_product')->insert([
+                'category_id' => $cat,
+                'product_id' => $prod_id,
+            ]);
+        }
     }
 
     /**

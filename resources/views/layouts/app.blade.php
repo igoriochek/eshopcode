@@ -19,9 +19,10 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('jquery-ui-1.13.1/jquery-ui.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/jquery-ui.min.css') }}" rel="stylesheet">
     <link href="{{ asset('datatables/media/css/jquery.dataTables.min.css') }}" rel="stylesheet">
     <link href="{{ asset('fontawesome-free/css/all.min.css') }}" rel="stylesheet">
+    <link href="{{asset('css/jquery-ui.css')}}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -90,11 +91,20 @@
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
     <script src="{{asset('js/jquery-3.6.0.min.js')}}"></script>
     <script src="{{asset('js/jquery.dataTables.min.js')}}"></script>
+    <script src="{{asset('js/jquery-ui.js')}}"></script>
     <script>
 
         $(document).ready(function() {
             $('#categories').DataTable();
         });
+
+        $( function() {
+            $( "#start" ).datepicker();
+        } );
+
+        $( function() {
+            $( "#finish" ).datepicker();
+        } );
 
 
     </script>

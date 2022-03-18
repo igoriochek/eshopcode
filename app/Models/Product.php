@@ -23,14 +23,16 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  */
 class Product extends Model
 {
-    use SoftDeletes;
+//    use SoftDeletes;
 
     use HasFactory;
 
     public $table = 'products';
-    
 
-    protected $dates = ['deleted_at'];
+
+
+
+//    protected $dates = ['deleted_at'];
 
 
 
@@ -75,5 +77,9 @@ class Product extends Model
         'description' => 'required'
     ];
 
-    
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class);
+    }
+
 }

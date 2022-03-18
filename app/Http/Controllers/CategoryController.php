@@ -4,29 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
-use App\Models\Category;
 use App\Repositories\CategoryRepository;
-use App\Http\Controllers\AppBaseController;
-use Illuminate\Http\Request;
 use Flash;
+use Illuminate\Http\Request;
 use Response;
 
 class CategoryController extends AppBaseController
 {
     /** @var CategoryRepository $categoryRepository*/
     private $categoryRepository;
-    protected $visible_list = ['invisible', 'visible'];
 
-
-    public function categoriesForSelector() {
-        $c = array();
-        Category::all()->map(function($item) use(&$c) {
-            $c[$item->id] = $item->name;
-        });
-        return $c;
-
-
-    }
+    use \App\Http\Controllers\forSelector;
 
     public function __construct(CategoryRepository $categoryRepo)
     {

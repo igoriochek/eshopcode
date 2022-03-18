@@ -18,17 +18,16 @@ class CreateProductsTable extends Migration
             $table->id('id');
             $table->string('name');
             $table->double('price');
-            $table->integer('count');
+            $table->integer('count')->default(0);
             $table->text('description');
-            $table->string('image');
-            $table->string('video');
-            $table->integer('visible');
-            $table->timestamps();
-            $table->softDeletes();
-            $table->unsignedBigInteger("promotion_id");
-            $table->unsignedBigInteger("discount_id");
+            $table->string('image')->nullable(true);
+            $table->string('video')->nullable(true);
+            $table->integer('visible')->default(1);
+            $table->unsignedBigInteger("promotion_id")->nullable(true);
+            $table->unsignedBigInteger("discount_id")->nullable(true);
             $table->foreign('promotion_id')->references('id')->on('promotions');
             $table->foreign('discount_id')->references('id')->on('discounts');
+            $table->timestamps();
         });
     }
 

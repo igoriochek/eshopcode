@@ -14,6 +14,7 @@ class DiscountCouponController extends AppBaseController
 {
     /** @var DiscountCouponRepository $discountCouponRepository*/
     private $discountCouponRepository;
+    private $used_list = ["0","1"];
 
     public function __construct(DiscountCouponRepository $discountCouponRepo)
     {
@@ -42,7 +43,7 @@ class DiscountCouponController extends AppBaseController
      */
     public function create()
     {
-        return view('discount_coupons.create');
+        return view('discount_coupons.create', ['used_list'=>$this->used_list]);
     }
 
     /**
@@ -100,7 +101,7 @@ class DiscountCouponController extends AppBaseController
             return redirect(route('discountCoupons.index'));
         }
 
-        return view('discount_coupons.edit')->with('discountCoupon', $discountCoupon);
+        return view('discount_coupons.edit')->with(['discountCoupon' => $discountCoupon, 'used_list'=>$this->used_list]);
     }
 
     /**

@@ -1,5 +1,5 @@
-<div class="table-responsive">
-    <table class="table" id="products-table">
+<div class="table table-responsive">
+    <table class="table" id="categories">
         <thead>
         <tr>
             <th>Name</th>
@@ -8,10 +8,11 @@
         <th>Description</th>
         <th>Image</th>
         <th>Video</th>
-        <th>Visible</th>
-        <th>Promotion Id</th>
-        <th>Discount Id</th>
-            <th colspan="3">Action</th>
+            <th>Visible</th>
+            <th>Promotion Id</th>
+            <th>Discount Id</th>
+            <th>Categories</th>
+            <th>Action</th>
         </tr>
         </thead>
         <tbody>
@@ -26,6 +27,18 @@
             <td>{{ $product->visible }}</td>
             <td>{{ $product->promotion_id }}</td>
             <td>{{ $product->discount_id }}</td>
+            <td>
+                @if( $product->categories != null )
+                    @foreach($product->categories as $c)
+                        {{$c->id}}&nbsp;
+                    @endforeach
+                @else
+                    ---
+                @endif
+
+            </td>
+
+
                 <td width="120">
                     {!! Form::open(['route' => ['products.destroy', $product->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>

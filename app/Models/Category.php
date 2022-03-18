@@ -58,5 +58,10 @@ class Category extends Model
         'description' => 'required'
     ];
 
+    public function products()
+    {
+        return $this->belongsToMany(Product::class);
+    }
+
 
 }
