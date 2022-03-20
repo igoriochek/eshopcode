@@ -2,7 +2,8 @@
 
 namespace App\Repositories;
 
-use App\Models\Customer;
+
+use App\Models\User;
 use App\Repositories\BaseRepository;
 
 /**
@@ -17,7 +18,11 @@ class CustomerRepository extends BaseRepository
      * @var array
      */
     protected $fieldSearchable = [
-        
+        'name',
+        'email',
+        'password',
+        'avatar', 'provider_id', 'provider',
+        'access_token'
     ];
 
     /**
@@ -35,6 +40,6 @@ class CustomerRepository extends BaseRepository
      **/
     public function model()
     {
-        return Customer::class;
+        return User::class;
     }
 }

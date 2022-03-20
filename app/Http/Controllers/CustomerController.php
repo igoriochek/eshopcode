@@ -30,7 +30,6 @@ class CustomerController extends AppBaseController
     public function index(Request $request)
     {
         $customers = $this->customerRepository->all();
-
         return view('customers.index')
             ->with('customers', $customers);
     }

@@ -32,3 +32,6 @@ Route::resource('promotions', App\Http\Controllers\API\PromotionAPIController::c
 
 
 Route::resource('products', App\Http\Controllers\API\ProductAPIController::class);
+
+
+Route::resource('customers', App\Http\Controllers\API\CustomerAPIController::class);

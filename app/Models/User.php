@@ -17,12 +17,38 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+
+    use HasFactory;
+
+    public $table = 'users';
+
     protected $fillable = [
         'name',
         'email',
         'password',
         'avatar', 'provider_id', 'provider',
         'access_token'
+    ];
+
+
+    /**
+     * The attributes that should be casted to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'name' => 'string',
+        'description' => 'string',
+    ];
+
+    /**
+     * Validation rules
+     *
+     * @var array
+     */
+    public static $rules = [
+        'name' => 'required',
+        'email' => 'required',
     ];
 
     /**
@@ -35,12 +61,5 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+
 }

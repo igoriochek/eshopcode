@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CustomerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,14 +26,27 @@ Route::group(array('prefix' => 'admin'), function() {
     Route::resource('discounts', App\Http\Controllers\DiscountController::class);
     Route::resource('discountCoupons', App\Http\Controllers\DiscountCouponController::class);
     Route::resource('promotions', App\Http\Controllers\PromotionController::class);
+    Route::resource('customers', App\Http\Controllers\CustomerController::class);
 });
+
+
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::get('lang/{locale}', function ($locale) {
+    app()->setLocale($locale);
+    session()->put('locale', $locale);
+//    return redirect()->back();
+    return redirect()->route('home');
+});
+
 
 //Route::resource('categories', App\Http\Controllers\CategoryController::class);
+
+
+
 
 
 

@@ -1,15 +1,19 @@
-<div class="table-responsive">
-    <table class="table" id="customers-table">
+<div class="table table-responsive">
+    <table class="table" id="categories">
         <thead>
         <tr>
-            
-            <th colspan="3">Action</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Actions</th>
         </tr>
         </thead>
         <tbody>
         @foreach($customers as $customer)
             <tr>
-                
+
+                <td>{{$customer->name}}</td>
+                <td>{{$customer->email}}</td>
+
                 <td width="120">
                     {!! Form::open(['route' => ['customers.destroy', $customer->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>

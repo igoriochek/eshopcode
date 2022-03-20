@@ -19,6 +19,8 @@ class CreateDiscountCouponsTable extends Migration
             $table->string('code');
             $table->integer('used');
             $table->double('value');
+            $table->unsignedBigInteger("user_id")->nullable(true);
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
 //            $table->softDeletes();
         });

@@ -14,7 +14,9 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    {{ __('You are logged in!') }}<br/>
+                    Language is {{$lang}}
+
                 </div>
             </div>
         </div>
