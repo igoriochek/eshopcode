@@ -20,7 +20,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(array('prefix' => 'admin','middleware' => 'auth'), function() {
+Route::group(array('prefix' => 'admin','middleware' => 'admin'), function() {
     Route::resource('categories', CategoryController::class);
     Route::resource('products', ProductController::class);
     Route::resource('discounts', App\Http\Controllers\DiscountController::class);
