@@ -20,13 +20,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(array('prefix' => 'admin'), function() {
+Route::group(array('prefix' => 'admin','middleware' => 'auth'), function() {
     Route::resource('categories', CategoryController::class);
     Route::resource('products', ProductController::class);
     Route::resource('discounts', App\Http\Controllers\DiscountController::class);
     Route::resource('discountCoupons', App\Http\Controllers\DiscountCouponController::class);
     Route::resource('promotions', App\Http\Controllers\PromotionController::class);
     Route::resource('customers', App\Http\Controllers\CustomerController::class);
+    Route::resource('orderStatuses', App\Http\Controllers\OrderStatusController::class);
+    Route::resource('cartStatuses', App\Http\Controllers\CartStatusController::class);
+    Route::resource('returnStatuses', App\Http\Controllers\ReturnStatusController::class);
+    Route::resource('carts', App\Http\Controllers\CartController::class);
+    Route::resource('cartItems', App\Http\Controllers\CartItemController::class);
+
 });
 
 
@@ -44,6 +50,9 @@ Route::get('lang/{locale}', function ($locale) {
 
 
 //Route::resource('categories', App\Http\Controllers\CategoryController::class);
+
+
+
 
 
 

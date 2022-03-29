@@ -30,3 +30,43 @@
 </li>
 
 
+<li class="nav-item">
+    <a href="{{ route('orderStatuses.index') }}"
+       class="nav-link {{ Request::is('orderStatuses*') ? 'active' : '' }}">
+        <p>Order Statuses</p>
+    </a>
+</li>
+
+
+<li class="nav-item">
+    <a href="{{ route('cartStatuses.index') }}"
+       class="nav-link {{ Request::is('cartStatuses*') ? 'active' : '' }}">
+        <p>Cart Statuses</p>
+    </a>
+</li>
+
+
+<li class="nav-item">
+    <a href="{{ route('returnStatuses.index') }}"
+       class="nav-link {{ Request::is('returnStatuses*') ? 'active' : '' }}">
+        <p>Return Statuses</p>
+    </a>
+</li>
+
+
+<li class="nav-item">
+    <a href="{{ route('carts.index') }}"
+       class="nav-link {{ Request::is('carts*') ? 'active' : '' }}">
+        <p>Carts</p>
+    </a>
+</li>
+
+
+<li class="nav-item">
+    <a href="{{ route('cartItems.index') }}"
+       class="nav-link {{ Request::is('cartItems*') ? 'active' : '' }}">
+        <p>Cart Items</p>
+    </a>
+</li>
+
+

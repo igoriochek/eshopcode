@@ -35,3 +35,18 @@ Route::resource('products', App\Http\Controllers\API\ProductAPIController::class
 
 
 Route::resource('customers', App\Http\Controllers\API\CustomerAPIController::class);
+
+
+Route::resource('order_statuses', App\Http\Controllers\API\OrderStatusAPIController::class);
+
+
+Route::resource('cart_statuses', App\Http\Controllers\API\CartStatusAPIController::class);
+
+
+Route::resource('return_statuses', App\Http\Controllers\API\ReturnStatusAPIController::class);
+
+
+Route::resource('carts', App\Http\Controllers\API\CartAPIController::class);
+
+
+Route::resource('cart_items', App\Http\Controllers\API\CartItemAPIController::class);
