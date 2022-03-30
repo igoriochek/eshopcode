@@ -1,3 +1,4 @@
+Admin menu:
 <a href="/admin/categories">Categories</a>&nbsp;&nbsp;
 <a href="/admin/products">Products</a>&nbsp;&nbsp;
 <a href="/admin/discounts">Discounts</a>&nbsp;&nbsp;

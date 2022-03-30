@@ -95,6 +95,11 @@ class ProductController extends AppBaseController
         return view('products.show')->with('product', $product);
     }
 
+    public function userViewProduct(Request $request)
+    {
+
+    }
+
     /**
      * Show the form for editing the specified Product.
      *

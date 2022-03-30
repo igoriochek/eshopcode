@@ -35,7 +35,16 @@ Route::group(array('prefix' => 'admin','middleware' => 'admin'), function() {
 
 });
 
-
+Route::group(array('prefix' => 'user','middleware' => 'auth' ), function (){
+    Route::get("homepage", [App\Http\Controllers\HomeController::class, 'userhomepage'])->name('userhomepage');
+    Route::get("rootcategories", [CategoryController::class, 'userRootCategories'])->name('rootcategories');
+    Route::get("innercategories/{category_id}", [CategoryController::class, 'userInnerCategories'])->name('innercategories');
+    Route::get("viewcategory", [CategoryController::class, 'userViewCategory'])->name('viewcategory');
+    Route::get("viewproduct", [ProductController::class, 'userViewProduct'])->name('viewproduct');
+    Route::post('addtocart', [\App\Models\Cart::class, 'addToCart'])->name('addtocart');
+    Route::get('viewCarts', [\App\Models\Cart::class, 'viewAllCarts'])->name('viewallcarts');
+//    Route::get('viewOrders', [\App\Models\Order::class, 'viewAllOrders'])->name('viewallorders');
+});
 
 Auth::routes();
 

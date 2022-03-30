@@ -36,6 +36,25 @@ class CategoryController extends AppBaseController
             ->with('categories', $categories);
     }
 
+    public function userRootCategories(Request $request)
+    {
+        $categories = $this->categoryRepository->allQuery(array("parent_id"=>null))->paginate("5");
+
+        return view('user_views.categories_root_user')
+            ->with('categories', $categories);
+    }
+
+    public function userInnerCategories(Request $request)
+    {
+        dd($request->category_id);
+//        $category = $request->
+    }
+
+    public function userViewCategory(Request $request)
+    {
+
+    }
+
     /**
      * Show the form for creating a new Category.
      *

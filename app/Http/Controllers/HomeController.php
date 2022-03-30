@@ -21,8 +21,12 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
         return view('home', ['lang'=>app()->getLocale()]);
+    }
+
+    public function userhomepage(Request $request){
+        return view('user_views.home', ['lang'=>app()->getLocale()]);
     }
 }
