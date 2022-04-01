@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreateCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
 use App\Repositories\CategoryRepository;
+use App\Repositories\ProductRepository;
 use Flash;
 use Illuminate\Http\Request;
 use Response;
@@ -13,12 +14,14 @@ class CategoryController extends AppBaseController
 {
     /** @var CategoryRepository $categoryRepository*/
     private $categoryRepository;
+    private $productRepository;
 
     use \App\Http\Controllers\forSelector;
 
-    public function __construct(CategoryRepository $categoryRepo)
+    public function __construct(CategoryRepository $categoryRepo, ProductRepository $productRepository)
     {
         $this->categoryRepository = $categoryRepo;
+        $this->productRepository = $productRepository;
     }
 
     /**
@@ -46,8 +49,17 @@ class CategoryController extends AppBaseController
 
     public function userInnerCategories(Request $request)
     {
-        dd($request->category_id);
-//        $category = $request->
+        if (empty($request->category_id))
+            return redirect(route('rootcategories'));
+        $category = $this->categoryRepository->find($request->category_id);
+        $categories = $this->categoryRepository->allQuery(array("parent_id"=>$request->category_id))->paginate("3");
+        $products = $this->productRepository->allQuery(array("category_id"=>$request->category_id))->paginate("3");
+//        dd($categories);
+        return view('user_views.categories_inner_user')
+            ->with(['categories'=> $categories,
+                    'category' => $category,
+                    'products' => $products,
+                ]);
     }
 
     public function userViewCategory(Request $request)

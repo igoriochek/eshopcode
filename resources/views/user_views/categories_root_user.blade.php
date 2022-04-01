@@ -26,9 +26,11 @@
         <div class="card">
             <div class="card-body p-0">
 {{--                @include('products.table')--}}
-            @foreach( $categories as $category )
+
+                @if(!empty($categories))
+                @forelse( $categories as $category )
                 <div class="card-body">
-                    <h4 class="card-title">{{$category->name}}</h4>
+                    <h4 class="card-title"><a href="{{route('innercategories', $category->id)}}">{{$category->name}}</a></h4>
                     <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
                     <p class="card-text">{{$category->description}}</p>
                     @forelse($category->innerCategories as $c)
@@ -37,10 +39,14 @@
                             ---no cats---
                     @endforelse
                 </div>
-            @endforeach
+            @empty
+                no categories
+            @endforelse
+                    {{$categories->links()}}
+                @endif
 
 
-        {{$categories->links()}}
+
 
                 <div class="card-footer clearfix">
                     <div class="float-right">

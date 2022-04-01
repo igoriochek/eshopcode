@@ -19,8 +19,8 @@ class CategorySeeder extends Seeder
         for ($i=0; $i<10; $i++){
             $p = $i > 5 ? 5 : null;
             DB::table('categories')->insert([
-                'name' => $faker->name,
-                'description' => $faker->text,
+                'name' => "category $faker->name",
+                'description' => "category $faker->text",
                 'parent_id' => $p,
             ]);
         }
