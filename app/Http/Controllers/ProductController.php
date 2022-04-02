@@ -97,7 +97,8 @@ class ProductController extends AppBaseController
 
     public function userViewProduct(Request $request)
     {
-
+        $filters = [];
+        $products = Product::filter($filters)->get()->paginate(5);
     }
 
     /**
