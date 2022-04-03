@@ -9,6 +9,7 @@ use App\Repositories\ProductRepository;
 use Flash;
 use Illuminate\Http\Request;
 use Response;
+use Spatie\QueryBuilder\QueryBuilder;
 
 class CategoryController extends AppBaseController
 {

@@ -4,21 +4,30 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateProductRequest;
 use App\Http\Requests\UpdateProductRequest;
+use App\Models\Product;
+use App\Repositories\CategoryRepository;
 use App\Repositories\ProductRepository;
 use Flash;
 use Illuminate\Http\Request;
 use Response;
 use DB;
+use Spatie\QueryBuilder\QueryBuilder;
+use Spatie\QueryBuilder\AllowedFilter;
 
 class ProductController extends AppBaseController
 {
     /** @var ProductRepository $productRepository*/
     private $productRepository;
 
+    /** @var CategoryRepository $categoryRepository*/
+    private $categoryRepository;
+
     use \App\Http\Controllers\forSelector;
-    public function __construct(ProductRepository $productRepo)
+
+    public function __construct(CategoryRepository $categoryRepo, ProductRepository $productRepository)
     {
-        $this->productRepository = $productRepo;
+        $this->categoryRepository = $categoryRepo;
+        $this->productRepository = $productRepository;
     }
 
     /**
@@ -34,6 +43,34 @@ class ProductController extends AppBaseController
 
         return view('products.index')
             ->with('products', $products);
+    }
+
+    public function userProductIndex(Request $request)
+    {
+        $filter = $request->query('filter');
+        $selCategories = $filter && $filter['categories.id'] ? $filter['categories.id'] : array();
+
+//        $pricefrom = "";
+//        $priceto = "";
+//        if ($filter){
+//
+//        }
+
+//        $categories = $this->categoryRepository->allQuery(array("parent_id"=>$request->category_id))->get();
+        $categories = $this->categoryRepository->allQuery()->get();
+        $products = QueryBuilder::for(Product::class)
+            ->allowedFilters([AllowedFilter::scope('namelike'), 'categories.id',AllowedFilter::scope('pricefrom'),AllowedFilter::scope('priceto'),])
+            ->allowedIncludes('categories')
+            ->paginate(5)
+            ->appends(request()->query());
+        return view('user_views.products_all_with_filters')
+            ->with(['products'=> $products,
+                'categories' => $categories,
+                'filter' => $filter ? $filter : array(),
+                'selCategories' => $selCategories ? explode(",",$selCategories) : array(),
+//                'pricefrom' => $request->query('filter[pricefrom]') == null ? "" : $request->query('filter[pricefrom]'),
+//                'priceto' => $request->query('filter[priceto]') == null ? "" : $request->query('filter[priceto]'),
+                ]);
     }
 
     /**

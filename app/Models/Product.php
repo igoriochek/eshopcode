@@ -5,7 +5,8 @@ namespace App\Models;
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-
+use Spatie\QueryBuilder\QueryBuilder;
+use \Illuminate\Database\Eloquent\Builder;
 /**
  * Class Product
  * @package App\Models
@@ -81,5 +82,20 @@ class Product extends Model
     {
         return $this->belongsToMany(Category::class);
     }
+
+    public function scopePriceFrom(Builder $query, $price) : Builder
+    {
+        return $query->where('price', '>=', $price);
+    }
+
+    public function scopePriceTo(Builder $query, $price) : Builder
+    {
+        return $query->where('price', '<=', $price);
+    }
+    public function scopeNameLike(Builder $query, $name) : Builder
+    {
+        return $query->where('name', 'like', "%$name%");
+    }
+
 
 }

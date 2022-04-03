@@ -43,6 +43,7 @@ Route::group(array('prefix' => 'user','middleware' => 'auth' ), function (){
     Route::get("viewproduct", [ProductController::class, 'userViewProduct'])->name('viewproduct');
     Route::post('addtocart', [\App\Models\Cart::class, 'addToCart'])->name('addtocart');
     Route::get('viewCarts', [\App\Models\Cart::class, 'viewAllCarts'])->name('viewallcarts');
+    Route::get('products', [ProductController::class, 'userProductIndex'])->name('userproducts');
 //    Route::get('viewOrders', [\App\Models\Order::class, 'viewAllOrders'])->name('viewallorders');
 });
 
