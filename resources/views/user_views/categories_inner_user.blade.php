@@ -35,7 +35,7 @@
                 @if(!empty($products))
                     @forelse( $products as $prod )
                         <div class="card-body">
-                            <h4 class="card-title"><a href="{{route('innercategories', $prod->id)}}">{{$prod->name}}</a></h4>
+                            <h4 class="card-title"><a href="{{route('viewproduct', $prod->id)}}">{{$prod->name}}</a></h4>
                             <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
                             <p class="card-text">{{$prod->description}}</p>
 {{--                            @forelse($category->innerCategories as $c)--}}

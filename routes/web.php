@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CustomerController;
@@ -40,9 +41,10 @@ Route::group(array('prefix' => 'user','middleware' => 'auth' ), function (){
     Route::get("rootcategories", [CategoryController::class, 'userRootCategories'])->name('rootcategories');
     Route::get("innercategories/{category_id}", [CategoryController::class, 'userInnerCategories'])->name('innercategories');
     Route::get("viewcategory", [CategoryController::class, 'userViewCategory'])->name('viewcategory');
-    Route::get("viewproduct", [ProductController::class, 'userViewProduct'])->name('viewproduct');
-    Route::post('addtocart', [\App\Models\Cart::class, 'addToCart'])->name('addtocart');
+    Route::get("viewproduct/{id}", [ProductController::class, 'userViewProduct'])->where('id', '[0-9]+')->name('viewproduct');
+    Route::post('addtocart', [CartController::class, 'addToCart'])->name('addtocart');
     Route::get('viewCarts', [\App\Models\Cart::class, 'viewAllCarts'])->name('viewallcarts');
+    Route::get('viewcart', [CartController::class, 'viewCart'])->name('viewcart');
     Route::get('products', [ProductController::class, 'userProductIndex'])->name('userproducts');
 //    Route::get('viewOrders', [\App\Models\Order::class, 'viewAllOrders'])->name('viewallorders');
 });

@@ -80,7 +80,7 @@
                 @if(!empty($products))
                 @forelse( $products as $product )
                 <div class="card-body">
-                    <h4 class="card-title"><a href="{{route('innercategories', $product->id)}}">{{$product->name}}</a></h4>
+                    <h4 class="card-title"><a href="{{route('viewproduct', $product->id)}}">{{$product->name}}</a></h4>
                     <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
                     <p class="card-text">{{$product->description}}</p>
                     <p>{{$product->price}}</p>
