@@ -132,10 +132,21 @@ class ProductController extends AppBaseController
         return view('products.show')->with('product', $product);
     }
 
-    public function userViewProduct(Request $request)
+
+    /**
+     * View Product
+     *
+     * @param $id integer
+     * @return Response
+     */
+    public function userViewProduct($id)
     {
-        $filters = [];
-        $products = Product::filter($filters)->get()->paginate(5);
+        $product = $this->productRepository->find($id);
+
+        return view('user_views.view_product')
+            ->with([
+                'product'=> $product
+            ]);
     }
 
     /**
