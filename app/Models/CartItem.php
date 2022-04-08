@@ -51,5 +51,10 @@ class CartItem extends Model
         'price_current' => 'required|min:5'
     ];
 
+    public function product()
+    {
+        return $this->hasMany(Product::class, 'id', 'product_id');
+    }
+
 
 }

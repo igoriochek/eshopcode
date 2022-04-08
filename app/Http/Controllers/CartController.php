@@ -2,12 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AddToCartRequest;
 use App\Http\Requests\CreateCartRequest;
 use App\Http\Requests\UpdateCartRequest;
+use App\Models\Cart;
+use App\Models\CartItem;
+use App\Models\Product;
 use App\Repositories\CartRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
+use Illuminate\Support\Facades\Auth;
 use Response;
 
 class CartController extends AppBaseController
@@ -152,5 +157,99 @@ class CartController extends AppBaseController
         Flash::success('Cart deleted successfully.');
 
         return redirect(route('carts.index'));
+    }
+
+
+    /**
+     * Add to cart
+     *
+     * @param AddToCartRequest $request
+     * @return void
+     */
+    public function addToCart(AddToCartRequest $request)
+    {
+        $validated = $request->validated();
+
+        $product = Product::find($validated['id']);
+
+        // if isset product
+        if (null !== $product) {
+            $cart = self::getOrSetCart($request);
+
+            // getOrSet CartItem
+            $cartItem = CartItem::query()
+                ->where([
+                    'cart_id' => $cart->id,
+                    'product_id' => $product->id,
+                    //'price_current' => $product->price,
+                ])
+                ->first();
+
+            if (null === $cartItem) {
+                $cartItem = new CartItem([
+                    'cart_id' => $cart->id,
+                    'product_id' => $product->id,
+                    'price_current' => $product->price,
+                ]);
+                $cartItem->save();
+            }
+
+            Flash::success('ok');
+        } else {
+            Flash::error('Product not found');
+        }
+        return redirect(route('viewcart'));
+    }
+
+
+    public function viewCart(Request $request)
+    {
+        $cart = self::getOrSetCart($request);
+
+        $cartItems = CartItem::query()
+            ->with('product')
+            ->where([
+                'cart_id' => $cart->id,
+            ])
+            ->first();
+
+        return view('user_views.cart.view')
+            ->with([
+                'cartItems'=> $cartItems
+            ]);
+    }
+
+
+    protected static function getOrSetCart(Request $request)
+    {
+        $userId = Auth::id();
+
+        // getOrSet session/code
+        if ($request->session()->has('appToken')) {
+            $cartCode = $request->session()->get('appToken');
+        } else {
+            $cartCode = md5(time() . 'ಉಪ್ಪು');
+            $request->session()->put('appToken', $cartCode);
+        }
+
+        // getOrSet Cart
+        $cart = Cart::query()
+            ->where([
+                'user_id' => $userId,
+                'code' => $cartCode,
+            ])
+            ->first();
+
+        if (null === $cart) {
+            $cart = new Cart([
+                'user_id' => $userId,
+                'code' => $cartCode,
+                'status_id' => 1,
+                'admin_id' => 2,
+            ]);
+            $cart->save();
+        }
+
+        return $cart;
     }
 }
