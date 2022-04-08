@@ -7,7 +7,9 @@ use App\Http\Requests\CreateCartRequest;
 use App\Http\Requests\UpdateCartRequest;
 use App\Models\Cart;
 use App\Models\CartItem;
+use App\Models\CartStatus;
 use App\Models\Product;
+use App\Models\User;
 use App\Repositories\CartRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
@@ -17,6 +19,8 @@ use Response;
 
 class CartController extends AppBaseController
 {
+    use \App\Http\Controllers\forSelector;
+
     /** @var CartRepository $cartRepository*/
     private $cartRepository;
 
@@ -105,7 +109,12 @@ class CartController extends AppBaseController
             return redirect(route('carts.index'));
         }
 
-        return view('carts.edit')->with('cart', $cart);
+        return view('carts.edit')->with([
+            'cart' => $cart,
+            'users_list' => $this->usersForSelector(),
+            'statuses_list' => $this->statusesForSelector(),
+            'admin_list' => $this->adminForSelector(),
+        ]);
     }
 
     /**
@@ -241,11 +250,18 @@ class CartController extends AppBaseController
             ->first();
 
         if (null === $cart) {
+            $firstStatus = CartStatus::query()
+                ->first();
+
+            $firstAdmin = User::query()
+                ->where('type', 1)
+                ->first();
+
             $cart = new Cart([
                 'user_id' => $userId,
                 'code' => $cartCode,
-                'status_id' => 1,
-                'admin_id' => 2,
+                'status_id' => $firstStatus->id,
+                'admin_id' => $firstAdmin->id,
             ]);
             $cart->save();
         }

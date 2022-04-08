@@ -37,6 +37,9 @@ Route::group(array('prefix' => 'admin','middleware' => 'admin'), function() {
 });
 
 Route::group(array('prefix' => 'user','middleware' => 'auth' ), function (){
+    Route::get('/', function () {
+        return redirect()->route('userhomepage');
+    });
     Route::get("homepage", [App\Http\Controllers\HomeController::class, 'userhomepage'])->name('userhomepage');
     Route::get("rootcategories", [CategoryController::class, 'userRootCategories'])->name('rootcategories');
     Route::get("innercategories/{category_id}", [CategoryController::class, 'userInnerCategories'])->name('innercategories');

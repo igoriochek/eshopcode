@@ -15,6 +15,8 @@ class CartItemController extends AppBaseController
     /** @var CartItemRepository $cartItemRepository*/
     private $cartItemRepository;
 
+    use \App\Http\Controllers\forSelector;
+
     public function __construct(CartItemRepository $cartItemRepo)
     {
         $this->cartItemRepository = $cartItemRepo;
@@ -100,7 +102,11 @@ class CartItemController extends AppBaseController
             return redirect(route('cartItems.index'));
         }
 
-        return view('cart_items.edit')->with('cartItem', $cartItem);
+        return view('cart_items.edit')->with([
+            'cartItem' => $cartItem,
+            'product_list' => $this->productsForSelector(),
+            'carts_list' => $this->cartsForSelector(),
+        ]);
     }
 
     /**

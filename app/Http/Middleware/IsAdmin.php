@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\User;
 use Closure;
 use Illuminate\Http\Request;
 use Auth;
@@ -22,7 +23,7 @@ class IsAdmin
 
     public function handle($request, Closure $next)
     {
-        if (Auth::user() &&  Auth::user()->type == 1) {
+        if (Auth::user() &&  Auth::user()->type == User::TYPE_ADMIN) {
             return $next($request);
         }
 

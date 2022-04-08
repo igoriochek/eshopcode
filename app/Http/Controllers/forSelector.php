@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
+use App\Models\CartStatus;
 use App\Models\Category;
 use App\Models\Discount;
+use App\Models\Product;
 use App\Models\Promotion;
+use App\Models\User;
 
 trait forSelector
 {
@@ -14,6 +18,15 @@ trait forSelector
     {
         $c = array();
         Category::all()->map(function ($item) use (&$c) {
+            $c[$item->id] = $item->name;
+        });
+        return $c;
+    }
+
+    public function productsForSelector()
+    {
+        $c = array();
+        Product::all()->map(function ($item) use (&$c) {
             $c[$item->id] = $item->name;
         });
         return $c;
@@ -37,5 +50,41 @@ trait forSelector
         return $c;
     }
 
+    public function cartsForSelector()
+    {
+        $c = array();
+        Cart::all()->map(function ($item) use (&$c) {
+            $c[$item->id] = $item->id;
+        });
+        return $c;
+    }
 
+    public function usersForSelector()
+    {
+        $c = array();
+        User::all()->map(function ($item) use (&$c) {
+            $c[$item->id] = '[' . $item->id . '] ' . $item->name;
+        });
+        return $c;
+    }
+
+    public function statusesForSelector()
+    {
+        $c = array();
+        CartStatus::all()->map(function ($item) use (&$c) {
+            $c[$item->id] = $item->name;
+        });
+        return $c;
+    }
+
+    public function adminForSelector()
+    {
+        $c = array();
+        User::all()
+            ->where('type', User::TYPE_ADMIN)
+            ->map(function ($item) use (&$c) {
+                $c[$item->id] = '[' . $item->id . '] ' . $item->name;
+            });
+        return $c;
+    }
 }
