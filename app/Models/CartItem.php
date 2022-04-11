@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @property integer $cart_id
  * @property integer $product_id
  * @property number $price_current
+ * @property integer $count
  */
 class CartItem extends Model
 {
@@ -26,7 +27,8 @@ class CartItem extends Model
     public $fillable = [
         'cart_id',
         'product_id',
-        'price_current'
+        'price_current',
+        'count',
     ];
 
     /**
@@ -37,7 +39,8 @@ class CartItem extends Model
     protected $casts = [
         'cart_id' => 'integer',
         'product_id' => 'integer',
-        'price_current' => 'double'
+        'price_current' => 'double',
+        'count' => 'integer'
     ];
 
     /**
@@ -48,7 +51,8 @@ class CartItem extends Model
     public static $rules = [
         'cart_id' => 'required',
         'product_id' => 'required',
-        'price_current' => 'required|min:5'
+        'price_current' => 'required|min:5',
+        'count' => 'required'
     ];
 
     public function product()

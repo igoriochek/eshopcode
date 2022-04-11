@@ -17,10 +17,15 @@
         <div class="product">
             <div class="name">Name: {{ $product->name }}</div>
             <div class="price">Price: {{ $product->price }}</div>
-            <div class="count">Count: {{ $product->count }}</div>
+            @if ( $product->image )
+                <div>
+                    <img src="{{ $product->image }}" alt=""/>
+                </div>
+            @endif
             <div class="description">Description: {{ $product->description }}</div>
             <div>
                 {!! Form::open(['route' => ['addtocart'], 'method' => 'post']) !!}
+                    <input type="text" name="count" value="1">
                     <input type="hidden" name="id" value="{{ $product->id }}">
                     <input type="submit" value="addToCart">
                 {!! Form::close() !!}

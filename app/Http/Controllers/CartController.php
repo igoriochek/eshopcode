@@ -51,7 +51,11 @@ class CartController extends AppBaseController
      */
     public function create()
     {
-        return view('carts.create');
+        return view('carts.create')->with([
+            'users_list' => $this->usersForSelector(),
+            'statuses_list' => $this->statusesForSelector(),
+            'admin_list' => $this->adminForSelector(),
+        ]);
     }
 
     /**
@@ -199,6 +203,7 @@ class CartController extends AppBaseController
                     'cart_id' => $cart->id,
                     'product_id' => $product->id,
                     'price_current' => $product->price,
+                    'count' => $validated['count'],
                 ]);
                 $cartItem->save();
             }

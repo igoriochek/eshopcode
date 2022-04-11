@@ -44,7 +44,10 @@ class CartItemController extends AppBaseController
      */
     public function create()
     {
-        return view('cart_items.create');
+        return view('cart_items.create')->with([
+            'product_list' => $this->productsForSelector(),
+            'carts_list' => $this->cartsForSelector(),
+        ]);
     }
 
     /**
@@ -158,5 +161,24 @@ class CartItemController extends AppBaseController
         Flash::success('Cart Item deleted successfully.');
 
         return redirect(route('cartItems.index'));
+    }
+
+
+
+    public function userCartItemDestroy($id)
+    {
+        $cartItem = $this->cartItemRepository->find($id);
+
+        if (empty($cartItem)) {
+            Flash::error('Cart Item not found');
+
+            return redirect(route('cartItems.index'));
+        }
+
+        $this->cartItemRepository->delete($id);
+
+        Flash::success('Cart Item deleted successfully.');
+
+        return redirect(route('viewcart'));
     }
 }

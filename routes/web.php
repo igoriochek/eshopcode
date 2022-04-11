@@ -36,7 +36,7 @@ Route::group(array('prefix' => 'admin','middleware' => 'admin'), function() {
 
 });
 
-Route::group(array('prefix' => 'user','middleware' => 'auth' ), function (){
+Route::group(array('prefix' => 'user', 'middleware' => 'auth'), function (){
     Route::get('/', function () {
         return redirect()->route('userhomepage');
     });
@@ -48,6 +48,7 @@ Route::group(array('prefix' => 'user','middleware' => 'auth' ), function (){
     Route::post('addtocart', [CartController::class, 'addToCart'])->name('addtocart');
     Route::get('viewCarts', [\App\Models\Cart::class, 'viewAllCarts'])->name('viewallcarts');
     Route::get('viewcart', [CartController::class, 'viewCart'])->name('viewcart');
+    Route::delete('cartItems/destroy/{id}', [\App\Http\Controllers\CartItemController::class, 'userCartItemDestroy'])->where('id', '[0-9]+')->name('userCartItemDestroy');
     Route::get('products', [ProductController::class, 'userProductIndex'])->name('userproducts');
 //    Route::get('viewOrders', [\App\Models\Order::class, 'viewAllOrders'])->name('viewallorders');
 });

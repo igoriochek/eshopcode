@@ -19,11 +19,15 @@
 
         <div class="clearfix"></div>
 
-        <div class="card">
-            <div class="card-body p-0">
-                @include('user_views.cart.table')
+        @if(isset($cartItems->product))
+            <div class="card">
+                <div class="card-body p-0">
+                    @include('user_views.cart.table')
+                </div>
             </div>
-        </div>
+        @else
+            your basket is empty
+        @endif
     </div>
 </section>
 
