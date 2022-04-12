@@ -15,19 +15,10 @@ class CartStatusesSeeder extends Seeder
     public function run()
     {
         DB::table('cart_statuses')->insert([
-            'name' => 'Draft',
+            'name' => 'On',
         ]);
         DB::table('cart_statuses')->insert([
-            'name' => 'New',
-        ]);
-        DB::table('cart_statuses')->insert([
-            'name' => 'Waiting',
-        ]);
-        DB::table('cart_statuses')->insert([
-            'name' => 'Shipped',
-        ]);
-        DB::table('cart_statuses')->insert([
-            'name' => 'Canceled',
+            'name' => 'Off',
         ]);
     }
 }

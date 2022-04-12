@@ -3,7 +3,11 @@
 namespace App\Repositories;
 
 use App\Models\Cart;
+use App\Models\CartStatus;
+use App\Models\User;
 use App\Repositories\BaseRepository;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * Class CartRepository
@@ -39,5 +43,46 @@ class CartRepository extends BaseRepository
     public function model()
     {
         return Cart::class;
+    }
+
+    public function getOrSetCart(Request $request)
+    {
+        $userId = Auth::id();
+
+        // getOrSet session/code
+        if ($request->session()->has('appToken')) {
+            $cartCode = $request->session()->get('appToken');
+        } else {
+            $cartCode = md5(time() . 'ಉಪ್ಪು');
+            $request->session()->put('appToken', $cartCode);
+        }
+
+        // getOrSet Cart
+        $cart = Cart::query()
+            ->where([
+                'user_id' => $userId,
+                'code' => $cartCode,
+                'status_id' => Cart::STATUS_ON,
+            ])
+            ->first();
+
+        if (null === $cart) {
+            $firstStatus = CartStatus::query()
+                ->first();
+
+            $firstAdmin = User::query()
+                ->where('type', 1)
+                ->first();
+
+            $cart = new Cart([
+                'user_id' => $userId,
+                'code' => $cartCode,
+                'status_id' => $firstStatus->id,
+                'admin_id' => $firstAdmin->id,
+            ]);
+            $cart->save();
+        }
+
+        return $cart;
     }
 }

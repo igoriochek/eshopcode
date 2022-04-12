@@ -8,14 +8,14 @@
         </tr>
         </thead>
         <tbody>
-        @foreach($cartItems->product as $item)
+        @foreach($cartItems as $item)
             <tr>
-                <td>{{ $item->name }}</td>
-                <td>{{ $item->price }}</td>
-                <td>{{ $item->description }}</td>
+                <td>{{ $item['product']->name }}</td>
+                <td>{{ $item['product']->price }}</td>
+                <td>{{ $item['product']->description }}</td>
 
                 <td width="120">
-                    {!! Form::open(['route' => ['userCartItemDestroy', $cartItems->id], 'method' => 'delete']) !!}
+                    {!! Form::open(['route' => ['userCartItemDestroy', $item->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>
                         {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
                     </div>

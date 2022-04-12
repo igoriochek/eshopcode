@@ -6,6 +6,9 @@ Admin menu:
 <a href="/admin/cartStatuses">Cart Statuses</a>&nbsp;&nbsp;
 <a href="/admin/discounts">Discounts</a>&nbsp;&nbsp;
 <a href="/admin/discountCoupons">DiscountCoupons</a>&nbsp;&nbsp;
+<a href="/admin/orders">Orders</a>&nbsp;&nbsp;
+<a href="/admin/orderItems">OrderItems</a>&nbsp;&nbsp;
+<a href="/admin/orderStatuses">OrderStatuses</a>&nbsp;&nbsp;
 <a href="/admin/promotions">Promotions</a>&nbsp;&nbsp;
 <a href="/admin/customers">Users</a>&nbsp;
 

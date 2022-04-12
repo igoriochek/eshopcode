@@ -3,35 +3,30 @@
 namespace App\Models;
 
 use Eloquent as Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
- * Class Cart
+ * Class Order
  * @package App\Models
- * @version March 29, 2022, 4:14 pm UTC
+ * @version April 12, 2022, 11:49 am UTC
  *
  * @property integer $user_id
- * @property string $code
  * @property integer $status_id
- * @property integer $admin_id
  */
-class Cart extends Model
+class Order extends Model
 {
-
 
     use HasFactory;
 
-    const STATUS_ON = 1;
-    const STATUS_OFF = 2;
+    public $table = 'orders';
 
-    public $table = 'carts';
+
+
 
     public $fillable = [
         'user_id',
-        'code',
-        'status_id',
-        'admin_id'
+        'status_id'
     ];
 
     /**
@@ -41,9 +36,7 @@ class Cart extends Model
      */
     protected $casts = [
         'user_id' => 'integer',
-        'code' => 'string',
-        'status_id' => 'integer',
-        'admin_id' => 'integer'
+        'status_id' => 'integer'
     ];
 
     /**
@@ -53,9 +46,17 @@ class Cart extends Model
      */
     public static $rules = [
         'user_id' => 'required',
-        'code' => 'required',
         'status_id' => 'required'
     ];
 
+    public function user()
+    {
+        return $this->hasOne(User::class, 'id', 'user_id');
+    }
+
+    public function status()
+    {
+        return $this->hasOne(OrderStatus::class, 'id', 'status_id');
+    }
 
 }

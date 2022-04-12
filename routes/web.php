@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
@@ -28,12 +29,13 @@ Route::group(array('prefix' => 'admin','middleware' => 'admin'), function() {
     Route::resource('discountCoupons', App\Http\Controllers\DiscountCouponController::class);
     Route::resource('promotions', App\Http\Controllers\PromotionController::class);
     Route::resource('customers', App\Http\Controllers\CustomerController::class);
+    Route::resource('orders', App\Http\Controllers\OrderController::class);
+    Route::resource('orderItems', App\Http\Controllers\OrderItemController::class);
     Route::resource('orderStatuses', App\Http\Controllers\OrderStatusController::class);
     Route::resource('cartStatuses', App\Http\Controllers\CartStatusController::class);
     Route::resource('returnStatuses', App\Http\Controllers\ReturnStatusController::class);
     Route::resource('carts', App\Http\Controllers\CartController::class);
     Route::resource('cartItems', App\Http\Controllers\CartItemController::class);
-
 });
 
 Route::group(array('prefix' => 'user', 'middleware' => 'auth'), function (){
@@ -51,6 +53,7 @@ Route::group(array('prefix' => 'user', 'middleware' => 'auth'), function (){
     Route::delete('cartItems/destroy/{id}', [\App\Http\Controllers\CartItemController::class, 'userCartItemDestroy'])->where('id', '[0-9]+')->name('userCartItemDestroy');
     Route::get('products', [ProductController::class, 'userProductIndex'])->name('userproducts');
 //    Route::get('viewOrders', [\App\Models\Order::class, 'viewAllOrders'])->name('viewallorders');
+    Route::get('checkout', [OrderController::class, 'checkout'])->name('checkout');
 });
 
 Auth::routes();

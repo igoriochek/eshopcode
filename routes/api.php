@@ -50,3 +50,9 @@ Route::resource('carts', App\Http\Controllers\API\CartAPIController::class);
 
 
 Route::resource('cart_items', App\Http\Controllers\API\CartItemAPIController::class);
+
+
+Route::resource('orders', App\Http\Controllers\API\OrderAPIController::class);
+
+
+Route::resource('order_items', App\Http\Controllers\API\OrderItemAPIController::class);

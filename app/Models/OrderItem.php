@@ -3,32 +3,34 @@
 namespace App\Models;
 
 use Eloquent as Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
- * Class CartItem
+ * Class OrderItem
  * @package App\Models
- * @version March 29, 2022, 4:20 pm UTC
+ * @version April 12, 2022, 11:53 am UTC
  *
- * @property integer $cart_id
+ * @property integer $order_id
  * @property integer $product_id
  * @property number $price_current
- * @property integer $count
+ * @property number $count
  */
-class CartItem extends Model
+class OrderItem extends Model
 {
 
     use HasFactory;
 
-    public $table = 'cart_items';
+    public $table = 'order_items';
+
+
 
 
     public $fillable = [
-        'cart_id',
+        'order_id',
         'product_id',
         'price_current',
-        'count',
+        'count'
     ];
 
     /**
@@ -37,10 +39,10 @@ class CartItem extends Model
      * @var array
      */
     protected $casts = [
-        'cart_id' => 'integer',
+        'order_id' => 'integer',
         'product_id' => 'integer',
         'price_current' => 'double',
-        'count' => 'integer'
+        'count' => 'double'
     ];
 
     /**
@@ -49,16 +51,14 @@ class CartItem extends Model
      * @var array
      */
     public static $rules = [
-        'cart_id' => 'required',
         'product_id' => 'required',
         'price_current' => 'required|min:5',
-        'count' => 'required'
+        'count' => 'required|min:1'
     ];
 
     public function product()
     {
-        return $this->hasOne(Product::class, 'id', 'product_id');
+        return $this->hasMany(Product::class, 'id', 'product_id');
     }
-
 
 }

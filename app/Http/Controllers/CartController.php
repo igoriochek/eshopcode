@@ -53,7 +53,7 @@ class CartController extends AppBaseController
     {
         return view('carts.create')->with([
             'users_list' => $this->usersForSelector(),
-            'statuses_list' => $this->statusesForSelector(),
+            'statuses_list' => $this->cartStatusesForSelector(),
             'admin_list' => $this->adminForSelector(),
         ]);
     }
@@ -116,7 +116,7 @@ class CartController extends AppBaseController
         return view('carts.edit')->with([
             'cart' => $cart,
             'users_list' => $this->usersForSelector(),
-            'statuses_list' => $this->statusesForSelector(),
+            'statuses_list' => $this->cartStatusesForSelector(),
             'admin_list' => $this->adminForSelector(),
         ]);
     }
@@ -187,7 +187,7 @@ class CartController extends AppBaseController
 
         // if isset product
         if (null !== $product) {
-            $cart = self::getOrSetCart($request);
+            $cart = $this->cartRepository->getOrSetCart($request);
 
             // getOrSet CartItem
             $cartItem = CartItem::query()
@@ -218,14 +218,14 @@ class CartController extends AppBaseController
 
     public function viewCart(Request $request)
     {
-        $cart = self::getOrSetCart($request);
+        $cart = $this->cartRepository->getOrSetCart($request);
 
         $cartItems = CartItem::query()
             ->with('product')
             ->where([
                 'cart_id' => $cart->id,
             ])
-            ->first();
+            ->get();
 
         return view('user_views.cart.view')
             ->with([
@@ -234,43 +234,5 @@ class CartController extends AppBaseController
     }
 
 
-    protected static function getOrSetCart(Request $request)
-    {
-        $userId = Auth::id();
 
-        // getOrSet session/code
-        if ($request->session()->has('appToken')) {
-            $cartCode = $request->session()->get('appToken');
-        } else {
-            $cartCode = md5(time() . 'ಉಪ್ಪು');
-            $request->session()->put('appToken', $cartCode);
-        }
-
-        // getOrSet Cart
-        $cart = Cart::query()
-            ->where([
-                'user_id' => $userId,
-                'code' => $cartCode,
-            ])
-            ->first();
-
-        if (null === $cart) {
-            $firstStatus = CartStatus::query()
-                ->first();
-
-            $firstAdmin = User::query()
-                ->where('type', 1)
-                ->first();
-
-            $cart = new Cart([
-                'user_id' => $userId,
-                'code' => $cartCode,
-                'status_id' => $firstStatus->id,
-                'admin_id' => $firstAdmin->id,
-            ]);
-            $cart->save();
-        }
-
-        return $cart;
-    }
 }

@@ -19,7 +19,7 @@
 
         <div class="clearfix"></div>
 
-        @if(isset($cartItems->product))
+        @if($cartItems)
             <div class="card">
                 <div class="card-body p-0">
                     @include('user_views.cart.table')
@@ -30,6 +30,18 @@
         @endif
     </div>
 </section>
+
+
+@if($cartItems)
+    <section>
+        <div>
+            <div class="float-right">
+                <a href="{{route('checkout')}}" class="btn btn-success">checkout</a>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </section>
+@endif
 
 @endsection
 
