@@ -207,6 +207,10 @@ class CartController extends AppBaseController
                 ]);
                 $cartItem->save();
             }
+            else {
+                $cartItem->increment('count', $validated['count']);
+                $cartItem->save();
+            }
 
             Flash::success('ok');
         } else {

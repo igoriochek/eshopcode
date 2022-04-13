@@ -3,6 +3,7 @@
         <thead>
         <tr>
             <th>Name</th>
+            <th>Count</th>
             <th>Price</th>
             <th>Description</th>
         </tr>
@@ -11,6 +12,7 @@
         @foreach($cartItems as $item)
             <tr>
                 <td>{{ $item['product']->name }}</td>
+                <td>{{ $item->count }}</td>
                 <td>{{ $item['product']->price }}</td>
                 <td>{{ $item['product']->description }}</td>
 
