@@ -95,7 +95,17 @@ class OrderController extends AppBaseController
             return redirect(route('orders.index'));
         }
 
-        return view('orders.show')->with('order', $order);
+        $orderItems = OrderItem::query()
+            ->with('product')
+            ->where([
+                'order_id' => $order->id,
+            ])
+            ->get();
+
+        return view('orders.show')->with([
+            'order' => $order,
+            'orderItems' => $orderItems,
+        ]);
     }
 
     /**

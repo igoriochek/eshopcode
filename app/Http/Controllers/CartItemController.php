@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateCartItemRequest;
 use App\Http\Requests\UpdateCartItemRequest;
+use App\Models\CartItem;
 use App\Repositories\CartItemRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
@@ -42,9 +43,14 @@ class CartItemController extends AppBaseController
      *
      * @return Response
      */
-    public function create()
+    public function create(Request $request)
     {
+        $cartItem = new CartItem([
+            'cart_id' => $request->get('cart_id', 0),
+        ]);
+
         return view('cart_items.create')->with([
+            'cartItem' => $cartItem,
             'product_list' => $this->productsForSelector(),
             'carts_list' => $this->cartsForSelector(),
         ]);
@@ -65,7 +71,7 @@ class CartItemController extends AppBaseController
 
         Flash::success('Cart Item saved successfully.');
 
-        return redirect(route('cartItems.index'));
+        return redirect(route('carts.show', [$cartItem->cart_id]));
     }
 
     /**
@@ -134,7 +140,7 @@ class CartItemController extends AppBaseController
 
         Flash::success('Cart Item updated successfully.');
 
-        return redirect(route('cartItems.index'));
+        return redirect(route('carts.show', [$cartItem->cart_id]));
     }
 
     /**
@@ -160,7 +166,7 @@ class CartItemController extends AppBaseController
 
         Flash::success('Cart Item deleted successfully.');
 
-        return redirect(route('cartItems.index'));
+        return redirect(route('carts.show', [$cartItem->cart_id]));
     }
 
 

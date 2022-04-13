@@ -17,3 +17,10 @@
     {!! Form::label('price_current', 'Price Current:') !!}
     {!! Form::number('price_current', null, ['class' => 'form-control','min' => 5]) !!}
 </div>
+
+
+<!-- Count Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('count', 'Count:') !!}
+    {!! Form::number('count', null, ['class' => 'form-control','min' => 1]) !!}
+</div>

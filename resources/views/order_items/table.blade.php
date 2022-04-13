@@ -3,9 +3,9 @@
         <thead>
         <tr>
             <th>Order Id</th>
-        <th>Product Id</th>
-        <th>Price Current</th>
-        <th>Count</th>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Count</th>
             <th colspan="3">Action</th>
         </tr>
         </thead>
@@ -13,9 +13,9 @@
         @foreach($orderItems as $orderItem)
             <tr>
                 <td>{{ $orderItem->order_id }}</td>
-            <td>{{ $orderItem->product_id }}</td>
-            <td>{{ $orderItem->price_current }}</td>
-            <td>{{ $orderItem->count }}</td>
+                <td>{{ $orderItem->product->name }}</td>
+                <td>{{ $orderItem->price_current }}</td>
+                <td>{{ $orderItem->count }}</td>
                 <td width="120">
                     {!! Form::open(['route' => ['orderItems.destroy', $orderItem->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>

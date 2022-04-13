@@ -6,13 +6,13 @@
 
 <!-- Product Id Field -->
 <div class="col-sm-12">
-    {!! Form::label('product_id', 'Product Id:') !!}
-    <p>{{ $orderItem->product_id }}</p>
+    {!! Form::label('product_id', 'Product:') !!}
+    <p>{{ $orderItem->product->name }}</p>
 </div>
 
 <!-- Price Current Field -->
 <div class="col-sm-12">
-    {!! Form::label('price_current', 'Price Current:') !!}
+    {!! Form::label('price_current', 'Price:') !!}
     <p>{{ $orderItem->price_current }}</p>
 </div>
 

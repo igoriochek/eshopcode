@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateOrderItemRequest;
 use App\Http\Requests\UpdateOrderItemRequest;
+use App\Models\OrderItem;
 use App\Repositories\OrderItemRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
@@ -42,9 +43,14 @@ class OrderItemController extends AppBaseController
      *
      * @return Response
      */
-    public function create()
+    public function create(Request $request)
     {
+        $orderItem = new OrderItem([
+            'order_id' => $request->get('order_id', 0),
+        ]);
+
         return view('order_items.create')->with([
+            'orderItem' => $orderItem,
             'orders_list' => $this->ordersForSelector(),
             'product_list' => $this->productsForSelector(),
         ]);
@@ -65,7 +71,7 @@ class OrderItemController extends AppBaseController
 
         Flash::success('Order Item saved successfully.');
 
-        return redirect(route('orderItems.index'));
+        return redirect(route('orders.show', [$orderItem->order_id]));
     }
 
     /**
@@ -134,7 +140,8 @@ class OrderItemController extends AppBaseController
 
         Flash::success('Order Item updated successfully.');
 
-        return redirect(route('orderItems.index'));
+        return redirect(route('orders.show', [$orderItem->order_id]));
+        //return redirect(route('orderItems.index'));
     }
 
     /**
@@ -160,6 +167,7 @@ class OrderItemController extends AppBaseController
 
         Flash::success('Order Item deleted successfully.');
 
-        return redirect(route('orderItems.index'));
+        return redirect(route('orders.show', [$orderItem->order_id]));
+        //return redirect(route('orderItems.index'));
     }
 }

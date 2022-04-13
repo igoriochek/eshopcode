@@ -57,5 +57,19 @@ class Cart extends Model
         'status_id' => 'required'
     ];
 
+    public function user()
+    {
+        return $this->hasOne(User::class, 'id', 'user_id');
+    }
+
+    public function admin()
+    {
+        return $this->hasOne(User::class, 'id', 'admin_id');
+    }
+
+    public function status()
+    {
+        return $this->hasOne(CartStatus::class, 'id', 'status_id');
+    }
 
 }

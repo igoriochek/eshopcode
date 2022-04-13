@@ -13,7 +13,7 @@
 
 <!-- Status Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('status_id', 'Status Id:') !!}
+    {!! Form::label('status_id', 'Status:') !!}
     {!! Form::select('status_id', $statuses_list, null, ['class' => 'form-control custom-select']) !!}
 </div>
 

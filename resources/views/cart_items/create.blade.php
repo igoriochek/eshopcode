@@ -17,7 +17,7 @@
 
         <div class="card">
 
-            {!! Form::open(['route' => 'cartItems.store']) !!}
+            {!! Form::model($cartItem, ['route' => ['cartItems.store']]) !!}
 
             <div class="card-body">
 
