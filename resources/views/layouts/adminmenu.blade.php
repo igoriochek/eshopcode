@@ -11,4 +11,7 @@ Admin menu:
 <a href="/admin/orderStatuses">OrderStatuses</a>&nbsp;&nbsp;
 <a href="/admin/promotions">Promotions</a>&nbsp;&nbsp;
 <a href="/admin/customers">Users</a>&nbsp;
+<a href="/lang/en">EN</a>&nbsp;
+<a href="/lang/lt">LT</a>&nbsp;
+<a href="/lang/ru">RU</a>&nbsp;
 
