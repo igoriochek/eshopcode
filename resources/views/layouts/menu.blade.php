@@ -86,3 +86,19 @@
 </li>
 
 
+<li class="nav-item">
+    <a href="{{ route('returns.index') }}"
+       class="nav-link {{ Request::is('returns*') ? 'active' : '' }}">
+        <p>Returns</p>
+    </a>
+</li>
+
+
+<li class="nav-item">
+    <a href="{{ route('returnItems.index') }}"
+       class="nav-link {{ Request::is('returnItems*') ? 'active' : '' }}">
+        <p>Return Items</p>
+    </a>
+</li>
+
+

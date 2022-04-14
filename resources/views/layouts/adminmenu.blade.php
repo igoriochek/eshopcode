@@ -9,6 +9,8 @@ Admin menu:
 <a href="/admin/orders">Orders</a>&nbsp;&nbsp;
 {{--<a href="/admin/orderItems">OrderItems</a>&nbsp;&nbsp;--}}
 <a href="/admin/orderStatuses">OrderStatuses</a>&nbsp;&nbsp;
+<a href="/admin/returns">Returns</a>&nbsp;&nbsp;
+<a href="/admin/returnStatuses">ReturnStatuses</a>&nbsp;&nbsp;
 <a href="/admin/promotions">Promotions</a>&nbsp;&nbsp;
 <a href="/admin/customers">Users</a>&nbsp;
 

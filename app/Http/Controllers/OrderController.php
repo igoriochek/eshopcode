@@ -232,27 +232,6 @@ class OrderController extends AppBaseController
 
 
 
-    public function destroyOrder($id)
-    {
-        $userId = Auth::id();
-        $order = Order::query()
-            ->where([
-                'id' => $id,
-                'user_id' => $userId,
-            ])
-            ->first();
-
-        if (empty($order)) {
-            Flash::error('Order not found');
-        }
-
-        $order->status_id = 5;
-        $order->save();
-
-        return redirect(route('rootorders'));
-    }
-
-
 
     public function checkout(Request $request)
     {

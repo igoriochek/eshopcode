@@ -10,6 +10,8 @@ use App\Models\Order;
 use App\Models\OrderStatus;
 use App\Models\Product;
 use App\Models\Promotion;
+use App\Models\Returns;
+use App\Models\ReturnStatus;
 use App\Models\User;
 
 trait forSelector
@@ -103,6 +105,24 @@ trait forSelector
     {
         $c = array();
         OrderStatus::all()->map(function ($item) use (&$c) {
+            $c[$item->id] = $item->name;
+        });
+        return $c;
+    }
+
+    public function returnsForSelector()
+    {
+        $c = array();
+        Returns::all()->map(function ($item) use (&$c) {
+            $c[$item->id] = 'id: ' . $item->id . ' userId: ' . $item->user_id;
+        });
+        return $c;
+    }
+
+    public function returnStatusesForSelector()
+    {
+        $c = array();
+        ReturnStatus::all()->map(function ($item) use (&$c) {
             $c[$item->id] = $item->name;
         });
         return $c;

@@ -56,3 +56,9 @@ Route::resource('orders', App\Http\Controllers\API\OrderAPIController::class);
 
 
 Route::resource('order_items', App\Http\Controllers\API\OrderItemAPIController::class);
+
+
+Route::resource('returns', App\Http\Controllers\API\ReturnsAPIController::class);
+
+
+Route::resource('return_items', App\Http\Controllers\API\ReturnItemAPIController::class);

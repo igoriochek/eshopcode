@@ -39,17 +39,12 @@
                                     <td>{{ $item->user->name }}</td>
                                     <td>{{ $item->status->name }}</td>
                                     <td width="120">
-                                        {!! Form::open(['route' => ['destroyorder', $item->id], 'method' => 'delete']) !!}
                                         <div class='btn-group'>
-                                            <div class='btn-group'>
-                                                <a href="{{ route('vieworder', [$item->id]) }}"
-                                                   class='btn btn-default btn-xs'>
-                                                    <i class="far fa-eye"></i>
-                                                </a>
-                                            </div>
-                                            {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
+                                            <a href="{{ route('vieworder', [$item->id]) }}"
+                                               class='btn btn-default btn-xs'>
+                                                <i class="far fa-eye"></i>
+                                            </a>
                                         </div>
-                                        {!! Form::close() !!}
                                     </td>
                                 </tr>
                             @endforeach

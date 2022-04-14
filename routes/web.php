@@ -33,6 +33,8 @@ Route::group(array('prefix' => 'admin','middleware' => 'admin'), function() {
     Route::resource('orderItems', App\Http\Controllers\OrderItemController::class);
     Route::resource('orderStatuses', App\Http\Controllers\OrderStatusController::class);
     Route::resource('cartStatuses', App\Http\Controllers\CartStatusController::class);
+    Route::resource('returns', App\Http\Controllers\ReturnsController::class);
+    Route::resource('returnItems', App\Http\Controllers\ReturnItemController::class);
     Route::resource('returnStatuses', App\Http\Controllers\ReturnStatusController::class);
     Route::resource('carts', App\Http\Controllers\CartController::class);
     Route::resource('cartItems', App\Http\Controllers\CartItemController::class);
@@ -57,7 +59,8 @@ Route::group(array('prefix' => 'user', 'middleware' => 'auth'), function (){
 
     Route::get('rootorders', [OrderController::class, 'indexOrders'])->name('rootorders');
     Route::get('vieworder/{id}', [OrderController::class, 'viewOrder'])->where('id', '[0-9]+')->name('vieworder');
-    Route::delete('destroyorder/{id}', [OrderController::class, 'destroyOrder'])->where('id', '[0-9]+')->name('destroyorder');
+    Route::get('returnorder/{id}', [\App\Http\Controllers\ReturnsController::class, 'returnOrder'])->where('id', '[0-9]+')->name('returnorder');
+    Route::post('returnorder/{id}/save', [\App\Http\Controllers\ReturnsController::class, 'saveReturnOrder'])->where('id', '[0-9]+')->name('savereturnorder');
 });
 
 Auth::routes();

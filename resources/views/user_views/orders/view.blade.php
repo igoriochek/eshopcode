@@ -19,6 +19,13 @@
 
         <div class="clearfix"></div>
 
+        <div class="btn-group" style="float: right">
+            <a href="{{ route('returnorder', [$order->id]) }}"
+               class='btn btn-default btn-xs'>
+                <i class="far fa-trash-alt"></i>
+            </a>
+        </div>
+
         <div>Order status: {{ $order->status->name }}</div>
 
         <div class="table table-responsive">
