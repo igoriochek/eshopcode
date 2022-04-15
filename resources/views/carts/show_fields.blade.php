@@ -1,7 +1,7 @@
 <!-- User Id Field -->
 <div class="col-sm-12">
-    {!! Form::label('user_id', 'User Id:') !!}
-    <p>{{ $cart->user_id }}</p>
+    {!! Form::label('user_id', 'User:') !!}
+    <p>[{{ $cart->user_id }}] {{ $cart->user->name }}</p>
 </div>
 
 <!-- Code Field -->
@@ -12,14 +12,14 @@
 
 <!-- Status Id Field -->
 <div class="col-sm-12">
-    {!! Form::label('status_id', 'Status Id:') !!}
-    <p>{{ $cart->status_id }}</p>
+    {!! Form::label('status_id', 'Status:') !!}
+    <p>{{ $cart->status->name }}</p>
 </div>
 
 <!-- Admin Id Field -->
 <div class="col-sm-12">
-    {!! Form::label('admin_id', 'Admin Id:') !!}
-    <p>{{ $cart->admin_id }}</p>
+    {!! Form::label('admin_id', 'Admin:') !!}
+    <p>[{{ $cart->admin_id }}] {{ $cart->admin->name }}</p>
 </div>
 
 <!-- Created At Field -->

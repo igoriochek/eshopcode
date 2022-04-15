@@ -1,13 +1,13 @@
 <!-- User Id Field -->
 <div class="col-sm-12">
-    {!! Form::label('user_id', 'User Id:') !!}
-    <p>{{ $order->user_id }}</p>
+    {!! Form::label('user_id', 'User:') !!}
+    <p>[{{ $order->user_id }}] {{ $order->user->name }}</p>
 </div>
 
 <!-- Status Id Field -->
 <div class="col-sm-12">
-    {!! Form::label('status_id', 'Status Id:') !!}
-    <p>{{ $order->status_id }}</p>
+    {!! Form::label('status_id', 'Status:') !!}
+    <p>{{ $order->status->name }}</p>
 </div>
 
 <!-- Created At Field -->

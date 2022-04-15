@@ -2,8 +2,8 @@
     <table class="table" id="orders-table">
         <thead>
         <tr>
-            <th>User Id</th>
-        <th>Status Id</th>
+            <th>User</th>
+            <th>Status</th>
             <th colspan="3">Action</th>
         </tr>
         </thead>

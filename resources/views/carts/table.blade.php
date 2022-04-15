@@ -2,20 +2,20 @@
     <table class="table" id="carts-table">
         <thead>
         <tr>
-            <th>User Id</th>
-        <th>Code</th>
-        <th>Status Id</th>
-        <th>Admin Id</th>
+            <th>User</th>
+            <th>Code</th>
+            <th>Status</th>
+            <th>Admin</th>
             <th colspan="3">Action</th>
         </tr>
         </thead>
         <tbody>
         @foreach($carts as $cart)
             <tr>
-                <td>{{ $cart->user_id }}</td>
-            <td>{{ $cart->code }}</td>
-            <td>{{ $cart->status_id }}</td>
-            <td>{{ $cart->admin_id }}</td>
+                <td>{{ $cart->user->name }}</td>
+                <td>{{ $cart->code }}</td>
+                <td>{{ $cart->status->name }}</td>
+                <td>{{ $cart->admin->name }}</td>
                 <td width="120">
                     {!! Form::open(['route' => ['carts.destroy', $cart->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>

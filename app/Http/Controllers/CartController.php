@@ -93,7 +93,16 @@ class CartController extends AppBaseController
             return redirect(route('carts.index'));
         }
 
-        return view('carts.show')->with('cart', $cart);
+        $cartItems = CartItem::query()
+            ->where([
+                'cart_id' => $cart->id,
+            ])
+            ->get();
+
+        return view('carts.show')->with([
+            'cart' => $cart,
+            'cartItems' => $cartItems,
+        ]);
     }
 
     /**
@@ -205,6 +214,10 @@ class CartController extends AppBaseController
                     'price_current' => $product->price,
                     'count' => $validated['count'],
                 ]);
+                $cartItem->save();
+            }
+            else {
+                $cartItem->increment('count', $validated['count']);
                 $cartItem->save();
             }
 

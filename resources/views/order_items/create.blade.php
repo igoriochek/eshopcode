@@ -17,7 +17,7 @@
 
         <div class="card">
 
-            {!! Form::open(['route' => 'orderItems.store']) !!}
+            {!! Form::model($orderItem, ['route' => ['orderItems.store']]) !!}
 
             <div class="card-body">
 
@@ -29,7 +29,7 @@
 
             <div class="card-footer">
                 {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
-                <a href="{{ route('orderItems.index') }}" class="btn btn-default">Cancel</a>
+                <a href="{{ route('orders.show', [$orderItem->order_id]) }}" class="btn btn-default">Cancel</a>
             </div>
 
             {!! Form::close() !!}

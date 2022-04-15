@@ -13,6 +13,7 @@ use App\Repositories\OrderRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
+use Illuminate\Support\Facades\Auth;
 use Response;
 
 class OrderController extends AppBaseController
@@ -94,7 +95,17 @@ class OrderController extends AppBaseController
             return redirect(route('orders.index'));
         }
 
-        return view('orders.show')->with('order', $order);
+        $orderItems = OrderItem::query()
+            ->with('product')
+            ->where([
+                'order_id' => $order->id,
+            ])
+            ->get();
+
+        return view('orders.show')->with([
+            'order' => $order,
+            'orderItems' => $orderItems,
+        ]);
     }
 
     /**
@@ -173,7 +184,51 @@ class OrderController extends AppBaseController
     }
 
 
+    /**
+     * Orders list
+     */
+    public function indexOrders()
+    {
+        $userId = Auth::id();
+        $orders = $this->orderRepository->all([
+            'user_id' => $userId,
+        ]);
 
+        return view('user_views.orders.index')->with([
+            'orders' => $orders,
+        ]);
+    }
+
+
+
+    public function viewOrder($id)
+    {
+        $userId = Auth::id();
+        $order = Order::query()
+            ->where([
+                'id' => $id,
+                'user_id' => $userId,
+            ])
+            ->first();
+
+        if (empty($order)) {
+            Flash::error('Order not found');
+
+            return redirect(route('rootorders'));
+        }
+
+        $orderItems = OrderItem::query()
+            ->with('product')
+            ->where([
+                'order_id' => $order->id,
+            ])
+            ->get();
+
+        return view('user_views.orders.view')->with([
+            'order' => $order,
+            'orderItems' => $orderItems,
+        ]);
+    }
 
 
 
@@ -209,6 +264,6 @@ class OrderController extends AppBaseController
                 Flash::success('Order saved successfully.');
             }
         }
-        return redirect(route('viewcart'));
+        return redirect(route('rootorders'));
     }
 }

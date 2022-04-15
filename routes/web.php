@@ -33,6 +33,8 @@ Route::group(array('prefix' => 'admin','middleware' => 'admin'), function() {
     Route::resource('orderItems', App\Http\Controllers\OrderItemController::class);
     Route::resource('orderStatuses', App\Http\Controllers\OrderStatusController::class);
     Route::resource('cartStatuses', App\Http\Controllers\CartStatusController::class);
+    Route::resource('returns', App\Http\Controllers\ReturnsController::class);
+    Route::resource('returnItems', App\Http\Controllers\ReturnItemController::class);
     Route::resource('returnStatuses', App\Http\Controllers\ReturnStatusController::class);
     Route::resource('carts', App\Http\Controllers\CartController::class);
     Route::resource('cartItems', App\Http\Controllers\CartItemController::class);
@@ -48,12 +50,17 @@ Route::group(array('prefix' => 'user', 'middleware' => 'auth'), function (){
     Route::get("viewcategory", [CategoryController::class, 'userViewCategory'])->name('viewcategory');
     Route::get("viewproduct/{id}", [ProductController::class, 'userViewProduct'])->where('id', '[0-9]+')->name('viewproduct');
     Route::post('addtocart', [CartController::class, 'addToCart'])->name('addtocart');
-    Route::get('viewCarts', [\App\Models\Cart::class, 'viewAllCarts'])->name('viewallcarts');
+    //Route::get('viewCarts', [\App\Models\Cart::class, 'viewAllCarts'])->name('viewallcarts');
     Route::get('viewcart', [CartController::class, 'viewCart'])->name('viewcart');
     Route::delete('cartItems/destroy/{id}', [\App\Http\Controllers\CartItemController::class, 'userCartItemDestroy'])->where('id', '[0-9]+')->name('userCartItemDestroy');
     Route::get('products', [ProductController::class, 'userProductIndex'])->name('userproducts');
 //    Route::get('viewOrders', [\App\Models\Order::class, 'viewAllOrders'])->name('viewallorders');
     Route::get('checkout', [OrderController::class, 'checkout'])->name('checkout');
+
+    Route::get('rootorders', [OrderController::class, 'indexOrders'])->name('rootorders');
+    Route::get('vieworder/{id}', [OrderController::class, 'viewOrder'])->where('id', '[0-9]+')->name('vieworder');
+    Route::get('returnorder/{id}', [\App\Http\Controllers\ReturnsController::class, 'returnOrder'])->where('id', '[0-9]+')->name('returnorder');
+    Route::post('returnorder/{id}/save', [\App\Http\Controllers\ReturnsController::class, 'saveReturnOrder'])->where('id', '[0-9]+')->name('savereturnorder');
 });
 
 Auth::routes();
