@@ -62,3 +62,9 @@ Route::resource('returns', App\Http\Controllers\API\ReturnsAPIController::class)
 
 
 Route::resource('return_items', App\Http\Controllers\API\ReturnItemAPIController::class);
+
+
+Route::resource('messages', App\Http\Controllers\API\MessageAPIController::class);
+
+
+Route::resource('ratings', App\Http\Controllers\API\RatingsAPIController::class);

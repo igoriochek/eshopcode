@@ -8,6 +8,7 @@ use App\Http\Requests\UserCreateReturnsRequest;
 use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\ReturnItem;
+use App\Models\Returns;
 use App\Repositories\ReturnItemRepository;
 use App\Repositories\ReturnsRepository;
 use App\Http\Controllers\AppBaseController;
@@ -186,8 +187,46 @@ class ReturnsController extends AppBaseController
         return redirect(route('returns.index'));
     }
 
+    public function indexReturns()
+    {
+        $userId = Auth::id();
+        $returns = $this->returnsRepository->all([
+            'user_id' => $userId,
+        ]);
 
+        return view('user_views.returns.index')->with([
+            'returns' => $returns,
+        ]);
+    }
 
+    public function viewReturn($id)
+    {
+        $userId = Auth::id();
+        $return = Returns::query()
+            ->where([
+                'id' => $id,
+                'user_id' => $userId,
+            ])
+            ->first();
+
+        if (empty($return)) {
+            Flash::error('Return not found');
+
+            return redirect(route('rootoreturns'));
+        }
+
+        $returnItems = ReturnItem::query()
+            ->with('product')
+            ->where([
+                'return_id' => $return->id,
+            ])
+            ->get();
+
+        return view('user_views.returns.view')->with([
+            'return' => $return,
+            'returnItems' => $returnItems,
+        ]);
+    }
 
     public function returnOrder($id)
     {

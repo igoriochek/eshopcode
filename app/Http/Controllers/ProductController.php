@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreateProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use App\Models\Product;
+use App\Models\Ratings;
 use App\Repositories\CategoryRepository;
 use App\Repositories\ProductRepository;
 use Flash;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Response;
 use DB;
 use Spatie\QueryBuilder\QueryBuilder;
@@ -142,10 +144,17 @@ class ProductController extends AppBaseController
     public function userViewProduct($id)
     {
         $product = $this->productRepository->find($id);
+        $rated = Ratings::query()
+        ->where([
+            'product_id' => $id,
+            'user_id' => Auth::user()->id
+        ])
+        ->get();
 
         return view('user_views.view_product')
             ->with([
-                'product'=> $product
+                'product'=> $product,
+                'voted' => count($rated) > 0 ? true : false,
             ]);
     }
 

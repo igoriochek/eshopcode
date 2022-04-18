@@ -21,6 +21,7 @@ class DiscountCouponSeeder extends Seeder
                 'code' => Hash::make($faker->text),
                 'used' => rand(0,1),
                 'value' => rand(0,1000),
+                'user_id' => rand(1,3),
             ]);
         }
     }

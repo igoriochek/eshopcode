@@ -60,5 +60,7 @@ class Promotion extends Model
         'finish' => 'required'
     ];
 
-
+    public function products() {
+        return $this->hasMany(Product::class);
+    }
 }

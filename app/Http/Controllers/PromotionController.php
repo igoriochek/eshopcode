@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreatePromotionRequest;
 use App\Http\Requests\UpdatePromotionRequest;
+use App\Models\Product;
 use App\Repositories\PromotionRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
@@ -33,6 +34,26 @@ class PromotionController extends AppBaseController
 
         return view('promotions.index')
             ->with('promotions', $promotions);
+    }
+
+    public function indexPromotions(Request $request)
+    {
+//         $categories = $this->categoryRepository->allQuery(array("parent_id"=>null))->paginate("3");
+        $promotions = $this->promotionRepository->allQuery()->paginate(5);
+
+        return view('user_views.promotion.index')
+            ->with('promotions', $promotions);
+    }
+
+
+    public function promotionProducts(Request $request)
+    {
+//         $categories = $this->categoryRepository->allQuery(array("parent_id"=>null))->paginate("3");
+        $promotion = $this->promotionRepository->allQuery(['id' => $request->id])->first();
+        $products = Product::query()->where(['promotion_id' => $request->id])->paginate(5);
+
+
+        return view('user_views.promotion.promotionproducts',['promotion' => $promotion, 'products' => $products]);
     }
 
     /**

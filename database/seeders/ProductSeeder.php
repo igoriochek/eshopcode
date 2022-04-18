@@ -15,11 +15,12 @@ class ProductSeeder extends Seeder
     public function run()
     {
         $faker = Faker::create();
-        for ($i=0; $i<10; $i++){
+        for ($i=0; $i<=200; $i++){
             DB::table('products')->insert([
                 'name' => "product $faker->name",
                 'description' => "product $faker->text",
                 'price' => rand(1,1000),
+                'promotion_id' => ( $i % 10 ? rand(1,10) : null )
             ]);
         }
     }

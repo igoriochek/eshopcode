@@ -31,10 +31,10 @@
                 @forelse( $categories as $category )
                 <div class="card-body">
                     <h4 class="card-title"><a href="{{route('innercategories', $category->id)}}">{{$category->name}}</a></h4>
-                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                    <h6 class="card-subtitle mb-2 text-muted">Product count {{ count($category->products) }}</h6>
                     <p class="card-text">{{$category->description}}</p>
                     @forelse($category->innerCategories as $c)
-                                <a href="{{route('innercategories', $c->id)}}" class="card-link">{{$c->name}}</a>
+                                <a href="{{route('innercategories', $c->id)}}" class="card-link">{{$c->name}}</a>Product count {{count($c->products)}}
                     @empty
                             ---no cats---
                     @endforelse

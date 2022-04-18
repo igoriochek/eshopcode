@@ -102,3 +102,19 @@
 </li>
 
 
+<li class="nav-item">
+    <a href="{{ route('messages.index') }}"
+       class="nav-link {{ Request::is('messages*') ? 'active' : '' }}">
+        <p>Messages</p>
+    </a>
+</li>
+
+
+<li class="nav-item">
+    <a href="{{ route('ratings.index') }}"
+       class="nav-link {{ Request::is('ratings*') ? 'active' : '' }}">
+        <p>Ratings</p>
+    </a>
+</li>
+
+
