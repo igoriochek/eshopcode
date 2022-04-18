@@ -5,7 +5,7 @@
     <div class="container-fluid">
         <div class="row m-2">
             <div class="col-sm-6">
-                <h1>[Order]</h1>
+                <h1>[ {{__('names.orders')}} ]</h1>
             </div>
         </div>
     </div>

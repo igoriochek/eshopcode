@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
+use App\Models\Product;
 use App\Repositories\CategoryRepository;
 use App\Repositories\ProductRepository;
 use Flash;
 use Illuminate\Http\Request;
 use Response;
 use Spatie\QueryBuilder\QueryBuilder;
+use App\Models\Category;
 
 class CategoryController extends AppBaseController
 {
@@ -42,9 +44,9 @@ class CategoryController extends AppBaseController
 
     public function userRootCategories(Request $request)
     {
-        $categories = $this->categoryRepository->allQuery(array("parent_id"=>null))->paginate("5");
+        $categories = $this->categoryRepository->allQuery(array("parent_id"=>null))->paginate("3");
 
-        return view('user_views.categories_root_user')
+        return view('user_views.category.categories_root_user')
             ->with('categories', $categories);
     }
 
@@ -54,13 +56,25 @@ class CategoryController extends AppBaseController
             return redirect(route('rootcategories'));
         $category = $this->categoryRepository->find($request->category_id);
         $categories = $this->categoryRepository->allQuery(array("parent_id"=>$request->category_id))->paginate("3");
-        $products = $this->productRepository->allQuery(array("category_id"=>$request->category_id))->paginate("3");
+//        $products = $this->productRepository->allQuery(array("category.id"=>$request->category_id))->paginate("10");
+//            $products = Product::with('categories')->where('categories.id','=', $category->id)->paginate("3");
+        $products = $category->products()->paginate("3");
+//        dd($products);
 //        dd($categories);
-        return view('user_views.categories_inner_user')
+        return view('user_views.category.categories_inner_user')
             ->with(['categories'=> $categories,
-                    'category' => $category,
+                    'maincategory' => $category,
                     'products' => $products,
                 ]);
+    }
+
+    public function userCategoryTree ( Request $request) {
+        $categories = Category::where('parent_id', '=', null)->get();
+        $allCategories = Category::pluck('name','id')->all();
+        return view('user_views.category.categoryTreeview',
+//            compact('categories','allCategories')
+        ["categories" => $categories, "allCategories" => $allCategories]
+        );
     }
 
     public function userViewCategory(Request $request)

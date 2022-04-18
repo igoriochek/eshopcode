@@ -8,7 +8,7 @@
                     <h1>Categories</h1>
                 </div>
                 <div class="col-sm-6">
-                    <h3>{{$category->name}}</h3>
+                    <h3>{{$maincategory->name}}</h3>
                     <a href="{{route("rootcategories")}}">Back to main categories</a>
 {{--                    <a class="btn btn-primary float-right"--}}
 {{--                       href="{{ route('products.create') }}">--}}
@@ -19,7 +19,7 @@
         </div>
     </section>
     <div class="col-sm-6">
-        <h3>{{$category->name}}: Products</h3>
+        <h3>{{$maincategory->name}}: Products</h3>
 {{--        <a href="{{route("rootcategories")}}">Back to main categories</a>--}}
     </div>
     <div class="content px-3">

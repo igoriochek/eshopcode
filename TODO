@@ -1,0 +1,40 @@
+User:
+Products:
+/user/products
+    sortirovka
+    +pokazyvat cenu so skidkoj esli est
+
+    +reitingi
+
+    ?rezervacija- zakaz ( podumat kak sdelat so statusami )
+    ?iz stranicy produkta vozvrat nazad otkuda prishli ( promotion, derevo, filtr - back() )
+    ?produkt dobavit skidku i dobavit k akcii - mozhet razdelit
+
+    checkout - schitat cenu so skidkoj i primenit kupon.
+
+/user/customersinfo
+    vvod informacii ( telefon, adres, email ) i redaktrivanie
+    facebook, google, twitter
+    ?napominanie parolia proverit, logout
+Live:chat
+    perepiska s mezhdu klientom i adminami: raznye chaty dlia kazhdogo admin
+    priviazka soobshenij k zakazu, korzine, otkazu
+
+Formirovanie platezhej
+    Okno checkout s primeneniem kupona i redaktirovaniem
+    Okno platezha i vybor platezhki
+    ?Integriruem payseru
+    vypiska schiota - pdf
+
+Cookie po tipam
+
+Mnogojazychnost - dodelat v konce
+
+
+
+
+Admin:
+    Produkty - proverit video image
+    Modul otchiotov, generacija csv, pdf, json, sql, txe - i dlia otchiotov, siuda zhe import/export
+    Glafiki
+    Chat s userami - raznye okna s raznye, priviazka soobshenij k zakazu, korzine, otkazu

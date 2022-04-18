@@ -16,13 +16,17 @@ class CategorySeeder extends Seeder
     {
         $faker = Faker::create();
         $p = null;
-        for ($i=0; $i<10; $i++){
-            $p = $i > 5 ? 5 : null;
+        for ($i=0; $i<=20; $i++){
             DB::table('categories')->insert([
                 'name' => "category $faker->name",
                 'description' => "category $faker->text",
-                'parent_id' => $p,
+                'parent_id' => null,
             ]);
+        }
+
+        for ($i=0; $i<=20; $i++){
+            $p = $i > 5 ? rand(1,10) : null;
+            DB::table('categories')->where('id', $i)->update(['parent_id' => $p]);
         }
     }
 }

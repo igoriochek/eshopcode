@@ -9,7 +9,7 @@ return [
     |
     */
 
-    'previous' => '&laquo; Previous',
-    'next' => 'Next &raquo;',
+    'usermenu' => 'User menu',
+    'adminmenu' => 'Admin menu'
 
 ];

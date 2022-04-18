@@ -8,6 +8,7 @@ use App\Repositories\DiscountCouponRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
+use Illuminate\Support\Facades\Auth;
 use Response;
 
 class DiscountCouponController extends AppBaseController
@@ -36,6 +37,14 @@ class DiscountCouponController extends AppBaseController
             ->with('discountCoupons', $discountCoupons);
     }
 
+
+    public function discountcouponUser(Request $request)
+    {
+        $discountCoupons = $this->discountCouponRepository->allQuery(['user_id'=> Auth::user()->id])->paginate(2);
+
+        return view('user_views.discount_coupons.index')
+            ->with('discountCoupons', $discountCoupons);
+    }
     /**
      * Show the form for creating a new DiscountCoupon.
      *

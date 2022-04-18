@@ -83,6 +83,16 @@ class Product extends Model
         return $this->belongsToMany(Category::class);
     }
 
+    public function promotion()
+    {
+        return $this->belongsTo(Promotion::class);
+    }
+
+    public function discount()
+    {
+        return $this->belongsTo(Discount::class);
+    }
+
     public function scopePriceFrom(Builder $query, $price) : Builder
     {
         return $query->where('price', '>=', $price);
