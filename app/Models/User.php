@@ -29,7 +29,11 @@ class User extends Authenticatable
         'email',
         'password',
         'avatar', 'provider_id', 'provider',
-        'access_token'
+        'access_token',
+        "street",
+        "house_flat",
+        "post_index",
+        "city",
     ];
 
 
@@ -40,7 +44,6 @@ class User extends Authenticatable
      */
     protected $casts = [
         'name' => 'string',
-        'description' => 'string',
     ];
 
     /**
@@ -50,7 +53,7 @@ class User extends Authenticatable
      */
     public static $rules = [
         'name' => 'required',
-        'email' => 'required',
+        'email' => 'required|email:rfc',
     ];
 
     /**
@@ -62,6 +65,4 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
-
-
 }

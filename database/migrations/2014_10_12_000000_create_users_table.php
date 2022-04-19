@@ -25,7 +25,12 @@ class CreateUsersTable extends Migration
             $table->string('provider_id')->nullable();
             $table->string('access_token')->nullable();
             $table->integer('type')->default(2);
+//vvod informacii ( telefon, adres, email ) i redaktrivanie
 
+            $table->string("street")->nullable(true);
+            $table->string("house_flat")->nullable(true);
+            $table->string("post_index")->nullable(true);
+            $table->string("city")->nullable(true);
             $table->rememberToken();
             $table->timestamps();
         });

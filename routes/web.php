@@ -70,6 +70,9 @@ Route::group(array('prefix' => 'user', 'middleware' => 'auth'), function (){
     Route::get('discountCoupons', [\App\Http\Controllers\DiscountCouponController::class, 'discountcouponUser'])->name('discountCoupons');
 
     Route::post('addUserRating', [\App\Http\Controllers\RatingsController::class, 'addUserRating'])->name('addUserRating');
+
+    Route::get('userprofile', [\App\Http\Controllers\UserController::class, 'show'])->name('userprofile');
+    Route::patch('userprofilesave', [\App\Http\Controllers\UserController::class, 'store'])->name('userprofilesave');
 });
 
 Auth::routes();
