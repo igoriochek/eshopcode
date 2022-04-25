@@ -13,10 +13,18 @@ return [
 |
 */
 
-    'orders' => 'Orders',
-    'returns' => 'Returns',
-    'categories' => 'Categories',
-    'products' => 'Products',
-    ''
+    'orders' => 'Užsakymai',
+    'returns' => 'Grąžinimai',
+    'categories' => 'Kategorijos',
+    'products' => 'Produktai',
+    'more_for_promotions' => 'Daugiau produktų šiai akcijai',
+    'desc' => 'Aprašymas',
+    'name' => 'Pavadinimas',
+    'price' => "Kaina",
+    'old' => "Senos",
+    'new' => "Naujos",
+    'rating' => 'Įvertinimas',
+    'voted' => "Ačiū už jūsų balsą!",
+    'alreadyvoted' => "Jūs jau prabalsavote už šį produktą!",
 
 ];
