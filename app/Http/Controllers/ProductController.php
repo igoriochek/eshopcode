@@ -51,25 +51,35 @@ class ProductController extends AppBaseController
     {
         $filter = $request->query('filter');
         $selCategories = $filter && $filter['categories.id'] ? $filter['categories.id'] : array();
-
-//        $pricefrom = "";
-//        $priceto = "";
-//        if ($filter){
-//
-//        }
+        $selectedProduct = $request->order != null ? $request->order : 0;
 
 //        $categories = $this->categoryRepository->allQuery(array("parent_id"=>$request->category_id))->get();
         $categories = $this->categoryRepository->allQuery()->get();
+        $orderBy = "";
+        switch ($selectedProduct){
+            case "0":
+                $orderBy = "id";
+                break;
+            case "1":
+                $orderBy = "name";
+                break;
+            case "2":
+                $orderBy = "price";
+                break;
+        }
         $products = QueryBuilder::for(Product::class)
             ->allowedFilters([AllowedFilter::scope('namelike'), 'categories.id',AllowedFilter::scope('pricefrom'),AllowedFilter::scope('priceto'),])
             ->allowedIncludes('categories')
+            ->orderBy($orderBy)
             ->paginate(5)
             ->appends(request()->query());
-        return view('user_views.products_all_with_filters')
+        return view('user_views.product.products_all_with_filters')
             ->with(['products'=> $products,
                 'categories' => $categories,
                 'filter' => $filter ? $filter : array(),
                 'selCategories' => $selCategories ? explode(",",$selCategories) : array(),
+                'order_list' => $this->productOrder(),
+                'selectedProduct' => $selectedProduct,
 //                'pricefrom' => $request->query('filter[pricefrom]') == null ? "" : $request->query('filter[pricefrom]'),
 //                'priceto' => $request->query('filter[priceto]') == null ? "" : $request->query('filter[priceto]'),
                 ]);
@@ -150,11 +160,49 @@ class ProductController extends AppBaseController
             'user_id' => Auth::user()->id
         ])
         ->get();
+        $arrated = [1=>0,2=>0, 3=>0, 4=>0, 5=>0];
+        $sum = 0;
+        $count = 0;
+        foreach ($rated as $row) {
+            $arrated[$row['value']]++;
+            $sum += $row['value'];
+            $count++;
+        }
+        $rateName = "NO RATING";
+        if ( $count ) {
+            foreach ($arrated as $k => $v) {
+                $arrated[$k] = round(($v / $count * 100), 0);
+            }
+            switch (round(($sum / $count), 0)) {
+                case 1:
+                    $rateName = "POOR";
+                    break;
+                case 2:
+                    $rateName = "BAD";
+                    break;
+                case 3:
+                    $rateName = "AVERAGE";
+                    break;
+                case 4:
+                    $rateName = "GOOD";
+                    break;
+                case 5:
+                    $rateName = "VERY GOOD";
+                    break;
+            }
+        }
 
-        return view('user_views.view_product')
+//        dd($arrated);
+
+        return view('user_views.product.view_product')
             ->with([
                 'product'=> $product,
                 'voted' => count($rated) > 0 ? true : false,
+                'avarage' => $count > 0 ? round(($sum / $count),1) : 0,
+                'arrated' => $arrated,
+                'rateCount' => $count,
+                'rateName' => $rateName,
+
             ]);
     }
 

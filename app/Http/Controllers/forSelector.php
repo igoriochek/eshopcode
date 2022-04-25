@@ -128,4 +128,14 @@ trait forSelector
         return $c;
     }
 
+    public function productOrder() {
+        $c = array();
+        $titles = ['No order', 'Product name', "Price"];
+        for( $i = 0; $i < count($titles); $i++){
+            $c[$i] = $titles[$i];
+        }
+        return $c;
+
+    }
+
 }

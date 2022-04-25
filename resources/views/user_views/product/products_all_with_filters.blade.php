@@ -63,6 +63,10 @@
                             <input type="text" id="filter[pricefrom]" name="filter[pricefrom]" readonly value="{{$filter["pricefrom"] ?? ""}}"/></div>
                         <div><label for="amount">To :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                             <input type="text" id="filter[priceto]" name="filter[priceto]" readonly value="{{$filter["priceto"] ?? ""}}"/></div>
+
+                        <div><label for="order">{{__('form.order')}}:</label>
+                            {!! Form::select('order', $order_list, $selectedProduct, ['class' => 'form-control custom-select']) !!}
+                        </div>
                     </div>
                     </fieldset>
                     <div>&nbsp;</div>

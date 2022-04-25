@@ -20,5 +20,6 @@ return [
     'post_index' => "Post index",
     'house_flat' => "House/Flat",
     'city' => "city",
+    'order' => "Order by"
 
 ];

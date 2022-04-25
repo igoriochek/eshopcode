@@ -10,17 +10,12 @@
                 <div class="col-sm-6">
                     <h3>{{$maincategory->name}}</h3>
                     <a href="{{route("rootcategories")}}">Back to main categories</a>
-{{--                    <a class="btn btn-primary float-right"--}}
-{{--                       href="{{ route('products.create') }}">--}}
-{{--                        Add New--}}
-{{--                    </a>--}}
                 </div>
             </div>
         </div>
     </section>
     <div class="col-sm-6">
         <h3>{{$maincategory->name}}: Products</h3>
-{{--        <a href="{{route("rootcategories")}}">Back to main categories</a>--}}
     </div>
     <div class="content px-3">
 
@@ -30,32 +25,20 @@
 
         <div class="card">
             <div class="card-body p-0">
-                {{--                @include('products.table')--}}
-
                 @if(!empty($products))
                     @forelse( $products as $prod )
                         <div class="card-body">
                             <h4 class="card-title"><a href="{{route('viewproduct', $prod->id)}}">{{$prod->name}}</a></h4>
                             <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
                             <p class="card-text">{{$prod->description}}</p>
-{{--                            @forelse($category->innerCategories as $c)--}}
-{{--                                <a href="{{route('innercategories', $c->id)}}" class="card-link">{{$c->name}}</a>--}}
-{{--                            @empty--}}
-{{--                                ---no cats-----}}
-{{--                            @endforelse--}}
                         </div>
                     @empty
                         no products
                     @endforelse
                     {{$products->links()}}
                 @endif
-
-
-
-
                 <div class="card-footer clearfix">
                     <div class="float-right">
-
                     </div>
                 </div>
             </div>
@@ -86,13 +69,9 @@
                     @endforelse
                 </div>
             @empty
-                no categories
+                {{__('messages.nocategories')}}
             @endforelse
-{{--                    {{$categories->links()}}--}}
                 @endif
-
-
-
 
                 <div class="card-footer clearfix">
                     <div class="float-right">

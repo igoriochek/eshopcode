@@ -34,6 +34,7 @@ class User extends Authenticatable
         "house_flat",
         "post_index",
         "city",
+        'facebook_id',
     ];
 
 

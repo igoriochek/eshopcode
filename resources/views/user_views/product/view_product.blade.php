@@ -63,25 +63,25 @@
                 <div class="card">
                     <div class="row no-gutters">
                         <div class="col-md-4 border-right">
-                            <div class="ratings text-center p-4 py-5"> <span class="badge bg-success"><b>4.1</b> <i class="fa-solid fa-star"></i></span> <span class="d-block about-rating">VERY GOOD</span> <span class="d-block total-ratings">183 ratings</span> </div>
+                            <div class="ratings text-center p-4 py-5"> <span class="badge bg-success"><b>{{$avarage}}</b> <i class="fa-solid fa-star"></i></span> <span class="d-block about-rating">{{$rateName}}</span> <span class="d-block total-ratings">{{$rateCount}} rating(s)</span> </div>
                         </div>
                         <div class="col-md-8">
                             <div class="rating-progress-bars p-3">
                                 <div class="progress-1 align-items-center">
                                     <div class="progress">
-                                        <div class="progress-bar bg-success" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"> 71% </div>
+                                        <div class="progress-bar bg-success" role="progressbar" style="width: {{$arrated[1]}}%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"> {{$arrated[1]}}% </div>
                                     </div>
                                     <div class="progress">
-                                        <div class="progress-bar bg-custom" role="progressbar" style="width: 55%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">55%</div>
+                                        <div class="progress-bar bg-custom" role="progressbar" style="width: {{$arrated[2]}}%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{$arrated[2]}}%</div>
                                     </div>
                                     <div class="progress">
-                                        <div class="progress-bar bg-primary" role="progressbar" style="width: 48%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">48%</div>
+                                        <div class="progress-bar bg-primary" role="progressbar" style="width: {{$arrated[3]}}%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{$arrated[3]}}%</div>
                                     </div>
                                     <div class="progress">
-                                        <div class="progress-bar bg-warning" role="progressbar" style="width: 30%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">30%</div>
+                                        <div class="progress-bar bg-warning" role="progressbar" style="width: {{$arrated[4]}}%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{$arrated[4]}}%</div>
                                     </div>
                                     <div class="progress">
-                                        <div class="progress-bar bg-danger" role="progressbar" style="width: 15%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">15%</div>
+                                        <div class="progress-bar bg-danger" role="progressbar" style="width: {{$arrated[5]}}%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{$arrated[5]}}%</div>
                                     </div>
                                 </div>
                             </div>

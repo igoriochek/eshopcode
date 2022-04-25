@@ -14,5 +14,6 @@ return [
     */
 
     'userupdated' => 'User info saved successfully.',
+    "nocategories" => "No Categories",
 
 ];

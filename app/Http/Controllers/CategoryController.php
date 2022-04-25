@@ -55,12 +55,8 @@ class CategoryController extends AppBaseController
         if (empty($request->category_id))
             return redirect(route('rootcategories'));
         $category = $this->categoryRepository->find($request->category_id);
-        $categories = $this->categoryRepository->allQuery(array("parent_id"=>$request->category_id))->paginate("3");
-//        $products = $this->productRepository->allQuery(array("category.id"=>$request->category_id))->paginate("10");
-//            $products = Product::with('categories')->where('categories.id','=', $category->id)->paginate("3");
+        $categories = $this->categoryRepository->allQuery(array("parent_id"=>$request->category_id))->get();//->paginate("3");
         $products = $category->products()->paginate("3");
-//        dd($products);
-//        dd($categories);
         return view('user_views.category.categories_inner_user')
             ->with(['categories'=> $categories,
                     'maincategory' => $category,
@@ -72,7 +68,6 @@ class CategoryController extends AppBaseController
         $categories = Category::where('parent_id', '=', null)->get();
         $allCategories = Category::pluck('name','id')->all();
         return view('user_views.category.categoryTreeview',
-//            compact('categories','allCategories')
         ["categories" => $categories, "allCategories" => $allCategories]
         );
     }

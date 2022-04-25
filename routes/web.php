@@ -7,6 +7,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\FaceBookController;
 
 /*
 |--------------------------------------------------------------------------
@@ -76,6 +77,16 @@ Route::group(array('prefix' => 'user', 'middleware' => 'auth'), function (){
 });
 
 Auth::routes();
+Route::get("logout", function (){
+    Auth::logout();
+    return redirect()->route('home');
+} )->name("getlogout");
+
+Route::prefix('facebook')->name('facebook.')->group( function(){
+    Route::get('auth', [FaceBookController::class, 'loginUsingFacebook'])->name('login');
+    Route::get('callback', [FaceBookController::class, 'callbackFromFacebook'])->name('callback');
+});
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
