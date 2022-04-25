@@ -18,7 +18,7 @@ class DiscountCouponSeeder extends Seeder
         $faker = Faker::create();
         for ($i=0; $i<10; $i++){
             DB::table('discount_coupons')->insert([
-                'code' => Hash::make($faker->text),
+                'code' => substr(md5(Hash::make($faker->text)), 0, 6),
                 'used' => rand(0,1),
                 'value' => rand(0,1000),
                 'user_id' => rand(1,3),

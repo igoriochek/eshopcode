@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\PayController;
 use App\Http\Controllers\ReturnsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
@@ -58,6 +59,10 @@ Route::group(array('prefix' => 'user', 'middleware' => 'auth'), function (){
     Route::get('products', [ProductController::class, 'userProductIndex'])->name('userproducts');
 //    Route::get('viewOrders', [\App\Models\Order::class, 'viewAllOrders'])->name('viewallorders');
     Route::get('checkout', [OrderController::class, 'checkout'])->name('checkout');
+    Route::post('pay', [PayController::class, 'index'])->name('pay');
+    Route::get('pay/accept', [PayController::class, 'accept'])->name('pay-accept');
+    Route::get('pay/cancel', [PayController::class, 'cancel'])->name('pay-cancel');
+    Route::get('pay/callback', [PayController::class, 'callback'])->name('pay-callback');
 
     Route::get('rootorders', [OrderController::class, 'indexOrders'])->name('rootorders');
     Route::get('rootoreturns', [ReturnsController::class, 'indexReturns'])->name('rootoreturns');

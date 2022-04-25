@@ -6,9 +6,11 @@ use App\Http\Requests\CreateOrderRequest;
 use App\Http\Requests\UpdateOrderRequest;
 use App\Models\Cart;
 use App\Models\CartItem;
+use App\Models\DiscountCoupon;
 use App\Models\Order;
 use App\Models\OrderItem;
 use App\Repositories\CartRepository;
+use App\Repositories\DiscountCouponRepository;
 use App\Repositories\OrderRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
@@ -26,10 +28,14 @@ class OrderController extends AppBaseController
     /** @var CartRepository $cartRepository*/
     private $cartRepository;
 
-    public function __construct(OrderRepository $orderRepo, CartRepository $cartRepo)
+    /** @var DiscountCouponRepository $discountCouponRepository*/
+    private $discountCouponRepository;
+
+    public function __construct(OrderRepository $orderRepo, CartRepository $cartRepo, DiscountCouponRepository $discountCouponRepo)
     {
         $this->orderRepository = $orderRepo;
         $this->cartRepository = $cartRepo;
+        $this->discountCouponRepository = $discountCouponRepo;
     }
 
     /**
@@ -233,37 +239,19 @@ class OrderController extends AppBaseController
 
 
 
-    public function checkout(Request $request)
+    public function checkout()
     {
-        $cart = $this->cartRepository->getOrSetCart($request);
-
-        $cartItems = CartItem::query()
+        $userId = Auth::id();
+        $discounts = DiscountCoupon::query()
             ->where([
-                'cart_id' => $cart->id,
+                'used' => 0,
+                'user_id' => $userId,
             ])
             ->get();
 
-        if (!$cartItems->isEmpty()) {
-            $cart->status_id = Cart::STATUS_OFF;
-            $cart->save();
-
-            $newOrder = new Order();
-            $newOrder->user_id = $cart->user_id;
-            $newOrder->status_id = 2;
-
-            if ($newOrder->save()) {
-
-                foreach ($cartItems as $cartItem) {
-                    $newOrderItem = new OrderItem();
-                    $newOrderItem->order_id = $newOrder->id;
-                    $newOrderItem->product_id = $cartItem->product_id;
-                    $newOrderItem->price_current = $cartItem->price_current;
-                    $newOrderItem->count = $cartItem->count;
-                    $newOrderItem->save();
-                }
-                Flash::success('Order saved successfully.');
-            }
-        }
-        return redirect(route('rootorders'));
+        return view('user_views.checkout.index')
+            ->with([
+                'discounts' => $discounts,
+            ]);
     }
 }
