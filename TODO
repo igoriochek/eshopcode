@@ -38,3 +38,20 @@ Admin:
     Modul otchiotov, generacija csv, pdf, json, sql, txe - i dlia otchiotov, siuda zhe import/export
     Glafiki
     Chat s userami - raznye okna s raznye, priviazka soobshenij k zakazu, korzine, otkazu
+
+
+HOW TO SETUP GOOGLE AND TWITTER ENDPOINTS FOR AUTHENTICATION
+Google:
+	First we open https://console.cloud.google.com/apis/dashboard and log in with google, create new project,
+	then on the left side press Credentials and in the new window below blue task bar press OAuth consent
+	screen, select external, add required info -> save and continue until back to dashboard button appears,
+	then +Create Credentials, select OAuth client ID, application type - web application, name doesn't matter,
+	add Authorized redirect URIs http://localhost:8000/google/callback
+
+Twitter:
+	First you need to have twitter account and then in https://developer.twitter.com/en/portal/dashboard
+	create project and app, after submiting app name there will user authentication settings, press edit,
+	turn on OAuth 2.0 and OAuth 1.0a select type=Web app, check request email from users, set permissions to
+	read write. Website URL, Terms of service and Privacy policy will be required to just paste in your twitter
+	profile ur and press save. Now go to keys and tokens, take Client Id and SECRET copy it to .env file where
+	TWITTER_CLIENT_ID=API_KEY, TWITTER_CLIENT_SECRET=API_KEY_SECRET save and rerun server.

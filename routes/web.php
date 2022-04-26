@@ -8,7 +8,8 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\FaceBookController;
-
+use App\Http\Controllers\GoogleController;
+use App\Http\Controllers\TwitterController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -87,6 +88,15 @@ Route::prefix('facebook')->name('facebook.')->group( function(){
     Route::get('callback', [FaceBookController::class, 'callbackFromFacebook'])->name('callback');
 });
 
+Route::prefix('google')->name('google.')->group( function (){
+   Route::get('auth', [GoogleController::class, 'loginUsingGoogle'])->name('login');
+   Route::get('callback', [GoogleController::class, 'callbackFromGoogle'])->name('callback');
+});
+
+Route::prefix('twitter')->name('twitter.')->group(function (){
+    Route::get('auth', [TwitterController::class, 'loginUsingTwitter'])->name('login');
+    Route::get('callback', [TwitterController::class, 'callbackFromTwitter'])->name('callback');
+});
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

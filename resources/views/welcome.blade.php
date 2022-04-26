@@ -32,7 +32,14 @@
                             <i class="fab fa-facebook-f fa-fw"></i>
                             Login with Facebook
                         </a>
-
+                        <a href="{{ route('google.login') }}" class="btn btn-google btn-user btn-block">
+                            <i class="fab fa-google fa-fw"></i>
+                            Login with Google
+                        </a>
+                        <a href="{{ route('twitter.login') }}" class="btn btn-twitter btn-user btn-block">
+                            <i class="fab fa-twitter fa-fw"></i>
+                            Login with Twitter
+                        </a>
                         @if (Route::has('register'))
                             <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
                         @endif

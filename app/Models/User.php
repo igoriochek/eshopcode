@@ -35,6 +35,8 @@ class User extends Authenticatable
         "post_index",
         "city",
         'facebook_id',
+        'google_id',
+        'twitter_id',
     ];
 
 
