@@ -34,6 +34,7 @@ class User extends Authenticatable
         "house_flat",
         "post_index",
         "city",
+        "phone_number",
         'facebook_id',
     ];
 
@@ -55,6 +56,7 @@ class User extends Authenticatable
     public static $rules = [
         'name' => 'required',
         'email' => 'required|email:rfc',
+        'phone_number' => 'numeric|digits:11',
     ];
 
     /**
