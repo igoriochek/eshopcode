@@ -74,6 +74,7 @@ Route::group(array('prefix' => 'user', 'middleware' => 'auth'), function (){
 
     Route::get('userprofile', [\App\Http\Controllers\UserController::class, 'show'])->name('userprofile');
     Route::patch('userprofilesave', [\App\Http\Controllers\UserController::class, 'store'])->name('userprofilesave');
+    Route::post('changePassword', [\App\Http\Controllers\UserController::class, 'changePassword'])->name('changePassword');
 });
 
 Auth::routes();

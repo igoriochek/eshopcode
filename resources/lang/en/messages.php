@@ -14,6 +14,10 @@ return [
     */
 
     'userupdated' => 'User info saved successfully.',
+
+    'changedpassword' => 'Password has been successfully changed.',
+    'incorrectpassword' => 'Incorrect current password.',
+
     "nocategories" => "No Categories",
 
 ];
