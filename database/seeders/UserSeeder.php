@@ -37,5 +37,10 @@ class UserSeeder extends Seeder
             'email' => 'karolis@viko.lt',
             'password' => Hash::make('admin'),
         ]);
+        DB::table('users')->insert([
+            'name' => 'andrej',
+            'email' => 'andrej@viko.lt',
+            'password' => Hash::make('caveman123'),
+        ]);
     }
 }

@@ -16,6 +16,8 @@
         @include('adminlte-templates::common.errors')
         @include('flash::message')
 
+        <!-- User Info Form -->
+
         <div class="card">
 
             {!! Form::model($user, ['route' => ['userprofilesave'], 'method' => 'patch']) !!}
@@ -23,11 +25,13 @@
             <div class="card-body">
                 <div class="row">
 
-
-{{--            $table->string("street")->nullable(true);
-            $table->string("house_flat")->nullable(true);
-            $table->string("post_index")->nullable(true);
-            $table->string("city")->nullable(true);--}}
+                    {{--
+                    $table->string("street")->nullable(true);
+                    $table->string("house_flat")->nullable(true);
+                    $table->string("post_index")->nullable(true);
+                    $table->string("city")->nullable(true);
+                    $table->string("phone_number")->nullable(true);
+                    --}}
                     <!-- Code Field -->
 
                     <div class="form-group col-sm-6">
@@ -60,7 +64,45 @@
                         {!! Form::text('city', null, ['class' => 'form-control']) !!}
                     </div>
 
+                    <div class="form-group col-sm-6">
+                        {!! Form::label('phone_number', __('forms.phone_number').':') !!}
+                        {!! Form::text('phone_number', null, ['class' => 'form-control']) !!}
+                    </div>
 
+                </div>
+            </div>
+
+            <div class="card-footer">
+                {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
+            </div>
+
+            {!! Form::close() !!}
+
+        </div>
+
+        <!-- Change Password Form -->
+
+        <div class="card mt-4">
+
+            {!! Form::model($user, ['route' => ['changePassword'], 'method' => 'post']) !!}
+
+            <div class="card-body">
+                <div class="row">
+
+                    <div class="form-group col-sm-6">
+                        {!! Form::label('current_password', __('forms.current_password').':' )!!}
+                        {!! Form::password('current_password', ['class' => 'form-control']) !!}
+                    </div>
+
+                    <div class="form-group col-sm-6">
+                        {!! Form::label('new_password', __('forms.new_password').':') !!}
+                        {!! Form::password('new_password', ['class' => 'form-control']) !!}
+                    </div>
+
+                    <div class="form-group col-sm-6">
+                        {!! Form::label('new_password_confirmation', __('forms.confirm_password').':') !!}
+                        {!! Form::password('new_password_confirmation', ['class' => 'form-control']) !!}
+                    </div>
 
                 </div>
             </div>

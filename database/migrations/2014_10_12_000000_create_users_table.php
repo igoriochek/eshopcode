@@ -31,6 +31,7 @@ class CreateUsersTable extends Migration
             $table->string("house_flat")->nullable(true);
             $table->string("post_index")->nullable(true);
             $table->string("city")->nullable(true);
+            $table->string("phone_number")->nullable(true);
 
             //socials
             $table->string('facebook_id')->nullable();

@@ -19,7 +19,11 @@ return [
     'street' => "Street",
     'post_index' => "Post index",
     'house_flat' => "House/Flat",
-    'city' => "city",
-    'order' => "Order by"
-
+    'city' => "City",
+    'phone_number' => "Phone number",
+    'order' => "Order by",
+    
+    'current_password' => "Current password",
+    'new_password' => "New password",
+    'confirm_password' => 'Confirm Password'
 ];
