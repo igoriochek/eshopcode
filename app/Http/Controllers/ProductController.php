@@ -112,11 +112,16 @@ class ProductController extends AppBaseController
     {
         $input = $request->all();
 
-//        dd($input);
+        if ($input['image'] !== null ) {
+            $imageName = time().'.'.$request->image->extension();
+            $request->image->move(public_path('images/upload'), $imageName);
+//            dd( $path);
+            $input['image'] = "/images/upload/" .$imageName;
+        }
 
         $product = $this->productRepository->create($input);
 
-        if ($input['categories'] != null)
+        if ( !empty($input['categories'] ) )
             $this->saveCategories($input['categories'], $product->id);
 
         Flash::success('Product saved successfully.');

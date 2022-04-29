@@ -19,5 +19,6 @@ return [
     'incorrectpassword' => 'Incorrect current password.',
 
     "nocategories" => "No Categories",
+    "novideo" => "No video",
 
 ];

@@ -12,7 +12,7 @@
 <!-- Price Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('price', 'Price:') !!}
-    {!! Form::number('price', null, ['class' => 'form-control']) !!}
+    {!! Form::number('price', null, ['class' => 'form-control', 'step' => '0.01']) !!}
 </div>
 
 <!-- Count Field -->

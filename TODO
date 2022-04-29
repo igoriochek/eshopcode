@@ -1,4 +1,5 @@
 User:
+
 Products:
 /user/products
     sortirovka
@@ -13,6 +14,7 @@ Products:
     checkout - schitat cenu so skidkoj i primenit kupon.
 
     https://developers.paysera.com/ru/checkout/integrations/integration-library
+
     Необходимо добавить в .env из панели paysera
         WEBTOPAY_PROJECTID=12345678901
         WEBTOPAY_SIGN_PASSWORD=12345678901
@@ -40,6 +42,7 @@ Mnogojazychnost - dodelat v konce
 
 Admin:
     Produkty - proverit video image
+    Selectors - parent category, no discount, ...
     Modul otchiotov, generacija csv, pdf, json, sql, txe - i dlia otchiotov, siuda zhe import/export
     Glafiki
     Chat s userami - raznye okna s raznye, priviazka soobshenij k zakazu, korzine, otkazu

@@ -28,13 +28,31 @@
             </div>
             @if ( $product->image )
                 <div>
-                    <img src="{{ $product->image }}" alt=""/>
+                    <img src="{{ $product->image }}" alt="{{$product->name}}"/>
                 </div>
                 @else
                 <div>
                     <img src="/images/noimage.jpeg" alt=""/>
+
                 </div>
             @endif
+
+
+            @if ( $product->video )
+{{--                <div>--}}
+{{--                    <iframe width="420" height="315"--}}
+{{--                            src="{{$product->video}}?autoplay=0&mute=1">--}}
+{{--                    </iframe>--}}
+{{--                </div>--}}
+                <div id="ytplayer"></div>
+            @else
+                <div>
+                    {{__("messages.novideo")}}
+
+                </div>
+            @endif
+
+
             <div>&nbsp;</div>
             <div class="description"><b>{{__('names.desc')}}:</b> {{ $product->description }}</div>
             <div>&nbsp;</div>
@@ -135,6 +153,26 @@
             });
     });
 </script>
+@if ( $product->video )
+<script>
+    // Load the IFrame Player API code asynchronously.
+    var tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/player_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    // Replace the 'ytplayer' element with an <iframe> and
+    // YouTube player after the API code downloads.
+    var player;
+    function onYouTubePlayerAPIReady() {
+        player = new YT.Player('ytplayer', {
+            height: '360',
+            width: '640',
+            videoId: '{{$product->video}}'
+        });
+    }
+</script>
+@endif
 @endpush
 @push('css')
 
