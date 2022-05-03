@@ -61,6 +61,7 @@ Route::group(array('prefix' => 'user', 'middleware' => 'auth'), function (){
     Route::get('products', [ProductController::class, 'userProductIndex'])->name('userproducts');
 //    Route::get('viewOrders', [\App\Models\Order::class, 'viewAllOrders'])->name('viewallorders');
     Route::get('checkout', [OrderController::class, 'checkout'])->name('checkout');
+    Route::post('checkout/preview', [OrderController::class, 'checkoutPreview'])->name('checkout-preview');
     Route::post('pay', [PayController::class, 'index'])->name('pay');
     Route::get('pay/accept', [PayController::class, 'accept'])->name('pay-accept');
     Route::get('pay/cancel', [PayController::class, 'cancel'])->name('pay-cancel');

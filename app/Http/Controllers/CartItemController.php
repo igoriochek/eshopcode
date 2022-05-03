@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateCartItemRequest;
 use App\Models\CartItem;
 use App\Repositories\CartItemRepository;
 use App\Http\Controllers\AppBaseController;
+use App\Repositories\CartRepository;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
@@ -16,11 +17,15 @@ class CartItemController extends AppBaseController
     /** @var CartItemRepository $cartItemRepository*/
     private $cartItemRepository;
 
+    /** @var CartRepository $cartRepository*/
+    private $cartRepository;
+
     use \App\Http\Controllers\forSelector;
 
-    public function __construct(CartItemRepository $cartItemRepo)
+    public function __construct(CartItemRepository $cartItemRepo, CartRepository $cartRepo)
     {
         $this->cartItemRepository = $cartItemRepo;
+        $this->cartRepository = $cartRepo;
     }
 
     /**
@@ -68,6 +73,9 @@ class CartItemController extends AppBaseController
         $input = $request->all();
 
         $cartItem = $this->cartItemRepository->create($input);
+
+        $cart = $this->cartRepository->find($cartItem->cart_id);
+        $this->cartRepository->cartSum($cart);
 
         Flash::success('Cart Item saved successfully.');
 
@@ -138,6 +146,9 @@ class CartItemController extends AppBaseController
 
         $cartItem = $this->cartItemRepository->update($request->all(), $id);
 
+        $cart = $this->cartRepository->find($cartItem->cart_id);
+        $this->cartRepository->cartSum($cart);
+
         Flash::success('Cart Item updated successfully.');
 
         return redirect(route('carts.show', [$cartItem->cart_id]));
@@ -162,7 +173,9 @@ class CartItemController extends AppBaseController
             return redirect(route('cartItems.index'));
         }
 
+        $cart = $this->cartRepository->find($cartItem->cart_id);
         $this->cartItemRepository->delete($id);
+        $this->cartRepository->cartSum($cart);
 
         Flash::success('Cart Item deleted successfully.');
 
@@ -181,7 +194,9 @@ class CartItemController extends AppBaseController
             return redirect(route('cartItems.index'));
         }
 
+        $cart = $this->cartRepository->find($cartItem->cart_id);
         $this->cartItemRepository->delete($id);
+        $this->cartRepository->cartSum($cart);
 
         Flash::success('Cart Item deleted successfully.');
 

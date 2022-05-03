@@ -5,7 +5,7 @@
     <div class="container-fluid">
         <div class="row m-2">
             <div class="col-sm-6">
-                <h1>{{__('names.checkout')}}</h1>
+                <h1>{{__('names.checkout.preview')}}</h1>
             </div>
         </div>
     </div>
@@ -42,9 +42,21 @@
                     @endforeach
                     </tbody>
                     <tfoot>
+                    @if ($discounts)
+                        <tr>
+                            <td>sum:</td>
+                            <td colspan="3" style="text-align: right">{{ $cart->sum }}</td>
+                        </tr>
+                        @foreach($discounts as $item)
+                            <tr>
+                                <td>discount:</td>
+                                <td colspan="3" style="text-align: right">{{ $item->value }}</td>
+                            </tr>
+                        @endforeach
+                    @endif
                     <tr>
-                        <td>sum:</td>
-                        <td colspan="3" style="text-align: right">{{ $cart->sum }}</td>
+                        <td>total:</td>
+                        <td colspan="3" style="text-align: right">{{ $amount }}</td>
                     </tr>
                     </tfoot>
                 </table>
@@ -65,23 +77,15 @@
 
         <br>
         <br>
-        <div>
-
-        </div>
-
-        <div>
-            {!! Form::open(['route' => ['checkout-preview'], 'method' => 'post']) !!}
-                <div>
-                    <div>discount</div>
-                    <select name="discount[]" size="10" multiple>
-                        @foreach($discounts as $item)
-                            <option value="{{ $item->id }}">{{ $item->code }}: {{ $item->value }}</option>
-                        @endforeach
-                    </select>
-                </div>
-                <br><br>
-                <input type="submit" value="preview">
-            {!! Form::close() !!}
+        <div class="row">
+            <div class="col-sm-6">
+                <a class="btn btn-default float-right" href="{{ route('viewcart') }}">Back</a>
+            </div>
+            <div class="col-sm-6">
+                {!! Form::open(['route' => ['pay'], 'method' => 'post']) !!}
+                <input type="submit" value="pay">
+                {!! Form::close() !!}
+            </div>
         </div>
     </div>
 </section>

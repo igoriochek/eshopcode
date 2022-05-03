@@ -8,11 +8,11 @@ use App\Models\CartItem;
 use App\Models\DiscountCoupon;
 use App\Models\Order;
 use App\Models\OrderItem;
+use App\Models\User;
 use App\Repositories\CartRepository;
 use Exception;
 use Flash;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Response;
 
 class PayController extends AppBaseController
@@ -27,92 +27,86 @@ class PayController extends AppBaseController
 
     public function index(PayRequest $request)
     {
-        $validated = $request->validated();
-        $userId = Auth::id();
-        $cart = $this->cartRepository->getOrSetCart($request);
+        $orderId = $request->session()->get('appPayOrderId');
+        $amount = $request->session()->get('appPayAmount');
 
-        $amount = CartItem::query()
-            ->where([
-                'cart_id' => $cart->id,
-            ])
-            ->sum('price_current');
+        if (!preg_match("/\./", $amount)) {
+            $amount = $amount * 100;
+        }
+        $amount = preg_replace("/\D/", $amount);
 
-        if (isset($validated['discount']) &&
-            is_array($validated['discount'])
-        ) {
-            $discounts = DiscountCoupon::query()
-                ->where([
-                    'used' => 0,
-                    'user_id' => $userId,
-                ])
-                ->whereIn('id', $validated['discount'])
-                ->get();
+        $appUrl = env('APP_URL');
+        $payment = [
+            'projectid' => env('WEBTOPAY_PROJECTID'),
+            'sign_password' => env('WEBTOPAY_SIGN_PASSWORD'),
+            'orderid' => $orderId,
+            'amount' => $amount,
+            'currency' => 'EUR',
+            'country' => 'LT',
+            'accepturl' => $appUrl. '/user/pay/accept',
+            'cancelurl' => $appUrl. '/user/pay/cancel',
+            'callbackurl' => $appUrl. '/user/pay/callback',
+        ];
 
-            if ($discounts) {
-                foreach ($discounts as $discount) {
-                    $newAmount = $amount - $discount->value;
-                    if ($newAmount > 0) {
-                        $amount = $newAmount;
-
-                        $discounts->used = 1;
-                        $discount->save();
-                    }
-                }
-            }
+        if (true !== env('WEBTOPAY_PROD')) {
+            $payment['test'] = 1;
         }
 
         try {
-            \WebToPay::redirectToPayment([
-                'projectid' => env('WEBTOPAY_PROJECTID'),
-                'sign_password' => env('WEBTOPAY_SIGN_PASSWORD'),
-                'orderid' => $cart->id,
-                'amount' => $amount,
-                'currency' => 'EUR',
-                'country' => 'LT',
-                'accepturl' => env('APP_URL'). '/user/pay/accept',
-                'cancelurl' => env('APP_URL'). '/user/pay/cancel',
-                'callbackurl' => env('APP_URL'). '/user/pay/callback',
-                'test' => 1,
-            ]);
+            \WebToPay::redirectToPayment($payment);
         } catch (Exception $exception) {
             echo get_class($exception) . ':' . $exception->getMessage();
         }
+        exit;
     }
 
-    public function accept()
+    public function accept(Request $request)
     {
+        $this->setOrder($request);
         return view('user_views.pay.accept');
     }
 
-    public function cancel()
+    public function cancel(Request $request)
     {
+        $this->setOrder($request);
         return view('user_views.pay.cancel');
     }
 
     public function callback(Request $request)
     {
+        return $this->setOrder($request);
+    }
+
+    private function setOrder(Request $request)
+    {
         $params = [];
         parse_str(base64_decode(strtr($request->get('data'), ['-' => '+', '_' => '/'])), $params);
 
-        $cart = $this->cartRepository->getOrSetCart($request);
-
         if (is_array($params) &&
             isset($params['status']) &&
-            $params['status'] == 1 &&
-            $params['orderid'] == $cart->id
+            $params['status'] == 1
         ) {
-            $cartItems = CartItem::query()
-                ->where([
-                    'cart_id' => $cart->id,
-                ])
-                ->get();
+            $cart = $this->cartRepository->find($params['orderid']);
 
-            if (!$cartItems->isEmpty()) {
+            if ($cart) {
+                $cartItems = CartItem::query()
+                    ->where([
+                        'cart_id' => $params['orderid'],
+                    ])
+                    ->get();
+
                 $cart->status_id = Cart::STATUS_OFF;
                 $cart->save();
 
+                DiscountCoupon::where([
+                    'cart_id' => $cart->id,
+                ])->update([
+                    'used' => 1
+                ]);
+
                 $newOrder = new Order();
                 $newOrder->user_id = $cart->user_id;
+                $newOrder->admin_id = $this->getAdminId();
                 $newOrder->status_id = 2;
 
                 if ($newOrder->save()) {
@@ -126,11 +120,28 @@ class PayController extends AppBaseController
                         $newOrderItem->save();
                     }
 
-                    echo 'OK';
+                    return 'OK';
                 }
             }
         }
 
-        echo 'Error';
+        return 'Error';
+    }
+
+    private function getAdminId()
+    {
+        $admins = User::query()
+            ->select('id')
+            ->withCount('adminOrders')
+            ->where([
+                'type' => User::TYPE_ADMIN
+            ])
+            ->get()
+            ->toArray();
+
+        $admins = array_column($admins, 'id', 'admin_orders_count');
+        ksort($admins);
+
+        return array_shift($admins);
     }
 }

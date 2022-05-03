@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @version April 12, 2022, 11:49 am UTC
  *
  * @property integer $user_id
+ * @property integer $admin_id
  * @property integer $status_id
  */
 class Order extends Model
@@ -26,6 +27,7 @@ class Order extends Model
 
     public $fillable = [
         'user_id',
+        'admin_id',
         'status_id'
     ];
 
@@ -36,6 +38,7 @@ class Order extends Model
      */
     protected $casts = [
         'user_id' => 'integer',
+        'admin_id' => 'integer',
         'status_id' => 'integer'
     ];
 
@@ -46,10 +49,16 @@ class Order extends Model
      */
     public static $rules = [
         'user_id' => 'required',
+        'admin_id' => 'required',
         'status_id' => 'required'
     ];
 
     public function user()
+    {
+        return $this->hasOne(User::class, 'id', 'user_id');
+    }
+
+    public function admin()
     {
         return $this->hasOne(User::class, 'id', 'user_id');
     }

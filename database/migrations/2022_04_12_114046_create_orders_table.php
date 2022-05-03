@@ -17,9 +17,11 @@ class CreateOrdersTable extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id('id');
             $table->unsignedBigInteger('user_id')->unsigned();
+            $table->unsignedBigInteger('admin_id')->unsigned();
             $table->unsignedBigInteger('status_id')->unsigned();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('admin_id')->references('id')->on('users');
         });
     }
 
