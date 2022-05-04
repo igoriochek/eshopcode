@@ -70,4 +70,9 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+
+    public function adminOrders()
+    {
+        return $this->hasMany(Order::class, 'admin_id', 'id');
+    }
 }

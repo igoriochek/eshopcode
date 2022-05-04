@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @property string $code
  * @property integer $used
  * @property number $value
+ * @property integer $cart_id
  */
 class DiscountCoupon extends Model
 {
@@ -31,7 +32,8 @@ class DiscountCoupon extends Model
     public $fillable = [
         'code',
         'used',
-        'value'
+        'value',
+        'cart_id'
     ];
 
     /**
@@ -42,7 +44,8 @@ class DiscountCoupon extends Model
     protected $casts = [
         'code' => 'string',
         'used' => 'integer',
-        'value' => 'double'
+        'value' => 'double',
+        'cart_id' => 'integer'
     ];
 
     /**

@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Cart;
+use App\Models\CartItem;
 use App\Models\CartStatus;
 use App\Models\User;
 use App\Repositories\BaseRepository;
@@ -84,5 +85,26 @@ class CartRepository extends BaseRepository
         }
 
         return $cart;
+    }
+
+    public function cartSum($cart, $save = true)
+    {
+        $cartItems = CartItem::query()
+            ->where([
+                'cart_id' => $cart->id,
+            ])
+            ->get();
+
+        $sum = 0;
+        foreach ($cartItems as $item) {
+            $sum += $item->price_current * $item->count;
+        }
+
+        if ($save) {
+            $cart->sum = $sum;
+            $cart->save();
+        }
+
+        return $sum;
     }
 }

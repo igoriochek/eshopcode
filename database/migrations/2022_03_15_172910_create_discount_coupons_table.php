@@ -20,6 +20,7 @@ class CreateDiscountCouponsTable extends Migration
             $table->integer('used');
             $table->double('value');
             $table->unsignedBigInteger("user_id")->nullable(true);
+            $table->integer('cart_id')->default(0);
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
 //            $table->softDeletes();

@@ -221,6 +221,8 @@ class CartController extends AppBaseController
                 $cartItem->save();
             }
 
+            $this->cartRepository->cartSum($cart);
+
             Flash::success('ok');
         } else {
             Flash::error('Product not found');

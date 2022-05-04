@@ -63,10 +63,11 @@ Route::group(array('prefix' => 'user', 'middleware' => 'auth'), function (){
     Route::get('products', [ProductController::class, 'userProductIndex'])->name('userproducts');
 //    Route::get('viewOrders', [\App\Models\Order::class, 'viewAllOrders'])->name('viewallorders');
     Route::get('checkout', [OrderController::class, 'checkout'])->name('checkout');
+    Route::post('checkout/preview', [OrderController::class, 'checkoutPreview'])->name('checkout-preview');
     Route::post('pay', [PayController::class, 'index'])->name('pay');
-    Route::get('pay/accept', [PayController::class, 'accept'])->name('pay-accept');
-    Route::get('pay/cancel', [PayController::class, 'cancel'])->name('pay-cancel');
-    Route::get('pay/callback', [PayController::class, 'callback'])->name('pay-callback');
+    Route::get('pay/accept/{id}', [PayController::class, 'accept'])->where('id', '[0-9]+')->name('pay-accept');
+    Route::get('pay/cancel/{id}', [PayController::class, 'cancel'])->where('id', '[0-9]+')->name('pay-cancel');
+    Route::get('pay/callback/{id}', [PayController::class, 'callback'])->where('id', '[0-9]+')->name('pay-callback');
 
     Route::get('rootorders', [OrderController::class, 'indexOrders'])->name('rootorders');
     Route::get('rootoreturns', [ReturnsController::class, 'indexReturns'])->name('rootoreturns');

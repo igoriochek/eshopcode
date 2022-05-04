@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateOrderRequest;
+use App\Http\Requests\PayRequest;
 use App\Http\Requests\UpdateOrderRequest;
 use App\Models\Cart;
 use App\Models\CartItem;
@@ -239,19 +240,85 @@ class OrderController extends AppBaseController
 
 
 
-    public function checkout()
+    public function checkout(Request $request)
     {
-        $userId = Auth::id();
+        $user = Auth::user();
+        $cart = $this->cartRepository->getOrSetCart($request);
+        $cartItems = CartItem::query()
+            ->with('product')
+            ->where([
+                'cart_id' => $cart->id,
+            ])
+            ->get();
+
         $discounts = DiscountCoupon::query()
             ->where([
                 'used' => 0,
-                'user_id' => $userId,
+                'user_id' => $user->id,
             ])
             ->get();
 
         return view('user_views.checkout.index')
             ->with([
+                'user' => $user,
+                'cart' => $cart,
+                'cartItems' => $cartItems,
                 'discounts' => $discounts,
+            ]);
+    }
+
+
+
+
+    public function checkoutPreview(PayRequest $request)
+    {
+        $validated = $request->validated();
+        $user = Auth::user();
+        $cart = $this->cartRepository->getOrSetCart($request);
+
+        $cartItems = CartItem::query()
+            ->with('product')
+            ->where([
+                'cart_id' => $cart->id,
+            ])
+            ->get();
+
+        $amount = $this->cartRepository->cartSum($cart, false);
+
+        if (isset($validated['discount']) &&
+            is_array($validated['discount'])
+        ) {
+            $discounts = DiscountCoupon::query()
+                ->where([
+                    'used' => 0,
+                    'user_id' => $user->id,
+                ])
+                ->whereIn('id', $validated['discount'])
+                ->get();
+
+            if ($discounts) {
+                foreach ($discounts as $discount) {
+                    $newAmount = $amount - $discount->value;
+                    if ($newAmount > 0) {
+                        $amount = $newAmount;
+
+                        $discount->cart_id = $cart->id;
+                        $discount->save();
+                    }
+                }
+            }
+        }
+
+        $request->session()->put('appPayCartId', $cart->id);
+        $request->session()->put('appPayAmount', $amount);
+
+        return view('user_views.checkout.preview')
+            ->with([
+                'user' => $user,
+                'cart' => $cart,
+                'cartItems' => $cartItems,
+                'discounts' => $discounts ?? [],
+                'amount' => $amount,
             ]);
     }
 }
