@@ -29,6 +29,7 @@
                                 <th>ID</th>
                                 <th>User</th>
                                 <th>Status</th>
+                                <th>Sum</th>
                                 <th> </th>
                             </tr>
                             </thead>
@@ -38,6 +39,7 @@
                                     <td>{{ $item->id }}</td>
                                     <td>{{ $item->user->name }}</td>
                                     <td>{{ $item->status->name }}</td>
+                                    <td>{{ $item->sum }}</td>
                                     <td width="120">
                                         <div class='btn-group'>
                                             <a href="{{ route('vieworder', [$item->id]) }}"

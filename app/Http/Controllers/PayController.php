@@ -27,7 +27,7 @@ class PayController extends AppBaseController
 
     public function index(PayRequest $request)
     {
-        $orderId = $request->session()->get('appPayOrderId');
+        $cartId = $request->session()->get('appPayCartId');
         $amount = $request->session()->get('appPayAmount');
 
         if (!preg_match("/\./", $amount)) {
@@ -39,13 +39,13 @@ class PayController extends AppBaseController
         $payment = [
             'projectid' => env('WEBTOPAY_PROJECTID'),
             'sign_password' => env('WEBTOPAY_SIGN_PASSWORD'),
-            'orderid' => $orderId,
+            'orderid' => time(),
             'amount' => $amount,
             'currency' => 'EUR',
             'country' => 'LT',
-            'accepturl' => $appUrl. '/user/pay/accept',
-            'cancelurl' => $appUrl. '/user/pay/cancel',
-            'callbackurl' => $appUrl. '/user/pay/callback',
+            'accepturl' => $appUrl. '/user/pay/accept/' . $cartId,
+            'cancelurl' => $appUrl. '/user/pay/cancel/' . $cartId,
+            'callbackurl' => $appUrl. '/user/pay/callback/' . $cartId,
         ];
 
         if (true !== env('WEBTOPAY_PROD')) {
@@ -60,38 +60,39 @@ class PayController extends AppBaseController
         exit;
     }
 
-    public function accept(Request $request)
+    public function accept(Request $request, $id)
     {
-        $this->setOrder($request);
+        $this->setOrder($request, $id);
         return view('user_views.pay.accept');
     }
 
-    public function cancel(Request $request)
+    public function cancel(Request $request, $id)
     {
-        $this->setOrder($request);
+        $this->setOrder($request, $id);
         return view('user_views.pay.cancel');
     }
 
-    public function callback(Request $request)
+    public function callback(Request $request, $id)
     {
-        return $this->setOrder($request);
+        return $this->setOrder($request, $id);
     }
 
-    private function setOrder(Request $request)
+    private function setOrder(Request $request, $id)
     {
         $params = [];
         parse_str(base64_decode(strtr($request->get('data'), ['-' => '+', '_' => '/'])), $params);
 
         if (is_array($params) &&
             isset($params['status']) &&
-            $params['status'] == 1
+            $params['status'] == 1 &&
+            is_numeric($id)
         ) {
-            $cart = $this->cartRepository->find($params['orderid']);
+            $cart = $this->cartRepository->find($id);
 
             if ($cart) {
                 $cartItems = CartItem::query()
                     ->where([
-                        'cart_id' => $params['orderid'],
+                        'cart_id' => $cart->id,
                     ])
                     ->get();
 
@@ -105,9 +106,12 @@ class PayController extends AppBaseController
                 ]);
 
                 $newOrder = new Order();
+                $newOrder->cart_id = $cart->id;
+                $newOrder->order_id = $params['orderid'];
                 $newOrder->user_id = $cart->user_id;
                 $newOrder->admin_id = $this->getAdminId();
                 $newOrder->status_id = 2;
+                $newOrder->sum = $params['amount'] / 100;
 
                 if ($newOrder->save()) {
 

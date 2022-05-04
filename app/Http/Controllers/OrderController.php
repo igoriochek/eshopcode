@@ -303,13 +303,13 @@ class OrderController extends AppBaseController
                         $amount = $newAmount;
 
                         $discount->cart_id = $cart->id;
-                        $discount->sav();
+                        $discount->save();
                     }
                 }
             }
         }
 
-        $request->session()->put('appPayOrderId', $cart->id);
+        $request->session()->put('appPayCartId', $cart->id);
         $request->session()->put('appPayAmount', $amount);
 
         return view('user_views.checkout.preview')
