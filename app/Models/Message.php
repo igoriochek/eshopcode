@@ -3,8 +3,8 @@
 namespace App\Models;
 
 use Eloquent as Model;
-
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Carbon\Carbon;
 
 /**
  * Class Message
@@ -16,17 +16,16 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  */
 class Message extends Model
 {
-
     use HasFactory;
 
     public $table = 'messages';
     
-
-
-
     public $fillable = [
         'subject',
-        'message_text'
+        'message_text',
+        'user_from',
+        'user_to',
+        'created_at'
     ];
 
     /**
@@ -36,7 +35,10 @@ class Message extends Model
      */
     protected $casts = [
         'subject' => 'string',
-        'message_text' => 'string'
+        'message_text' => 'string',
+        'user_from' => 'integer',
+        'user_to' => 'integer',
+        'created_at' => 'datetime'
     ];
 
     /**
@@ -47,6 +49,4 @@ class Message extends Model
     public static $rules = [
         'message_text' => 'required'
     ];
-
-    
 }

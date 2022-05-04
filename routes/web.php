@@ -11,6 +11,7 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\FaceBookController;
 use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\TwitterController;
+use App\Http\Controllers\MessengerController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -42,6 +43,7 @@ Route::group(array('prefix' => 'admin','middleware' => 'admin'), function() {
     Route::resource('returnStatuses', App\Http\Controllers\ReturnStatusController::class);
     Route::resource('carts', App\Http\Controllers\CartController::class);
     Route::resource('cartItems', App\Http\Controllers\CartItemController::class);
+    Route::resource('messenger', MessengerController::class)->except('edit', 'update', 'delete');
 });
 
 Route::group(array('prefix' => 'user', 'middleware' => 'auth'), function (){
@@ -77,6 +79,13 @@ Route::group(array('prefix' => 'user', 'middleware' => 'auth'), function (){
     Route::get('discountCoupons', [\App\Http\Controllers\DiscountCouponController::class, 'discountcouponUser'])->name('discountCoupons');
 
     Route::post('addUserRating', [\App\Http\Controllers\RatingsController::class, 'addUserRating'])->name('addUserRating');
+
+    Route::prefix('messenger')->name('messenger.')->group( function () {
+        Route::get('', [MessengerController::class, 'index']);
+        Route::get('create', [MessengerController::class, 'create'])->name('create');
+        Route::get('{id}', [MessengerController::class, 'show'])->where('id', '[0-9]+')->name('show');
+        Route::post('', [MessengerController::class, 'store'])->where('id', '[0-9]+')->name('store');
+    });
 
     Route::get('userprofile', [\App\Http\Controllers\UserController::class, 'show'])->name('userprofile');
     Route::patch('userprofilesave', [\App\Http\Controllers\UserController::class, 'store'])->name('userprofilesave');
