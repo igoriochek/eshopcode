@@ -33,7 +33,7 @@ class PayController extends AppBaseController
         if (!preg_match("/\./", $amount)) {
             $amount = $amount * 100;
         }
-        $amount = preg_replace("/\D/", $amount);
+        $amount = preg_replace("/\D/", "", $amount);
 
         $appUrl = env('APP_URL');
         $payment = [
