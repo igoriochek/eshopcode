@@ -4,15 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateCustomerRequest;
 use App\Http\Requests\UpdateCustomerRequest;
+use App\Models\LogActivity;
 use App\Repositories\CustomerRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
+use Illuminate\Support\Facades\Auth;
 use Response;
 
 class CustomerController extends AppBaseController
 {
-    /** @var CustomerRepository $customerRepository*/
+    /** @var CustomerRepository $customerRepository */
     private $customerRepository;
 
     public function __construct(CustomerRepository $customerRepo)
@@ -132,9 +134,9 @@ class CustomerController extends AppBaseController
      *
      * @param int $id
      *
+     * @return Response
      * @throws \Exception
      *
-     * @return Response
      */
     public function destroy($id)
     {
@@ -152,4 +154,52 @@ class CustomerController extends AppBaseController
 
         return redirect(route('customers.index'));
     }
+
+
+    /**
+     * Show customer statistics page.
+     *
+     * @return Response
+     */
+    public function statistics()
+    {
+        $data = $this->customerRepository->getActivity('Registrations', 'Registered', 'line');
+
+        return view('customers.statistics')->with(['data' => $data]);
+    }
+
+    /**
+     * Return statistic type based on selection
+     *
+     * @param Request $request
+     * @return mixed
+     */
+    public function changeStatisticType(Request $request)
+    {
+        switch ($request->statisticType) {
+            case "registerPerMonth":
+                $data = $this->customerRepository->getActivity('Registrations', 'Registered', 'line');
+                break;
+            case "loginPerMonth":
+                $data = $this->customerRepository->getActivity('Logins', 'Logged in', 'bar');
+                break;
+            default:
+                break;
+        }
+
+        return Response::json(['data' => $data]);
+    }
+
+    /**
+     * Show customer logs page.
+     *
+     * @return Response
+     */
+    public function logs()
+    {
+        $logs = LogActivity::all();
+
+        return view('customers.logs')->with(['logs' => $logs]);
+    }
+
 }

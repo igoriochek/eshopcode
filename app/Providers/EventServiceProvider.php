@@ -28,5 +28,14 @@ class EventServiceProvider extends ServiceProvider
     public function boot()
     {
         //
+        Event::listen(\Illuminate\Auth\Events\Login::class, function ($event) {
+            $event->user->log("Logged in");
+        });
+        Event::listen(\Illuminate\Auth\Events\Logout::class, function ($event) {
+            $event->user->log("Logged out");
+        });
+        Event::listen(\Illuminate\Auth\Events\Registered::class, function ($event) {
+            $event->user->log("Registered");
+        });
     }
 }
