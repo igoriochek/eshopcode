@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -70,6 +71,23 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+
+    /**
+     * Logs current user activity to database.
+     * User must be present for this method.
+     *
+     * @param string $message
+     */
+    public function log($message)
+    {
+        $message = ucwords($message);
+        $data = [
+            'user_id' => $this->id,
+            'email' => $this->email,
+            'activity' => $message,
+        ];
+        LogActivity::query()->create($data);
+    }
 
     public function adminOrders()
     {
