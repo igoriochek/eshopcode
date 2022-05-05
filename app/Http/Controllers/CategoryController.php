@@ -9,6 +9,7 @@ use App\Repositories\CategoryRepository;
 use App\Repositories\ProductRepository;
 use Flash;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Response;
 use Spatie\QueryBuilder\QueryBuilder;
 use App\Models\Category;
@@ -57,6 +58,13 @@ class CategoryController extends AppBaseController
         $category = $this->categoryRepository->find($request->category_id);
         $categories = $this->categoryRepository->allQuery(array("parent_id"=>$request->category_id))->get();//->paginate("3");
         $products = $category->products()->paginate("3");
+
+        $user = Auth::user();
+
+        if($user){
+            $user->log("Viewed {$category->name}");
+        }
+
         return view('user_views.category.categories_inner_user')
             ->with(['categories'=> $categories,
                     'maincategory' => $category,

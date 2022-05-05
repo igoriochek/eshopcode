@@ -196,6 +196,11 @@ class ProductController extends AppBaseController
                     break;
             }
         }
+        $user = Auth::user();
+
+        if($user){
+            $user->log("Viewed {$product->name}");
+        }
 
 //        dd($arrated);
 

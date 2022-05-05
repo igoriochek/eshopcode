@@ -42,6 +42,13 @@ Route::group(array('prefix' => 'admin','middleware' => 'admin'), function() {
     Route::resource('returnStatuses', App\Http\Controllers\ReturnStatusController::class);
     Route::resource('carts', App\Http\Controllers\CartController::class);
     Route::resource('cartItems', App\Http\Controllers\CartItemController::class);
+
+    // Statistics
+    Route::get("statistics", [CustomerController::class, 'statistics'])->name('customers.statistics');
+    Route::post("statistics", [CustomerController::class, 'changeStatisticType'])->name('customers.statistics');
+    // Logs
+    Route::get('logs', [CustomerController::class, 'logs'])->name('customers.logs');
+
 });
 
 Route::group(array('prefix' => 'user', 'middleware' => 'auth'), function (){
