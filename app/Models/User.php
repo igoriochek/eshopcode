@@ -89,6 +89,11 @@ class User extends Authenticatable
         LogActivity::query()->create($data);
     }
 
+    public function logActivities()
+    {
+        return $this->hasMany(LogActivity::class, 'user_id');
+    }
+
     public function adminOrders()
     {
         return $this->hasMany(Order::class, 'admin_id', 'id');

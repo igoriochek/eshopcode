@@ -22,7 +22,10 @@ return [
     'city' => "City",
     'phone_number' => "Phone number",
     'order' => "Order by",
-    
+    'usertype' => "User type",
+    'user' => "Customer",
+    'admin' => "Administrator",
+
     'current_password' => "Current password",
     'new_password' => "New password",
     'confirm_password' => 'Confirm Password'

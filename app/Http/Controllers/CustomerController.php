@@ -5,11 +5,13 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreateCustomerRequest;
 use App\Http\Requests\UpdateCustomerRequest;
 use App\Models\LogActivity;
+use App\Models\User;
 use App\Repositories\CustomerRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Response;
 
 class CustomerController extends AppBaseController
@@ -46,22 +48,74 @@ class CustomerController extends AppBaseController
         return view('customers.create');
     }
 
+    public function createUser( Request $request, $id, $newUser = true ) {
+        $request->validate(User::$rules);
+
+//        if (empty($request['new_password']) OR ($request['new_password'] != $request['new_password_confirmation'] )) {
+//            Flash::error(__("messages.passwordmismatch"));
+//
+//            return redirect()->back()->withInput()->withErrors([__("messages.passwordmismatch")]);
+//        }
+
+        if ( $newUser ) {
+            $user = new User();
+            if (empty($request['new_password']) OR ($request['new_password'] != $request['new_password_confirmation'] )) {
+                Flash::error(__("messages.passwordmismatch"));
+
+                return redirect()->back()->withInput()->withErrors([__("messages.passwordmismatch")]);
+            }
+
+        }
+        else {
+            $user = $this->customerRepository->find($id);
+            if (empty($user)) {
+                Flash::error('Customer not found');
+
+                return redirect(route('customers.index'));
+            }
+
+            if (!empty($request['new_password'])) {
+                if ($request['new_password'] != $request['new_password_confirmation'] ) {
+                    Flash::error(__("messages.passwordmismatch"));
+                    return redirect()->back()->withInput()->withErrors([__("messages.passwordmismatch")]);
+                }
+            }
+
+        }
+
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->new_password);
+        $user->street = $request->street;
+        $user->house_flat = $request->house_flat;
+        $user->post_index = $request->post_index;
+        $user->city = $request->city;
+        $user->phone_number = $request->phone_number;
+        $user->save();
+
+        Flash::success(__('messages.userupdated'));
+
+        return redirect(route('customers.index'));
+
+//        Flash::success('Customer updated successfully.');
+//
+//        return redirect(route('customers.index'));
+    }
+
     /**
      * Store a newly created Customer in storage.
      *
      * @param CreateCustomerRequest $request
      *
      * @return Response
+     *
+     *
      */
     public function store(CreateCustomerRequest $request)
     {
-        $input = $request->all();
+        return $this->createUser($request, null, true);
 
-        $customer = $this->customerRepository->create($input);
 
-        Flash::success('Customer saved successfully.');
-
-        return redirect(route('customers.index'));
     }
 
     /**
@@ -114,19 +168,9 @@ class CustomerController extends AppBaseController
      */
     public function update($id, UpdateCustomerRequest $request)
     {
-        $customer = $this->customerRepository->find($id);
 
-        if (empty($customer)) {
-            Flash::error('Customer not found');
+        return $this->createUser($request, $id, false);
 
-            return redirect(route('customers.index'));
-        }
-
-        $customer = $this->customerRepository->update($request->all(), $id);
-
-        Flash::success('Customer updated successfully.');
-
-        return redirect(route('customers.index'));
     }
 
     /**
