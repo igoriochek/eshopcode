@@ -163,7 +163,7 @@ class CustomerController extends AppBaseController
      */
     public function statistics()
     {
-        $data = $this->customerRepository->getActivity('Registrations', 'Registered', 'line');
+        $data = $this->customerRepository->getActivity('Logins', 'Logged in', 'line');
 
         return view('customers.statistics')->with(['data' => $data]);
     }
