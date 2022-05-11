@@ -52,11 +52,6 @@
 </div>
 
 <style>
-    #pdf-header h2,
-    #pdf-header p {
-        text-align: center;
-    }
-
     #datatable {
         width: 100%;
         border-collapse: collapse;
