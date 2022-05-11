@@ -12,6 +12,8 @@ use App\Http\Controllers\FaceBookController;
 use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\TwitterController;
 use App\Http\Controllers\MessengerController;
+use App\Http\Controllers\OrdersReportController;
+use App\Http\Controllers\ReturnsReportController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -44,6 +46,18 @@ Route::group(array('prefix' => 'admin','middleware' => 'admin'), function() {
     Route::resource('carts', App\Http\Controllers\CartController::class);
     Route::resource('cartItems', App\Http\Controllers\CartItemController::class);
     Route::resource('messenger', MessengerController::class)->except('edit', 'update', 'delete');
+    Route::prefix('orders_report')->name('orders_report.')->group( function () {
+        Route::get('', [OrdersReportController::class, 'index'])->name('index');
+        Route::get('email', [OrdersReportController::class, 'sendEmail'])->name('email');
+        Route::get('download_pdf', [OrdersReportController::class, 'downloadPdf'])->name('download_pdf');
+        Route::get('download_csv', [OrdersReportController::class, 'downloadCsv'])->name('download_csv');
+    });
+    Route::prefix('returns_report')->name('returns_report.')->group( function () {
+        Route::get('', [ReturnsReportController::class, 'index'])->name('index');
+        Route::get('email', [ReturnsReportController::class, 'sendEmail'])->name('email');
+        Route::get('download_pdf', [ReturnsReportController::class, 'downloadPdf'])->name('download_pdf');
+        Route::get('download_csv', [ReturnsReportController::class, 'downloadCsv'])->name('download_csv');
+    });
 });
 
 Route::group(array('prefix' => 'user', 'middleware' => 'auth'), function (){
