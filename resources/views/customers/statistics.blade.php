@@ -2,17 +2,24 @@
 
 @section('content')
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
     <div class="container">
         <div>
             <select name="chartType" id="chartType" onchange="updateChartType()">
                 <option value="">Select Bar</option>
                 <option value="line">Line</option>
                 <option value="bar">Bar</option>
+                <option value="pie">Pie</option>
             </select>
             <select name="statisticType" id="statisticType" onchange="updateStatisticType()">
                 <option value="">Select Statistic Type</option>
                 <option value="registerPerMonth">Monthly Registrations</option>
                 <option value="loginPerMonth">Logins Per Month</option>
+                <option value="userAdminCount">User-Admin Count</option>
+                <option value="paidOrders">Paid Orders</option>
+                <option value="unpaidOrders">Unpaid Orders</option>
+                <option value="cancelledOrders">Cancelled Orders</option>
+
             </select>
         </div>
         <div>
@@ -24,12 +31,40 @@
 
         let [data, labels, type, label] = {{Js::from($data)}};
 
+        const borderColorArr = [
+            'rgba(255,99,132,1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)',
+            'rgba(255,99,132,1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)',]
+
+        const backgroundColorArr = [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 159, 64, 0.2)',
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 159, 64, 0.2)',]
+
         let datasets = [
             {
                 label: label,
                 data: data,
-                borderColor: '#0a0ef2',
-                backgroundColor: '#0a0ef2',
+                borderColor: borderColorArr,
+                backgroundColor: backgroundColorArr,
                 borderWidth: 1,
             }
         ];
@@ -37,6 +72,7 @@
         let options = {
             responsive: true,
             maintainAspectRatio: true,
+            aspectRatio: 3,
             title: {
                 display: true,
                 position: "top",
@@ -57,7 +93,18 @@
                     beginAtZero: true,
                     ticks: {precision: 0}
                 }
-            }
+            },
+            plugins: {
+                datalabels: {
+                    anchor: 'end',
+                    align: 'top',
+                    formatter: Math.round,
+                    font: {
+                        weight: 'bold'
+                    }
+                }
+            },
+
         };
 
         let chartConfig = {
@@ -67,6 +114,7 @@
                 datasets: datasets,
             },
             options: options,
+            plugins: [ChartDataLabels],
         }
 
         let myChart = new Chart(ctx, chartConfig);
@@ -104,11 +152,13 @@
                     datasets: [{
                         label: label,
                         data: data,
-                        borderColor: '#0a0ef2',
-                        backgroundColor: '#0a0ef2',
+                        borderColor: borderColorArr,
+                        backgroundColor: backgroundColorArr,
                         borderWidth: 1,
                     }],
                 },
+                options: options,
+                plugins: [ChartDataLabels],
             }
             myChart.destroy();
             myChart = new Chart(ctx, chartConfig);

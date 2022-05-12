@@ -12,6 +12,10 @@
                        href="{{ route('orders.create') }}">
                         Add New
                     </a>
+                    <a class="btn btn-primary float-right"
+                       href="{{ route('customers.statistics') }}">
+                        Show Statistics
+                    </a>
                 </div>
             </div>
         </div>
@@ -29,7 +33,7 @@
 
                 <div class="card-footer clearfix">
                     <div class="float-right">
-                        
+
                     </div>
                 </div>
             </div>

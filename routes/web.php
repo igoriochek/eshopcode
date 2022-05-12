@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ChartController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PayController;
 use App\Http\Controllers\ReturnsController;
@@ -45,8 +46,8 @@ Route::group(array('prefix' => 'admin','middleware' => 'admin'), function() {
     Route::resource('cartItems', App\Http\Controllers\CartItemController::class);
     Route::resource('messenger', MessengerController::class)->except('edit', 'update', 'delete');
     // Statistics
-    Route::get("statistics", [CustomerController::class, 'statistics'])->name('customers.statistics');
-    Route::post("statistics", [CustomerController::class, 'changeStatisticType'])->name('customers.statistics');
+    Route::get("statistics", [ChartController::class, 'index'])->name('customers.statistics');
+    Route::post("statistics", [ChartController::class, 'changeStatisticType'])->name('customers.statistics');
     // Logs
     Route::get('logs', [CustomerController::class, 'logs'])->name('customers.logs');
 

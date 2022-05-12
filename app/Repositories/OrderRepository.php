@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Models\Order;
 use App\Repositories\BaseRepository;
+use Illuminate\Support\Carbon;
 
 /**
  * Class OrderRepository
@@ -38,6 +39,5 @@ class OrderRepository extends BaseRepository
     {
         return Order::class;
     }
-
 
 }

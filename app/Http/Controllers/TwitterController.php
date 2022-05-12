@@ -14,31 +14,32 @@ class TwitterController extends Controller
      */
     public function loginUsingTwitter()
     {
-        return Socialite::driver('twitter')
-            ->with(['include_email' => 'true', 'include_entities' => 'false', 'skip_status' => 'true'])
-            ->redirect();
+        return Socialite::driver('twitter')->redirect();
     }
 
+    /**
+     * This Function uses OAUTH 1.
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Throwable
+     */
     public function callbackFromTwitter()
     {
-        try{
+        try {
             // twitter provider doesn't use stateless.
-            $user = Socialite::driver('twitter')->stateless()->user();
-
-            ddd($user);
+            $user = Socialite::driver('twitter')->user();
 
             $saveUser = User::updateOrCreate([
                 'twitter_id' => $user->getId(),
-            ],[
+            ], [
                 'name' => $user->getName(),
                 'email' => $user->getEmail(),
-                'password'=>Hash::make($user->getName().'@'.$user->getId()),
+                'password' => Hash::make($user->getName() . '@' . $user->getId()),
             ]);
 
             Auth::loginUsingId($saveUser->id);
 
             return redirect()->route('home');
-        }catch (\Throwable $th){
+        } catch (\Throwable $th) {
             throw $th;
         }
     }
