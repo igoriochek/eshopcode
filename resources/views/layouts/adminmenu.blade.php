@@ -14,9 +14,9 @@ Admin menu:
 <a href="/admin/promotions">Promotions</a>&nbsp;&nbsp;
 <a href="/admin/customers">Users</a>&nbsp;
 <a href="/admin/messenger">Messenger</a>&nbsp;
-{{--<a href="/lang/en">EN</a>&nbsp;--}}
-{{--<a href="/lang/lt">LT</a>&nbsp;--}}
-{{--<a href="/lang/ru">RU</a>&nbsp;--}}
+<a href="/admin/orders_report">Orders Report</a>&nbsp;&nbsp;
+<a href="/admin/returns_report">Returns Report</a>&nbsp;&nbsp;
+
 
 @foreach (config('translatable.locales') as $locale)
     <a href="/lang/{{ $locale }}"

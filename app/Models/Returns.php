@@ -5,6 +5,8 @@ namespace App\Models;
 use Eloquent as Model;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Builder;
+use Carbon\Carbon;
 
 /**
  * Class Returns
@@ -20,13 +22,19 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  */
 class Returns extends Model
 {
-
     use HasFactory;
 
     public $table = 'returns';
 
+    public function scopeDateFrom(Builder $query, $date_from): Builder
+    {
+        return $query->where('created_at', '>=', Carbon::parse($date_from));
+    }
 
-
+    public function scopeDateTo(Builder $query, $date_to): Builder
+    {
+        return $query->where('created_at', '<=', Carbon::parse($date_to));
+    }
 
     public $fillable = [
         'user_id',
@@ -78,5 +86,4 @@ class Returns extends Model
     {
         return $this->hasOne(ReturnStatus::class, 'id', 'status_id');
     }
-
 }
