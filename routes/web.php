@@ -14,6 +14,7 @@ use App\Http\Controllers\TwitterController;
 use App\Http\Controllers\MessengerController;
 use App\Http\Controllers\OrdersReportController;
 use App\Http\Controllers\ReturnsReportController;
+use App\Http\Controllers\ChartController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
