@@ -164,6 +164,7 @@ abstract class BaseRepository
      */
     public function update($input, $id)
     {
+//        dd($input);
         $query = $this->model->newQuery();
 
         $model = $query->findOrFail($id);

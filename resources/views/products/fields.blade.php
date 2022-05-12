@@ -1,14 +1,29 @@
-<!-- Name Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('name', 'Name:') !!}
-    {!! Form::text('name', null, ['class' => 'form-control']) !!}
-</div>
+{{--<!-- Name Field -->--}}
+{{--<div class="form-group col-sm-6">--}}
+{{--    {!! Form::label('name', 'Name:') !!}--}}
+{{--    {!! Form::text('name', null, ['class' => 'form-control']) !!}--}}
+{{--</div>--}}
 
-<!-- Description Field -->
-<div class="form-group col-sm-12 col-lg-12">
-    {!! Form::label('description', 'Description:') !!}
-    {!! Form::textarea('description', null, ['class' => 'form-control']) !!}
-</div>
+{{--<!-- Description Field -->--}}
+{{--<div class="form-group col-sm-12 col-lg-12">--}}
+{{--    {!! Form::label('description', 'Description:') !!}--}}
+{{--    {!! Form::textarea('description', null, ['class' => 'form-control']) !!}--}}
+{{--</div>--}}
+
+<!-- Name Field -->
+@foreach (config('translatable.locales') as $locale)
+    <div class="form-group col-sm-6">
+        {!! Form::label("name_$locale", "Name $locale:") !!}
+        {!! Form::text("name_$locale", ( isset($product) && isset($product->translate($locale)->name) ? $product->translate($locale)->name : null ) , ['class' => 'form-control']) !!}
+    </div>
+
+    <!-- Description Field -->
+    <div class="form-group col-sm-12 col-lg-12">
+        {!! Form::label("description_$locale", "Description $locale:") !!}
+        {!! Form::textarea("description_$locale",  ( isset($product) && isset($product->translate($locale)->description) ? $product->translate($locale)->description : null ), ['class' => 'form-control']) !!}
+    </div>
+@endforeach
+
 <!-- Price Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('price', 'Price:') !!}

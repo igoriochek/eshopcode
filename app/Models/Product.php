@@ -3,45 +3,35 @@
 namespace App\Models;
 
 use Eloquent as Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\QueryBuilder\QueryBuilder;
 use \Illuminate\Database\Eloquent\Builder;
+
+use Astrotomic\Translatable\Translatable;
+use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
+
 /**
  * Class Product
  * @package App\Models
  * @version March 15, 2022, 5:41 pm UTC
  *
- * @property string $name
  * @property number $price
  * @property integer $count
- * @property string $description
  * @property string $image
  * @property string $video
  * @property integer $visible
  * @property integer $promotion_id
  * @property integer $discount_id
  */
-class Product extends Model
+class Product extends Model implements TranslatableContract
 {
-//    use SoftDeletes;
-
-    use HasFactory;
+    use HasFactory,Translatable;
 
     public $table = 'products';
-
-
-
-
-//    protected $dates = ['deleted_at'];
-
-
-
+    public $translatedAttributes = ['name', 'description'];
     public $fillable = [
-        'name',
         'price',
         'count',
-        'description',
         'image',
         'video',
         'visible',
@@ -55,10 +45,8 @@ class Product extends Model
      * @var array
      */
     protected $casts = [
-        'name' => 'string',
         'price' => 'double',
         'count' => 'integer',
-        'description' => 'string',
         'image' => 'string',
         'video' => 'string',
         'visible' => 'integer',
@@ -72,10 +60,8 @@ class Product extends Model
      * @var array
      */
     public static $rules = [
-        'name' => 'required',
         'price' => 'required',
         'count' => 'required',
-        'description' => 'required'
     ];
 
     public function categories()

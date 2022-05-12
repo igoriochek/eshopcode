@@ -18,7 +18,6 @@
         <div class="card">
 
             {!! Form::model($category, ['route' => ['categories.update', $category->id], 'method' => 'patch']) !!}
-
             <div class="card-body">
                 <div class="row">
                     @include('categories.fields')

@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Category;
 use Faker\Factory as Faker;
 use Illuminate\Database\Seeder;
 use DB;
@@ -17,11 +18,22 @@ class CategorySeeder extends Seeder
         $faker = Faker::create();
         $p = null;
         for ($i=0; $i<=20; $i++){
-            DB::table('categories')->insert([
-                'name' => "category $faker->name",
-                'description' => "category $faker->text",
+               $cdata = [
                 'parent_id' => null,
-            ]);
+                'en' => [
+                    'name' => "category $faker->name",
+                    'description' => "category $faker->text",
+                ],
+                'lt' => [
+                    'name' => "kategorija $faker->name",
+                    'description' => "kategorija $faker->text",
+                ],
+                'ru' => [
+                    'name' => "RUcategory $faker->name",
+                    'description' => "RUcategory $faker->text",
+                ],
+            ];
+               $category = Category::create($cdata);
         }
 
         for ($i=0; $i<=20; $i++){

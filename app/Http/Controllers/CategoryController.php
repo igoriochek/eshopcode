@@ -21,6 +21,7 @@ class CategoryController extends AppBaseController
     private $productRepository;
 
     use \App\Http\Controllers\forSelector;
+    use \App\Http\Controllers\PrepareTranslations;
 
     public function __construct(CategoryRepository $categoryRepo, ProductRepository $productRepository)
     {
@@ -37,8 +38,8 @@ class CategoryController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $categories = $this->categoryRepository->all();
-
+//        $categories = $this->categoryRepository->all();
+        $categories = Category::translatedIn(app()->getLocale())->get();
         return view('categories.index')
             ->with('categories', $categories);
     }
@@ -74,7 +75,11 @@ class CategoryController extends AppBaseController
 
     public function userCategoryTree ( Request $request) {
         $categories = Category::where('parent_id', '=', null)->get();
-        $allCategories = Category::pluck('name','id')->all();
+        $allCategories = Category::withTranslation()
+            ->translatedIn(app()->getLocale())
+//            ->pluck('name','id')
+            ->get();
+//        ->withTraslate;
         return view('user_views.category.categoryTreeview',
         ["categories" => $categories, "allCategories" => $allCategories]
         );
@@ -105,8 +110,9 @@ class CategoryController extends AppBaseController
     public function store(CreateCategoryRequest $request)
     {
         $input = $request->all();
+        $input = $this->prepare($input, ["name", "description"]);
 //        dd($input);
-        $category = $this->categoryRepository->create($input);
+        $category = Category::create($input);
 
         Flash::success('Category saved successfully.');
 
@@ -149,7 +155,7 @@ class CategoryController extends AppBaseController
 
             return redirect(route('categories.index'));
         }
-//        dd($category);
+
 
         return view('categories.edit', [ 'visible_list' => $this->visible_list,
             'categories' => $this->categoriesForSelector(),
@@ -174,9 +180,8 @@ class CategoryController extends AppBaseController
 
             return redirect(route('categories.index'));
         }
-
-        $category = $this->categoryRepository->update($request->all(), $id);
-
+        $input = $this->prepare($request->all(), ["name", "description"]);
+        $category->update($input);
         Flash::success('Category updated successfully.');
 
         return redirect(route('categories.index'));

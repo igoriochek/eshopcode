@@ -25,6 +25,7 @@ class ProductController extends AppBaseController
     private $categoryRepository;
 
     use \App\Http\Controllers\forSelector;
+    use \App\Http\Controllers\PrepareTranslations;
 
     public function __construct(CategoryRepository $categoryRepo, ProductRepository $productRepository)
     {
@@ -41,8 +42,8 @@ class ProductController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $products = $this->productRepository->all();
-
+//        $products = $this->productRepository->all();
+        $products = Product::translatedIn(app()->getLocale())->get();
         return view('products.index')
             ->with('products', $products);
     }
@@ -112,15 +113,16 @@ class ProductController extends AppBaseController
     {
         $input = $request->all();
 
-        if ($input['image'] !== null ) {
+        if (isset($input['image']) &&  $input['image']!== null ) {
             $imageName = time().'.'.$request->image->extension();
             $request->image->move(public_path('images/upload'), $imageName);
 //            dd( $path);
             $input['image'] = "/images/upload/" .$imageName;
         }
+        $input = $this->prepare($input, ["name", "description"]);
 
-        $product = $this->productRepository->create($input);
-
+//        $product = $this->productRepository->create($input);
+        $product = Product::create($input);
         if ( !empty($input['categories'] ) )
             $this->saveCategories($input['categories'], $product->id);
 
@@ -262,7 +264,9 @@ class ProductController extends AppBaseController
             return redirect(route('products.index'));
         }
         $input = $request->all();
-        $product = $this->productRepository->update($request->all(), $id);
+//        $product = $this->productRepository->update($request->all(), $id);
+        $input = $this->prepare($input, ["name", "description"]);
+        $product->update($input);
         if ($input['categories'] != null)
             $this->saveCategories($input['categories'], $product->id);
         Flash::success('Product updated successfully.');

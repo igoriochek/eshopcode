@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
+use Astrotomic\Translatable\Translatable;
+use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
 use Eloquent as Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
@@ -16,22 +17,15 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @property integer $parent_id
  * @property integer $visible
  */
-class Category extends Model
+class Category extends Model implements TranslatableContract
 {
-//    use SoftDeletes;
-
-    use HasFactory;
+    use HasFactory,Translatable;
 
     public $table = 'categories';
-
-
-//    protected $dates = ['deleted_at'];
-
-
-
+    public $translatedAttributes = ['name', 'description'];
     public $fillable = [
-        'name',
-        'description',
+//        'name',
+//        'description',
         'parent_id',
         'visible'
     ];
@@ -42,8 +36,8 @@ class Category extends Model
      * @var array
      */
     protected $casts = [
-        'name' => 'string',
-        'description' => 'string',
+//        'name' => 'string',
+//        'description' => 'string',
         'parent_id' => 'integer',
         'visible' => 'integer'
     ];
@@ -54,8 +48,8 @@ class Category extends Model
      * @var array
      */
     public static $rules = [
-        'name' => 'required',
-        'description' => 'required'
+//        'name' => 'required',
+//        'description' => 'required'
     ];
 
     public function products()
