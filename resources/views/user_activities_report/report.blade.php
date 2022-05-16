@@ -24,7 +24,9 @@
                     <td>{{ $userActivity->created_at ?? '-'}}</td>
                 </tr>
             @empty
-                <tr>User activities are empty</tr>
+                <tr>
+                    <td colspan="8">No user activities found</td>
+                </tr>
             @endforelse
         </tbody>
     </table>

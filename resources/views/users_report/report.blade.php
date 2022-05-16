@@ -33,7 +33,9 @@
                     @endif
                 </tr>
             @empty
-                <tr>Users are empty</tr>
+                <tr>
+                    <td colspan="8">No users found</td>
+                </tr>
             @endforelse
         </tbody>
     </table>

@@ -1,5 +1,4 @@
-<div class="table-responsive">
-    <table id="datatable">
+    <table>
         <thead>
             <tr>
                 <th>Return ID</th>
@@ -12,17 +11,17 @@
                 <th>Status</th>
             </tr>
         </thead>
-        @foreach($returns as $return)
+        @forelse ($returns as $return)
         <tbody>
                 <tr>
-                    <td>{{ $return->id }}</td>
-                    <td>{{ $return->order_id }}</td>
-                    <td>{{ $return->user->name }}</td>
-                    <td>{{ $return->admin->name }}</td>
-                    <td>{{ $return->code }}</td>
-                    <td>{{ $return->description }}</td>
-                    <td>{{ $return->created_at }}</td>
-                    <td>{{ $return->status->name }}</td>
+                    <td>{{ $return->id ?? '-' }}</td>
+                    <td>{{ $return->order_id ?? '-' }}</td>
+                    <td>{{ $return->user->name ?? '-' }}</td>
+                    <td>{{ $return->admin->name ?? '-' }}</td>
+                    <td>{{ $return->code ?? '-' }}</td>
+                    <td>{{ $return->description ?? '-' }}</td>
+                    <td>{{ $return->created_at ?? '-' }}</td>
+                    <td>{{ $return->status->name ?? '-' }}</td>
                 </tr>
                 <tr>
                     <th colspan="2">Product Name</th>
@@ -30,48 +29,75 @@
                     <th colspan="2">Count</th>
                     <th colspan="2" style="width: 200px">Subtotal</th>
                 </tr>
-                @foreach($returnItems as $returnItem)
+                @forelse ($returnItems as $returnItem)
                     @if ($returnItem->return_id === $return->id)
                         <tr>
-                            <td colspan="2">{{ $returnItem->product->name }}</td>
-                            <td colspan="2">{{ $returnItem->price_current }}</td>
-                            <td colspan="2">{{ $returnItem->count }}</td>
-                            <td colspan="2">{{ $returnItem->subtotal }}</td>
+                            <td colspan="2">{{ $returnItem->product->name ?? '-' }}</td>
+                            <td colspan="2">{{ $returnItem->price_current ?? '-' }}</td>
+                            <td colspan="2">{{ $returnItem->count ?? '-' }}</td>
+                            <td colspan="2">{{ $returnItem->subtotal ?? '-' }}</td>
                         </tr>
                     @endif
-                @endforeach
+                @empty
+                    <tr>
+                        <td colspan="8">No return items found</td>
+                    </tr>
+                @endforelse
                 <tr>
                     <th colspan="2">Total:</th>
-                    <th colspan="2">{{ $return->total[0]->total_price_current }}</th>
-                    <th colspan="2">{{ $return->total[0]->total_count }}</th>
-                    <th colspan="2">{{ $return->total[0]->total_price }}</th>
+                    <th colspan="2">{{ $return->total[0]->total_price_current ?? '-' }}</th>
+                    <th colspan="2">{{ $return->total[0]->total_count ?? '-' }}</th>
+                    <th colspan="2">{{ $return->total[0]->total_price ?? '-' }}</th>
                 </tr>
             </tbody>
-        @endforeach
+        @empty
+            <tr>
+                <td colspan="8">No returns found</td>
+            </tr>
+        @endforelse
     </table>
-</div>
 
 <style>
-    #datatable {
-        width: 100%;
+    table {
+        border: 1px solid #ccc;
         border-collapse: collapse;
-        color: black;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        font-size: 1vw;
     }
 
-    #datatable td,
-    #datatable th {
-        border: 1px solid rgb(132, 132, 132);
-        padding: 10px;
+    table tr {
+        background-color: #f8f8f8;
+        border: 1px solid #ddd;
+        padding: .35em;
     }
 
-    #datatable thead {
-        padding-top: 12px;
-        padding-bottom: 12px;
-        text-align: left;
-        background: rgb(216, 216, 216);
+    table th,
+    table td {
+        padding: .625em;
     }
 
-    #datatable tbody tr:nth-child(1) {
-        background: rgb(241, 241, 241);
+    table th {
+        font-size: .85em;
+    }
+
+    table thead tr:nth-child(1) {
+        background-color: #d4d4d4;
+    }
+
+    table tbody tr:nth-child(1) {
+        background-color: #e7e7e7;
+    }
+
+    table tbody tr:nth-child(2) {
+        background-color: #f2f2f2;
+    }
+
+    @media screen and (max-width: 1500px) {
+        table {
+            border: 0;
+            font-size: 0.8em;
+        }
     }
 </style>

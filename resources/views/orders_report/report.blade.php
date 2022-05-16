@@ -1,5 +1,4 @@
-<div class="table-responsive">
-    <table id="datatable">
+    <table>
         <thead>
             <tr>
                 <th>Order ID</th>
@@ -8,13 +7,13 @@
                 <th>Status</th>
             </tr>
         </thead>
-        @foreach ($orders as $order)
+        @forelse ($orders as $order)
         <tbody>
                 <tr>
-                    <td>{{ $order->id }}</td>
-                    <td>{{ $order->user->name }}</td>
-                    <td>{{ $order->created_at }}</td>
-                    <td>{{ $order->status->name }}</td>
+                    <td>{{ $order->id ?? '-' }}</td>
+                    <td>{{ $order->user->name ?? '-' }}</td>
+                    <td>{{ $order->created_at ?? '-' }}</td>
+                    <td>{{ $order->status->name ?? '-' }}</td>
                 </tr>
                 <tr>
                     <th>Product Name</th>
@@ -22,16 +21,20 @@
                     <th>Count</th>
                     <th>Subtotal</th>
                 </tr>
-                @foreach ($orderItems as $orderItem)
+                @forelse ($orderItems as $orderItem)
                     @if ($orderItem->order_id === $order->id)
                         <tr>
-                            <td>{{ $orderItem->product->name }}</td>
-                            <td>{{ $orderItem->price_current }}</td>
-                            <td>{{ $orderItem->count }}</td>
-                            <td>{{ $orderItem->subtotal }}</td>
+                            <td>{{ $orderItem->product->name ?? '-' }}</td>
+                            <td>{{ $orderItem->price_current ?? '-' }}</td>
+                            <td>{{ $orderItem->count ?? '-' }}</td>
+                            <td>{{ $orderItem->subtotal ?? '-' }}</td>
                         </tr>
                     @endif
-                @endforeach
+                @empty
+                    <tr>
+                        <td colspan="8">No order items found</td>
+                    </tr>
+                @endforelse
                 <tr>
                     <th>Total:</th>
                     <th>{{ $order->total[0]->total_price_current ?? '-' }}</th>
@@ -39,31 +42,54 @@
                     <th>{{ $order->total[0]->total_price ?? '-' }}</th>
                 </tr>
             </tbody>
-        @endforeach
+        @empty
+            <tr>
+                <td colspan="8">No orders found</td>
+            </tr>
+        @endforelse
     </table>
-</div>
 
 <style>
-    #datatable {
-        width: 100%;
+    table {
+        border: 1px solid #ccc;
         border-collapse: collapse;
-        color: black;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        font-size: 1vw;
     }
 
-    #datatable td,
-    #datatable th {
-        border: 1px solid rgb(132, 132, 132);
-        padding: 10px;
+    table tr {
+        background-color: #f8f8f8;
+        border: 1px solid #ddd;
+        padding: .35em;
     }
 
-    #datatable thead {
-        padding-top: 12px;
-        padding-bottom: 12px;
-        text-align: left;
-        background: rgb(216, 216, 216);
+    table th,
+    table td {
+        padding: .625em;
     }
 
-    #datatable tbody tr:nth-child(1) {
-        background: rgb(241, 241, 241);
+    table th {
+        font-size: .85em;
+    }
+
+    table thead tr:nth-child(1) {
+        background-color: #d4d4d4;
+    }
+
+    table tbody tr:nth-child(1) {
+        background-color: #e7e7e7;
+    }
+
+    table tbody tr:nth-child(2) {
+        background-color: #f2f2f2;
+    }
+
+    @media screen and (max-width: 1500px) {
+        table {
+            border: 0;
+            font-size: 0.8em;
+        }
     }
 </style>

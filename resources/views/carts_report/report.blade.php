@@ -33,7 +33,9 @@
                         </tr>
                     @endif
                 @empty
-                    <tr>Cart is empty</tr>
+                    <tr>
+                        <td colspan="8">No cart items found</td>
+                    </tr>
                 @endforelse
                 <tr>
                     <th colspan="2">Total:</th>
@@ -43,7 +45,9 @@
                 </tr>
             </tbody>
         @empty
-            <tr>No carts found</tr>
+            <tr>
+                <td colspan="8">No carts found</td>
+            </tr>
         @endforelse
     </table>
 
