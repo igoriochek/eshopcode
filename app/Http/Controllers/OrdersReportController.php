@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\AppBaseController;
-use App\Repositories\OrderItemRepository;
-use App\Repositories\OrderRepository;
 use App\Models\Order;
 use App\Models\OrderItem;
 use App\Mail\OrdersReport;
@@ -22,16 +20,7 @@ use Excel;
 
 class OrdersReportController extends AppBaseController
 {
-    private $orderRepository;
-    private $orderItemRepository;
-
-    public function __construct(OrderRepository $orderRepo, OrderItemRepository $orderItemRepo)
-    {
-        $this->orderRepository = $orderRepo;
-        $this->orderItemRepository = $orderItemRepo;
-    }
-
-    public function getOrders() 
+    private function getOrders() 
     {
         $orders = QueryBuilder::for(Order::class)
             ->allowedFilters([
@@ -43,7 +32,7 @@ class OrdersReportController extends AppBaseController
             ])
             ->allowedIncludes(['user', 'status'])
             ->orderBy('id')
-            ->paginate(10)
+            ->get()
             ->map(function($order) {
                 $order->total = DB::select("SELECT SUM(price_current) AS total_price_current,
                                              SUM(count) AS total_count, 
@@ -57,10 +46,9 @@ class OrdersReportController extends AppBaseController
         return $orders;
     }
 
-    public function getOrderItems() 
+    private function getOrderItems() 
     {
-        $orderItems = $this->orderItemRepository
-            ->all()
+        $orderItems = OrderItem::all()
             ->map(function($orderItem) {
                 $orderItem->subtotal = $orderItem->price_current * $orderItem->count;
 

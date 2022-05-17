@@ -14,7 +14,11 @@ use App\Http\Controllers\TwitterController;
 use App\Http\Controllers\MessengerController;
 use App\Http\Controllers\OrdersReportController;
 use App\Http\Controllers\ReturnsReportController;
+use App\Http\Controllers\CartsReportController;
+use App\Http\Controllers\UsersReportController;
+use App\Http\Controllers\UserActivitiesReportController;
 use App\Http\Controllers\ChartController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -52,7 +56,6 @@ Route::group(array('prefix' => 'admin','middleware' => 'admin'), function() {
     Route::post("statistics", [ChartController::class, 'changeStatisticType'])->name('customers.statistics');
     // Logs
     Route::get('logs', [CustomerController::class, 'logs'])->name('customers.logs');
-
     Route::prefix('orders_report')->name('orders_report.')->group( function () {
         Route::get('', [OrdersReportController::class, 'index'])->name('index');
         Route::get('email', [OrdersReportController::class, 'sendEmail'])->name('email');
@@ -64,6 +67,24 @@ Route::group(array('prefix' => 'admin','middleware' => 'admin'), function() {
         Route::get('email', [ReturnsReportController::class, 'sendEmail'])->name('email');
         Route::get('download_pdf', [ReturnsReportController::class, 'downloadPdf'])->name('download_pdf');
         Route::get('download_csv', [ReturnsReportController::class, 'downloadCsv'])->name('download_csv');
+    });
+    Route::prefix('carts_report')->name('carts_report.')->group( function () {
+        Route::get('', [CartsReportController::class, 'index'])->name('index');
+        Route::get('email', [CartsReportController::class, 'sendEmail'])->name('email');
+        Route::get('download_pdf', [CartsReportController::class, 'downloadPdf'])->name('download_pdf');
+        Route::get('download_csv', [CartsReportController::class, 'downloadCsv'])->name('download_csv');
+    });
+    Route::prefix('users_report')->name('users_report.')->group( function () {
+        Route::get('', [UsersReportController::class, 'index'])->name('index');
+        Route::get('email', [UsersReportController::class, 'sendEmail'])->name('email');
+        Route::get('download_pdf', [UsersReportController::class, 'downloadPdf'])->name('download_pdf');
+        Route::get('download_csv', [UsersReportController::class, 'downloadCsv'])->name('download_csv');
+    });
+    Route::prefix('user_activities_report')->name('user_activities_report.')->group( function () {
+        Route::get('', [UserActivitiesReportController::class, 'index'])->name('index');
+        Route::get('email', [UserActivitiesReportController::class, 'sendEmail'])->name('email');
+        Route::get('download_pdf', [UserActivitiesReportController::class, 'downloadPdf'])->name('download_pdf');
+        Route::get('download_csv', [UserActivitiesReportController::class, 'downloadCsv'])->name('download_csv');
     });
 });
 

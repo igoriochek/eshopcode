@@ -16,6 +16,9 @@ Admin menu:
 <a href="/admin/messenger">Messenger</a>&nbsp;
 <a href="/admin/orders_report">Orders Report</a>&nbsp;&nbsp;
 <a href="/admin/returns_report">Returns Report</a>&nbsp;&nbsp;
+<a href="/admin/carts_report">Carts Report</a>&nbsp;&nbsp;
+<a href="/admin/users_report">Users Report</a>&nbsp;&nbsp;
+<a href="/admin/user_activities_report">User Activities Report</a>&nbsp;&nbsp;
 
 
 @foreach (config('translatable.locales') as $locale)

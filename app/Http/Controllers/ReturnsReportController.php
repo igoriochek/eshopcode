@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\AppBaseController;
-use App\Repositories\ReturnItemRepository;
-use App\Repositories\ReturnsRepository;
 use App\Models\ReturnItem;
 use App\Models\Returns;
 use App\Mail\ReturnsReport;
@@ -21,15 +19,6 @@ use Excel;
 
 class ReturnsReportController extends AppBaseController
 {
-    private $returnsRepository;
-    private $returnItemRepository;
-
-    public function __construct(ReturnsRepository $returnsRepo, ReturnItemRepository $returnItemRepo)
-    {
-        $this->returnsRepository = $returnsRepo;
-        $this->returnItemRepository = $returnItemRepo;
-    }
-
     private function getReturns()
     {
         $returns = QueryBuilder::for(Returns::class)
@@ -62,8 +51,7 @@ class ReturnsReportController extends AppBaseController
 
     private function getReturnItems()
     {
-        $returnItems = $this->returnItemRepository
-        ->all()
+        $returnItems = ReturnItem::all()
             ->map(function($returnItem) {
                 $returnItem->subtotal = $returnItem->price_current * $returnItem->count;
 

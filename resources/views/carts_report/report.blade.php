@@ -1,50 +1,52 @@
     <table>
         <thead>
             <tr>
-                <th>Order ID</th>
+                <th>Cart ID</th>
                 <th>User</th>
+                <th>Code</th>
                 <th>Created Date</th>
                 <th>Status</th>
             </tr>
         </thead>
-        @forelse ($orders as $order)
-        <tbody>
+        @forelse ($carts as $cart)
+            <tbody>
                 <tr>
-                    <td>{{ $order->id ?? '-' }}</td>
-                    <td>{{ $order->user->name ?? '-' }}</td>
-                    <td>{{ $order->created_at ?? '-' }}</td>
-                    <td>{{ $order->status->name ?? '-' }}</td>
+                    <td>{{ $cart->id ?? '-' }}</td>
+                    <td>{{ $cart->user->name ?? '-' }}</td>
+                    <td>{{ $cart->code ?? '-' }}</td>
+                    <td>{{ $cart->created_at ?? '-' }}</td>
+                    <td>{{ $cart->status->name ?? '-' }}</td>
                 </tr>
                 <tr>
-                    <th>Product Name</th>
+                    <th colspan="2">Product Name</th>
                     <th>Price Per Item</th>
                     <th>Count</th>
                     <th>Subtotal</th>
                 </tr>
-                @forelse ($orderItems as $orderItem)
-                    @if ($orderItem->order_id === $order->id)
+                @forelse ($cartItems as $cartItem)
+                    @if ($cartItem->cart_id === $cart->id)
                         <tr>
-                            <td>{{ $orderItem->product->name ?? '-' }}</td>
-                            <td>{{ $orderItem->price_current ?? '-' }}</td>
-                            <td>{{ $orderItem->count ?? '-' }}</td>
-                            <td>{{ $orderItem->subtotal ?? '-' }}</td>
+                            <td colspan="2">{{ $cartItem->product->name ?? '-' }}</td>
+                            <td>{{ $cartItem->price_current ?? '-' }}</td>
+                            <td>{{ $cartItem->count ?? '-' }}</td>
+                            <td>{{ $cartItem->subtotal ?? '-' }}</td>
                         </tr>
                     @endif
                 @empty
                     <tr>
-                        <td colspan="8">No order items found</td>
+                        <td colspan="8">No cart items found</td>
                     </tr>
                 @endforelse
                 <tr>
-                    <th>Total:</th>
-                    <th>{{ $order->total[0]->total_price_current ?? '-' }}</th>
-                    <th>{{ $order->total[0]->total_count ?? '-' }}</th>
-                    <th>{{ $order->total[0]->total_price ?? '-' }}</th>
+                    <th colspan="2">Total:</th>
+                    <th>{{ $cart->total[0]->total_price_current ?? '-' }}</th>
+                    <th>{{ $cart->total[0]->total_count ?? '-' }}</th>
+                    <th>{{ $cart->total[0]->total_price ?? '-' }}</th>
                 </tr>
             </tbody>
         @empty
             <tr>
-                <td colspan="8">No orders found</td>
+                <td colspan="8">No carts found</td>
             </tr>
         @endforelse
     </table>
@@ -80,10 +82,6 @@
 
     table tbody tr:nth-child(1) {
         background-color: #e7e7e7;
-    }
-
-    table tbody tr:nth-child(2) {
-        background-color: #f2f2f2;
     }
 
     @media screen and (max-width: 1500px) {
