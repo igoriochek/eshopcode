@@ -30,7 +30,8 @@ class UserSeeder extends Seeder
             'house_flat' => "3/9",
             "post_index" => "LT 02178",
             'city' => "Vilnius",
-            'phone_number' => "37012345678"
+            'phone_number' => "37012345678",
+            'type' => 1,
         ]);
         DB::table('users')->insert([
             'name' => 'pavel',

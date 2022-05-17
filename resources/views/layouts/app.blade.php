@@ -95,7 +95,7 @@
 
     </div>
 
-
+    <div>PHP version: {{phpversion()}}</div>
     <script src="{{asset('js/jquery-3.6.0.min.js')}}"></script>
     <script src="{{asset('js/jquery.dataTables.min.js')}}"></script>
     <script src="{{asset('js/jquery-ui.js')}}"></script>

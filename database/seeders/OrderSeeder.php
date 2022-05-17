@@ -51,7 +51,7 @@ class OrderSeeder extends Seeder
             $newOrder->order_id = $orderID;
             $newOrder->user_id = $cart->user_id;
             $newOrder->admin_id = 1;
-            $newOrder->status_id = rand(1,5);
+            $newOrder->status_id = rand(1,7);
             $newOrder->sum = $cart->sum;
             $newOrder->created_at = Carbon::today()->subDays(rand(0, 365));
 

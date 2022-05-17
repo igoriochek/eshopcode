@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateDiscountRequest;
 use App\Http\Requests\UpdateDiscountRequest;
+use App\Models\Discount;
 use App\Repositories\DiscountRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
@@ -14,6 +15,7 @@ class DiscountController extends AppBaseController
 {
     /** @var DiscountRepository $discountRepository*/
     private $discountRepository;
+    use \App\Http\Controllers\PrepareTranslations;
 
     public function __construct(DiscountRepository $discountRepo)
     {
@@ -29,7 +31,7 @@ class DiscountController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $discounts = $this->discountRepository->all();
+        $discounts = Discount::translatedIn(app()->getLocale())->get();
 
         return view('discounts.index')
             ->with('discounts', $discounts);
@@ -55,8 +57,9 @@ class DiscountController extends AppBaseController
     public function store(CreateDiscountRequest $request)
     {
         $input = $request->all();
-
-        $discount = $this->discountRepository->create($input);
+        $input = $this->prepare($input, ["name", "description"]);
+//        dd($input);
+        $discount = Discount::create($input);
 
         Flash::success('Discount saved successfully.');
 
@@ -120,8 +123,9 @@ class DiscountController extends AppBaseController
 
             return redirect(route('discounts.index'));
         }
-
-        $discount = $this->discountRepository->update($request->all(), $id);
+        $input = $this->prepare($request->all(), ["name", "description"]);
+//        dd($input);
+        $discount->update($input);
 
         Flash::success('Discount updated successfully.');
 

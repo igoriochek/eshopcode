@@ -29,5 +29,11 @@ class OrderStatusesSeeder extends Seeder
         DB::table('order_statuses')->insert([
             'name' => 'Canceled',
         ]);
+        DB::table('order_statuses')->insert([
+            'name' => 'Completed',
+        ]);
+        DB::table('order_statuses')->insert([
+            'name' => 'Returned',
+        ]);
     }
 }

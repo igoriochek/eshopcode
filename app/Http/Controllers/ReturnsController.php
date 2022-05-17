@@ -293,7 +293,7 @@ class ReturnsController extends AppBaseController
                 }
             }
 
-            $order->status_id = 5;
+            $order->status_id = 7;
             $order->save();
         }
 
@@ -302,4 +302,46 @@ class ReturnsController extends AppBaseController
         return redirect(route('rootorders'));
     }
 
+    public function cancelOrder($id)
+    {
+        $userId = Auth::id();
+        $order = Order::query()
+            ->where([
+                'id' => $id,
+                'user_id' => $userId,
+            ])
+            ->first();
+
+        if (empty($order)) {
+            Flash::error('Order not found');
+
+            return redirect(route('rootorders'));
+        }
+
+        return view('user_views.orders.cancel')->with([
+            'order' => $order,
+        ]);
+    }
+
+    public function saveCancelOrder($id, UserCreateReturnsRequest $request)
+    {
+        $userId = Auth::id();
+        $input = $request->all();
+
+        $order = Order::query()
+            ->where([
+                'id' => $id,
+                'user_id' => $userId,
+            ])
+            ->first();
+
+        if (isset($order)) {
+            $order->status_id = 5;
+            $order->save();
+        }
+
+        Flash::success('Returns saved successfully.');
+
+        return redirect(route('rootorders'));
+    }
 }

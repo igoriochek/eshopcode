@@ -21,7 +21,10 @@ trait forSelector
     public function categoriesForSelector()
     {
         $c = array();
-        Category::all()->map(function ($item) use (&$c) {
+//        Category::all()->map(function ($item) use (&$c) {
+//            $c[$item->id] = $item->name;
+//        });
+    Category::translatedIn(app()->getLocale())->get()->map(function ($item) use (&$c) {
             $c[$item->id] = $item->name;
         });
         return $c;
@@ -30,7 +33,10 @@ trait forSelector
     public function productsForSelector()
     {
         $c = array();
-        Product::all()->map(function ($item) use (&$c) {
+//        Product::all()->map(function ($item) use (&$c) {
+//            $c[$item->id] = $item->name;
+//        });
+        Product::translatedIn(app()->getLocale())->get()->map(function ($item) use (&$c) {
             $c[$item->id] = $item->name;
         });
         return $c;

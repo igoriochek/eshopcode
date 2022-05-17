@@ -1,48 +1,49 @@
+
 User:
 
 Products:
 /user/products
-    sortirovka
+    +sortirovka by name
     +pokazyvat cenu so skidkoj esli est
 
     +reitingi
 
     ?rezervacija- zakaz ( podumat kak sdelat so statusami )
     ?iz stranicy produkta vozvrat nazad otkuda prishli ( promotion, derevo, filtr - back() )
-    ?produkt dobavit skidku i dobavit k akcii - mozhet razdelit
+    +produkt dobavit skidku i dobavit k akcii - mozhet razdelit
 
-    checkout - schitat cenu so skidkoj i primenit kupon.
+    +checkout - schitat cenu so skidkoj i primenit kupon.
 
-    https://developers.paysera.com/ru/checkout/integrations/integration-library
+    +https://developers.paysera.com/ru/checkout/integrations/integration-library
 
     Необходимо добавить в .env из панели paysera
         WEBTOPAY_PROJECTID=12345678901
         WEBTOPAY_SIGN_PASSWORD=12345678901
 
 /user/customersinfo
-    vvod informacii ( telefon, adres, email ) i redaktrivanie
-    facebook, google, twitter
-    ?napominanie parolia proverit, logout
+    +vvod informacii ( telefon, adres, email ) i redaktrivanie
+    +facebook, google, twitter
+    +napominanie parolia proverit, logout
 Live:chat
-    perepiska s mezhdu klientom i adminami: raznye chaty dlia kazhdogo admin
-    priviazka soobshenij k zakazu, korzine, otkazu
+    +perepiska s mezhdu klientom i adminami: raznye chaty dlia kazhdogo admin
+    +priviazka soobshenij k zakazu, korzine, otkazu
 
 Formirovanie platezhej
-    Okno checkout s primeneniem kupona i redaktirovaniem
-    Okno platezha i vybor platezhki
-    ?Integriruem payseru
+    +Okno checkout s primeneniem kupona i redaktirovaniem
+    +Okno platezha i vybor platezhki
+    +Integriruem payseru
     vypiska schiota - pdf
 
 Cookie po tipam
 
-Mnogojazychnost - dodelat v konce
++Mnogojazychnost - dodelat v konce
 
 
 
 
 Admin:
-    Produkty - proverit video image
-    Selectors - parent category, no discount, ...
+    +Produkty - proverit video image
+    +Selectors - parent category, no discount, ...
     Modul otchiotov, generacija csv, pdf, json, sql, txe - i dlia otchiotov, siuda zhe import/export
     Glafiki
     Chat s userami - raznye okna s raznye, priviazka soobshenij k zakazu, korzine, otkazu

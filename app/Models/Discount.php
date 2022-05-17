@@ -2,9 +2,13 @@
 
 namespace App\Models;
 
+
 use Eloquent as Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+
+use Astrotomic\Translatable\Translatable;
+use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
 
 /**
  * Class Discount
@@ -15,22 +19,19 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @property string $description
  * @property integer $proc
  */
-class Discount extends Model
+class Discount extends Model implements TranslatableContract
 {
-//    use SoftDeletes;
 
-    use HasFactory;
+
+    use HasFactory,Translatable;
 
     public $table = 'discounts';
-
-
-//    protected $dates = ['deleted_at'];
-
+    public $translatedAttributes = ['name', 'description'];
 
 
     public $fillable = [
-        'name',
-        'description',
+//        'name',
+//        'description',
         'proc'
     ];
 
@@ -40,8 +41,8 @@ class Discount extends Model
      * @var array
      */
     protected $casts = [
-        'name' => 'string',
-        'description' => 'string',
+//        'name' => 'string',
+//        'description' => 'string',
         'proc' => 'integer'
     ];
 
@@ -51,8 +52,8 @@ class Discount extends Model
      * @var array
      */
     public static $rules = [
-        'name' => 'required',
-        'description' => 'required',
+//        'name' => 'required',
+//        'description' => 'required',
         'proc' => 'required'
     ];
 
