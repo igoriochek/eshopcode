@@ -19,6 +19,7 @@ Admin menu:
 <a href="/admin/carts_report">Carts Report</a>&nbsp;&nbsp;
 <a href="/admin/users_report">Users Report</a>&nbsp;&nbsp;
 <a href="/admin/user_activities_report">User Activities Report</a>&nbsp;&nbsp;
+<a href="/admin/cookies">Cookies</a>&nbsp;&nbsp;
 
 
 @foreach (config('translatable.locales') as $locale)
