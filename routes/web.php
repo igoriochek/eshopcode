@@ -15,6 +15,7 @@ use App\Http\Controllers\MessengerController;
 use App\Http\Controllers\OrdersReportController;
 use App\Http\Controllers\ReturnsReportController;
 use App\Http\Controllers\ChartController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,8 +31,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(array('prefix' => 'admin','middleware' => 'admin'), function() {
+Route::group(array('prefix' => 'admin', 'middleware' => 'admin'), function () {
     Route::resource('categories', CategoryController::class);
+    Route::resource('cookies', \App\Http\Controllers\CookieController::class);
     Route::resource('products', ProductController::class);
     Route::resource('discounts', App\Http\Controllers\DiscountController::class);
     Route::resource('discountCoupons', App\Http\Controllers\DiscountCouponController::class);
@@ -48,18 +50,21 @@ Route::group(array('prefix' => 'admin','middleware' => 'admin'), function() {
     Route::resource('cartItems', App\Http\Controllers\CartItemController::class);
     Route::resource('messenger', MessengerController::class)->except('edit', 'update', 'delete');
     // Statistics
-    Route::get("statistics", [ChartController::class, 'index'])->name('customers.statistics');
-    Route::post("statistics", [ChartController::class, 'changeStatisticType'])->name('customers.statistics');
+    Route::prefix('')->name('customers.')->group(function () {
+        Route::get('statistics', [ChartController::class, 'index'])->name('statistics');
+        Route::post('statistics', [ChartController::class, 'changeStatisticType'])->name('statistics');
+    });
+
     // Logs
     Route::get('logs', [CustomerController::class, 'logs'])->name('customers.logs');
 
-    Route::prefix('orders_report')->name('orders_report.')->group( function () {
+    Route::prefix('orders_report')->name('orders_report.')->group(function () {
         Route::get('', [OrdersReportController::class, 'index'])->name('index');
         Route::get('email', [OrdersReportController::class, 'sendEmail'])->name('email');
         Route::get('download_pdf', [OrdersReportController::class, 'downloadPdf'])->name('download_pdf');
         Route::get('download_csv', [OrdersReportController::class, 'downloadCsv'])->name('download_csv');
     });
-    Route::prefix('returns_report')->name('returns_report.')->group( function () {
+    Route::prefix('returns_report')->name('returns_report.')->group(function () {
         Route::get('', [ReturnsReportController::class, 'index'])->name('index');
         Route::get('email', [ReturnsReportController::class, 'sendEmail'])->name('email');
         Route::get('download_pdf', [ReturnsReportController::class, 'downloadPdf'])->name('download_pdf');
@@ -67,7 +72,7 @@ Route::group(array('prefix' => 'admin','middleware' => 'admin'), function() {
     });
 });
 
-Route::group(array('prefix' => 'user', 'middleware' => 'auth'), function (){
+Route::group(array('prefix' => 'user', 'middleware' => ['auth', 'cookie-consent']), function () {
     Route::get('/', function () {
         return redirect()->route('userhomepage');
     });
@@ -102,7 +107,8 @@ Route::group(array('prefix' => 'user', 'middleware' => 'auth'), function (){
 
     Route::post('addUserRating', [\App\Http\Controllers\RatingsController::class, 'addUserRating'])->name('addUserRating');
 
-    Route::prefix('messenger')->name('messenger.')->group( function () {
+
+    Route::prefix('messenger')->name('messenger.')->group(function () {
         Route::get('', [MessengerController::class, 'index']);
         Route::get('create', [MessengerController::class, 'create'])->name('create');
         Route::get('{id}', [MessengerController::class, 'show'])->where('id', '[0-9]+')->name('show');
@@ -115,22 +121,22 @@ Route::group(array('prefix' => 'user', 'middleware' => 'auth'), function (){
 });
 
 Auth::routes();
-Route::get("logout", function (){
+Route::get("logout", function () {
     Auth::logout();
     return redirect()->route('home');
-} )->name("getlogout");
+})->name("getlogout");
 
-Route::prefix('facebook')->name('facebook.')->group( function(){
+Route::prefix('facebook')->name('facebook.')->group(function () {
     Route::get('auth', [FaceBookController::class, 'loginUsingFacebook'])->name('login');
     Route::get('callback', [FaceBookController::class, 'callbackFromFacebook'])->name('callback');
 });
 
-Route::prefix('google')->name('google.')->group( function (){
-   Route::get('auth', [GoogleController::class, 'loginUsingGoogle'])->name('login');
-   Route::get('callback', [GoogleController::class, 'callbackFromGoogle'])->name('callback');
+Route::prefix('google')->name('google.')->group(function () {
+    Route::get('auth', [GoogleController::class, 'loginUsingGoogle'])->name('login');
+    Route::get('callback', [GoogleController::class, 'callbackFromGoogle'])->name('callback');
 });
 
-Route::prefix('twitter')->name('twitter.')->group(function (){
+Route::prefix('twitter')->name('twitter.')->group(function () {
     Route::get('auth', [TwitterController::class, 'loginUsingTwitter'])->name('login');
     Route::get('callback', [TwitterController::class, 'callbackFromTwitter'])->name('callback');
 });
@@ -146,15 +152,6 @@ Route::get('lang/{locale}', function ($locale) {
 
 
 //Route::resource('categories', App\Http\Controllers\CategoryController::class);
-
-
-
-
-
-
-
-
-
 
 
 Route::resource('messages', App\Http\Controllers\MessageController::class);

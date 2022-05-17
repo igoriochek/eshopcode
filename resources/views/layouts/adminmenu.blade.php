@@ -16,6 +16,7 @@ Admin menu:
 <a href="/admin/messenger">Messenger</a>&nbsp;
 <a href="/admin/orders_report">Orders Report</a>&nbsp;&nbsp;
 <a href="/admin/returns_report">Returns Report</a>&nbsp;&nbsp;
+<a href="/admin/cookies">Cookies</a>&nbsp;&nbsp;
 
 
 @foreach (config('translatable.locales') as $locale)

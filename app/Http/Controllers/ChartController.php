@@ -104,6 +104,14 @@ class ChartController extends AppBaseController
         return [array_values(($userArr)), $months, $type, $label];
     }
 
+    /**
+     * Get Orders by Activity Paid,Unpaid,Cancelled by created_date
+     * Return Array consists of [data,lineLabels,barType,chartLabel]
+     *
+     * @param string $activityType
+     * @param string $barType
+     * @return array
+     */
     public function getOrderActivity(string $activityType, string $barType): array
     {
 
@@ -143,7 +151,14 @@ class ChartController extends AppBaseController
         return [array_values(($ordersArr)), $months, $type, $label];
     }
 
-
+    /**
+     * Get Users and Admins from database to Chart
+     * Return Array consists of [data,lineLabels,barType,chartLabel]
+     *
+     * @param string $chartLabel
+     * @param $barType
+     * @return array
+     */
     public function getUserAdmin(string $chartLabel, $barType): array
     {
         $users = User::where('type', 2)->count();

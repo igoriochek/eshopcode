@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
             OrderStatusesSeeder::class,
             CartStatusesSeeder::class,
             CategorySeeder::class,
+            CookieSeeder::class,
             UserSeeder::class,
             DiscountSeeder::class,
             DiscountCouponSeeder::class,
