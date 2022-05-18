@@ -30,7 +30,7 @@ class CookieSeeder extends Seeder
             'isMandatory' => false,
         ]);
         DB::table('cookies')->insert([
-            'name'=> 'analytical',
+            'name'=> 'analytics',
             'description'=> 'allow us to analyse website use and to improve the visitor\'s experience.',
             'isMandatory' => false,
         ]);

@@ -61,7 +61,7 @@ Route::group(array('prefix' => 'admin', 'middleware' => 'admin'), function () {
     // Logs
     Route::get('logs', [CustomerController::class, 'logs'])->name('customers.logs');
 
-    Route::prefix('orders_report')->name('orders_report.')->group(function () {
+//    Route::prefix('orders_report')->name('orders_report.')->group(function () {
         Route::prefix('orders_report')->name('orders_report.')->group(function () {
             Route::get('', [OrdersReportController::class, 'index'])->name('index');
             Route::get('email', [OrdersReportController::class, 'sendEmail'])->name('email');
@@ -93,7 +93,7 @@ Route::group(array('prefix' => 'admin', 'middleware' => 'admin'), function () {
             Route::get('download_csv', [UserActivitiesReportController::class, 'downloadCsv'])->name('download_csv');
         });
     });
-});
+//});
 
     Route::group(array('prefix' => 'user', 'middleware' => ['auth', 'cookie-consent']), function () {
         Route::get('/', function () {
