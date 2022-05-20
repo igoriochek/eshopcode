@@ -76,10 +76,11 @@
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"  aria-expanded="false">{{__('messages.chooselang')}}:<a/>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         @foreach (config('translatable.locales') as $locale)
-                                            <a class="dropdown-item"  href="/lang/{{ $locale }}"
+                                           <li> <a class="dropdown-item"  href="/lang/{{ $locale }}"
                                                class="@if (app()->getLocale() == $locale) border-indigo-400 @endif inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium leading-5 focus:outline-none transition duration-150 ease-in-out">
                                                 [{{ strtoupper($locale) }}]
                                             </a>
+                                           </li>
                                         @endforeach
                                     </ul>
                             </li>
@@ -100,7 +101,7 @@
 {{--                                @endif--}}
 {{--                            @endauth--}}
                             @if( Auth::user()->type == 2 )
-                                <a class="dropdown-item" href="/user/userprofile">User info</a>&nbsp;
+                                <li><a class="dropdown-item" href="/user/userprofile">User info</a>&nbsp;</li>
                             @endif
                             <li>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST">
