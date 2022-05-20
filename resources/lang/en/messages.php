@@ -22,5 +22,6 @@ return [
     "novideo" => "No video",
     "passwordmismatch" => "Password empty or mismatch",
     "makereturn" => "Make a return",
+    "chooselang" => "Language",
 
 ];
