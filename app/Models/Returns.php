@@ -42,7 +42,9 @@ class Returns extends Model
         'order_id',
         'code',
         'description',
-        'status_id'
+        'status_id',
+        'created_at',
+        'updated_at'
     ];
 
     /**
@@ -56,7 +58,9 @@ class Returns extends Model
         'order_id' => 'integer',
         'code' => 'string',
         'description' => 'string',
-        'status_id' => 'integer'
+        'status_id' => 'integer',
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime'
     ];
 
     /**

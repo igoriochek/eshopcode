@@ -20,13 +20,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  */
 class ReturnItem extends Model
 {
-
     use HasFactory;
 
     public $table = 'return_items';
-
-
-
 
     public $fillable = [
         'order_id',
@@ -34,7 +30,9 @@ class ReturnItem extends Model
         'return_id',
         'product_id',
         'price_current',
-        'count'
+        'count',
+        'created_at',
+        'updated_at'
     ];
 
     /**
@@ -48,7 +46,9 @@ class ReturnItem extends Model
         'return_id' => 'integer',
         'product_id' => 'integer',
         'price_current' => 'double',
-        'count' => 'double'
+        'count' => 'double',
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime'
     ];
 
     /**
@@ -74,5 +74,4 @@ class ReturnItem extends Model
     {
         return $this->hasOne(User::class, 'id', 'user_id');
     }
-
 }

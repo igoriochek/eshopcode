@@ -27,7 +27,9 @@ class Category extends Model implements TranslatableContract
 //        'name',
 //        'description',
         'parent_id',
-        'visible'
+        'visible',
+        'created_at',
+        'updated_at'
     ];
 
     /**
@@ -39,7 +41,9 @@ class Category extends Model implements TranslatableContract
 //        'name' => 'string',
 //        'description' => 'string',
         'parent_id' => 'integer',
-        'visible' => 'integer'
+        'visible' => 'integer',
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime'
     ];
 
     /**

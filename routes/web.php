@@ -18,6 +18,7 @@ use App\Http\Controllers\CartsReportController;
 use App\Http\Controllers\UsersReportController;
 use App\Http\Controllers\UserActivitiesReportController;
 use App\Http\Controllers\ChartController;
+use App\Http\Controllers\DataExportImportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -86,6 +87,9 @@ Route::group(array('prefix' => 'admin','middleware' => 'admin'), function() {
         Route::get('download_pdf', [UserActivitiesReportController::class, 'downloadPdf'])->name('download_pdf');
         Route::get('download_csv', [UserActivitiesReportController::class, 'downloadCsv'])->name('download_csv');
     });
+    Route::get('data_export_import', [DataExportImportController::class, 'index'])->name('data_export_import.index');
+    Route::get('data_export_import/export', [DataExportImportController::class, 'export'])->name('data_export_import.export');
+    Route::post('data_export_import/import', [DataExportImportController::class, 'import'])->name('data_export_import.import');
 });
 
 Route::group(array('prefix' => 'user', 'middleware' => 'auth'), function (){

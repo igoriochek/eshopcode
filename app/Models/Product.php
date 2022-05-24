@@ -36,7 +36,9 @@ class Product extends Model implements TranslatableContract
         'video',
         'visible',
         'promotion_id',
-        'discount_id'
+        'discount_id',
+        'created_at',
+        'updated_at',
     ];
 
     /**
@@ -51,7 +53,9 @@ class Product extends Model implements TranslatableContract
         'video' => 'string',
         'visible' => 'integer',
         'promotion_id' => 'integer',
-        'discount_id' => 'integer'
+        'discount_id' => 'integer',
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime'
     ];
 
     /**
