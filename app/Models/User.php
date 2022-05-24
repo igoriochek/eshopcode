@@ -40,7 +40,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'avatar', 'provider_id', 'provider',
+        'avatar', 
+        'provider_id', 
+        'provider',
         'access_token',
         "street",
         "house_flat",
@@ -50,6 +52,8 @@ class User extends Authenticatable
         'facebook_id',
         'google_id',
         'twitter_id',
+        'created_at',
+        'updated_at'
     ];
 
 
@@ -70,7 +74,8 @@ class User extends Authenticatable
     public static $rules = [
         'name' => 'required',
         'email' => 'required|email:rfc',
-        'phone_number' => 'numeric|digits:11',
+        'password' => 'required',
+        'phone_number' => 'nullable|numeric|digits:11',
     ];
 
     /**
@@ -79,8 +84,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $hidden = [
-        'password',
-        'remember_token',
+        'remember_token'
     ];
 
     /**

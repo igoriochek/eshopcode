@@ -18,19 +18,17 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  */
 class OrderItem extends Model
 {
-
     use HasFactory;
 
     public $table = 'order_items';
-
-
-
 
     public $fillable = [
         'order_id',
         'product_id',
         'price_current',
-        'count'
+        'count',
+        'created_at',
+        'updated_at'
     ];
 
     /**
@@ -42,7 +40,9 @@ class OrderItem extends Model
         'order_id' => 'integer',
         'product_id' => 'integer',
         'price_current' => 'double',
-        'count' => 'double'
+        'count' => 'double',
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime'
     ];
 
     /**
@@ -60,5 +60,4 @@ class OrderItem extends Model
     {
         return $this->hasOne(Product::class, 'id', 'product_id');
     }
-
 }

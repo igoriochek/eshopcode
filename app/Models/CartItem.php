@@ -29,6 +29,8 @@ class CartItem extends Model
         'product_id',
         'price_current',
         'count',
+        'created_at',
+        'updated_at'
     ];
 
     /**
@@ -40,7 +42,9 @@ class CartItem extends Model
         'cart_id' => 'integer',
         'product_id' => 'integer',
         'price_current' => 'double',
-        'count' => 'integer'
+        'count' => 'integer',
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime'
     ];
 
     /**

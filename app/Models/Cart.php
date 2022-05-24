@@ -42,7 +42,9 @@ class Cart extends Model
         'code',
         'sum',
         'status_id',
-        'admin_id'
+        'admin_id',
+        'created_at',
+        'updated_at'
     ];
 
     /**
@@ -55,7 +57,9 @@ class Cart extends Model
         'code' => 'string',
         'sum' => 'double',
         'status_id' => 'integer',
-        'admin_id' => 'integer'
+        'admin_id' => 'integer',
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime'
     ];
 
     /**

@@ -18,6 +18,7 @@ use App\Http\Controllers\CartsReportController;
 use App\Http\Controllers\UsersReportController;
 use App\Http\Controllers\UserActivitiesReportController;
 use App\Http\Controllers\ChartController;
+use App\Http\Controllers\DataExportImportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -92,8 +93,42 @@ Route::group(array('prefix' => 'admin', 'middleware' => 'admin'), function () {
             Route::get('download_pdf', [UserActivitiesReportController::class, 'downloadPdf'])->name('download_pdf');
             Route::get('download_csv', [UserActivitiesReportController::class, 'downloadCsv'])->name('download_csv');
         });
-    });
+//    });
 //});
+    Route::prefix('orders_report')->name('orders_report.')->group( function () {
+        Route::get('', [OrdersReportController::class, 'index'])->name('index');
+        Route::get('email', [OrdersReportController::class, 'sendEmail'])->name('email');
+        Route::get('download_pdf', [OrdersReportController::class, 'downloadPdf'])->name('download_pdf');
+        Route::get('download_csv', [OrdersReportController::class, 'downloadCsv'])->name('download_csv');
+    });
+    Route::prefix('returns_report')->name('returns_report.')->group( function () {
+        Route::get('', [ReturnsReportController::class, 'index'])->name('index');
+        Route::get('email', [ReturnsReportController::class, 'sendEmail'])->name('email');
+        Route::get('download_pdf', [ReturnsReportController::class, 'downloadPdf'])->name('download_pdf');
+        Route::get('download_csv', [ReturnsReportController::class, 'downloadCsv'])->name('download_csv');
+    });
+    Route::prefix('carts_report')->name('carts_report.')->group( function () {
+        Route::get('', [CartsReportController::class, 'index'])->name('index');
+        Route::get('email', [CartsReportController::class, 'sendEmail'])->name('email');
+        Route::get('download_pdf', [CartsReportController::class, 'downloadPdf'])->name('download_pdf');
+        Route::get('download_csv', [CartsReportController::class, 'downloadCsv'])->name('download_csv');
+    });
+    Route::prefix('users_report')->name('users_report.')->group( function () {
+        Route::get('', [UsersReportController::class, 'index'])->name('index');
+        Route::get('email', [UsersReportController::class, 'sendEmail'])->name('email');
+        Route::get('download_pdf', [UsersReportController::class, 'downloadPdf'])->name('download_pdf');
+        Route::get('download_csv', [UsersReportController::class, 'downloadCsv'])->name('download_csv');
+    });
+    Route::prefix('user_activities_report')->name('user_activities_report.')->group( function () {
+        Route::get('', [UserActivitiesReportController::class, 'index'])->name('index');
+        Route::get('email', [UserActivitiesReportController::class, 'sendEmail'])->name('email');
+        Route::get('download_pdf', [UserActivitiesReportController::class, 'downloadPdf'])->name('download_pdf');
+        Route::get('download_csv', [UserActivitiesReportController::class, 'downloadCsv'])->name('download_csv');
+    });
+    Route::get('data_export_import', [DataExportImportController::class, 'index'])->name('data_export_import.index');
+    Route::get('data_export_import/export', [DataExportImportController::class, 'export'])->name('data_export_import.export');
+    Route::post('data_export_import/import', [DataExportImportController::class, 'import'])->name('data_export_import.import');
+});
 
     Route::group(array('prefix' => 'user', 'middleware' => ['auth', 'cookie-consent']), function () {
         Route::get('/', function () {
