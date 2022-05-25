@@ -15,6 +15,7 @@ Admin menu:
 <li><a class="dropdown-item" href="/admin/customers">Users</a>&nbsp;</li>
 <li><a class="dropdown-item" href="/admin/messenger">Messenger</a>&nbsp;</li>
 <li><a class="dropdown-item" href="/admin/cookies">Cookies</a>&nbsp;&nbsp;</li>
+<li><a class="dropdown-item" href="/admin/data_export_import">Import/Export</a>&nbsp;&nbsp;</li>
 
 
 {{--@foreach (config('translatable.locales') as $locale)--}}
