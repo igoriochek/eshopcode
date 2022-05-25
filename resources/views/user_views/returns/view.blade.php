@@ -26,7 +26,7 @@
 {{--            </a>--}}
 {{--        </div>--}}
 
-        <div>Order status: {{ $return->status->name }}</div>
+        <div>Return status: {{ $return->status->name }}</div>
 
         <div class="table table-responsive">
             <table class="table">
@@ -54,6 +54,29 @@
 
     </div>
 </section>
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h2>Order History</h2>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="content px-3">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    @include('orders.history_table')
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 
 @endsection
 

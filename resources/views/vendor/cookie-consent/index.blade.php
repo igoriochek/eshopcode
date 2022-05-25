@@ -3,7 +3,8 @@
     $cookies = \App\Http\Controllers\CookieController::showCookieConsent();
 @endphp
 
-<div role="dialog" aria-labelledby="lcc-modal-alert-label" aria-describedby="lcc-modal-alert-desc" aria-modal="true"
+<div
+    role="dialog" aria-labelledby="lcc-modal-alert-label" aria-describedby="lcc-modal-alert-desc" aria-modal="true"
      class="lcc-modal lcc-modal--alert js-lcc-modal js-lcc-modal-alert" style="display: none;"
      data-cookie-key="{{ config('cookie-consent.cookie_key') }}"
      data-cookie-value-analytics="{{ config('cookie-consent.cookie_value_analytics') }}"

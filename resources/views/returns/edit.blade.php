@@ -34,4 +34,24 @@
 
         </div>
     </div>
+
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h2>Order History</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="content px-3">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    @include('orders.history_table')
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection

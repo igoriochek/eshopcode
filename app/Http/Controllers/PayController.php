@@ -13,6 +13,7 @@ use App\Repositories\CartRepository;
 use Exception;
 use Flash;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Response;
 
 class PayController extends AppBaseController
@@ -123,7 +124,11 @@ class PayController extends AppBaseController
                         $newOrderItem->count = $cartItem->count;
                         $newOrderItem->save();
                     }
+                    $user = Auth::user();
 
+                    if($user){
+                        $user->log("Created new Order ID:{$params['orderid']}");
+                    }
                     return 'OK';
                 }
             }
