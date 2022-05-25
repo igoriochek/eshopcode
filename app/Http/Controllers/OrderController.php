@@ -8,8 +8,11 @@ use App\Http\Requests\UpdateOrderRequest;
 use App\Models\Cart;
 use App\Models\CartItem;
 use App\Models\DiscountCoupon;
+use App\Models\LogActivity;
 use App\Models\Order;
 use App\Models\OrderItem;
+use App\Models\OrderStatus;
+use App\Models\ReturnItem;
 use App\Repositories\CartRepository;
 use App\Repositories\DiscountCouponRepository;
 use App\Repositories\OrderRepository;
@@ -23,13 +26,13 @@ class OrderController extends AppBaseController
 {
     use \App\Http\Controllers\forSelector;
 
-    /** @var OrderRepository $orderRepository*/
+    /** @var OrderRepository $orderRepository */
     private $orderRepository;
 
-    /** @var CartRepository $cartRepository*/
+    /** @var CartRepository $cartRepository */
     private $cartRepository;
 
-    /** @var DiscountCouponRepository $discountCouponRepository*/
+    /** @var DiscountCouponRepository $discountCouponRepository */
     private $discountCouponRepository;
 
     public function __construct(OrderRepository $orderRepo, CartRepository $cartRepo, DiscountCouponRepository $discountCouponRepo)
@@ -109,9 +112,12 @@ class OrderController extends AppBaseController
             ])
             ->get();
 
+        $logs = LogActivity::search("Order ID:{$id}")->get();
+
         return view('orders.show')->with([
             'order' => $order,
             'orderItems' => $orderItems,
+            'logs'=> $logs,
         ]);
     }
 
@@ -132,10 +138,14 @@ class OrderController extends AppBaseController
             return redirect(route('orders.index'));
         }
 
+        $logs = LogActivity::search("Order ID:{$id}")->get();
+
         return view('orders.edit')->with([
             'order' => $order,
             'users_list' => $this->usersForSelector(),
+            'admin_list' => $this->adminForSelector(),
             'statuses_list' => $this->orderStatusesForSelector(),
+            'logs'=>$logs,
         ]);
     }
 
@@ -159,6 +169,15 @@ class OrderController extends AppBaseController
 
         $order = $this->orderRepository->update($request->all(), $id);
 
+        $status = OrderStatus::where('id', $request->input('status_id'))
+            ->value('name');
+
+        $user = Auth::user();
+
+        if ($user) {
+            $user->log("Admin set Order ID:{$id} Status to: {$status}");
+        }
+
         Flash::success('Order updated successfully.');
 
         return redirect(route('orders.index'));
@@ -169,9 +188,9 @@ class OrderController extends AppBaseController
      *
      * @param int $id
      *
+     * @return Response
      * @throws \Exception
      *
-     * @return Response
      */
     public function destroy($id)
     {
@@ -207,7 +226,11 @@ class OrderController extends AppBaseController
     }
 
 
-
+    /**
+     * View user order
+     * @param $id
+     * @return Response
+     */
     public function viewOrder($id)
     {
         $userId = Auth::id();
@@ -231,13 +254,29 @@ class OrderController extends AppBaseController
             ])
             ->get();
 
+        foreach ($orderItems as $item) {
+
+            $returnItem = ReturnItem::
+            where([
+                'order_id' => $order->id,
+                'user_id' => $userId,
+                'product_id' => $item->product_id
+            ])
+                ->value('product_id');
+
+            if ($item->product_id == $returnItem) {
+                $item->setAttribute('isReturned', 'Returned');
+            }
+
+        }
+        $logs = LogActivity::search("Order ID:{$id}")->get();
+
         return view('user_views.orders.view')->with([
             'order' => $order,
             'orderItems' => $orderItems,
+            'logs'=>$logs,
         ]);
     }
-
-
 
 
     public function checkout(Request $request)
@@ -266,8 +305,6 @@ class OrderController extends AppBaseController
                 'discounts' => $discounts,
             ]);
     }
-
-
 
 
     public function checkoutPreview(PayRequest $request)

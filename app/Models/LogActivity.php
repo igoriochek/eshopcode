@@ -23,6 +23,11 @@ class LogActivity extends Model
         return $query->where('created_at', '<=', Carbon::parse($date_to));
     }
 
+    public function scopeSearch($query, $keywords)
+    {
+        return $query->where('activity', 'RLIKE', '[[:<:]]'.$keywords.'[[:>:]]');
+    }
+
     /**
      * The attributes that are mass assignable.
      *

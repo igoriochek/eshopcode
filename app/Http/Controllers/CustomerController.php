@@ -213,28 +213,6 @@ class CustomerController extends AppBaseController
     }
 
     /**
-     * Return statistic type based on selection
-     *
-     * @param Request $request
-     * @return mixed
-     */
-    public function changeStatisticType(Request $request)
-    {
-        switch ($request->statisticType) {
-            case "registerPerMonth":
-                $data = $this->customerRepository->getActivity('Registrations', 'Registered', 'line');
-                break;
-            case "loginPerMonth":
-                $data = $this->customerRepository->getActivity('Logins', 'Logged in', 'bar');
-                break;
-            default:
-                break;
-        }
-
-        return Response::json(['data' => $data]);
-    }
-
-    /**
      * Show customer logs page.
      *
      * @return Response

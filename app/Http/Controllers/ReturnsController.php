@@ -5,10 +5,13 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreateReturnsRequest;
 use App\Http\Requests\UpdateReturnsRequest;
 use App\Http\Requests\UserCreateReturnsRequest;
+use App\Models\LogActivity;
 use App\Models\Order;
 use App\Models\OrderItem;
+use App\Models\OrderStatus;
 use App\Models\ReturnItem;
 use App\Models\Returns;
+use App\Models\ReturnStatus;
 use App\Repositories\ReturnItemRepository;
 use App\Repositories\ReturnsRepository;
 use App\Http\Controllers\AppBaseController;
@@ -21,9 +24,9 @@ class ReturnsController extends AppBaseController
 {
     use \App\Http\Controllers\forSelector;
 
-    /** @var ReturnsRepository $returnsRepository*/
+    /** @var ReturnsRepository $returnsRepository */
     private $returnsRepository;
-    /** @var ReturnItemRepository $returnItemRepository*/
+    /** @var ReturnItemRepository $returnItemRepository */
     private $returnItemRepository;
 
     public function __construct(ReturnsRepository $returnsRepo, ReturnItemRepository $returnItemRepo)
@@ -104,9 +107,12 @@ class ReturnsController extends AppBaseController
             ])
             ->get();
 
+        $logs = $this->getOrderByReturnId($id);
+
         return view('returns.show')->with([
             'returns' => $returns,
-            'returnItems' => $returnItems
+            'returnItems' => $returnItems,
+            'logs'=>$logs,
         ]);
     }
 
@@ -127,12 +133,15 @@ class ReturnsController extends AppBaseController
             return redirect(route('returns.index'));
         }
 
+        $logs = $this->getOrderByReturnId($id);
+
         return view('returns.edit')->with([
             'returns' => $returns,
             'users_list' => $this->usersForSelector(),
             'admin_list' => $this->adminForSelector(),
             'orders_list' => $this->ordersForSelector(),
             'statuses_list' => $this->returnStatusesForSelector(),
+            'logs' => $logs,
         ]);
     }
 
@@ -156,6 +165,15 @@ class ReturnsController extends AppBaseController
 
         $returns = $this->returnsRepository->update($request->all(), $id);
 
+        $status = ReturnStatus::where('id', $request->input('status_id'))
+            ->value('name');
+
+        $user = Auth::user();
+
+        if ($user) {
+            $user->log("Admin set Order ID:{$id} Return Status to: {$status}");
+        }
+
         Flash::success('Returns updated successfully.');
 
         return redirect(route('returns.index'));
@@ -166,9 +184,9 @@ class ReturnsController extends AppBaseController
      *
      * @param int $id
      *
+     * @return Response
      * @throws \Exception
      *
-     * @return Response
      */
     public function destroy($id)
     {
@@ -199,6 +217,11 @@ class ReturnsController extends AppBaseController
         ]);
     }
 
+    /**
+     * View user return
+     * @param $id
+     * @return Response
+     */
     public function viewReturn($id)
     {
         $userId = Auth::id();
@@ -222,9 +245,14 @@ class ReturnsController extends AppBaseController
             ])
             ->get();
 
+
+
+        $logs = $this->getOrderByReturnId($id);
+
         return view('user_views.returns.view')->with([
             'return' => $return,
             'returnItems' => $returnItems,
+            'logs'=>$logs,
         ]);
     }
 
@@ -244,12 +272,17 @@ class ReturnsController extends AppBaseController
             return redirect(route('rootorders'));
         }
 
+        $orderItems = OrderItem::query()
+            ->with('product')
+            ->where([
+                'order_id' => $order->id,
+            ])
+            ->get();
+
         return view('user_views.orders.return')->with([
-            'order' => $order,
+            'order' => $order, 'orderItems' => $orderItems,
         ]);
     }
-
-
 
 
     public function saveReturnOrder($id, UserCreateReturnsRequest $request)
@@ -257,6 +290,7 @@ class ReturnsController extends AppBaseController
         $userId = Auth::id();
         $input = $request->all();
 
+        $return_items = $input['return_items'];
         $order = Order::query()
             ->where([
                 'id' => $id,
@@ -274,25 +308,39 @@ class ReturnsController extends AppBaseController
                 'status_id' => 1,
             ]);
 
-            $orderItems = OrderItem::query()
-                ->where([
-                    'order_id' => $order->id
-                ])
-                ->get();
+            $orderItems = [];
+            foreach ($return_items as $item) {
+
+                $orderItems[] = OrderItem::query()
+                    ->where([
+                        'order_id' => $order->id,
+                        'product_id' => $item,
+                    ])
+                    ->get();
+            }
+
 
             if (isset($orderItems)) {
                 foreach ($orderItems as $item) {
+
                     $returnItem = $this->returnItemRepository->create([
-                        'order_id' => $order->id,
+                        'order_id' => $item[0]->order_id,
                         'user_id' => $userId,
                         'return_id' => $returns->id,
-                        'product_id' => $item->id,
-                        'price_current' => $item->price_current,
-                        'count' => $item->count,
+                        'product_id' => $item[0]->product_id,
+                        'price_current' => $item[0]->price_current,
+                        'count' => $item[0]->count,
                     ]);
+
+
                 }
             }
 
+            $user = Auth::user();
+
+            if ($user) {
+                $user->log("Returned Order ID:{$order->id}");
+            }
             $order->status_id = 7;
             $order->save();
         }
@@ -336,12 +384,28 @@ class ReturnsController extends AppBaseController
             ->first();
 
         if (isset($order)) {
+            $user = Auth::user();
+
+            if ($user) {
+                $user->log("Cancelled Order ID:{$order->id}");
+            }
             $order->status_id = 5;
             $order->save();
         }
 
-        Flash::success('Returns saved successfully.');
+        Flash::success('Order cancelled successfully.');
 
         return redirect(route('rootorders'));
+    }
+
+    /**
+     * Helper func to get orderId by passing returnId
+     * @param $id return_id
+     * @return mixed
+     */
+    private function getOrderByReturnId($id){
+        $orderId = Returns::where(['id' => $id])->value('order_id');
+
+        return LogActivity::search("Order ID:{$orderId}")->get();
     }
 }
