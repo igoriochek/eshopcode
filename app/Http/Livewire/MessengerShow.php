@@ -38,7 +38,6 @@ class MessengerShow extends Component
     public function updateMessages()
     {
         $this->messages = $this->getMessages();
-        $this->dispatchBrowserEvent('name-updated');
     }
 
     public function mount($id)

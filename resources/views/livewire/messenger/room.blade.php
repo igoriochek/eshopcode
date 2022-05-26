@@ -39,11 +39,7 @@
 </div>
 @push('scripts')
     <script>
-        var messageBox = document.getElementById('messsageBox');
+        const messageBox = document.getElementById('messsageBox');
         messageBox.scrollTop = messageBox.scrollHeight;
-
-        window.addEventListener('name-updated', function() {
-            messageBox.scrollTop = messageBox.scrollHeight;
-        })
     </script>
 @endpush
