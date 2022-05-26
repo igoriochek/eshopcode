@@ -19,6 +19,9 @@ use App\Http\Controllers\UsersReportController;
 use App\Http\Controllers\UserActivitiesReportController;
 use App\Http\Controllers\ChartController;
 use App\Http\Controllers\DataExportImportController;
+use App\Http\Livewire\MessengerIndex;
+use App\Http\Livewire\MessengerAdd;
+use App\Http\Livewire\MessengerShow;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,7 +55,9 @@ Route::group(array('prefix' => 'admin', 'middleware' => 'admin'), function () {
     Route::resource('returnStatuses', App\Http\Controllers\ReturnStatusController::class);
     Route::resource('carts', App\Http\Controllers\CartController::class);
     Route::resource('cartItems', App\Http\Controllers\CartItemController::class);
-    Route::resource('messenger', MessengerController::class)->except('edit', 'update', 'delete');
+    Route::get('messenger', MessengerIndex::class)->name('livewire.messenger.index');
+    Route::get('messenger/add', MessengerAdd::class)->name('livewire.messenger.add');
+    Route::get('messenger/{id}', MessengerShow::class)->name('livewire.messenger.show');
     // Statistics
     Route::prefix('')->name('customers.')->group(function () {
         Route::get('statistics', [ChartController::class, 'index'])->name('statistics');
@@ -152,7 +157,6 @@ Route::group(array('prefix' => 'admin', 'middleware' => 'admin'), function () {
         Route::get('pay/accept/{id}', [PayController::class, 'accept'])->where('id', '[0-9]+')->name('pay-accept');
         Route::get('pay/cancel/{id}', [PayController::class, 'cancel'])->where('id', '[0-9]+')->name('pay-cancel');
         Route::get('pay/callback/{id}', [PayController::class, 'callback'])->where('id', '[0-9]+')->name('pay-callback');
-
         Route::get('rootorders', [OrderController::class, 'indexOrders'])->name('rootorders');
         Route::get('rootoreturns', [ReturnsController::class, 'indexReturns'])->name('rootoreturns');
         Route::get('vieworder/{id}', [OrderController::class, 'viewOrder'])->where('id', '[0-9]+')->name('vieworder');
@@ -164,20 +168,13 @@ Route::group(array('prefix' => 'admin', 'middleware' => 'admin'), function () {
         Route::get('promotions', [\App\Http\Controllers\PromotionController::class, 'indexPromotions'])->name('promotions');
         Route::get('promotion/{id}', [\App\Http\Controllers\PromotionController::class, 'promotionProducts'])->name('promotion');
         Route::get('discountCoupons', [\App\Http\Controllers\DiscountCouponController::class, 'discountcouponUser'])->name('discountCoupons');
-
         Route::post('addUserRating', [\App\Http\Controllers\RatingsController::class, 'addUserRating'])->name('addUserRating');
-
-
-        Route::prefix('messenger')->name('messenger.')->group(function () {
-            Route::get('', [MessengerController::class, 'index']);
-            Route::get('create', [MessengerController::class, 'create'])->name('create');
-            Route::get('{id}', [MessengerController::class, 'show'])->where('id', '[0-9]+')->name('show');
-            Route::post('', [MessengerController::class, 'store'])->where('id', '[0-9]+')->name('store');
-        });
-
         Route::get('userprofile', [\App\Http\Controllers\UserController::class, 'show'])->name('userprofile');
         Route::patch('userprofilesave', [\App\Http\Controllers\UserController::class, 'store'])->name('userprofilesave');
         Route::post('changePassword', [\App\Http\Controllers\UserController::class, 'changePassword'])->name('changePassword');
+        Route::get('messenger', MessengerIndex::class)->name('livewire.messenger.index');
+        Route::get('messenger/add', MessengerAdd::class)->name('livewire.messenger.add');
+        Route::get('messenger/{id}', MessengerShow::class)->name('livewire.messenger.show');
     });
 
     Auth::routes();
