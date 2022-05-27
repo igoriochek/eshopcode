@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Data export/import</h1>
+                    <h1>{{__('names.dataExpImp')}}</h1>
                 </div>
             </div>
         </div>
@@ -25,13 +25,13 @@
             <div class="clearfix"></div>
             <div class="card p-2 col-sm-3">
                 <div class="card-header">
-                    <h3>Export</h3>
+                    <h3>{{__('names.export')}}</h3>
                 </div>
                 <div class="card-body">
                     @include('data_export_import.export_form')
                 </div>
                 <div class="card-header">
-                    <h3>Import</h3>
+                    <h3>{{__('names.import')}}</h3>
                 </div>
                 <div class="card-body">
                     @include('data_export_import.import_form')

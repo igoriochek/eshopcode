@@ -2,11 +2,11 @@
     <table class="table" id="returnItems-table">
         <thead>
         <tr>
-            <th>User</th>
-            <th>Product Id</th>
-            <th>Price Current</th>
-            <th>Count</th>
-            <th colspan="3">Action</th>
+            <th>{{__('table.user')}}</th>
+            <th>{{__('table.productName')}}</th>
+            <th>{{__('table.priceCurrent')}}</th>
+            <th>{{__('table.count')}}</th>
+            <th colspan="3">{{__('table.action')}}</th>
         </tr>
         </thead>
         <tbody>

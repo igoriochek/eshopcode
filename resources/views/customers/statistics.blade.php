@@ -6,19 +6,19 @@
     <div class="container">
         <div>
             <select name="chartType" id="chartType" onchange="updateChartType()">
-                <option value="">Select Bar</option>
-                <option value="line">Line</option>
-                <option value="bar">Bar</option>
-                <option value="pie">Pie</option>
+                <option value="">{{__('names.selectChartType')}}</option>
+                <option value="line">{{__('names.line')}}</option>
+                <option value="bar">{{__('names.bar')}}</option>
+                <option value="pie">{{__('names.pie')}}</option>
             </select>
             <select name="statisticType" id="statisticType" onchange="updateStatisticType()">
-                <option value="">Select Statistic Type</option>
-                <option value="registerPerMonth">Monthly Registrations</option>
-                <option value="loginPerMonth">Logins Per Month</option>
-                <option value="userAdminCount">User-Admin Count</option>
-                <option value="paidOrders">Paid Orders</option>
-                <option value="unpaidOrders">Unpaid Orders</option>
-                <option value="cancelledOrders">Cancelled Orders</option>
+                <option value="">{{__('names.selectStatisticType')}}</option>
+                <option value="registerPerMonth">{{__('names.monthlyRegistrations')}}</option>
+                <option value="loginPerMonth">{{__('names.monthlyLogins')}}</option>
+                <option value="userAdminCount">{{__('names.userAdminCount')}}</option>
+                <option value="paidOrders">{{__('names.paidOrders')}}</option>
+                <option value="unpaidOrders">{{__('names.unpaidOrders')}}</option>
+                <option value="cancelledOrders">{{__('names.cancelledOrders')}}</option>
 
             </select>
         </div>

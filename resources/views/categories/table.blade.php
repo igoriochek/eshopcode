@@ -2,11 +2,11 @@
     <table class="table" id="categories">
         <thead>
         <tr>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Parent Id</th>
-            <th>Visible</th>
-            <th>Action</th>
+            <th>{{__('table.name')}}</th>
+            <th>{{__('table.description')}}</th>
+            <th>{{__('table.parentId')}}</th>
+            <th>{{__('table.visible')}}</th>
+            <th>{{__('table.action')}}</th>
         </tr>
         </thead>
         <tbody>

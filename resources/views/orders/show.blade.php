@@ -5,12 +5,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Order Details</h1>
+                    <h1>{{__('names.orderDetails')}}</h1>
                 </div>
                 <div class="col-sm-6">
                     <a class="btn btn-default float-right"
                        href="{{ route('orders.index') }}">
-                        Back
+                        {{__('buttons.back')}}
                     </a>
                 </div>
             </div>
@@ -31,12 +31,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h2>Order Items</h2>
+                    <h2>{{__('names.orderItems')}}</h2>
                 </div>
                 <div class="col-sm-6">
                     <a class="btn btn-primary float-right"
                        href="{{ route('orderItems.create', ['order_id' => $order->id]) }}">
-                        Add New
+                        {{__('buttons.addNew')}}
                     </a>
                 </div>
             </div>
@@ -57,7 +57,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h2>Order History</h2>
+                    <h2>{{__('names.orderHistory')}}</h2>
                 </div>
             </div>
         </div>

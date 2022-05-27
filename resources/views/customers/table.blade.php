@@ -2,9 +2,9 @@
     <table class="table" id="categories">
         <thead>
         <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Actions</th>
+            <th>{{__('table.userName')}}</th>
+            <th>{{__('table.email')}}</th>
+            <th>{{__('table.action')}}</th>
         </tr>
         </thead>
         <tbody>

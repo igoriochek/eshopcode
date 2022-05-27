@@ -21,14 +21,14 @@
 
         <div class="row">
             <div class="col-lg-6">
-                <div><strong>Cart</strong></div>
+                <div><strong>{{__('names.cart')}}</strong></div>
                 <table class="table">
                     <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Count</th>
-                        <th>Price</th>
-                        <th>Description</th>
+                        <th>{{__('table.name')}}</th>
+                        <th>{{__('table.count')}}</th>
+                        <th>{{__('table.price')}}</th>
+                        <th>{{__('table.description')}}</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -43,23 +43,23 @@
                     </tbody>
                     <tfoot>
                     <tr>
-                        <td>sum:</td>
+                        <td>{{__('names.sum')}}:</td>
                         <td colspan="3" style="text-align: right">{{ $cart->sum }}</td>
                     </tr>
                     </tfoot>
                 </table>
             </div>
             <div class="col-lg-6">
-                <div><strong>User</strong></div>
-                <div>id: {{ $user->id }}</div>
-                <div>name: {{ $user->name }}</div>
-                <div>email: {{ $user->email }}</div>
-                <div>avatar: {{ $user->avatar }}</div>
-                <div>street: {{ $user->street }}</div>
-                <div>house_flat: {{ $user->house_flat }}</div>
-                <div>post_index: {{ $user->post_index }}</div>
-                <div>city: {{ $user->city }}</div>
-                <div>phone_number: {{ $user->phone_number }}</div>
+                <div><strong>{{__('forms.user')}}</strong></div>
+                <div>Id: {{ $user->id }}</div>
+                <div>{{__('forms.name')}}: {{ $user->name }}</div>
+                <div>{{__('forms.email')}}: {{ $user->email }}</div>
+                <div>{{__('forms.avatar')}}: {{ $user->avatar }}</div>
+                <div>{{__('forms.street')}}: {{ $user->street }}</div>
+                <div>{{__('forms.house_flat')}}: {{ $user->house_flat }}</div>
+                <div>{{__('forms.post_index')}}: {{ $user->post_index }}</div>
+                <div>{{__('forms.city')}}: {{ $user->city }}</div>
+                <div>{{__('forms.phone_number')}}: {{ $user->phone_number }}</div>
             </div>
         </div>
 
@@ -72,7 +72,7 @@
         <div>
             {!! Form::open(['route' => ['checkout-preview'], 'method' => 'post']) !!}
                 <div>
-                    <div>discount</div>
+                    <div>{{__('names.discount')}}</div>
                     <select name="discount[]" size="10" multiple>
                         @foreach($discounts as $item)
                             <option value="{{ $item->id }}">{{ $item->code }}: {{ $item->value }}</option>
@@ -80,7 +80,7 @@
                     </select>
                 </div>
                 <br><br>
-                <input type="submit" value="preview">
+                <input type="submit" value="{{__('buttons.preview')}}">
             {!! Form::close() !!}
         </div>
     </div>

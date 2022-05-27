@@ -5,7 +5,7 @@
     <div class="container-fluid">
         <div class="row m-2">
             <div class="col-sm-6">
-                <h1>[ {{__('names.orders')}} ]</h1>
+                <h1>[ {{__('names.order')}} ]</h1>
             </div>
         </div>
     </div>
@@ -37,7 +37,7 @@
 
 
 
-        <div>Order status: {{ $order->status->name }}</div>
+        <div>{{__('names.orderStatus')}}: {{ $order->status->name }}</div>
 
         <div class="table table-responsive">
             <table class="table">
@@ -46,10 +46,10 @@
                     @if($order->status->name == "Returned")
                         <th class="text-center">Status</th>
                     @endif
-                    <th>Product Id</th>
-                    <th>Product Name</th>
-                    <th>Price</th>
-                    <th>Count</th>
+                        <th>{{__('table.productId')}}</th>
+                        <th>{{__('table.productName')}}</th>
+                        <th>{{__('table.price')}}</th>
+                        <th>{{__('table.count')}}</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -74,7 +74,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h2>Order History</h2>
+                <h2>{{__('names.orderHistory')}}</h2>
             </div>
         </div>
     </div>

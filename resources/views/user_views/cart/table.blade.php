@@ -2,10 +2,10 @@
     <table class="table" id="categories">
         <thead>
         <tr>
-            <th>Name</th>
-            <th>Count</th>
-            <th>Price</th>
-            <th>Description</th>
+            <th>{{__('table.name')}}</th>
+            <th>{{__('table.count')}}</th>
+            <th>{{__('table.price')}}</th>
+            <th>{{__('table.description')}}</th>
             <th> </th>
         </tr>
         </thead>

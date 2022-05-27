@@ -2,8 +2,8 @@
     <table class="table" id="orderStatuses-table">
         <thead>
         <tr>
-            <th>Name</th>
-            <th colspan="3">Action</th>
+            <th>{{__('table.name')}}</th>
+            <th colspan="3">{{__('table.action')}}</th>
         </tr>
         </thead>
         <tbody>

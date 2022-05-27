@@ -17,7 +17,7 @@
 
                     <div class="col-md-6">
 
-                        <h3>Category List</h3>
+                        <h3>{{__('names.categoryList')}}</h3>
 
                         <ul id="tree1">
 {{--                            {{ dd($categories) }}--}}

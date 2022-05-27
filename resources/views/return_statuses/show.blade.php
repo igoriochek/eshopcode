@@ -5,12 +5,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Return Status Details</h1>
+                    <h1>{{__('names.returnStatusDetails')}}</h1>
                 </div>
                 <div class="col-sm-6">
                     <a class="btn btn-default float-right"
                        href="{{ route('returnStatuses.index') }}">
-                        Back
+                        {{__('buttons.back')}}
                     </a>
                 </div>
             </div>

@@ -14,6 +14,14 @@ return [
     */
 
     'userupdated' => 'Vartotojo informacija sėkmingai išsaugota.',
+
+    'changedpassword' => 'Slaptažodis sėkmingai pakeistas.',
+    'incorrectpassword' => 'Neteisingas dabartinis slaptažodis.',
+
     "nocategories" => "Nėra Kategorijų",
+    "novideo" => "Nėra video",
+    "passwordmismatch" => "Slaptažodis tuščias arba nesutampa",
+    "makereturn" => "Atlikti grąžinimą",
+    "chooselang" => "Kalba",
 
 ];

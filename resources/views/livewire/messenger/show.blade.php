@@ -1,3 +1,6 @@
+@extends('layouts.app')
+
+@section('content')
 <div>
     <section class="content-header">
         <div class="container-fluid">
@@ -9,6 +12,8 @@
                     <a class="btn btn-primary float-end"
                     href="{{ route('livewire.messenger.add') }}">
                         Add
+                    href="{{ route('messenger.create') }}">
+                        {{__('buttons.addNewMsg')}}
                     </a>
                 </div>
             </div>
@@ -30,4 +35,8 @@
             </div>
         </div>
     </div>
+
+
 </div>
+
+@endsection

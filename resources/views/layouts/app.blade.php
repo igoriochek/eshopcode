@@ -58,13 +58,13 @@
 {{--                            @include('layouts.adminmenu')---}}
 
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"  aria-expanded="false">Admin:<a/>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"  aria-expanded="false">{{__('menu.admin')}}:<a/>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         @include('layouts.adminmenu')
                                     </ul>
                             </li>
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"  aria-expanded="false">Reports:<a/>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"  aria-expanded="false">{{__('menu.reports')}}:<a/>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         @include('layouts.adminreportmenu')
                                     </ul>
@@ -102,7 +102,7 @@
 {{--                                @endif--}}
 {{--                            @endauth--}}
                             @if( Auth::user()->type == 2 )
-                                <li><a class="dropdown-item" href="/user/userprofile">User info</a>&nbsp;</li>
+                                <li><a class="dropdown-item" href="/user/userprofile">{{__('menu.userInfo')}}</a>&nbsp;</li>
                             @endif
                             <li>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST">
@@ -110,7 +110,7 @@
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                          document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        {{ __('menu.logout') }}
                                     </a>
                                 </form>
                             </li>

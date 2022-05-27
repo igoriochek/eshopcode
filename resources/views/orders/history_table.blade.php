@@ -2,8 +2,8 @@
     <table class="table" id="ordersHistory-table">
         <thead>
         <tr>
-            <th>Date</th>
-            <th>Action</th>
+            <th>{{__('table.date')}}</th>
+            <th>{{__('table.action')}}</th>
         </tr>
         </thead>
         <tbody>

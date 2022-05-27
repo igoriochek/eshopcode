@@ -31,12 +31,12 @@
     <p>{{ $customer->type == 1 ? __("forms.admin") : __("forms.user") }}</p>
 </div>
 <div class="col-sm-12">
-    {!! Form::label('created_at', 'Created At').":" !!}
+    {!! Form::label('created_at',  __('table.created_at')).":" !!}
     <p>{{ $customer->created_at }}</p>
 </div>
 
 <!-- Updated At Field -->
 <div class="col-sm-12">
-    {!! Form::label('updated_at', 'Updated At').":" !!}
+    {!! Form::label('updated_at',  __('table.updated_at')).":" !!}
     <p>{{ $customer->updated_at }}</p>
 </div>

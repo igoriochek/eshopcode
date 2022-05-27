@@ -13,6 +13,7 @@ return [
     |
     */
 
+    'avatar' => 'Nuotrauka',
     'name' => 'Vardas',
     'email' => 'El paštas',
     'description' => "Aprašymas",
@@ -20,6 +21,15 @@ return [
     'post_index' => "Pašto kodas",
     'house_flat' => "Namas/Butas",
     'city' => "Miestas",
-    'order' => "Rūšiuoti pagal"
+    'phone_number' => 'Telefono Nr',
+    'order' => "Rūšiuoti pagal",
+    'usertype' => "Vartotojo Tipas",
+    'user' => "Vartotojas",
+    'userProfile' => 'Vartotojo Profilis',
+    'admin' => "Administratorius",
+
+    'current_password' => "Dabartinis slaptažodis",
+    'new_password' => "Naujas slaptažodis",
+    'confirm_password' => 'Patvirtinti slaptažodį'
 
 ];

@@ -14,7 +14,7 @@ class ReturnItemController extends AppBaseController
 {
     use \App\Http\Controllers\forSelector;
 
-    /** @var ReturnItemRepository $returnItemRepository*/
+    /** @var ReturnItemRepository $returnItemRepository */
     private $returnItemRepository;
 
     public function __construct(ReturnItemRepository $returnItemRepo)
@@ -44,7 +44,11 @@ class ReturnItemController extends AppBaseController
      */
     public function create()
     {
-        return view('return_items.create');
+        return view('return_items.create')
+            ->with(['orders_list' => $this->ordersForSelector(),
+            'users_list' => $this->usersForSelector(),
+            'returns_list' => $this->returnsForSelector(),
+            'product_list' => $this->productsForSelector(),]);
     }
 
     /**
@@ -141,9 +145,9 @@ class ReturnItemController extends AppBaseController
      *
      * @param int $id
      *
+     * @return Response
      * @throws \Exception
      *
-     * @return Response
      */
     public function destroy($id)
     {

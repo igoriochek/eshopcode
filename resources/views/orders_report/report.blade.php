@@ -1,10 +1,10 @@
     <table>
         <thead>
             <tr>
-                <th>Order ID</th>
-                <th>User</th>
-                <th>Created Date</th>
-                <th>Status</th>
+                <th>{{__('table.orderId')}}</th>
+                <th>{{__('table.user')}}</th>
+                <th>{{__('table.created_at')}}</th>
+                <th>{{__('table.status')}}</th>
             </tr>
         </thead>
         @forelse ($orders as $order)
@@ -16,10 +16,10 @@
                     <td>{{ $order->status->name ?? '-' }}</td>
                 </tr>
                 <tr>
-                    <th>Product Name</th>
-                    <th>Price Per Item</th>
-                    <th>Count</th>
-                    <th>Subtotal</th>
+                    <th>{{__('table.productName')}}</th>
+                    <th>{{__('table.pricePerItem')}}</th>
+                    <th>{{__('table.count')}}</th>
+                    <th>{{__('table.subTotal')}}</th>
                 </tr>
                 @forelse ($orderItems as $orderItem)
                     @if ($orderItem->order_id === $order->id)
@@ -32,11 +32,11 @@
                     @endif
                 @empty
                     <tr>
-                        <td colspan="8">No order items found</td>
+                        <td colspan="8">{{__('reports.noOrderItems')}}</td>
                     </tr>
                 @endforelse
                 <tr>
-                    <th>Total:</th>
+                    <th>{{__('table.sum')}}:</th>
                     <th>{{ $order->total[0]->total_price_current ?? '-' }}</th>
                     <th>{{ $order->total[0]->total_count ?? '-' }}</th>
                     <th>{{ $order->total[0]->total_price ?? '-' }}</th>
@@ -44,7 +44,7 @@
             </tbody>
         @empty
             <tr>
-                <td colspan="8">No orders found</td>
+                <td colspan="8">{{__('noOrders')}}</td>
             </tr>
         @endforelse
     </table>
