@@ -98,7 +98,6 @@ Route::group(array('prefix' => 'admin', 'middleware' => 'admin'), function () {
             Route::get('download_pdf', [UserActivitiesReportController::class, 'downloadPdf'])->name('download_pdf');
             Route::get('download_csv', [UserActivitiesReportController::class, 'downloadCsv'])->name('download_csv');
         });
-//    });
 //});
     Route::prefix('orders_report')->name('orders_report.')->group( function () {
         Route::get('', [OrdersReportController::class, 'index'])->name('index');

@@ -6,7 +6,7 @@
                     <h1>Messenger</h1>
                 </div>
                 <div class="col-sm-6">
-                    <a class="btn btn-primary float-end"
+                    <a class="btn btn-primary float-end" 
                     href="{{ route('livewire.messenger.add') }}">
                         Add
                     </a>
