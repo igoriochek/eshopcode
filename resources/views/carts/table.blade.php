@@ -2,11 +2,11 @@
     <table class="table" id="carts-table">
         <thead>
         <tr>
-            <th>User</th>
-            <th>Code</th>
-            <th>Status</th>
-            <th>Admin</th>
-            <th colspan="3">Action</th>
+            <th>{{__('table.user')}}</th>
+            <th>{{__('table.code')}}</th>
+            <th>{{__('table.status')}}</th>
+            <th>{{__('table.admin')}}</th>
+            <th colspan="3">{{__('table.action')}}</th>
         </tr>
         </thead>
         <tbody>

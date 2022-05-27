@@ -2,11 +2,11 @@
     <table class="table" id="categories">
         <thead>
         <tr>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Start</th>
-            <th>Finish</th>
-            <th>Actions</th>
+            <th>{{__('table.name')}}</th>
+            <th>{{__('table.description')}}</th>
+            <th>{{__('table.start')}}</th>
+            <th>{{__('table.finish')}}</th>
+            <th>{{__('table.action')}}</th>
         </tr>
         </thead>
         <tbody>

@@ -5,7 +5,7 @@
     <div class="container-fluid">
         <div class="row m-2">
             <div class="col-sm-6">
-                <h1>[Return]</h1>
+                <h1>[{{__('names.return')}}]</h1>
             </div>
         </div>
     </div>
@@ -34,8 +34,8 @@
             </div>
 
             <div class="card-footer">
-                {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
-                <a href="{{ route('rootorders') }}" class="btn btn-default">Cancel</a>
+                {!! Form::submit(__('buttons.save'), ['class' => 'btn btn-primary']) !!}
+                <a href="{{ route('rootorders') }}" class="btn btn-default">{{__('buttons.cancel')}}</a>
             </div>
 
             {!! Form::close() !!}

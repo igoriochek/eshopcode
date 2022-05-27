@@ -13,6 +13,7 @@ return [
 |
 */
 
+    'avatar' => 'Avatar',
     'name' => 'Name',
     'email' => 'Email',
     'description' => "Description",
@@ -24,6 +25,7 @@ return [
     'order' => "Order by",
     'usertype' => "User type",
     'user' => "Customer",
+    'userProfile' => 'User Profile',
     'admin' => "Administrator",
 
     'current_password' => "Current password",

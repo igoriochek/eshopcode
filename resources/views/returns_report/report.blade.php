@@ -1,14 +1,14 @@
     <table>
         <thead>
             <tr>
-                <th>Return ID</th>
-                <th>Order ID</th>
-                <th>User</th>
-                <th>Admin</th>
-                <th>Code</th>
-                <th>Description</th>
-                <th>Created Date</th>
-                <th>Status</th>
+                <th>{{__('table.returnId')}}</th>
+                <th>{{__('table.orderId')}}</th>
+                <th>{{__('table.user')}}</th>
+                <th>{{__('table.admin')}}</th>
+                <th>{{__('table.code')}}</th>
+                <th>{{__('table.description')}}</th>
+                <th>{{__('table.created_at')}}</th>
+                <th>{{__('table.status')}}</th>
             </tr>
         </thead>
         @forelse ($returns as $return)
@@ -24,10 +24,10 @@
                     <td>{{ $return->status->name ?? '-' }}</td>
                 </tr>
                 <tr>
-                    <th colspan="2">Product Name</th>
-                    <th colspan="2">Price Per Item</th>
-                    <th colspan="2">Count</th>
-                    <th colspan="2" style="width: 200px">Subtotal</th>
+                    <th colspan="2">{{__('table.productName')}}</th>
+                    <th colspan="2">{{__('table.pricePerItem')}}</th>
+                    <th colspan="2">{{__('table.count')}}</th>
+                    <th colspan="2" style="width: 200px">{{__('table.subTotal')}}</th>
                 </tr>
                 @forelse ($returnItems as $returnItem)
                     @if ($returnItem->return_id === $return->id)
@@ -40,7 +40,7 @@
                     @endif
                 @empty
                     <tr>
-                        <td colspan="8">No return items found</td>
+                        <td colspan="8">{{__('reports.noReturnItems')}}</td>
                     </tr>
                 @endforelse
                 <tr>
@@ -52,7 +52,7 @@
             </tbody>
         @empty
             <tr>
-                <td colspan="8">No returns found</td>
+                <td colspan="8">{{__('reports.noReturns')}}</td>
             </tr>
         @endforelse
     </table>

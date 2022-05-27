@@ -2,16 +2,16 @@
     <table>
         <thead>
             <tr>
-                <th>User ID</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Phone Number</th>
-                <th>Street</th>
-                <th>House/Flat</th>
-                <th>Post Index</th>
-                <th>City</th>
-                <th>Created Date</th>
-                <th>Type</th>
+                <th>{{__('table.userId')}}</th>
+                <th>{{__('table.name')}}</th>
+                <th>{{__('table.email')}}</th>
+                <th>{{__('forms.phone_number')}}</th>
+                <th>{{__('forms.street')}}</th>
+                <th>{{__('forms.house_flat')}}</th>
+                <th>{{__('forms.post_index')}}</th>
+                <th>{{__('forms.city')}}</th>
+                <th>{{__('table.created_at')}}</th>
+                <th>{{__('table.userType')}}</th>
             </tr>
         </thead>
         <tbody>
@@ -27,14 +27,14 @@
                     <td>{{ $user->city ?? '-'}}</td>
                     <td>{{ $user->created_at ?? '-'}}</td>
                     @if ($user->type == '1')
-                        <td>Admin</td>
+                        <td>{{__('table.admin')}}</td>
                     @else
-                        <td>User</td>
+                        <td>{{__('table.user')}}</td>
                     @endif
                 </tr>
             @empty
                 <tr>
-                    <td colspan="8">No users found</td>
+                    <td colspan="8">{{__('reports.noUsers')}}</td>
                 </tr>
             @endforelse
         </tbody>

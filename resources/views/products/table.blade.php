@@ -2,17 +2,17 @@
     <table class="table" id="categories">
         <thead>
         <tr>
-            <th>Name</th>
-        <th>Price</th>
-        <th>Count</th>
-        <th>Description</th>
-        <th>Image</th>
-        <th>Video</th>
-            <th>Visible</th>
-            <th>Promotion Id</th>
-            <th>Discount Id</th>
-            <th>Categories</th>
-            <th>Action</th>
+            <th>{{__('table.name')}}</th>
+        <th>{{__('table.price')}}</th>
+        <th>{{__('table.count')}}</th>
+        <th>{{__('table.description')}}</th>
+        <th>{{__('table.image')}}</th>
+        <th>{{__('table.video')}}</th>
+            <th>{{__('table.visible')}}</th>
+            <th>{{__('table.promotionId')}}</th>
+            <th>{{__('table.discountId')}}</th>
+            <th>{{__('table.categories')}}</th>
+            <th>{{__('table.action')}}</th>
         </tr>
         </thead>
         <tbody>

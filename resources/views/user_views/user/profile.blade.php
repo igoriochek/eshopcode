@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-12">
-                    <h1>User profile</h1>
+                    <h1>{{__('forms.userProfile')}}</h1>
                 </div>
             </div>
         </div>
@@ -73,7 +73,7 @@
             </div>
 
             <div class="card-footer">
-                {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
+                {!! Form::submit(__('buttons.save'), ['class' => 'btn btn-primary']) !!}
             </div>
 
             {!! Form::close() !!}
@@ -108,7 +108,7 @@
             </div>
 
             <div class="card-footer">
-                {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
+                {!! Form::submit(__('buttons.save'), ['class' => 'btn btn-primary']) !!}
             </div>
 
             {!! Form::close() !!}

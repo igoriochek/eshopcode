@@ -14,7 +14,7 @@ return [
     */
 
     'accepted' => ':attribute turi būti priimtas.',
-    'accepted_if' => ':attribute turi būti priitas, kai :other yra :value.',
+    'accepted_if' => ':attribute turi būti priimtas, kai :other yra :value.',
     'active_url' => ':attribute nėra teisingas URL.',
     'after' => ':attribute turi būti data po :date.',
     'after_or_equal' => ':attribute data turi būti po arba lygi :date.',

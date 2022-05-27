@@ -27,15 +27,15 @@
                 <div class="row">
                     <!-- Name Field -->
                     <div class="form-group col-sm-6">
-                        {!! Form::label('description', 'Description:') !!}
+                        {!! Form::label('description', __('names.desc')) !!}
                         {!! Form::textarea('description', null, ['class' => 'form-control']) !!}
                     </div>
                 </div>
             </div>
 
             <div class="card-footer">
-                {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
-                <a href="{{ route('rootorders') }}" class="btn btn-default">Cancel</a>
+                {!! Form::submit(__('buttons.save'), ['class' => 'btn btn-primary']) !!}
+                <a href="{{ route('rootorders') }}" class="btn btn-default">{{__('buttons.cancel')}}</a>
             </div>
 
             {!! Form::close() !!}

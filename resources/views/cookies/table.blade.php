@@ -3,10 +3,10 @@
         <thead>
         <tr>
             <th>ID</th>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Mandatory Status</th>
-            <th colspan="3">Action</th>
+            <th>{{__('table.name')}}</th>
+            <th>{{__('table.description')}}</th>
+            <th>{{__('table.mandatoryStatus')}}</th>
+            <th colspan="3">{{__('table.action')}}</th>
         </tr>
         </thead>
         <tbody>

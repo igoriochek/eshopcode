@@ -27,8 +27,8 @@
                             <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>User</th>
-                                <th>Status</th>
+                                <th>{{__('table.user')}}</th>
+                                <th>{{__('table.status')}}</th>
                                 <th> </th>
                             </tr>
                             </thead>
@@ -55,7 +55,7 @@
                 </div>
             </div>
         @else
-            your order is empty
+            {{__('names.noReturns')}}
         @endif
     </div>
 </section>

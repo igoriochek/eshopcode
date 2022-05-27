@@ -5,20 +5,20 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Customers</h1>
+                    <h1>{{__('names.customers')}}</h1>
                 </div>
                 <div class="col-sm-6">
                     <a class="btn btn-primary float-right"
                        href="{{ route('customers.create') }}">
-                        Add New
+                        {{__('buttons.addNew')}}
                     </a>
                     <a class="btn btn-primary float-right"
                        href="{{ route('customers.statistics') }}">
-                        Show Statistics
+                        {{__('buttons.showStatistics')}}
                     </a>
                     <a class="btn btn-primary float-right"
                        href="{{ route('customers.logs') }}">
-                        Show Logs
+                        {{__('buttons.showLogs')}}
                     </a>
                 </div>
             </div>

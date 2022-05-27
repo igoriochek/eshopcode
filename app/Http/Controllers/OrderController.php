@@ -66,6 +66,7 @@ class OrderController extends AppBaseController
     {
         return view('orders.create')->with([
             'users_list' => $this->usersForSelector(),
+            'admin_list' => $this->adminForSelector(),
             'statuses_list' => $this->orderStatusesForSelector(),
         ]);
     }

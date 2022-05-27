@@ -6,17 +6,17 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    User Logs
+                    {{__('names.userLogs')}}
                 </div>
                 <div class="table table-responsive">
                     <table class="table" id="categories" data-order='[[ 4, "desc" ]]'>
                         <thead>
                         <tr>
                             <td>Id</td>
-                            <td>User_Id</td>
-                            <td>Email</td>
-                            <td>Activity</td>
-                            <td>Date</td>
+                            <td>{{__('table.userId')}}</td>
+                            <td>{{__('table.email')}}</td>
+                            <td>{{__('table.activity')}}</td>
+                            <td>{{__('table.date')}}</td>
                         </tr>
                         </thead>
 

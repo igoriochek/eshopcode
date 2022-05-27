@@ -2,9 +2,9 @@
     <table class="table" id="categories">
         <thead>
         <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Action</th>
+            <th>{{__('table.userName')}}</th>
+            <th>{{__('table.email')}}</th>
+            <th>{{__('table.action')}}</th>
         </tr>
         </thead>
         <tbody>
@@ -13,7 +13,7 @@
                 <td>{{$user->name}}</td>
                 <td>{{$user->email}}</td>
                 <td width="60">
-                     <a href="{{ route('messenger.show', [$user->id]) }}" class='btn btn-primary'>Add</a>
+                     <a href="{{ route('messenger.show', [$user->id]) }}" class='btn btn-primary'>{{__('buttons.add')}}</a>
                 </td>
             </tr>
         @endforeach

@@ -26,16 +26,16 @@
 {{--            </a>--}}
 {{--        </div>--}}
 
-        <div>Return status: {{ $return->status->name }}</div>
+        <div>{{__('names.returnStatus')}}: {{ $return->status->name }}</div>
 
         <div class="table table-responsive">
             <table class="table">
                 <thead>
                 <tr>
-                    <th>Product Id</th>
-                    <th>Product Name</th>
-                    <th>Price</th>
-                    <th>Count</th>
+                    <th>{{__('table.productId')}}</th>
+                    <th>{{__('table.productName')}}</th>
+                    <th>{{__('table.price')}}</th>
+                    <th>{{__('table.count')}}</th>
                     <th> </th>
                 </tr>
                 </thead>
@@ -59,7 +59,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h2>Order History</h2>
+                <h2>{{__('names.orderHistory')}}</h2>
             </div>
         </div>
     </div>

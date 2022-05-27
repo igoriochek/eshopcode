@@ -1,12 +1,12 @@
     <table>
         <thead>
             <tr>
-                <th>Activity ID</th>
-                <th>User</th>
-                <th>Email</th>
-                <th>Type</th>
-                <th>Activity</th>
-                <th>Created Date</th>
+                <th>{{__('table.activityId')}}</th>
+                <th>{{__('table.user')}}</th>
+                <th>{{__('table.email')}}</th>
+                <th>{{__('table.userType')}}</th>
+                <th>{{__('table.activity')}}</th>
+                <th>{{__('table.created_at')}}</th>
             </tr>
         </thead>
         <tbody>
@@ -16,16 +16,16 @@
                     <td>{{ $userActivity->user->name ?? '-' }}</td>
                     <td>{{ $userActivity->user->email ?? '-' }}</td>
                     @if ($userActivity->user->type == '1')
-                        <td>Admin</td>
+                        <td>{{__('table.admin')}}</td>
                     @else
-                        <td>User</td>
+                        <td>{{__('table.user')}}</td>
                     @endif
                     <td>{{ $userActivity->activity ?? '-'}}</td>
                     <td>{{ $userActivity->created_at ?? '-'}}</td>
                 </tr>
             @empty
                 <tr>
-                    <td colspan="8">No user activities found</td>
+                    <td colspan="8">{{__('reports.noUserActivities')}}</td>
                 </tr>
             @endforelse
         </tbody>

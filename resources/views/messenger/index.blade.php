@@ -10,7 +10,7 @@
                 <div class="col-sm-6">
                     <a class="btn btn-primary float-end"
                     href="{{ route('messenger.create') }}">
-                        Add New
+                        {{__('buttons.addNewMsg')}}
                     </a>
                 </div>
             </div>

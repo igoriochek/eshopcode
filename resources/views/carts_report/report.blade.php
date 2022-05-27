@@ -1,11 +1,11 @@
     <table>
         <thead>
             <tr>
-                <th>Cart ID</th>
-                <th>User</th>
-                <th>Code</th>
-                <th>Created Date</th>
-                <th>Status</th>
+                <th>{{__('table.cartId')}}</th>
+                <th>{{__('table.user')}}</th>
+                <th>{{__('table.code')}}</th>
+                <th>{{__('table.created_at')}}</th>
+                <th>{{__('table.status')}}</th>
             </tr>
         </thead>
         @forelse ($carts as $cart)
@@ -18,10 +18,10 @@
                     <td>{{ $cart->status->name ?? '-' }}</td>
                 </tr>
                 <tr>
-                    <th colspan="2">Product Name</th>
-                    <th>Price Per Item</th>
-                    <th>Count</th>
-                    <th>Subtotal</th>
+                    <th colspan="2">{{__('table.productName')}}</th>
+                    <th>{{__('table.pricePerItem')}}</th>
+                    <th>{{__('table.count')}}</th>
+                    <th>{{__('table.subTotal')}}</th>
                 </tr>
                 @forelse ($cartItems as $cartItem)
                     @if ($cartItem->cart_id === $cart->id)
@@ -34,11 +34,11 @@
                     @endif
                 @empty
                     <tr>
-                        <td colspan="8">No cart items found</td>
+                        <td colspan="8">{{__('reports.noCartItems')}}</td>
                     </tr>
                 @endforelse
                 <tr>
-                    <th colspan="2">Total:</th>
+                    <th colspan="2">{{__('table.sum')}}:</th>
                     <th>{{ $cart->total[0]->total_price_current ?? '-' }}</th>
                     <th>{{ $cart->total[0]->total_count ?? '-' }}</th>
                     <th>{{ $cart->total[0]->total_price ?? '-' }}</th>
@@ -46,7 +46,7 @@
             </tbody>
         @empty
             <tr>
-                <td colspan="8">No carts found</td>
+                <td colspan="8">{{__('reports.noCarts')}}</td>
             </tr>
         @endforelse
     </table>

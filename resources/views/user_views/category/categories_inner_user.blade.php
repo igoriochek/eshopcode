@@ -5,17 +5,17 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Categories</h1>
+                    <h1>{{__('names.categories')}}</h1>
                 </div>
                 <div class="col-sm-6">
                     <h3>{{$maincategory->name}}</h3>
-                    <a href="{{route("rootcategories")}}">Back to main categories</a>
+                    <a href="{{route("rootcategories")}}">{{__('buttons.backToMainCategories')}}</a>
                 </div>
             </div>
         </div>
     </section>
     <div class="col-sm-6">
-        <h3>{{$maincategory->name}}: Products</h3>
+        <h3>{{$maincategory->name}}: {{__('names.products')}}</h3>
     </div>
     <div class="content px-3">
 
@@ -29,11 +29,11 @@
                     @forelse( $products as $prod )
                         <div class="card-body">
                             <h4 class="card-title"><a href="{{route('viewproduct', $prod->id)}}">{{$prod->name}}</a></h4>
-                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                            <h6 class="card-subtitle mb-2 text-muted">{{__('names.desc')}}</h6>
                             <p class="card-text">{{$prod->description}}</p>
                         </div>
                     @empty
-                        no products
+                {{__('names.noProducts')}}
                     @endforelse
                     {{$products->links()}}
                 @endif
@@ -60,12 +60,12 @@
                 @forelse( $categories as $category )
                 <div class="card-body">
                     <h4 class="card-title"><a href="{{route('innercategories', $category->id)}}">{{$category->name}}</a></h4>
-                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                    <h6 class="card-subtitle mb-2 text-muted">{{__('names.desc')}}</h6>
                     <p class="card-text">{{$category->description}}</p>
                     @forelse($category->innerCategories as $c)
                                 <a href="{{route('innercategories', $c->id)}}" class="card-link">{{$c->name}}</a>
                     @empty
-                            ---no cats---
+                            ---{{__('names.noCategories')}}---
                     @endforelse
                 </div>
             @empty

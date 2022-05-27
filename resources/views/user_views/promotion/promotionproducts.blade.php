@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Promotion {{$promotion->name}} </h1>
+                    <h1>{{__('names.promotion')}} {{$promotion->name}} </h1>
                 </div>
             </div>
         </div>
@@ -13,7 +13,7 @@
 
 
         <div class="col-sm-6">
-            <h3>{{$promotion->name}} : Products</h3>
+            <h3>{{$promotion->name}} : {{__('names.products')}}</h3>
             {{--        <a href="{{route("rootcategories")}}">Back to main categories</a>--}}
         </div>
         <div class="content px-3">
@@ -30,7 +30,7 @@
                         @foreach( $products as $prod )
                             <div class="card-body">
                                 <h4 class="card-title"><a href="{{route('viewproduct', $prod->id)}}">{{$prod->name}}</a></h4>
-                                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                                <h6 class="card-subtitle mb-2 text-muted">{{__('names.desc')}}</h6>
                                 <p class="card-text">{{$prod->description}}</p>
                             </div>
                         @endforeach

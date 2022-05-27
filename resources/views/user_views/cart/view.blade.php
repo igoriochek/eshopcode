@@ -5,7 +5,7 @@
     <div class="container-fluid">
         <div class="row m-2">
             <div class="col-sm-6">
-                <h1>[View Cart]</h1>
+                <h1>{{__('names.cart')}}</h1>
             </div>
         </div>
     </div>
@@ -26,7 +26,7 @@
                 </div>
             </div>
         @else
-            your basket is empty
+        {{__('names.emptyCart')}}
         @endif
     </div>
 </section>
@@ -36,7 +36,7 @@
     <section>
         <div>
             <div class="float-right">
-                <a href="{{route('checkout')}}" class="btn btn-success">checkout</a>
+                <a href="{{route('checkout')}}" class="btn btn-success">{{__('buttons.checkout')}}</a>
             </div>
             <div class="clearfix"></div>
         </div>

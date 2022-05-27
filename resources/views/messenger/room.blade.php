@@ -28,9 +28,9 @@
     {!! Form::open(['route' => 'messenger.store']) !!}
         {{ Form::hidden('user_from_id', $user->id, ['id' => 'user_from_id']) }}
         {!! Form::text(
-            'message_text', 
-            null, 
-            ['class' => 'form-control mb-3', 'placeholder' => 'Type your message here...']
+            'message_text',
+            null,
+            ['class' => 'form-control mb-3', 'placeholder' => __('names.typeMsg')]
         ) !!}
         {!! Form::submit('Send', ['class' => 'btn btn-primary']) !!}
     {!! Form::close() !!}
