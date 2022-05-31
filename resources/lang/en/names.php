@@ -101,6 +101,9 @@ return [
     'orderStatuses' => 'Order Statuses',
     'orderStatusDetails' => 'Order Status Details',
     'noOrders' => 'You have no orders',
+    'invoice' => 'Invoice',
+    'invoicePreview' => 'Invoice Preview',
+
 
     // Products
     'createProduct' => 'Create Product',

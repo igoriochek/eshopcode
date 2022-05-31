@@ -12,6 +12,20 @@
                        href="{{ route('orders.index') }}">
                         {{__('buttons.back')}}
                     </a>
+                    @if($order->status->name == 'Completed')
+                        <div class="btn-group" style="float: right">
+                            <a href="{{ route('download_invoice', [$order->id]) }}"
+                               class='btn btn-default btn-xs'>
+                                {{__('names.invoice')}} <i class="fa-solid fa-file-invoice"></i>
+                            </a>
+                        </div>
+                        <div class="btn-group" style="float: right">
+                            <a href="{{ route('invoice', [$order->id]) }}"
+                               class='btn btn-default btn-xs'>
+                                {{__('names.invoicePreview')}} <i class="fa-solid fa-file-invoice"></i>
+                            </a>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>

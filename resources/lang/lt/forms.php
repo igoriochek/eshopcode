@@ -27,6 +27,7 @@ return [
     'user' => "Vartotojas",
     'userProfile' => 'Vartotojo Profilis',
     'admin' => "Administratorius",
+    'to' => 'Kam',
 
     'current_password' => "Dabartinis slaptažodis",
     'new_password' => "Naujas slaptažodis",

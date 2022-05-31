@@ -2,9 +2,9 @@
     <table class="table" id="messages-table">
         <thead>
         <tr>
-            <th>Subject</th>
+            <th>{{__('messages.subject')}}</th>
         <th>Message Text</th>
-            <th colspan="3">Action</th>
+            <th colspan="3">{{__('table.action')}}</th>
         </tr>
         </thead>
         <tbody>

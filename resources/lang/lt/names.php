@@ -101,6 +101,8 @@ return [
     'orderStatuses' => 'Užsakymų statusai',
     'orderStatusDetails' => 'Užsakymų Statuso Informacija',
     'noOrders' => 'Jūs neatlikote jokių užsakymų',
+    'invoice' => 'Sąskaita faktūra',
+    'invoicePreview' => 'Peržiūrėti Sąskaitą Faktūrą',
 
     //Products
     'createProduct' => 'Sukurti Produktą',

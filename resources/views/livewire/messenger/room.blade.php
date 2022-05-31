@@ -31,7 +31,7 @@
             @endif
         @empty
             <div style="display: flex; justify-content: center; align-items: center;">
-                <span>Chat is empty</span>
+                <span>{{__('messages.emptyChat')}}</span>
             </div>
         @endforelse
     </div>

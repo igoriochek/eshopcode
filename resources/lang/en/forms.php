@@ -27,6 +27,7 @@ return [
     'user' => "Customer",
     'userProfile' => 'User Profile',
     'admin' => "Administrator",
+    'to' => 'To',
 
     'current_password' => "Current password",
     'new_password' => "New password",

@@ -3,12 +3,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Messenger</h1>
+                    <h1>{{__('messages.messenger')}}</h1>
                 </div>
                 <div class="col-sm-6">
-                    <a class="btn btn-primary float-end" 
+                    <a class="btn btn-primary float-end"
                     href="{{ route('livewire.messenger.add') }}">
-                        Add
+                        {{__('buttons.addNew')}}
                     </a>
                 </div>
             </div>
@@ -25,7 +25,7 @@
             </div>
             <div class="card p-3 col-sm h-100">
                 <div style="display: flex; justify-content: center; align-items: center;">
-                    <span>Click on any user to a open chat room</span>
+                    <span>{{__('messages.openChat')}}</span>
                 </div>
             </div>
         </div>

@@ -24,4 +24,18 @@ return [
     "makereturn" => "Atlikti grąžinimą",
     "chooselang" => "Kalba",
 
+    'detailsMsg' => 'Žinutės Detalės',
+    'created_at' => 'Sukurta',
+    'createMsg' => 'Sukurti žinutę',
+    'editMsg' => 'Redaguoti žinutę',
+    'emptyChat' => 'Pokalbis tuščias',
+    'messages' => 'Žinutės',
+    'messenger' => 'Messengeris',
+    'openChat' => 'Spustelkite ant bet kokio vartotojo, jog sukurtumėte pokalbių kambarį',
+    'send' => 'Siųsti',
+    'subject' => 'Tema',
+    'textMsg' => 'Žinutės tekstas',
+    'typeYourMsgHere' => 'Įveskite savo žinutę čia...',
+    'updatedAt' => 'Atnaujinta',
+
 ];

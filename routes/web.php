@@ -58,6 +58,8 @@ Route::group(array('prefix' => 'admin', 'middleware' => 'admin'), function () {
     Route::get('messenger', MessengerIndex::class)->name('livewire.messenger.index');
     Route::get('messenger/add', MessengerAdd::class)->name('livewire.messenger.add');
     Route::get('messenger/{id}', MessengerShow::class)->name('livewire.messenger.show');
+    Route::get('invoice/{id}', [OrderController::class, 'invoicePreview'])->where('id', '[0-9]+')->name(('invoice'));
+
     // Statistics
     Route::prefix('')->name('customers.')->group(function () {
         Route::get('statistics', [ChartController::class, 'index'])->name('statistics');
@@ -159,6 +161,7 @@ Route::group(array('prefix' => 'admin', 'middleware' => 'admin'), function () {
         Route::get('rootorders', [OrderController::class, 'indexOrders'])->name('rootorders');
         Route::get('rootoreturns', [ReturnsController::class, 'indexReturns'])->name('rootoreturns');
         Route::get('vieworder/{id}', [OrderController::class, 'viewOrder'])->where('id', '[0-9]+')->name('vieworder');
+        Route::get('download_invoice/{id}', [OrderController::class, 'downloadInvoicePdf'])->where('id', '[0-9]+')->name(('download_invoice'));
         Route::get('viewreturn/{id}', [ReturnsController::class, 'viewReturn'])->where('id', '[0-9]+')->name('viewreturn');
         Route::get('cancelnorder/{id}', [\App\Http\Controllers\ReturnsController::class, 'cancelOrder'])->where('id', '[0-9]+')->name('cancelnorder');
         Route::get('returnorder/{id}', [\App\Http\Controllers\ReturnsController::class, 'returnOrder'])->where('id', '[0-9]+')->name('returnorder');

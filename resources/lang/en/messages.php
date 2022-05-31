@@ -24,4 +24,19 @@ return [
     "makereturn" => "Make a return",
     "chooselang" => "Language",
 
+    'detailsMsg' => 'Message Details',
+    'created_at' => 'Created At',
+    'createMsg' => 'Create Message',
+    'editMsg' => 'Edit Message',
+    'emptyChat' => 'Chat is empty',
+    'messages' => 'Messages',
+    'messenger' => 'Messenger',
+    'openChat' => 'Click on any user to open a chat room',
+    'send' => 'Send',
+    'subject' => 'Subject',
+    'textMsg' => 'Message Text',
+    'typeYourMsgHere' => 'Type your Message here...',
+    'updatedAt' => 'Updated At',
+
+
 ];

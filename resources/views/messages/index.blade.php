@@ -5,12 +5,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Messages</h1>
+                    <h1>{{__('messages.messages')}}</h1>
                 </div>
                 <div class="col-sm-6">
                     <a class="btn btn-primary float-right"
                        href="{{ route('messages.create') }}">
-                        Add New
+                        {{__('buttons.addNew')}}
                     </a>
                 </div>
             </div>
@@ -29,7 +29,7 @@
 
                 <div class="card-footer clearfix">
                     <div class="float-right">
-                        
+
                     </div>
                 </div>
             </div>

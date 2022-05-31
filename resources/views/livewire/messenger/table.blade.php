@@ -2,7 +2,7 @@
     <table class="table">
         <thead>
         <tr>
-            <th>Name</th>
+            <th>{{__('table.name')}}</th>
             <th></th>
         </tr>
         </thead>
@@ -11,12 +11,12 @@
             <tr>
                 <td>{{$user->name}}</td>
                 <td width="60">
-                     <a href="{{ route('livewire.messenger.show', [$user->id]) }}" class='btn btn-primary'>Add</a>
+                     <a href="{{ route('livewire.messenger.show', [$user->id]) }}" class='btn btn-primary'>{{__('buttons.addNew')}}</a>
                 </td>
             </tr>
         @empty
             <tr>
-                <td>Table is empty</td>
+                <td>{{__('table.emptyTable')}}</td>
             </tr>
         @endforelse
         </tbody>

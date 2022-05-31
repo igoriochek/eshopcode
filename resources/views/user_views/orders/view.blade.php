@@ -20,6 +20,7 @@
         <div class="clearfix"></div>
 
         @if($order->status->name !== "Returned" && $order->status->name !== "Canceled")
+
             <div class="btn-group" style="float: right">
                 <a href="{{ route('returnorder', [$order->id]) }}"
                    class='btn btn-default btn-xs'>
@@ -32,7 +33,14 @@
                     <i class="far fa-trash-alt"></i>
                 </a>
             </div>
-
+        @if($order->status->name == 'Completed')
+            <div class="btn-group" style="float: right">
+                <a href="{{ route('download_invoice', [$order->id]) }}"
+                   class='btn btn-default btn-xs'>
+                    {{__('names.invoice')}} <i class="fa-solid fa-file-invoice"></i>
+                </a>
+            </div>
+            @endif
         @endif
 
 
