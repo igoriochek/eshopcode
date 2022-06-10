@@ -32,6 +32,19 @@ return [
     'editCartStatus' => 'Edit Cart Status',
     'emptyCart' => 'Your Cart is empty',
 
+    'adminUserCount' => 'Admin User Count',
+    'canceled' => 'Canceled',
+    'logins' => 'Logins',
+    'ordersPerMonth' => 'Orders Per Month',
+    'paid' => 'Paid',
+    'perMonth' => 'Per Month',
+    'productOrderCount' => 'Product Order Count',
+    'registrations' => 'Registrations',
+    'unpaid' => 'Unpaid',
+
+    'admins' => 'Administrators',
+    'users' => 'Users',
+
     //Categories
     'categories' => 'Categories',
     'categoryDetails' => 'Category Details',
@@ -112,6 +125,7 @@ return [
     'productCount' => 'Product Count',
     'productDetails' => 'Product Details',
     'productName' => 'Product Name',
+    'productOrders' => 'Product Orders',
     'noProducts' => 'No Products',
 
     //Promotions

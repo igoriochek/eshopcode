@@ -51,7 +51,20 @@ return [
     'selectChartType' => 'Pasirinkite Grafiko Tipą',
     'selectStatisticType' => 'Pasirinkite Statistikos Tipą',
     'unpaidOrders' => 'Neapmokėti Užsakymai',
-    'userAdminCount' => 'Klientu - Administratorių skaičius',
+    'userAdminCount' => 'Klientų - Administratorių skaičius',
+
+    'adminUserCount' => 'Administratorių ir Vartotojų skaičius',
+    'canceled' => 'Atšaukti',
+    'logins' => 'Prisijungimai',
+    'ordersPerMonth' => 'Užsakymai per mėnesį',
+    'paid' => 'Apmokėti',
+    'perMonth' => 'Per mėnesį',
+    'productOrderCount' => 'Produktų užsakymų skaičius',
+    'registrations' => 'Registracijos',
+    'unpaid' => 'Neapmokėti',
+
+    'admins' => 'Administratoriai',
+    'users' => 'Vartotojai',
 
     //Cookies
     'cookies' => 'Slapukai',
@@ -111,6 +124,7 @@ return [
     'productCount' => 'Produktų skaičius',
     'productDetails' => 'Produkto Informacija',
     'productName' => 'Produkto pavadinimas',
+    'productOrders' => 'Produktų užsakymai',
     'noProducts' => 'Nėra produktų',
 
     //Promotions
@@ -163,6 +177,8 @@ return [
     'createCustomer' => 'Sukurti Klientą',
     'editCustomer' => 'Redaguoti Klientą',
     'userLogs' => 'Vartotojų Žurnalai',
+
+
 
 
 

@@ -21,6 +21,7 @@ return [
     'cancel' => 'Atšaukti',
     'checkout' => 'Atsiskaityti',
     'chooseFile' => 'Pasirinkite Failą',
+    'downloadPDF' => 'Atsiųsti PDF',
     'export' => 'Eksportuoti',
     'filter'=> 'Filtruoti',
     'forgotPassword'=> 'Pamiršote Slaptažodį?',

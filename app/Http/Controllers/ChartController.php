@@ -4,16 +4,23 @@ namespace App\Http\Controllers;
 
 use App\Models\LogActivity;
 use App\Models\Order;
+use App\Models\OrderItem;
+use App\Models\ProductTranslation;
+use App\Models\Returns;
 use App\Models\User;
 use App\Repositories\CustomerRepository;
-use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Illuminate\Support\Carbon;
 use Response;
+use Illuminate\Support\Facades\Lang;
 
 class ChartController extends AppBaseController
 {
+
+    private $months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    private $noData = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
     public function __construct(CustomerRepository $customerRepo)
     {
         $this->customerRepository = $customerRepo;
@@ -29,6 +36,7 @@ class ChartController extends AppBaseController
     public function index(Request $request)
     {
         $data = $this->getUserAdmin('Admin and User Count', 'pie');
+
         return view('customers.statistics')->with(['data' => $data]);
     }
 
@@ -42,13 +50,13 @@ class ChartController extends AppBaseController
     {
         switch ($request->statisticType) {
             case "registerPerMonth":
-                $data = $this->getUserActivity('Registrations', 'Registered', 'line');
+                $data = $this->getUserActivity(__('names.registrations'), 'Registered', 'line');
                 break;
             case "loginPerMonth":
-                $data = $this->getUserActivity('Logins', 'Logged in', 'line');
+                $data = $this->getUserActivity(__('names.logins'), 'Logged in', 'line');
                 break;
             case "userAdminCount":
-                $data = $this->getUserAdmin('Administrator User Count', 'pie');
+                $data = $this->getUserAdmin(__('names.adminUserCount'), 'pie');
                 break;
             case "paidOrders":
                 $data = $this->getOrderActivity('Paid', 'line');
@@ -58,6 +66,12 @@ class ChartController extends AppBaseController
                 break;
             case "cancelledOrders":
                 $data = $this->getOrderActivity('Cancelled', 'line');
+                break;
+            case "returns":
+                $data = $this->getReturns(__('names.returns'), 'line');
+                break;
+            case "productOrders":
+                $data = $this->getProductOrders(__('names.productOrderCount'), 'bar');
                 break;
             default:
                 break;
@@ -80,28 +94,14 @@ class ChartController extends AppBaseController
 
         $logs = LogActivity::select('id', 'created_at')->where('activity', $activityType)->get()->groupBy(function ($date) {
             return Carbon::parse($date->created_at)->format('m');
-        });
+        })->toArray();
 
-        $logsMonthCount = [];
-        $userArr = [];
+        if (!empty($logs)) $userArr = $this->instancesPerMonth($logs);
+        else $userArr = $this->noData;
 
-        foreach ($logs as $key => $value) {
-            $logsMonthCount[(int)$key] = count($value);
-        }
+        $label =  $chartLabel . ' ' . __('names.perMonth') ;
 
-        for ($i = 1; $i <= 12; $i++) {
-            if (!empty($logsMonthCount[$i])) {
-                $userArr[$i] = $logsMonthCount[$i];
-            } else {
-                $userArr[$i] = 0;
-            }
-        }
-
-        $months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-        $type = $barType;
-        $label = 'Number of User ' . $chartLabel . ' Per Month';
-
-        return [array_values(($userArr)), $months, $type, $label];
+        return [array_values(($userArr)), $this->months, $barType, $label];
     }
 
     /**
@@ -114,41 +114,26 @@ class ChartController extends AppBaseController
      */
     public function getOrderActivity(string $activityType, string $barType): array
     {
-
-        if($activityType == 'Paid') {
+        if ($activityType == 'Paid') {
+            $activityType = __('names.paid');
             $queryType = [2, 3, 4];
-        }
-        elseif($activityType == 'Unpaid') {
+        } elseif ($activityType == 'Unpaid') {
+            $activityType = __('names.unpaid');
             $queryType = [1];
-        }
-        else {
+        } else {
+            $activityType = __('names.canceled');
             $queryType = [5];
         }
 
         $orders = Order::select('id', 'created_at')->whereIn('status_id', $queryType)->get()->groupBy(function ($date) {
             return Carbon::parse($date->created_at)->format('m');
-        });
+        })->toArray();
 
+        if (!empty($orders)) $ordersArr = $this->instancesPerMonth($orders);
+        else $ordersArr = $this->noData;
 
-        $ordersMonthCount = [];
-        $ordersArr = [];
-
-        foreach ($orders as $key => $value) {
-            $ordersMonthCount[(int)$key] = count($value);
-        }
-
-        for ($i = 1; $i <= 12; $i++) {
-            if (!empty($ordersMonthCount[$i])) {
-                $ordersArr[$i] = $ordersMonthCount[$i];
-            } else {
-                $ordersArr[$i] = 0;
-            }
-        }
-
-        $months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-        $type = $barType;
-        $label = 'Number of ' . $activityType . ' Orders Per Month';
-        return [array_values(($ordersArr)), $months, $type, $label];
+        $label = $activityType . ' '.  __('names.ordersPerMonth');
+        return [array_values(($ordersArr)), $this->months, $barType, $label];
     }
 
     /**
@@ -165,10 +150,69 @@ class ChartController extends AppBaseController
         $admins = User::where('type', 1)->count();
 
 
-        $data = [$admins,$users];
+        $data = [$admins, $users];
 
-        $lineLabels = ['Administrators', 'Users'];
+        $lineLabels = [__('names.admins'), __('names.users')];
 
-        return [array_values(($data)),$lineLabels, $barType, $chartLabel];
+        return [array_values(($data)), $lineLabels, $barType, $chartLabel];
+    }
+
+    public function getReturns(string $chartLabel, $barType): array
+    {
+        $returns = Returns::select('id', 'created_at')->get()->groupBy(function ($date) {
+            return Carbon::parse($date->created_at)->format('m');
+        })->toArray();
+
+
+        if (!empty($returns)) $returnsArr = $this->instancesPerMonth($returns);
+        else $returnsArr = $this->noData;
+
+        $label = $chartLabel .' '. __('names.perMonth');
+        return [array_values(($returnsArr)), $this->months, $barType, $label];
+    }
+
+    public function getProductOrders(string $chartLabel, $barType): array
+    {
+        // Get ids where status Completed
+        $orders = Order::select('id')->whereIn('status_id', [6])->get();
+
+        $orderIds = [];
+        foreach ($orders as $key => $value) {
+            $orderIds[(int)$key] = $value->id;
+        }
+
+        $orderItems = OrderItem::select('product_id')->whereIn('order_id', $orderIds)->get();
+
+        $productArr = [];
+        foreach ($orderItems as $key => $value) {
+            $productArr[(int)$key] = ProductTranslation::where([['product_id', '=', [$value->product_id]], ['locale', '=', Lang::getLocale()]])->first()->name;
+        }
+
+        $countedArr =  array_unique($productArr);
+        $countArr = [];
+        foreach (array_count_values($productArr) as $value){
+            $countArr[] = $value;
+        }
+
+        return [$countArr,array_values($countedArr), $barType, $chartLabel];
+    }
+
+    public function instancesPerMonth(array $data)
+    {
+        $monthCount = [];
+        $finalArr = [];
+
+        foreach ($data as $key => $value) {
+            $monthCount[(int)$key] = count($value);
+        }
+
+        for ($i = 1; $i <= 12; $i++) {
+            if (!empty($monthCount[$i])) {
+                $finalArr[$i] = $monthCount[$i];
+            } else {
+                $finalArr[$i] = 0;
+            }
+        }
+        return $finalArr;
     }
 }

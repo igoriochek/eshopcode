@@ -3,6 +3,8 @@
 @section('content')
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.6.347/pdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.debug.js"></script>
     <div class="container">
         <div>
             <select name="chartType" id="chartType" onchange="updateChartType()">
@@ -19,14 +21,19 @@
                 <option value="paidOrders">{{__('names.paidOrders')}}</option>
                 <option value="unpaidOrders">{{__('names.unpaidOrders')}}</option>
                 <option value="cancelledOrders">{{__('names.cancelledOrders')}}</option>
-
+                <option value="returns">{{__('names.returns')}}</option>
+                <option value="productOrders">{{__('names.productOrders')}}</option>
             </select>
         </div>
         <div>
             <canvas id="myChart" height="100"></canvas>
         </div>
+        <div>
+            <button type="button" class="btn btn-primary" onclick="downloadPDF()">{{__('buttons.downloadPDF')}}</button>
+        </div>
     </div>
     <script>
+
         const ctx = document.getElementById('myChart').getContext('2d');
 
         let [data, labels, type, label] = {{Js::from($data)}};
@@ -68,26 +75,19 @@
                 borderWidth: 1,
             }
         ];
-
+        const bgColor = {
+            id: 'bgColor',
+            beforeDraw: (chart,steps, opts) => {
+                const {ctx, width, height} = chart;
+                ctx.fillStyle = opts.backgroundColor;
+                ctx.fillRect(0, 0, width, height)
+                ctx.restore();
+            }
+        }
         let options = {
             responsive: true,
             maintainAspectRatio: true,
             aspectRatio: 3,
-            title: {
-                display: true,
-                position: "top",
-                text: "Order Report",
-                fontSize: 18,
-                fontColor: "#111"
-            },
-            legend: {
-                display: true,
-                position: "bottom",
-                labels: {
-                    fontColor: "#333",
-                    fontSize: 16
-                }
-            },
             scales: {
                 y: {
                     beginAtZero: true,
@@ -95,6 +95,9 @@
                 }
             },
             plugins: {
+                bgColor: {
+                    backgroundColor: 'white'
+                },
                 datalabels: {
                     anchor: 'end',
                     align: 'top',
@@ -102,7 +105,21 @@
                     font: {
                         weight: 'bold'
                     }
-                }
+                },
+                title: {
+                    display: true,
+                    position: "top",
+                    text: "",
+                    fontColor: "#111",
+                    padding: 10,
+                },
+                legend: {
+                    display: true,
+                    position: "bottom",
+                    labels: {
+                        fontSize: 16
+                    }
+                },
             },
 
         };
@@ -114,7 +131,7 @@
                 datasets: datasets,
             },
             options: options,
-            plugins: [ChartDataLabels],
+            plugins: [ChartDataLabels, bgColor],
         }
 
         let myChart = new Chart(ctx, chartConfig);
@@ -158,10 +175,24 @@
                     }],
                 },
                 options: options,
-                plugins: [ChartDataLabels],
+                plugins: [ChartDataLabels, bgColor],
             }
             myChart.destroy();
             myChart = new Chart(ctx, chartConfig);
+        }
+
+        function downloadPDF() {
+            const canvas = document.getElementById('myChart');
+
+            // Create Image and keep ratio
+            const canvasImage = canvas.toDataURL('image/jpeg', 1.0);
+
+
+            let pdf = new jsPDF('landscape');
+            pdf.setFontSize(20);
+            pdf.addImage(canvasImage, 'JPEG', 15, 15);
+            let name = document.getElementById('statisticType').value ? document.getElementById('statisticType').value : 'data';
+            pdf.save(`${name}.pdf`);
         }
     </script>
 @endsection

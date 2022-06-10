@@ -21,6 +21,7 @@ return [
     'cancel' => 'Cancel',
     'checkout' => 'Checkout',
     'chooseFile' => 'Choose File',
+    'downloadPDF' => 'Download PDF',
     'export' => 'Export',
     'filter'=> 'Filter',
     'forgotPassword'=> 'Forgot Your Password?',
