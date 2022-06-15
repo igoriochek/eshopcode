@@ -93,6 +93,34 @@ return [
     'uploadFile' => 'Upload File',
     'table' => 'Table',
 
+    //Homepage
+    'addedAt' => 'Added at',
+    'browseProducts'=> 'Browse Products',
+    'code' => 'Code',
+    'createdAt' => 'Created At',
+    'dashboard' => 'Dashboard',
+    'description' => 'Description',
+    'displayingCartItems' => 'Displaying your recently added Cart Items.',
+    'displayingOrders' => 'Displaying your most recent Orders',
+    'displayingReturns' => 'Displaying your most recent Returns',
+    'loggedIn' => 'You are logged in!',
+    'language' => 'Language is',
+    'myCart' => 'My Cart',
+    'myOrders'=> 'My Orders',
+    'myReturns' => 'My Returns',
+    'openMsg' => 'Open messenger',
+    'noProductsInCart' => 'You don`t have ny Products in your Cart!',
+    'pricePerItem' => 'Price per Item',
+    'quantity' => 'Quantity',
+    'viewAllOrders' => 'View All Orders',
+    'viewAllReturns' => 'View All Returns',
+    'viewCart' => 'View Cart',
+    'viewOrder' => 'View Order',
+    'viewProduct' => 'View Product',
+    'viewReturn' => 'View Return',
+    'youHave' => 'You have',
+    'unreadMsg' => 'unread messages.',
+
     //Messenger
     'typeMsg' => 'Type your message here...',
 
@@ -139,7 +167,6 @@ return [
 
     //Price
     'discount' => 'Discount',
-    'discountCoupons' => 'Discount Coupons',
     'discountCouponsForYou' => 'Discount Coupons for you',
     'price' => 'Price',
     'from' => 'From',
