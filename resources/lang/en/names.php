@@ -94,6 +94,7 @@ return [
     'table' => 'Table',
 
     //Homepage
+    'home' => 'Home',
     'addedAt' => 'Added at',
     'browseProducts'=> 'Browse Products',
     'code' => 'Code',
@@ -174,13 +175,17 @@ return [
     'sum' => 'Sum',
     'total' => 'Total',
 
-
     //Rating
     'alreadyVoted' => "You have already voted for this product",
     'rating' => 'Rating',
     'ratingOrRatings' => 'Rating(s)',
     'starRating' => 'Star Rating',
     'voted' => "Thank you for your vote!",
+
+    //Reviews
+    'noReviews' => 'No Reviews. Be the first to review this product.',
+    'alreadyReviewed' => 'You have already left a review for this product.',
+    'reviewProduct' => 'Thank you for reviewing this product.',
 
     //Returns
     'checkReturn' => 'Check to Return',

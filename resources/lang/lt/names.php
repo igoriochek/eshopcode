@@ -94,6 +94,7 @@ return [
     'table' => 'Lentelė',
 
     //Homepage
+    'home' => 'Namo',
     'addedAt' => 'Pridėta',
     'browseProducts'=> 'Naršyti Produktus',
     'code' => 'Kodas',

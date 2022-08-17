@@ -12,6 +12,8 @@ use App\Models\Product;
 use App\Models\User;
 use App\Repositories\CartRepository;
 use App\Http\Controllers\AppBaseController;
+use App\Traits\CartItemNumber;
+use App\Traits\CartItems;
 use Illuminate\Http\Request;
 use Flash;
 use Illuminate\Support\Facades\Auth;
@@ -20,6 +22,7 @@ use Response;
 class CartController extends AppBaseController
 {
     use \App\Http\Controllers\forSelector;
+    use CartItems;
 
     /** @var CartRepository $cartRepository*/
     private $cartRepository;
@@ -235,17 +238,10 @@ class CartController extends AppBaseController
     {
         $cart = $this->cartRepository->getOrSetCart($request);
 
-        $cartItems = CartItem::query()
-            ->with('product')
-            ->where([
-                'cart_id' => $cart->id,
-            ])
-            ->get();
+        $cartItems = $this->getCartItems($cart);
 
         return view('user_views.cart.view')
-            ->with([
-                'cartItems'=> $cartItems
-            ]);
+            ->with(['cartItems'=> $cartItems]);
     }
 
 

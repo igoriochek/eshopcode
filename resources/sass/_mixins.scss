@@ -1,0 +1,68 @@
+@mixin link-hover-focus {
+    transition: color 400ms ease;
+
+    &:hover,
+    &:focus {
+        color: $link-hover-focus-color;
+    }
+}
+
+@mixin header($background-image-url) {
+    height: 500px;
+    width: 100%;
+    background: #888888 url($background-image-url) no-repeat center center;
+    background-size: cover;
+    background-blend-mode: multiply;
+
+    .header-inner-title {
+        margin: 200px 0;
+
+        .header-span {
+            width: 3px;
+            height: 20px;
+            background-color: $pink-color;
+        }
+
+        .header-subtitle-home,
+        .header-subtitle-products {
+            text-decoration: none;
+        }
+
+        .header-subtitle-home {
+            text-transform: uppercase;
+            color: $white-color;
+            font-size: 1.1em;
+            @include link-hover-focus;
+        }
+
+        .header-subtitle-route {
+            color: #ee3ee2;
+            font-size: 1em;
+
+            &::before {
+                content: '/';
+                margin: 0 7px 0 10px;
+                color: $white-color;
+            }
+        }
+
+        .header-title {
+            color: $white-color;
+            font-family: "Playfair Display", serif;
+            font-weight: 700;
+            font-size: 3em;
+            text-align: left;
+            margin: 15px 0;
+        }
+    }
+
+    .header-bottom {
+        width: 100%;
+        height: 100px;
+        z-index: 1;
+        background: url('/images/header-bottom.png') repeat-x center center;
+        position: relative;
+        top: -71px;
+        left: 0;
+    }
+}

@@ -9,9 +9,7 @@ return [
     |
     */
 
-    'usermenu' => 'User menu',
-    'adminmenu' => 'Admin menu',
-
+    'home' => 'Home',
     'admin' => 'Admin',
     'cart' => 'Cart',
     'carts' => 'Carts',
@@ -24,6 +22,7 @@ return [
     'discountCoupons' => 'Discount Coupons',
     'importExport' => 'Import/Export',
     'messenger' => 'Messenger',
+    'login' => 'Login',
     'logout'=> 'Logout',
     'orders' => 'Orders',
     'orderStatuses' => 'Order Statuses',
@@ -35,8 +34,8 @@ return [
     'returnsReport' => 'Returns Report',
     'returnStatuses' => 'Return Statuses',
     'users'=> 'Users',
-    'userInfo'=> 'User Info',
+    'profile'=> 'Profile',
     'usersReport' => 'Users Report',
-    'usersActivitiesReport' => 'Users Activities Report',
+    'usersActivitiesReport' => 'Users Activities Report'
 
 ];

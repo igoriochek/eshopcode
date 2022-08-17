@@ -1,11 +1,9 @@
 <div>
+    @include('user_views.header', ['title' => __('messages.messenger')])
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1>{{__('messages.messenger')}}</h1>
-                </div>
-                <div class="col-sm-6">
+                <div class="col-sm-12">
                     <a class="btn btn-primary float-end"
                     href="{{ route('livewire.messenger.add') }}">
                         {{__('buttons.addNew')}}

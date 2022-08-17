@@ -11,7 +11,6 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\FaceBookController;
 use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\TwitterController;
-use App\Http\Controllers\MessengerController;
 use App\Http\Controllers\OrdersReportController;
 use App\Http\Controllers\ReturnsReportController;
 use App\Http\Controllers\CartsReportController;
@@ -35,7 +34,7 @@ use App\Http\Livewire\MessengerShow;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Route::group(array('prefix' => 'admin', 'middleware' => 'admin'), function () {

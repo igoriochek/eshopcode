@@ -72,8 +72,9 @@ class ProductController extends AppBaseController
             ->allowedFilters([AllowedFilter::scope('namelike'), 'categories.id',AllowedFilter::scope('pricefrom'),AllowedFilter::scope('priceto'),])
             ->allowedIncludes('categories')
             ->orderBy($orderBy)
-            ->paginate(5)
+            ->paginate(10)
             ->appends(request()->query());
+
         return view('user_views.product.products_all_with_filters')
             ->with(['products'=> $products,
                 'categories' => $categories,
@@ -164,7 +165,7 @@ class ProductController extends AppBaseController
         $rated = Ratings::query()
         ->where([
             'product_id' => $id,
-            'user_id' => Auth::user()->id
+            //'user_id' => Auth::user()->id
         ])
         ->get();
         $arrated = [1=>0,2=>0, 3=>0, 4=>0, 5=>0];

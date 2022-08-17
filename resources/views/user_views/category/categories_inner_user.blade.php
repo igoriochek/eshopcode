@@ -1,19 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <section class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1>{{__('names.categories')}}</h1>
-                </div>
-                <div class="col-sm-6">
-                    <h3>{{$maincategory->name}}</h3>
-                    <a href="{{route("rootcategories")}}">{{__('buttons.backToMainCategories')}}</a>
-                </div>
-            </div>
-        </div>
-    </section>
+    @include('user_views.header', ['title' => $maincategory->name])
     <div class="col-sm-6">
         <h3>{{$maincategory->name}}: {{__('names.products')}}</h3>
     </div>

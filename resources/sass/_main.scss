@@ -1,0 +1,49 @@
+* {
+    font-family: $font-family-montserrat;
+    scroll-behavior: smooth;
+
+    &::after,
+    &::before {
+        box-sizing: border-box;
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+    body {
+        min-width: 100vw;
+        min-height: 100vh;
+
+        p {
+            text-align: left;
+            margin: 0;
+            font-size: 1em;
+        }
+
+        .main {
+            min-height: 72.5vh;
+
+            .selector {
+                height: 50px;
+                color: $gray-color;
+            }
+
+            .pagination {
+                .page-item {
+                    .page-link {
+                        border-color: #cec7ce;
+                        color: $pink-color;
+                    }
+                }
+
+                .page-item.active .page-link {
+                    z-index: 3;
+                    background-color: $pink-color;
+                    color: $white-color;
+                    border-color: $pink-color;
+                }
+            }
+        }
+    }
+}

@@ -19,7 +19,7 @@ class Ratings extends Model
     use HasFactory;
 
     public $table = 'ratings';
-    
+
 
 
 
@@ -45,5 +45,8 @@ class Ratings extends Model
         'value' => 'required'
     ];
 
-    
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

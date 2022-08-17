@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Spatie\QueryBuilder\QueryBuilder;
 use \Illuminate\Database\Eloquent\Builder;
 
 use Astrotomic\Translatable\Translatable;
@@ -81,6 +80,11 @@ class Product extends Model implements TranslatableContract
     public function discount()
     {
         return $this->belongsTo(Discount::class);
+    }
+
+    public function ratings()
+    {
+        return $this->hasMany(Ratings::class);
     }
 
     public function scopePriceFrom(Builder $query, $price) : Builder

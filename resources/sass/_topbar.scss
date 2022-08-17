@@ -1,0 +1,35 @@
+.topbar {
+    font-size: 0.8em;
+    background-color: #281e28;
+    min-height: 45px;
+    z-index: 1001;
+
+    .topbar_icon {
+        color: #c028b9;
+        @include link-hover-focus;
+    }
+
+    .topbar_icon_link {
+        color: $white-color;
+        @include link-hover-focus;
+    }
+
+    a {
+        text-decoration: none;
+
+        span {
+            @include link-hover-focus;
+        }
+    }
+
+    div {
+        ul {
+            li {
+                #navbarDropdown {
+                    color: $white-color;
+                    @include link-hover-focus;
+                }
+            }
+        }
+    }
+}

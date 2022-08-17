@@ -1,0 +1,131 @@
+<footer class="d-block">
+    <div class="bg-light" style="padding: 100px 0 80px 0">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="newsletter-container d-sm-block d-lg-flex">
+                        <h3 class="newsletter-title mb-sm-4">{{ __('Our Newsletter') }}</h3>
+                        <div class="newsletter-form-container">
+                            <form>
+                                <input type="email" placeholder="{{ __('Email') }}" class="newsletter-input">
+                                <button type="submit" class="newsletter-button">
+                                    <i class="fa-solid fa-paper-plane me-1"></i>
+                                    {{ __('Get Notified') }}
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-12">
+                    <a class="navbar-brand fw-bold" href="{{ url('/home') }}">
+                        <img src="/images/opatrip-logo.svg" alt="opatrip-logo" width="200px">
+                    </a>
+                    <p class="my-4 slogan-paragraph">
+                        {{ __('Give yourself the power of responsibility.
+                        Remind yourself the only thing stopping you is yourself.') }}
+                    </p>
+                    <div class="d-flex" style="gap: 20px">
+                        <a class="footer-link" href="#">
+                            <i class="fa-brands fa-facebook fs-4"></i>
+                        </a>
+                        <a class="footer-link" href="#">
+                            <i class="fa-brands fa-instagram fs-4"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mt-4 mt-md-5 mt-lg-0">
+                    <h5 class="fw-bold mb-5 footer-bar-title">
+                        {{ __('Information') }}
+                    </h5>
+                    <ul class="list-unstyled mb-0">
+                        <li class="mb-4">
+                            <a class="footer-link" href="{{ url('/') }}">
+                                <i class="fa-solid fa-address-card fs-5 me-1"></i>
+                                <span>{{ __('About Us / Team') }}</span>
+                            </a>
+                        </li>
+                        <li class="mb-4">
+                            <a class="footer-link" href="{{ url('/') }}">
+                                <i class="fa-solid fa-briefcase fs-5 me-1"></i>
+                                <span>{{ __('Career') }}</span>
+                            </a>
+                        </li>
+                        <li class="mb-4">
+                            <a class="footer-link" href="{{ url('/') }}">
+                                <i class="fa-solid fa-earth-africa fs-5 me-1"></i>
+                                <span>{{ __('All locations') }}</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6 mt-4 mt-md-5 mt-lg-0 position-relative">
+                    <h5 class="fw-bold mb-5 footer-bar-title">
+                        {{ __('Contant Travel') }}
+                    </h5>
+                    <ul class="list-unstyled mb-0">
+                        <li class="d-flex align-items-center mb-4">
+                            <div style="width: 50px">
+                                <i class="fa-solid fa-location-dot fs-3 contact-travel-icon"></i>
+                            </div>
+                            <span class="contact-travel-paragraph">{{ __('Gyneju st. 14, LT-01109 Vilnius, Lithuania') }}</span>
+                        </li>
+                        <li class="d-flex align-items-center mb-4">
+                            <div style="width: 50px">
+                                <i class="fa-solid fa-phone fs-3 contact-travel-icon"></i>
+                            </div>
+                            <span class="contact-travel-paragraph">{{ __('+370 679 22249') }}</span>
+                        </li>
+                        <li class="d-flex align-items-center mb-4" style="gap: 20px">
+                            <a href="#" class="footer-link">
+                                <i class="fa-brands fa-whatsapp fs-4"></i>
+                            </a>
+                            <a href="#" class="footer-link">
+                                <i class="fa-brands fa-viber fs-4"></i>
+                            </a>
+                            <a href="#" class="footer-link">
+                                <i class="fa-brands fa-telegram fs-4"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="py-4">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12 col-md-8 text-center text-md-start">
+                    <ul class="mb-0 p-0 d-flex justify-content-center justify-content-md-start list-unstyled" style="gap: 20px">
+                        <li>
+                            <a class="footer-link" href="#">
+                                {{ __('F.A.Q.') }}
+                            </a>
+                        </li>
+                        <li>
+                            <a class="footer-link" href="#">
+                                {{ __('Privacy Policy') }}
+                            </a>
+                        </li>
+                        <li>
+                            <a class="footer-link" href="#">
+                                {{ __('Terms of Service') }}
+                            </a>
+                        </li>
+                        <li>
+                            <a class="footer-link" href="#">
+                                {{ __('Contact / Support') }}
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-12 col-md-4 text-center text-md-end mt-2 mt-md-0">
+                    <p class="mb-0 copyright-paragraph">
+                        {{ __('Copyright © 2015-2022 Opatrip. All rights reserved.') }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

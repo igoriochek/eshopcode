@@ -1,4 +1,3 @@
-{{__('menu.adminmenu')}}:
 <li><a class="dropdown-item" href="/admin/categories">{{__('menu.categories')}}</a>&nbsp;&nbsp;</li>
 <li><a class="dropdown-item" href="/admin/products">{{__('menu.products')}}</a>&nbsp;&nbsp;</li>
 <li><a class="dropdown-item" href="/admin/carts">{{__('menu.carts')}}</a>&nbsp;&nbsp;</li>

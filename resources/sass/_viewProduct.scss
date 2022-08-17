@@ -1,0 +1,234 @@
+.product-section {
+    padding-top: 100px;
+
+    .carousel-indicators {
+        button[type="button"] {
+            width: 10px;
+            height: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+    }
+
+    .product-rating-star {
+        color: $yellow-color;
+        margin-right: 2px;
+    }
+
+    .product-title {
+        font-family: "Playfair Display", serif;
+        font-weight: 600;
+    }
+
+    .product-rating-price-container {
+        .product-rating {
+            margin: 15px 0 20px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .product-price {
+            color: $gray-color;
+            margin-bottom: 5px;
+            font-size: 1.25em;
+
+            strike, b, span {
+                font-family: "Playfair Display", serif;
+            }
+
+            strike, span {
+                color: $gray-color;
+            }
+
+            b {
+                color: $pink-color;
+            }
+
+            span {
+                font-weight: 600;
+            }
+        }
+    }
+
+    .product-description {
+        text-align: left;
+        font-size: 1em;
+        padding: 10px 0;
+        margin-bottom: 40px;
+        color: $light-gray-color;
+    }
+
+    .product-add-to-cart-container {
+        display: flex;
+        justify-content: flex-start;
+
+        .product-add-to-cart-number {
+            width: 90px;
+            margin-right: 20px;
+            height: 50px;
+            padding: 0 15px;
+            border: 1px solid #bbbbbb;
+            border-radius: 5px;
+            color: $gray-color;
+        }
+
+        .product-add-to-cart-button {
+            width: 160px;
+            height: 50px;
+            border: none;
+            border-radius: 5px;
+            background-color: $pink-color;
+            color: $white-color;
+            transition: background-color 300ms ease;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+
+            &:hover,
+            &:focus {
+                background-color: $button-hover-focus-background;
+            }
+        }
+    }
+
+    .product-link,
+    .category-link {
+        text-decoration: none;
+        margin-left: 10px;
+    }
+
+    .product-link {
+        color: $gray-color;
+        font-size: 0.9em;
+        @include link-hover-focus;
+    }
+
+    .category-link {
+        color: $pink-color;
+        font-size: 1em;
+        font-weight: 500;
+        transition: color 400ms ease;
+
+        &:hover,
+        &:focus {
+            color: $button-hover-focus-background;
+        }
+    }
+
+    .product-detail-container {
+        margin-bottom: 20px;
+        color: $light-gray-color;
+    }
+
+    .product-reviews-container {
+        box-shadow: 0 7px 16px 0 rgb(9 28 58 / 7%);
+        padding: 30px;
+        border-radius: 6px;
+
+        .product-reviews-title,
+        .product-reviews-add-review-title {
+            font-weight: 600;
+            font-family: "Playfair Display", serif;
+        }
+
+        .product-reviews-title {
+            margin-bottom: 1.5rem;
+        }
+
+        .product-user-rating-container {
+            box-shadow: 0 7px 16px 0 rgb(9 28 58 / 7%);
+            padding: 15px;
+            margin-bottom: 20px;
+            width: 100%;
+            border-radius: 6px;
+
+            .product-user-rating-name-date {
+                color: $light-gray-color;
+                margin-bottom: 20px;
+            }
+
+            .product-user-rating {
+                margin-left: auto;
+                display: flex;
+                align-items: center;
+                margin-bottom: 20px;
+            }
+        }
+
+        .product-user-rating-description,
+        .product-reviews-add-review-description {
+            color: $light-gray-color;
+        }
+
+        .product-review-add-review-form {
+            color: $light-gray-color;
+
+            input[type='text'],
+            input[type='email'],
+            textarea {
+                padding: 14px 20px;
+                font-size: 15px;
+                border-color: #ededed;
+            }
+
+            input[type='text'],
+            input[type='email'] {
+                height: 50px;
+            }
+
+            .rating {
+                display: flex;
+                flex-direction: row-reverse;
+                justify-content: flex-end;
+            }
+
+            .rating > input {
+                display: none;
+            }
+
+            .rating > label {
+                position: relative;
+                width: 1em;
+                font-size: 1.5em;
+                color: #FFD600;
+                cursor: pointer;
+            }
+
+            .rating > label::before {
+                content: "\2605";
+                position: absolute;
+                padding-left: 1px;
+                opacity: 0;
+            }
+
+            .rating > label:hover:before,
+            .rating > label:hover ~ label:before {
+                opacity: 1 !important
+            }
+
+            .rating > input:checked ~ label:before {
+                opacity: 1
+            }
+
+            .rating:hover > input:checked ~ label:before {
+                opacity: 0.4
+            }
+
+            .product-reviews-add-review-submit {
+                width: 120px;
+                height: 45px;
+                border: none;
+                border-radius: 5px;
+                background-color: $pink-color;
+                color: $white-color;
+                transition: background-color 300ms ease;
+                font-size: 0.9em;
+                margin-top: 20px;
+
+                &:hover,
+                &:focus {
+                    background-color: $button-hover-focus-background;
+                }
+            }
+        }
+    }
+}
