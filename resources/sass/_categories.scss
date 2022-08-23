@@ -1,0 +1,78 @@
+.category {
+    border-radius: 6px;
+    box-shadow: 0 7px 16px 0 rgb(9 28 58 / 7%);
+    padding: 0 20px;
+
+    .category-title {
+        margin-bottom: 20px;
+        font-weight: bold;
+        line-height: 36px;
+        color: #102636;
+        font-family: "Playfair Display", serif;
+        display: block;
+        text-decoration: none;
+        transition: color 400ms ease;
+
+        &:hover,
+        &:focus {
+            color: $button-hover-focus-background;
+        }
+    }
+
+    .category-product-count {
+        margin: 20px 0;
+    }
+
+    .category-description,
+    .category-product-count,
+    .categories-empty,
+    .subcategories-title {
+        color: $light-gray-color;
+    }
+
+    .subcategories-title {
+        margin-right: 10px;
+        font-weight: 500;
+    }
+
+    .categories-empty {
+        font-weight: 400;
+    }
+
+    .subcategory-link {
+        text-decoration: none;
+        color: $pink-color;
+        font-size: 1em;
+        font-weight: 500;
+        transition: color 400ms ease;
+        margin-right: 15px;
+
+        &:hover,
+        &:focus {
+            color: $button-hover-focus-background;
+        }
+    }
+}
+
+.sidebar {
+    .category-tree-widget-content {
+        li {
+            list-style: none;
+
+            a {
+                text-decoration: none;
+                color: $gray-color;
+                transition: color 400ms ease;
+
+                &:hover,
+                &:focus {
+                    color: $pink-color;
+                }
+            }
+
+            span {
+                color: $light-gray-color;
+            }
+        }
+    }
+}

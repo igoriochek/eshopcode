@@ -1,27 +1,34 @@
 <div>
-    <section class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1>{{__('messages.messenger')}}</h1>
+    @include('header', ['title' => __('messages.messenger')])
+    <section class="pt-5">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-4 mt-4 mt-md-5 mt-lg-0">
+                    <div class="sidebar">
+                        <div class="widget">
+                            <div class="widget-title-container d-flex justify-content-between align-items-center mb-2">
+                                <h4 class="widget-title m-0">
+                                    {{ __('names.messages') }}
+                                </h4>
+                            </div>
+                            <div class="category-tree-widget-content">
+                                @include('livewire.messenger.users')
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8 mb-5">
+                    <div class="messenger-add-users p-4 mb-4 mb-sm-5">
+                        <h4 class="messenger-add-users-title m-0">
+                            {{ __('names.addUsers') }}
+                        </h4>
+                        <p class="p-0 pb-3 m-0 mb-3 showing-all-results">
+                            {{ __('Showing all ').$addUsers->count().__(' result(s)') }}
+                        </p>
+                        @include('livewire.messenger.add_users')
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-    <div class="content px-3">
-        <div class="row px-3" style="gap: 10px">
-            @include('flash::message')
-            <div class="clearfix"></div>
-            <div class="card p-3 col-sm-2 h-100">
-                <div class="card-body">
-                    @include('livewire.messenger.users')
-                </div>
-            </div>
-            <div class="card p-3 col-sm h-100">
-                <div class="card-body">
-                    @include('livewire.messenger.table')
-                </div>
-            </div>
-        </div>
-    </div>
 </div>

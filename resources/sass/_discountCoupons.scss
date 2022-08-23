@@ -1,0 +1,44 @@
+.discount-coupon {
+    border-radius: 6px;
+    box-shadow: 0 7px 16px 0 rgb(9 28 58 / 7%);
+    padding: 0 20px;
+
+    .discount-coupon-title {
+        margin-bottom: 20px;
+        font-weight: bold;
+        line-height: 36px;
+        color: #102636;
+        font-family: "Playfair Display", serif;
+        display: block;
+        text-decoration: none;
+        transition: color 400ms ease;
+
+        &:hover,
+        &:focus {
+            color: $button-hover-focus-background;
+        }
+    }
+
+    .discount-coupon-description,
+    .discount-coupons-empty {
+        color: $light-gray-color;
+    }
+
+    .discount-coupons-empty {
+        font-weight: 400;
+    }
+
+    .discount-coupon-link {
+        text-decoration: none;
+        color: $pink-color;
+        font-size: 1em;
+        font-weight: 500;
+        transition: color 400ms ease;
+        margin-right: 15px;
+
+        &:hover,
+        &:focus {
+            color: $button-hover-focus-background;
+        }
+    }
+}

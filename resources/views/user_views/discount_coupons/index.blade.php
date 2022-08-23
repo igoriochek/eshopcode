@@ -1,28 +1,36 @@
 @extends('layouts.app')
 
 @section('content')
-    @include('user_views.header', ['title' => __('names.discountCoupons')])
+    @include('header', ['title' => __('names.discountCoupons')])
     <section class="pt-5">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 mb-5 order-sm-last order-lg-first">
+                <div class="col-lg-12 mb-5">
+                    <div class="row mb-4 align-items-center">
+                        <div class="col-lg-12">
+                            <p class="p-0 m-0 mb-sm-3 showing-all-results">
+                                {{ __('Showing all ').$discountCoupons->count().__(' result(s)') }}
+                            </p>
+                        </div>
+                    </div>
                     <div class="row">
                         @if(($discountCoupons->count()))
-                            @foreach( $discountCoupons as $prod )
-                                <div class="card-body">
-                                    <h4 class="card-title"><a href="{{route('viewproduct', $prod->id)}}">{{$prod->code}}</a></h4>
-                                    <h6 class="card-subtitle mb-2 text-muted">{{__('names.desc')}}</h6>
-                                    <p class="card-text">{{$prod->value}}</p>
+                            @foreach($discountCoupons as $discountCoupon)
+                                <div class="discount-coupon p-4 mb-4 mb-sm-5">
+                                    <h4>
+                                        <a class="discount-coupon-title" href="{{ route('viewproduct', $discountCoupon->id) }}">
+                                            {{ $discountCoupon->code }}
+                                        </a>
+                                    </h4>
+                                    <p class="discount-coupon-description">{{ $discountCoupon->value }}</p>
                                 </div>
                             @endforeach
                         @else
-                            {{__('names.noProducts')}}
+                            <span class="discount-coupons-empty">
+                                {{ __('names.noProducts') }}
+                            </span>
                         @endif
-                        <div class="card-footer clearfix">
-                            <div class="float-right">
-                                {{$discountCoupons->links()}}
-                            </div>
-                        </div>
+                        {{$discountCoupons->links()}}
                     </div>
                 </div>
             </div>

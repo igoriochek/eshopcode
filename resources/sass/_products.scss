@@ -2,12 +2,9 @@
     @include header('/images/products-header.jpeg');
 }
 
-.showing-all-results {
-    color: $light-gray-color;
-}
-
 .product {
-    padding: 15px 0;
+    box-shadow: 0 7px 16px 0 rgb(9 28 58 / 7%);
+    border-radius: 10px;
 
     .product-image-container {
         .product-image {
@@ -18,33 +15,42 @@
     }
 
     .product-information {
+        padding: 20px 30px;
+
         .product-title-container {
             margin: 25px 0 10px;
 
             .product-title {
                 text-decoration: none;
+                font-family: "Playfair Display", serif;
                 font-weight: bold;
+                font-size: 1.4em;
                 color: $gray-color;
                 @include link-hover-focus;
             }
         }
 
-        .product-rating {
-            margin: 15px 0;
+        .product-hr {
+            height: 2px;
+            color: #e1e1e1;
+            margin: 20px 0;
+        }
 
+        .product-rating {
             i {
-                color: #ffb40a;
+                color: #ffcc03;
             }
         }
 
         .product-price {
             font-weight: bold;
-            font-size: 1em;
+            font-size: 1.3em;
             color: $gray-color;
-            margin-bottom: 15px;
         }
 
         .product-button-container {
+            margin-bottom: 20px;
+
             .product-add-to-cart {
                 width: 150px;
                 height: 50px;
@@ -65,30 +71,6 @@
 }
 
 .sidebar {
-    .form-control {
-        height: 50px;
-        padding: 0 20px;
-        font-weight: 500;
-        font-size: 0.9em;
-    }
-
-    .widget {
-        padding: 25px 20px;
-        margin-top: 0;
-        border-radius: 4px;
-        -webkit-box-shadow: 0 7px 16px 0 rgb(9 28 58 / 7%);
-        box-shadow: 0 7px 16px 0 rgb(9 28 58 / 7%);
-        margin-bottom: 30px;
-
-        .widget-title-container {
-            .widget-title {
-                font-weight: 600;
-                font-family: "Playfair Display", serif;
-                margin-bottom: 20px;
-            }
-        }
-    }
-
     .filter-by-price-widget-content {
         .ui-widget-header {
             background: $pink-color;
@@ -114,6 +96,11 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            color: $light-gray-color;
+
+            .filter-by-price-number {
+                color: $light-gray-color;
+            }
 
             .filter-by-price-button {
                 border: none;
@@ -153,6 +140,22 @@
             &:focus {
                 background-color: $button-hover-focus-background;
             }
+        }
+    }
+
+    .categories-widget-content {
+        margin-top: 20px;
+        color: $light-gray-color;
+        font-size: 1.1em;
+
+        .form-check {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .form-check-input:checked {
+            background-color: $pink-color;
+            border-color: $pink-color;
         }
     }
 }

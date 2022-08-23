@@ -1,0 +1,25 @@
+.sidebar {
+    .form-control {
+        height: 50px;
+        padding: 0 20px;
+        font-weight: 500;
+        font-size: 0.9em;
+    }
+
+    .widget {
+        padding: 25px 20px;
+        margin-top: 0;
+        border-radius: 4px;
+        -webkit-box-shadow: 0 7px 16px 0 rgb(9 28 58 / 7%);
+        box-shadow: 0 7px 16px 0 rgb(9 28 58 / 7%);
+        margin-bottom: 30px;
+
+        .widget-title-container {
+            .widget-title {
+                font-weight: 600;
+                font-family: "Playfair Display", serif;
+                margin-bottom: 20px;
+            }
+        }
+    }
+}

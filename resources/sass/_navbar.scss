@@ -25,13 +25,15 @@
         border-radius: 5px;
         background-color: transparent;
         color: $pink-color;
-        transition: background-color 300ms ease;
-        font-weight: 500;
-        padding: 10px;
+        transition: opacity 300ms ease;
+        font-weight: 600;
+        padding: 11px;
+        opacity: 0.8;
+        margin-right: 10px;
 
         &:hover,
         &:focus {
-            background-color: rgba(235, 0, 255, 0.10);
+            opacity: 1;
         }
     }
 
@@ -56,6 +58,73 @@
                 font-weight: 500;
                 text-align: center;
             }
+        }
+    }
+
+    .hamburger-menu-button {
+        display: none;
+    }
+
+    .menu {
+        .language {
+            display: none;
+        }
+    }
+
+    @media only screen and (max-width: 1199px) {
+        .hamburger-menu-button {
+            border: none;
+            border-radius: 5px;
+            background-color: $pink-color;
+            color: $white-color;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 300ms ease;
+
+            &:hover, &:focus {
+                background-color: $button-hover-focus-background;
+            }
+        }
+
+        .menu {
+            display: block;
+            position: absolute;
+            top: -500%;
+            left: 12%;
+            margin-top: 90px;
+            background-color: $white-color;
+            width: 75%;
+            padding: 20px 30px;
+            border-radius: 0 0 10px 10px;
+            transition: 600ms ease-in-out;
+            z-index: -1000;
+
+            .nav-item {
+                margin: 20px 0;
+
+                &:first-of-type,
+                &:last-of-type {
+                    margin: 0;
+                }
+            }
+
+            .language {
+                display: flex;
+
+                .language-link {
+                    text-decoration: none;
+                    color: $gray-color;
+                    padding-right: 10px;
+                    @include link-hover-focus;
+                }
+            }
+        }
+
+        .menu.active {
+            top: 0;
         }
     }
 }

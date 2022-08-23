@@ -11302,12 +11302,71 @@ textarea.form-control-lg {
   margin: 0;
   font-size: 1em;
 }
+@media only screen and (max-width: 576px) {
+  * body .container {
+    padding: 0 25px;
+  }
+}
 * body .main {
   min-height: 72.5vh;
 }
+* body .main .scroll-to-top-button {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display: inline-block;
+  border: none;
+  font-size: 20px;
+  color: #ffffff;
+  background-color: #cb34c2;
+  border-radius: 6px;
+  text-align: center;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 7px 16px 0 rgba(9, 28, 58, 0.07);
+  transition: all 300ms ease;
+  z-index: 9;
+  opacity: 0;
+}
+* body .main .scroll-to-top-button:hover, * body .main .scroll-to-top-button:focus {
+  background-color: #a12c9b;
+}
+* body .main .scroll-to-top-button.show {
+  opacity: 1;
+}
+* body .main .fade-in {
+  -webkit-animation: FadeIn 300ms linear;
+          animation: FadeIn 300ms linear;
+}
+@-webkit-keyframes FadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes FadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 * body .main .selector {
   height: 50px;
-  color: #3f3f3f;
+  color: #818181;
+}
+* body .main .showing-all-results {
+  color: #818181;
+}
+* body .main .column-title {
+  font-family: "Playfair Display", serif;
+  margin-bottom: 20px;
 }
 * body .main .pagination .page-item .page-link {
   border-color: #cec7ce;
@@ -11381,12 +11440,14 @@ textarea.form-control-lg {
   border-radius: 5px;
   background-color: transparent;
   color: #cb34c2;
-  transition: background-color 300ms ease;
-  font-weight: 500;
-  padding: 10px;
+  transition: opacity 300ms ease;
+  font-weight: 600;
+  padding: 11px;
+  opacity: 0.8;
+  margin-right: 10px;
 }
 .navbar .navbar-login-button:hover, .navbar .navbar-login-button:focus {
-  background-color: rgba(235, 0, 255, 0.1);
+  opacity: 1;
 }
 .navbar .navbar-icon {
   text-decoration: none;
@@ -11411,6 +11472,63 @@ textarea.form-control-lg {
   font-size: 0.65em;
   font-weight: 500;
   text-align: center;
+}
+.navbar .hamburger-menu-button {
+  display: none;
+}
+.navbar .menu .language {
+  display: none;
+}
+@media only screen and (max-width: 1199px) {
+  .navbar .hamburger-menu-button {
+    border: none;
+    border-radius: 5px;
+    background-color: #cb34c2;
+    color: #FFFFFF;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 300ms ease;
+  }
+  .navbar .hamburger-menu-button:hover, .navbar .hamburger-menu-button:focus {
+    background-color: #a12c9b;
+  }
+  .navbar .menu {
+    display: block;
+    position: absolute;
+    top: -500%;
+    left: 12%;
+    margin-top: 90px;
+    background-color: #FFFFFF;
+    width: 75%;
+    padding: 20px 30px;
+    border-radius: 0 0 10px 10px;
+    transition: 600ms ease-in-out;
+    z-index: -1000;
+  }
+  .navbar .menu .nav-item {
+    margin: 20px 0;
+  }
+  .navbar .menu .nav-item:first-of-type, .navbar .menu .nav-item:last-of-type {
+    margin: 0;
+  }
+  .navbar .menu .language {
+    display: flex;
+  }
+  .navbar .menu .language .language-link {
+    text-decoration: none;
+    color: #3f3f3f;
+    padding-right: 10px;
+    transition: color 400ms ease;
+  }
+  .navbar .menu .language .language-link:hover, .navbar .menu .language .language-link:focus {
+    color: #c736c0;
+  }
+  .navbar .menu.active {
+    top: 0;
+  }
 }
 
 .banner {
@@ -11475,6 +11593,25 @@ textarea.form-control-lg {
   box-shadow: inset 200px 0 0 0 #a12c9b;
 }
 
+.sidebar .form-control {
+  height: 50px;
+  padding: 0 20px;
+  font-weight: 500;
+  font-size: 0.9em;
+}
+.sidebar .widget {
+  padding: 25px 20px;
+  margin-top: 0;
+  border-radius: 4px;
+  box-shadow: 0 7px 16px 0 rgba(9, 28, 58, 0.07);
+  margin-bottom: 30px;
+}
+.sidebar .widget .widget-title-container .widget-title {
+  font-weight: 600;
+  font-family: "Playfair Display", serif;
+  margin-bottom: 20px;
+}
+
 .products-header-banner {
   height: 500px;
   width: 100%;
@@ -11530,41 +11667,47 @@ textarea.form-control-lg {
   left: 0;
 }
 
-.showing-all-results {
-  color: #818181;
-}
-
 .product {
-  padding: 15px 0;
+  box-shadow: 0 7px 16px 0 rgba(9, 28, 58, 0.07);
+  border-radius: 10px;
 }
 .product .product-image-container .product-image {
   width: 100%;
   height: 100%;
   border-radius: 0.25rem;
 }
+.product .product-information {
+  padding: 20px 30px;
+}
 .product .product-information .product-title-container {
   margin: 25px 0 10px;
 }
 .product .product-information .product-title-container .product-title {
   text-decoration: none;
+  font-family: "Playfair Display", serif;
   font-weight: bold;
+  font-size: 1.4em;
   color: #3f3f3f;
   transition: color 400ms ease;
 }
 .product .product-information .product-title-container .product-title:hover, .product .product-information .product-title-container .product-title:focus {
   color: #c736c0;
 }
-.product .product-information .product-rating {
-  margin: 15px 0;
+.product .product-information .product-hr {
+  height: 2px;
+  color: #e1e1e1;
+  margin: 20px 0;
 }
 .product .product-information .product-rating i {
-  color: #ffb40a;
+  color: #ffcc03;
 }
 .product .product-information .product-price {
   font-weight: bold;
-  font-size: 1em;
+  font-size: 1.3em;
   color: #3f3f3f;
-  margin-bottom: 15px;
+}
+.product .product-information .product-button-container {
+  margin-bottom: 20px;
 }
 .product .product-information .product-button-container .product-add-to-cart {
   width: 150px;
@@ -11580,24 +11723,6 @@ textarea.form-control-lg {
   background-color: #a12c9b;
 }
 
-.sidebar .form-control {
-  height: 50px;
-  padding: 0 20px;
-  font-weight: 500;
-  font-size: 0.9em;
-}
-.sidebar .widget {
-  padding: 25px 20px;
-  margin-top: 0;
-  border-radius: 4px;
-  box-shadow: 0 7px 16px 0 rgba(9, 28, 58, 0.07);
-  margin-bottom: 30px;
-}
-.sidebar .widget .widget-title-container .widget-title {
-  font-weight: 600;
-  font-family: "Playfair Display", serif;
-  margin-bottom: 20px;
-}
 .sidebar .filter-by-price-widget-content .ui-widget-header {
   background: #cb34c2;
 }
@@ -11617,6 +11742,10 @@ textarea.form-control-lg {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: #818181;
+}
+.sidebar .filter-by-price-widget-content .filter-by-price-button-container .filter-by-price-number {
+  color: #818181;
 }
 .sidebar .filter-by-price-widget-content .filter-by-price-button-container .filter-by-price-button {
   border: none;
@@ -11648,6 +11777,19 @@ textarea.form-control-lg {
 }
 .sidebar .search-widget-content .search-widget-button:hover, .sidebar .search-widget-content .search-widget-button:focus {
   background-color: #a12c9b;
+}
+.sidebar .categories-widget-content {
+  margin-top: 20px;
+  color: #818181;
+  font-size: 1.1em;
+}
+.sidebar .categories-widget-content .form-check {
+  display: flex;
+  align-items: flex-start;
+}
+.sidebar .categories-widget-content .form-check-input:checked {
+  background-color: #cb34c2;
+  border-color: #cb34c2;
 }
 
 .product-section {
@@ -11726,7 +11868,7 @@ textarea.form-control-lg {
 .product-section .product-link,
 .product-section .category-link {
   text-decoration: none;
-  margin-left: 10px;
+  margin-right: 10px;
 }
 .product-section .product-link {
   color: #3f3f3f;
@@ -11843,6 +11985,353 @@ textarea.form-control-lg {
   background-color: #a12c9b;
 }
 
+.category {
+  border-radius: 6px;
+  box-shadow: 0 7px 16px 0 rgba(9, 28, 58, 0.07);
+  padding: 0 20px;
+}
+.category .category-title {
+  margin-bottom: 20px;
+  font-weight: bold;
+  line-height: 36px;
+  color: #102636;
+  font-family: "Playfair Display", serif;
+  display: block;
+  text-decoration: none;
+  transition: color 400ms ease;
+}
+.category .category-title:hover, .category .category-title:focus {
+  color: #a12c9b;
+}
+.category .category-product-count {
+  margin: 20px 0;
+}
+.category .category-description,
+.category .category-product-count,
+.category .categories-empty,
+.category .subcategories-title {
+  color: #818181;
+}
+.category .subcategories-title {
+  margin-right: 10px;
+  font-weight: 500;
+}
+.category .categories-empty {
+  font-weight: 400;
+}
+.category .subcategory-link {
+  text-decoration: none;
+  color: #cb34c2;
+  font-size: 1em;
+  font-weight: 500;
+  transition: color 400ms ease;
+  margin-right: 15px;
+}
+.category .subcategory-link:hover, .category .subcategory-link:focus {
+  color: #a12c9b;
+}
+
+.sidebar .category-tree-widget-content li {
+  list-style: none;
+}
+.sidebar .category-tree-widget-content li a {
+  text-decoration: none;
+  color: #3f3f3f;
+  transition: color 400ms ease;
+}
+.sidebar .category-tree-widget-content li a:hover, .sidebar .category-tree-widget-content li a:focus {
+  color: #cb34c2;
+}
+.sidebar .category-tree-widget-content li span {
+  color: #818181;
+}
+
+.promotion {
+  border-radius: 6px;
+  box-shadow: 0 7px 16px 0 rgba(9, 28, 58, 0.07);
+  padding: 0 20px;
+}
+.promotion .promotion-title {
+  margin-bottom: 20px;
+  font-weight: bold;
+  line-height: 36px;
+  color: #102636;
+  font-family: "Playfair Display", serif;
+  display: block;
+  text-decoration: none;
+  transition: color 400ms ease;
+}
+.promotion .promotion-title:hover, .promotion .promotion-title:focus {
+  color: #a12c9b;
+}
+.promotion .promotion-description,
+.promotion .promotions-empty {
+  color: #818181;
+}
+.promotion .promotions-empty {
+  font-weight: 400;
+}
+
+.promotion-link {
+  text-decoration: none;
+  color: #cb34c2;
+  font-size: 1em;
+  font-weight: 500;
+  transition: color 400ms ease;
+}
+.promotion-link:hover, .promotion-link:focus {
+  color: #a12c9b;
+}
+
+.discount-coupon {
+  border-radius: 6px;
+  box-shadow: 0 7px 16px 0 rgba(9, 28, 58, 0.07);
+  padding: 0 20px;
+}
+.discount-coupon .discount-coupon-title {
+  margin-bottom: 20px;
+  font-weight: bold;
+  line-height: 36px;
+  color: #102636;
+  font-family: "Playfair Display", serif;
+  display: block;
+  text-decoration: none;
+  transition: color 400ms ease;
+}
+.discount-coupon .discount-coupon-title:hover, .discount-coupon .discount-coupon-title:focus {
+  color: #a12c9b;
+}
+.discount-coupon .discount-coupon-description,
+.discount-coupon .discount-coupons-empty {
+  color: #818181;
+}
+.discount-coupon .discount-coupons-empty {
+  font-weight: 400;
+}
+.discount-coupon .discount-coupon-link {
+  text-decoration: none;
+  color: #cb34c2;
+  font-size: 1em;
+  font-weight: 500;
+  transition: color 400ms ease;
+  margin-right: 15px;
+}
+.discount-coupon .discount-coupon-link:hover, .discount-coupon .discount-coupon-link:focus {
+  color: #a12c9b;
+}
+
+.messenger-users-add {
+  text-decoration: none;
+  color: #cb34c2;
+  transition: color 300ms ease;
+}
+.messenger-users-add:hover, .messenger-users-add:focus {
+  color: #a12c9b;
+}
+
+.messenger-add-users .messenger-add-users-title {
+  font-family: "Playfair Display", serif;
+  padding-bottom: 15px;
+}
+.messenger-add-users .messenger-add-users-user {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+  padding: 20px;
+  box-shadow: 0 7px 16px 0 rgba(9, 28, 58, 0.07);
+}
+.messenger-add-users .messenger-add-users-user .messenger-add-users-name,
+.messenger-add-users .messenger-add-users-user .messenger-add-users-email {
+  font-weight: 500;
+}
+.messenger-add-users .messenger-add-users-user .messenger-add-users-name {
+  color: #3f3f3f;
+  margin-bottom: 10px;
+}
+.messenger-add-users .messenger-add-users-user .messenger-add-users-email {
+  color: #b4b4b4;
+  overflow: hidden;
+}
+.messenger-add-users .messenger-add-users-user .messenger-add-users-button {
+  width: 140px;
+  height: 50px;
+  border: none;
+  border-radius: 5px;
+  background-color: #cb34c2;
+  color: #FFFFFF;
+  transition: background-color 300ms ease;
+  font-size: 1em;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.messenger-add-users .messenger-add-users-user .messenger-add-users-button:hover, .messenger-add-users .messenger-add-users-user .messenger-add-users-button:focus {
+  background-color: #a12c9b;
+}
+
+.messenger-users {
+  padding: 0;
+  margin: 0;
+}
+.messenger-users .messenger-user-container .messenger-user {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border-radius: 5px;
+  padding-left: 15px;
+  transition: all 200ms ease;
+}
+.messenger-users .messenger-user-container .messenger-user:hover, .messenger-users .messenger-user-container .messenger-user:focus {
+  color: inherit;
+  background-color: #eeeeee;
+}
+.messenger-users .messenger-user-container .messenger-user .messenger-user-unread-container {
+  width: 19px;
+  margin-right: 11px;
+}
+.messenger-users .messenger-user-container .messenger-user .messenger-user-unread-container .messenger-user-unread {
+  width: 19px;
+  height: 19px;
+  background-color: #cb34c2;
+  border-radius: 10px;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 0.65em;
+  font-weight: 600;
+  padding-top: 2px;
+}
+.messenger-users .messenger-user-container .messenger-user .messenger-information-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+  width: 100%;
+}
+.messenger-users .messenger-user-container .messenger-user .messenger-information-container .messenger-user-name {
+  font-weight: 500;
+}
+.messenger-users .messenger-user-container .messenger-user .messenger-information-container .messenger-user-last-message-container {
+  display: flex;
+  width: 100%;
+}
+.messenger-users .messenger-user-container .messenger-user .messenger-information-container .messenger-user-last-message-container .messenger-user-last-message {
+  color: #818181;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  display: -webkit-flex;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.messenger-users .messenger-user-container .messenger-user .messenger-information-container .messenger-user-last-message-container .messenger-user-last-message p {
+  width: auto;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-right: 5px;
+}
+.messenger-users .messenger-user-container .messenger-user .messenger-information-container .messenger-user-last-message-container .messenger-user-last-message span {
+  width: 150px;
+}
+.messenger-users .messenger-user-container .messenger-user .messenger-information-container .messenger-user-last-message-container .messenger-user-last-message-date {
+  color: #818181;
+  font-size: 0.9em;
+  padding: 0;
+  margin: 0;
+}
+.messenger-users .messenger-users-hr {
+  height: 2px;
+  background-color: #dcdcdc;
+}
+
+.messenger-room {
+  box-shadow: 0 7px 16px 0 rgba(9, 28, 58, 0.07);
+}
+.messenger-room .messenger-chat-name {
+  font-family: "Playfair Display", serif;
+}
+.messenger-room .messenger-chat-user-name {
+  color: #818181;
+}
+.messenger-room .messenger-message-box {
+  display: flex-column;
+  padding: 25px;
+  overflow: scroll;
+  height: 60vh;
+  margin: 15px 0;
+  scroll-behavior: smooth;
+  border-radius: 5px;
+  background-color: #f6f6f6;
+}
+.messenger-room .messenger-message-box .messenger-message-from-container,
+.messenger-room .messenger-message-box .messenger-message-to-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin: 5px 0;
+}
+.messenger-room .messenger-message-box .messenger-message-from,
+.messenger-room .messenger-message-box .messenger-message-to {
+  padding: 10px 20px;
+  max-width: 500px;
+}
+.messenger-room .messenger-message-box .messenger-message-from-container .messenger-message-from {
+  background-color: #FFFFFF;
+  border-radius: 0 15px 15px 15px;
+}
+.messenger-room .messenger-message-box .messenger-message-from-date-container,
+.messenger-room .messenger-message-box .messenger-message-to-date-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.messenger-room .messenger-message-box .messenger-message-to-container {
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+}
+.messenger-room .messenger-message-box .messenger-message-to-container .messenger-message-to {
+  background-color: #d368ce;
+  color: #FFFFFF;
+  border-radius: 15px 0 15px 15px;
+}
+.messenger-room .messenger-message-box .messenger-message-to-date-container {
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+}
+.messenger-room .messenger-message-box .messenger-message-date {
+  font-size: 0.7em;
+  color: #818181;
+}
+.messenger-room .messenger-form-container {
+  display: flex;
+  justify-content: start;
+  align-content: center;
+  height: 50px;
+  width: 100%;
+}
+.messenger-room .messenger-form-container .messenger-form-input {
+  width: 100%;
+  height: 100%;
+  border: 1px solid lightgray;
+  border-radius: 5px 0 0 5px;
+  padding: 0 20px;
+}
+.messenger-room .messenger-form-container .messenger-form-button {
+  width: 150px;
+  height: 100%;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  background-color: #cb34c2;
+  color: #FFFFFF;
+  transition: background-color 300ms ease;
+}
+.messenger-room .messenger-form-container .messenger-form-button:hover, .messenger-room .messenger-form-container .messenger-form-button:focus {
+  background-color: #a12c9b;
+}
+
 footer .newsletter-container {
   display: flex;
   justify-content: space-between;
@@ -11911,6 +12400,5 @@ footer .contact-travel-icon {
 footer .copyright-paragraph,
 footer .slogan-paragraph {
   font-size: 1em;
-  text-align: left;
   color: #818181;
 }

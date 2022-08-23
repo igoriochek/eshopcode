@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    @include('user_views.header', ['title' => __('names.cart')])
+    @include('header', ['title' => __('names.cart')])
     <section class="pt-5">
         <div class="container">
             <div class="row">
@@ -22,7 +22,8 @@
                             <section>
                                 <div>
                                     <div class="float-right">
-                                        <a href="{{route('checkout')}}" class="btn btn-success">{{__('buttons.checkout')}}</a>
+                                        <a href="{{route('checkout')}}"
+                                           class="btn btn-success">{{__('buttons.checkout')}}</a>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>

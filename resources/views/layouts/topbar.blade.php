@@ -30,8 +30,14 @@
                             <div class="d-flex align-items-center">
                                 <ul class="m-0 p-0" style="list-style: none">
                                     <li class="nav-item dropdown">
-                                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"  aria-expanded="false">
-                                            {{__('messages.chooselang')}}
+                                        <a id="navbarDropdown" class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"  aria-expanded="false">
+                                            @if (app()->getLocale() == 'lt')
+                                                <img src="/images/lt-flag.png" alt="lt-flag" style="width: 17px; height: 17px; margin-right: 5px; border-radius: 10px">
+                                                {{ __('LT') }}
+                                            @else
+                                                <img src="/images/en-flag.png" alt="en-flag" style="width: 17px; height: 17px; margin-right: 5px; border-radius: 10px">
+                                                {{ __('EN') }}
+                                            @endif
                                         </a>
                                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                             @foreach (config('translatable.locales') as $locale)

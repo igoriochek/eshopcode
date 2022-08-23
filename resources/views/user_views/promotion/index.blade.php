@@ -1,49 +1,54 @@
 @extends('layouts.app')
 
 @section('content')
-    @include('user_views.header', ['title' => __('names.promotions')])
+    @include('header', ['title' => __('names.promotions')])
     <section class="pt-5">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12 mb-5 order-sm-last order-lg-first">
+            <div class="row mb-5">
+                <div class="col-lg-12 mb-5">
+                    <div class="row mb-4 align-items-center">
+                        <div class="col-lg-12">
+                            <h3 class="column-title">{{ __('names.promotions') }}</h3>
+                            <p class="p-0 m-0 mb-sm-3 showing-all-results">
+                                {{ __('Showing all ').$promotions->count().__(' result(s)') }}
+                            </p>
+                        </div>
+                    </div>
                     <div class="row">
                         @forelse ($promotions as $item)
-                            <div class="col-sm-6">
-                                <h3>{{$item->name}}: {{__('names.products')}}</h3>
-                                {{--        <a href="{{route("rootcategories")}}">Back to main categories</a>--}}
-                            </div>
-                            <div class="content px-3">
-                                <div class="clearfix"></div>
-                                <div class="card">
-                                    <div class="card-body p-0">
-                                        {{--                @include('products.table')--}}
-                                        @if(($item->products->count()))
-                                            @foreach( $item->products as $prod )
-                                                <div class="card-body">
-                                                    <h4 class="card-title"><a href="{{route('viewproduct', $prod->id)}}">{{$prod->name}}</a>
-                                                    </h4>
-                                                    <h6 class="card-subtitle mb-2 text-muted">{{__('names.desc')}}</h6>
-                                                    <p class="card-text">{{$prod->description}}</p>
-                                                </div>
-                                                @if ($loop->iteration > 2)
-                                                    <a href="{{route("promotion", ["id"=>$item->id])}}">{{__("names.more_for_promotions")}}</a>
-                                                    @break
-                                                @endif
-                                            @endforeach
-                                    </div>
+                            <div class="col-lg-12">
+                                <div class="col-sm-12">
+                                    <h3 class="column-title">{{ $item->name }}</h3>
+                                    {{--<a href="{{route("rootcategories")}}">Back to main categories</a>--}}
                                 </div>
+                                {{--@include('products.table')--}}
+                                @if(($item->products->count()))
+                                    @foreach($item->products as $prod)
+                                        <div class="promotion p-4 mb-4 mb-sm-5">
+                                            <h4>
+                                                <a class="promotion-title" href="{{ route('viewproduct', $prod->id) }}">
+                                                    {{ $prod->name }}
+                                                </a>
+                                            </h4>
+                                            <p class="promotion-description">{{ $prod->description }}</p>
+                                        </div>
+                                        @if ($loop->iteration > 2)
+                                            <div class="mb-5">
+                                                <a class="promotion-link" href="{{ route("promotion", ["id"=>$item->id]) }}">
+                                                    {{ __("names.more_for_promotions") }}
+                                                </a>
+                                            </div>
+                                            @break
+                                        @endif
+                                    @endforeach
+                                @else
+                                    <span class="promotions-empty">{{ __('names.noProducts') }}</span>
+                                @endif
                             </div>
-                            @else
-                                {{__('names.noProducts')}}
-                            @endif
                         @empty
-                            {{__('names.noPromotions')}}
+                            <span class="promotions-empty">{{ __('names.noPromotions') }}</span>
                         @endforelse
-                        <div class="card-footer clearfix">
-                            <div class="float-right">
-                                {{$promotions->links()}}
-                            </div>
-                        </div>
+                        {{ $promotions->links() }}
                     </div>
                 </div>
             </div>

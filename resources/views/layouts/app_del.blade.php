@@ -52,9 +52,9 @@
             </button>
             @auth
                 @if ( Auth::user()->type == 1 )
-                    @include('layouts.dropdown_menus.adminmenu')
+                    @include('layouts.dropdown_menus.admin_dropdown_menu')
                 @elseif( Auth::user()->type == 2 )
-                    @include('layouts.menu')
+                    @include('layouts.menus.menu')
                 @endif
             @endauth
             <ul class="collapse navbar-collapse" id="navbarSupportedContent">

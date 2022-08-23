@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    @include('user_views.header', ['title' => __('names.orders')])
+    @include('header', ['title' => __('names.orders')])
     <section class="pt-5">
         <div class="container">
             <div class="row">
@@ -20,7 +20,7 @@
                                                 <th>{{__('table.user')}}</th>
                                                 <th>{{__('table.status')}}</th>
                                                 <th>{{__('table.sum')}}</th>
-                                                <th> </th>
+                                                <th></th>
                                             </tr>
                                             </thead>
                                             <tbody>

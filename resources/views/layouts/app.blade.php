@@ -30,6 +30,9 @@
     @include('layouts.navbar')
     <main class="main">
         @yield('content')
+        <button type="button" class="scroll-to-top-button">
+            <i class="fa-solid fa-angle-up"></i>
+        </button>
     </main>
     @include('layouts.footer')
     {{--<script src="{{ asset('js/app.js') }}"></script>--}}
@@ -295,18 +298,29 @@
         } );
 
         const topbarNavbarHeight = 145;
+        const scrollToTopButton = document.querySelector('.scroll-to-top-button');
+
+        scrollToTopButton.addEventListener('click', () => { window.scrollTo(0, 0); });
 
         window.addEventListener('scroll', () => {
             const navbar = document.querySelector('.navbar');
+
             navbar.classList.toggle('navbar-static-top', window.scrollY > 0);
             navbar.classList.toggle('fixed-top', window.scrollY > topbarNavbarHeight);
+
+            scrollToTopButton.classList.toggle('show', window.scrollY > topbarNavbarHeight);
+
+            if (document.body.scrollTop > topbarNavbarHeight
+                || document.documentElement.scrollTop > topbarNavbarHeight)
+            scrollToTopButton.classList.add('fade-in');
         });
 
-        window.onscroll = () => { onFixedNavbar() };
+        window.onscroll = () => { onFixedNavbar(); };
 
         const onFixedNavbar = () => {
             const main = document.querySelector('main');
-            if (document.body.scrollTop > topbarNavbarHeight || document.documentElement.scrollTop > topbarNavbarHeight)
+            if (document.body.scrollTop > topbarNavbarHeight
+                || document.documentElement.scrollTop > topbarNavbarHeight)
                 main.style.marginTop = '100px';
             else
                 main.style.marginTop = '0';

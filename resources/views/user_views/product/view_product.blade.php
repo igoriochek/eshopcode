@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    @include('user_views.header', ['title' => $product->name])
+    @include('header', ['title' => $product->name])
     <section class="product-section">
         <div class="container">
             <div class="row">
@@ -73,13 +73,17 @@
                             <div class="product-rating-price-container">
                                 <div class="product-rating">
                                     @for($i = 1; $i <= 5; $i++)
-                                        <i class="product-rating-star @if ($avarage >= $i) fa-solid fa-star
-                                        @elseif ($avarage >= $i - .5) fa-solid fa-star-half-stroke
+                                        <i class="product-rating-star @if ($average >= $i) fa-solid fa-star
+                                        @elseif ($average >= $i - .5) fa-solid fa-star-half-stroke
                                         @else fa-regular fa-star @endif"></i>
                                     @endfor
-                                    <a href="#" class="product-link">
-                                        {{ __("($rateCount customer reviews)") }}
-                                    </a>
+                                    <p class="ms-1">
+                                        @if ($rateCount == 1)
+                                            {{ __("($rateCount customer review)") }}
+                                        @else
+                                            {{ __("($rateCount customer reviews)") }}
+                                        @endif
+                                    </p>
                                 </div>
                                 <div class="product-price">
                                     @if ($product->discount)
@@ -91,15 +95,15 @@
                                 </div>
                             </div>
                             <p class="product-description">{{ $product->description }}</p>
-                            {!! Form::open(['route' => ['addtocart'], 'method' => 'post', 'class' => 'product-add-to-cart-container']) !!}
-                            {!! Form::number('count', "1",
-                            ['class' => 'product-add-to-cart-number', "minlength"=>"3", "maxlength"=>"5", "size"=>"5"]) !!}
-                            <input type="hidden" name="id" value="{{ $product->id }}">
-                            <input type="submit" value="{{__('buttons.addToCart')}}" class="product-add-to-cart-button">
+                                {!! Form::open(['route' => ['addtocart'], 'method' => 'post', 'class' => 'product-add-to-cart-container']) !!}
+                                {!! Form::number('count', "1",
+                                ['class' => 'product-add-to-cart-number', "minlength"=>"3", "maxlength"=>"5", "size"=>"5"]) !!}
+                                <input type="hidden" name="id" value="{{ $product->id }}">
+                                <input type="submit" value="{{__('buttons.addToCart')}}" class="product-add-to-cart-button">
                             {!! Form::close() !!}
                             <hr class="hr-dark my-4">
                             <div class="product-detail-container">
-                                <span>Categories:</span>
+                                <span class="me-2">Categories:</span>
                                 @forelse ($product->categories as $category)
                                     <a href="{{ url("/user/innercategories/$category->id") }}" class="category-link">
                                         {{ $category->name }}
@@ -147,16 +151,16 @@
                                     <h5 class="product-reviews-add-review-title">
                                         {{ __('Add a review') }}
                                     </h5>
-                                    @guest
+                                    {{--@guest
                                         <p class="product-reviews-add-review-description">
                                             {{ __('Your email address will not be published. Required fields are marked *') }}
                                         </p>
-                                    @endguest
+                                    @endguest--}}
                                 </div>
                                 <div class="row mt-4 align-items-center product-review-add-review-form"
                                      id="review-product">
                                     @if (!$voted)
-                                        @guest
+                                        {{--@guest
                                             <div class="mb-3 col-sm-6">
                                                 <label class="form-label">Name*</label>
                                                 <input type="text" class="form-control" placeholder="">
@@ -165,38 +169,43 @@
                                                 <label class="form-label">Email</label>
                                                 <input type="email" class="form-control" placeholder="">
                                             </div>
+                                        @endguest--}}
+                                        @guest
+                                            <p class="product-reviews-add-review-description">{{ __('names.loginToReview') }}</p>
                                         @endguest
-                                        <div class="col-sm-12">
-                                            <label class="form-label">Your review *</label>
-                                            <div class="mb-3">
-                                                <textarea class="form-control" rows="5" id="comment"></textarea>
+                                        @auth
+                                            <div class="col-sm-12">
+                                                <label class="form-label">Your review *</label>
+                                                <div class="mb-3">
+                                                    <textarea class="form-control" rows="5" id="comment"></textarea>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-sm-12">
-                                            <label class="form-label">Your review *</label>
-                                            <div class="rating" style="gap: 5px">
-                                                <input type="radio" name="rating" value="5" id="5"><label for="5">
-                                                    <i class="fa-regular fa-star"></i>
-                                                </label>
-                                                <input type="radio" name="rating" value="4" id="4"><label for="4">
-                                                    <i class="fa-regular fa-star"></i>
-                                                </label>
-                                                <input type="radio" name="rating" value="3" id="3"><label for="3">
-                                                    <i class="fa-regular fa-star"></i>
-                                                </label>
-                                                <input type="radio" name="rating" value="2" id="2"><label for="2">
-                                                    <i class="fa-regular fa-star"></i>
-                                                </label>
-                                                <input type="radio" name="rating" value="1" id="1"><label for="1">
-                                                    <i class="fa-regular fa-star"></i>
-                                                </label>
+                                            <div class="col-sm-12">
+                                                <label class="form-label">Your review *</label>
+                                                <div class="rating" style="gap: 5px">
+                                                    <input type="radio" name="rating" value="5" id="5"><label for="5">
+                                                        <i class="fa-regular fa-star"></i>
+                                                    </label>
+                                                    <input type="radio" name="rating" value="4" id="4"><label for="4">
+                                                        <i class="fa-regular fa-star"></i>
+                                                    </label>
+                                                    <input type="radio" name="rating" value="3" id="3"><label for="3">
+                                                        <i class="fa-regular fa-star"></i>
+                                                    </label>
+                                                    <input type="radio" name="rating" value="2" id="2"><label for="2">
+                                                        <i class="fa-regular fa-star"></i>
+                                                    </label>
+                                                    <input type="radio" name="rating" value="1" id="1"><label for="1">
+                                                        <i class="fa-regular fa-star"></i>
+                                                    </label>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-sm-12">
-                                            <button type="button" class="product-reviews-add-review-submit">
-                                                {{ __('buttons.submit') }}
-                                            </button>
-                                        </div>
+                                            <div class="col-sm-12">
+                                                <button type="button" class="product-reviews-add-review-submit">
+                                                    {{ __('buttons.submit') }}
+                                                </button>
+                                            </div>
+                                        @endauth
                                     @else
                                         <p class="product-reviews-add-review-description">{{ __('names.alreadyReviewed') }}</p>
                                     @endif

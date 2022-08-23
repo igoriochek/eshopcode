@@ -2,22 +2,6 @@
     <div class="bg-light" style="padding: 100px 0 80px 0">
         <div class="container">
             <div class="row">
-                <div class="col-12">
-                    <div class="newsletter-container d-sm-block d-lg-flex">
-                        <h3 class="newsletter-title mb-sm-4">{{ __('Our Newsletter') }}</h3>
-                        <div class="newsletter-form-container">
-                            <form>
-                                <input type="email" placeholder="{{ __('Email') }}" class="newsletter-input">
-                                <button type="submit" class="newsletter-button">
-                                    <i class="fa-solid fa-paper-plane me-1"></i>
-                                    {{ __('Get Notified') }}
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
                 <div class="col-lg-4 col-md-12">
                     <a class="navbar-brand fw-bold" href="{{ url('/home') }}">
                         <img src="/images/opatrip-logo.svg" alt="opatrip-logo" width="200px">
@@ -96,8 +80,8 @@
     <div class="py-4">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-12 col-md-8 text-center text-md-start">
-                    <ul class="mb-0 p-0 d-flex justify-content-center justify-content-md-start list-unstyled" style="gap: 20px">
+                <div class="col-12 col-lg-6">
+                    <ul class="mb-0 p-0 d-flex justify-content-center justify-content-lg-start list-unstyled" style="gap: 20px">
                         <li>
                             <a class="footer-link" href="#">
                                 {{ __('F.A.Q.') }}
@@ -120,8 +104,8 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col-12 col-md-4 text-center text-md-end mt-2 mt-md-0">
-                    <p class="mb-0 copyright-paragraph">
+                <div class="col-12 col-lg-6 mt-2 mt-lg-0">
+                    <p class="mb-0 copyright-paragraph text-center text-lg-end">
                         {{ __('Copyright © 2015-2022 Opatrip. All rights reserved.') }}
                     </p>
                 </div>

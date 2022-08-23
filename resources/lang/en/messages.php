@@ -38,5 +38,4 @@ return [
     'typeYourMsgHere' => 'Type your Message here...',
     'updatedAt' => 'Updated At',
 
-
 ];

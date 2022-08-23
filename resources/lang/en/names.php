@@ -53,6 +53,10 @@ return [
     'editCategory' => 'Edit Category',
     'noCategories' => 'No Categories',
 
+    //Subcategories
+    'subcategories' => 'Subcategories',
+    'noSubcategories' => 'No Subcategories',
+
     //Charts
     'bar' => 'Bar',
     'cancelledOrders' => 'Cancelled Orders',
@@ -123,6 +127,11 @@ return [
     'unreadMsg' => 'unread messages.',
 
     //Messenger
+    'messages' => 'Messages',
+    'addUsers' => 'Add Users',
+    'noNotAddedUsers' => 'No users which were not added found',
+    'chat' => 'Chat',
+    'user' => 'User',
     'typeMsg' => 'Type your message here...',
 
     //Orders
@@ -148,6 +157,7 @@ return [
 
 
     // Products
+    'products' => 'Products',
     'createProduct' => 'Create Product',
     'editProduct' => 'Edit Product',
     'products' => 'Products',
@@ -184,6 +194,7 @@ return [
 
     //Reviews
     'noReviews' => 'No Reviews. Be the first to review this product.',
+    'loginToReview' => 'Please login to review this product.',
     'alreadyReviewed' => 'You have already left a review for this product.',
     'reviewProduct' => 'Thank you for reviewing this product.',
 
