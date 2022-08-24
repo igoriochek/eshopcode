@@ -28,10 +28,6 @@ class DiscountSeeder extends Seeder
                     'name' => "nuolaida $faker->name",
                     'description' => "nuolaida $faker->text",
                 ],
-                'ru' => [
-                    'name' => "RU skidka $faker->name",
-                    'description' => "RU skidka $faker->text",
-                ],
                 'proc' => rand(1,99),
             ];
             $discount = Discount::create($cdata);

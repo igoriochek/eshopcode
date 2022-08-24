@@ -27,18 +27,14 @@ class CategorySeeder extends Seeder
                 'lt' => [
                     'name' => "kategorija $faker->name",
                     'description' => "kategorija $faker->text",
-                ],
-                'ru' => [
-                    'name' => "RUcategory $faker->name",
-                    'description' => "RUcategory $faker->text",
-                ],
+                ]
             ];
                $category = Category::create($cdata);
         }
 
-        for ($i=0; $i<=20; $i++){
+        /*for ($i=0; $i<=20; $i++){
             $p = $i > 5 ? rand(1,10) : null;
             DB::table('categories')->where('id', $i)->update(['parent_id' => $p]);
-        }
+        }*/
     }
 }

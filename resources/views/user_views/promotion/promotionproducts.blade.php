@@ -10,7 +10,7 @@
                         <div class="col-lg-12">
                             <h3 class="column-title">{{ $promotion->name }}</h3>
                             {{--<a href="{{route("rootcategories")}}">Back to main categories</a>--}}
-                            <p class="p-0 m-0 mb-sm-3 showing-all-results">
+                            <p class="p-0 m-0 showing-all-results">
                                 {{ __('names.results').': '.$products->count() }}
                             </p>
                         </div>
