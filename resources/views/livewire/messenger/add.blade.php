@@ -22,9 +22,10 @@
                         <h4 class="messenger-add-users-title m-0">
                             {{ __('names.addUsers') }}
                         </h4>
-                        <p class="p-0 pb-3 m-0 mb-3 showing-all-results">
-                            {{ __('Showing all ').$addUsers->count().__(' result(s)') }}
+                        <p class="p-0 m-0 showing-all-results">
+                            {{ __('names.results').': '.$addUsers->count() }}
                         </p>
+                        <hr class="hr"/>
                         @include('livewire.messenger.add_users')
                     </div>
                 </div>

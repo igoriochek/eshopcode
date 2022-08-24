@@ -136,7 +136,7 @@ trait forSelector
 
     public function productOrder() {
         $c = array();
-        $titles = ['No order', 'Product name', "Price"];
+        $titles = [__('forms.noOrder'), __('forms.productName'), __('forms.productPrice')];
         for( $i = 0; $i < count($titles); $i++){
             $c[$i] = $titles[$i];
         }

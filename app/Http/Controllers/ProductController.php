@@ -54,7 +54,9 @@ class ProductController extends AppBaseController
     public function userProductIndex(Request $request)
     {
         $filter = $request->query('filter');
-        $selCategories = $filter && $filter['categories.id'] ? $filter['categories.id'] : array();
+        $selCategories = $filter && array_key_exists('categories.id', $filter)
+            ? $filter['categories.id']
+            : array();
         $selectedProduct = $request->order != null ? $request->order : 0;
 
 //        $categories = $this->categoryRepository->allQuery(array("parent_id"=>$request->category_id))->get();
@@ -62,7 +64,7 @@ class ProductController extends AppBaseController
         $orderBy = "";
         switch ($selectedProduct){
             case "0":
-                $orderBy = "id";
+                $orderBy = "products.id";
                 break;
             case "1":
                 $orderBy = "name";
@@ -72,7 +74,13 @@ class ProductController extends AppBaseController
                 break;
         }
         $products = QueryBuilder::for(Product::class)
-            ->allowedFilters([AllowedFilter::scope('namelike'), 'categories.id',AllowedFilter::scope('pricefrom'),AllowedFilter::scope('priceto'),])
+            ->join('products_translations', 'products.id', 'products_translations.product_id')
+            ->where('locale','=', app()->getLocale())
+            ->allowedFilters([
+                AllowedFilter::scope('namelike'),
+                'categories.id',AllowedFilter::scope('pricefrom'),
+                AllowedFilter::scope('priceto'),
+            ])
             ->allowedIncludes('categories')
             ->orderBy($orderBy)
             ->paginate(10)

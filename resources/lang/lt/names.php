@@ -13,7 +13,6 @@ return [
     |
     */
 
-
     //Carts
     'cart' => 'Prekių krepšelis',
     'cartDetails' => 'Krepšelio Informacija',
@@ -36,9 +35,14 @@ return [
     'categories' => 'Kategorijos',
     'categoryDetails' => 'Kategorijos informacija',
     'categoryList' => 'Kategorijų sąrašas',
+    'categoryTree' => 'Kategorijų medis',
     'createCategory' => 'Sukurti Kategorija',
     'editCategory' => 'Redaguoti kategorija',
     'noCategories' => 'Nėra Kategorijų',
+
+    //Subcategories
+    'subcategories' => 'Subkategorijos',
+    'noSubcategories' => 'Nėra Subkategorijų',
 
     //Charts
     'bar' => 'Kaladėlė',
@@ -121,8 +125,16 @@ return [
     'viewReturn' => 'Peržiūrėti Grąžinimą',
     'youHave' => 'Jūs turite',
     'unreadMsg' => 'neperskaitytas žinutes.',
+    'bannerTitle' => 'KELIAUKIME',
+    'bannerDescription' => 'Užsisakykite unikalias keliones ir patirtis',
 
     //Messenger
+    'messages' => 'Pranešimai',
+    'addUsers' => 'Pridėti vartotojų',
+    'noNotAddedUsers' => 'Nerasta vartotojų, kurie nebuvo įtraukti',
+    'chat' => 'Pokalbis',
+    'user' => 'Vartotojas',
+    'you' => 'Jūs',
     'typeMsg' => 'Įveskite savo žinutę...',
 
     //Orders
@@ -155,6 +167,8 @@ return [
     'productName' => 'Produkto pavadinimas',
     'productOrders' => 'Produktų užsakymai',
     'noProducts' => 'Nėra produktų',
+    'search' => 'Ieškoti',
+    'filterByPrice' => 'Filtruoti pagal kaina',
 
     //Promotions
     'createPromotion' => 'Sukurti Akciją',
@@ -182,6 +196,16 @@ return [
     'starRating' => 'Įvertinimas Žvaigždutėmis',
     'voted' => "Ačiū už jūsų balsą!",
 
+    //Reviews
+    'customerReview' => 'klientų atsiliepimas',
+    'customerReviews' => 'klientų atsiliepimai',
+    'reviewsFor' => 'Atsiliepimai apie',
+    'addReview' => 'Pridėti atsiliepimą',
+    'noReviews' => 'Nėra atsiliepimų',
+    'loginToReview' => 'Prisijunkite, kad galėtumėte pridėti atsiliepimą šiai produktui',
+    'alreadyReviewed' => 'Jūs jau palikote atsiliepimą apie šį produktą',
+    'reviewProduct' => 'Dėkojame, kad įvertinote šį produktą',
+
     //Returns
     'checkReturn' => 'Pasirinkite kuriuos norite grąžinti',
     'createReturn' => 'Sukurti Grąžinimą',
@@ -207,17 +231,15 @@ return [
     'editCustomer' => 'Redaguoti Klientą',
     'userLogs' => 'Vartotojų Žurnalai',
 
-
-
-
-
-
+    //Other
     'desc' => 'Aprašymas',
     'name' => 'Pavadinimas',
 
     'old' => "Senos",
     'new' => "Naujos",
 
-    'orderBy' => 'Rūšiuoti pagal'
+    'orderBy' => 'Rūšiuoti pagal',
+
+    'results' => 'Rezultatai'
 
 ];

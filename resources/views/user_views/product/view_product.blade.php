@@ -79,9 +79,9 @@
                                     @endfor
                                     <p class="ms-1">
                                         @if ($rateCount == 1)
-                                            {{ __("($rateCount customer review)") }}
+                                            ({{ __('names.customerReview').' '.$rateCount }})
                                         @else
-                                            {{ __("($rateCount customer reviews)") }}
+                                            ({{ __('names.customerReviews').' '.$rateCount }})
                                         @endif
                                     </p>
                                 </div>
@@ -103,7 +103,7 @@
                             {!! Form::close() !!}
                             <hr class="hr-dark my-4">
                             <div class="product-detail-container">
-                                <span class="me-2">Categories:</span>
+                                <span class="me-2">{{ __('names.categories') }}:</span>
                                 @forelse ($product->categories as $category)
                                     <a href="{{ url("/user/innercategories/$category->id") }}" class="category-link">
                                         {{ $category->name }}
@@ -122,7 +122,7 @@
                         <div class="row">
                             <div class="col-12">
                                 <h5 class="product-reviews-title">
-                                    {{ $product->ratings->count().__(" Reviews for $product->name") }}
+                                    {{ $product->ratings->count().' '.__('names.reviewsFor').' '.$product->name }}
                                 </h5>
                                 @forelse ($product->ratings as $rating)
                                     <div class="product-user-rating-container">
@@ -149,7 +149,7 @@
                                 @endforelse
                                 <div class="mt-4">
                                     <h5 class="product-reviews-add-review-title">
-                                        {{ __('Add a review') }}
+                                        {{ __('names.addReview') }}
                                     </h5>
                                     {{--@guest
                                         <p class="product-reviews-add-review-description">

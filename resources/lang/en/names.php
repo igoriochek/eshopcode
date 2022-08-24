@@ -13,6 +13,15 @@ return [
     |
     */
 
+    //Login
+    'login' => 'Login',
+    'rememberMe' => 'Remember Me',
+
+    //Register
+    'register' => 'Register',
+
+    //Reset Password
+    'resetPassword' => 'Reset Password',
 
     //Carts
     'cart' => 'Cart',
@@ -49,6 +58,7 @@ return [
     'categories' => 'Categories',
     'categoryDetails' => 'Category Details',
     'categoryList' => 'Category List',
+    'categoryTree' => 'Category Tree',
     'createCategory' => 'Create Category',
     'editCategory' => 'Edit Category',
     'noCategories' => 'No Categories',
@@ -125,13 +135,16 @@ return [
     'viewReturn' => 'View Return',
     'youHave' => 'You have',
     'unreadMsg' => 'unread messages.',
+    'bannerTitle' => 'LET’S TRAVEL',
+    'bannerDescription' => 'Book Unique Tours & Experiences',
 
     //Messenger
     'messages' => 'Messages',
     'addUsers' => 'Add Users',
-    'noNotAddedUsers' => 'No users which were not added found',
+    'noNotAddedUsers' => "No users which weren't not added found",
     'chat' => 'Chat',
     'user' => 'User',
+    'you' => 'You',
     'typeMsg' => 'Type your message here...',
 
     //Orders
@@ -155,9 +168,7 @@ return [
     'invoice' => 'Invoice',
     'invoicePreview' => 'Invoice Preview',
 
-
     // Products
-    'products' => 'Products',
     'createProduct' => 'Create Product',
     'editProduct' => 'Edit Product',
     'products' => 'Products',
@@ -166,6 +177,8 @@ return [
     'productName' => 'Product Name',
     'productOrders' => 'Product Orders',
     'noProducts' => 'No Products',
+    'search' => 'Search',
+    'filterByPrice' => 'Filter by price',
 
     //Promotions
     'createPromotion' => 'Create Promotion',
@@ -193,10 +206,14 @@ return [
     'voted' => "Thank you for your vote!",
 
     //Reviews
-    'noReviews' => 'No Reviews. Be the first to review this product.',
-    'loginToReview' => 'Please login to review this product.',
-    'alreadyReviewed' => 'You have already left a review for this product.',
-    'reviewProduct' => 'Thank you for reviewing this product.',
+    'customerReview' => 'klientų atsiliepimas',
+    'customerReviews' => 'klientų atsiliepimai',
+    'reviewsFor' => 'Atsiliepimai apie',
+    'addReview' => 'Pridėti atsiliepimą',
+    'noReviews' => 'No Reviews',
+    'loginToReview' => 'Please login to review this product',
+    'alreadyReviewed' => 'You have already left a review for this product',
+    'reviewProduct' => 'Thank you for reviewing this product',
 
     //Returns
     'checkReturn' => 'Check to Return',
@@ -223,15 +240,15 @@ return [
     'editCustomer' => 'Edit Customer',
     'userLogs' => 'User Logs',
 
-
-
+    //Other
     'desc' => 'Description',
     'name' => 'Name',
 
     'old' => "Old",
     'new' => "New",
 
-    'orderBy' => 'Order By'
+    'orderBy' => 'Order By',
 
+    'results' => 'Results'
 
 ];

@@ -9,9 +9,7 @@ return [
     |
     */
 
-    'usermenu' => 'Vartotojo meniu',
-    'adminmenu' => 'Aministratoriaus meniu',
-
+    'home' => 'Namo',
     'admin' => 'Administratorius',
     'cart' => 'Prekių Krepšelis',
     'carts' => 'Prekių Krepšeliai',
@@ -25,7 +23,7 @@ return [
     'importExport' => 'Importas/Eksportas',
     'login' => 'Prisijungti',
     'logout'=> 'Atsijungti',
-    'messenger' => 'Messenger',
+    'messenger' => 'Messengeris',
     'orders' => 'Užsakymai',
     'ordersReport' => 'Užsakymų Ataskaitos',
     'orderStatuses' => 'Užsakymų Būsenos',
@@ -37,6 +35,7 @@ return [
     'returnsReport' => 'Grąžinimų Ataskaitos',
     'returnStatuses' => 'Grąžinimų Būsenos',
     'users' => 'Vartotojai',
+    'profile' => 'Vartotojo Profilis',
     'userInfo' => 'Vartotojo Informacija',
     'usersReport' => 'Vartotojų Ataskaitos',
     'usersActivitiesReport' => 'Vartotojų Aktyvumo Ataskaitos',

@@ -10,7 +10,7 @@
                             </div>
                             <div class="messenger-user-last-message-container">
                                 @if ($user->last_message->user_from == auth()->user()->id)
-                                    <span class="me-1">{{ __('You') }}:</span>
+                                    <span class="me-1">{{ __('names.you') }}:</span>
                                 @endif
                                 <div class="messenger-user-last-message">
                                     <p>{{ $user->last_message->message_text ?? '' }}</p>

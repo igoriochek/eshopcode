@@ -9,11 +9,12 @@
                     <div class="row mb-4 align-items-center">
                         <div class="col-lg-12">
                             <h3 class="column-title">{{ __('names.products') }}</h3>
-                            <p class="p-0 m-0 mb-sm-3 showing-all-results">
-                                {{ __('Showing all ').$products->count().__(' result(s)') }}
+                            <p class="p-0 m-0 showing-all-results">
+                                {{ __('names.results').': '.$products->count() }}
                             </p>
                         </div>
                     </div>
+                    <hr class="hr"/>
                     @if(!empty($products))
                         @forelse($products as $prod)
                             <div class="category p-4 mb-4 mb-sm-5">
@@ -32,11 +33,12 @@
                     <div class="row mb-4 align-items-center">
                         <div class="col-lg-12">
                             <h3 class="column-title">{{ __('names.subcategories') }}</h3>
-                            <p class="p-0 m-0 mb-sm-3 showing-all-results">
-                                {{ __('Showing all ').$categories->count().__(' result(s)') }}
+                            <p class="p-0 m-0 showing-all-results">
+                                {{ __('names.results').': '.$categories->count() }}
                             </p>
                         </div>
                     </div>
+                    <hr class="hr"/>
                     @if(!empty($categories))
                         @forelse($categories as $category)
                             <div class="category p-4 mb-4 mb-sm-5">

@@ -33,8 +33,8 @@ return [
     'returns' => 'Returns',
     'returnsReport' => 'Returns Report',
     'returnStatuses' => 'Return Statuses',
-    'users'=> 'Users',
-    'profile'=> 'Profile',
+    'users' => 'Users',
+    'profile' => 'Profile',
     'usersReport' => 'Users Report',
     'usersActivitiesReport' => 'Users Activities Report'
 

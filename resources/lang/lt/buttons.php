@@ -33,4 +33,6 @@ return [
     'save' => 'Išsaugoti',
     'showLogs' => 'Rodyti Žurnalus',
     'showStatistics' => 'Rodyti Statistikas',
+    'sendResetPasswordLink' => 'Siųsti slaptažodžio nustatymo nuorodą'
+
 ];

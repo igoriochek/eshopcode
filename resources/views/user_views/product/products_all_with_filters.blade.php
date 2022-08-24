@@ -9,8 +9,8 @@
                     <div class="col-lg-8 mb-5 order-sm-last order-lg-first">
                         <div class="row mb-4 align-items-center">
                             <div class="col-lg-8">
-                                <p class="p-0 m-0 mb-sm-3 showing-all-results">
-                                    {{ __('Showing all ').$products->count().__(' result(s)') }}
+                                <p class="p-0 m-0 showing-all-results">
+                                    {{ __('names.results').': '.$products->count() }}
                                 </p>
                             </div>
                             <div class="col-lg-4">
@@ -18,6 +18,7 @@
                                 ['class' => 'form-select selector']) !!}
                             </div>
                         </div>
+                        <hr class="hr mb-5"/>
                         <div class="row">
                             @forelse ($products as $product)
                                 <div class="col-lg-6 mt-4 mt-md-5 mt-lg-0 mb-5">
@@ -69,9 +70,9 @@
                                     </div>
                                 </div>
                             @empty
-                                {{__('names.noProducts')}}
+                                <span class="text-muted">{{ __('names.noProducts') }}</span>
                             @endforelse
-                            {{$products->links()}}
+                            {{ $products->links() }}
                         </div>
                     </div>
                     <div class="col-lg-4 mt-4 mt-md-5 mt-lg-0 order-sm-first order-lg-last">
@@ -79,13 +80,13 @@
                             <div class="widget">
                                 <div class="widget-title-container">
                                     <h4 class="widget-title">
-                                        {{ __('Search') }}
+                                        {{ __('names.search') }}
                                     </h4>
                                 </div>
                                 <div class="search-widget-content">
                                     <input type="text" name="filter[namelike]" class="form-control search-widget-input"
                                            id="filter[namelike]"
-                                           placeholder="Search" value="{{ $filter["namelike"] ?? '' }}">
+                                           placeholder="{{ __('forms.searchPlaceholder') }}" value="{{ $filter["namelike"] ?? '' }}">
                                     <button type="submit" class="search-widget-button">
                                         <i class="fa-solid fa-magnifying-glass"></i>
                                     </button>
@@ -94,7 +95,7 @@
                             <div class="widget">
                                 <div class="widget-title-container">
                                     <h4 class="widget-title">
-                                        {{ __('Filter by price') }}
+                                        {{ __('names.filterByPrice') }}
                                     </h4>
                                 </div>
                                 <div class="filter-by-price-widget-content">
@@ -102,7 +103,7 @@
                                         <div id="range-slider" class="slider mx-2 mb-4 mt-1" wire:ignore></div>
                                         <div class="filter-by-price-button-container">
                                             <div class="d-flex">
-                                                <span>{{ __('Price')}}:</span>
+                                                <span>{{ __('names.price')}}:</span>
                                                 <input type="text" id="filter[pricefrom]" name="filter[pricefrom]"
                                                        readonly
                                                        value="{{ $filter["pricefrom"] ?? '0' }}"
@@ -124,7 +125,7 @@
                                         <div class="form-check mb-3">
                                             <input class="form-check-input me-3" type="checkbox"
                                                    value="{{ $category->id }}" id="category" onclick="calc();"
-                                            @if ($filter && $filter["categories.id"])
+                                            @if ($filter && array_key_exists('categories.id', $filter))
                                                 {{ in_array($category->id, $selCategories) ? "checked=\"checked\"" : ""}}
                                                 @endif
                                             >
@@ -134,7 +135,7 @@
                                         </div>
                                     @empty
                                         <span>
-                                            {{ __('names.noCategories') }}
+                                            <span class="text-muted">{{ __('names.noCategories') }}</span>
                                         </span>
                                     @endforelse
                                     <input type="text" value="{{ implode(",", $selCategories) }}"

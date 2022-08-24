@@ -6,13 +6,14 @@
         <div class="container">
             <div class="row mb-5">
                 <div class="col-lg-8 mb-5">
-                    <div class="row mb-4 align-items-center">
+                    <div class="row align-items-center">
                         <div class="col-lg-12">
-                            <p class="p-0 m-0 mb-sm-3 showing-all-results">
-                                {{ __('Showing all ').$categories->count().__(' result(s)') }}
+                            <p class="p-0 m-0 showing-all-results">
+                                {{ __('names.results').': '.$categories->count() }}
                             </p>
                         </div>
                     </div>
+                    <hr class="hr"/>
                         @if(!empty($categories))
                             @forelse($categories as $category)
                                 <div class="category p-4 mb-4 mb-sm-5">
@@ -52,7 +53,7 @@
                         <div class="widget">
                             <div class="widget-title-container">
                                 <h4 class="widget-title">
-                                    {{ __('Category Tree') }}
+                                    {{ __('names.categoryTree') }}
                                 </h4>
                             </div>
                             <div class="category-tree-widget-content">

@@ -34,5 +34,7 @@ return [
     'showLogs' => 'Show Logs',
     'showStatistics' => 'Show Statistics',
     'submit' => 'Submit',
-    'view' => 'View'
+    'view' => 'View',
+    'sendResetPasswordLink' => 'Send Reset Password Link'
+
 ];

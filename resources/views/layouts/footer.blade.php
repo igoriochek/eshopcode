@@ -7,8 +7,7 @@
                         <img src="/images/opatrip-logo.svg" alt="opatrip-logo" width="200px">
                     </a>
                     <p class="my-4 slogan-paragraph">
-                        {{ __('Give yourself the power of responsibility.
-                        Remind yourself the only thing stopping you is yourself.') }}
+                        {{ __('footer.slogan') }}
                     </p>
                     <div class="d-flex" style="gap: 20px">
                         <a class="footer-link" href="#">
@@ -21,32 +20,32 @@
                 </div>
                 <div class="col-lg-4 col-md-6 mt-4 mt-md-5 mt-lg-0">
                     <h5 class="fw-bold mb-5 footer-bar-title">
-                        {{ __('Information') }}
+                        {{ __('footer.information') }}
                     </h5>
                     <ul class="list-unstyled mb-0">
                         <li class="mb-4">
                             <a class="footer-link" href="{{ url('/') }}">
                                 <i class="fa-solid fa-address-card fs-5 me-1"></i>
-                                <span>{{ __('About Us / Team') }}</span>
+                                <span>{{ __('footer.aboutUsTeam') }}</span>
                             </a>
                         </li>
                         <li class="mb-4">
                             <a class="footer-link" href="{{ url('/') }}">
                                 <i class="fa-solid fa-briefcase fs-5 me-1"></i>
-                                <span>{{ __('Career') }}</span>
+                                <span>{{ __('footer.career') }}</span>
                             </a>
                         </li>
                         <li class="mb-4">
                             <a class="footer-link" href="{{ url('/') }}">
                                 <i class="fa-solid fa-earth-africa fs-5 me-1"></i>
-                                <span>{{ __('All locations') }}</span>
+                                <span>{{ __('footer.allLocations') }}</span>
                             </a>
                         </li>
                     </ul>
                 </div>
                 <div class="col-lg-4 col-md-6 mt-4 mt-md-5 mt-lg-0 position-relative">
                     <h5 class="fw-bold mb-5 footer-bar-title">
-                        {{ __('Contant Travel') }}
+                        {{ __('footer.contactUs') }}
                     </h5>
                     <ul class="list-unstyled mb-0">
                         <li class="d-flex align-items-center mb-4">
@@ -84,29 +83,29 @@
                     <ul class="mb-0 p-0 d-flex justify-content-center justify-content-lg-start list-unstyled" style="gap: 20px">
                         <li>
                             <a class="footer-link" href="#">
-                                {{ __('F.A.Q.') }}
+                                {{ __('footer.faq') }}
                             </a>
                         </li>
                         <li>
                             <a class="footer-link" href="#">
-                                {{ __('Privacy Policy') }}
+                                {{ __('footer.privacyPolicy') }}
                             </a>
                         </li>
                         <li>
                             <a class="footer-link" href="#">
-                                {{ __('Terms of Service') }}
+                                {{ __('footer.termsOfService') }}
                             </a>
                         </li>
                         <li>
                             <a class="footer-link" href="#">
-                                {{ __('Contact / Support') }}
+                                {{ __('footer.contantSupport') }}
                             </a>
                         </li>
                     </ul>
                 </div>
                 <div class="col-12 col-lg-6 mt-2 mt-lg-0">
                     <p class="mb-0 copyright-paragraph text-center text-lg-end">
-                        {{ __('Copyright © 2015-2022 Opatrip. All rights reserved.') }}
+                        {{ __('footer.copyright') }}
                     </p>
                 </div>
             </div>

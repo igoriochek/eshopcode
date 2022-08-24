@@ -75,12 +75,19 @@
                 }
             }
 
+            .hr {
+                height: 2px;
+                color: #cecece;
+                margin-bottom: 45px;
+            }
+
             .selector {
                 height: 50px;
                 color: $light-gray-color;
             }
 
             .showing-all-results {
+                font-size: 1.05em;
                 color: $light-gray-color;
             }
 

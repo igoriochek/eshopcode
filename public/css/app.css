@@ -11357,11 +11357,17 @@ textarea.form-control-lg {
     opacity: 1;
   }
 }
+* body .main .hr {
+  height: 2px;
+  color: #cecece;
+  margin-bottom: 45px;
+}
 * body .main .selector {
   height: 50px;
   color: #818181;
 }
 * body .main .showing-all-results {
+  font-size: 1.05em;
   color: #818181;
 }
 * body .main .column-title {
@@ -11543,13 +11549,44 @@ textarea.form-control-lg {
 }
 .banner .container {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-content: center;
+  /*.banner-search-container {
+      display: flex;
+      justify-content: start;
+      align-content: center;
+      height: 60px;
+      width: 100%;
+
+      .banner-search-input {
+          width: clamp(300px, 100%, 400px);
+          height: 100%;
+          border: none;
+          border-radius: 5px 0 0 5px;
+          padding: 0 20px;
+      }
+
+      .banner-search-button {
+          width: 200px;
+          height: 100%;
+          border: none;
+          border-radius: 0 5px 5px 0;
+          background-color: $pink-color;
+          color: $white-color;
+          transition: all 300ms ease-in-out;
+          box-shadow: inset 0 0 0 0 $button-hover-focus-background;
+
+          &:hover,
+          &:focus {
+              box-shadow: inset 200px 0 0 0 $button-hover-focus-background;
+          }
+      }
+  }*/
 }
 .banner .container .banner-text-container {
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: flex-start;
   align-content: center;
 }
 .banner .container .banner-text-container h1, .banner .container .banner-text-container .h1 {
@@ -11564,33 +11601,6 @@ textarea.form-control-lg {
   font-family: "Playfair Display", serif;
   font-weight: 700;
   text-transform: uppercase;
-}
-.banner .container .banner-search-container {
-  display: flex;
-  justify-content: start;
-  align-content: center;
-  height: 60px;
-  width: 100%;
-}
-.banner .container .banner-search-container .banner-search-input {
-  width: clamp(300px, 100%, 400px);
-  height: 100%;
-  border: none;
-  border-radius: 5px 0 0 5px;
-  padding: 0 20px;
-}
-.banner .container .banner-search-container .banner-search-button {
-  width: 200px;
-  height: 100%;
-  border: none;
-  border-radius: 0 5px 5px 0;
-  background-color: #cb34c2;
-  color: #FFFFFF;
-  transition: all 300ms ease-in-out;
-  box-shadow: inset 0 0 0 0 #a12c9b;
-}
-.banner .container .banner-search-container .banner-search-button:hover, .banner .container .banner-search-container .banner-search-button:focus {
-  box-shadow: inset 200px 0 0 0 #a12c9b;
 }
 
 .sidebar .form-control {
@@ -11695,7 +11705,7 @@ textarea.form-control-lg {
 }
 .product .product-information .product-hr {
   height: 2px;
-  color: #e1e1e1;
+  color: #cecece;
   margin: 20px 0;
 }
 .product .product-information .product-rating i {

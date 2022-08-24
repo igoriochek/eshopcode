@@ -13,6 +13,11 @@ return [
     |
     */
 
+    'noOrder' => 'Be Tvarkos',
+    'productName' => 'Pavadinimas',
+    'productPrice' => 'Kaina',
+    'searchPlaceholder' => 'Ieškoti',
+
     'avatar' => 'Nuotrauka',
     'name' => 'Vardas',
     'email' => 'El paštas',

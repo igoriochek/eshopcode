@@ -13,6 +13,11 @@ return [
 |
 */
 
+    'noOrder' => 'No Order',
+    'productName' => 'Name',
+    'productPrice' => 'Price',
+    'searchPlaceholder' => 'Search',
+
     'avatar' => 'Avatar',
     'name' => 'Name',
     'email' => 'Email',
