@@ -46,10 +46,10 @@ class UserSeeder extends Seeder
             'type' => 1,
         ]);
         DB::table('users')->insert([
-            'name' => 'andrej',
+            'name' => 'Andrej Strelcov',
             'email' => 'andtaress2@gmail.com',
             'password' => Hash::make('caveman123'),
-            'type' => 0,
+            'type' => 2,
         ]);
     }
 }
