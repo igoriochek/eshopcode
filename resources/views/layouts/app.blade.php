@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="verify-paysera" content="b46f8f093193110b774d21e073cc6c15">
     <!-- Title -->
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Bonatrip') }}</title>
     <!-- Favicon -->
     <link rel="icon" href="{{ url('opatrip-logo-favicon.png') }}">
     <!-- Fonts -->
