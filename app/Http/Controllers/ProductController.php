@@ -67,18 +67,22 @@ class ProductController extends AppBaseController
                 $orderBy = "products.id";
                 break;
             case "1":
-                $orderBy = "name";
+                $orderBy = "products_translations.name";
                 break;
             case "2":
-                $orderBy = "price";
+                $orderBy = "products.price";
                 break;
         }
+
         $products = QueryBuilder::for(Product::class)
-            ->join('products_translations', 'products.id', 'products_translations.product_id')
-            ->where('locale','=', app()->getLocale())
+            ->join('products_translations', function ($join) {
+                $join->on('products.id', '=', 'products_translations.product_id')
+                    ->where('products_translations.locale', '=', app()->getLocale());
+            })
             ->allowedFilters([
                 AllowedFilter::scope('namelike'),
-                'categories.id',AllowedFilter::scope('pricefrom'),
+                'categories.id',
+                AllowedFilter::scope('pricefrom'),
                 AllowedFilter::scope('priceto'),
             ])
             ->allowedIncludes('categories')
@@ -86,12 +90,14 @@ class ProductController extends AppBaseController
             ->paginate(10)
             ->appends(request()->query());
 
-        $products->map(function ($product) {
+        foreach ($products as $product) {
+            $product->id = $product->product_id;
+
             $sumAndCount = $this->calculateRatingSumAndCount($this->getProductRatings($product->id));
             $product->sum = $sumAndCount['sum'];
             $product->count = $sumAndCount['count'];
             $product->average = $this->calculateAverageRating($product->sum, $product->count);
-        });
+        }
 
         return view('user_views.product.products_all_with_filters')
             ->with(['products'=> $products,
