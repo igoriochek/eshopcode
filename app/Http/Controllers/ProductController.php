@@ -51,7 +51,9 @@ class ProductController extends AppBaseController
     public function userProductIndex(Request $request)
     {
         $filter = $request->query('filter');
-        $selCategories = $filter && $filter['categories.id'] ? $filter['categories.id'] : array();
+        $selCategories = $filter && array_key_exists('categories.id', $filter)
+            ? $filter['categories.id']
+            : array();
         $selectedProduct = $request->order != null ? $request->order : 0;
 
 //        $categories = $this->categoryRepository->allQuery(array("parent_id"=>$request->category_id))->get();
@@ -59,21 +61,36 @@ class ProductController extends AppBaseController
         $orderBy = "";
         switch ($selectedProduct){
             case "0":
-                $orderBy = "id";
+                $orderBy = "products.id";
                 break;
             case "1":
-                $orderBy = "name";
+                $orderBy = "products_translations.name";
                 break;
             case "2":
-                $orderBy = "price";
+                $orderBy = "products.price";
                 break;
         }
+
         $products = QueryBuilder::for(Product::class)
-            ->allowedFilters([AllowedFilter::scope('namelike'), 'categories.id',AllowedFilter::scope('pricefrom'),AllowedFilter::scope('priceto'),])
+            ->join('products_translations', function ($join) {
+                $join->on('products.id', '=', 'products_translations.product_id')
+                    ->where('products_translations.locale', '=', app()->getLocale());
+            })
+            ->allowedFilters([
+                AllowedFilter::scope('namelike'),
+                'categories.id',
+                AllowedFilter::scope('pricefrom'),
+                AllowedFilter::scope('priceto'),
+            ])
             ->allowedIncludes('categories')
             ->orderBy($orderBy)
-            ->paginate(5)
+            ->paginate(10)
             ->appends(request()->query());
+
+        foreach ($products as $product) {
+            $product->id = $product->product_id;
+        }
+
         return view('user_views.product.products_all_with_filters')
             ->with(['products'=> $products,
                 'categories' => $categories,
@@ -83,7 +100,7 @@ class ProductController extends AppBaseController
                 'selectedProduct' => $selectedProduct,
 //                'pricefrom' => $request->query('filter[pricefrom]') == null ? "" : $request->query('filter[pricefrom]'),
 //                'priceto' => $request->query('filter[priceto]') == null ? "" : $request->query('filter[priceto]'),
-                ]);
+            ]);
     }
 
     /**
