@@ -77,7 +77,7 @@ class ChartController extends AppBaseController
                 break;
         }
 
-        return Response::json(['data' => $data]);
+        return response()->json(['data' => $data]);
     }
 
     /**

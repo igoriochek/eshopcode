@@ -46,7 +46,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.5.1/nouislider.min.js"></script>
     <script>
         $(document).ready(function() {
-            if ({{ app()->getLocale() === 'lt' }}) {
+            if ('{{ app()->getLocale() }}' === 'lt') {
                 $('#categories').DataTable({
                     "language": {
                         "emptyTable": "Lentelėje duomenų nėra",

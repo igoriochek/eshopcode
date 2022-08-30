@@ -149,14 +149,14 @@
 
             $.ajax({
                 headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-                url: "http://localhost:8000/admin/statistics",
+                url: "https://www.bonatrip.com/admin/statistics",
                 type: 'POST',
                 data: $("#statisticType").serialize(),
                 success: function (data) {
                     addData(data.data[0], data.data[1], data.data[2], data.data[3]);
                 },
                 error: function (data) {
-                    // Dosomething on error
+                    console.error(data);
                 }
             });
         }

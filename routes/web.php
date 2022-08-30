@@ -60,7 +60,7 @@ Route::group(array('prefix' => 'admin', 'middleware' => 'admin'), function () {
     Route::get('invoice/{id}', [OrderController::class, 'invoicePreview'])->where('id', '[0-9]+')->name(('invoice'));
 
     // Statistics
-    Route::prefix('')->name('customers.')->group(function () {
+    Route::prefix('')->middleware('cors')->name('customers.')->group(function () {
         Route::get('statistics', [ChartController::class, 'index'])->name('statistics');
         Route::post('statistics', [ChartController::class, 'changeStatisticType'])->name('statistics');
     });

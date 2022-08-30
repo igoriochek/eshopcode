@@ -1,4 +1,4 @@
-<li class="nav-item">
+<li class="nav-item d-flex align-items-center me-4">
     <a href="/" style="color: {{ request()->is('home') ? '#c736c0' : '' }}">
         {{__('menu.home')}}
     </a>
