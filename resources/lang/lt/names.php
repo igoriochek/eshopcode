@@ -30,6 +30,7 @@ return [
     'editCartItem' => 'Redaguoti Krepšelio Prekę',
     'editCartStatus' => 'Redaguoti Krepšelio Statusą',
     'emptyCart' => 'Jūsų prekių krepšelis yra tuščias',
+    'noDiscount' => 'Nuolaidų nėra',
 
     //Categories
     'categories' => 'Kategorijos',

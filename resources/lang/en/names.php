@@ -40,6 +40,7 @@ return [
     'editCartItem' => 'Edit Cart Item',
     'editCartStatus' => 'Edit Cart Status',
     'emptyCart' => 'Your Cart is empty',
+    'noDiscount' => 'No discounts available',
 
     'adminUserCount' => 'Admin User Count',
     'canceled' => 'Canceled',
