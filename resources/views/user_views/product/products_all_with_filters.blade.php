@@ -4,7 +4,6 @@
     @include('header', ['title' => __('names.products')])
     <section class="pt-5">
         <div class="container">
-            <form method="get" action="{{route("userproducts")}}">
                 <div class="row">
                     <div class="col-lg-8 mb-5 order-sm-last order-lg-first">
                         <div class="row mb-4 align-items-center">
@@ -14,8 +13,10 @@
                                 </p>
                             </div>
                             <div class="col-lg-4">
-                                {!! Form::select('order', $order_list, $selectedProduct,
-                                ['class' => 'form-select selector']) !!}
+                                <form method="get" action="{{ route("userproducts") }}" id="orderForm">
+                                    <input type="hidden" id="orderBy" value="">
+                                    {!! Form::select('order', $order_list, $selectedProduct, ['class' => 'form-select selector', 'id' => 'orderSelector']) !!}
+                                </form>
                             </div>
                         </div>
                         <hr class="hr mb-5"/>
@@ -77,80 +78,86 @@
                     </div>
                     <div class="col-lg-4 mt-4 mt-md-5 mt-lg-0 order-sm-first order-lg-last">
                         <div class="sidebar">
-                            <div class="widget">
-                                <div class="widget-title-container">
-                                    <h4 class="widget-title">
-                                        {{ __('names.search') }}
-                                    </h4>
+                            <form method="get" action="{{route("userproducts")}}">
+                                <div class="widget">
+                                    <div class="widget-title-container">
+                                        <h4 class="widget-title">
+                                            {{ __('names.search') }}
+                                        </h4>
+                                    </div>
+                                    <div class="search-widget-content">
+                                        <input type="text" name="filter[namelike]" class="form-control search-widget-input"
+                                               id="filter[namelike]"
+                                               placeholder="{{ __('forms.searchPlaceholder') }}" value="{{ $filter["namelike"] ?? '' }}">
+                                        <button type="submit" class="search-widget-button">
+                                            <i class="fa-solid fa-magnifying-glass"></i>
+                                        </button>
+                                    </div>
                                 </div>
-                                <div class="search-widget-content">
-                                    <input type="text" name="filter[namelike]" class="form-control search-widget-input"
-                                           id="filter[namelike]"
-                                           placeholder="{{ __('forms.searchPlaceholder') }}" value="{{ $filter["namelike"] ?? '' }}">
-                                    <button type="submit" class="search-widget-button">
-                                        <i class="fa-solid fa-magnifying-glass"></i>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="widget">
-                                <div class="widget-title-container">
-                                    <h4 class="widget-title">
-                                        {{ __('names.filterByPrice') }}
-                                    </h4>
-                                </div>
-                                <div class="filter-by-price-widget-content">
-                                    <fieldset class="form-group">
-                                        <div id="range-slider" class="slider mx-2 mb-4 mt-1" wire:ignore></div>
-                                        <div class="filter-by-price-button-container">
-                                            <div class="d-flex">
-                                                <span>{{ __('names.price')}}:</span>
-                                                <input type="text" id="filter[pricefrom]" name="filter[pricefrom]"
-                                                       readonly
-                                                       value="{{ $filter["pricefrom"] ?? '0' }}"
-                                                       class="border-0 text-end filter-by-price-number" style="max-width: 50px"/>
-                                                <span class="text-center">&nbsp;—&nbsp;</span>
-                                                <input type="text" id="filter[priceto]" name="filter[priceto]" readonly
-                                                       value="{{ $filter["priceto"] ?? '0' }}"
-                                                       class="border-0 text-start filter-by-price-number" style="max-width: 50px"/>
+                                <div class="widget">
+                                    <div class="widget-title-container">
+                                        <h4 class="widget-title">
+                                            {{ __('names.filterByPrice') }}
+                                        </h4>
+                                    </div>
+                                    <div class="filter-by-price-widget-content">
+                                        <fieldset class="form-group">
+                                            <div id="range-slider" class="slider mx-2 mb-4 mt-1" wire:ignore></div>
+                                            <div class="filter-by-price-button-container">
+                                                <div class="d-flex">
+                                                    <span>{{ __('names.price')}}:</span>
+                                                    <input type="text" id="filter[pricefrom]" name="filter[pricefrom]"
+                                                           readonly
+                                                           value="{{ $filter["pricefrom"] ?? '0' }}"
+                                                           class="border-0 text-end filter-by-price-number" style="max-width: 50px"/>
+                                                    <span class="text-center">&nbsp;—&nbsp;</span>
+                                                    <input type="text" id="filter[priceto]" name="filter[priceto]" readonly
+                                                           value="{{ $filter["priceto"] ?? '0' }}"
+                                                           class="border-0 text-start filter-by-price-number" style="max-width: 50px"/>
+                                                </div>
+                                                <button type="submit" class="filter-by-price-button">
+                                                    <i class="fa-solid fa-filter"></i>
+                                                    {{ __('buttons.filter') }}
+                                                </button>
                                             </div>
-                                            <button type="submit" class="filter-by-price-button">
-                                                <i class="fa-solid fa-filter"></i>
-                                                {{ __('buttons.filter') }}
-                                            </button>
-                                        </div>
-                                    </fieldset>
+                                        </fieldset>
+                                    </div>
+                                    <div class="categories-widget-content">
+                                        @forelse($categories as $category)
+                                            <div class="form-check mb-3">
+                                                <input class="form-check-input me-3" type="checkbox"
+                                                       value="{{ $category->id }}" id="category" onclick="calc();"
+                                                @if ($filter && array_key_exists('categories.id', $filter))
+                                                    {{ in_array($category->id, $selCategories) ? "checked=\"checked\"" : ""}}
+                                                    @endif
+                                                >
+                                                <label class="form-check-label" for="categories.id">
+                                                    {{ $category->name }}
+                                                </label>
+                                            </div>
+                                        @empty
+                                            <span>
+                                                <span class="text-muted">{{ __('names.noCategories') }}</span>
+                                            </span>
+                                        @endforelse
+                                        <input type="text" value="{{ implode(",", $selCategories) }}"
+                                               name="filter[categories.id]" id="filter[categories.id]" class="d-none">
+                                    </div>
                                 </div>
-                                <div class="categories-widget-content">
-                                    @forelse($categories as $category)
-                                        <div class="form-check mb-3">
-                                            <input class="form-check-input me-3" type="checkbox"
-                                                   value="{{ $category->id }}" id="category" onclick="calc();"
-                                            @if ($filter && array_key_exists('categories.id', $filter))
-                                                {{ in_array($category->id, $selCategories) ? "checked=\"checked\"" : ""}}
-                                                @endif
-                                            >
-                                            <label class="form-check-label" for="categories.id">
-                                                {{ $category->name }}
-                                            </label>
-                                        </div>
-                                    @empty
-                                        <span>
-                                            <span class="text-muted">{{ __('names.noCategories') }}</span>
-                                        </span>
-                                    @endforelse
-                                    <input type="text" value="{{ implode(",", $selCategories) }}"
-                                           name="filter[categories.id]" id="filter[categories.id]" class="d-none">
-                                </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>
-            </form>
         </div>
     </section>
 
     @push('scripts')
         <script>
+            const orderForm = document.getElementById('orderForm');
+            const orderSelector = document.getElementById('orderSelector');
+
+            orderSelector.onchange = () => orderForm.submit();
+
             const rangeSlider = document.getElementById('range-slider');
             const priceFrom = document.getElementById('filter[pricefrom]');
             const priceTo = document.getElementById('filter[priceto]');

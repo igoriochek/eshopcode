@@ -40,7 +40,11 @@ class DiscountCouponController extends AppBaseController
 
     public function discountcouponUser(Request $request)
     {
-        $discountCoupons = $this->discountCouponRepository->allQuery(['user_id'=> Auth::user()->id])->paginate(2);
+        $discountCoupons = $this->discountCouponRepository
+            ->all()
+            ->where('user_id', Auth::user()->id)
+            ->toQuery()
+            ->paginate(2);
 
         return view('user_views.discount_coupons.index')
             ->with('discountCoupons', $discountCoupons);
