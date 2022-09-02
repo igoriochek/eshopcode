@@ -48,7 +48,6 @@
         margin: 0;
         padding: 0;
         width: 100%;
-        font-size: 1vw;
     }
 
     table tr {
@@ -68,12 +67,5 @@
 
     table thead tr:nth-child(1) {
         background-color: #d4d4d4;
-    }
-
-    @media screen and (max-width: 1500px) {
-        table {
-            border: 0;
-            font-size: 0.7em;
-        }
     }
 </style>

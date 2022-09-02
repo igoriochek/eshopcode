@@ -83,6 +83,7 @@ return [
     'discountCoupons' => 'Discount Coupons',
     'discountCouponDetails' => 'Discount Coupon Details',
     'editDiscountCoupon' => 'Edit Discount Coupon',
+    'noDiscounts' => 'No discounts available',
 
     //Export Import
     'dataExpImp' => 'Data Export / Import',

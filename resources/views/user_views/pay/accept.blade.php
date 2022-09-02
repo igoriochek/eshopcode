@@ -11,3 +11,9 @@
     </div>
 </section>
 @endsection
+
+@push('scripts')
+    <script>
+        setTimeout(() => window.location.replace('{{ route('rootorders') }}'), 3000);
+    </script>
+@endpush

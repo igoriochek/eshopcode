@@ -21,7 +21,7 @@ class CreateCategoriesTranslationsTable extends Migration
 
             $table->string('name');
 
-            $table->text('description');
+            $table->text('description')->default(NULL);
 
             $table->unique(['category_id','locale']);
 

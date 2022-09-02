@@ -58,7 +58,6 @@
         margin: 0;
         padding: 0;
         width: 100%;
-        font-size: 1vw;
     }
 
     table tr {
@@ -82,12 +81,5 @@
 
     table tbody tr:nth-child(1) {
         background-color: #e7e7e7;
-    }
-
-    @media screen and (max-width: 1500px) {
-        table {
-            border: 0;
-            font-size: 0.8em;
-        }
     }
 </style>

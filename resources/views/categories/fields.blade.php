@@ -17,7 +17,7 @@
 <!-- Parent Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('parent_id', __('table.parentId').':') !!}
-    {!! Form::select('parent_id', $categories, null, ['class' => 'form-control custom-select']) !!}
+    {!! Form::select('parent_id', $categories, null, ['class' => 'form-control custom-select', 'placeholder' => '---']) !!}
 </div>
 
 

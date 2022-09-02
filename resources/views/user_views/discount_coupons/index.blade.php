@@ -44,7 +44,7 @@
 
                     <div class="card-footer clearfix">
                         <div class="float-right">
-                            {{$discountCoupons->links()}}
+                            @if (!empty($discountCoupons->count())) {{ $discountCoupons->links() }} @endif
                         </div>
                     </div>
                 </div>

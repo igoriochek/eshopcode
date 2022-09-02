@@ -74,9 +74,11 @@
                 <div>
                     <div>{{__('names.discount')}}</div>
                     <select name="discount[]" size="10" multiple>
-                        @foreach($discounts as $item)
+                        @forelse($discounts as $item)
                             <option value="{{ $item->id }}">{{ $item->code }}: {{ $item->value }}</option>
-                        @endforeach
+                        @empty
+                            <option value="">{{ __('names.noDiscounts') }}</option>
+                        @endforelse
                     </select>
                 </div>
                 <br><br>
