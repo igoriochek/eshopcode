@@ -206,6 +206,7 @@ return [
     'loginToReview' => 'Prisijunkite, kad galėtumėte pridėti atsiliepimą šiai produktui',
     'alreadyReviewed' => 'Jūs jau palikote atsiliepimą apie šį produktą',
     'reviewProduct' => 'Dėkojame, kad įvertinote šį produktą',
+    'yourReview' => 'Jūsų atsiliepimas',
 
     //Returns
     'checkReturn' => 'Pasirinkite kuriuos norite grąžinti',

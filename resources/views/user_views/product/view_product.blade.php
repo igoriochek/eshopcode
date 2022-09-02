@@ -8,8 +8,8 @@
                 <div class="col-lg-12">
                     <div class="row">
                         <div class="col-md-6 mb-4 mb-md-0">
-                            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                                <div class="carousel-indicators">
+                            <div {{--id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel"--}}>
+                                {{--<div class="carousel-indicators">
                                     <button type="button" data-bs-target="#carouselExampleIndicators"
                                             data-bs-slide-to="0" class="active" aria-current="true"
                                             aria-label="Slide 1"></button>
@@ -17,9 +17,21 @@
                                             data-bs-slide-to="1" aria-label="Slide 2"></button>
                                     <button type="button" data-bs-target="#carouselExampleIndicators"
                                             data-bs-slide-to="2" aria-label="Slide 3"></button>
-                                </div>
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
+                                </div>--}}
+                                <div {{--class="carousel-inner"--}}>
+                                    <div {{--class="carousel-item active"--}}>
+                                        @if ($product->image)
+                                            <div>
+                                                <img src="{{ $product->image }}" alt="{{ $product->name }}"
+                                                     class="d-block w-100"/>
+                                            </div>
+                                        @else
+                                            <div>
+                                                <img src="/images/noimage.jpeg" alt="" class="d-block w-100"/>
+                                            </div>
+                                        @endif
+                                    </div>
+                                    {{--<div class="carousel-item">
                                         @if ($product->image)
                                             <div>
                                                 <img src="{{ $product->image }}" alt="{{ $product->name }}"
@@ -42,19 +54,7 @@
                                                 <img src="/images/noimage.jpeg" alt="" class="d-block w-100"/>
                                             </div>
                                         @endif
-                                    </div>
-                                    <div class="carousel-item">
-                                        @if ($product->image)
-                                            <div>
-                                                <img src="{{ $product->image }}" alt="{{ $product->name }}"
-                                                     class="d-block w-100"/>
-                                            </div>
-                                        @else
-                                            <div>
-                                                <img src="/images/noimage.jpeg" alt="" class="d-block w-100"/>
-                                            </div>
-                                        @endif
-                                    </div>
+                                    </div>--}}
                                 </div>
                                 <button class="carousel-control-prev" type="button"
                                         data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -175,13 +175,12 @@
                                         @endguest
                                         @auth
                                             <div class="col-sm-12">
-                                                <label class="form-label">Your review *</label>
+                                                <label class="form-label">{{ __('names.yourReview') }}*</label>
                                                 <div class="mb-3">
                                                     <textarea class="form-control" rows="5" id="comment"></textarea>
                                                 </div>
                                             </div>
                                             <div class="col-sm-12">
-                                                <label class="form-label">Your review *</label>
                                                 <div class="rating" style="gap: 5px">
                                                     <input type="radio" name="rating" value="5" id="5"><label for="5">
                                                         <i class="fa-regular fa-star"></i>

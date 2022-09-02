@@ -65,6 +65,7 @@ class Product extends Model implements TranslatableContract
     public static $rules = [
         'price' => 'required',
         'count' => 'required',
+        'image' => 'nullable|image|mimes:jpeg,jpg,png,gif',
     ];
 
     public function categories()

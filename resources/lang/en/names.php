@@ -207,14 +207,15 @@ return [
     'voted' => "Thank you for your vote!",
 
     //Reviews
-    'customerReview' => 'klientų atsiliepimas',
-    'customerReviews' => 'klientų atsiliepimai',
-    'reviewsFor' => 'Atsiliepimai apie',
-    'addReview' => 'Pridėti atsiliepimą',
+    'customerReview' => 'customer review',
+    'customerReviews' => 'customer reviews',
+    'reviewsFor' => 'Reviews for',
+    'addReview' => 'Add a review',
     'noReviews' => 'No Reviews',
     'loginToReview' => 'Please login to review this product',
     'alreadyReviewed' => 'You have already left a review for this product',
     'reviewProduct' => 'Thank you for reviewing this product',
+    'yourReview' => 'Your review',
 
     //Returns
     'checkReturn' => 'Check to Return',

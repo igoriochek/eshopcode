@@ -16,7 +16,10 @@ class AppServiceProvider extends ServiceProvider
 
     public function register()
     {
-        //
+        //Change public path to htdocs
+        $this->app->bind('path.public', function() {
+            return base_path('htdocs');
+        });
     }
 
     public function boot(CartRepository $cartRepository, Request $request)

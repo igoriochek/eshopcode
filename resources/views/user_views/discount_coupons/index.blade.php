@@ -28,10 +28,10 @@
                             @endforeach
                         @else
                             <span class="discount-coupons-empty">
-                                {{ __('names.noProducts') }}
+                                {{ __('names.noDiscount') }}
                             </span>
                         @endif
-                        {{$discountCoupons->links()}}
+                        @if (!empty($discountCoupons->count())) {{ $discountCoupons->links() }} @endif
                     </div>
                 </div>
             </div>
