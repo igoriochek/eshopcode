@@ -15,3 +15,7 @@ yarn-error.log
 /.idea
 /.vscode
 /composer.lock
+/public/images/upload
+/public/images/upload/*
+/.env_opa
+/.env.example

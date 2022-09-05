@@ -17,7 +17,10 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::post('/login', [App\Http\Controllers\API\AuthController::class, 'login']);
 
+Route::post('/me', [App\Http\Controllers\API\AuthController::class, 'me'])->middleware('auth:sanctum');
+Route::post('/allusers', [App\Http\Controllers\API\AuthController::class, 'allusers'])->middleware('auth:sanctum');
 
 Route::resource('categories', App\Http\Controllers\API\CategoryAPIController::class);
 
