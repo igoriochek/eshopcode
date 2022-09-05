@@ -18,5 +18,6 @@ return [
     'privacyPolicy' => 'Privacy Policy',
     'termsOfService' => 'Terms of Service',
     'contantSupport' => 'Contant / Support',
-    'copyright' => 'Copyright © 2015-2022 Opatrip. All rights reserved.'
+    'copyright' => 'Copyright © 2022 Bonatrip. All rights reserved.'
+
 ];

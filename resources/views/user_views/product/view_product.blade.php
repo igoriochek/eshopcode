@@ -56,7 +56,7 @@
                                         @endif
                                     </div>--}}
                                 </div>
-                                <button class="carousel-control-prev" type="button"
+                                {{--<button class="carousel-control-prev" type="button"
                                         data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
                                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                     <span class="visually-hidden">Previous</span>
@@ -65,7 +65,7 @@
                                         data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
                                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                     <span class="visually-hidden">Next</span>
-                                </button>
+                                </button>--}}
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -88,7 +88,7 @@
                                 <div class="product-price">
                                     @if ($product->discount)
                                         <strike>€{{ $product->price }}</strike>&nbsp;
-                                        <b>€{{ round(($product->price * $product->discount->proc / 100), 2) }}</b>
+                                        <b>€{{ $product->price - (round(($product->price * $product->discount->proc / 100), 2)) }}</b>
                                     @else
                                         <span>€{{ $product->price }}</span>
                                     @endif

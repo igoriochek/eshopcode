@@ -11481,6 +11481,7 @@ textarea.form-control-lg {
 }
 .navbar .hamburger-menu-button {
   display: none;
+  text-decoration: none;
 }
 .navbar .menu .language {
   display: none;
@@ -11504,36 +11505,30 @@ textarea.form-control-lg {
   .navbar .menu {
     display: block;
     position: absolute;
-    top: -500%;
-    left: 12%;
+    top: 0;
+    left: -100%;
     margin-top: 90px;
     background-color: #FFFFFF;
-    width: 75%;
+    width: 100%;
     padding: 20px 30px;
-    border-radius: 0 0 10px 10px;
     transition: 600ms ease-in-out;
-    z-index: -1000;
+    text-align: center;
   }
   .navbar .menu .nav-item {
     margin: 20px 0;
+    text-align: center;
   }
   .navbar .menu .nav-item:first-of-type, .navbar .menu .nav-item:last-of-type {
     margin: 0;
   }
   .navbar .menu .language {
     display: flex;
-  }
-  .navbar .menu .language .language-link {
-    text-decoration: none;
-    color: #3f3f3f;
-    padding-right: 10px;
-    transition: color 400ms ease;
-  }
-  .navbar .menu .language .language-link:hover, .navbar .menu .language .language-link:focus {
-    color: #c736c0;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 20px;
   }
   .navbar .menu.active {
-    top: 0;
+    left: 0;
   }
 }
 
@@ -11623,14 +11618,14 @@ textarea.form-control-lg {
 }
 
 .products-header-banner {
-  height: 500px;
+  height: auto;
   width: 100%;
   background: #888888 url("/images/products-header.jpeg") no-repeat center center;
   background-size: cover;
   background-blend-mode: multiply;
 }
 .products-header-banner .header-inner-title {
-  margin: 200px 0;
+  margin: 180px 0;
 }
 .products-header-banner .header-inner-title .header-span {
   width: 3px;
@@ -11669,12 +11664,13 @@ textarea.form-control-lg {
 }
 .products-header-banner .header-bottom {
   width: 100%;
-  height: 100px;
+  height: 44px;
   z-index: 1;
   background: url("/images/header-bottom.png") repeat-x center center;
   position: relative;
-  top: -71px;
+  top: 0;
   left: 0;
+  box-shadow: 5px 5px #FFFFFF;
 }
 
 .product {
@@ -11713,8 +11709,22 @@ textarea.form-control-lg {
 }
 .product .product-information .product-price {
   font-weight: bold;
-  font-size: 1.3em;
+  font-size: 1.4em;
   color: #3f3f3f;
+}
+.product .product-information .product-price .product-price-font-family {
+  font-family: "Playfair Display", serif;
+}
+.product .product-information .product-price .product-previous-price {
+  color: #818181;
+  text-decoration: line-through;
+}
+.product .product-information .product-price .product-discounted-price {
+  color: #cb34c2;
+  font-weight: bolder;
+}
+.product .product-information .product-price .product-no-discount-price {
+  font-weight: 600;
 }
 .product .product-information .product-button-container {
   margin-bottom: 20px;
@@ -11828,8 +11838,9 @@ textarea.form-control-lg {
   color: #3f3f3f;
   margin-bottom: 5px;
   font-size: 1.25em;
+  font-family: "Playfair Display", serif;
 }
-.product-section .product-rating-price-container .product-price strike, .product-section .product-rating-price-container .product-price b, .product-section .product-rating-price-container .product-price span {
+.product-section .product-rating-price-container .product-price .product-price-font {
   font-family: "Playfair Display", serif;
 }
 .product-section .product-rating-price-container .product-price strike, .product-section .product-rating-price-container .product-price span {

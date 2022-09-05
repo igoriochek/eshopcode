@@ -103,7 +103,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col-12 col-lg-6 mt-2 mt-lg-0">
+                <div class="col-12 col-lg-6 mt-4 mt-lg-0">
                     <p class="mb-0 copyright-paragraph text-center text-lg-end">
                         {{ __('footer.copyright') }}
                     </p>

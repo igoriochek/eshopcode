@@ -1,7 +1,10 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-white shadow">
     <div class="container">
-        <a class="navbar-brand fw-bold" href="{{ url('/') }}">
+        <a class="navbar-brand fw-bold d-none d-sm-block" href="{{ url('/') }}">
             <img src="/images/opatrip-logo.svg" alt="opatrip-logo" width="200px">
+        </a>
+        <a class="navbar-brand fw-bold d-block d-sm-none" href="{{ url('/') }}">
+            <img src="/opatrip-logo-favicon.png" alt="opatrip-logo" width="50px">
         </a>
         <div class="d-flex justify-content-center">
             <ul class="nav navbar-nav menu" style="@guest gap: 50px @endguest @auth gap: 30px @endauth">
@@ -30,7 +33,7 @@
                         <span class="shopping-cart-items">{{ $cartItemCount }}</span>
                     @endif
                 </a>
-                <li class="nav-item dropdown" style="list-style: none;">
+                <li class="dropdown" style="list-style: none;">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle navbar-icon" href="#" role="button"
                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fa-solid fa-user fs-5"></i>
@@ -38,18 +41,16 @@
                     @include('layouts.dropdown_menus.user_dropdown_menu')
                 </li>
             @endauth
-            <button type="button" class="hamburger-menu-button">
+            <a href="#" class="hamburger-menu-button">
                 <i class="fa-solid fa-bars fs-4"></i>
-            </button>
+            </a>
         </div>
     </div>
 </nav>
 
 <script>
-    const menu = document.querySelector('.menu');
     const hamburgerMenuButton = document.querySelector('.hamburger-menu-button');
+    const menu = document.querySelector('.menu');
 
-    hamburgerMenuButton.addEventListener('click', () => {
-        menu.classList.toggle('active');
-    });
+    hamburgerMenuButton.addEventListener('click', () => menu.classList.toggle('active'));
 </script>

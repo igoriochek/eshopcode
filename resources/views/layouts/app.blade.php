@@ -327,7 +327,7 @@
         const topbarNavbarHeight = 145;
         const scrollToTopButton = document.querySelector('.scroll-to-top-button');
 
-        scrollToTopButton.addEventListener('click', () => { window.scrollTo(0, 0); });
+        scrollToTopButton.addEventListener('click', () => window.scrollTo(0, 0));
 
         window.addEventListener('scroll', () => {
             const navbar = document.querySelector('.navbar');
@@ -342,7 +342,7 @@
             scrollToTopButton.classList.add('fade-in');
         });
 
-        window.onscroll = () => { onFixedNavbar(); };
+        window.onscroll = () => onFixedNavbar();
 
         const onFixedNavbar = () => {
             const main = document.querySelector('main');

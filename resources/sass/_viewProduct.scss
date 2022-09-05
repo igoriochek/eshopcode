@@ -31,8 +31,9 @@
             color: $gray-color;
             margin-bottom: 5px;
             font-size: 1.25em;
+            font-family: "Playfair Display", serif;
 
-            strike, b, span {
+            .product-price-font {
                 font-family: "Playfair Display", serif;
             }
 

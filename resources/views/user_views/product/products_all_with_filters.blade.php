@@ -54,9 +54,18 @@
                                                     @endfor
                                                 </div>
                                                 <div class="product-price">
-                                                    <span>
-                                                        €{{ $product->price }}
-                                                    </span>
+                                                    @if ($product->discount)
+                                                        <span class="product-previous-price product-price-font-family">
+                                                            €{{ $product->price }}
+                                                        </span>&nbsp
+                                                        <span class="product-discounted-price product-price-font-family">
+                                                            €{{ $product->price - (round(($product->price * $product->discount->proc / 100), 2)) }}
+                                                        </span>
+                                                    @else
+                                                        <span class="product-no-discount-price product-price-font-family">
+                                                            €{{ $product->price }}
+                                                        </span>
+                                                    @endif
                                                 </div>
                                             </div>
                                             <hr class="product-hr"/>

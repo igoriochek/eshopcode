@@ -8,14 +8,14 @@
 }
 
 @mixin header($background-image-url) {
-    height: 500px;
+    height: auto;
     width: 100%;
     background: #888888 url($background-image-url) no-repeat center center;
     background-size: cover;
     background-blend-mode: multiply;
 
     .header-inner-title {
-        margin: 200px 0;
+        margin: 180px 0;
 
         .header-span {
             width: 3px;
@@ -58,11 +58,12 @@
 
     .header-bottom {
         width: 100%;
-        height: 100px;
+        height: 44px;
         z-index: 1;
         background: url('/images/header-bottom.png') repeat-x center center;
         position: relative;
-        top: -71px;
+        top: 0;
         left: 0;
+        box-shadow: 5px 5px $white-color;
     }
 }

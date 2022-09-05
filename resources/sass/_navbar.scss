@@ -63,6 +63,7 @@
 
     .hamburger-menu-button {
         display: none;
+        text-decoration: none;
     }
 
     .menu {
@@ -92,18 +93,18 @@
         .menu {
             display: block;
             position: absolute;
-            top: -500%;
-            left: 12%;
+            top: 0;
+            left: -100%;
             margin-top: 90px;
             background-color: $white-color;
-            width: 75%;
+            width: 100%;
             padding: 20px 30px;
-            border-radius: 0 0 10px 10px;
             transition: 600ms ease-in-out;
-            z-index: -1000;
+            text-align: center;
 
             .nav-item {
                 margin: 20px 0;
+                text-align: center;
 
                 &:first-of-type,
                 &:last-of-type {
@@ -113,18 +114,14 @@
 
             .language {
                 display: flex;
-
-                .language-link {
-                    text-decoration: none;
-                    color: $gray-color;
-                    padding-right: 10px;
-                    @include link-hover-focus;
-                }
+                justify-content: center;
+                text-align: center;
+                margin-bottom: 20px;
             }
         }
 
         .menu.active {
-            top: 0;
+            left: 0;
         }
     }
 }

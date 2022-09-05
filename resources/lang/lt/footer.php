@@ -18,5 +18,6 @@ return [
     'privacyPolicy' => 'Privatumo politika',
     'termsOfService' => 'Paslaugų teikimo sąlygos',
     'contantSupport' => 'Kontaktai / Pagalba',
-    'copyright' => 'Autorių teisės © 2015-2022 Opatrip. Visos teisės saugomos.'
+    'copyright' => 'Autorių teisės © 2022 Bopatrip. Visos teisės saugomos.'
+
 ];

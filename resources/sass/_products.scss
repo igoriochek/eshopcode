@@ -44,8 +44,26 @@
 
         .product-price {
             font-weight: bold;
-            font-size: 1.3em;
+            font-size: 1.4em;
             color: $gray-color;
+
+            .product-price-font-family {
+                font-family: "Playfair Display", serif;
+            }
+
+            .product-previous-price {
+                color: $light-gray-color;
+                text-decoration: line-through;
+            }
+
+            .product-discounted-price {
+                color: $pink-color;
+                font-weight: bolder;
+            }
+
+            .product-no-discount-price {
+                font-weight: 600;
+            }
         }
 
         .product-button-container {
