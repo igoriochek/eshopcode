@@ -48,6 +48,9 @@
             </tr>
         @endforelse
     </table>
+    <div class="my-3">
+        {{ $orders->links()}}
+    </div>
 
 <style>
     table {

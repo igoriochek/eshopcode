@@ -5,10 +5,10 @@
     <section class="pt-5">
         <div class="container">
                 <div class="row">
-                    <div class="col-lg-8 mb-5 order-sm-last order-lg-first">
+                    <div class="col-lg-8 mb-5 order-last order-lg-first">
                         <div class="row mb-4 align-items-center">
                             <div class="col-lg-8">
-                                <p class="p-0 m-0 showing-all-results">
+                                <p class="p-0 m-0 mb-2 mb-lg-0 showing-all-results">
                                     {{ __('names.results').': '.$products->count() }}
                                 </p>
                             </div>
@@ -70,7 +70,8 @@
                                             </div>
                                             <hr class="product-hr"/>
                                             <div class="product-button-container">
-                                                {!! Form::open(['route' => ['addtocart'], 'method' => 'post']) !!}
+                                                {!! Form::open(['route' => ['addtocart'], 'method' => 'post',
+                                                    'class' => 'd-flex justify-content-center justify-content-lg-start']) !!}
                                                     <input type="hidden" name="id" value="{{ $product->id }}">
                                                     <input type="hidden" name="count" value="1">
                                                     <input type="submit" value="{{__('buttons.addToCart')}}" class="product-add-to-cart">
@@ -85,7 +86,7 @@
                             {{ $products->links() }}
                         </div>
                     </div>
-                    <div class="col-lg-4 mt-4 mt-md-5 mt-lg-0 order-sm-first order-lg-last">
+                    <div class="col-lg-4 mt-4 mt-md-5 mt-lg-0 order-first order-lg-last">
                         <div class="sidebar">
                             <form method="get" action="{{route("userproducts")}}">
                                 <div class="widget">

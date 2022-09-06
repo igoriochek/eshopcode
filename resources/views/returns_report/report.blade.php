@@ -56,6 +56,9 @@
             </tr>
         @endforelse
     </table>
+    <div class="my-3">
+        {{ $returns->links() }}
+    </div>
 
 <style>
     table {

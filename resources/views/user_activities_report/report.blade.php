@@ -9,7 +9,7 @@
                 <th>{{__('table.created_at')}}</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="user_activity_data">
             @forelse ($userActivities as $userActivity)
                 <tr>
                     <td>{{ $userActivity->id ?? '-'}}</td>
@@ -30,7 +30,9 @@
             @endforelse
         </tbody>
     </table>
-
+    <div class="my-3">
+        {{ $userActivities->links() }}
+    </div>
 <style>
     table {
         border: 1px solid #ccc;

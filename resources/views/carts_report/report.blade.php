@@ -50,6 +50,9 @@
             </tr>
         @endforelse
     </table>
+    <div class="my-3">
+        {{ $carts->links() }}
+    </div>
 
 <style>
     table {

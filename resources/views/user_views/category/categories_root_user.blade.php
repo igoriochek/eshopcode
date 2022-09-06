@@ -5,7 +5,7 @@
     <section class="pt-5">
         <div class="container">
             <div class="row mb-5">
-                <div class="col-lg-8 mb-5">
+                <div class="col-lg-8 mb-5 order-last order-lg-first">
                     <div class="row align-items-center">
                         <div class="col-lg-12">
                             <p class="p-0 m-0 showing-all-results">
@@ -48,7 +48,7 @@
                             {{ $categories->links() }}
                         @endif
                 </div>
-                <div class="col-lg-4 mt-4 mt-md-5 mt-lg-0">
+                <div class="col-lg-4 mt-4 mt-md-5 mt-lg-0 order-first order-lg-last">
                     <div class="sidebar">
                         <div class="widget">
                             <div class="widget-title-container">

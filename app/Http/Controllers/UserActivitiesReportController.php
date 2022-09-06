@@ -20,36 +20,32 @@ class UserActivitiesReportController extends AppBaseController
 {
     private function getUserActivities()
     {
-        $userActivities = QueryBuilder::for(LogActivity::class)
+        return QueryBuilder::for(LogActivity::class)
         ->allowedFilters([
             AllowedFilter::exact('id'),
             'user.name',
             'user.email',
             'user.type',
             'activity',
-            AllowedFilter::scope('date_from'), 
+            AllowedFilter::scope('date_from'),
             AllowedFilter::scope('date_to')
         ])
         ->allowedIncludes(['user'])
-        ->orderBy('created_at', 'DESC')
-        ->get();
-
-        return $userActivities;
+        ->orderBy('id', 'DESC')
+        ->paginate(25);
     }
 
     public function index()
     {
-        $userActivities = $this->getUserActivities();
-
         return view('user_activities_report.index')
-            ->with(['userActivities' => $userActivities]);
+            ->with('userActivities', $this->getUserActivities());
     }
 
-    public function sendEmail() 
+    public function sendEmail()
     {
         $userActivities = $this->getUserActivities();
         $email = Auth::user()->email;
-        
+
         Mail::to($email)->send(new UserActivitiesReport($userActivities, $email));
 
         Flash::success('Email has been sent.');
@@ -58,7 +54,7 @@ class UserActivitiesReportController extends AppBaseController
             ->with(['userActivities' => $userActivities]);
     }
 
-    public function downloadPdf() 
+    public function downloadPdf()
     {
         $data = [
             'userActivities' => $this->getUserActivities()
@@ -73,7 +69,7 @@ class UserActivitiesReportController extends AppBaseController
     {
         $userActivities = $this->getUserActivities();
 
-        return Excel::download(new UserActivitiesReportExport($userActivities), 
+        return Excel::download(new UserActivitiesReportExport($userActivities),
             'user_activities_report.csv');
     }
 }

@@ -27,61 +27,61 @@ class CartsReportController extends AppBaseController
         $this->cartItemRepository = $cartItemRepo;
     }
 
-    private function getCarts() 
+    private function getCarts()
     {
-        $orders = QueryBuilder::for(Cart::class)
+        return QueryBuilder::for(Cart::class)
             ->allowedFilters([
-                AllowedFilter::exact('id'), 
+                AllowedFilter::exact('id'),
                 'user.name',
                 'code',
-                'status.name', 
-                AllowedFilter::scope('date_from'), 
+                'status.name',
+                AllowedFilter::scope('date_from'),
                 AllowedFilter::scope('date_to')
             ])
             ->allowedIncludes(['user', 'status'])
             ->orderBy('id')
-            ->get()
-            ->map(function($cart) {
-                $cart->total = DB::select("SELECT SUM(price_current) AS total_price_current,
-                                             SUM(count) AS total_count, 
-                                             SUM(price_current * count) AS total_price
-                                             FROM cart_items
-                                             WHERE cart_id = '$cart->id'");
-    
-                return $cart;
-            });
-
-        return $orders;
+            ->paginate(25);
     }
 
-    private function getCartItems() 
+    private function getCartItems()
     {
-        $cartItems = $this->cartItemRepository
+        return $this->cartItemRepository
             ->all()
             ->map(function($cartItem) {
                 $cartItem->subtotal = $cartItem->price_current * $cartItem->count;
 
                 return $cartItem;
             });
+    }
 
-        return $cartItems;
+    private function getCartsTotal($carts)
+    {
+        foreach ($carts as $cart) {
+            $cart->total = DB::select("SELECT SUM(price_current) AS total_price_current,
+                                             SUM(count) AS total_count,
+                                             SUM(price_current * count) AS total_price
+                                             FROM cart_items
+                                             WHERE cart_id = '$cart->id'");
+        }
     }
 
     public function index()
     {
         $carts = $this->getCarts();
         $cartItems = $this->getCartItems();
-        
+
+        $this->getCartsTotal($carts);
+
         return view('carts_report.index')
             ->with(['carts' => $carts, 'cartItems' => $cartItems]);
     }
 
-    public function sendEmail() 
+    public function sendEmail()
     {
         $carts = $this->getCarts();
         $cartItems = $this->getCartItems();
         $email = Auth::user()->email;
-        
+
         Mail::to($email)->send(new CartsReport($carts, $cartItems, $email));
 
         Flash::success('Email has been sent.');
@@ -90,7 +90,7 @@ class CartsReportController extends AppBaseController
             ->with(['carts' => $carts, 'cartItems' => $cartItems]);
     }
 
-    public function downloadPdf() 
+    public function downloadPdf()
     {
         $data = [
             'carts' => $this->getCarts(),
