@@ -24,6 +24,8 @@ return [
     //Login
     'login'=> 'Login',
     'rememberMe' => 'Remember Me',
+    'loginFb' => 'Login with Facebook',
+    'loginGoogle' => 'Login with Google',
 
     //Register
     'register' => 'Register',

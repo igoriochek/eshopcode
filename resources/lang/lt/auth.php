@@ -21,6 +21,8 @@ return [
     //Login
     'login' => 'Prisijungti',
     'rememberMe' => 'Prisiminti mane',
+    'loginFb' => 'Prisijungti su Facebook',
+    'loginGoogle' => 'Prisijungti su Google',
 
     //Register
     'register' => 'Registruotis',

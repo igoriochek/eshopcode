@@ -71,7 +71,9 @@
     <div class="container">
         <div class="row">
             <div class="col-3">
-
+                <div class="logo_home">
+                    <h1><a href="#" onclick="window.location.reload(true);" >LOGO</a></h1>
+                </div>
             </div>
             <nav class="col-9">
                 <a class="cmn-toggle-switch cmn-toggle-switch__htx open_close" href="javascript:void(0);"><span>Menu mobile</span></a>
