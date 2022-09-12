@@ -1,114 +1,61 @@
-<footer class="d-block">
-    <div class="bg-light" style="padding: 100px 0 80px 0">
-        <div class="container">
+<footer class="revealed">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h3>{{__('footer.help')}}</h3>
+                <a href="tel://0037060000000" id="phone">+37060000000</a>
+                <a href="mailto:help@viatora.com" id="email_footer">help@viatora.com</a>
+            </div>
+            <div class="col-md-3">
+                <h3>Viatora</h3>
+                <ul>
+                    <li><a href="#"><span>{{ __('footer.about') }}</span></a></li>
+                    <li><a href="#"><span>{{ __('footer.careers') }}</span></a></li>
+                    <li><a href="#"><span>{{ __('footer.faq') }}</span></a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h3>{{__('footer.termsAndPrivacy')}}</h3>
+                <ul>
+                    <li><a href="#"><span>{{ __('footer.terms') }}</span></a></li>
+                    <li><a href="#"><span>{{ __('footer.privacy') }}</span></a></li>
+                </ul>
+            </div>
+            <div class="col-md-2">
+                <h3 style="text-align: center">{{__('footer.language')}}</h3>
+                    <div class="dropdown dropdown-mini" style="text-align: center">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"  aria-expanded="false">
+                            @if (app()->getLocale() == 'lt')
+                                <img src="/images/lt-flag.png" alt="lt-flag" style="width: 17px; height: 17px; margin-right: 5px; border-radius: 10px">
+                                {{ __('LT') }}
+                            @else
+                                <img src="/images/en-flag.png" alt="en-flag" style="width: 17px; height: 17px; margin-right: 5px; border-radius: 10px">
+                                {{ __('EN') }}
+                            @endif
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            @foreach (config('translatable.locales') as $locale)
+                                <li>
+                                    <a class="dropdown-item" href="/lang/{{ $locale }}"
+                                       class="@if (app()->getLocale() == $locale)  @endif inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium leading-5 focus:outline-none transition duration-150 ease-in-out">
+                                        {{ strtoupper($locale) }}
+                                    </a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
+            </div>
             <div class="row">
-                <div class="col-lg-4 col-md-12">
-                    <a class="navbar-brand fw-bold" href="{{ url('/home') }}">
-                        <img src="/images/noimage.jpeg" width="200px">
-                    </a>
-                    <p class="my-4 slogan-paragraph">
-                        {{ __('footer.slogan') }}
-                    </p>
-                    <div class="d-flex" style="gap: 20px">
-                        <a class="footer-link" href="#">
-                            <i class="fa-brands fa-facebook fs-4"></i>
-                        </a>
-                        <a class="footer-link" href="#">
-                            <i class="fa-brands fa-instagram fs-4"></i>
-                        </a>
+                <div class="col-md-12">
+                    <div id="social_footer">
+                        <ul>
+                            <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                        </ul>
+                        <p>{{__('footer.copyright')}}</p>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 mt-4 mt-md-5 mt-lg-0">
-                    <h5 class="fw-bold mb-5 footer-bar-title">
-                        {{ __('footer.information') }}
-                    </h5>
-                    <ul class="list-unstyled mb-0">
-                        <li class="mb-4">
-                            <a class="footer-link" href="{{ url('/') }}">
-                                <i class="fa-solid fa-address-card fs-5 me-1"></i>
-                                <span>{{ __('footer.aboutUsTeam') }}</span>
-                            </a>
-                        </li>
-                        <li class="mb-4">
-                            <a class="footer-link" href="{{ url('/') }}">
-                                <i class="fa-solid fa-briefcase fs-5 me-1"></i>
-                                <span>{{ __('footer.career') }}</span>
-                            </a>
-                        </li>
-                        <li class="mb-4">
-                            <a class="footer-link" href="{{ url('/') }}">
-                                <i class="fa-solid fa-earth-africa fs-5 me-1"></i>
-                                <span>{{ __('footer.allLocations') }}</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-lg-4 col-md-6 mt-4 mt-md-5 mt-lg-0 position-relative">
-                    <h5 class="fw-bold mb-5 footer-bar-title">
-                        {{ __('footer.contactUs') }}
-                    </h5>
-                    <ul class="list-unstyled mb-0">
-                        <li class="d-flex align-items-center mb-4">
-                            <div style="width: 50px">
-                                <i class="fa-solid fa-location-dot fs-3 contact-travel-icon"></i>
-                            </div>
-                            <span class="contact-travel-paragraph">{{ __('Adress') }}</span>
-                        </li>
-                        <li class="d-flex align-items-center mb-4">
-                            <div style="width: 50px">
-                                <i class="fa-solid fa-phone fs-3 contact-travel-icon"></i>
-                            </div>
-                            <span class="contact-travel-paragraph">{{ __('Phone') }}</span>
-                        </li>
-                        <li class="d-flex align-items-center mb-4" style="gap: 20px">
-                            <a href="#" class="footer-link">
-                                <i class="fa-brands fa-whatsapp fs-4"></i>
-                            </a>
-                            <a href="#" class="footer-link">
-                                <i class="fa-brands fa-viber fs-4"></i>
-                            </a>
-                            <a href="#" class="footer-link">
-                                <i class="fa-brands fa-telegram fs-4"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="py-4">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-12 col-lg-6">
-                    <ul class="mb-0 p-0 d-flex justify-content-center justify-content-lg-start list-unstyled" style="gap: 20px">
-                        <li>
-                            <a class="footer-link" href="#">
-                                {{ __('footer.faq') }}
-                            </a>
-                        </li>
-                        <li>
-                            <a class="footer-link" href="#">
-                                {{ __('footer.privacyPolicy') }}
-                            </a>
-                        </li>
-                        <li>
-                            <a class="footer-link" href="#">
-                                {{ __('footer.termsOfService') }}
-                            </a>
-                        </li>
-                        <li>
-                            <a class="footer-link" href="#">
-                                {{ __('footer.contantSupport') }}
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-12 col-lg-6 mt-4 mt-lg-0">
-                    <p class="mb-0 copyright-paragraph text-center text-lg-end">
-                        {{ __('footer.copyright') }}
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
+            </div><!-- End row -->
+        </div><!-- End row -->
+    </div><!-- End container -->
+</footer><!-- End footer -->

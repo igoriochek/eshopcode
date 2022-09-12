@@ -8,16 +8,14 @@ return [
     |--------------------------------------------------------------------------
     */
 
-    'information' => 'Information',
-    'contactUs' => 'Contact Us',
-    'slogan' => '--- SLOGAN ---',
-    'aboutUsTeam' => 'About Us / Team',
-    'career' => 'Career',
-    'allLocations' => 'All Locations',
-    'faq' => 'F.A.Q.',
-    'privacyPolicy' => 'Privacy Policy',
-    'termsOfService' => 'Terms of Service',
-    'contantSupport' => 'Contant / Support',
-    'copyright' => 'Copyright © 2022 Viatora. All rights reserved.'
-
+    'help'=> 'Need help ?',
+    'about' => 'About Us ',
+    'careers' => 'Careers',
+    'faq' => 'FAQ',
+    'termsAndPrivacy' => 'User Terms & Privacy',
+    'terms' => 'Terms & Conditions',
+    'privacy' => 'Privacy & Cookies',
+    'language' => 'Language',
+    'copyright' => 'Copyright © 2022 Viatora. All rights reserved.',
+    'workHours' => 'Mon - Fri : 8.00am - 6.00pm'
 ];

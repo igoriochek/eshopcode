@@ -8,16 +8,15 @@ return [
     |--------------------------------------------------------------------------
     */
 
-    'information' => 'Informacija',
-    'contactUs' => 'Susisiekite su mumis',
-    'slogan' => '--- SLOGAN ---',
-    'aboutUsTeam' => 'Apie mus / Komanda',
-    'career' => 'Karjera',
-    'allLocations' => 'Lokacijos',
-    'faq' => 'D.U.K.',
-    'privacyPolicy' => 'Privatumo politika',
-    'termsOfService' => 'Paslaugų teikimo sąlygos',
-    'contantSupport' => 'Kontaktai / Pagalba',
-    'copyright' => 'Autorių teisės © 2022 Viatora. Visos teisės saugomos.'
+    'help'=> 'Reikia pagalbos ?',
+    'about' => 'Apie mus ',
+    'careers' => 'Karjera',
+    'faq' => 'DUK',
+    'termsAndPrivacy' => 'Privatumas ir salygos',
+    'terms' => 'Paslaugų teikimo salygos',
+    'privacy' => 'Privatumo politika',
+    'language' => 'Kalba',
+    'copyright' => 'Autorių teisės © 2022 Viatora. Visos teisės saugomos.',
+    'workHours' => 'Pr - Pn : 08.00 - 18.00'
 
 ];

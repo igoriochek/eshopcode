@@ -3561,7 +3561,7 @@ textarea.form-control-lg {
     color: #212529;
     text-align: left;
     list-style: none;
-    background-color: #fff;
+    background-color: #0a0505;
     background-clip: padding-box;
     border: 1px solid rgba(0, 0, 0, 0.15);
     border-radius: 0.25rem;
@@ -3762,7 +3762,7 @@ textarea.form-control-lg {
     padding: 0.25rem 1rem;
     clear: both;
     font-weight: 400;
-    color: #212529;
+    color: #fff;
     text-align: inherit;
     text-decoration: none;
     white-space: nowrap;
@@ -3770,8 +3770,7 @@ textarea.form-control-lg {
     border: 0;
 }
 .dropdown-item:hover, .dropdown-item:focus {
-    color: #1e2125;
-    background-color: #e9ecef;
+    background-color: rgba(85, 181, 252, 0);
 }
 .dropdown-item.active, .dropdown-item:active {
     color: #fff;
@@ -3939,7 +3938,7 @@ textarea.form-control-lg {
 .nav-link {
     display: block;
     padding: 0.5rem 1rem;
-    color: #0d6efd;
+    color: #fff;
     text-decoration: none;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
@@ -3949,7 +3948,7 @@ textarea.form-control-lg {
     }
 }
 .nav-link:hover, .nav-link:focus {
-    color: #0a58ca;
+    color: #ffffff;
 }
 .nav-link.disabled {
     color: #6c757d;
@@ -11385,25 +11384,27 @@ textarea.form-control-lg {
     border-color: #cb34c2;
 }
 
+
 .topbar {
     font-size: 0.8em;
-    background-color: #281e28;
+    background-color: rgba(34, 34, 34, 0);
     min-height: 45px;
     z-index: 1001;
+    border-bottom: 50px;
 }
 .topbar .topbar_icon {
-    color: #c028b9;
+    color: #e04f67;
     transition: color 400ms ease;
 }
 .topbar .topbar_icon:hover, .topbar .topbar_icon:focus {
-    color: #c736c0;
+    color: #e04f67;
 }
 .topbar .topbar_icon_link {
     color: #FFFFFF;
     transition: color 400ms ease;
 }
 .topbar .topbar_icon_link:hover, .topbar .topbar_icon_link:focus {
-    color: #c736c0;
+    color: #e04f67;
 }
 .topbar a {
     text-decoration: none;
@@ -11412,14 +11413,14 @@ textarea.form-control-lg {
     transition: color 400ms ease;
 }
 .topbar a span:hover, .topbar a span:focus {
-    color: #c736c0;
+    color: #e04f67;
 }
 .topbar div ul li #navbarDropdown {
     color: #FFFFFF;
     transition: color 400ms ease;
 }
 .topbar div ul li #navbarDropdown:hover, .topbar div ul li #navbarDropdown:focus {
-    color: #c736c0;
+    color: #e04f67;
 }
 
 .navbar {
