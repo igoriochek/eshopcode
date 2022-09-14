@@ -5194,7 +5194,6 @@ footer .gallery-image img {
 
  .dropdown-mini a:hover{
 	 color:#e04f67 !important;
-	 padding-left:5px;
 }
 
 a#lang_link, a#currency_link{
@@ -5534,6 +5533,11 @@ main{
 .search-overlay-menu form button:hover{
 	color: #e04f67;
 }
+
+.nav-item a:hover{
+    color: #e04f67;
+}
+
 .search-overlay-menu .search-overlay-close {
 	position: absolute;
 	top: 20px;
@@ -5611,6 +5615,7 @@ header.sticky nav.full-horizontal{
 	border-top-left-radius: 3px;
 	border-top-right-radius: 3px;
 }
+
 
 .tabs nav li.tab-current:before,
 .tabs nav li.tab-current:after {

@@ -2902,7 +2902,7 @@ textarea.form-control-lg {
 }
 
 .invalid-feedback {
-    display: none;
+    display: flex;
     width: 100%;
     margin-top: 0.25rem;
     font-size: 0.875em;
@@ -11375,16 +11375,7 @@ textarea.form-control-lg {
     font-family: "Playfair Display", serif;
     margin-bottom: 20px;
 }
-* body .main .pagination .page-item .page-link {
-    border-color: #cec7ce;
-    color: #cb34c2;
-}
-* body .main .pagination .page-item.active .page-link {
-    z-index: 3;
-    background-color: #cb34c2;
-    color: #FFFFFF;
-    border-color: #cb34c2;
-}
+
 
 
 .topbar {

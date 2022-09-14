@@ -13,7 +13,7 @@ return [
     'adminmenu' => 'Aministratoriaus meniu',
 
     'admin' => 'Administratorius',
-    'cart' => 'Prekių Krepšelis',
+    'cart' => 'Krepšelis',
     'carts' => 'Prekių Krepšeliai',
     'cartsReport' => 'Prekių Krepšelių Ataskaitos',
     'cartStatuses' => 'Krepšelių Būsenos',

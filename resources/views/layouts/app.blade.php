@@ -25,7 +25,7 @@
     <link href="{{ asset('datatables/media/css/jquery.dataTables.min.css') }}" rel="stylesheet">
     <link href="{{ asset('fontawesome-free/css/all.min.css') }}" rel="stylesheet">
     <link href="{{asset('css/jquery-ui.css')}}" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.5.1/nouislider.min.css" rel="stylesheet">
+    <link href="{{asset('https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.5.1/nouislider.min.css')}}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{asset("vendor/cookie-consent/css/cookie-consent.css")}}">
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
@@ -46,16 +46,35 @@
 </head>
 <body>
     @include('layouts.header')
-<div>
 
-    <main class="py-4">
+    <section id="hero" class="background-image" data-background="url(img/header_bg.jpg)">
+        <div class="opacity-mask" data-opacity-mask="rgba(0, 0, 0, 0.8)">
+            <div class="intro_title">
+                <h3 class="animated fadeInDown">Affordable Paris tours</h3>
+                <p class="animated fadeInDown" style="text-align: center">CITY TOURS / TOUR TICKETS / TOUR GUIDES</p>
+                <a href="#" class="animated fadeInUp button_intro">View Tours</a> <a href="#" class="animated fadeInUp button_intro outline">View Tickets</a>
+            </div>
+        </div>
+        <!-- End opacity-mask-->
+    </section>
+
+    <main class="main">
         @yield('content')
+        <div id="toTop"></div><!-- Back to top button -->
     </main>
     @include('layouts.footer')
-</div>
 
-<script>
-
+    <script src="{{asset('js/jquery-3.6.0.min.js')}}"></script>
+    <script src="{{asset('js/common_scripts_min.js')}}"></script>
+    <script src="{{asset('js/functions.js')}}"></script>
+    <script src="{{asset('js/jquery.selectbox-0.2.js')}}"></script>
+    <script src="{{asset('js/js/pw_strenght.js')}}"></script>
+    <script>
+        // ----------------------- SELECTBOX --------------------------- //
+        // change style for select box
+        $(".selectbox").selectbox();
+    </script>
+    <script>
     $(document).ready(function() {
         $('#categories').DataTable(
             {
@@ -312,10 +331,9 @@
     } );
 
 
+    </script>
 
-</script>
-
-@stack('scripts')
-@livewireScripts
+    @stack('scripts')
+    @livewireScripts
 </body>
 </html>
