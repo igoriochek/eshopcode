@@ -98,7 +98,7 @@
                             data-sticky-header-style-deactive="{'margin-left': '0'}" style="margin-left: 0;">
                             <div
                                 class="header-nav-main header-nav-main-square header-nav-main-dropdown-no-borders header-nav-main-effect-3 header-nav-main-sub-effect-1 w-100">
-                                <nav class="navbar-collapse w-100">
+                                <nav class="collapse w-100" id="nav">
                                     <ul class="nav nav-pills w-100" id="mainNav">
                                         <li class="nav-list">
                                             <a class="{{ request()->is('home') ? 'active' : '' }}" href="{{ url('/home') }}">
@@ -117,6 +117,11 @@
                                         @endauth
                                     </ul>
                                 </nav>
+                            </div>
+                            <div class="d-flex justify-content-end w-100">
+                                <button class="btn header-btn-collapse-nav hamburger-button" data-bs-toggle="collapse" data-bs-target=".header-nav-main nav" aria-expanded="true">
+                                    <i class="fas fa-bars"></i>
+                                </button>
                             </div>
                         </div>
                         <div class="d-flex col-auto pe-0 ps-0 ps-xl-3">
@@ -158,3 +163,12 @@
         </div>
     </div>
 </header>
+
+@push('scripts')
+    <script>
+        const nav = document.getElementById('nav');
+        const maxWidth = 991;
+
+        window.innerWidth > 991 ? nav.classList.add('show') : nav.classList.remove('show');
+    </script>
+@endpush
