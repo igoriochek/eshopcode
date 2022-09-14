@@ -1,4 +1,4 @@
-{{__('menu.usermenu')}}:
+
 <a href="/user/rootcategories">{{__('menu.categories')}}</a>&nbsp;&nbsp;
 <a href="/user/categorytree">{{__('menu.categoriesTree')}}</a>&nbsp;&nbsp;
 {{--<a href="/user/discounts">Discounts</a>&nbsp;&nbsp;--}}

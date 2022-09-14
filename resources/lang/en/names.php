@@ -132,6 +132,7 @@ return [
     'editOrder'=> 'Edit Order',
     'editOrderItem' => 'Edit Order Item',
     'editOrderStatus' => 'Edit Order Status',
+    'myOrders' => 'My Orders',
     'order' => 'Order',
     'orders' => 'Orders',
     'orderDetails' => 'Order Details',
@@ -190,6 +191,7 @@ return [
     'editReturn' => 'Edit Return',
     'editReturnItem' => 'Edit Return Item',
     'editReturnStatus' => 'Edit Returns Status',
+    'myReturns' => 'Mano Grąžinimai',
     'return' => 'Return',
     'returns' => 'Returns',
     'returnDetails' => 'Return Details',
@@ -215,7 +217,7 @@ return [
     'old' => "Old",
     'new' => "New",
 
-    'orderBy' => 'Order By'
-
+    'orderBy' => 'Order By',
+    'view' => 'View'
 
 ];

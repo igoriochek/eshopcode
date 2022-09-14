@@ -132,6 +132,7 @@ return [
     'editOrder' => 'Redaguoti užsakymą',
     'editOrderItem' => 'Redaguoti užsakymo prekę',
     'editOrderStatus' => 'Redaguoti Užsakymų Statusą',
+    'myOrders' => 'Mano Užsakymai',
     'order' => 'Užsakymas',
     'orders' => 'Užsakymai',
     'orderDetails' => 'Užsakymo Informacija',
@@ -189,6 +190,7 @@ return [
     'editReturn' => 'Redaguoti Grąžinimą',
     'editReturnItem' => 'Redaguoti Grąžinimo Prekę',
     'editReturnStatus' => 'Redaguoti Gražinimų Statusą',
+    'myReturns' => 'Mano Grąžinimai',
     'return' => 'Grąžinimas',
     'returns' => 'Grąžinimai',
     'returnDetails' => 'Grąžinimo Informacija',
@@ -217,6 +219,7 @@ return [
     'old' => "Senos",
     'new' => "Naujos",
 
-    'orderBy' => 'Rūšiuoti pagal'
+    'orderBy' => 'Rūšiuoti pagal',
+    'view' => 'Peržiūrėti'
 
 ];

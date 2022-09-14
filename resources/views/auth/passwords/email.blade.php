@@ -1,47 +1,54 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('auth.resetPassword') }}</div>
+    <div class="page-content pt-100 pb-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-4 col-lg-6 col-md-12 m-auto">
+                    <div class="login_wrap widget-taber-content background-white">
+                        <div class="padding_eight_all bg-white">
+                            <div class="heading_s1">
+                                <img class="border-radius-15" src="{{asset('/images/page/forgot_password.svg')}}"
+                                     alt=""/>
+                                <h2 class="mb-15 mt-15">{{ __('auth.resetPassword') }}</h2>
+                            </div>
+                            <form method="post" action="{{ route('password.email') }}">
+                                <div class="form-group">
+                                    <input class="form-control @error('email') is-invalid @enderror"
+                                           type="email"
+                                           required
+                                           name="email"
+                                           id="email"
+                                           placeholder="{{__('auth.email')}}"
+                                           value="{{ old('email') }}"
+                                           autocomplete="email"
+                                           autofocus/>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    <form method="POST" action="{{ route('password.email') }}">
-                        @csrf
-
-                        <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('auth.email') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                @error('email')
+                                    @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                                @enderror
-                            </div>
+                                    @enderror
+                                </div>
+                                <div class="login_footer form-group mb-50">
+                                    <div class="chek-form">
+                                        <div class="custome-checkbox">
+                                            <input class="form-check-input" type="checkbox" name="checkbox"
+                                                   id="exampleCheckbox1" value=""/>
+                                            <label class="form-check-label" for="exampleCheckbox1"><span>I agree to terms & Policy.</span></label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-heading btn-block hover-up"
+                                            name="login">{{ __('auth.sendResetPasswordLink') }}
+                                    </button>
+                                </div>
+                            </form>
                         </div>
-
-                        <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('auth.sendResetPasswordLink') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 @endsection

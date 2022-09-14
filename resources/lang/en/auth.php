@@ -38,4 +38,14 @@ return [
     'freshVerifyLink' => 'A fresh verification link has been sent to your email address.',
     'resendEmail' => 'Click Here to request another',
     'verifyEmail' => 'Verify Your Email Address',
+
+    'noAccount' => "Don't have an account? ",
+    'createHere' => 'Create here',
+
+    'haveAccount' => 'Already have an account?',
+    'loginHere' => ' Login',
+
+    'continueFacebook' => 'Continue with Facebook',
+    'continueGoogle' => 'Continue with Google',
+    'continueTwitter' => 'Continue with Twitter'
 ];

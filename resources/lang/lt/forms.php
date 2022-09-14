@@ -12,7 +12,7 @@ return [
     | you want to customize your views to better match your application.
     |
     */
-
+    'accountDetails' => 'Paskyros duomenys',
     'avatar' => 'Nuotrauka',
     'name' => 'Vardas',
     'email' => 'El paštas',

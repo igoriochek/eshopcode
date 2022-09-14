@@ -1,118 +1,96 @@
 @extends('layouts.app')
 
 @section('content')
-    <section class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-12">
-                    <h1>{{__('forms.userProfile')}}</h1>
-                </div>
+    <div class="page-header breadcrumb-wrap">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="{{route('home')}}" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
+                <span></span> Pages <span></span> My Account
             </div>
         </div>
-    </section>
-
-    <div class="content px-3">
-
-        @include('adminlte-templates::common.errors')
-        @include('flash::message')
-
-        <!-- User Info Form -->
-
-        <div class="card">
-
-            {!! Form::model($user, ['route' => ['userprofilesave'], 'method' => 'patch']) !!}
-
-            <div class="card-body">
-                <div class="row">
-
-                    {{--
-                    $table->string("street")->nullable(true);
-                    $table->string("house_flat")->nullable(true);
-                    $table->string("post_index")->nullable(true);
-                    $table->string("city")->nullable(true);
-                    $table->string("phone_number")->nullable(true);
-                    --}}
-                    <!-- Code Field -->
-
-                    <div class="form-group col-sm-6">
-                        {!! Form::label('code', __('forms.name').':' )!!}
-                        {!! Form::text('name', null, ['class' => 'form-control']) !!}
+    </div>
+    <div class="page-content pt-20 pb-150">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 m-auto">
+                     <div class="row">
+                        <div class="col-md-3">
+                            <div class="dashboard-menu">
+                                <ul class="nav flex-column" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="account-detail-tab"
+                                           href="{{url('/user/userprofile')}}" role="tab" aria-controls="account-detail"
+                                           aria-selected="true"><i
+                                                class="fi-rs-user mr-10"></i>{{__('forms.accountDetails')}}</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="orders-tab"  href="{{ url('/user/rootorders') }}"
+                                           aria-selected="false"><i
+                                                class="fi-rs-shopping-bag mr-10"></i>{{__('menu.orders')}}</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="account-detail-tab"
+                                           href="{{url('/user/rootoreturns')}}" role="tab" aria-controls="account-detail"
+                                           aria-selected="true"> <i
+                                                class="fi fi-rs-arrow-left mr-10"></i>{{__('menu.returns')}}</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            @include('adminlte-templates::common.errors')
+                            @include('flash::message')
+                            <div class="tab-pane" id="account-detail"
+                            >
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5>{{__('forms.accountDetails')}}</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        {!! Form::model($user, ['route' => ['userprofilesave'], 'method' => 'patch']) !!}
+                                        <form method="post" name="enq">
+                                            <div class="row">
+                                                <div class="form-group col-md-6">
+                                                    {!! Form::label('code', __('forms.name').':' )!!}
+                                                    {!! Form::text('name', null, ['class' => 'form-control']) !!}
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    {!! Form::label('email', __('forms.email').':') !!}
+                                                    {!! Form::text('email', null, ['class' => 'form-control']) !!}
+                                                </div>
+                                                <div class="form-group col-md-12">
+                                                    {!! Form::label('street', __('forms.street').':') !!}
+                                                    {!! Form::text('street', null, ['class' => 'form-control']) !!}
+                                                </div>
+                                                <div class="form-group col-md-12">
+                                                    {!! Form::label('house_flat', __('forms.house_flat').':') !!}
+                                                    {!! Form::text('house_flat', null, ['class' => 'form-control']) !!}
+                                                </div>
+                                                <div class="form-group col-md-12">
+                                                    {!! Form::label('post_index', __('forms.post_index').':') !!}
+                                                    {!! Form::text('post_index', null, ['class' => 'form-control']) !!}
+                                                </div>
+                                                <div class="form-group col-md-12">
+                                                    {!! Form::label('city', __('forms.city').':') !!}
+                                                    {!! Form::text('city', null, ['class' => 'form-control']) !!}
+                                                </div>
+                                                <div class="form-group col-md-12">
+                                                    {!! Form::label('phone_number', __('forms.phone_number').':') !!}
+                                                    {!! Form::text('phone_number', null, ['class' => 'form-control']) !!}
+                                                </div>
+                                                <div class="col-md-12">
+                                                    {!! Form::submit(__('buttons.save'), ['class' => 'btn btn-primary']) !!}
+                                                </div>
+                                            </div>
+                                        </form>
+                                        {!! Form::close() !!}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-
-                    <div class="form-group col-sm-6">
-                        {!! Form::label('email', __('forms.email').':') !!}
-                        {!! Form::text('email', null, ['class' => 'form-control']) !!}
-                    </div>
-                    <div class="form-group col-sm-6">
-                        {!! Form::label('street', __('forms.street').':') !!}
-                        {!! Form::text('street', null, ['class' => 'form-control']) !!}
-                    </div>
-
-                    <div class="form-group col-sm-6">
-                        {!! Form::label('house_flat', __('forms.house_flat').':') !!}
-                        {!! Form::text('house_flat', null, ['class' => 'form-control']) !!}
-                    </div>
-
-
-                    <div class="form-group col-sm-6">
-                        {!! Form::label('post_index', __('forms.post_index').':') !!}
-                        {!! Form::text('post_index', null, ['class' => 'form-control']) !!}
-                    </div>
-
-                    <div class="form-group col-sm-6">
-                        {!! Form::label('city', __('forms.city').':') !!}
-                        {!! Form::text('city', null, ['class' => 'form-control']) !!}
-                    </div>
-
-                    <div class="form-group col-sm-6">
-                        {!! Form::label('phone_number', __('forms.phone_number').':') !!}
-                        {!! Form::text('phone_number', null, ['class' => 'form-control']) !!}
-                    </div>
-
                 </div>
             </div>
-
-            <div class="card-footer">
-                {!! Form::submit(__('buttons.save'), ['class' => 'btn btn-primary']) !!}
-            </div>
-
-            {!! Form::close() !!}
-
-        </div>
-
-        <!-- Change Password Form -->
-
-        <div class="card mt-4">
-
-            {!! Form::model($user, ['route' => ['changePassword'], 'method' => 'post']) !!}
-
-            <div class="card-body">
-                <div class="row">
-
-                    <div class="form-group col-sm-6">
-                        {!! Form::label('current_password', __('forms.current_password').':' )!!}
-                        {!! Form::password('current_password', ['class' => 'form-control']) !!}
-                    </div>
-
-                    <div class="form-group col-sm-6">
-                        {!! Form::label('new_password', __('forms.new_password').':') !!}
-                        {!! Form::password('new_password', ['class' => 'form-control']) !!}
-                    </div>
-
-                    <div class="form-group col-sm-6">
-                        {!! Form::label('new_password_confirmation', __('forms.confirm_password').':') !!}
-                        {!! Form::password('new_password_confirmation', ['class' => 'form-control']) !!}
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="card-footer">
-                {!! Form::submit(__('buttons.save'), ['class' => 'btn btn-primary']) !!}
-            </div>
-
-            {!! Form::close() !!}
-
         </div>
     </div>
 @endsection

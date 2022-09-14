@@ -31,6 +31,7 @@ return [
     'orderStatuses' => 'Užsakymų Būsenos',
     'products' => 'Produktai',
     'promotions' => 'Akcijos',
+    'profile' => 'Profilis',
     'register' => 'Registruotis',
     'reports' => 'Ataskaitos',
     'returns' => 'Grąžinimai',

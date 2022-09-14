@@ -30,6 +30,7 @@ return [
     'ordersReport' => 'Orders Report',
     'products' => 'Products',
     'promotions'=> 'Promotions',
+    'profile' => 'Profile',
     'reports' => 'Reports',
     'returns' => 'Returns',
     'returnsReport' => 'Returns Report',
