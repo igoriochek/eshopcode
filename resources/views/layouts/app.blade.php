@@ -3,20 +3,20 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
+    <meta name="verify-paysera" content="a4065a6f21f76f51657664ee79ce96c2">
+    <!-- Title -->
     <title>{{ config('app.name', 'Laravel') }}</title>
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
-
     <!-- Styles -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/jquery-ui.min.css') }}" rel="stylesheet">
     <link href="{{ asset('datatables/media/css/jquery.dataTables.min.css') }}" rel="stylesheet">
@@ -28,115 +28,20 @@
     @livewireStyles
 </head>
 <body>
-
 <div>
-    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-        <div class="container">
-            <a class="navbar-brand" href="{{ url('/') }}">
-                {{ config('app.name', 'Laravel') }}
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <ul class="navbar-nav">
-                <!-- Authentication Links -->
-                @guest
-                    @if (Route::has('login'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                        </li>
-                    @endif
-
-                    @if (Route::has('register'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                        </li>
-                    @endif
-                @else
-                    @auth
-                        @if ( Auth::user()->type == 1 )
-{{--                            @include('layouts.adminmenu')---}}
-
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"  aria-expanded="false">{{__('menu.admin')}}:<a/>
-                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        @include('layouts.adminmenu')
-                                    </ul>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"  aria-expanded="false">{{__('menu.reports')}}:<a/>
-                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        @include('layouts.adminreportmenu')
-                                    </ul>
-                            </li>
-                        @elseif( Auth::user()->type == 2 )
-                            @include('layouts.usermenu')
-                        @endif
-
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"  aria-expanded="false">{{__('messages.chooselang')}}:<a/>
-                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        @foreach (config('translatable.locales') as $locale)
-                                           <li> <a class="dropdown-item"  href="/lang/{{ $locale }}"
-                                               class="@if (app()->getLocale() == $locale) border-indigo-400 @endif inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium leading-5 focus:outline-none transition duration-150 ease-in-out">
-                                                [{{ strtoupper($locale) }}]
-                                            </a>
-                                           </li>
-                                        @endforeach
-                                    </ul>
-                            </li>
-                    @endauth
-                    <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"  aria-expanded="false">
-                            {{ Auth::user()->name }}
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-{{--                            <li>--}}
-{{--                                <a class="dropdown-item" href="#">Link1</a>--}}
-{{--                            </li>--}}
-{{--                            @auth--}}
-{{--                                @if ( Auth::user()->type == 1 )--}}
-{{--                                    @include('layouts.adminmenu')--}}
-{{--                                @elseif( Auth::user()->type == 2 )--}}
-{{--                                    @include('layouts.usermenu')--}}
-{{--                                @endif--}}
-{{--                            @endauth--}}
-                            @if( Auth::user()->type == 2 )
-                                <li><a class="dropdown-item" href="/user/userprofile">{{__('menu.userInfo')}}</a>&nbsp;</li>
-                            @endif
-                            <li>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                                    @csrf
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                         document.getElementById('logout-form').submit();">
-                                        {{ __('menu.logout') }}
-                                    </a>
-                                </form>
-                            </li>
-                        </ul>
-                    </li>
-
-                @endguest
-            </ul>
-        </div>
-    </nav>
-    <main class="py-4">
+    @include('layouts.header')
+    <main class="main shop" style="padding-top: 30px">
         @yield('content')
     </main>
+    @include('layouts.footer')
 </div>
-
-
-<div>PHP version: {{phpversion()}}</div>
 <script src="{{asset('js/jquery-3.6.0.min.js')}}"></script>
 <script src="{{asset('js/bootstrap.bundle.js')}}"></script>
 <script src="{{asset('js/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('js/jquery-ui.js')}}"></script>
 {{--<script src="{{ asset('js/app.js') }}"></script>--}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.5.1/nouislider.min.js"></script>
-
 <script>
-
     $(document).ready(function() {
         $('#categories').DataTable(
             {
@@ -392,10 +297,27 @@
         $( "#finish" ).datepicker();
     } );
 
+    const header = document.querySelector('.header');
+    const topbarHeight = 42;
 
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 0) header.style.position = 'relative'
+        if (window.scrollY > topbarHeight) header.style.position = 'fixed';
+    });
 
+    document.onscroll = () => onFixedNavbar();
+
+    const onFixedNavbar = () => {
+        const main = document.querySelector('main');
+        if (document.body.scrollTop > topbarHeight || document.documentElement.scrollTop > topbarHeight) {
+            main.style.paddingTop = '153px';
+            header.style.top = '-42px';
+        } else {
+            main.style.paddingTop = '30px';
+            header.style.top = '0';
+        }
+    }
 </script>
-
 @stack('scripts')
 @livewireScripts
 </body>

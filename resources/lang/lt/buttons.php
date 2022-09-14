@@ -33,4 +33,6 @@ return [
     'save' => 'Išsaugoti',
     'showLogs' => 'Rodyti Žurnalus',
     'showStatistics' => 'Rodyti Statistikas',
+    'submit' => 'Paskelbti Apžvalgą',
+
 ];

@@ -1,8 +1,33 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
 
 // Variables
 @import 'variables';
 
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
+// Mixins
+@import 'mixins';
+
+// Media Queries
+@import 'mediaQueries';
+
+// Features
+@import 'features/header';
+@import 'features/footer';
+@import 'features/products';
+@import 'features/sidebar';
+@import 'features/pagination';
+@import 'features/productView';
+@import 'features/productQuantity';
+@import 'features/authForm';
+@import 'features/cart';
+@import 'features/checkout';
+@import 'features/orderComplete';
+
+// Elements
+@import 'elements/body';
+@import 'elements/a';
+@import 'elements/headers';

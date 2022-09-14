@@ -15,16 +15,16 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  */
 class Ratings extends Model
 {
-
     use HasFactory;
 
     public $table = 'ratings';
-    
-
-
 
     public $fillable = [
-        'value'
+        'value',
+        'user_id',
+        'product_id',
+        'created_at',
+        'updated_at'
     ];
 
     /**
@@ -33,7 +33,11 @@ class Ratings extends Model
      * @var array
      */
     protected $casts = [
-        'value' => 'integer'
+        'value' => 'integer',
+        'user_id' => 'integer',
+        'product_id' => 'integer',
+        'created_at' => 'date',
+        'updated_at' => 'date'
     ];
 
     /**
@@ -45,5 +49,8 @@ class Ratings extends Model
         'value' => 'required'
     ];
 
-    
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

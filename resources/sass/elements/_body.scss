@@ -1,0 +1,12 @@
+body {
+    background-color: $body-bg;
+    color: $body-color;
+    font-family: $font-family-poppins;
+    font-size: $font-size-base;
+    line-height: $line-height-base;
+    margin: 0;
+
+    a {
+        outline: none !important;
+    }
+}

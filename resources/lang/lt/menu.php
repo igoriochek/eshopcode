@@ -9,9 +9,7 @@ return [
     |
     */
 
-    'usermenu' => 'Vartotojo meniu',
-    'adminmenu' => 'Aministratoriaus meniu',
-
+    'home' => 'Namo',
     'admin' => 'Administratorius',
     'cart' => 'Prekių Krepšelis',
     'carts' => 'Prekių Krepšeliai',
@@ -40,4 +38,6 @@ return [
     'userInfo' => 'Vartotojo Informacija',
     'usersReport' => 'Vartotojų Ataskaitos',
     'usersActivitiesReport' => 'Vartotojų Aktyvumo Ataskaitos',
+    'profile' => 'Profilis',
+
 ];

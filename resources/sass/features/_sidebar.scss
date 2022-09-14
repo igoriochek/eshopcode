@@ -1,0 +1,50 @@
+.sidebar {
+    .product-search-input {
+        border-color: rgba(0, 0, 0, 0.09);
+        font-size: .8em !important;
+
+        &::placeholder {
+            color: #ccc;
+        }
+    }
+
+    .product-search-button {
+        font-size: .8em !important;
+        @include primaryButton;
+    }
+
+    .product-sidebar-title {
+        font-size: 1em;
+        font-weight: 600;
+        color: #212529;
+        padding-top: 1rem;
+        text-transform: uppercase;
+    }
+
+    ul {
+        .nav-link {
+            transition: background 0.1s;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+            padding: 8px 0;
+            display: block;
+            color: #666;
+            font-size: 0.9em;
+            text-decoration: none;
+            line-height: 20px;
+        }
+    }
+
+    .product-filter-button {
+        margin-top: 30px;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        padding: .8rem 2.5rem;
+        border-radius: 5px;
+        @include primaryButton;
+    }
+
+    .ui-state-default, .ui-widget-content .ui-state-default {
+        border-radius: 10px;
+        transition: background 300ms ease;
+    }
+}

@@ -8,6 +8,7 @@ use App\Models\Product;
 use App\Models\Ratings;
 use App\Repositories\CategoryRepository;
 use App\Repositories\ProductRepository;
+use App\Traits\ProductRatings;
 use Flash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -18,6 +19,8 @@ use Spatie\QueryBuilder\AllowedFilter;
 
 class ProductController extends AppBaseController
 {
+    use ProductRatings;
+
     /** @var ProductRepository $productRepository*/
     private $productRepository;
 
@@ -84,11 +87,16 @@ class ProductController extends AppBaseController
             ])
             ->allowedIncludes('categories')
             ->orderBy($orderBy)
-            ->paginate(10)
+            ->paginate(12)
             ->appends(request()->query());
 
         foreach ($products as $product) {
             $product->id = $product->product_id;
+
+            $sumAndCount = $this->calculateRatingSumAndCount($this->getProductRatings($product->id));
+            $product->sum = $sumAndCount['sum'];
+            $product->count = $sumAndCount['count'];
+            $product->average = $this->calculateAverageRating($product->sum, $product->count);
         }
 
         return view('user_views.product.products_all_with_filters')
@@ -111,11 +119,11 @@ class ProductController extends AppBaseController
     public function create()
     {
         return view('products.create',
-        [ 'visible_list' => $this->visible_list,
-          'categories' => $this->categoriesForSelector(),
-          'promotions' => $this->promotionForSelector(),
-          'discounts' => $this->discountForSelector(),
-        ]
+            [ 'visible_list' => $this->visible_list,
+                'categories' => $this->categoriesForSelector(),
+                'promotions' => $this->promotionForSelector(),
+                'discounts' => $this->discountForSelector(),
+            ]
         );
     }
 
@@ -168,6 +176,12 @@ class ProductController extends AppBaseController
         return view('products.show')->with('product', $product);
     }
 
+    private function logUserViewedProduct($product)
+    {
+        $user = Auth::user();
+
+        if ($user) $user->log("Viewed {$product->name}");
+    }
 
     /**
      * View Product
@@ -178,13 +192,13 @@ class ProductController extends AppBaseController
     public function userViewProduct($id)
     {
         $product = $this->productRepository->find($id);
-        $rated = Ratings::query()
-        ->where([
-            'product_id' => $id,
-            'user_id' => Auth::user()->id
-        ])
-        ->get();
-        $arrated = [1=>0,2=>0, 3=>0, 4=>0, 5=>0];
+
+        $sumAndCount = $this->calculateRatingSumAndCount($this->getProductRatings($id));
+
+        $sum = $sumAndCount['sum'];
+        $count = $sumAndCount['count'];
+
+        /*$arrated = [1=>0,2=>0, 3=>0, 4=>0, 5=>0];
         $sum = 0;
         $count = 0;
         foreach ($rated as $row) {
@@ -214,24 +228,18 @@ class ProductController extends AppBaseController
                     $rateName = "VERY GOOD";
                     break;
             }
-        }
-        $user = Auth::user();
+        }*/
 
-        if($user){
-            $user->log("Viewed {$product->name}");
-        }
-
-//        dd($arrated);
+        $this->logUserViewedProduct($product);
 
         return view('user_views.product.view_product')
             ->with([
-                'product'=> $product,
-                'voted' => count($rated) > 0 ? true : false,
-                'avarage' => $count > 0 ? round(($sum / $count),1) : 0,
-                'arrated' => $arrated,
-                'rateCount' => $count,
-                'rateName' => $rateName,
-
+                'product' => $product,
+                'voted' => $this->getVotedCondition($id),
+                'average' => $this->calculateAverageRating($sum, $count),
+                'rateCount' => $count
+                //'arrated' => $arrated,
+                //'rateName' => $rateName,
             ]);
     }
 
@@ -260,7 +268,7 @@ class ProductController extends AppBaseController
                 'promotions' => $this->promotionForSelector(),
                 'discounts' => $this->discountForSelector(),
             ]
-            );
+        );
     }
 
     /**
@@ -280,16 +288,27 @@ class ProductController extends AppBaseController
 
             return redirect(route('products.index'));
         }
+
         $input = $request->all();
 //        $product = $this->productRepository->update($request->all(), $id);
+
+        if (isset($input['image']) && $input['image'] !== null ) {
+            $imageName = time().'.'.$request->image->extension();
+            $request->image->move(public_path('images/upload'), $imageName);
+            $input['image'] = '/images/upload/' .$imageName;
+        }
+
         $input = $this->prepare($input, ["name", "description"]);
+
         $product->update($input);
-        if ($input['categories'] != null)
-            $this->saveCategories($input['categories'], $product->id);
+
+        $product->categories()->sync($request->categories);
+
         Flash::success('Product updated successfully.');
 
         return redirect(route('products.index'));
     }
+
 
 
     public function saveCategories( $cats, $prod_id)  {

@@ -339,7 +339,8 @@ class OrderController extends AppBaseController
 
             if ($discounts) {
                 foreach ($discounts as $discount) {
-                    $newAmount = $amount - $discount->value;
+                    $priceDiscounted = $amount * ($discount->value / 100);
+                    $newAmount = $amount - $priceDiscounted;
                     if ($newAmount > 0) {
                         $amount = $newAmount;
 

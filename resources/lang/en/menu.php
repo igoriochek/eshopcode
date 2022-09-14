@@ -9,9 +9,7 @@ return [
     |
     */
 
-    'usermenu' => 'User menu',
-    'adminmenu' => 'Admin menu',
-
+    'home' => 'Home',
     'admin' => 'Admin',
     'cart' => 'Cart',
     'carts' => 'Carts',
@@ -38,5 +36,6 @@ return [
     'userInfo'=> 'User Info',
     'usersReport' => 'Users Report',
     'usersActivitiesReport' => 'Users Activities Report',
+    'profile' => 'Profile',
 
 ];

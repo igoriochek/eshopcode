@@ -1,0 +1,25 @@
+@media (min-width: 992px) {
+    .header {
+        .header-body:not(.h-100) {
+            height: auto !important;
+        }
+    }
+
+    .container {
+        max-width: 1150px;
+        padding: 0 3rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .header-nav {
+        display: none;
+    }
+}
+
+@media (max-width: 575px) {
+    .container {
+        padding-right: var(--bs-gutter-x, 1.5rem);
+        padding-left: var(--bs-gutter-x, 1.5rem);
+    }
+}
