@@ -30,7 +30,12 @@ return [
     'editCart' => 'Edit Cart',
     'editCartItem' => 'Edit Cart Item',
     'editCartStatus' => 'Edit Cart Status',
-    'emptyCart' => 'Your Cart is empty',
+    'emptyCart' => 'Your cart is empty',
+    'preview' => 'Preview',
+    'orderComplete' => 'Order Complete',
+    'subtotal' => 'Subtotal',
+    'removeProduct' => 'Remove product',
+    'overview' => 'Overview',
 
     'adminUserCount' => 'Admin User Count',
     'canceled' => 'Canceled',
@@ -145,8 +150,8 @@ return [
     'invoice' => 'Invoice',
     'invoicePreview' => 'Invoice Preview',
 
-
     // Products
+    'product' => 'Product',
     'createProduct' => 'Create Product',
     'editProduct' => 'Edit Product',
     'products' => 'Products',
@@ -155,6 +160,8 @@ return [
     'productName' => 'Product Name',
     'productOrders' => 'Product Orders',
     'noProducts' => 'No Products',
+    'search' => 'Search',
+    'additionalInformation' => 'Additional Information',
 
     //Promotions
     'createPromotion' => 'Create Promotion',
@@ -173,7 +180,7 @@ return [
     'to' => 'To',
     'sum' => 'Sum',
     'total' => 'Total',
-
+    'filterByPrice' => 'Filter by price',
 
     //Rating
     'alreadyVoted' => "You have already voted for this product",
@@ -181,6 +188,16 @@ return [
     'ratingOrRatings' => 'Rating(s)',
     'starRating' => 'Star Rating',
     'voted' => "Thank you for your vote!",
+
+    //Reviews
+    'review' => 'Review',
+    'reviews' => 'Reviews',
+    'addReview' => 'Add a review',
+    'noReviews' => 'No Reviews',
+    'loginToReview' => 'Please login to review this product',
+    'alreadyReviewed' => 'You have already left a review for this product',
+    'reviewProduct' => 'Thank you for reviewing this product',
+    'yourReview' => 'Your review',
 
     //Returns
     'checkReturn' => 'Check to Return',
@@ -207,8 +224,6 @@ return [
     'editCustomer' => 'Edit Customer',
     'userLogs' => 'User Logs',
 
-
-
     'desc' => 'Description',
     'name' => 'Name',
 
@@ -216,6 +231,5 @@ return [
     'new' => "New",
 
     'orderBy' => 'Order By'
-
 
 ];

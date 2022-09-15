@@ -1,154 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    {{--<section class="content-header">
-        <div class="container-fluid">
-            <div class="row m-2">
-                <div class="col-sm-6">
-                    <h1>{{ $product->name }} [View Product]</h1>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section>
-        <div class="row m-2">
-            <div class="col-sm-12">
-                <div class="product">
-                    <div class="name"><b>{{__('names.name')}}:</b> {{ $product->name }}</div>
-                    <div class="price"><b>{{__('names.price')}}:</b>
-
-                        @if ($product->discount )
-                            {{__("names.old")}}:<strike>{{$product->price}}</strike>&nbsp;&nbsp;&nbsp;
-                            <b>{{__("names.new")}}:{{ round(($product->price * $product->discount->proc / 100),2) }}</b>
-                        @else
-                            {{ $product->price }}
-                        @endif
-
-
-                    </div>
-                    @if ( $product->image )
-                        <div>
-                            <img src="{{ $product->image }}" alt="{{$product->name}}"/>
-                        </div>
-                    @else
-                        <div>
-                            <img src="/images/noimage.jpeg" alt=""/>
-
-                        </div>
-                    @endif
-
-
-                    @if ( $product->video )
-                        {{--                <div>--}}
-                        {{--                    <iframe width="420" height="315"--}}
-                        {{--                            src="{{$product->video}}?autoplay=0&mute=1">--}}
-                        {{--                    </iframe>--}}
-                        {{--                </div>
-                        <div id="ytplayer"></div>
-                    @else
-                        <div>
-                            {{__("messages.novideo")}}
-
-                        </div>
-                    @endif
-
-
-                    <div>&nbsp;</div>
-                    <div class="description"><b>{{__('names.desc')}}:</b> {{ $product->description }}</div>
-                    <div>&nbsp;</div>
-                    <div>
-                        {!! Form::open(['route' => ['addtocart'], 'method' => 'post']) !!}
-                        {!! Form::number('count', "1", ['class' => 'form-control col-lg-5 col-sm-5', "minlength"=>"3", "maxlength"=>"5", "size"=>"5"]) !!}
-                        <input type="hidden" name="id" value="{{ $product->id }}">
-                        <input type="submit" value="{{__('buttons.addToCart')}}">
-                        {!! Form::close() !!}
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </section>
-    <section>
-        <div>&nbsp;</div>
-        <div>&nbsp;</div>
-        <div class="row m-2">
-            <div class="col-sm-12">
-                {{--            <div class="product">--}}
-                {{--                {{__('names.rating')}}--}}
-                {{--            </div>
-
-                <div class="container mt-5">
-                    <div class="card">
-                        <div class="row no-gutters">
-                            <div class="col-md-4 border-right">
-                                <div class="ratings text-center p-4 py-5"><span
-                                        class="badge bg-success"><b>{{$average}}</b> <i
-                                            class="fa-solid fa-star"></i></span> <span
-                                        class="d-block about-rating">{{$rateName}}</span> <span
-                                        class="d-block total-ratings">
-                                        {{$rateCount}} {{__('names.ratingOrRatings')}}</span>
-                                </div>
-                            </div>
-                            <div class="col-md-8">
-                                <div class="rating-progress-bars p-3">
-                                    <div class="progress-1 align-items-center">
-                                        <div class="progress">
-                                            <div class="progress-bar bg-success" role="progressbar"
-                                                 style="width: {{$arrated[1]}}%;" aria-valuenow="70" aria-valuemin="0"
-                                                 aria-valuemax="100"> {{$arrated[1]}}%
-                                            </div>
-                                        </div>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-custom" role="progressbar"
-                                                 style="width: {{$arrated[2]}}%;" aria-valuenow="25" aria-valuemin="0"
-                                                 aria-valuemax="100">{{$arrated[2]}}%
-                                            </div>
-                                        </div>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-primary" role="progressbar"
-                                                 style="width: {{$arrated[3]}}%;" aria-valuenow="25" aria-valuemin="0"
-                                                 aria-valuemax="100">{{$arrated[3]}}%
-                                            </div>
-                                        </div>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-warning" role="progressbar"
-                                                 style="width: {{$arrated[4]}}%;" aria-valuenow="25" aria-valuemin="0"
-                                                 aria-valuemax="100">{{$arrated[4]}}%
-                                            </div>
-                                        </div>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-danger" role="progressbar"
-                                                 style="width: {{$arrated[5]}}%;" aria-valuenow="25" aria-valuemin="0"
-                                                 aria-valuemax="100">{{$arrated[5]}}%
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div id="vote">
-                    @if ( !$voted)
-                        <h1>{{__('names.starRating')}} </h1>
-                        <div class="rating">
-                            <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label>
-                            <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label>
-                            <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label>
-                            <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label>
-                            <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
-                        </div>
-                    @else
-                        <h1>{{__('names.alreadyVoted')}}</h1>
-                    @endif
-                </div>
-
-            </div>
-        </div>
-
-    </section>--}}
-
     <div class="container product-section">
         <div class="row">
             <div class="col-lg-12">
@@ -184,7 +36,7 @@
                                 <div class="review-num">
                                     <a href="#description" class="text-decoration-none link text-color-default text-color-hover-primary" data-hash="" data-hash-offset="0" data-hash-offset-lg="75" data-hash-trigger-click=".nav-link-reviews" data-hash-trigger-click-delay="1000">
                                         <span class="count text-color-inherit" itemprop="ratingCount">
-                                            {{ __('Reviews').' ('.$rateCount.')' }}
+                                            {{ __('names.reviews').' ('.$rateCount.')' }}
                                         </span>
                                     </a>
                                 </div>
@@ -203,7 +55,7 @@
                             <p class="mb-3">{{ $product->description }}</p>
                             <ul class="list list-unstyled text-2">
                                 <li class="mb-0">
-                                    <span class="text-uppercase">{{ __('Categories') }}:</span>
+                                    <span class="text-uppercase">{{ __('names.categories') }}:</span>
                                     @forelse ($product->categories as $category)
                                         <a class="link" href="{{ url("/user/innercategories/$category->id") }}">
                                             {{ $category->name }}
@@ -232,17 +84,17 @@
                     <ul class="nav nav-tabs justify-content-start" role="tablist">
                         <li class="nav-item" role="presentation">
                             <a class="nav-link active font-weight-bold text-3 text-uppercase py-2 px-3" href="#productDescription" data-bs-toggle="tab" aria-selected="true" role="tab">
-                                {{ __('Description') }}
+                                {{ __('names.description') }}
                             </a>
                         </li>
                         <li class="nav-item" role="presentation">
                             <a class="nav-link font-weight-bold text-3 text-uppercase py-2 px-3" href="#productInfo" data-bs-toggle="tab" aria-selected="false" tabindex="-1" role="tab">
-                                {{ __('Additional Information') }}
+                                {{ __('names.additionalInformation') }}
                             </a>
                         </li>
                         <li class="nav-item" role="presentation">
                             <a class="nav-link nav-link-reviews font-weight-bold text-3 text-uppercase py-2 px-3" href="#productReviews" data-bs-toggle="tab" aria-selected="false" tabindex="-1" role="tab">
-                                {{ __('Reviews').' ('.$product->ratings->count().') ' }}
+                                {{ __('names.reviews').' ('.$product->ratings->count().') ' }}
                             </a>
                         </li>
                     </ul>
@@ -306,11 +158,11 @@
                                         </div>
                                     </li>
                                 @empty
-                                    <p class="text-muted">{{ __('No reviews for this product') }}</p>
+                                    <p class="text-muted">{{ __('names.noReviews') }}</p>
                                 @endforelse
                             </ul>
                             <hr class="solid my-5">
-                            <h5>{{ __('Add a review') }}</h5>
+                            <h5>{{ __('names.addReview') }}</h5>
                             <div class="row">
                                 <div class="col product-review-add-review-form" id="review-product">
                                     @if (!$voted)
@@ -325,12 +177,12 @@
                                             </div>
                                         @endguest--}}
                                         @guest
-                                            <p class="product-reviews-add-review-description">{{ __('Login to review this product') }}</p>
+                                            <p class="product-reviews-add-review-description">{{ __('names.loginToReview') }}</p>
                                         @endguest
                                         @auth
                                             <div class="col-sm-12">
                                                 <label class="form-label required text-dark fw-bold">
-                                                    {{ __('Rating') }}
+                                                    {{ __('names.rating') }}
                                                     <span>*</span>
                                                 </label>
                                                 <div class="rating" style="gap: 5px">
@@ -353,7 +205,7 @@
                                             </div>
                                             <div class="col-sm-12">
                                                 <label class="form-label required text-dark fw-bold">
-                                                    {{ __('Review') }}
+                                                    {{ __('names.review') }}
                                                     <span>*</span>
                                                 </label>
                                                 <div class="mb-3">
@@ -367,7 +219,7 @@
                                             </div>
                                         @endauth
                                     @else
-                                        <p class="product-reviews-add-review-description">{{ __('You have already voted on this product') }}</p>
+                                        <p class="product-reviews-add-review-description">{{ __('names.alreadyReviewed') }}</p>
                                     @endif
                                 </div>
                             </div>
@@ -393,7 +245,7 @@
                     //alert("Data: " + data.val + "\nStatus: " + status);
                     if (data.val == "ok") {
                         // $('#vote').hide();
-                        $('#review-product').html("<p>{{__('Thank you for reviewing this product')}}</p>");
+                        $('#review-product').html("<p>{{ __('names.reviewProduct') }}</p>");
                     }
                 }
             );

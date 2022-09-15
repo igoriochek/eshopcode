@@ -5,21 +5,21 @@
                 <div class="header-row justify-content-between">
                     <div class="header-column col-auto px-0">
                         <div class="header-row">
-                            <p class="font-weight-semibold text-1 mb-0 d-none d-sm-block d-md-none me-3">
+                            <p class="font-weight-semibold mb-0 d-none d-sm-block d-md-none me-3">
                                 <i class="fa-solid fa-phone"></i>
-                                +370 xxx xxx xx
+                                +370 653 333 30
                             </p>
-                            <p class="font-weight-semibold text-1 mb-0 d-none d-sm-block d-md-none me-3">
+                            <p class="font-weight-semibold mb-0 d-none d-sm-block d-md-none me-3">
                                 <i class="fa-solid fa-envelope"></i>
-                                mail@example.com
+                                info@buhalteres.lt
                             </p>
-                            <p class="font-weight-semibold text-1 mb-0 d-none d-md-block me-3">
+                            <p class="font-weight-semibold mb-0 d-none d-md-block me-3">
                                 <i class="fa-solid fa-phone"></i>
-                                +370 xxx xxx xx
+                                +370 653 333 30
                             </p>
-                            <p class="font-weight-semibold text-1 mb-0 d-none d-md-block me-3">
+                            <p class="font-weight-semibold mb-0 d-none d-md-block me-3">
                                 <i class="fa-solid fa-envelope"></i>
-                                mail@example.com
+                                info@buhalteres.lt
                             </p>
                         </div>
                     </div>
@@ -27,18 +27,6 @@
                         <div class="header-row">
                             <nav class="header-nav-top">
                                 <ul class="nav nav-pills font-weight-semibold text-2">
-                                    <li class="nav-item d-none d-lg-inline-block">
-                                        <a href="#"
-                                           class="text-decoration-none text-color-default text-color-hover-primary">
-                                            {{ __('About') }}
-                                        </a>
-                                    </li>
-                                    <li class="nav-item d-none d-lg-inline-block">
-                                        <a href="#"
-                                           class="text-decoration-none text-color-default text-color-hover-primary">
-                                            {{ __('Contact') }}
-                                        </a>
-                                    </li>
                                     <li class="nav-item dropdown nav-item-border">
                                         <a class="nav-link text-color-default text-color-hover-primary text-uppercase"
                                            href="#" role="button" id="dropdownLanguage" data-bs-toggle="dropdown"
@@ -51,28 +39,18 @@
                                 </ul>
                                 <ul class="header-social-icons social-icons social-icons-clean social-icons-icon-gray">
                                     <li class="social-icons-facebook">
-                                        <a href="#" target="_blank" title="Facebook">
+                                        <a href="{{ route('facebook.login') }}" target="_blank" title="Facebook">
                                             <i class="fab fa-facebook-f"></i>
                                         </a>
                                     </li>
-                                    <li class="social-icons-youtube">
-                                        <a href="#" target="_blank" title="YouTube">
-                                            <i class="fa-brands fa-youtube"></i>
+                                    <li class="social-icons-google">
+                                        <a href="{{ route('google.login') }}" target="_blank" title="Google">
+                                            <i class="fa-brands fa-google"></i>
                                         </a>
                                     </li>
-                                    <li class="social-icons-linkedin">
-                                        <a href="#" target="_blank" title="Linkedin">
-                                            <i class="fab fa-linkedin-in"></i>
-                                        </a>
-                                    </li>
-                                    <li class="social-icons-instagram">
-                                        <a href="#" target="_blank" title="Instagram">
-                                            <i class="fa-brands fa-instagram"></i>
-                                        </a>
-                                    </li>
-                                    <li class="social-icons-tiktok">
-                                        <a href="#" target="_blank" title="TikTok">
-                                            <i class="fa-brands fa-tiktok"></i>
+                                    <li class="social-icons-twitter">
+                                        <a href="{{ route('facebook.login') }}" target="_blank" title="Twitter">
+                                            <i class="fa-brands fa-twitter"></i>
                                         </a>
                                     </li>
                                 </ul>
@@ -87,7 +65,7 @@
                 <div class="header-column w-100">
                     <div class="header-row justify-content-between">
                         <div class="header-logo z-index-2 col-lg-2 px-0" style="width: auto; height: auto">
-                            <a href="{{ route('home') }}">
+                            <a href="{{ url('/home') }}">
                                 <h3 class="fw-bold m-0 p-0">{{ config('app.name') }}</h3>
                             </a>
                         </div>
@@ -130,7 +108,7 @@
                                     @guest
                                         <a href="{{ route('login') }}" role="button"
                                            class="login-button btn btn-primary btn-rounded px-4 py-2 fw-bold text-uppercase">
-                                            {{ __('Login') }}
+                                            {{ __('buttons.login') }}
                                         </a>
                                     @endguest
                                     @auth

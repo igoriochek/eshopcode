@@ -31,6 +31,11 @@ return [
     'editCartItem' => 'Redaguoti Krepšelio Prekę',
     'editCartStatus' => 'Redaguoti Krepšelio Statusą',
     'emptyCart' => 'Jūsų prekių krepšelis yra tuščias',
+    'preview' => 'Peržiūra',
+    'orderComplete' => 'Užsakymas baigtas',
+    'subtotal' => 'Tarpinė suma',
+    'removeProduct' => 'Pašalinti produktą',
+    'overview' => 'Apžvalga',
 
     //Categories
     'categories' => 'Kategorijos',
@@ -146,6 +151,7 @@ return [
     'invoicePreview' => 'Peržiūrėti Sąskaitą Faktūrą',
 
     //Products
+    'product' => 'Produktas',
     'createProduct' => 'Sukurti Produktą',
     'editProduct' => 'Redaguoti Produktą',
     'products' => 'Produktai',
@@ -154,6 +160,8 @@ return [
     'productName' => 'Produkto pavadinimas',
     'productOrders' => 'Produktų užsakymai',
     'noProducts' => 'Nėra produktų',
+    'search' => 'Ieškoti',
+    'additionalInformation' => 'Papildoma Informacija',
 
     //Promotions
     'createPromotion' => 'Sukurti Akciją',
@@ -166,13 +174,13 @@ return [
 
     //Price
     'discount' => 'Nuolaida',
-    'discountCoupons' => 'Nuolaidų Kuponai',
     'discountCouponsForYou' => 'Nuolaidų Kuponai Jums',
     'price' => 'Kaina',
     'from' => 'Nuo',
     'to' => 'Iki',
     'sum' => 'Suma',
     'total' => 'Galutinė suma',
+    'filterByPrice' => 'Filtruoti pagal kaina',
 
     //Rating
     'alreadyVoted' => "Jūs jau prabalsavote už šį produktą!",
@@ -180,6 +188,16 @@ return [
     'ratingOrRatings' => 'Įvertinimas(ai)',
     'starRating' => 'Įvertinimas Žvaigždutėmis',
     'voted' => "Ačiū už jūsų balsą!",
+
+    //Reviews
+    'review' => 'Atsiliepimas',
+    'reviews' => 'Atsiliepimai',
+    'addReview' => 'Pridėti atsiliepimą',
+    'noReviews' => 'Nėra atsiliepimų',
+    'loginToReview' => 'Prisijunkite, kad galėtumėte pridėti atsiliepimą šiai produktui',
+    'alreadyReviewed' => 'Jūs jau palikote atsiliepimą apie šį produktą',
+    'reviewProduct' => 'Dėkojame, kad įvertinote šį produktą',
+    'yourReview' => 'Jūsų atsiliepimas',
 
     //Returns
     'checkReturn' => 'Pasirinkite kuriuos norite grąžinti',

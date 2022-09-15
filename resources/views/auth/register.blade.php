@@ -58,7 +58,7 @@
                 <div class="row">
                     <div class="form-group col">
                         <label class="form-label text-color-dark text-3">
-                            {{ __('auth.passwordEnterConfirm') }}
+                            {{ __('auth.confirmPasswordEnter') }}
                             <span class="text-danger">*</span>
                         </label>
                         <div class="col-md-12">
@@ -73,7 +73,7 @@
                         </button>
                         @if (Route::has('login'))
                             <div class="d-flex justify-content-center align-items-center">
-                                <span class="me-2">{{ __("Already have an account?") }}</span>
+                                <span class="me-2">{{ __('auth.loginParagraph') }}</span>
                                 <a class="login-link" href="{{ route('login') }}">
                                     {{ __('buttons.login') }}
                                 </a>

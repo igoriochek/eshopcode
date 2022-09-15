@@ -2,81 +2,60 @@
     <div class="container">
         <div class="row py-4 my-5">
             <div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
-                <h5 class="text-4 text-color-light mb-3">{{ __('Contant Info') }}</h5>
+                <h5 class="text-4 text-color-light mb-3">{{ __('footer.contantInfo') }}</h5>
                 <ul class="list list-unstyled">
                     <li class="pb-1 mb-2">
                         <span
-                            class="d-block font-weight-normal line-height-1 text-color-light">{{ __('Address') }}</span>
-                        1234 Street Name, City, State, LT
+                            class="d-block font-weight-normal line-height-1 text-color-light">
+                            {{ __('footer.address') }}
+                        </span>
+                        Konstitucijos pr. 7, Vilnius, Verslo centras „Europa“, 12 aukštas, LT-09308
                     </li>
                     <li class="pb-1 mb-2">
-                        <span class="d-block font-weight-normal line-height-1 text-color-light">{{ __('Phone') }}</span>
-                        <a href="tel:+1234567890">+370 xxx xxx xx</a>
+                        <span class="d-block font-weight-normal line-height-1 text-color-light">
+                            {{ __('footer.phone') }}
+                        </span>
+                        <a href="tel:+1234567890">+370 653 333 30</a>
                     </li>
                     <li class="pb-1 mb-2">
-                        <span class="d-block font-weight-normal line-height-1 text-color-light">{{ __('Email') }}</span>
-                        <a href="mailto:mail@example.com">mail@example.com</a>
+                        <span class="d-block font-weight-normal line-height-1 text-color-light">
+                            {{ __('Viber, Whatsapp') }}
+                        </span>
+                        +370 685 777 77
                     </li>
                     <li class="pb-1 mb-2">
-                        <span
-                            class="d-block font-weight-normal line-height-1 text-color-light">{{ __('Working Days/Hours') }}</span>
-                        Mon - Sun / 9:00AM - 8:00PM
+                        <span class="d-block font-weight-normal line-height-1 text-color-light">
+                            {{ __('footer.email') }}
+                        </span>
+                        <a href="mailto:mail@example.com">info@buhalteres.lt</a>
                     </li>
                 </ul>
                 <ul class="social-icons social-icons-clean-with-border social-icons-medium">
                     <li class="social-icons-facebook">
-                        <a href="#" target="_blank" title="Facebook">
+                        <a href="{{ route('facebook.login') }}" target="_blank" title="Facebook">
                             <i class="fab fa-facebook-f"></i>
                         </a>
                     </li>
-                    <li class="social-icons-youtube">
-                        <a href="#" target="_blank" title="YouTube">
-                            <i class="fa-brands fa-youtube"></i>
+                    <li class="social-icons-google">
+                        <a href="{{ route('google.login') }}" target="_blank" title="Google">
+                            <i class="fa-brands fa-google"></i>
                         </a>
                     </li>
-                    <li class="social-icons-linkedin">
-                        <a href="#" target="_blank" title="Linkedin">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                    </li>
-                    <li class="social-icons-instagram">
-                        <a href="#" target="_blank" title="Instagram">
-                            <i class="fa-brands fa-instagram"></i>
-                        </a>
-                    </li>
-                    <li class="social-icons-tiktok">
-                        <a href="#" target="_blank" title="TikTok">
-                            <i class="fa-brands fa-tiktok"></i>
+                    <li class="social-icons-twitter">
+                        <a href="{{ route('twitter.login') }}" target="_blank" title="Twitter">
+                            <i class="fa-brands fa-twitter"></i>
                         </a>
                     </li>
                 </ul>
             </div>
             <div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
-                <h5 class="text-4 text-color-light mb-3">{{ __('Customer Service') }}</h5>
+                <h5 class="text-4 text-color-light mb-3">{{ __('footer.browser') }}</h5>
                 <ul class="list list-unstyled mb-0 footer-links">
-                    <li class="mb-0">
-                        <a href="contact-us-1.html">{{ __('Help & FAQs') }}</a>
+                    <li class="nav-list">
+                        <a class="{{ request()->is('products*') ? 'active' : '' }}" href="{{ url('/home') }}">
+                            {{ __('menu.home') }}
+                        </a>
                     </li>
-                    <li class="mb-0">
-                        <a href="services.html">{{ __('Order Tracking') }}</a>
-                    </li>
-                    <li class="mb-0">
-                        <a href="#">{{ __('Shipping & Delivery') }}</a>
-                    </li>
-                    <li class="mb-0">
-                        <a href="about-us-1.html">{{ __('Careers') }}</a>
-                    </li>
-                    <li class="mb-0">
-                        <a href="#">{{ __('About Us') }}</a>
-                    </li>
-                    <li class="mb-0">
-                        <a href="#">{{ __('Corporate Sales') }}</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
-                <h5 class="text-4 text-color-light mb-3">{{ __('Browse') }}</h5>
-                <ul class="list list-unstyled mb-0 footer-links">
                     @guest
                         @include('layouts.menus.menu')
                     @endguest
@@ -85,8 +64,9 @@
                     @endauth
                 </ul>
             </div>
-            <div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
-                <h5 class="text-4 text-color-light mb-3">{{ __('Personal') }}</h5>
+            @auth
+                <div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
+                <h5 class="text-4 text-color-light mb-3">{{ __('footer.personal') }}</h5>
                 <ul class="list list-unstyled mb-0 footer-links">
                     <li class="mb-0">
                         <a href="{{ url('/user/viewcart') }}">
@@ -119,13 +99,14 @@
                     </li>
                 </ul>
             </div>
+            @endauth
         </div>
     </div>
     <div class="container">
         <div class="footer-copyright pt-4 pb-5">
             <div class="row align-items-center justify-content-md-between">
                 <div class="col-12 col-md-auto text-center text-md-start mb-2 mb-md-0">
-                    <p class="mb-0">{{ __('Buhalteriai © 2022. All Rights Reserved') }}</p>
+                    <p class="mb-0">{{ __('footer.copyright') }}</p>
                 </div>
                 <div class="col-12 col-md-auto">
                     <div class="payment-cc justify-content-center justify-content-md-end">

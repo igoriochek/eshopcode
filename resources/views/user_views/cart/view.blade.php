@@ -6,19 +6,19 @@
             <div class="col">
                 <ul class="breadcrumb font-weight-bold text-6 justify-content-center my-5">
                     <li class="text-transform-none me-3">
-                        <span class="active">{{ __('Cart') }}</span>
+                        <span class="active">{{ __('names.cart') }}</span>
                     </li>
                     <li class="text-transform-none text-color-grey-lighten me-3">
                         <i class="fa-solid fa-angle-right me-2"></i>
-                        <span>{{ __('Checkout') }}</span>
+                        <span>{{ __('names.checkout') }}</span>
                     </li>
                     <li class="text-transform-none text-color-grey-lighten me-3">
                         <i class="fa-solid fa-angle-right me-2"></i>
-                        <span>{{ __('Preview') }}</span>
+                        <span>{{ __('names.preview') }}</span>
                     </li>
                     <li class="text-transform-none text-color-grey-lighten">
                         <i class="fa-solid fa-angle-right me-2"></i>
-                        <span>{{ __('Order Complete') }}</span>
+                        <span>{{ __('names.orderComplete') }}</span>
                     </li>
                 </ul>
             </div>
@@ -31,12 +31,12 @@
                 <div class="pin-wrapper">
                     <div class="card border-width-3 border-radius-0 border-color-hover-dark">
                         <div class="card-body">
-                            <h6 class="fw-bold text-uppercase mb-3">{{ __('Overview') }}</h6>
+                            <h6 class="fw-bold text-uppercase mb-3">{{ __('names.overview') }}</h6>
                             <table class="shop_table cart-totals mb-4">
                                 <tbody>
                                     <tr class="total">
                                         <td>
-                                            <strong class="text-dark">{{ __('Total') }}</strong>
+                                            <strong class="text-dark">{{ __('names.total') }}</strong>
                                         </td>
                                         <td class="text-end">
                                             <strong class="text-dark">
@@ -46,9 +46,12 @@
                                     </tr>
                                 </tbody>
                             </table>
-                            <a href="{{ url('user/checkout') }}" class="btn proceed-to-checkout-button w-100">
-                                {{ __('Proceed to Checkout') }}
-                                <i class="fas fa-arrow-right ms-2"></i></a>
+                            @if (count($cartItems) > 0)
+                                <a href="{{ url('user/checkout') }}" class="btn proceed-to-checkout-button w-100">
+                                    {{ __('buttons.proceedToCheckout') }}
+                                    <i class="fas fa-arrow-right ms-2"></i>
+                                </a>
+                            @endif
                         </div>
                     </div>
                 </div>

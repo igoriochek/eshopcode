@@ -11615,28 +11615,16 @@ textarea.form-control-lg {
 .header .header-body .header-top .container .header-row .header-column .header-row .header-nav-top .social-icons .social-icons-facebook:hover a i, .header .header-body .header-top .container .header-row .header-column .header-row .header-nav-top .social-icons .social-icons-facebook:focus a i, .header .header-body .header-top .container .header-row .header-column .header-row .header-nav-top .social-icons .social-icons-facebook:active a i {
   color: #FFFF;
 }
-.header .header-body .header-top .container .header-row .header-column .header-row .header-nav-top .social-icons .social-icons-youtube:hover a, .header .header-body .header-top .container .header-row .header-column .header-row .header-nav-top .social-icons .social-icons-youtube:focus a, .header .header-body .header-top .container .header-row .header-column .header-row .header-nav-top .social-icons .social-icons-youtube:active a {
-  background: #e71c1c;
+.header .header-body .header-top .container .header-row .header-column .header-row .header-nav-top .social-icons .social-icons-google:hover a, .header .header-body .header-top .container .header-row .header-column .header-row .header-nav-top .social-icons .social-icons-google:focus a, .header .header-body .header-top .container .header-row .header-column .header-row .header-nav-top .social-icons .social-icons-google:active a {
+  background: #db4a39;
 }
-.header .header-body .header-top .container .header-row .header-column .header-row .header-nav-top .social-icons .social-icons-youtube:hover a i, .header .header-body .header-top .container .header-row .header-column .header-row .header-nav-top .social-icons .social-icons-youtube:focus a i, .header .header-body .header-top .container .header-row .header-column .header-row .header-nav-top .social-icons .social-icons-youtube:active a i {
+.header .header-body .header-top .container .header-row .header-column .header-row .header-nav-top .social-icons .social-icons-google:hover a i, .header .header-body .header-top .container .header-row .header-column .header-row .header-nav-top .social-icons .social-icons-google:focus a i, .header .header-body .header-top .container .header-row .header-column .header-row .header-nav-top .social-icons .social-icons-google:active a i {
   color: #FFFF;
 }
-.header .header-body .header-top .container .header-row .header-column .header-row .header-nav-top .social-icons .social-icons-linkedin:hover a, .header .header-body .header-top .container .header-row .header-column .header-row .header-nav-top .social-icons .social-icons-linkedin:focus a, .header .header-body .header-top .container .header-row .header-column .header-row .header-nav-top .social-icons .social-icons-linkedin:active a {
-  background: #0A66C2;
+.header .header-body .header-top .container .header-row .header-column .header-row .header-nav-top .social-icons .social-icons-twitter:hover a, .header .header-body .header-top .container .header-row .header-column .header-row .header-nav-top .social-icons .social-icons-twitter:focus a, .header .header-body .header-top .container .header-row .header-column .header-row .header-nav-top .social-icons .social-icons-twitter:active a {
+  background: #1DA1F2;
 }
-.header .header-body .header-top .container .header-row .header-column .header-row .header-nav-top .social-icons .social-icons-linkedin:hover a i, .header .header-body .header-top .container .header-row .header-column .header-row .header-nav-top .social-icons .social-icons-linkedin:focus a i, .header .header-body .header-top .container .header-row .header-column .header-row .header-nav-top .social-icons .social-icons-linkedin:active a i {
-  color: #FFFF;
-}
-.header .header-body .header-top .container .header-row .header-column .header-row .header-nav-top .social-icons .social-icons-instagram:hover a, .header .header-body .header-top .container .header-row .header-column .header-row .header-nav-top .social-icons .social-icons-instagram:focus a, .header .header-body .header-top .container .header-row .header-column .header-row .header-nav-top .social-icons .social-icons-instagram:active a {
-  background: #a1208c;
-}
-.header .header-body .header-top .container .header-row .header-column .header-row .header-nav-top .social-icons .social-icons-instagram:hover a i, .header .header-body .header-top .container .header-row .header-column .header-row .header-nav-top .social-icons .social-icons-instagram:focus a i, .header .header-body .header-top .container .header-row .header-column .header-row .header-nav-top .social-icons .social-icons-instagram:active a i {
-  color: #FFFF;
-}
-.header .header-body .header-top .container .header-row .header-column .header-row .header-nav-top .social-icons .social-icons-tiktok:hover a, .header .header-body .header-top .container .header-row .header-column .header-row .header-nav-top .social-icons .social-icons-tiktok:focus a, .header .header-body .header-top .container .header-row .header-column .header-row .header-nav-top .social-icons .social-icons-tiktok:active a {
-  background: #000000;
-}
-.header .header-body .header-top .container .header-row .header-column .header-row .header-nav-top .social-icons .social-icons-tiktok:hover a i, .header .header-body .header-top .container .header-row .header-column .header-row .header-nav-top .social-icons .social-icons-tiktok:focus a i, .header .header-body .header-top .container .header-row .header-column .header-row .header-nav-top .social-icons .social-icons-tiktok:active a i {
+.header .header-body .header-top .container .header-row .header-column .header-row .header-nav-top .social-icons .social-icons-twitter:hover a i, .header .header-body .header-top .container .header-row .header-column .header-row .header-nav-top .social-icons .social-icons-twitter:focus a i, .header .header-body .header-top .container .header-row .header-column .header-row .header-nav-top .social-icons .social-icons-twitter:active a i {
   color: #FFFF;
 }
 .header .header-body .header-container {
@@ -11833,33 +11821,21 @@ textarea.form-control-lg {
   color: #FFFF;
 }
 .footer .social-icons .social-icons-facebook:hover a, .footer .social-icons .social-icons-facebook:focus a, .footer .social-icons .social-icons-facebook:active a {
-  background: #343696;
+  background: #4267B2;
 }
 .footer .social-icons .social-icons-facebook:hover a i, .footer .social-icons .social-icons-facebook:focus a i, .footer .social-icons .social-icons-facebook:active a i {
   color: #FFFF;
 }
-.footer .social-icons .social-icons-youtube:hover a, .footer .social-icons .social-icons-youtube:focus a, .footer .social-icons .social-icons-youtube:active a {
-  background: #e71c1c;
+.footer .social-icons .social-icons-google:hover a, .footer .social-icons .social-icons-google:focus a, .footer .social-icons .social-icons-google:active a {
+  background: #db4a39;
 }
-.footer .social-icons .social-icons-youtube:hover a i, .footer .social-icons .social-icons-youtube:focus a i, .footer .social-icons .social-icons-youtube:active a i {
+.footer .social-icons .social-icons-google:hover a i, .footer .social-icons .social-icons-google:focus a i, .footer .social-icons .social-icons-google:active a i {
   color: #FFFF;
 }
-.footer .social-icons .social-icons-linkedin:hover a, .footer .social-icons .social-icons-linkedin:focus a, .footer .social-icons .social-icons-linkedin:active a {
-  background: #0A66C2;
+.footer .social-icons .social-icons-twitter:hover a, .footer .social-icons .social-icons-twitter:focus a, .footer .social-icons .social-icons-twitter:active a {
+  background: #1DA1F2;
 }
-.footer .social-icons .social-icons-linkedin:hover a i, .footer .social-icons .social-icons-linkedin:focus a i, .footer .social-icons .social-icons-linkedin:active a i {
-  color: #FFFF;
-}
-.footer .social-icons .social-icons-instagram:hover a, .footer .social-icons .social-icons-instagram:focus a, .footer .social-icons .social-icons-instagram:active a {
-  background: #a1208c;
-}
-.footer .social-icons .social-icons-instagram:hover a i, .footer .social-icons .social-icons-instagram:focus a i, .footer .social-icons .social-icons-instagram:active a i {
-  color: #FFFF;
-}
-.footer .social-icons .social-icons-tiktok:hover a, .footer .social-icons .social-icons-tiktok:focus a, .footer .social-icons .social-icons-tiktok:active a {
-  background: #000000;
-}
-.footer .social-icons .social-icons-tiktok:hover a i, .footer .social-icons .social-icons-tiktok:focus a i, .footer .social-icons .social-icons-tiktok:active a i {
+.footer .social-icons .social-icons-twitter:hover a i, .footer .social-icons .social-icons-twitter:focus a i, .footer .social-icons .social-icons-twitter:active a i {
   color: #FFFF;
 }
 .footer .container .footer-copyright {
@@ -12659,6 +12635,57 @@ textarea.form-control-lg {
 }
 .order-complete .order-complete-fail .card-body p i {
   color: #e72828 !important;
+}
+
+.main .scroll-to-top-button {
+  position: fixed;
+  bottom: 0;
+  right: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  color: #fff;
+  background-color: #0088CC;
+  border-radius: 6px 6px 0 0;
+  width: 50px;
+  height: 45px;
+  line-height: 50px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 7px 16px 0 rgba(9, 28, 58, 0.07);
+  transition: all 300ms ease;
+  z-index: 9;
+  opacity: 0;
+}
+.main .scroll-to-top-button:hover {
+  background: #00a1f2;
+}
+.main .scroll-to-top-button i {
+  font-size: 0.8em;
+}
+.main .scroll-to-top-button.show {
+  opacity: 1;
+}
+.main .fade-in {
+  -webkit-animation: FadeIn 300ms linear;
+          animation: FadeIn 300ms linear;
+}
+@-webkit-keyframes FadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes FadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 body {

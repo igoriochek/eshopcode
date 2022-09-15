@@ -76,12 +76,12 @@
             <aside class="sidebar">
                 <form method="get" action="{{route("userproducts")}}">
                     <div class="input-group mb-3 pb-1">
-                        <input type="text" name="filter[namelike]" class="form-control product-search-input" id="filter[namelike]" placeholder="{{ __('Search...') }}" value="{{$filter["namelike"] ?? ""}}">
+                        <input type="text" name="filter[namelike]" class="form-control product-search-input" id="filter[namelike]" placeholder="{{ __('names.search').'...' }}" value="{{$filter["namelike"] ?? ""}}">
                         <button type="submit" class="btn btn-primary p-2 product-search-button">
                             <i class="fas fa-search m-2"></i>
                         </button>
                     </div>
-                    <h5 class="product-sidebar-title">{{ __('Filter by price') }}</h5>
+                    <h5 class="product-sidebar-title">{{ __('names.filterByPrice') }}</h5>
                     <div class="filter-by-price-widget-content">
                         <fieldset class="form-group">
                             <div id="range-slider" class="slider mx-2 mb-4 mt-1" wire:ignore></div>
@@ -100,7 +100,7 @@
                             </div>
                         </fieldset>
                     </div>
-                    <h5 class="product-sidebar-title">{{ __('Categories') }}</h5>
+                    <h5 class="product-sidebar-title">{{ __('names.categories') }}</h5>
                     <ul class="nav nav-list flex-column">
                         @forelse($categories as $category)
                             <div class="nav-link">
@@ -115,7 +115,7 @@
                             </div>
                         @empty
                             <div class="nav-link">
-                                <span class="text-muted">{{ __('No categories found') }}</span>
+                                <span class="text-muted">{{ __('names.noCategories') }}</span>
                             </div>
                         @endforelse
                     </ul>

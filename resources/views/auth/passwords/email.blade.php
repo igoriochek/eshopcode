@@ -34,7 +34,7 @@
                         </button>
                         @if (Route::has('login'))
                             <div class="d-flex justify-content-center align-items-center">
-                                <span class="me-2">{{ __("Remembered your password?") }}</span>
+                                <span class="me-2">{{ __('auth.resetPasswordParagraph') }}</span>
                                 <a class="login-link" href="{{ route('login') }}">
                                     {{ __('buttons.login') }}
                                 </a>

@@ -5,16 +5,16 @@
             <th class="product-thumbnail" width="15%">
             </th>
             <th class="product-name text-uppercase" width="30%">
-                {{ __('Product') }}
+                {{ __('names.product') }}
             </th>
             <th class="product-price text-uppercase" width="15%">
-                {{ __('Price') }}
+                {{ __('names.price') }}
             </th>
             <th class="product-quantity text-uppercase" width="20%">
-                {{ __('Quantity') }}
+                {{ __('names.quantity') }}
             </th>
             <th class="product-subtotal text-uppercase text-end" width="20%">
-                {{ __('Subtotal') }}
+                {{ __('names.subtotal') }}
             </th>
         </tr>
         </thead>
@@ -24,7 +24,8 @@
                 <td class="product-thumbnail">
                     <div class="product-thumbnail-wrapper">
                         {!! Form::open(['route' => ['userCartItemDestroy', $item->id], 'method' => 'delete']) !!}
-                        <button type="submit" class="product-thumbnail-remove" title="{{ __('Remove Product') }}" onclick="return confirm('{{ __('Are you sure you want this remove this product') }}?')">
+                        <button type="submit" class="product-thumbnail-remove" title="{{ __('names.removeProduct') }}"
+                                onclick="return confirm('{{ __('names.areYouSureProduct Are you sure you want this remove this product') }}?')">
                             <i class="fas fa-times"></i>
                         </button>
                         {!! Form::close() !!}
@@ -53,7 +54,7 @@
             </tr>
         @empty
             <tr>
-                <td colspan="12" class="text-center">{{ __('Cart is empty') }}</td>
+                <td colspan="12" class="text-center">{{ __('names.emptyCart') }}</td>
             </tr>
         @endforelse
         <tr>
