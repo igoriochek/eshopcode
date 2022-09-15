@@ -1,6 +1,23 @@
 @extends('layouts.app')
 
 @section('content')
+    <section id="hero" class="background-image" data-background=url(../img/header_bg.jpg) style="height: 470px">
+        <div class="opacity-mask" data-opacity-mask="rgba(0, 0, 0, 0.6)">
+            <div class="intro_title">
+                <h3 class="animated fadeInDown">{{ __('names.cart') }}</h3>
+            </div>
+        </div>
+        <!-- End opacity-mask-->
+    </section>
+    <div id="position">
+        <div class="container">
+            <ul>
+                <li><a href="../">{{__('menu.home')}}</a>
+                </li>
+                <li>{{ __('names.cart') }}</li>
+            </ul>
+        </div>
+    </div>
     <section class="content-header">
         <div class="container-fluid">
             <div class="row m-2">

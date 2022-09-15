@@ -47,16 +47,16 @@
 <body>
     @include('layouts.header')
 
-    <section id="hero" class="background-image" data-background="url(img/header_bg.jpg)">
-        <div class="opacity-mask" data-opacity-mask="rgba(0, 0, 0, 0.8)">
-            <div class="intro_title">
-                <h3 class="animated fadeInDown">Affordable Paris tours</h3>
-                <p class="animated fadeInDown" style="text-align: center">CITY TOURS / TOUR TICKETS / TOUR GUIDES</p>
-                <a href="#" class="animated fadeInUp button_intro">View Tours</a> <a href="#" class="animated fadeInUp button_intro outline">View Tickets</a>
-            </div>
+    <div id="preloader">
+        <div class="sk-spinner sk-spinner-wave">
+            <div class="sk-rect1"></div>
+            <div class="sk-rect2"></div>
+            <div class="sk-rect3"></div>
+            <div class="sk-rect4"></div>
+            <div class="sk-rect5"></div>
         </div>
-        <!-- End opacity-mask-->
-    </section>
+    </div>
+
 
     <main class="main">
         @yield('content')

@@ -1,6 +1,26 @@
 @extends('layouts.app')
 
 @section('content')
+    <section id="hero" class="background-image" data-background=url(../img/header_bg.jpg)>
+        <div class="opacity-mask" data-opacity-mask="rgba(0, 0, 0, 0.8)">
+            <div class="intro_title">
+                <h3 class="animated fadeInDown">Affordable Paris tours</h3>
+                <p class="animated fadeInDown" style="text-align: center">CITY TOURS / TOUR TICKETS / TOUR GUIDES</p>
+                <a href="#" class="animated fadeInUp button_intro">View Tours</a> <a href="#" class="animated fadeInUp button_intro outline">View Tickets</a>
+            </div>
+        </div>
+        <!-- End opacity-mask-->
+    </section>
+    <div id="position">
+        <div class="container">
+            <ul>
+                <li><a href="../">{{__('menu.home')}}</a>
+                </li>
+                <li>{{ __('names.dashboard') }}</li>
+            </ul>
+        </div>
+    </div>
+    <!-- End Position -->
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">

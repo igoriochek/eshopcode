@@ -70,7 +70,7 @@
         <div class="row">
             <div class="col-3">
                 <div class="logo_home">
-                    <h1><a href="/home"  >LOGO</a></h1>
+                    <h1><a href="../">LOGO</a></h1>
                 </div>
             </div>
             <nav class="col-9">
@@ -79,14 +79,14 @@
                     <a href="#" class="open_close" id="close_in"><i class="icon_set_1_icon-77"></i></a>
                     @guest
                         <ul class="d-flex justify-content-evenly">
-                            <li class="nav-item"><a href="/home" >Home</a></li>
-                            <li class="nav-item"><a href="/home" >Products</a></li>
-                            <li class="nav-item"><a href="/home" >Categories</a></li>
-                            <li class="nav-item"><a href="/home" >Promotions</a></li>
+                            <li class="nav-item"><a href="../" >{{__('menu.home')}}</a></li>
+                            <li class="nav-item"><a href="/home" >{{__('menu.products')}}</a></li>
+                            <li class="nav-item"><a href="/home" >{{__('menu.categories')}}</a></li>
+                            <li class="nav-item"><a href="/home" >{{__('menu.promotions')}}</a></li>
                         </ul>
                     @else
                         <ul>
-                            <li><a href="/home" >Home</a></li>
+                            <li><a href="/home" >{{ __('names.dashboard') }} </a></li>
                             <li><a href="/user/products" class="show-submenu">{{__('menu.products')}}</a></li>
                             <li class="submenu">
                                 <a href="/user/rootcategories" class="show-submenu">{{__('menu.categories')}}<i class="icon-down-open-mini"></i></a>
@@ -151,25 +151,7 @@
                 </div><!-- End main-menu -->
                 <ul id="top_tools" >
                     <li>
-                        <div class="dropdown dropdown-cart">
-                            <a href="#" data-bs-toggle="dropdown" class="cart_bt"><i class="icon_bag_alt"></i><strong>3</strong></a>
-                            <ul class="dropdown-menu" id="cart_items">
-                                @if(isset($cartItems))
-                                    @foreach($cartItems as $item)
-                                        <li>
-                                            <div class="image"><img src="img/thumb_cart_1.jpg" alt="image"></div>
-                                            <strong><a href="#">{{ $item['product']->name }}</a>{{ $item->count }}x {{ $item['product']->price }}$</strong>
-                                            <a href="#" class="action"><i class="icon-trash"></i></a>
-                                        </li>
-                                    @endforeach
-                                @endif
-                                    <li>
-                                        <div>Total: <span>$120.00</span></div>
-                                        <a href="/user/viewcart" class="button_drop outline">Go to cart</a>
-                                        <a href="/user/checkout" class="button_drop outline">Check out</a>
-                                    </li>
-                            </ul>
-                        </div><!-- End dropdown-cart-->
+                        <a href="/user/viewcart"><i class="icon_bag_alt"></i><strong>{{__('menu.cart')}}</strong></a>
                     </li>
                 </ul>
             </nav>

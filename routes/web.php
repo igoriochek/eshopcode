@@ -35,7 +35,7 @@ use App\Http\Livewire\MessengerShow;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home/home');
 });
 
 Route::group(array('prefix' => 'admin', 'middleware' => 'admin'), function () {

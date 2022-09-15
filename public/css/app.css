@@ -11309,7 +11309,7 @@ textarea.form-control-lg {
     }
 }
 * body .main {
-    min-height: 72.5vh;
+    min-height: 100vh;
 }
 * body .main .scroll-to-top-button {
     position: fixed;

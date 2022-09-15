@@ -31,6 +31,7 @@ return [
     'editCartItem' => 'Redaguoti Krepšelio Prekę',
     'editCartStatus' => 'Redaguoti Krepšelio Statusą',
     'emptyCart' => 'Jūsų prekių krepšelis yra tuščias',
+    'removeProduct' => 'Išmesti prekę',
 
     //Categories
     'categories' => 'Kategorijos',
