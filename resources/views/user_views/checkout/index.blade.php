@@ -1,92 +1,140 @@
 @extends('layouts.app')
 
 @section('content')
-<section class="content-header">
-    <div class="container-fluid">
-        <div class="row m-2">
-            <div class="col-sm-6">
-                <h1>{{__('names.checkout')}}</h1>
+
+    <section id="hero" class="background-image" data-background=url(../img/header_bg.jpg) style="height: 470px">
+        <div class="opacity-mask" data-opacity-mask="rgba(0, 0, 0, 0.6)">
+            <div class="intro_title">
+                <h3 class="animated fadeInDown">{{ __('names.checkoutPreview') }}</h3>
             </div>
+        </div>
+    </section>
+
+    <div id="position">
+        <div class="container">
+            <ul>
+                <li><a href="../">{{__('menu.home')}}</a></li>
+                <li><a href="/user/viewcart">{{__('names.cart')}}</a></li>
+                <li>{{ __('names.checkout') }}</li>
+            </ul>
         </div>
     </div>
-</section>
 
-<section>
+    <div class="container margin_60">
+        <div class="checkout-page">
+            @include('flash::message')
 
-    <div class="content px-3">
-
-        @include('flash::message')
-
-        <div class="clearfix"></div>
-
-        <div class="row">
-            <div class="col-lg-6">
-                <div><strong>{{__('names.cart')}}</strong></div>
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th>{{__('table.name')}}</th>
-                        <th>{{__('table.count')}}</th>
-                        <th>{{__('table.price')}}</th>
-                        <th>{{__('table.description')}}</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    @foreach($cartItems as $item)
-                        <tr>
-                            <td>{{ $item['product']->name }}</td>
-                            <td>{{ $item->count }}</td>
-                            <td>{{ $item['product']->price }}</td>
-                            <td>{{ $item['product']->description }}</td>
-                        </tr>
-                    @endforeach
-                    </tbody>
-                    <tfoot>
-                    <tr>
-                        <td>{{__('names.sum')}}:</td>
-                        <td colspan="3" style="text-align: right">{{ $cart->sum }}</td>
-                    </tr>
-                    </tfoot>
-                </table>
-            </div>
-            <div class="col-lg-6">
-                <div><strong>{{__('forms.user')}}</strong></div>
-                <div>Id: {{ $user->id }}</div>
-                <div>{{__('forms.name')}}: {{ $user->name }}</div>
-                <div>{{__('forms.email')}}: {{ $user->email }}</div>
-                <div>{{__('forms.avatar')}}: {{ $user->avatar }}</div>
-                <div>{{__('forms.street')}}: {{ $user->street }}</div>
-                <div>{{__('forms.house_flat')}}: {{ $user->house_flat }}</div>
-                <div>{{__('forms.post_index')}}: {{ $user->post_index }}</div>
-                <div>{{__('forms.city')}}: {{ $user->city }}</div>
-                <div>{{__('forms.phone_number')}}: {{ $user->phone_number }}</div>
-            </div>
-        </div>
-
-        <br>
-        <br>
-        <div>
-
-        </div>
-
-        <div>
-            {!! Form::open(['route' => ['checkout-preview'], 'method' => 'post']) !!}
-                <div>
-                    <div>{{__('names.discount')}}</div>
-                    <select name="discount[]" size="10" multiple>
-                        @forelse($discounts as $item)
-                            <option value="{{ $item->id }}">{{ $item->code }}: {{ $item->value }}</option>
-                        @empty
-                            <option value="">{{ __('names.noDiscounts') }}</option>
-                        @endforelse
-                    </select>
+            <div class="clearfix"></div>
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="billing-details">
+                        <div class="shop-form">
+                            <div class="default-title">
+                                <h2>{{__('forms.user')}}</h2>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                    <label>{{__('table.userId')}}: {{ $user->id }}</label>
+                                </div>
+                                <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                    <label>{{__('forms.name')}}: {{ $user->name }}</label>
+                                </div>
+                                <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                    <label>{{__('forms.email')}}: {{ $user->email }}</label>
+                                </div>
+                                <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                    <label>{{__('forms.phone_number')}}: {{ $user->phone_number }}</label>
+                                </div>
+                                <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                    <label>{{__('forms.city')}}: {{ $user->city }}</label>
+                                </div>
+                                <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                    <label>{{__('forms.street')}}: {{ $user->street }}</label>
+                                </div>
+                                <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                    <label>{{__('forms.house_flat')}}: {{ $user->house_flat }}</label>
+                                </div>
+                                <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                    <label>{{__('forms.post_index')}}: {{ $user->post_index }}</label>
+                                </div>
+                                <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                    <label>{{__('forms.avatar')}}: {{ $user->avatar }}</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <a class="btn_1" href="{{ route('viewcart') }}">{{__('buttons.back')}}</a>
+                    </div>
                 </div>
-                <br><br>
-                <input type="submit" value="{{__('buttons.preview')}}">
-            {!! Form::close() !!}
+
+                <div class="col-lg-5">
+                    <div class="your-order">
+                        <div class="default-title">
+                            <h2>{{ __('names.order') }}</h2>
+                        </div>
+                        <ul class="orders-table">
+                            <li class="table-header clearfix">
+                                <div class="col">
+                                    <strong>{{__('table.name')}}</strong>
+                                </div>
+                                <div class="col">
+                                    <strong>{{__('table.count')}}</strong>
+                                </div>
+                                <div class="col">
+                                    <strong>{{__('table.pricePerItem')}}</strong>
+                                </div>
+                            </li>
+                            @foreach($cartItems as $item)
+                                <li class="clearfix">
+                                    <div class="col">
+                                        {{ $item['product']->name }}
+                                    </div>
+                                    <div class="col second">
+                                        {{ $item->count }}
+                                    </div>
+                                    <div class="col second">
+                                        {{ $item['product']->price }}€
+                                    </div>
+                                </li>
+                            @endforeach
+                            <li class="clearfix total">
+                                <div class="col">
+                                    <strong>{{__('names.total')}}:</strong>
+                                </div>
+                                <div class="col empty_col" ></div>
+                                <div class="col second">
+                                    <strong>{{ $cart->sum }}€</strong>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="coupon-code">
+                            <div class="form-group">
+                                {!! Form::open(['route' => ['checkout-preview'], 'method' => 'post']) !!}
+                                <div >
+                                    <label>{{__('names.discount')}}</label>
+                                    <div class="styled-select-filters">
+                                        <select name="discount[]" size="10" multiple>
+                                            @forelse($discounts as $item)
+                                                <option value="{{ $item->id }}">{{ $item->code }}: {{ $item->value }}€</option>
+                                            @empty
+                                                <option value="">{{ __('names.noDiscounts') }}</option>
+                                            @endforelse
+                                        </select>
+                                    </div>
+                                </div>
+                                <br>
+                                <input type="submit" class="btn_full" value="{{__('buttons.checkout')}}">
+                                {!! Form::close() !!}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </div>
-</section>
+
 
 @endsection
 

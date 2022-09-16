@@ -23,13 +23,22 @@
         <div class="container margin_60">
             @include('flash::message')
             <div class="clearfix"></div>
-            @if($cartItems)
+            @if(count($cartItems)>0)
                 @include('user_views.cart.table')
-                <div class="row justify-content-end">
-                    <div class="column col-lg-4 col-md-6">
-                        <a href="{{route('checkout')}}" class="btn_full">{{__('buttons.checkout')}}<i class="icon-left"></i></a>
-                    </div>
-                    <div class="clearfix"></div>
+            @else
+                <div class="cart-section">
+                <table class="table table-striped cart-list shopping-cart">
+                    <thead>
+                    <tr>
+                        <th>{{__('table.name')}}</th>
+                        <th>{{__('table.count')}}</th>
+                        <th>{{__('table.price')}}</th>
+                        <th>{{__('table.subTotal')}}</th>
+                        <th>{{__('names.removeProduct')}}</th>
+                    </tr>
+                    </thead>
+                </table>
+                    <h2>{{ __('names.emptyCart') }}</h2>
                 </div>
             @endif
         </div>

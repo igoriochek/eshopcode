@@ -244,6 +244,7 @@ class CartController extends AppBaseController
 
         return view('user_views.cart.view')
             ->with([
+                'cart' => $cart,
                 'cartItems'=> $cartItems
             ]);
     }

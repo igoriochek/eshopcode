@@ -3234,11 +3234,13 @@ ul.list_order li span {
 	overflow: hidden;
 	height: 40px;
 	background: #fff url(../img/down_arrow_select_filters.png) no-repeat right center;
-	border: none;
 	margin: 0;
-	padding: 0 0 0 15px;
+	padding: 0 0 0 0px;
 	display: block;
 	border-right: 1px solid #ddd;
+	border-top: 1px solid #ddd;
+	border-left: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
 }
 
 .styled-select-filters select::-ms-expand {
@@ -3767,7 +3769,6 @@ ul.list_order li span {
 #position {
 	background-color: #fff;
 	padding: 12px 0;
-	font-size: 12px;
 	border-bottom: 1px solid #ededed;
 }
 
