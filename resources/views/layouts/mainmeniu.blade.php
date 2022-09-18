@@ -1,65 +1,41 @@
-<div class="main-categori-wrap d-none d-lg-block">
+<div class="main-categori-wrap d-none d-lg-block mr-1">
     <a class="categories-button-active">
-        <span class="fi-rs-apps"></span> <span class="et">Browse</span> All Categories
+        <span class="fi-rs-apps"></span> <span class="et">Browse</span>
         <i class="fi-rs-angle-down"></i>
     </a>
-    <div class="categories-dropdown-wrap categories-dropdown-active-large font-heading">
-        <div class="d-flex categori-dropdown-inner">
+    <div class="categories-dropdown-wrap categories-dropdown-active-large font-heading mw-300">
+        <div class="d-flex categori-dropdown-inner justify-content-center">
             <ul>
                 <li>
-                    <a href="shop-grid-right.html"> <img src="assets/imgs/theme/icons/category-1.svg" alt="" />Milks and Dairies</a>
+                    <a href="/user/rootcategories">{{__('menu.categories')}}</a>&nbsp;&nbsp;
                 </li>
                 <li>
-                    <a href="shop-grid-right.html"> <img src="assets/imgs/theme/icons/category-2.svg" alt="" />Clothing & beauty</a>
+                    <a href="/user/categorytree">{{__('menu.categoriesTree')}}</a>&nbsp;&nbsp;
                 </li>
                 <li>
-                    <a href="shop-grid-right.html"> <img src="assets/imgs/theme/icons/category-3.svg" alt="" />Pet Foods & Toy</a>
+                    <a href="/user/products">{{__('menu.products')}}</a>&nbsp;&nbsp;
                 </li>
                 <li>
-                    <a href="shop-grid-right.html"> <img src="assets/imgs/theme/icons/category-4.svg" alt="" />Baking material</a>
-                </li>
-                <li>
-                    <a href="shop-grid-right.html"> <img src="assets/imgs/theme/icons/category-5.svg" alt="" />Fresh Fruit</a>
+                    <a href="/user/viewcart">{{__('menu.cart')}}</a>&nbsp;&nbsp;
                 </li>
             </ul>
             <ul class="end">
                 <li>
-                    <a href="shop-grid-right.html"> <img src="assets/imgs/theme/icons/category-6.svg" alt="" />Wines & Drinks</a>
+                    <a href="/user/discountCoupons">{{__('menu.discountCoupons')}}</a>&nbsp;&nbsp;
                 </li>
                 <li>
-                    <a href="shop-grid-right.html"> <img src="assets/imgs/theme/icons/category-7.svg" alt="" />Fresh Seafood</a>
+                    <a href="/user/promotions">{{__('menu.promotions')}}</a>&nbsp;&nbsp;
                 </li>
                 <li>
-                    <a href="shop-grid-right.html"> <img src="assets/imgs/theme/icons/category-8.svg" alt="" />Fast food</a>
+                    <a href="/user/rootorders">{{__('menu.orders')}}</a>&nbsp;&nbsp;
                 </li>
                 <li>
-                    <a href="shop-grid-right.html"> <img src="assets/imgs/theme/icons/category-9.svg" alt="" />Vegetables</a>
+                    <a href="/user/rootoreturns">{{__('menu.returns')}}</a>&nbsp;&nbsp;
                 </li>
                 <li>
-                    <a href="shop-grid-right.html"> <img src="assets/imgs/theme/icons/category-10.svg" alt="" />Bread and Juice</a>
+                    <a href="/user/messenger">{{__('menu.messenger')}}</a>&nbsp;&nbsp;
                 </li>
             </ul>
         </div>
-        <div class="more_slide_open" style="display: none">
-            <div class="d-flex categori-dropdown-inner">
-                <ul>
-                    <li>
-                        <a href="shop-grid-right.html"> <img src="assets/imgs/theme/icons/icon-1.svg" alt="" />Milks and Dairies</a>
-                    </li>
-                    <li>
-                        <a href="shop-grid-right.html"> <img src="assets/imgs/theme/icons/icon-2.svg" alt="" />Clothing & beauty</a>
-                    </li>
-                </ul>
-                <ul class="end">
-                    <li>
-                        <a href="shop-grid-right.html"> <img src="assets/imgs/theme/icons/icon-3.svg" alt="" />Wines & Drinks</a>
-                    </li>
-                    <li>
-                        <a href="shop-grid-right.html"> <img src="assets/imgs/theme/icons/icon-4.svg" alt="" />Fresh Seafood</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="more_categories"><span class="icon"></span> <span class="heading-sm-1">Show more...</span></div>
     </div>
 </div>

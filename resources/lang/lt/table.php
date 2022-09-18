@@ -42,6 +42,7 @@ return [
     'productId' => 'Produkto ID',
     'productName' => 'Produkto Pavadinimas',
     'promotionId' => 'Reklamos ID',
+    'remove' => 'Pašalinti',
     'returnId' => 'Grąžinimo ID',
     'shipping' => 'Siuntimas',
     'start' => 'Pradžia',

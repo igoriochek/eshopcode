@@ -1,7 +1,7 @@
 <div class="header-action-icon-2">
     <a>
         <img class="svgInject" alt="reports" src="{{asset('/images/theme/icons/icon-3.svg')}}" />
-        <a href=""><span class="lable ml-0">{{__('menu.reports')}}</span> </a>
+        <a href="{{url('/admin/users_report')}}"><span class="lable ml-0">{{__('menu.reports')}}</span> </a>
     </a>
     <div class="cart-dropdown-wrap cart-dropdown-hm2 account-dropdown">
         <ul>

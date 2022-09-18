@@ -1,7 +1,7 @@
 <div class="header-action-icon-2">
     <a>
         <img class="svgInject" alt="Nest" src="{{asset('/images/theme/icons/icon-4.svg')}}"/>
-        <a href="page-account.html"><span class="lable ml-0">{{__('menu.adminmenu')}}</span></a>
+        <a href="{{url('/admin/customers')}}"><span class="lable ml-0">{{__('menu.adminmenu')}}</span></a>
     </a>
     <div class="cart-dropdown-wrap cart-dropdown-hm2 account-dropdown">
         <ul>

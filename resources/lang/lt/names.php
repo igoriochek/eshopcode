@@ -39,6 +39,10 @@ return [
     'createCategory' => 'Sukurti Kategorija',
     'editCategory' => 'Redaguoti kategorija',
     'noCategories' => 'Nėra Kategorijų',
+    'categoryTree' => 'Kategorijų medis',
+    'subcategories' => 'Subkategorijos',
+    'results' => 'Rezultatai',
+    'noSubcategories' => 'Nėra subkategorijų',
 
     //Charts
     'bar' => 'Kaladėlė',
@@ -71,6 +75,12 @@ return [
     'cookieDetails' => 'Slapuko Informacija',
     'createCookie' => 'Sukurti Slapuką',
     'editCookie' => 'Redaguoti Slapuką',
+
+    //Coupons
+    'applyCoupon' => 'Panaudoti kuponą',
+    'usingPromoCode' => 'Turite nuolaidos kodą?',
+    'enterCoupon' => 'Įveskite kuponą',
+    'apply' => 'Panaudoti',
 
     //Discounts
     'createDiscount' => 'Sukurti Nuolaidą',
@@ -208,11 +218,6 @@ return [
     'editCustomer' => 'Redaguoti Klientą',
     'userLogs' => 'Vartotojų Žurnalai',
 
-
-
-
-
-
     'desc' => 'Aprašymas',
     'name' => 'Pavadinimas',
 
@@ -220,6 +225,7 @@ return [
     'new' => "Naujos",
 
     'orderBy' => 'Rūšiuoti pagal',
-    'view' => 'Peržiūrėti'
+    'view' => 'Peržiūrėti',
+    'home' => 'Pradžia'
 
 ];

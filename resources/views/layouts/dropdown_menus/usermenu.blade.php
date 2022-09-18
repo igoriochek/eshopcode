@@ -1,7 +1,16 @@
 <div class="header-action-icon-2">
+    <a class="mini-cart-icon" href="{{url('/user/viewcart')}}">
+        <img alt="cart-icon" src="{{asset('/images/theme/icons/icon-cart.svg')}}"/>
+        @if (!empty($cartItemCount))
+            <span class="pro-count blue">{{ $cartItemCount }}</span>
+        @endif
+    </a>
+    <a href="{{url('/user/viewcart')}}"><span class="lable"></span></a>
+</div>
+<div class="header-action-icon-2">
     <a>
         <img class="svgInject" alt="Nest" src="{{asset('/images/theme/icons/icon-user.svg')}}"/>
-        <a href="{{ url('/user/userprofile') }}" ><span class="lable ml-0">{{__('menu.userInfo')}}</span></a>
+        <a href="{{ url('/user/userprofile') }}"> <i class="fi-rs-arrow-small-down"></i></a>
     </a>
     <div class="cart-dropdown-wrap cart-dropdown-hm2 account-dropdown">
         <ul>

@@ -1,86 +1,76 @@
 @extends('layouts.app')
 
 @section('content')
-    <section class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1>{{__('names.categories')}}</h1>
+    <section class="product-section">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-6 mb-5">
+                    <div class="row mb-4 align-items-center">
+                        <div class="col-lg-12">
+                            <h3 class="column-title">{{ __('names.products') }}</h3>
+                            <p class="p-0 m-0 showing-all-results">
+                                {{ __('names.results').': '.$products->count() }}
+                            </p>
+                        </div>
+                    </div>
+                    <hr class="hr"/>
+                    @if(!empty($products))
+                        @forelse($products as $prod)
+                            <div class="category p-4 mb-4 mb-sm-5">
+                                <h4>
+                                    <a class="category-title"
+                                       href="{{route('viewproduct', $prod->id)}}">{{$prod->name}}</a>
+                                </h4>
+                                <p class="category-description">{{$prod->description}}</p>
+                            </div>
+                        @empty
+                            <span class="categories-empty text-muted">{{__('names.noProducts')}}</span>
+                        @endforelse
+                        <div class="pagination-area mt-20 mb-20">
+                            <nav aria-label="Page navigation example">
+                                <ul class="pagination justify-content-start">
+                                    {{ $products->links() }}
+                                </ul>
+                            </nav>
+                        </div>
+                    @endif
                 </div>
-                <div class="col-sm-6">
-                    <h3>{{$maincategory->name}}</h3>
-                    <a href="{{route("rootcategories")}}">{{__('buttons.backToMainCategories')}}</a>
+                <div class="col-lg-6 mb-5">
+                    <div class="row mb-4 align-items-center">
+                        <div class="col-lg-12">
+                            <h3 class="column-title">{{ __('names.subcategories') }}</h3>
+                            <p class="p-0 m-0 showing-all-results">
+                                {{ __('names.results').': '.$categories->count() }}
+                            </p>
+                        </div>
+                    </div>
+                    <hr class="hr"/>
+                    @if(!empty($categories))
+                        @forelse($categories as $category)
+                            <div class="category p-4 mb-4 mb-sm-5">
+                                <h4>
+                                    <a class="category-title" href="{{route('innercategories', $category->id) }}">
+                                        {{ $category->name }}
+                                    </a>
+                                </h4>
+                                <p class="category-description">{{$category->description}}</p>
+                                <div class="d-flex my-3">
+                                    <span class="subcategories-title">{{ __('names.subcategories') }}:</span>
+                                    @forelse($category->innerCategories as $c)
+                                        <a href="{{ route('innercategories', $c->id) }}" class="subcategory-link">
+                                            {{$c->name}}
+                                        </a>
+                                    @empty
+                                        <span class="categories-empty">{{ __('names.noSubcategories') }}</span>
+                                    @endforelse
+                                </div>
+                            </div>
+                        @empty
+                            <span class="categories-empty text-muted">{{ __('names.noSubcategories') }}</span>
+                        @endforelse
+                    @endif
                 </div>
             </div>
         </div>
     </section>
-    <div class="col-sm-6">
-        <h3>{{$maincategory->name}}: {{__('names.products')}}</h3>
-    </div>
-    <div class="content px-3">
-
-        {{--        @include('flash::message')--}}
-
-        <div class="clearfix"></div>
-
-        <div class="card">
-            <div class="card-body p-0">
-                @if(!empty($products))
-                    @forelse( $products as $prod )
-                        <div class="card-body">
-                            <h4 class="card-title"><a href="{{route('viewproduct', $prod->id)}}">{{$prod->name}}</a></h4>
-                            <h6 class="card-subtitle mb-2 text-muted">{{__('names.desc')}}</h6>
-                            <p class="card-text">{{$prod->description}}</p>
-                        </div>
-                    @empty
-                {{__('names.noProducts')}}
-                    @endforelse
-                    {{$products->links()}}
-                @endif
-                <div class="card-footer clearfix">
-                    <div class="float-right">
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <div class="content px-3">
-
-{{--        @include('flash::message')--}}
-
-        <div class="clearfix"></div>
-
-        <div class="card">
-            <div class="card-body p-0">
-{{--                @include('products.table')--}}
-
-                @if(!empty($categories))
-                @forelse( $categories as $category )
-                <div class="card-body">
-                    <h4 class="card-title"><a href="{{route('innercategories', $category->id)}}">{{$category->name}}</a></h4>
-                    <h6 class="card-subtitle mb-2 text-muted">{{__('names.desc')}}</h6>
-                    <p class="card-text">{{$category->description}}</p>
-                    @forelse($category->innerCategories as $c)
-                                <a href="{{route('innercategories', $c->id)}}" class="card-link">{{$c->name}}</a>
-                    @empty
-                            ---{{__('names.noCategories')}}---
-                    @endforelse
-                </div>
-            @empty
-                {{__('messages.nocategories')}}
-            @endforelse
-                @endif
-
-                <div class="card-footer clearfix">
-                    <div class="float-right">
-
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
 @endsection

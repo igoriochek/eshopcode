@@ -24,6 +24,7 @@ return [
     'discountCoupons' => 'Discount Coupons',
     'importExport' => 'Import/Export',
     'messenger' => 'Messenger',
+    'home' => 'Home',
     'logout'=> 'Logout',
     'orders' => 'Orders',
     'orderStatuses' => 'Order Statuses',

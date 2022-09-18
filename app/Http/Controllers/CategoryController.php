@@ -48,8 +48,19 @@ class CategoryController extends AppBaseController
     {
         $categories = $this->categoryRepository->allQuery(array("parent_id"=>null))->paginate("3");
 
+        $categoryTree = Category::where('parent_id', '=', null)->get();
+        $allCategories = Category::withTranslation()
+            ->translatedIn(app()->getLocale())
+//          ->pluck('name','id')
+            ->get();
+//          ->withTraslate;
+
         return view('user_views.category.categories_root_user')
-            ->with('categories', $categories);
+            ->with([
+                'categories' => $categories,
+                'categoryTree' => $categoryTree,
+                'allCategories' => $allCategories
+            ]);
     }
 
     public function userInnerCategories(Request $request)

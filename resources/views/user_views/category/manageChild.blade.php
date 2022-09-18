@@ -1,7 +1,7 @@
 <ul>
     @foreach($childs as $child)
 
-        <li>
+        <li class="ml-10">
 
             <a href="{{ route("innercategories", ["category_id" => $child->id ])}}">  {{ $child->name }} </a> ( {{ count($child->products) }} )
 

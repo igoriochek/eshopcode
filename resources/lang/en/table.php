@@ -42,6 +42,7 @@ return [
     'productId' => 'Product ID',
     'productName' => 'Product Name',
     'promotionId' => 'Promotion ID',
+    'remove'=> 'Remove',
     'returnId' => 'Return ID',
     'shipping' => 'Shipping',
     'start'=> 'Start',

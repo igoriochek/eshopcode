@@ -71,7 +71,7 @@
 <script src="{{asset('/js/plugins/jquery.theia.sticky.js')}}"></script>
 <script src="{{asset('/js/plugins/jquery.elevatezoom.js')}}"></script>
 <!-- Template  JS -->
-<script src="{{asset('/js/app.js?v=5.5')}}"></script>
+<script src="{{asset('/js/main.js?v=5.5')}}"></script>
 <script src="{{asset('/js/shop.js?v=5.5')}}"></script>
 <script>
 

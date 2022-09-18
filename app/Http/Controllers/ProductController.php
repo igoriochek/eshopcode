@@ -18,10 +18,10 @@ use Spatie\QueryBuilder\AllowedFilter;
 
 class ProductController extends AppBaseController
 {
-    /** @var ProductRepository $productRepository*/
+    /** @var ProductRepository $productRepository */
     private $productRepository;
 
-    /** @var CategoryRepository $categoryRepository*/
+    /** @var CategoryRepository $categoryRepository */
     private $categoryRepository;
 
     use \App\Http\Controllers\forSelector;
@@ -51,15 +51,17 @@ class ProductController extends AppBaseController
     public function userProductIndex(Request $request)
     {
         $filter = $request->query('filter');
-        $selCategories = $filter && $filter['categories.id'] ? $filter['categories.id'] : array();
+        $selCategories = $filter && array_key_exists('categories.id', $filter)
+            ? $filter['categories.id']
+            : array();
         $selectedProduct = $request->order != null ? $request->order : 0;
 
 //        $categories = $this->categoryRepository->allQuery(array("parent_id"=>$request->category_id))->get();
         $categories = $this->categoryRepository->allQuery()->get();
         $orderBy = "";
-        switch ($selectedProduct){
+        switch ($selectedProduct) {
             case "0":
-                $orderBy = "id";
+                $orderBy = "products.id";
                 break;
             case "1":
                 $orderBy = "name";
@@ -69,21 +71,27 @@ class ProductController extends AppBaseController
                 break;
         }
         $products = QueryBuilder::for(Product::class)
-            ->allowedFilters([AllowedFilter::scope('namelike'), 'categories.id',AllowedFilter::scope('pricefrom'),AllowedFilter::scope('priceto'),])
+            ->join('products_translations', 'products.id', 'products_translations.product_id')
+            ->where('locale', '=', app()->getLocale())
+            ->allowedFilters([
+                AllowedFilter::scope('namelike'),
+                'categories.id', AllowedFilter::scope('pricefrom'),
+                AllowedFilter::scope('priceto'),
+            ])
             ->allowedIncludes('categories')
             ->orderBy($orderBy)
-            ->paginate(5)
+            ->paginate(20)
             ->appends(request()->query());
         return view('user_views.product.products_all_with_filters')
-            ->with(['products'=> $products,
+            ->with(['products' => $products,
                 'categories' => $categories,
                 'filter' => $filter ? $filter : array(),
-                'selCategories' => $selCategories ? explode(",",$selCategories) : array(),
+                'selCategories' => $selCategories ? explode(",", $selCategories) : array(),
                 'order_list' => $this->productOrder(),
                 'selectedProduct' => $selectedProduct,
 //                'pricefrom' => $request->query('filter[pricefrom]') == null ? "" : $request->query('filter[pricefrom]'),
 //                'priceto' => $request->query('filter[priceto]') == null ? "" : $request->query('filter[priceto]'),
-                ]);
+            ]);
     }
 
     /**
@@ -94,11 +102,11 @@ class ProductController extends AppBaseController
     public function create()
     {
         return view('products.create',
-        [ 'visible_list' => $this->visible_list,
-          'categories' => $this->categoriesForSelector(),
-          'promotions' => $this->promotionForSelector(),
-          'discounts' => $this->discountForSelector(),
-        ]
+            ['visible_list' => $this->visible_list,
+                'categories' => $this->categoriesForSelector(),
+                'promotions' => $this->promotionForSelector(),
+                'discounts' => $this->discountForSelector(),
+            ]
         );
     }
 
@@ -113,17 +121,17 @@ class ProductController extends AppBaseController
     {
         $input = $request->all();
 
-        if (isset($input['image']) &&  $input['image']!== null ) {
-            $imageName = time().'.'.$request->image->extension();
+        if (isset($input['image']) && $input['image'] !== null) {
+            $imageName = time() . '.' . $request->image->extension();
             $request->image->move(public_path('images/upload'), $imageName);
 //            dd( $path);
-            $input['image'] = "/images/upload/" .$imageName;
+            $input['image'] = "/images/upload/" . $imageName;
         }
         $input = $this->prepare($input, ["name", "description"]);
 
 //        $product = $this->productRepository->create($input);
         $product = Product::create($input);
-        if ( !empty($input['categories'] ) )
+        if (!empty($input['categories']))
             $this->saveCategories($input['categories'], $product->id);
 
         Flash::success('Product saved successfully.');
@@ -162,12 +170,12 @@ class ProductController extends AppBaseController
     {
         $product = $this->productRepository->find($id);
         $rated = Ratings::query()
-        ->where([
-            'product_id' => $id,
-            'user_id' => Auth::user()->id
-        ])
-        ->get();
-        $arrated = [1=>0,2=>0, 3=>0, 4=>0, 5=>0];
+            ->where([
+                'product_id' => $id,
+                'user_id' => Auth::user()->id
+            ])
+            ->get();
+        $arrated = [1 => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0];
         $sum = 0;
         $count = 0;
         foreach ($rated as $row) {
@@ -176,7 +184,7 @@ class ProductController extends AppBaseController
             $count++;
         }
         $rateName = "NO RATING";
-        if ( $count ) {
+        if ($count) {
             foreach ($arrated as $k => $v) {
                 $arrated[$k] = round(($v / $count * 100), 0);
             }
@@ -200,7 +208,7 @@ class ProductController extends AppBaseController
         }
         $user = Auth::user();
 
-        if($user){
+        if ($user) {
             $user->log("Viewed {$product->name}");
         }
 
@@ -208,9 +216,9 @@ class ProductController extends AppBaseController
 
         return view('user_views.product.view_product')
             ->with([
-                'product'=> $product,
+                'product' => $product,
                 'voted' => count($rated) > 0 ? true : false,
-                'avarage' => $count > 0 ? round(($sum / $count),1) : 0,
+                'avarage' => $count > 0 ? round(($sum / $count), 1) : 0,
                 'arrated' => $arrated,
                 'rateCount' => $count,
                 'rateName' => $rateName,
@@ -243,7 +251,7 @@ class ProductController extends AppBaseController
                 'promotions' => $this->promotionForSelector(),
                 'discounts' => $this->discountForSelector(),
             ]
-            );
+        );
     }
 
     /**
@@ -275,8 +283,9 @@ class ProductController extends AppBaseController
     }
 
 
-    public function saveCategories( $cats, $prod_id)  {
-        foreach ($cats as $cat ){
+    public function saveCategories($cats, $prod_id)
+    {
+        foreach ($cats as $cat) {
             DB::table('category_product')->insert([
                 'category_id' => $cat,
                 'product_id' => $prod_id,
@@ -289,9 +298,9 @@ class ProductController extends AppBaseController
      *
      * @param int $id
      *
+     * @return Response
      * @throws \Exception
      *
-     * @return Response
      */
     public function destroy($id)
     {

@@ -1,59 +1,51 @@
 @extends('layouts.app')
 
 @section('content')
-    <section class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1>{{__('names.discountCoupons')}}</h1>
+    <section class="pt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 mb-5">
+                    <div class="shop-product-fillter">
+                        <div class="totall-product">
+                            <h1>{{__('names.discountCoupons')}}</h1>
+                            @if(!empty($discountCoupons))
+                                <p>
+                                    {{ __('names.results').': '.$discountCoupons->count() }}
+                                </p>
+                            @endif
+                        </div>
+                    </div>
+                    <hr class="hr"/>
+                    <div class="row">
+                        @if(($discountCoupons->count()))
+                            @foreach($discountCoupons as $discountCoupon)
+                                <div class="discount-coupon p-4 mb-4 mb-sm-5">
+                                    <h4>
+                                        <a class="discount-coupon-title"
+                                           href="{{ route('viewproduct', $discountCoupon->id) }}">
+                                            {{ $discountCoupon->code }}
+                                        </a>
+                                    </h4>
+                                    <p class="discount-coupon-description">{{ $discountCoupon->value }}</p>
+                                </div>
+                            @endforeach
+                        @else
+                            <span class="discount-coupons-empty">
+                                {{ __('names.noDiscount') }}
+                            </span>
+                        @endif
+                        @if (!empty($discountCoupons->count()))
+                            <div class="pagination-area mt-20 mb-20">
+                                <nav aria-label="Page navigation example">
+                                    <ul class="pagination justify-content-start">
+                                        {{ $discountCoupons->links() }}
+                                    </ul>
+                                </nav>
+                            </div>
+                        @endif
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-
-
-        <div class="col-sm-6">
-            <h3>[{{__('names.discountCouponsForYou')}}]</h3>
-            {{--        <a href="{{route("rootcategories")}}">Back to main categories</a>--}}
-        </div>
-        <div class="content px-3">
-
-            {{--        @include('flash::message')--}}
-
-            <div class="clearfix"></div>
-
-            <div class="card">
-                <div class="card-body p-0">
-                    {{--                @include('products.table')--}}
-
-                    @if(($discountCoupons->count()))
-                        @foreach( $discountCoupons as $prod )
-                            <div class="card-body">
-                                <h4 class="card-title"><a href="{{route('viewproduct', $prod->id)}}">{{$prod->code}}</a></h4>
-                                <h6 class="card-subtitle mb-2 text-muted">{{__('names.desc')}}</h6>
-                                <p class="card-text">{{$prod->value}}</p>
-                            </div>
-                        @endforeach
-
-                    @else
-                    {{__('names.noProducts')}}
-                    @endif
-
-
-
-
-                    <div class="card-footer clearfix">
-                        <div class="float-right">
-                            {{$discountCoupons->links()}}
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-
-
-
-
 @endsection

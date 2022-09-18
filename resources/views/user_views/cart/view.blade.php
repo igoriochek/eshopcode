@@ -1,47 +1,30 @@
 @extends('layouts.app')
 
 @section('content')
-<section class="content-header">
-    <div class="container-fluid">
-        <div class="row m-2">
-            <div class="col-sm-6">
-                <h1>{{__('names.cart')}}</h1>
+    <div class="page-header breadcrumb-wrap">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="/home" rel="nofollow"><i class="fi-rs-home mr-5"></i>{{__('names.home')}}</a>
+                <span></span> {{__('names.cart')}}
             </div>
         </div>
     </div>
-</section>
-
-<section>
-
-    <div class="content px-3">
-
+    @if($cartItems)
+    <div class="container mb-80 mt-50">
+        <div class="row">
+            <div class="col-lg-8 mb-40">
+                <h1 class="heading-2 mb-10">{{__('names.cart')}}</h1>
+            </div>
+        </div>
         @include('flash::message')
-
-        <div class="clearfix"></div>
-
-        @if($cartItems)
-            <div class="card">
-                <div class="card-body p-0">
-                    @include('user_views.cart.table')
-                </div>
-            </div>
-        @else
-        {{__('names.emptyCart')}}
-        @endif
+        @include('user_views.cart.table')
     </div>
-</section>
-
-
-@if($cartItems)
-    <section>
-        <div>
-            <div class="float-right">
-                <a href="{{route('checkout')}}" class="btn btn-success">{{__('buttons.checkout')}}</a>
+    @else
+        <div class="row">
+            <div class="col-lg-8 mb-40">
+                <h1 class="heading-2 mb-10">{{__('names.emptyCart')}}</h1>
             </div>
-            <div class="clearfix"></div>
         </div>
-    </section>
-@endif
-
+    @endif
 @endsection
 

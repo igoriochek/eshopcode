@@ -18,8 +18,8 @@
                             <div class="dashboard-menu">
                                 <ul class="nav flex-column" role="tablist">
                                     <li class="nav-item">
-                                        <a class="nav-link" id="account-detail-tab" data-bs-toggle="tab"
-                                           href="#account-detail" role="tab" aria-controls="account-detail"
+                                        <a class="nav-link" id="account-detail-tab"
+                                           href="{{url('/user/userprofile')}}" role="tab" aria-controls="account-detail"
                                         ><i
                                                 class="fi-rs-user mr-10"></i>{{__('forms.accountDetails')}}</a>
                                     </li>

@@ -51,7 +51,12 @@ return [
     'categoryList' => 'Category List',
     'createCategory' => 'Create Category',
     'editCategory' => 'Edit Category',
+    'categoryTree' => 'Category Tree',
     'noCategories' => 'No Categories',
+    'subcategories' => 'Subcategories',
+    'results' => 'Results',
+    'noSubcategories' => 'No subcategories',
+
 
     //Charts
     'bar' => 'Bar',
@@ -72,6 +77,11 @@ return [
     'createCookie' => 'Create Cookie',
     'editCookie' => 'Edit Cookie',
 
+    //Coupons
+    'applyCoupon' => 'Apply Coupon',
+    'usingPromoCode' => 'Using Promo Code?',
+    'enterCoupon' => 'Enter Your Coupon',
+    'apply' => 'Apply',
     //Discounts
     'createDiscount' => 'Create Discount',
     'discounts' => 'Discounts',
@@ -191,7 +201,7 @@ return [
     'editReturn' => 'Edit Return',
     'editReturnItem' => 'Edit Return Item',
     'editReturnStatus' => 'Edit Returns Status',
-    'myReturns' => 'Mano Grąžinimai',
+    'myReturns' => 'My Returns',
     'return' => 'Return',
     'returns' => 'Returns',
     'returnDetails' => 'Return Details',
@@ -218,6 +228,8 @@ return [
     'new' => "New",
 
     'orderBy' => 'Order By',
-    'view' => 'View'
+    'view' => 'View',
+    'home' => 'Home'
+
 
 ];
