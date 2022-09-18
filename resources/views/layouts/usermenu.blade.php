@@ -1,14 +1,38 @@
-{{__('menu.usermenu')}}:
-<a href="/user/rootcategories">{{__('menu.categories')}}</a>&nbsp;&nbsp;
-<a href="/user/categorytree">{{__('menu.categoriesTree')}}</a>&nbsp;&nbsp;
-{{--<a href="/user/discounts">Discounts</a>&nbsp;&nbsp;--}}
-<a href="/user/promotions">{{__('menu.promotions')}}</a>&nbsp;&nbsp;
-<a href="/user/products">{{__('menu.products')}}</a>&nbsp;&nbsp;
-<a href="/user/viewcart">{{__('menu.cart')}}</a>&nbsp;&nbsp;
-<a href="/user/rootorders">{{__('menu.orders')}}</a>&nbsp;&nbsp;
-<a href="/user/rootoreturns">{{__('menu.returns')}}</a>&nbsp;&nbsp;
-<a href="/user/discountCoupons">{{__('menu.discountCoupons')}}</a>&nbsp;&nbsp;
-<a href="/user/messenger">{{__('menu.messenger')}}</a>&nbsp;&nbsp;
+{{--{{__('menu.usermenu')}}:--}}
+
+{{--<a href="#" class="header-category-toggle">--}}
+{{--    <div class="header-category-toggle__text">Category</div>--}}
+{{--</a>--}}
+
+
+<div class="header-navigation d-none d-xl-block">
+    <nav class="menu-primary">
+        <ul class="menu-primary__container">
+            <li class="menu-i">
+                <a href="/user/categorytree"><span>{{__('menu.categories')}}</span></a>
+            </li>
+            <li class="menu-i">
+                <a href="/user/products"><span>{{__('menu.products')}}</span></a>
+            </li>
+            <li class="menu-i">
+                <a href="/user/promotions"><span>{{__('menu.promotions')}}</span></a>
+            </li>
+            <li class="menu-i">
+                <a href="/user/discountCoupons"><span>{{__('menu.discountCoupons')}}</span></a>
+            </li>
+            <li class="menu-i">
+                <a href="/user/messenger"><span>{{__('menu.messenger')}}</span></a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+{{--<a class="header-category-toggle"  href="/user/promotions"><div class="header-category-toggle__text">{{__('menu.promotions')}}</div></a>&nbsp;&nbsp;--}}
+{{--<a class="header-category-toggle"  href="/user/viewcart"><div class="header-category-toggle__text">{{__('menu.cart')}}</div></a>&nbsp;&nbsp;--}}
+{{--<a class="header-category-toggle"  href="/user/rootorders"><div class="header-category-toggle__text">{{__('menu.orders')}}</div></a>&nbsp;&nbsp;--}}
+{{--<a class="header-category-toggle"  href="/user/rootoreturns"><div class="header-category-toggle__text">{{__('menu.returns')}}</div></a>&nbsp;&nbsp;--}}
+{{--<a class="header-category-toggle"  href="/user/discountCoupons"><div class="header-category-toggle__text">{{__('menu.discountCoupons')}}</div></a>&nbsp;&nbsp;--}}
+{{--<a class="header-category-toggle"  href="/user/messenger"><div class="header-category-toggle__text">{{__('menu.messenger')}}</div></a>&nbsp;&nbsp;--}}
 {{--<a href="/user/userprofile">{{__('menu.userInfo')}}</a>&nbsp;--}}
 {{--<a href="/lang/en">EN</a>&nbsp;&nbsp;--}}
 {{--<a href="/lang/lt">LT</a>&nbsp;&nbsp;--}}

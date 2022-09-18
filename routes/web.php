@@ -35,8 +35,18 @@ use App\Http\Livewire\MessengerShow;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    if (Auth::user() && Auth::user()->type === User::TYPE_USER)
+        return redirect('user/products');
+    else
+        return redirect('products');
 });
+Route::get('/home', function () {
+    if (Auth::user() && Auth::user()->type === User::TYPE_USER)
+        return redirect('user/products');
+    else
+        return redirect('products');
+});
+
 
 Route::group(array('prefix' => 'admin', 'middleware' => 'admin'), function () {
     Route::resource('categories', CategoryController::class);
@@ -178,6 +188,15 @@ Route::group(array('prefix' => 'admin', 'middleware' => 'admin'), function () {
         Route::get('messenger/add', MessengerAdd::class)->name('livewire.messenger.add');
         Route::get('messenger/{id}', MessengerShow::class)->name('livewire.messenger.show');
     });
+
+Route::get("rootcategories", [CategoryController::class, 'userRootCategories'])->name('rootcategories');
+Route::get("innercategories/{category_id}", [CategoryController::class, 'userInnerCategories'])->name('innercategories');
+Route::get("categorytree", [CategoryController::class, 'userCategoryTree'])->name('categorytree');
+Route::get("viewcategory", [CategoryController::class, 'userViewCategory'])->name('viewcategory');
+Route::get("viewproduct/{id}", [ProductController::class, 'userViewProduct'])->where('id', '[0-9]+')->name('viewproduct');
+Route::get('products', [ProductController::class, 'userProductIndex'])->name('userproducts');
+Route::get('promotions', [\App\Http\Controllers\PromotionController::class, 'indexPromotions'])->name('promotions');
+Route::get('promotion/{id}', [\App\Http\Controllers\PromotionController::class, 'promotionProducts'])->name('promotion');
 
     Auth::routes();
     Route::get("logout", function () {
