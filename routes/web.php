@@ -46,7 +46,7 @@ Route::get('/home', function () {
         return redirect('user/products');
     else
         return redirect('products');
-});
+})->name("home");
 
 Route::group(array('prefix' => 'admin', 'middleware' => 'admin'), function () {
     Route::resource('categories', CategoryController::class);
