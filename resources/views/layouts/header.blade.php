@@ -66,7 +66,7 @@
                     <div class="header-row justify-content-between">
                         <div class="header-logo z-index-2 col-lg-2 px-0" style="width: auto; height: auto">
                             <a href="{{ url('/home') }}">
-                                <h3 class="fw-bold m-0 p-0">{{ config('app.name') }}</h3>
+                                <img src="{{asset("images/buhalteres-logo-web.svg")}}" alt="buhalterės.lt logotipas" class="logo" width="260.86px" height="45px">
                             </a>
                         </div>
                         <div
@@ -78,11 +78,11 @@
                                 class="header-nav-main header-nav-main-square header-nav-main-dropdown-no-borders header-nav-main-effect-3 header-nav-main-sub-effect-1 w-100">
                                 <nav class="collapse w-100" id="nav">
                                     <ul class="nav nav-pills w-100" id="mainNav">
-                                        <li class="nav-list">
-                                            <a class="{{ request()->is('home') ? 'active' : '' }}" href="{{ url('/home') }}">
-                                                {{ __('menu.home') }}
-                                            </a>
-                                        </li>
+{{--                                        <li class="nav-list">--}}
+{{--                                            <a class="{{ request()->is('home') ? 'active' : '' }}" href="{{ url('/home') }}">--}}
+{{--                                                {{ __('menu.home') }}--}}
+{{--                                            </a>--}}
+{{--                                        </li>--}}
                                         @guest
                                             @include('layouts.menus.menu')
                                         @endguest

@@ -9,7 +9,7 @@ return [
     |
     */
 
-    'home' => 'Namo',
+    'home' => 'Pagrindinis',
     'admin' => 'Administratorius',
     'cart' => 'Prekių Krepšelis',
     'carts' => 'Prekių Krepšeliai',
