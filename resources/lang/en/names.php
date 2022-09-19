@@ -56,6 +56,8 @@ return [
     'subcategories' => 'Subcategories',
     'results' => 'Results',
     'noSubcategories' => 'No subcategories',
+    'filterByPrice' => 'Filter By Price',
+    'filterByCategory' => 'Filter by Category',
 
 
     //Charts

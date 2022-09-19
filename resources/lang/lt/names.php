@@ -43,6 +43,8 @@ return [
     'subcategories' => 'Subkategorijos',
     'results' => 'Rezultatai',
     'noSubcategories' => 'Nėra subkategorijų',
+    'filterByPrice' => 'Filtruoti pagal kainą',
+    'filterByCategory' => 'Filtruoti pagal Kategoriją',
 
     //Charts
     'bar' => 'Kaladėlė',
