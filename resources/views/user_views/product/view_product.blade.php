@@ -87,11 +87,11 @@
                                 {{ __('names.description') }}
                             </a>
                         </li>
-                        <li class="nav-item" role="presentation">
-                            <a class="nav-link font-weight-bold text-3 text-uppercase py-2 px-3" href="#productInfo" data-bs-toggle="tab" aria-selected="false" tabindex="-1" role="tab">
-                                {{ __('names.additionalInformation') }}
-                            </a>
-                        </li>
+{{--                        <li class="nav-item" role="presentation">--}}
+{{--                            <a class="nav-link font-weight-bold text-3 text-uppercase py-2 px-3" href="#productInfo" data-bs-toggle="tab" aria-selected="false" tabindex="-1" role="tab">--}}
+{{--                                {{ __('names.additionalInformation') }}--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
                         <li class="nav-item" role="presentation">
                             <a class="nav-link nav-link-reviews font-weight-bold text-3 text-uppercase py-2 px-3" href="#productReviews" data-bs-toggle="tab" aria-selected="false" tabindex="-1" role="tab">
                                 {{ __('names.reviews').' ('.$product->ratings->count().') ' }}
@@ -102,36 +102,36 @@
                         <div class="tab-pane px-0 py-3 active" id="productDescription" role="tabpanel">
                             <p>{{ $product->description }}</p>
                         </div>
-                        <div class="tab-pane px-0 py-3" id="productInfo" role="tabpanel">
-                            <table class="table table-striped m-0">
-                                <tbody>
-                                <tr>
-                                    <th class="border-top-0">
-                                        Lorem:
-                                    </th>
-                                    <td class="border-top-0">
-                                        Lorem ipsum dolor sit amet
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>
-                                        Lorem:
-                                    </th>
-                                    <td>
-                                        Lorem ipsum dolor sit amet
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>
-                                        Lorem:
-                                    </th>
-                                    <td>
-                                        Lorem ipsum dolor sit amet
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
+{{--                        <div class="tab-pane px-0 py-3" id="productInfo" role="tabpanel">--}}
+{{--                            <table class="table table-striped m-0">--}}
+{{--                                <tbody>--}}
+{{--                                <tr>--}}
+{{--                                    <th class="border-top-0">--}}
+{{--                                        Lorem:--}}
+{{--                                    </th>--}}
+{{--                                    <td class="border-top-0">--}}
+{{--                                        Lorem ipsum dolor sit amet--}}
+{{--                                    </td>--}}
+{{--                                </tr>--}}
+{{--                                <tr>--}}
+{{--                                    <th>--}}
+{{--                                        Lorem:--}}
+{{--                                    </th>--}}
+{{--                                    <td>--}}
+{{--                                        Lorem ipsum dolor sit amet--}}
+{{--                                    </td>--}}
+{{--                                </tr>--}}
+{{--                                <tr>--}}
+{{--                                    <th>--}}
+{{--                                        Lorem:--}}
+{{--                                    </th>--}}
+{{--                                    <td>--}}
+{{--                                        Lorem ipsum dolor sit amet--}}
+{{--                                    </td>--}}
+{{--                                </tr>--}}
+{{--                                </tbody>--}}
+{{--                            </table>--}}
+{{--                        </div>--}}
                         <div class="tab-pane px-0 py-3" id="productReviews" role="tabpanel">
                             <ul class="comments">
                                 @forelse ($product->ratings as $rating)
@@ -153,7 +153,7 @@
                                                         </div>
                                                     </span>
                                                 </span>
-                                                <p class="m-0 comment-description">{{ $rating->desription ?? 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.' }}</p>
+                                                <p class="m-0 comment-description">{{ $rating->description  }}</p>
                                             </div>
                                         </div>
                                     </li>
@@ -209,7 +209,7 @@
                                                     <span>*</span>
                                                 </label>
                                                 <div class="mb-3">
-                                                    <textarea class="form-control" rows="5" id="comment"></textarea>
+                                                    <textarea class="form-control" rows="5" id="comment" name="comment"></textarea>
                                                 </div>
                                             </div>
                                             <div class="col-sm-12">
@@ -235,10 +235,13 @@
     <script>
         $('.product-reviews-add-review-submit').click(function () {
             const value = $('input[type=radio][name=rating]:checked').val();
+            const desc = $('textarea#comment').val();
+            console.log(desc);
             $.post("{{route('addUserRating')}}",
                 {
                     "_token": "{{ csrf_token() }}",
                     rating: value,
+                    description: desc,
                     product: {{ $product->id }}
                 },
                 function (data, status) {

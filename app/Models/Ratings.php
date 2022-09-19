@@ -23,6 +23,7 @@ class Ratings extends Model
         'value',
         'user_id',
         'product_id',
+        'description',
         'created_at',
         'updated_at'
     ];
