@@ -19,6 +19,8 @@ return [
     'incorrectpassword' => 'Incorrect current password.',
 
     "nocategories" => "No Categories",
+    "noinnercategories" => "No subcategories",
+    "subcategories" => "Subcategories",
     "novideo" => "No video",
     "passwordmismatch" => "Password empty or mismatch",
     "makereturn" => "Make a return",

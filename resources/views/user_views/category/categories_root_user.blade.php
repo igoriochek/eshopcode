@@ -35,14 +35,17 @@
                                     <h4 class="card-title"><a href="{{route('innercategories', $category->id)}}">{{$category->name}}</a></h4>
                                     <h6 class="card-subtitle mb-2 text-muted">{{__('names.productCount')}} {{ count($category->products) }}</h6>
                                     <p class="card-text">{{$category->description}}</p>
+                                    @if(!empty($category->innerCategories) && count($category->innerCategories) > 0 )
+                                        <b>{{__('messages.subcategories')}}:</b>
+                                    @endif
                                     @forelse($category->innerCategories as $c)
                                         <a href="{{route('innercategories', $c->id)}}" class="card-link">{{$c->name}}</a> {{__('names.productCount')}} {{count($c->products)}}
                                     @empty
-                                        ---{{__('names.noCategories')}}---
+{{--                                        <b>{{__('messages.noinnercategories')}}</b>--}}
                                     @endforelse
                                 </div>
                             @empty
-                                {{__('names.noCategories')}}
+{{--                                {{__('names.noCategories')}}--}}
                             @endforelse
                             {{$categories->links()}}
                         @endif
