@@ -230,6 +230,9 @@ return [
     'old' => "Old",
     'new' => "New",
 
-    'orderBy' => 'Order By'
-
+    'orderBy' => 'Order By',
+    //Discounts coupons
+    "ndDiscountCoupons" => "You have no discount coupons yet :(",
+    "discountCouponCode" => "Discount coupon code",
+    "discountCouponValue" => "Discount coupon value",
 ];

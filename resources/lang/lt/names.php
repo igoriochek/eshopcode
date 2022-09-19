@@ -235,6 +235,9 @@ return [
     'old' => "Senos",
     'new' => "Naujos",
 
-    'orderBy' => 'Rūšiuoti pagal'
-
+    'orderBy' => 'Rūšiuoti pagal',
+    //Discounts coupons
+    "ndDiscountCoupons" => "Jūs dar neturite nuolaidų kuponų :(",
+    "discountCouponCode" => "Nuolaidų kupono kodas",
+    "discountCouponValue" => "Nuolaidų kupono suma",
 ];
