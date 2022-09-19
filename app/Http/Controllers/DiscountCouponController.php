@@ -43,7 +43,7 @@ class DiscountCouponController extends AppBaseController
         $discountCoupons = $this->discountCouponRepository->all()->where('user_id', Auth::user()->id);
 
         if (!empty($discountCoupons->count())) {
-            $discountCoupons = $discountCoupons->toQuery()->paginate(2);
+            $discountCoupons = $discountCoupons->toQuery()->paginate(10);
         }
 
         return view('user_views.discount_coupons.index')
