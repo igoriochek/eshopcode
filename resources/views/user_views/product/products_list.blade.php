@@ -13,7 +13,7 @@
         </div>
         <div class="col-lg-6 col-md-6">
             <div class="tour_list_desc">
-                <div class="rating">
+                <div class="rating flex-row justify-content-start">
                     @for($i = 1; $i <= 5; $i++)
                         <i class="icon-smile @if ($product->average >= $i) voted @endif"></i>
                     @endfor

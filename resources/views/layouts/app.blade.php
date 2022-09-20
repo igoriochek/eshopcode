@@ -341,7 +341,7 @@
                 "_token": "{{ csrf_token() }}",
                 rating: value,
                 description: desc,
-                product: {{ $product->id }}
+                product: {{ $product->id ?? '' }}
             },
             (data, status) => {
                 if (data.val == "ok") location.reload();
