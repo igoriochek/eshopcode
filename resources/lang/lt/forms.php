@@ -26,6 +26,13 @@ return [
     'usertype' => "Vartotojo Tipas",
     'user' => "Vartotojas",
     'userProfile' => 'Vartotojo Profilis',
+    'yourProfile' => 'Jūsų profilis',
+    'changePassword' => 'Pakeisti slaptažodį',
+    'profileSettings' => 'Paskyros nustatymai',
+    'passwordSettings' => 'Slaptažodžio nustatymai',
+    'editProfile' => 'Redaguoti profilį',
+    'editAdress' => 'Redaguoti adresą',
+    'uploadPhoto' => 'Įkelti profilio nuotrauką',
     'admin' => "Administratorius",
     'to' => 'Kam',
 

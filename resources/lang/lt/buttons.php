@@ -35,5 +35,6 @@ return [
     'showStatistics' => 'Rodyti Statistikas',
     'details' => 'Detaliai',
     'leaveReview' => 'Palikti atsiliepimą',
+    'uploadFile' => 'Įkelti failą',
 
 ];

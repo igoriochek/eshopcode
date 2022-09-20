@@ -26,6 +26,13 @@ return [
     'usertype' => "User type",
     'user' => "Customer",
     'userProfile' => 'User Profile',
+    'yourProfile' => 'Your Profile',
+    'changePassword' => 'Change Password',
+    'profileSettings' => 'Profile Settings',
+    'passwordSettings' => 'Password Settings',
+    'editProfile' => 'Edit profile',
+    'editAdress' => 'Edit adress',
+    'uploadPhoto' => 'Upload profile photo',
     'admin' => "Administrator",
     'to' => 'To',
 

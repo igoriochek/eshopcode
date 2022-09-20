@@ -1,118 +1,166 @@
 @extends('layouts.app')
 
 @section('content')
-    <section class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-12">
-                    <h1>{{__('forms.userProfile')}}</h1>
-                </div>
+
+
+
+    <section id="hero" class="background-image" data-background=url(../img/header_bg.jpg) style="height: 470px">
+        <div class="opacity-mask" data-opacity-mask="rgba(0, 0, 0, 0.4)">
+            <div class="intro_title">
+                <h3 class="animated fadeInDown">{{__('menu.userInfo')}}</h3>
             </div>
         </div>
     </section>
 
-    <div class="content px-3">
-
-        @include('adminlte-templates::common.errors')
-        @include('flash::message')
-
-        <!-- User Info Form -->
-
-        <div class="card">
-
-            {!! Form::model($user, ['route' => ['userprofilesave'], 'method' => 'patch']) !!}
-
-            <div class="card-body">
-                <div class="row">
-
-                    {{--
-                    $table->string("street")->nullable(true);
-                    $table->string("house_flat")->nullable(true);
-                    $table->string("post_index")->nullable(true);
-                    $table->string("city")->nullable(true);
-                    $table->string("phone_number")->nullable(true);
-                    --}}
-                    <!-- Code Field -->
-
-                    <div class="form-group col-sm-6">
-                        {!! Form::label('code', __('forms.name').':' )!!}
-                        {!! Form::text('name', null, ['class' => 'form-control']) !!}
-                    </div>
-
-                    <div class="form-group col-sm-6">
-                        {!! Form::label('email', __('forms.email').':') !!}
-                        {!! Form::text('email', null, ['class' => 'form-control']) !!}
-                    </div>
-                    <div class="form-group col-sm-6">
-                        {!! Form::label('street', __('forms.street').':') !!}
-                        {!! Form::text('street', null, ['class' => 'form-control']) !!}
-                    </div>
-
-                    <div class="form-group col-sm-6">
-                        {!! Form::label('house_flat', __('forms.house_flat').':') !!}
-                        {!! Form::text('house_flat', null, ['class' => 'form-control']) !!}
-                    </div>
-
-
-                    <div class="form-group col-sm-6">
-                        {!! Form::label('post_index', __('forms.post_index').':') !!}
-                        {!! Form::text('post_index', null, ['class' => 'form-control']) !!}
-                    </div>
-
-                    <div class="form-group col-sm-6">
-                        {!! Form::label('city', __('forms.city').':') !!}
-                        {!! Form::text('city', null, ['class' => 'form-control']) !!}
-                    </div>
-
-                    <div class="form-group col-sm-6">
-                        {!! Form::label('phone_number', __('forms.phone_number').':') !!}
-                        {!! Form::text('phone_number', null, ['class' => 'form-control']) !!}
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="card-footer">
-                {!! Form::submit(__('buttons.save'), ['class' => 'btn btn-primary']) !!}
-            </div>
-
-            {!! Form::close() !!}
-
-        </div>
-
-        <!-- Change Password Form -->
-
-        <div class="card mt-4">
-
-            {!! Form::model($user, ['route' => ['changePassword'], 'method' => 'post']) !!}
-
-            <div class="card-body">
-                <div class="row">
-
-                    <div class="form-group col-sm-6">
-                        {!! Form::label('current_password', __('forms.current_password').':' )!!}
-                        {!! Form::password('current_password', ['class' => 'form-control']) !!}
-                    </div>
-
-                    <div class="form-group col-sm-6">
-                        {!! Form::label('new_password', __('forms.new_password').':') !!}
-                        {!! Form::password('new_password', ['class' => 'form-control']) !!}
-                    </div>
-
-                    <div class="form-group col-sm-6">
-                        {!! Form::label('new_password_confirmation', __('forms.confirm_password').':') !!}
-                        {!! Form::password('new_password_confirmation', ['class' => 'form-control']) !!}
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="card-footer">
-                {!! Form::submit(__('buttons.save'), ['class' => 'btn btn-primary']) !!}
-            </div>
-
-            {!! Form::close() !!}
-
+    <div id="position">
+        <div class="container">
+            <ul>
+                <li><a href="../">{{__('menu.home')}}</a></li>
+                <li>{{__('forms.userProfile')}}</li>
+            </ul>
         </div>
     </div>
+
+    <div class="margin_60 container">
+        <div id="tabs" class="tabs">
+            <nav>
+                <ul>
+                    <li><a href="#section-1" class="icon-profile"><span>{{__('forms.profileSettings')}}</span></a>
+                    </li>
+                    <li><a href="#section-2" class="icon-settings"><span>{{__('forms.passwordSettings')}}</span></a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="content">
+                <section id="section-1">
+                    {!! Form::model($user, ['route' => ['userprofilesave'], 'method' => 'patch']) !!}
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h4>{{__('forms.yourProfile')}}</h4>
+                            <ul id="profile_summary">
+                                <li>{{__('table.userId')}} <span>{{ $user->id }}</span></li>
+                                <li>{{__('forms.name')}} <span>{{ $user->name }}</span></li>
+                                <li>{{__('forms.phone_number')}} <span>{{ $user->phone_number }}</span></li>
+                                <li>{{__('forms.email')}} <span>{{ $user->email }}</span></li>
+                                <li>{{__('forms.city')}} <span>{{ $user->city }}</span></li>
+                                <li>{{__('forms.street')}} <span>{{ $user->street }}</span></li>
+                                <li>{{__('forms.house_flat')}} <span>{{ $user->house_flat }}</span></li>
+                                <li>{{__('forms.post_index')}} <span>{{ $user->post_index }}</span></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <p>
+                                <img src="/img/tourist_guide_pic.jpg" alt="Image" class="img-fluid styled profile_pic">
+                            </p>
+                        </div>
+                    </div>
+                    <!-- End row -->
+                    <div class="divider"></div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4>{{__('forms.editProfile')}}</h4>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>{{__('forms.name')}}</label>
+                                {!! Form::text('name', null, ['class' => 'form-control']) !!}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>{{__('forms.phone_number')}}</label>
+                                {!! Form::text('phone_number', null, ['class' => 'form-control']) !!}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>{{__('forms.email')}} </label>
+                                {!! Form::text('email', null, ['class' => 'form-control']) !!}
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End row -->
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4>{{__('forms.editAdress')}}</h4>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>{{__('forms.city')}}</label>
+                                {!! Form::text('city', null, ['class' => 'form-control']) !!}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>{{__('forms.street')}}</label>
+                                {!! Form::text('street', null, ['class' => 'form-control']) !!}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>{{__('forms.house_flat')}}</label>
+                                {!! Form::text('house_flat', null, ['class' => 'form-control']) !!}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>{{__('forms.post_index')}}</label>
+                                {!! Form::text('post_index', null, ['class' => 'form-control']) !!}
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End row -->
+
+                    <hr>
+                    <h4>{{__('forms.uploadPhoto')}}</h4>
+                    <div class="form-inline upload_1">
+                        <div class="form-group">
+                            <input type="file" name="files[]" id="js-upload-files" multiple>
+                        </div>
+                        <button type="submit" class="btn_1 green" id="js-upload-submit">{{__('buttons.uploadFile')}}</button>
+                    </div>
+                    <hr>
+                    {!! Form::submit(__('buttons.save'), ['class' => 'btn_1 green']) !!}
+
+                    {!! Form::close() !!}
+
+                </section>
+                <!-- End section 1 -->
+                <section id="section-2">
+                    @include('adminlte-templates::common.errors')
+                    @include('flash::message')
+                    {!! Form::model($user, ['route' => ['changePassword'], 'method' => 'post']) !!}
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h4>{{__('forms.changePassword')}}</h4>
+                            <div class="form-group">
+                                <label>{{__('forms.current_password')}}</label>
+                                {!! Form::password('current_password', ['class' => 'form-control']) !!}
+                            </div>
+                            <div class="form-group">
+                                <label>{{__('forms.new_password')}}</label>
+                                {!! Form::password('new_password', ['class' => 'form-control']) !!}
+                            </div>
+                            <div class="form-group">
+                                <label>{{__('forms.confirm_password')}}</label>
+                                {!! Form::password('new_password_confirmation', ['class' => 'form-control']) !!}
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End row -->
+                    <hr>
+                    {!! Form::submit(__('buttons.save'), ['class' => 'btn_1 green']) !!}
+                    {!! Form::close() !!}
+                </section>
+                <!-- End section 2 -->
+            </div>
+            <!-- End content -->
+        </div>
+        <!-- End tabs -->
+    </div>
+    <!-- End container -->
+
+
 @endsection

@@ -27,10 +27,11 @@
     <link href="{{asset('css/jquery-ui.css')}}" rel="stylesheet">
     <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.5.1/nouislider.min.css" rel="stylesheet">-->
     <link rel="stylesheet" type="text/css" href="{{asset("vendor/cookie-consent/css/cookie-consent.css")}}">
-    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('css/vendors.css') }}" rel="stylesheet">
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/shop.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
 
     <!-- Favicons-->
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
@@ -64,7 +65,6 @@
     @include('layouts.my_review')
 
     <script src="{{asset('js/jquery-3.6.0.min.js')}}"></script>
-    <script src="{{asset('js/bootstrap.bundle.js')}}"></script>
     <script src="{{asset('js/jquery.dataTables.min.js')}}"></script>
     <script src="{{asset('js/jquery-ui.js')}}"></script>
     <script src="{{asset('js/common_scripts_min.js')}}"></script>
@@ -76,6 +76,10 @@
         // ----------------------- SELECTBOX --------------------------- //
         // change style for select box
         $(".selectbox").selectbox();
+    </script>
+    <script src="{{asset('js/tabs.js')}}"></script>
+    <script>
+        new CBPFWTabs(document.getElementById('tabs'));
     </script>
     <script>
     $(document).ready(function() {
