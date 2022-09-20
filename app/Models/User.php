@@ -40,8 +40,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'avatar', 
-        'provider_id', 
+        'avatar',
+        'provider_id',
         'provider',
         'access_token',
         "street",
@@ -75,6 +75,12 @@ class User extends Authenticatable
         'name' => 'required',
         'email' => 'required|email:rfc',
         'password' => 'required',
+        'phone_number' => 'nullable|numeric|digits:11',
+    ];
+
+    public static $updateInfoRules = [
+        'name' => 'required',
+        'email' => 'required|email:rfc',
         'phone_number' => 'nullable|numeric|digits:11',
     ];
 

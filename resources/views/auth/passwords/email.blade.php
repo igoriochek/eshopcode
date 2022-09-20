@@ -1,6 +1,24 @@
 @extends('layouts.app')
 
 @section('content')
+
+    <section id="hero" class="background-image" data-background=url(../img/header_bg.jpg) style="height: 470px">
+        <div class="opacity-mask" data-opacity-mask="rgba(0, 0, 0, 0.4)">
+            <div class="intro_title">
+                <h3 class="animated fadeInDown">{{__('auth.resetPassword')}}</h3>
+            </div>
+        </div>
+    </section>
+
+    <div id="position">
+        <div class="container">
+            <ul>
+                <li><a href="../">{{__('menu.home')}}</a></li>
+                <li>{{__('auth.resetPassword')}}</li>
+            </ul>
+        </div>
+    </div>
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">

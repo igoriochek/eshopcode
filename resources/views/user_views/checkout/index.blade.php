@@ -57,9 +57,6 @@
                                 <div class="form-group col-md-6 col-sm-6 col-xs-12">
                                     <label>{{__('forms.post_index')}}: {{ $user->post_index }}</label>
                                 </div>
-                                <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                    <label>{{__('forms.avatar')}}: {{ $user->avatar }}</label>
-                                </div>
                             </div>
                         </div>
                     </div>

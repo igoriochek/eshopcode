@@ -32,6 +32,8 @@
                 </ul>
             </nav>
             <div class="content">
+                @include('adminlte-templates::common.errors')
+                @include('flash::message')
                 <section id="section-1">
                     {!! Form::model($user, ['route' => ['userprofilesave'], 'method' => 'patch']) !!}
                     <div class="row">
@@ -47,11 +49,6 @@
                                 <li>{{__('forms.house_flat')}} <span>{{ $user->house_flat }}</span></li>
                                 <li>{{__('forms.post_index')}} <span>{{ $user->post_index }}</span></li>
                             </ul>
-                        </div>
-                        <div class="col-md-6">
-                            <p>
-                                <img src="/img/tourist_guide_pic.jpg" alt="Image" class="img-fluid styled profile_pic">
-                            </p>
                         </div>
                     </div>
                     <!-- End row -->
@@ -112,15 +109,6 @@
                         </div>
                     </div>
                     <!-- End row -->
-
-                    <hr>
-                    <h4>{{__('forms.uploadPhoto')}}</h4>
-                    <div class="form-inline upload_1">
-                        <div class="form-group">
-                            <input type="file" name="files[]" id="js-upload-files" multiple>
-                        </div>
-                        <button type="submit" class="btn_1 green" id="js-upload-submit">{{__('buttons.uploadFile')}}</button>
-                    </div>
                     <hr>
                     {!! Form::submit(__('buttons.save'), ['class' => 'btn_1 green']) !!}
 
@@ -129,8 +117,6 @@
                 </section>
                 <!-- End section 1 -->
                 <section id="section-2">
-                    @include('adminlte-templates::common.errors')
-                    @include('flash::message')
                     {!! Form::model($user, ['route' => ['changePassword'], 'method' => 'post']) !!}
                     <div class="row">
                         <div class="col-md-6">
