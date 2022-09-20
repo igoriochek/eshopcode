@@ -36,6 +36,6 @@ class CreateDiscountsTranslationsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('discounts');
+        Schema::drop('discounts_translations');
     }
 }
