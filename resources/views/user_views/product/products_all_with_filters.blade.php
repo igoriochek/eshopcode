@@ -42,16 +42,19 @@
                             <div class="filter_type">
                                 <h6>{{ __('names.price') }}</h6>
                                 <fieldset class="form-group">
-                                    <div class="price_filter">
-                                        <label for="amount">{{__('names.price')}} :</label>
-                                        <div id="slider" class="slider" wire:ignore></div>
-                                        <div>&nbsp;</div>
-                                        <div><label for="amount">{{__('names.from')}} :</label>
-                                            <input type="text" id="filter[pricefrom]" name="filter[pricefrom]" readonly
-                                                   value="{{$filter["pricefrom"] ?? ""}}"/></div>
-                                        <div><label for="amount">{{__('names.to')}} :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                    <div id="range-slider" class="slider mx-2 mb-4 mt-1" wire:ignore></div>
+                                    <div class="filter-by-price-button-container">
+                                        <div class="d-flex">
+                                            <span>{{ __('names.price')}}:</span>
+                                            <input type="text" id="filter[pricefrom]" name="filter[pricefrom]"
+                                                   readonly
+                                                   value="{{ $filter["pricefrom"] ?? '0' }}"
+                                                   class="border-0 text-end filter-by-price-number" style="max-width: 50px"/>
+                                            <span class="text-center">&nbsp;—&nbsp;</span>
                                             <input type="text" id="filter[priceto]" name="filter[priceto]" readonly
-                                                   value="{{$filter["priceto"] ?? ""}}"/></div>
+                                                   value="{{ $filter["priceto"] ?? '0' }}"
+                                                   class="border-0 text-start filter-by-price-number" style="max-width: 50px"/>
+                                        </div>
                                     </div>
                                 </fieldset>
                             </div>
@@ -128,25 +131,23 @@
 
             orderSelector.onchange = () => orderForm.submit();
 
-            let slider = document.getElementById('range-slider');
+            const rangeSlider = document.getElementById('range-slider');
+            const priceFrom = document.getElementById('filter[pricefrom]');
+            const priceTo = document.getElementById('filter[priceto]');
 
-            noUiSlider.create(slider, {
-                start: [{{ $filter["pricefrom"] ?? 0 }}, {{ $filter["priceto"] ?? 1000 }}],
-                connect: true,
-                step: 1,
-                range: {
-                    'min': 0,
-                    'max': 1000
-                }
-            });
-
-            slider.noUiSlider.on("change", (event) => {
-                const priceFrom = document.getElementById('filter[pricefrom]');
-                const priceTo = document.getElementById('filter[priceto]');
-                let price = slider.noUiSlider.get();
-                price = price.toString().split(",");
-                priceFrom.value = price[0];
-                priceTo.value = price[1];
+            $(() => {
+                $(rangeSlider).slider({
+                    range: true,
+                    min: 0,
+                    max: 1000,
+                    values: [{{ $filter["pricefrom"] ?? 0 }}, {{ $filter["priceto"] ?? 1000 }}],
+                    slide: (event, ui) => {
+                        $(priceFrom).val(ui.values[0]);
+                        $(priceTo).val(ui.values[1]);
+                    }
+                });
+                $(priceFrom).val($(rangeSlider).slider("values", 0));
+                $(priceTo).val($(rangeSlider).slider("values", 1));
             });
 
             function calc() {

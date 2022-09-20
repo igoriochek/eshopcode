@@ -22,15 +22,15 @@
                 </ul>
             </div>
             <div class="col-md-2">
-                <h3 style="text-align: center">{{__('footer.language')}}</h3>
-                    <div class="dropdown dropdown-mini" style="text-align: center">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"  aria-expanded="false">
-                            @if (app()->getLocale() == 'lt')
-                                <img src="/images/lt-flag.png" alt="lt-flag" style="width: 17px; height: 17px; margin-right: 5px; border-radius: 10px">
-                                {{ __('LT') }}
-                            @else
-                                <img src="/images/en-flag.png" alt="en-flag" style="width: 17px; height: 17px; margin-right: 5px; border-radius: 10px">
-                                {{ __('EN') }}
+                <h3>{{__('footer.language')}}</h3>
+                    <div class="dropdown dropdown-mini" style="text-align: center; border-radius: 3px; background: #444; width: 120px">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle text-start" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"  aria-expanded="false" style="color: #999; font-weight: 400">
+                            @if (app()->getLocale() == 'en')
+                                {{ __('English') }}
+                            @elseif (app()->getLocale() == 'lt')
+                                {{ __('Lietuviskai') }}
+                            @elseif (app()->getLocale() == 'ru')
+                                {{ __('Pусский') }}
                             @endif
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
