@@ -157,6 +157,8 @@ return [
     'productName' => 'Product Name',
     'productOrders' => 'Product Orders',
     'noProducts' => 'No Products',
+    'filters' => 'Filters',
+    'search' => 'Search',
 
     //Promotions
     'createPromotion' => 'Create Promotion',
@@ -175,7 +177,8 @@ return [
     'to' => 'To',
     'sum' => 'Sum',
     'total' => 'Total',
-
+    'discountedPrice' => 'Discounted Price',
+    'totalCost' => 'Total Cost',
 
     //Rating
     'alreadyVoted' => "You have already voted for this product",
@@ -183,6 +186,12 @@ return [
     'ratingOrRatings' => 'Rating(s)',
     'starRating' => 'Star Rating',
     'voted' => "Thank you for your vote!",
+
+    //Reviews
+    'reviews' => 'Review(s)',
+    'review' => 'Review',
+    'writeReview' => 'Write your review',
+    'noReviews' => 'No reviews',
 
     //Returns
     'checkReturn' => 'Check to Return',

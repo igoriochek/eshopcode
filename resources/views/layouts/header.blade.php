@@ -70,7 +70,7 @@
         <div class="row">
             <div class="col-3">
                 <div class="logo_home">
-                    <h1><a href="../">LOGO</a></h1>
+                    <h1 class="m-0"><a href="../">LOGO</a></h1>
                 </div>
             </div>
             <nav class="col-9">

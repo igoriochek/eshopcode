@@ -156,6 +156,8 @@ return [
     'productName' => 'Produkto pavadinimas',
     'productOrders' => 'Produktų užsakymai',
     'noProducts' => 'Nėra produktų',
+    'filters' => 'Filtrai',
+    'search' => 'Search',
 
     //Promotions
     'createPromotion' => 'Sukurti Akciją',
@@ -175,6 +177,8 @@ return [
     'to' => 'Iki',
     'sum' => 'Suma',
     'total' => 'Galutinė suma',
+    'discountedPrice' => 'Nuolaidos Kainą',
+    'totalCost' => 'Iš viso',
 
     //Rating
     'alreadyVoted' => "Jūs jau prabalsavote už šį produktą!",
@@ -182,6 +186,12 @@ return [
     'ratingOrRatings' => 'Įvertinimas(ai)',
     'starRating' => 'Įvertinimas Žvaigždutėmis',
     'voted' => "Ačiū už jūsų balsą!",
+
+    //Reviews
+    'reviews' => 'Atsiliepimai',
+    'review' => 'Atsiliepimas',
+    'writeReview' => 'Parašykite savo atsiliepimą',
+    'noReviews' => 'Nėra Atsiliepimų',
 
     //Returns
     'checkReturn' => 'Pasirinkite kuriuos norite grąžinti',

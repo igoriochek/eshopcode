@@ -33,4 +33,7 @@ return [
     'save' => 'Save',
     'showLogs' => 'Show Logs',
     'showStatistics' => 'Show Statistics',
+    'details' => 'Details',
+    'leaveReview' => 'Leave a review',
+
 ];

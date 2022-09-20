@@ -84,6 +84,11 @@ class Product extends Model implements TranslatableContract
         return $this->belongsTo(Discount::class);
     }
 
+    public function ratings()
+    {
+        return $this->hasMany(Ratings::class);
+    }
+
     public function scopePriceFrom(Builder $query, $price) : Builder
     {
         return $query->where('price', '>=', $price);

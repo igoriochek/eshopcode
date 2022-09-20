@@ -92,7 +92,7 @@ return array(
          * based on this setting.
          *
          * Both PDFLib & CPDF rendering backends provide sufficient rendering
-         * capabilities for dompdf, however additional features (e.g. object,
+         * capabilities for dompdf, however additional pages (e.g. object,
          * image and font support, etc.) differ between backends.  Please see
          * {@link PDFLib_Adapter} for more information on the PDFLib backend
          * and {@link CPDF_Adapter} and lib/class.pdf.php for more information
@@ -100,7 +100,7 @@ return array(
          * below.
          *
          * The GD rendering backend is a little different than PDFLib and
-         * CPDF. Several features of CPDF and PDFLib are not supported or do
+         * CPDF. Several pages of CPDF and PDFLib are not supported or do
          * not make any sense when creating image files.  For example,
          * multiple pages are not supported, nor are PDF 'objects'.  Have a
          * look at {@link GD_Adapter} for more information.  GD support is

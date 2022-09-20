@@ -25,7 +25,7 @@
     <link href="{{ asset('datatables/media/css/jquery.dataTables.min.css') }}" rel="stylesheet">
     <link href="{{ asset('fontawesome-free/css/all.min.css') }}" rel="stylesheet">
     <link href="{{asset('css/jquery-ui.css')}}" rel="stylesheet">
-    <link href="{{asset('https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.5.1/nouislider.min.css')}}" rel="stylesheet">
+    <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.5.1/nouislider.min.css" rel="stylesheet">-->
     <link rel="stylesheet" type="text/css" href="{{asset("vendor/cookie-consent/css/cookie-consent.css")}}">
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
@@ -38,8 +38,6 @@
     <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="img/apple-touch-icon-72x72-precomposed.png">
     <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="img/apple-touch-icon-114x114-precomposed.png">
     <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="img/apple-touch-icon-144x144-precomposed.png">
-
-
 
     @stack('css')
     @livewireStyles
@@ -63,12 +61,17 @@
         <div id="toTop"></div><!-- Back to top button -->
     </main>
     @include('layouts.footer')
+    @include('layouts.my_review')
 
     <script src="{{asset('js/jquery-3.6.0.min.js')}}"></script>
+    <script src="{{asset('js/bootstrap.bundle.js')}}"></script>
+    <script src="{{asset('js/jquery.dataTables.min.js')}}"></script>
+    <script src="{{asset('js/jquery-ui.js')}}"></script>
     <script src="{{asset('js/common_scripts_min.js')}}"></script>
     <script src="{{asset('js/functions.js')}}"></script>
     <script src="{{asset('js/jquery.selectbox-0.2.js')}}"></script>
     <script src="{{asset('js/js/pw_strenght.js')}}"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.5.1/nouislider.min.js"></script>-->
     <script>
         // ----------------------- SELECTBOX --------------------------- //
         // change style for select box
@@ -330,7 +333,21 @@
         $( "#finish" ).datepicker();
     } );
 
-
+    $('#submit-review').click(() => {
+        const value = $('input[type=radio][name=rating]:checked').val();
+        const desc = $('textarea[name=review_text]').val();
+        $.post("{{ route('addUserRating') }}",
+            {
+                "_token": "{{ csrf_token() }}",
+                rating: value,
+                description: desc,
+                product: {{ $product->id }}
+            },
+            (data, status) => {
+                if (data.val == "ok") location.reload();
+            }
+        );
+    });
     </script>
 
     @stack('scripts')

@@ -19,7 +19,7 @@ return [
     Without them, this website may not function properly.',
     'setting_functional' => 'Functional cookies',
     'setting_functional_text' => 'are necessary for specific
-    functionality on the website. Without them, some features may be disabled.',
+    functionality on the website. Without them, some pages may be disabled.',
     'setting_marketing' => 'Marketing cookies',
     'setting_marketing_text' => 'allow us to personalise
     your experience and to send you relevant content

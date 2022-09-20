@@ -33,4 +33,7 @@ return [
     'save' => 'Išsaugoti',
     'showLogs' => 'Rodyti Žurnalus',
     'showStatistics' => 'Rodyti Statistikas',
+    'details' => 'Detaliai',
+    'leaveReview' => 'Palikti atsiliepimą',
+
 ];

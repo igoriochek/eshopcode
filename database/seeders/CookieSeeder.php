@@ -23,7 +23,7 @@ class CookieSeeder extends Seeder
         DB::table('cookies')->insert([
             'name'=> 'functional',
             'description'=> 'are necessary for specific functionality on
-            the website. Without them, some features may be disabled.',
+            the website. Without them, some pages may be disabled.',
             'isMandatory' => true,
         ]);
         DB::table('cookies')->insert([
