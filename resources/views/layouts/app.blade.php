@@ -25,7 +25,7 @@
     <link href="{{ asset('datatables/media/css/jquery.dataTables.min.css') }}" rel="stylesheet">
     <link href="{{ asset('fontawesome-free/css/all.min.css') }}" rel="stylesheet">
     <link href="{{asset('css/jquery-ui.css')}}" rel="stylesheet">
-    <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.5.1/nouislider.min.css" rel="stylesheet">-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.5.1/nouislider.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{asset("vendor/cookie-consent/css/cookie-consent.css")}}">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('css/vendors.css') }}" rel="stylesheet">
@@ -70,8 +70,8 @@
     <script src="{{asset('js/common_scripts_min.js')}}"></script>
     <script src="{{asset('js/functions.js')}}"></script>
     <script src="{{asset('js/jquery.selectbox-0.2.js')}}"></script>
-    <script src="{{asset('js/js/pw_strenght.js')}}"></script>
-    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.5.1/nouislider.min.js"></script>-->
+    <script src="{{asset('js/pw_strenght.js')}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.5.1/nouislider.min.js"></script>
     <script>
         // ----------------------- SELECTBOX --------------------------- //
         // change style for select box
@@ -345,7 +345,7 @@
                 "_token": "{{ csrf_token() }}",
                 rating: value,
                 description: desc,
-                product: {{ $product->id ?? '' }}
+                product: {{ $product->id ?? 0 }}
             },
             (data, status) => {
                 if (data.val == "ok") location.reload();
