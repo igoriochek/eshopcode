@@ -162,7 +162,7 @@ return [
     //Promotions
     'createPromotion' => 'Sukurti Akciją',
     'editPromotion' => 'Redaguoti Akciją',
-    'more_for_promotions' => 'Daugiau produktų šiai akcijai',
+    'more_for_promotions' => 'Daugiau akcijos produktų',
     'noPromotions' => 'Nėra Akcijų',
     'promotion' => 'Akcija',
     'promotions' => 'Akcijos',

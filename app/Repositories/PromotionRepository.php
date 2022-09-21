@@ -17,6 +17,7 @@ class PromotionRepository extends BaseRepository
      * @var array
      */
     protected $fieldSearchable = [
+        'id',
         'name',
         'description',
         'start',

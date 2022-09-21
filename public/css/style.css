@@ -3996,13 +3996,13 @@ ul.list_order li span {
 }
 
 .card-header h4{
-	font-size: 16px;
+	font-size: 20px;
 	padding-top: 10px;
 }
 
 .card-header a {
 	display: block;
-	color: #777;
+	color: #e14d67;
 }
 
 .card-body {

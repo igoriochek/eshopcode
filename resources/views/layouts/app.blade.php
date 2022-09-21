@@ -78,10 +78,6 @@
         // change style for select box
         $(".selectbox").selectbox();
     </script>
-    <script src="{{asset('js/tabs.js')}}"></script>
-    <script>
-        new CBPFWTabs(document.getElementById('tabs'));
-    </script>
     <script>
     $(document).ready(function() {
         $('#categories').DataTable(

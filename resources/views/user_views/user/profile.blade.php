@@ -148,5 +148,9 @@
     </div>
     <!-- End container -->
 
+    <script src="{{asset('js/tabs.js')}}"></script>
+    <script>
+        new CBPFWTabs(document.getElementById('tabs'));
+    </script>
 
 @endsection

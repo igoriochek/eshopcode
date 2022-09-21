@@ -1,59 +1,42 @@
 @extends('layouts.app')
 
 @section('content')
-    <section class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1>{{__('names.promotion')}} {{$promotion->name}} </h1>
-                </div>
+
+    <section id="hero" class="background-image" data-background=url(/img/header_bg.jpg) style="height: 470px">
+        <div class="opacity-mask" data-opacity-mask="rgba(0, 0, 0, 0.4)">
+            <div class="intro_title">
+                <h3 class="animated fadeInDown">{{$promotion->name}} {{__('names.promotions')}}  </h3>
             </div>
         </div>
     </section>
 
-
-        <div class="col-sm-6">
-            <h3>{{$promotion->name}} : {{__('names.products')}}</h3>
-            {{--        <a href="{{route("rootcategories")}}">Back to main categories</a>--}}
+    <div id="position">
+        <div class="container">
+            <ul>
+                <li>
+                    <a href="../">{{__('menu.home')}}</a>
+                </li>
+                <li>
+                    <a href="/user/promotions">{{__('menu.promotions')}}</a>
+                </li>
+                <li>{{$promotion->name}} {{__('names.promotions')}} </li>
+            </ul>
         </div>
-        <div class="content px-3">
+    </div>
 
-            {{--        @include('flash::message')--}}
-
-            <div class="clearfix"></div>
-
-            <div class="card">
-                <div class="card-body p-0">
-                    {{--                @include('products.table')--}}
-
-                    @if(($products->count()))
-                        @foreach( $products as $prod )
-                            <div class="card-body">
-                                <h4 class="card-title"><a href="{{route('viewproduct', $prod->id)}}">{{$prod->name}}</a></h4>
-                                <h6 class="card-subtitle mb-2 text-muted">{{__('names.desc')}}</h6>
-                                <p class="card-text">{{$prod->description}}</p>
-                            </div>
-                        @endforeach
-
-                    @else
-                        no products
-                    @endif
-
-
-
-
-                    <div class="card-footer clearfix">
-                        <div class="float-right">
-                            {{$products->links()}}
-                        </div>
+    <div class="container margin_60">
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-9">
+                @forelse( $products as $product )
+                    @include('user_views.product.products_list')
+                @empty
+                    {{ __('names.noProducts') }}
+                @endforelse
+                    <div class="d-flex justify-content-center">
+                        {{ $products->links() }}
                     </div>
-                </div>
-
             </div>
         </div>
-
-
-
-
+    </div>
 
 @endsection
