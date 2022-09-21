@@ -1,7 +1,7 @@
-<div class="header-top header-top-ptb-1 d-none d-lg-block">
+<div class="header-top header-top-ptb-1 d-lg-block">
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-xl-3 col-lg-4">
+            <div class="col-xl-6 col-lg-6 cl-md-6 col-sm-6 col-6">
                 <div class="header-info">
                     <ul>
                         <li><a href="page-about.htlm">NUMBER</a></li>
@@ -9,9 +9,8 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-xl-6 col-lg-4">
-            </div>
-            <div class="col-xl-3 col-lg-4">
+
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
                 <div class="header-info header-info-right">
                     <ul>
                         <li>

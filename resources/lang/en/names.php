@@ -231,7 +231,9 @@ return [
 
     'orderBy' => 'Order By',
     'view' => 'View',
-    'home' => 'Home'
+    'home' => 'Home',
+    'followUs' => 'Follow Us'
+
 
 
 ];

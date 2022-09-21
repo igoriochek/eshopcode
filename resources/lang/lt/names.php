@@ -228,6 +228,7 @@ return [
 
     'orderBy' => 'Rūšiuoti pagal',
     'view' => 'Peržiūrėti',
-    'home' => 'Pradžia'
+    'home' => 'Pradžia',
+    'followUs' => 'Sekite mus'
 
 ];

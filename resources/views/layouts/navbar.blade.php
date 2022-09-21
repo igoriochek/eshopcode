@@ -1,13 +1,15 @@
 <nav class="pt-10 pb-10">
-    <div class="header-middle d-none d-lg-block">
+    <div class="header-bottom header-bottom-bg-color">
         <div class="container">
             <div class="header-wrap">
                 <div class="logo logo-width-1">
                     <a href="{{route('home')}}"><img src="{{asset('/images/theme/logo.svg')}}" alt="logo"/></a>
                 </div>
+
                 <div class="header-right">
                     <div>
                     </div>
+                    @include('layouts.menus.mobilemenu')
                     <div class="header-action-right">
                         <div class="header-action-2">
                             @guest
@@ -20,13 +22,13 @@
                                     </div>
                                 @endif
 
-{{--                                @if (Route::has('register'))--}}
-{{--                                    <div class="header-action fs-4">--}}
-{{--                                        <i class="fi fi-rs-apps-add mr-10"></i><a--}}
-{{--                                            style="color: {{ request()->is('register*') ? '#3BB77E' : '' }}"--}}
-{{--                                            href="{{route('register')}}">{{__('auth.register')}}</a>--}}
-{{--                                    </div>--}}
-{{--                                @endif--}}
+                                {{--                                @if (Route::has('register'))--}}
+                                {{--                                    <div class="header-action fs-4">--}}
+                                {{--                                        <i class="fi fi-rs-apps-add mr-10"></i><a--}}
+                                {{--                                            style="color: {{ request()->is('register*') ? '#3BB77E' : '' }}"--}}
+                                {{--                                            href="{{route('register')}}">{{__('auth.register')}}</a>--}}
+                                {{--                                    </div>--}}
+                                {{--                                @endif--}}
                             @else
 
                                 @auth

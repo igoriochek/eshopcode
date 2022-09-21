@@ -153,7 +153,6 @@
         <script>
             var slider = document.getElementById('slider');
             noUiSlider.create(slider, {
-                // start: [0, 1000],
                 start: [{{$filter["pricefrom"] ?? 0}}, {{$filter["priceto"] ?? 1000}}],
                 connect: true,
                 step: 1,
@@ -169,19 +168,16 @@
                 price = price.toString().split(",");
                 pricefrom.value = price[0];
                 priceto.value = price[1];
-                // console.log(slider.noUiSlider.get());
             });
 
 
             function calc() {
                 var elements = document.querySelectorAll("input[type='checkbox']");
-                // console.log(elements);
                 var value = '';
                 for (var i = 0; i < elements.length; i++) {
                     value += elements[i].checked == true && value ? ',' : '';
                     value += elements[i].checked == true ? elements[i].value : "";
                 }
-                //console.log(value);
                 document.getElementById("filter[categories.id]").value = value;
             }
         </script>
