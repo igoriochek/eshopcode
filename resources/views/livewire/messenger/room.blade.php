@@ -1,42 +1,46 @@
-<div wire:poll.1s='updateMessages'>
+<div wire:poll.1s='updateMessages' class="messenger-room p-2 mb-sm-5">
     <div>
-        <h3>{{$user->name}}</h3>
+        <h6 class="messenger-chat-user-name">
+            {{ $user->name }}
+        </h6>
     </div>
-    <div class="card" id="messsageBox" style="display: flex-column; padding: 20px; overflow: scroll; height: 50vh; margin: 15px 0;">
+    <div class="messenger-message-box" id="messsageBox">
         @forelse ($messages ?? [] as $message)
             @if ($message->user_from === $user->id)
-                <div style="display: flex; align-items: center; gap: 20px; margin: 5px 0;">
+                <div class="messenger-message-from-container">
+                    {{--
                     <span style="width: clamp(50px, 200px);">
                         {{$user->name}}
                     </span>
-                    <span style="background-color: #eeeeee; border-radius: 10px; padding: 10px 20px; max-width: 500px;">
-                        {{$message->message_text}}
+                    --}}
+                    <span class="messenger-message-from">
+                        {{ $message->message_text }}
                     </span>
                 </div>
-                <div style="display: flex; align-items: center; margin-bottom: 15px;">
-                    <span style="font-size: 0.7em">{{$message->created_at}}</span>
+                <div class="messenger-message-from-date-container">
+                    <span class="messenger-message-date">
+                        {{ $message->created_at->format('M d, H:i A') }}
+                    </span>
                 </div>
             @else
-                <div style="display: flex; flex-direction: row-reverse; justify-content: flex-start; align-items: center; gap: 20px; margin: 5px 0;">
-                    <span style="width: clamp(50px, 200px);">
-                        {{auth()->user()->name}}
-                    </span>
-                    <span style="background-color: #5d48fb; color: #eeeeee; border-radius: 10px; padding: 10px 20px; max-width: 500px;">
-                        {{$message->message_text}}
+                <div class="messenger-message-to-container">
+                    <span class="messenger-message-to">
+                        {{ $message->message_text }}
                     </span>
                 </div>
-                <div style="display: flex; flex-direction: row-reverse; justify-content: flex-start; align-items: center; margin-bottom: 15px;">
-                    <span style="font-size: 0.7em">{{$message->created_at}}</span>
+                <div class="messenger-message-to-date-container">
+                    <span class="messenger-message-date">{{ $message->created_at->format('M d, H:i A') }}</span>
                 </div>
             @endif
         @empty
             <div style="display: flex; justify-content: center; align-items: center;">
-                <span>{{__('messages.emptyChat')}}</span>
+                <span class="text-muted">{{ __('messages.emptyChat') }}</span>
             </div>
         @endforelse
     </div>
     @include('livewire.messenger.form')
 </div>
+
 @push('scripts')
     <script>
         const messageBox = document.getElementById('messsageBox');

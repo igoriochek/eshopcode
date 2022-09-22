@@ -35,6 +35,7 @@ return [
     'showStatistics' => 'Rodyti Statistikas',
     'submit' => 'Paskelbti Apžvalgą',
     'postReview' => 'Paskelbti Apžvalgą',
-    'proceedToCheckout' => 'Pereiti prie Kasos'
+    'proceedToCheckout' => 'Pereiti prie Kasos',
+    'contact' => 'Susisiekti'
 
 ];
