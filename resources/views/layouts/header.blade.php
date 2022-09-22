@@ -6,7 +6,7 @@
                     <span id ="opening"><i class=" icon-clock-1 "></i>{{__('footer.workHours')}}</span>
                 </div>
                 <div class="col-6">
-                    <ul id="top_links">
+                    <ul id="top_links" class="mb-2">
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">{{ __('auth.login') }}</a></li>
@@ -88,46 +88,7 @@
                         <ul>
                             <li><a href="/home" >{{ __('names.dashboard') }} </a></li>
                             <li><a href="/user/products" class="show-submenu">{{__('menu.products')}}</a></li>
-                            <li class="submenu">
-                                <a href="/user/rootcategories" class="show-submenu">{{__('menu.categories')}}<i class="icon-down-open-mini"></i></a>
-                                <ul>
-                                    <li class="third-level"><a href="/user/innercategories/1">Keshawn D&#039;Amore<strong class="badge badge-danger"></strong></a>
-                                        <ul>
-                                            <li><a href="/user/innercategories/16">Ms. Marietta Waelchi DDS</a></li>
-                                            <li><a href="/user/innercategories/19">Mrs. Corene Volkman MD</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="third-level"><a href="/user/innercategories/2">Hazle Parker II<strong class="badge badge-danger"></strong></a>
-                                        <ul>
-                                            <li class="third-level"><a href="/user/innercategories/10">Velda Dibbert<strong class="badge badge-danger"></strong></a>
-                                                <ul>
-                                                    <li><a href="/user/innercategories/15">Dr.Gianni CollinsIV</a></li>
-                                                    <li><a href="/user/innercategories/17">Hudson Hettinger</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="/user/innercategories/11">Jermaine Lynch III</a></li>
-                                            <li><a href="/user/innercategories/18">Clementine Cummerata</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="third-level"><a href="/user/innercategories/3">Marc Doyle IV<strong class="badge badge-danger"></strong></a>
-                                        <ul>
-                                            <li><a href="/user/innercategories/8">Rae Sawayn</a></li>
-                                            <li><a href="/user/innercategories/12">Marshall Reinger</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="/user/innercategories/4">Delilah Cronin</a></li>
-                                    <li class="third-level"><a href="/user/innercategories/5">Santa Walker DDS<strong class="badge badge-danger"></strong></a>
-                                        <ul>
-                                            <li class="third-level"><a href="/user/innercategories/9">Elta Crist DVM<strong class="badge badge-danger"></strong></a>
-                                                <ul>
-                                                    <li><a href="/user/innercategories/14">Cydney Lynch</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="/user/innercategories/21">Dr. Roscoe Legros</a></li>
-                                </ul>
-                            </li>
+                            <li><a href="/user/rootcategories" class="show-submenu">{{__('menu.categories')}}</a></li>
                             <li class="submenu">
                                 <a href="/user/promotions" class="show-submenu">{{__('menu.promotions')}}<i class="icon-down-open-mini"></i></a>
                                 <ul>

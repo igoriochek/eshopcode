@@ -1,46 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-    <section class="parallax-window" data-parallax="scroll" style="background: url('{{ asset('img/single_tour_bg_1.jpg') }}') center center" data-natural-width="1400" data-natural-height="470">
-        <div class="parallax-content-2">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8">
-                        <h1>{{ $product->name }}</h1>
-                        <span class="rating flex-row justify-content-start">
-                            @for($i = 1; $i <= 5; $i++)
-                                <i class="icon-smile @if ($average >= $i) voted @endif"></i>
-                            @endfor
-                            <small>({{ $count }})</small>
-                        </span>
-                    </div>
-                    <div class="col-md-4">
-                        <div id="price_single_main">
-                            <span>
-                                @if ($product->discount)
-                                    <sup>€</sup>
-                                    {{ $product->price - round(($product->price * $product->discount->proc / 100), 2) }}
-                                    <sup class="text-white">€</sup>
-                                    <strike class="text-white">{{ $product->price }}</strike>
-                                @else
-                                    <sup>€</sup>
-                                    <span>{{ $product->price }}</span>
-                                @endif
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    @include('user_views.section', ['title' => __('names.products'), 'paragraph' => $product->name])
     <div id="position">
         <div class="container">
             <ul>
                 <li>
-                    <a href="../">{{__('menu.home')}}</a>
+                    <a href="{{ url('/home') }}">{{ __('names.home') }}</a>
                 </li>
                 <li>
-                    <a href="/user/products">{{__('menu.products')}}</a>
+                    <a href="{{ url('/user/products') }}">{{ __('names.products') }}</a>
                 </li>
                 <li>
                     {{ $product->name }}
@@ -48,97 +17,236 @@
             </ul>
         </div>
     </div>
-    <!-- End Position -->
-
     <div class="container margin_60">
         <div class="row">
-            <div class="col-lg-8" id="single_tour_desc">
-                <div id="single_tour_feat">
-                    <ul>
-                        <li><i class="icon_set_1_icon-4"></i>Museum</li>
-                        <li><i class="icon_set_1_icon-83"></i>3 Hours</li>
-                        <li><i class="icon_set_1_icon-13"></i>Accessibiliy</li>
-                        <li><i class="icon_set_1_icon-82"></i>144 Likes</li>
-                        <li><i class="icon_set_1_icon-22"></i>Pet allowed</li>
-                        <li><i class="icon_set_1_icon-97"></i>Audio guide</li>
-                        <li><i class="icon_set_1_icon-29"></i>Tour guide</li>
-                    </ul>
-                </div>
-                <div class="row">
-                    <div class="col-lg-3">
-                        <h3>{{ __('names.description') }}</h3>
-                    </div>
-                    <div class="col-lg-9">
-                        <p>
-                            {{ $product->description }}
-                        </p>
-                    </div>
-                </div>
-                <hr>
-                <div class="row">
-                    <div class="col-lg-3">
-                        <h3>{{ __('names.reviews') }}</h3>
-                        @if (!$voted)
-                            <a href="#" class="btn_1 add_bottom_30" data-bs-toggle="modal" data-bs-target="#myReview">
-                                {{ __('buttons.leaveReview') }}
-                            </a>
-                        @endif
-                    </div>
-                    <div class="col-lg-9">
-                        <div id="general_rating">{{ $count.' '.__('names.reviews') }}
-                            <div class="rating">
-                                @for($i = 1; $i <= 5; $i++)
-                                    <i class="icon-smile @if ($average >= $i) voted @endif"></i>
-                                @endfor
-                            </div>
-                        </div>
-                        <!-- End general_rating -->
-                        <hr>
-                        @forelse ($product->ratings as $rating)
-                            <div class="review_strip_single">
-                                <small> - {{ $rating->created_at->format('F j, Y') }} -</small>
-                                <h4 class="ms-0">{{ $rating->user->name }}</h4>
-                                <p>
-                                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a lorem quis neque interdum consequat ut sed sem. Duis quis tempor nunc. Interdum et malesuada fames ac ante ipsum primis in faucibus."
-                                </p>
-                                <div class="rating flex-row justify-content-start">
-                                    @for($i = 1; $i <= 5; $i++)
-                                        <i class="icon-smile @if ($rating->value >= $i) voted @endif"></i>
-                                    @endfor
-                                </div>
-                            </div>
-                        @empty
-                            <p class="text-muted">{{ __('names.noReviews') }}</p>
-                        @endforelse
-                    </div>
-                </div>
-            </div>
-            <!--End  single_tour_desc-->
-            <aside class="col-lg-4">
-                <div class="box_style_1 expose">
-                    {!! Form::open(['route' => ['addtocart'], 'method' => 'post', 'class' => 'product-add-to-cart-container']) !!}
+            <div class="col-lg-12">
+
+                <div class="product-details">
+
+                    <div class="basic-details">
                         <div class="row">
-                            <div class="col-6">
-                                <div class="form-group">
-                                    <label>{{ __('names.quantity') }}</label>
-                                    <div class="numbers-row">
-                                        {!! Form::number('count', "1", ['class' => 'qty2 form-control text-center', "min" => "1", "max" => "5", "minlength" => "1", "maxlength" => "5",
-                                                        "oninput" => "this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null"]) !!}
-                                        <input type="button" class="dec button_inc" value="-">
-                                        <input type="button" class="inc button_inc" value="+">
+                            <div class="image-column col-sm-6">
+                                <figure class="image-box">
+                                    @if ($product->image)
+                                        <img src="{{ $product->image }}" alt="{{ $product->name }}">
+                                    @else
+                                        <img src="/images/noimage.jpeg" alt="noimage">
+                                    @endif
+                                </figure>
+                            </div>
+                            <div class="info-column col-sm-6">
+                                <div class="details-header">
+                                    <h2>{{ $product->name }}</h2>
+                                    <div class="item-price">
+                                        @if ($product->discount)
+                                            <span class="offer">
+                                                €{{ $product->price }}
+                                            </span>
+                                            €{{ $product->price - round(($product->price * $product->discount->proc / 100), 2) }}
+                                        @else
+                                            €{{ $product->price }}
+                                        @endif
+                                    </div>
+                                    <div class="rating flex-row justify-content-start">
+                                        @for($i = 1; $i <= 5; $i++)
+                                            <i class="icon-star @if ($product->average >= $i) voted @endif"></i>
+                                        @endfor
+                                        ({{ $count.' '.__('names.customerReviews') }})
                                     </div>
                                 </div>
+                                <div class="text">
+                                    <p>{{ $product->description }}</p>
+                                </div>
+                                <div class="other-options">
+                                    {!! Form::open(['route' => ['addtocart'], 'method' => 'post', 'class' => '']) !!}
+                                        <div class="numbers-row">
+                                            {!! Form::number('count', "1", ['class' => 'qty2 form-control text-center', "min" => "1", "max" => "5", "minlength" => "1", "maxlength" => "5",
+                                                            "oninput" => "this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null"]) !!}
+                                            <input type="button" class="dec button_inc" value="-">
+                                            <input type="button" class="inc button_inc" value="+">
+                                        </div>
+                                        <input type="hidden" name="id" value="{{ $product->id }}">
+                                        <input type="submit" value="{{__('buttons.addToCart')}}" class="btn_1">
+                                    {!! Form::close() !!}
+                                </div>
+                                <!--Item Meta-->
+                                <ul class="item-meta">
+                                    <li>
+                                        {{ __('names.categories') }}:
+                                        @forelse($product->categories as $category)
+                                            <a href="{{ route('innercategories', $category->id) }}">{{$category->name}}</a>
+                                            @if (!$loop->last) , @endif
+                                        @empty
+                                            <span class="text-muted">{{ __('names.noCategories') }}</span>
+                                        @endforelse
+                                    </li>
+                                </ul>
                             </div>
                         </div>
-                        <br>
-                        <input type="hidden" name="id" value="{{ $product->id }}">
-                        <input type="submit" value="{{__('buttons.addToCart')}}" class="btn_full">
-                    {!! Form::close() !!}
+                    </div>
+                    <!--End Basic Details-->
+                    <div class="product-info-tabs">
+                        <div class="prod-tabs" id="product-tabs">
+                            <div class="tab-btns clearfix">
+                                <a href="#prod-description" class="tab-btn active-btn">{{ __('names.description') }}</a>
+                                <a href="#prod-reviews" class="tab-btn">{{ __('names.reviews').' ('.$count.')' }}</a>
+                            </div>
+
+                            <div class="tabs-container">
+                                <div class="tab active-tab" id="prod-description">
+                                    <h3>{{ __('names.productDescription') }}</h3>
+                                    <div class="content">
+                                        <p>{{ $product->description }}</p>
+                                    </div>
+                                </div>
+                                <!--End Tab-->
+                                <div class="tab" id="prod-reviews">
+                                    <h3>{{ $count.' '.__('names.reviewsFound') }}</h3>
+                                    @forelse ($product->ratings as $rating)
+                                        <div class="reviews-container">
+                                            <div class="review-box clearfix ps-0">
+                                                <div class="rev-content">
+                                                    <div class="rating flex-row justify-content-start">
+                                                        @for($i = 1; $i <= 5; $i++)
+                                                            <i class="icon-star @if ($rating->value >= $i) voted @endif"></i>
+                                                        @endfor
+                                                    </div>
+                                                    <div class="rev-info">
+                                                        {{ $rating->user->name }}
+                                                        {{ __(' – ') }}
+                                                        {{ $rating->created_at->format('F j, Y') }}
+                                                    </div>
+                                                    <div class="rev-text">
+                                                        <p>
+                                                            Sed eget turpis a pede tempor malesuada. Vivamus quis mi at leo pulvinar hendrerit. Cum sociis natoque penatibus et magnis dis
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--End Review Container-->
+                                    @empty
+                                        <p class="text-muted">{{ __('names.noReviews') }}</p>
+                                    @endforelse
+                                    @if (!$voted)
+                                        <hr>
+                                        <div class="add-review">
+                                            <h3>{{ __('names.addReview') }}</h3>
+                                                <div class="row">
+                                                    <div class="form-group col-md-12">
+                                                        <div class="rating mb-3" style="gap: 10px">
+                                                            <input type="radio" name="rating" value="5" id="5">
+                                                            <label for="5">
+                                                                <i class="icon-star fs-5"></i>
+                                                                <i class="icon-star voted fs-5"></i>
+                                                            </label>
+                                                            <input type="radio" name="rating" value="4" id="4">
+                                                            <label for="4">
+                                                                <i class="icon-star fs-5"></i>
+                                                                <i class="icon-star voted fs-5"></i>
+                                                            </label>
+                                                            <input type="radio" name="rating" value="3" id="3">
+                                                            <label for="3">
+                                                                <i class="icon-star fs-5"></i>
+                                                                <i class="icon-star voted fs-5"></i>
+                                                            </label>
+                                                            <input type="radio" name="rating" value="2" id="2">
+                                                            <label for="2">
+                                                                <i class="icon-star fs-5"></i>
+                                                                <i class="icon-star voted fs-5"></i>
+                                                            </label>
+                                                            <input type="radio" name="rating" value="1" id="1">
+                                                            <label for="1">
+                                                                <i class="icon-star fs-5"></i>
+                                                                <i class="icon-star voted fs-5"></i>
+                                                            </label>
+                                                        </div>
+                                                        <textarea name="review-message" placeholder="{{ __('names.writeReview') }}" class="form-control" style="height:150px;"></textarea>
+                                                    </div>
+                                                    <div class="form-group col-md-12">
+                                                        <button type="button" class="btn_1" id="submit-review">{{ __('buttons.addReview') }}</button>
+                                                    </div>
+                                                </div>
+                                        </div>
+                                    @endif
+                                </div>
+                            </div>
+                            <!--End tabs-container-->
+                        </div>
+                        <!--End prod-tabs-->
+                    </div>
+                    <!--End product-info-tabs-->
                 </div>
-                <!--/box_style_1 -->
-            </aside>
+                <!--End Product-details-->
+            </div>
+            <!--End Col-->
         </div>
-        <!--End row -->
     </div>
-    <!--End container -->
+    @push('css')
+        <style>
+            .rating {
+                display: flex;
+                flex-direction: row-reverse;
+                justify-content: flex-end;
+            }
+
+            .rating > input {
+                display: none
+            }
+
+            .rating > label {
+                position: relative;
+                width: 1em;
+                cursor: pointer
+            }
+
+            .rating > label .voted {
+                position: absolute;
+                top: 0;
+                left: 0;
+                display: none;
+            }
+
+            .rating > label:hover .voted,
+            .rating > label:hover ~ label .voted {
+                display: block !important;
+            }
+
+            .rating > input:checked ~ label .voted {
+                display: block;
+            }
+        </style>
+    @endpush
+    @push('scripts')
+        <script>
+            if ($('.prod-tabs .tab-btn').length) {
+                $('.prod-tabs .tab-btn').on('click', function (e) {
+                    e.preventDefault();
+                    var target = $($(this).attr('href'));
+                    $('.prod-tabs .tab-btn').removeClass('active-btn');
+                    $(this).addClass('active-btn');
+                    $('.prod-tabs .tab').fadeOut(0);
+                    $('.prod-tabs .tab').removeClass('active-tab');
+                    $(target).fadeIn(500);
+                    $(target).addClass('active-tab');
+                });
+            }
+
+            $('#submit-review').click(() => {
+                const value = $('input[type=radio][name=rating]:checked').val();
+                const desc = $('textarea[name=review_text]').val();
+                $.post("{{ route('addUserRating') }}",
+                    {
+                        "_token": "{{ csrf_token() }}",
+                        rating: value,
+                        description: desc,
+                        product: {{ $product->id }}
+                    },
+                    (data, status) => {
+                        if (data.val == "ok") location.reload();
+                    }
+                );
+            });
+        </script>
+    @endpush
 @endsection

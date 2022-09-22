@@ -47,12 +47,15 @@ return [
     'users' => 'Users',
 
     //Categories
+    'category' => 'Category',
     'categories' => 'Categories',
     'categoryDetails' => 'Category Details',
     'categoryList' => 'Category List',
     'createCategory' => 'Create Category',
     'editCategory' => 'Edit Category',
     'noCategories' => 'No Categories',
+    'subcategories' => 'Subcategories',
+    'noSubcategories' => 'No Subcategories',
 
     //Charts
     'bar' => 'Bar',
@@ -96,6 +99,7 @@ return [
     'table' => 'Table',
 
     //Homepage
+    'home' => 'Home',
     'addedAt' => 'Added at',
     'browseProducts'=> 'Browse Products',
     'code' => 'Code',
@@ -147,7 +151,6 @@ return [
     'invoice' => 'Invoice',
     'invoicePreview' => 'Invoice Preview',
 
-
     // Products
     'createProduct' => 'Create Product',
     'editProduct' => 'Edit Product',
@@ -159,6 +162,8 @@ return [
     'noProducts' => 'No Products',
     'filters' => 'Filters',
     'search' => 'Search',
+    'topRated' => 'Top Rated',
+    'productDescription' => 'Product Description',
 
     //Promotions
     'createPromotion' => 'Create Promotion',
@@ -188,8 +193,10 @@ return [
     'voted' => "Thank you for your vote!",
 
     //Reviews
-    'reviews' => 'Review(s)',
-    'review' => 'Review',
+    'customerReviews' => 'Customer Reviews',
+    'reviews' => 'Reviews',
+    'reviewsFound' => 'Reviews Found',
+    'addReview' => 'Add a Review',
     'writeReview' => 'Write your review',
     'noReviews' => 'No reviews',
 

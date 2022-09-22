@@ -36,5 +36,6 @@ return [
     'details' => 'Details',
     'leaveReview' => 'Leave a review',
     'uploadFile' => 'Upload File',
+    'addReview' => 'Add Review',
 
 ];

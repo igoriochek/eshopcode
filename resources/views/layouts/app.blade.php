@@ -63,7 +63,6 @@
         <div id="toTop"></div><!-- Back to top button -->
     </main>
     @include('layouts.footer')
-    @include('layouts.my_review')
 
     <script src="{{asset('js/jquery-3.6.0.min.js')}}"></script>
     <script src="{{asset('js/jquery.dataTables.min.js')}}"></script>
@@ -334,21 +333,6 @@
         $( "#finish" ).datepicker();
     } );
 
-    $('#submit-review').click(() => {
-        const value = $('input[type=radio][name=rating]:checked').val();
-        const desc = $('textarea[name=review_text]').val();
-        $.post("{{ route('addUserRating') }}",
-            {
-                "_token": "{{ csrf_token() }}",
-                rating: value,
-                description: desc,
-                product: {{ $product->id ?? 0 }}
-            },
-            (data, status) => {
-                if (data.val == "ok") location.reload();
-            }
-        );
-    });
     </script>
 
     @stack('scripts')

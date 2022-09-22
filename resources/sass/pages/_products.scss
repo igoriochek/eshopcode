@@ -33,3 +33,29 @@ input::-webkit-inner-spin-button {
 input[type=number] {
     -moz-appearance: textfield;
 }
+
+.ui-widget-header {
+    background: red;
+}
+
+#range-slider {
+    .ui-widget-header {
+        background: #e04f67;
+    }
+
+    .ui-state-default, .ui-widget-content .ui-state-default {
+        border-radius: 10px;
+        transition: background 300ms ease;
+        border: 0;
+        background: #b6394d;
+
+        &:hover,
+        &:active {
+            background: #b6394d;
+        }
+
+        &:active {
+            border: 0;
+        }
+    }
+}

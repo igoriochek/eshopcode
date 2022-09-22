@@ -1,129 +1,213 @@
 @extends('layouts.app')
 
 @section('content')
-    <section id="hero" class="background-image" data-background=url(../img/header_bg.jpg) style="height: 470px">
-        <div class="opacity-mask" data-opacity-mask="rgba(0, 0, 0, 0.6)">
-            <div class="intro_title">
-                <h3 class="animated fadeInDown">{{ __('names.products') }}</h3>
-            </div>
-        </div>
-        <!-- End opacity-mask-->
-    </section>
+    @include('user_views.section', ['title' => __('names.products')])
     <div id="position">
         <div class="container">
             <ul>
                 <li>
-                    <a href="../">{{__('menu.home')}}</a>
+                    <a href="{{ url('/home') }}">{{ __('names.home') }}</a>
                 </li>
-                <li>{{ __('names.products') }}</li>
+                <li>
+                    {{ __('names.products') }}
+                </li>
             </ul>
         </div>
     </div>
     <div class="container margin_60">
         <div class="row">
-            <aside class="col-lg-3">
-                <form method="get" action="{{ route("userproducts") }}">
-                    <p>
+            <div class="col-lg-9">
+                <div class="shop-section">
+                    <div class="items-sorting">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="results_shop">
+                                    {{ __('Showing ') }}
+                                    @if ($products->currentPage() !== $products->lastPage())
+                                        {{ ($products->count() * $products->currentPage() - $products->count() + 1).__('–').($products->count() * $products->currentPage()) }}
+                                    @else
+                                        @if ($products->total() - $products->count() === 0)
+                                            {{ 1 }}
+                                        @else
+                                            {{ ($products->total() - $products->count()).__('–').$products->total() }}
+                                        @endif
+                                    @endif
+                                    {{ __(' of ') }}
+                                    {{ $products->total().__(' results') }}
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <form method="get" action="{{ route("userproducts") }}" id="orderForm">
+                                        {!! Form::select('order', $order_list, $selectedProduct, ['class' => 'ps-3', 'id' => 'orderSelector']) !!}
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--End Sort By-->
+                    <div class="row">
+                        @forelse ($products as $product)
+                            <div class="shop-item col-lg-4 col-md-6 col-sm-6">
+                                <div class="inner-box">
+                                    <div class="image-box">
+                                        <figure class="image">
+                                            <a href="{{ route('viewproduct', $product->id) }}">
+                                                @if ($product->image)
+                                                    <img src="{{ $product->image }}" alt="{{ $product->name }}">
+                                                @else
+                                                    <img src="/images/noimage.jpeg" alt="noimage">
+                                                @endif
+                                            </a>
+                                        </figure>
+                                        <div class="item-options clearfix">
+                                            {!! Form::open(['route' => ['addtocart'], 'method' => 'post']) !!}
+                                            <input type="hidden" name="id" value="{{ $product->id }}">
+                                            <input type="hidden" name="count" value="1">
+                                            <button type="submit" class="btn_shop border-0">
+                                                <span class="icon-basket"></span>
+                                                <div class="tool-tip">
+                                                    {{ __('buttons.addToCart') }}
+                                                </div>
+                                            </button>
+                                            {!! Form::close() !!}
+                                        </div>
+                                    </div>
+                                    <div class="product_description">
+                                        <div class="rating flex-row justify-content-center">
+                                            @for($i = 1; $i <= 5; $i++)
+                                                <i class="@if ($product->average >= $i) icon-star voted @else icon-star-empty @endif"></i>
+                                            @endfor
+                                        </div>
+                                        <h3>
+                                            <a href="{{ route('viewproduct', $product->id) }}">{{ $product->name }}</a>
+                                        </h3>
+                                        <div class="price">
+                                            @if ($product->discount)
+                                                <span class="offer">
+                                                    €{{ $product->price }}
+                                                </span>
+                                                €{{ $product->price - round(($product->price * $product->discount->proc / 100), 2) }}
+                                            @else
+                                                €{{ $product->price }}
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--End Shop Item-->
+                        @empty
+                            {{ __('names.noProducts') }}
+                        @endforelse
+                    </div>
+                    <!--End Shop Item-->
+                    <div class="d-flex justify-content-center">
+                        {{ $products->links() }}
+                    </div>
+                    <!-- end pagination-->
+                </div>
+                <!-- End row -->
+            </div>
+            <!-- End col -->
+            <!--Sidebar-->
+            <div class="col-lg-3">
+                <aside class="sidebar">
+                    <form method="get" action="{{ route("userproducts") }}">
+                        <div class="widget">
+                            <div class="input-group">
+                                <input type="text" name="filter[namelike]" class="form-control" id="filter[namelike]"
+                                       placeholder="{{ __('names.search') }}..." value="{{ $filter["namelike"] ?? "" }}">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button" style="margin-left:0;">
+                                        <i class="icon-search"></i>
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                        <!-- End Search -->
+                        <hr>
+                        <div class="widget">
+                            <h4>{{ __('names.filters') }}</h4>
+                            <fieldset class="form-group">
+                                <div id="range-slider" class="slider mx-2 mt-5 mb-2" wire:ignore>
+                                    <div class="ui-slider-handle position-relative" style="transform: translate(7px, 1px)">
+                                        <input type="text" id="filter[pricefrom]" name="filter[pricefrom]" readonly
+                                               value="{{ $filter["pricefrom"] ?? '0' }}" style="position: absolute; top: -150%; left: -650%; border: none; width: 40px; background: #e04f67; text-align: center; border-radius: 4px; color: #fff"/>
+                                    </div>
+                                    <div class="ui-slider-handle position-relative" style="transform: translate(7px, -15px)">
+                                        <input type="text" id="filter[priceto]" name="filter[priceto]" readonly
+                                               value="{{ $filter["priceto"] ?? '0' }}" style="position: absolute; top: -150%; left: -650%; border: none; width: 40px; background: #e04f67; text-align: center; border-radius: 4px; color: #fff"/>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <!-- End widget -->
+                        <hr>
+                        <div class="widget" id="cat_shop">
+                            <h4 class="mb-3">{{ __('names.categories') }}</h4>
+                            <ul>
+                                @forelse($categories as $category)
+                                    <li class="mb-3">
+                                        <label class="container_check">
+                                            {{ $category->name }}
+                                            <input type="checkbox" value="{{$category->id}}" id="category" onclick="calc();"
+                                            @if ($filter && array_key_exists('categories.id', $filter))
+                                                {{ in_array($category->id, $selCategories) ? "checked=\"checked\"" : ""}}
+                                                @endif
+                                            >
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </li>
+                                @empty
+                                    <li>{{ __('names.noCategories') }}</li>
+                                @endforelse
+                            </ul>
+                            <input type="text" value="{{ implode(",", $selCategories) }}"
+                                   name="filter[categories.id]" id="filter[categories.id]" class="d-none">
+                        </div>
+                        <!-- End widget -->
+                        <hr>
                         <button type="submit" class="filter-button" data-text-original="{{ __('buttons.filter') }}">
                             {{ __('buttons.filter') }}
                         </button>
-                    </p>
-                    <div id="filters_col">
-                        <a data-bs-toggle="collapse" href="#collapseFilters" aria-expanded="false" aria-controls="collapseFilters" id="filters_col_bt">
-                            <i class="icon_set_1_icon-65"></i>
-                            {{ __('names.filters') }}
-                        </a>
-                        <div class="collapse show" id="collapseFilters">
-                            <div class="filter_type">
-                                <h6>{{ __('names.search') }}</h6>
-                                <input type="text" name="filter[namelike]" class="form-control mb-3" id="filter[namelike]"
-                                       placeholder="{{ __('names.search') }}..." value="{{ $filter["namelike"] ?? "" }}">
-                            </div>
-                            <div class="filter_type">
-                                <h6>{{ __('names.price') }}</h6>
-                                <fieldset class="form-group">
-                                    <div id="range-slider" class="slider mx-2 mb-4 mt-1" wire:ignore></div>
-                                    <div class="filter-by-price-button-container">
-                                        <div class="d-flex">
-                                            <span>{{ __('names.price')}}:</span>
-                                            <input type="text" id="filter[pricefrom]" name="filter[pricefrom]"
-                                                   readonly
-                                                   value="{{ $filter["pricefrom"] ?? '0' }}"
-                                                   class="border-0 text-end filter-by-price-number" style="max-width: 50px"/>
-                                            <span class="text-center">&nbsp;—&nbsp;</span>
-                                            <input type="text" id="filter[priceto]" name="filter[priceto]" readonly
-                                                   value="{{ $filter["priceto"] ?? '0' }}"
-                                                   class="border-0 text-start filter-by-price-number" style="max-width: 50px"/>
-                                        </div>
+                        <hr>
+                        <div class="widget related-products">
+                            <h4>{{ __('names.topRated') }}</h4>
+                            @foreach($products->sortByDesc('average')->take(3) as $productByRating)
+                                <div class="post">
+                                    <figure class="post-thumb">
+                                        <a href="{{ route('viewproduct', $product->id) }}">
+                                            @if ($product->image)
+                                                <img src="{{ $product->image }}" alt="{{ $product->name }}">
+                                            @else
+                                                <img src="/images/noimage.jpeg" alt="noimage">
+                                            @endif
+                                        </a>
+                                    </figure>
+                                    <h5>
+                                        <a href="{{ route('viewproduct', $productByRating->id) }}">{{ $productByRating->name }}</a>
+                                    </h5>
+                                    <div class="rating flex-row justify-content-start">
+                                        @for($i = 1; $i <= 5; $i++)
+                                            <i class="@if ($productByRating->average >= $i) icon-star voted @else icon-star-empty @endif"></i>
+                                        @endfor
                                     </div>
-                                </fieldset>
-                            </div>
-                            <div class="filter_type">
-                                <h6>{{ __('names.categories') }}</h6>
-                                <ul class="mb-0">
-                                    @forelse($categories as $category)
-                                        <li>
-                                            <label class="container_check">
-                                                {{ $category->name }}
-                                                <input type="checkbox" value="{{$category->id}}" id="category" onclick="calc();"
-                                                @if ($filter && array_key_exists('categories.id', $filter))
-                                                    {{ in_array($category->id, $selCategories) ? "checked=\"checked\"" : ""}}
-                                                    @endif
-                                                >
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </li>
-                                    @empty
-                                        <li>{{ __('names.noCategories') }}</li>
-                                    @endforelse
-                                </ul>
-                                <input type="text" value="{{ implode(",", $selCategories) }}"
-                                       name="filter[categories.id]" id="filter[categories.id]" class="d-none">
-                            </div>
+                                    <div class="price">
+                                        @if ($productByRating->discount)
+                                            €{{ $productByRating->price - round(($productByRating->price * $productByRating->discount->proc / 100), 2) }}
+                                        @else
+                                            €{{ $productByRating->price }}
+                                        @endif
+                                    </div>
+                                </div>
+                            @endforeach
                         </div>
-                        <!--End collapse -->
-                    </div>
-                </form>
-            </aside>
-            <!--End aside -->
-            <div class="col-lg-9">
-                <div id="tools">
-                    <div class="row justify-content-between">
-                        <div class="col-md-3 col-sm-4">
-                            <div class="styled-select-filters">
-                                <form method="get" action="{{ route("userproducts") }}" id="orderForm">
-                                    {!! Form::select('order', $order_list, $selectedProduct, ['class' => 'ps-3', 'id' => 'orderSelector']) !!}
-                                </form>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-sm-4 d-none d-sm-block text-end">
-                            {{--
-                            <a href="#" class="bt_filters" id="productsGrid">
-                                <i class="icon-th"></i>
-                            </a>
-                            <a href="#" class="bt_filters" id="productsList">
-                                <i class=" icon-list"></i>
-                            </a>
-                            --}}
-                        </div>
-                    </div>
-                </div>
-                <!--/tools -->
-                @forelse( $products as $product )
-                    @include('user_views.product.products_list')
-                @empty
-                    {{ __('names.noProducts') }}
-                @endforelse
-                <div class="d-flex justify-content-center">
-                    {{ $products->links() }}
-                </div>
-                <!-- end pagination-->
+                    </form>
+                </aside>
             </div>
-            <!-- End col lg-9 -->
+            <!--Sidebar-->
         </div>
-        <!-- End row -->
     </div>
-
     @push('scripts')
         <script>
             const orderForm = document.getElementById('orderForm');
@@ -163,6 +247,5 @@
             }
         </script>
     @endpush
-
 @endsection
 

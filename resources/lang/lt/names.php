@@ -34,12 +34,15 @@ return [
     'removeProduct' => 'Išmesti prekę',
 
     //Categories
+    'category' => 'Kategorija',
     'categories' => 'Kategorijos',
     'categoryDetails' => 'Kategorijos informacija',
     'categoryList' => 'Kategorijų sąrašas',
     'createCategory' => 'Sukurti Kategorija',
     'editCategory' => 'Redaguoti kategorija',
     'noCategories' => 'Nėra Kategorijų',
+    'subcategories' => 'Subkategorijos',
+    'noSubcategories' => 'Nėra Subkategorijų',
 
     //Charts
     'bar' => 'Kaladėlė',
@@ -96,6 +99,7 @@ return [
     'table' => 'Lentelė',
 
     //Homepage
+    'home' => 'Pagrindinis',
     'addedAt' => 'Pridėta',
     'browseProducts'=> 'Naršyti Produktus',
     'code' => 'Kodas',
@@ -158,6 +162,8 @@ return [
     'noProducts' => 'Nėra produktų',
     'filters' => 'Filtrai',
     'search' => 'Search',
+    'topRated' => 'Geriausiai atsiliepimai',
+    'productDescription' => 'Produkto Aprašymas',
 
     //Promotions
     'createPromotion' => 'Sukurti Akciją',
@@ -188,8 +194,10 @@ return [
     'voted' => "Ačiū už jūsų balsą!",
 
     //Reviews
+    'customerReviews' => 'Kliento atsiliepimai',
     'reviews' => 'Atsiliepimai',
-    'review' => 'Atsiliepimas',
+    'reviewsFound' => 'Rasta Atsiliepimų',
+    'addReview' => 'Pridėti Atsiliepimą',
     'writeReview' => 'Parašykite savo atsiliepimą',
     'noReviews' => 'Nėra Atsiliepimų',
 

@@ -143,7 +143,7 @@ Route::group(array('prefix' => 'admin', 'middleware' => 'admin'), function () {
         Route::get("homepage", [App\Http\Controllers\HomeController::class, 'userhomepage'])->name('userhomepage');
         Route::get("rootcategories", [CategoryController::class, 'userRootCategories'])->name('rootcategories');
         Route::get("innercategories/{category_id}", [CategoryController::class, 'userInnerCategories'])->name('innercategories');
-        Route::get("categorytree", [CategoryController::class, 'userCategoryTree'])->name('categorytree');
+        //Route::get("categorytree", [CategoryController::class, 'userCategoryTree'])->name('categorytree');
         Route::get("viewcategory", [CategoryController::class, 'userViewCategory'])->name('viewcategory');
         Route::get("viewproduct/{id}", [ProductController::class, 'userViewProduct'])->where('id', '[0-9]+')->name('viewproduct');
         Route::post('addtocart', [CartController::class, 'addToCart'])->name('addtocart');

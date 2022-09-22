@@ -3761,7 +3761,7 @@ textarea.form-control-lg {
   padding: 0.25rem 1rem;
   clear: both;
   font-weight: 400;
-  color: #fff;
+  color: #212529;
   text-align: inherit;
   text-decoration: none;
   white-space: nowrap;
@@ -3938,7 +3938,7 @@ textarea.form-control-lg {
 .nav-link {
   display: block;
   padding: 0.5rem 1rem;
-  color: #fff;
+  color: #0d6efd;
   text-decoration: none;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
@@ -3948,7 +3948,7 @@ textarea.form-control-lg {
   }
 }
 .nav-link:hover, .nav-link:focus {
-  color: #fff;
+  color: #0a58ca;
 }
 .nav-link.disabled {
   color: #6c757d;
@@ -11311,4 +11311,24 @@ input::-webkit-inner-spin-button {
 
 input[type=number] {
   -moz-appearance: textfield;
+}
+
+.ui-widget-header {
+  background: red;
+}
+
+#range-slider .ui-widget-header {
+  background: #e04f67;
+}
+#range-slider .ui-state-default, #range-slider .ui-widget-content .ui-state-default {
+  border-radius: 10px;
+  transition: background 300ms ease;
+  border: 0;
+  background: #b6394d;
+}
+#range-slider .ui-state-default:hover, #range-slider .ui-state-default:active, #range-slider .ui-widget-content .ui-state-default:hover, #range-slider .ui-widget-content .ui-state-default:active {
+  background: #b6394d;
+}
+#range-slider .ui-state-default:active, #range-slider .ui-widget-content .ui-state-default:active {
+  border: 0;
 }
