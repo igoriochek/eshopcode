@@ -89,21 +89,7 @@
                             <li><a href="/home" >{{ __('names.dashboard') }} </a></li>
                             <li><a href="/user/products" class="show-submenu">{{__('menu.products')}}</a></li>
                             <li><a href="/user/rootcategories" class="show-submenu">{{__('menu.categories')}}</a></li>
-                            <li class="submenu">
-                                <a href="/user/promotions" class="show-submenu">{{__('menu.promotions')}}<i class="icon-down-open-mini"></i></a>
-                                <ul>
-                                    <li><a href="/user/promotion/1">Prof.Moshe Funk</a>
-                                    <li><a href="/user/promotion/2">Dorian Kihn</a>
-                                    <li><a href="/user/promotion/3">David Zboncak</a>
-                                    <li><a href="/user/promotion/4">Leanne Pollich DVM</a>
-                                    <li><a href="/user/promotion/5">Miss Kayli Hintz DDS</a>
-                                    <li><a href="/user/promotion/6">Terrell Auer</a>
-                                    <li><a href="/user/promotion/7">Oma Thiel</a>
-                                    <li><a href="/user/promotion/8">Mrs.Fanny Oberbrunnner DDS</a>
-                                    <li><a href="/user/promotion/9">Eldred Reichel</a>
-                                    <li><a href="/user/promotion/10">Jacklyn Thiel</a>
-                                </ul>
-                            </li>
+                            <li><a href="/user/promotions" class="show-submenu">{{__('menu.promotions')}}</a></li>
                             <li><a href="/user/discountCoupons" class="show-submenu">{{__('menu.discountCoupons')}}</a></li>
                             <li><a href="/user/rootorders" class="show-submenu">{{__('menu.orders')}}</a></li>
                             <li><a href="/user/rootoreturns" class="show-submenu">{{__('menu.returns')}}</a></li>

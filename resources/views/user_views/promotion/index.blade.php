@@ -2,13 +2,7 @@
 
 @section('content')
 
-    <section id="hero" class="background-image" data-background=url(../img/header_bg.jpg) style="height: 470px">
-        <div class="opacity-mask" data-opacity-mask="rgba(0, 0, 0, 0.6)">
-            <div class="intro_title">
-                <h3 class="animated fadeInDown">{{ __('names.promotions') }}</h3>
-            </div>
-        </div>
-    </section>
+    @include('user_views.section', ['title' => __('names.promotions') ])
 
     <div id="position">
         <div class="container">
@@ -16,78 +10,43 @@
                 <li>
                     <a href="../">{{__('menu.home')}}</a>
                 </li>
-                <li>{{ __('names.promotions') }}</li>
+                <li>
+                    {{ __('names.promotions') }}
+                </li>
             </ul>
         </div>
     </div>
 
     <div class="container margin_60">
         <div class="row">
-            <aside class="col-lg-3" id="sidebar">
-                <div class="theiaStickySidebar">
-                    <div class="box_style_cat" id="faq_box">
-                        <ul id="cat_nav">
-                            @forelse ($promotions as $item)
-                                <li><a href="#{{$item->id}}" class="active"><i class="icon_set_1_icon-95"></i>{{$item->name}}</a>
-                                </li>
-                            @empty
-                                <li>{{__('names.noPromotions')}}</li>
-                            @endforelse
-                        </ul>
-                    </div>
-                </div>
-                <!--End sticky -->
+            <aside class="col-lg-3 theiaStickySidebar" id="sidebar">
+                @include('user_views.promotion.promotionsList')
             </aside>
             <!--End aside -->
-
             <div class="col-lg-9">
-                @forelse ($promotions as $item)
-                    <h3 class="nomargin_top">{{$item->name}} {{__('names.promotions')}}</h3>
-                    <div id="{{$item->id}}" class="accordion_styled">
-                        @if(($item->products->count()))
-                            @foreach( $item->products as $prod )
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h4>
-                                            <a href="{{route('viewproduct', $prod->id)}}" >{{$prod->name}}</a>
-                                            <a class="accordion-toggle" data-bs-toggle="collapse" data-bs-parent="#{{$item->id}}" href="#collapse{{$prod->id}}">
-                                                <i class="indicator icon-plus float-end" style="margin-top: -20px" ></i>
-                                            </a>
-                                        </h4>
-                                    </div>
-                                    <div id="collapse{{$prod->id}}" class="collapse" data-bs-parent="#payment">
-                                        <div class="card-body">
-                                            <h6>{{$prod->description}}</h6>
-                                            <h6 class="d-flex justify-content-end">{{$prod->price}} €</h6>
-                                        </div>
-                                    </div>
+                @forelse($promotions as $promotion)
+                    <div id="{{$promotion->id}}" class="strip_all_tour_list wow fadeIn" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeIn;">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12">
+                                <div class="tour_list_desc d-flex flex-column justify-content-center p-4">
+                                    <h3 class="card-title">
+                                        <a href="{{route("promotion", ["id"=>$promotion->id])}}">{{ $promotion->name }} {{__('names.promotions')}}</a>
+                                    </h3>
+                                    <span class="mb-3">({{ count($promotion->products) }} {{__('names.products') }})</span>
+                                    <span class="mb-3">{{ $promotion->description }}</span>
                                 </div>
-                                @if ($loop->iteration > 2)
-                                    <div class="row">
-                                        <div class="d-flex justify-content-center" style="margin-bottom: 20px">
-                                            <a href="{{route("promotion", ["id"=>$item->id])}}" class="btn_1 outline">{{__("names.more_for_promotions")}}</a>
-                                        </div>
-                                </div>
-
-                                    @break
-                                @endif
-                            @endforeach
-                        @else
-                        @endif
-                </div>
-                <!-- End container -->
-                @empty
-                @endforelse
-                    <div class="d-flex justify-content-center">
-                        {{$promotions->links()}}
+                            </div>
+                        </div>
                     </div>
+                    <!--End strip -->
+                @empty
+                    {{__('names.noPromotions')}}
+                @endforelse
             </div>
-            <!-- End col lg-9-->
+            <!-- End col-lg-9 -->
         </div>
         <!-- End row -->
     </div>
-    <!-- End main -->
-
 
     @push('scripts')
     <script src="{{asset('js/theia-sticky-sidebar.js')}}"></script>
@@ -97,7 +56,7 @@
         });
     </script>
     <script>
-        $('#faq_box a[href^="#"]').click(function() {
+        $('#promotions_box a[href^="#"]').click(function() {
             if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
                 || location.hostname == this.hostname) {
                 var target = $(this.hash);

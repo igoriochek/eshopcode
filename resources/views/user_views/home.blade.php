@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+
+    @include('user_views.section', ['title' => __('names.Dashboard') ])
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">

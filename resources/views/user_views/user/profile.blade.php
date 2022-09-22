@@ -2,15 +2,7 @@
 
 @section('content')
 
-
-
-    <section id="hero" class="background-image" data-background=url(../img/header_bg.jpg) style="height: 470px">
-        <div class="opacity-mask" data-opacity-mask="rgba(0, 0, 0, 0.4)">
-            <div class="intro_title">
-                <h3 class="animated fadeInDown">{{__('menu.userInfo')}}</h3>
-            </div>
-        </div>
-    </section>
+    @include('user_views.section', ['title' => __('menu.userInfo') ])
 
     <div id="position">
         <div class="container">

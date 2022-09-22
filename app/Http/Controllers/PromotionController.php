@@ -39,7 +39,7 @@ class PromotionController extends AppBaseController
     public function indexPromotions(Request $request)
     {
 //         $categories = $this->categoryRepository->allQuery(array("parent_id"=>null))->paginate("3");
-        $promotions = $this->promotionRepository->allQuery()->paginate(5);
+        $promotions = $this->promotionRepository->allQuery()->paginate(10);
 
         return view('user_views.promotion.index')
             ->with('promotions', $promotions);
@@ -50,10 +50,11 @@ class PromotionController extends AppBaseController
     {
 //         $categories = $this->categoryRepository->allQuery(array("parent_id"=>null))->paginate("3");
         $promotion = $this->promotionRepository->allQuery(['id' => $request->id])->first();
-        $products = Product::query()->where(['promotion_id' => $request->id])->paginate(5);
+        $products = Product::query()->where(['promotion_id' => $request->id])->paginate(25);
+        $promotions = $this->promotionRepository->allQuery()->paginate(10);
 
 
-        return view('user_views.promotion.promotionproducts',['promotion' => $promotion, 'products' => $products]);
+        return view('user_views.promotion.promotionproducts',['promotion' => $promotion,'promotions'=> $promotions, 'products' => $products]);
     }
 
     /**
