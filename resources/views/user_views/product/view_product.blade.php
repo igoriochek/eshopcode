@@ -117,9 +117,7 @@
                                                         {{ $rating->created_at->format('F j, Y') }}
                                                     </div>
                                                     <div class="rev-text">
-                                                        <p>
-                                                            Sed eget turpis a pede tempor malesuada. Vivamus quis mi at leo pulvinar hendrerit. Cum sociis natoque penatibus et magnis dis
-                                                        </p>
+                                                        <p>{{ $rating->description  }}</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -234,7 +232,7 @@
 
             $('#submit-review').click(() => {
                 const value = $('input[type=radio][name=rating]:checked').val();
-                const desc = $('textarea[name=review_text]').val();
+                const desc = $('textarea[name=review-message]').val();
                 $.post("{{ route('addUserRating') }}",
                     {
                         "_token": "{{ csrf_token() }}",

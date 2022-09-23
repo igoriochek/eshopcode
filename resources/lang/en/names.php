@@ -128,6 +128,10 @@ return [
     'unreadMsg' => 'unread messages.',
 
     //Messenger
+    'messages' => 'Messages',
+    'you' => 'You',
+    'contactUsers' => 'Contact Users',
+    'noUncontactedUsers' => 'No uncontacted users found',
     'typeMsg' => 'Type your message here...',
 
     //Orders
@@ -230,7 +234,10 @@ return [
     'editCustomer' => 'Edit Customer',
     'userLogs' => 'User Logs',
 
-
+    //Discounts coupons
+    "noDiscountCoupons" => "You have no discount coupons yet :(",
+    "discountCouponCode" => "Discount coupon code",
+    "discountCouponValue" => "Discount coupon value",
 
     'desc' => 'Description',
     'name' => 'Name',
@@ -239,6 +246,5 @@ return [
     'new' => "New",
 
     'orderBy' => 'Order By'
-
 
 ];

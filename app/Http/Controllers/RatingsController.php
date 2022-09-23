@@ -165,6 +165,7 @@ class RatingsController extends AppBaseController
             $rating->user_id = $username;
             $rating->value = $request->rating;
             $rating->product_id = $request->product;
+            $rating->description = $request->description;
             $rating->save();
             $response = "ok";
         }

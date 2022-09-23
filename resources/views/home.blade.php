@@ -14,14 +14,12 @@
     <div id="position">
         <div class="container">
             <ul>
-                <li><a href="../">{{__('menu.home')}}</a>
-                </li>
-                <li>{{ __('names.dashboard') }}</li>
+                <li>{{ __('names.home') }}</li>
             </ul>
         </div>
     </div>
     <!-- End Position -->
-    <div class="container">
+    {{--<div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
@@ -144,5 +142,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>--}}
 @endsection

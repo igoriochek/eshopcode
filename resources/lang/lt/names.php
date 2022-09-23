@@ -128,6 +128,10 @@ return [
     'unreadMsg' => 'neperskaitytas žinutes.',
 
     //Messenger
+    'messages' => 'Pranešimai',
+    'you' => 'Jūs',
+    'contactUsers' => 'Susisiekite su vartotojais',
+    'noUncontactedUsers' => 'Nerasta nesusisiekusių vartotojų',
     'typeMsg' => 'Įveskite savo žinutę...',
 
     //Orders
@@ -231,10 +235,10 @@ return [
     'editCustomer' => 'Redaguoti Klientą',
     'userLogs' => 'Vartotojų Žurnalai',
 
-
-
-
-
+    //Discounts coupons
+    "noDiscountCoupons" => "Jūs dar neturite nuolaidų kuponų :(",
+    "discountCouponCode" => "Nuolaidų kupono kodas",
+    "discountCouponValue" => "Nuolaidų kupono suma",
 
     'desc' => 'Aprašymas',
     'name' => 'Pavadinimas',

@@ -25,7 +25,7 @@ return [
     'importExport' => 'Importas/Eksportas',
     'login' => 'Prisijungti',
     'logout'=> 'Atsijungti',
-    'messenger' => 'Messenger',
+    'messenger' => 'Susisiekite',
     'orders' => 'Užsakymai',
     'ordersReport' => 'Užsakymų Ataskaitos',
     'orderStatuses' => 'Užsakymų Būsenos',

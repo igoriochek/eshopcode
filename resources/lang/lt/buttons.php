@@ -37,5 +37,6 @@ return [
     'leaveReview' => 'Palikti atsiliepimą',
     'uploadFile' => 'Įkelti failą',
     'addReview' => 'Pridėti Atsiliepimą',
+    'contact' => 'Susisiekti'
 
 ];

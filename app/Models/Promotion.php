@@ -3,8 +3,9 @@
 namespace App\Models;
 
 use Eloquent as Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Astrotomic\Translatable\Translatable;
+use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
 
 /**
  * Class Promotion
@@ -16,46 +17,38 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @property string|\Carbon\Carbon $start
  * @property string|\Carbon\Carbon $finish
  */
-class Promotion extends Model
+class Promotion extends Model implements TranslatableContract
 {
-//    use SoftDeletes;
-
-    use HasFactory;
+    use HasFactory,Translatable;
 
     public $table = 'promotions';
-
-
-//    protected $dates = ['deleted_at'];
-
-
+    public $translatedAttributes = ['name', 'description'];
 
     public $fillable = [
-        'name',
-        'description',
+//        'name',
+//        'description',
         'start',
         'finish'
     ];
-
     /**
      * The attributes that should be casted to native types.
      *
      * @var array
      */
     protected $casts = [
-        'name' => 'string',
-        'description' => 'string',
+//        'name' => 'string',
+//        'description' => 'string',
         'start' => 'datetime',
         'finish' => 'datetime'
     ];
-
     /**
      * Validation rules
      *
      * @var array
      */
     public static $rules = [
-        'name' => 'required',
-        'description' => 'required',
+//        'name' => 'required',
+//        'description' => 'required',
         'start' => 'required',
         'finish' => 'required'
     ];

@@ -81,10 +81,10 @@
                     <a href="#" class="open_close" id="close_in"><i class="icon_set_1_icon-77"></i></a>
                     @guest
                         <ul class="d-flex justify-content-evenly">
-                            <li class="nav-item"><a href="../" >{{__('menu.home')}}</a></li>
-                            <li class="nav-item"><a href="/home" >{{__('menu.products')}}</a></li>
-                            <li class="nav-item"><a href="/home" >{{__('menu.categories')}}</a></li>
-                            <li class="nav-item"><a href="/home" >{{__('menu.promotions')}}</a></li>
+                            <li class="nav-item"><a href="/home" >{{__('menu.home')}}</a></li>
+                            <li class="nav-item"><a href="/products" >{{__('menu.products')}}</a></li>
+                            <li class="nav-item"><a href="/rootcategories" >{{__('menu.categories')}}</a></li>
+                            <li class="nav-item"><a href="/promotions" >{{__('menu.promotions')}}</a></li>
                         </ul>
                     @else
                         <ul>

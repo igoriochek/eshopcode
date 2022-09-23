@@ -23,7 +23,7 @@ return [
     'discounts' => 'Discounts',
     'discountCoupons' => 'Discount Coupons',
     'importExport' => 'Import/Export',
-    'messenger' => 'Messenger',
+    'messenger' => 'Chat',
     'logout'=> 'Logout',
     'orders' => 'Orders',
     'orderStatuses' => 'Order Statuses',
