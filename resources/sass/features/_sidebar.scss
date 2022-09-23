@@ -40,6 +40,7 @@
         text-transform: uppercase;
         padding: .8rem 2.5rem;
         border-radius: 5px;
+        width: 100%;
         @include primaryButton;
     }
 

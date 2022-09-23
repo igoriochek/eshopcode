@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row py-4 my-5">
             <div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
-                <h5 class="text-4 text-color-light mb-3">{{ __('footer.contantInfo') }}</h5>
+                <h5 class="text-4 text-color-light mb-3">{{ __('footer.contactInfo') }}</h5>
                 <ul class="list list-unstyled">
                     <li class="pb-1 mb-2">
                         <span
@@ -49,7 +49,7 @@
                 </ul>
             </div>
             <div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
-                <h5 class="text-4 text-color-light mb-3">{{ __('footer.browser') }}</h5>
+                <h5 class="text-4 text-color-light mb-3">{{ __('footer.browse') }}</h5>
                 <ul class="list list-unstyled mb-0 footer-links">
                     <li class="nav-list">
                         <a class="{{ request()->is('products*') ? 'active' : '' }}" href="{{ url('/home') }}">

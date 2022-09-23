@@ -115,11 +115,11 @@
                                         <a href="#" class="header-nav-features-toggle" role="button"
                                            id="navbarUserDropdown"
                                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fa-solid fa-user"></i>
+                                            <img src="{{ asset('images/icons/icon-account.png') }}" height="37" alt="icon-account" class="header-nav-features-img">
                                         </a>
                                         @include('layouts.dropdowns.user_dropdown')
                                         <a href="{{ url('/user/viewcart') }}" class="header-nav-features-toggle">
-                                            <i class="fa-solid fa-cart-shopping"></i>
+                                            <img src="{{ asset('images/icons/icon-cart-big.svg') }}" height="35" alt="icon-cart-big" class="header-nav-features-img">
                                             @if (!empty($cartItemCount))
                                                 <span class="shopping-cart-items">{{ $cartItemCount }}</span>
                                             @endif
@@ -147,6 +147,12 @@
         const nav = document.getElementById('nav');
         const maxWidth = 991;
 
-        window.innerWidth > 991 ? nav.classList.add('show') : nav.classList.remove('show');
+        window.innerWidth > maxWidth && nav.classList.add('show');
+
+        window.addEventListener(
+            'resize',
+            event => window.innerWidth > maxWidth ? nav.classList.add('show') : nav.classList.remove('show'),
+            true
+        );
     </script>
 @endpush

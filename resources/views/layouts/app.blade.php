@@ -30,7 +30,7 @@
 <body>
     <div>
         @include('layouts.header')
-        <main class="main shop" style="padding-top: 30px">
+        <main class="main shop">
             @yield('content')
             <button type="button" class="scroll-to-top-button">
                 <i class="fa-solid fa-angle-up"></i>
@@ -308,7 +308,7 @@
 
         window.addEventListener('scroll', () => {
             if (window.scrollY > 0) header.style.position = 'relative'
-            if (window.scrollY > topbarHeight) header.style.position = 'fixed';
+            if (window.scrollY > topbarHeight) header.style.position = 'sticky';
 
             scrollToTopButton.classList.toggle('show', window.scrollY > topbarHeight);
 
@@ -316,17 +316,13 @@
                 scrollToTopButton.classList.add('fade-in');
         });
 
-        document.onscroll = () => onFixedNavbar();
+        document.onscroll = () => onStickyNavbar();
 
-        const onFixedNavbar = () => {
-            const main = document.querySelector('main');
-            if (document.body.scrollTop > topbarHeight || document.documentElement.scrollTop > topbarHeight) {
-                main.style.paddingTop = '153px';
+        const onStickyNavbar = () => {
+            if (document.body.scrollTop > topbarHeight || document.documentElement.scrollTop > topbarHeight)
                 header.style.top = '-42px';
-            } else {
-                main.style.paddingTop = '30px';
+            else
                 header.style.top = '0';
-            }
         }
     </script>
     @stack('scripts')
