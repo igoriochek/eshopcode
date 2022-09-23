@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+
+    @include('user_views.section', ['title' => __('statistics') ])
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.6.347/pdf.min.js"></script>

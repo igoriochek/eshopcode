@@ -13,6 +13,7 @@ return [
     'next' => 'Pirmyn &raquo;',
 
     'action' => 'Veiksmas',
+    'actions' => 'Veiksmai',
     'activity' => 'Veikla',
     'activityId' => 'Veiklos ID',
     'admin' => 'Administratorius',
@@ -45,8 +46,8 @@ return [
     'returnId' => 'Grąžinimo ID',
     'shipping' => 'Siuntimas',
     'start' => 'Pradžia',
-    'status'=> 'Statusas',
-    'statusId' => 'Statuso ID',
+    'status'=> 'Būsena',
+    'statusId' => 'Būsenos ID',
     'subTotal' => 'Tarpinė suma',
     'sum' => 'Suma',
     'userType' => 'Vartotojo Tipas',

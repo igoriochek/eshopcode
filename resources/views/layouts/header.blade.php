@@ -42,6 +42,8 @@
                                             @if( Auth::user()->type == 2 )
                                                 <a class="dropdown-item" href="/user/userprofile">{{__('menu.userInfo')}}</a>
                                             @endif
+                                                <li><a href="/user/rootorders" class="dropdown-item">{{__('names.myOrders')}}</a></li>
+                                                <li><a href="/user/rootoreturns" class="dropdown-item">{{__('names.myReturns')}}</a></li>
                                                 <li>
                                                     <form id="logout-form" action="{{ route('logout') }}" method="POST">
                                                         @csrf
@@ -91,8 +93,6 @@
                             <li><a href="/user/rootcategories" class="show-submenu">{{__('menu.categories')}}</a></li>
                             <li><a href="/user/promotions" class="show-submenu">{{__('menu.promotions')}}</a></li>
                             <li><a href="/user/discountCoupons" class="show-submenu">{{__('menu.discountCoupons')}}</a></li>
-                            <li><a href="/user/rootorders" class="show-submenu">{{__('menu.orders')}}</a></li>
-                            <li><a href="/user/rootoreturns" class="show-submenu">{{__('menu.returns')}}</a></li>
                             <li><a href="/user/messenger" class="show-submenu">{{__('menu.messenger')}}</a></li>
                         </ul>
                 </div><!-- End main-menu -->

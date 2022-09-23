@@ -139,13 +139,14 @@ return [
     'editOrderItem' => 'Redaguoti užsakymo prekę',
     'editOrderStatus' => 'Redaguoti Užsakymų Statusą',
     'order' => 'Užsakymas',
+    'orderNr' => 'Užsakymas Nr.',
     'orders' => 'Užsakymai',
     'orderDetails' => 'Užsakymo Informacija',
     'orderHistory' => 'Užsakymo Istorija',
     'orderItems' => 'Užsakymo Prekės',
     'orderItemDetails' => 'Užsakymo Prekės Informacija',
-    'orderStatus' => 'Užsakymo Statusas',
-    'orderStatuses' => 'Užsakymų statusai',
+    'orderStatus' => 'Užsakymo Būsena',
+    'orderStatuses' => 'Užsakymų Būsenos',
     'orderStatusDetails' => 'Užsakymų Statuso Informacija',
     'noOrders' => 'Jūs neatlikote jokių užsakymų',
     'invoice' => 'Sąskaita faktūra',
@@ -189,9 +190,13 @@ return [
     //Rating
     'alreadyVoted' => "Jūs jau prabalsavote už šį produktą!",
     'rating' => 'Įvertinimas',
+    'ratings' => 'Įvertinimai',
     'ratingOrRatings' => 'Įvertinimas(ai)',
     'starRating' => 'Įvertinimas Žvaigždutėmis',
     'voted' => "Ačiū už jūsų balsą!",
+    'createRating'=> 'Sukurti Įvertinimą',
+    'editRating' => 'Redaguoti Įvertinimą',
+    'ratingDetails' => 'Įvertinimo Informacija',
 
     //Reviews
     'customerReviews' => 'Kliento atsiliepimai',
@@ -202,7 +207,7 @@ return [
     'noReviews' => 'Nėra Atsiliepimų',
 
     //Returns
-    'checkReturn' => 'Pasirinkite kuriuos norite grąžinti',
+    'checkReturn' => 'Pasirinkite ką norite grąžinti',
     'createReturn' => 'Sukurti Grąžinimą',
     'createReturnItem' => 'Sukurti Grąžinimo Prekę',
     'createReturnStatus' => 'Sukurti Grąžinimų Statusą',
@@ -214,8 +219,8 @@ return [
     'returnDetails' => 'Grąžinimo Informacija',
     'returnItems' => 'Grąžinimo Prekės',
     'returnItemDetails' => 'Grąžinimo Prekės Informacija',
-    'returnStatus' => 'Grąžinimo Statusas',
-    'returnStatuses' => 'Grąžinimų Statusai',
+    'returnStatus' => 'Grąžinimo Būsena',
+    'returnStatuses' => 'Grąžinimų Būsenos',
     'returnStatusDetails' => 'Grąžinimo Statuso Informacija',
     'noReturns' => 'Jūs neatlikote jokių grąžinimų',
 

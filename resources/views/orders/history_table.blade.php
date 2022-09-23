@@ -1,5 +1,5 @@
 <div class="table-responsive">
-    <table class="table" id="ordersHistory-table">
+    <table class="table table-striped cart-list add_bottom_30">
         <thead>
         <tr>
             <th>{{__('table.date')}}</th>

@@ -115,7 +115,7 @@ return [
     'myOrders'=> 'My Orders',
     'myReturns' => 'My Returns',
     'openMsg' => 'Open messenger',
-    'noProductsInCart' => 'You don`t have ny Products in your Cart!',
+    'noProductsInCart' => 'You don`t have any Products in your Cart!',
     'pricePerItem' => 'Price per Item',
     'quantity' => 'Quantity',
     'viewAllOrders' => 'View All Orders',
@@ -139,6 +139,7 @@ return [
     'editOrderItem' => 'Edit Order Item',
     'editOrderStatus' => 'Edit Order Status',
     'order' => 'Order',
+    'orderNr' => 'Order No.',
     'orders' => 'Orders',
     'orderDetails' => 'Order Details',
     'orderHistory' => 'Order History',
@@ -188,9 +189,13 @@ return [
     //Rating
     'alreadyVoted' => "You have already voted for this product",
     'rating' => 'Rating',
+    'ratings' => 'Ratings',
     'ratingOrRatings' => 'Rating(s)',
     'starRating' => 'Star Rating',
     'voted' => "Thank you for your vote!",
+    'createRating'=> 'Create Rating',
+    'editRating' => 'Edit Rating',
+    'ratingDetails' => 'Rating Details',
 
     //Reviews
     'customerReviews' => 'Customer Reviews',

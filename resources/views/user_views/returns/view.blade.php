@@ -4,19 +4,17 @@
 
     @include('user_views.section', ['title' => __('names.returns') ])
 
-<section class="content-header">
-    <div class="container-fluid">
-        <div class="row m-2">
-            <div class="col-sm-6">
-                <h1>[{{__('names.returns')}}]</h1>
-            </div>
+    <div id="position">
+        <div class="container">
+            <ul>
+                <li><a href="../">{{__('menu.home')}}</a></li>
+                <li><a href="/user/rootoreturns">{{ __('names.returns') }}</a></li>
+                <li>{{ __('names.return') }}</li>
+            </ul>
         </div>
     </div>
-</section>
 
-<section>
-
-    <div class="content px-3">
+    <div class="container margin_60">
 
         @include('flash::message')
 
@@ -29,7 +27,7 @@
 {{--            </a>--}}
 {{--        </div>--}}
 
-        <div>{{__('names.returnStatus')}}: {{ $return->status->name }}</div>
+
 
         <div class="table table-responsive">
             <table class="table">
@@ -53,33 +51,29 @@
                 @endforeach
                 </tbody>
             </table>
+
+            <div>{{__('names.returnStatus')}}: {{ $return->status->name }}</div>
         </div>
 
-    </div>
-</section>
-
-<section class="content-header">
-    <div class="container-fluid">
-        <div class="row mb-2">
-            <div class="col-sm-6">
-                <h2>{{__('names.orderHistory')}}</h2>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section>
-    <div class="content px-3">
-        <div class="card">
-            <div class="card-body">
-                <div class="row">
-                    @include('orders.history_table')
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h2>{{__('names.orderHistory')}}</h2>
                 </div>
             </div>
         </div>
-    </div>
-</section>
 
+        <div class="content px-3">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        @include('orders.history_table')
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
 
 @endsection
 

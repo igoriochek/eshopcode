@@ -13,6 +13,7 @@ return [
     'next' => 'Next &raquo;',
 
     'action' => 'Action',
+    'actions' => 'Actions',
     'activity' => 'Activity',
     'activityId' => 'Activity ID',
     'admin' => 'Admin',

@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+
+    @include('user_views.section', ['title' => __('messages.detailsMsg') ])
+
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">

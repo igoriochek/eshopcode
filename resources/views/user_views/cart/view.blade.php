@@ -21,18 +21,10 @@
                 @include('user_views.cart.table')
             @else
                 <div class="cart-section">
-                <table class="table table-striped cart-list shopping-cart">
-                    <thead>
-                    <tr>
-                        <th>{{__('table.name')}}</th>
-                        <th>{{__('table.count')}}</th>
-                        <th>{{__('table.price')}}</th>
-                        <th>{{__('table.subTotal')}}</th>
-                        <th>{{__('names.removeProduct')}}</th>
-                    </tr>
-                    </thead>
-                </table>
-                    <h2>{{ __('names.emptyCart') }}</h2>
+                    <h3 class="card-text">{{__('names.noProductsInCart')}}</h3>
+                    <span>
+                    <a href="/user/products" class="card-link">{{__('names.browseProducts')}}</a>
+                </span>
                 </div>
             @endif
         </div>

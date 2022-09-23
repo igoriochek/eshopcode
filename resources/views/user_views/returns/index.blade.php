@@ -2,38 +2,31 @@
 
 @section('content')
 
-    @include('user_views.section', ['title' => __('names.returns') ])
+    @include('user_views.section', ['title' => __('names.myReturns') ])
 
-<section class="content-header">
-    <div class="container-fluid">
-        <div class="row m-2">
-            <div class="col-sm-6">
-                <h1>{{__('names.returns')}}</h1>
-            </div>
+    <div id="position">
+        <div class="container">
+            <ul>
+                <li><a href="../">{{__('menu.home')}}</a></li>
+                <li>{{ __('names.returns') }}</li>
+            </ul>
         </div>
     </div>
-</section>
 
-<section>
-
-    <div class="content px-3">
-
+    <div class="container margin_60">
         @include('flash::message')
-
-        <div class="clearfix"></div>
-
-        @if($returns)
-            <div class="card">
-                <div class="card-body p-0">
+        <div class="row">
+            @if($returns)
+                <div class="card">
                     <div class="table table-responsive">
-                        <table class="table" id="categories">
+                        <table class="table table-striped cart-list add_bottom_30" id="categories">
                             <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>{{__('table.user')}}</th>
-                                <th>{{__('table.status')}}</th>
-                                <th> </th>
-                            </tr>
+                                <tr>
+                                    <th>{{__('table.returnId')}}</th>
+                                    <th>{{__('table.user')}}</th>
+                                    <th>{{__('table.status')}}</th>
+                                    <th>{{__('table.actions')}}</th>
+                                </tr>
                             </thead>
                             <tbody>
                             @foreach($returns as $item)
@@ -54,14 +47,13 @@
                             </tbody>
                         </table>
                     </div>
-
                 </div>
-            </div>
-        @else
-            {{__('names.noReturns')}}
-        @endif
+            @else
+                {{__('names.noReturns')}}
+            @endif
+        </div>
     </div>
-</section>
+
 
 @endsection
 

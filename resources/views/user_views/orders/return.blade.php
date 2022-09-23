@@ -4,19 +4,18 @@
 
     @include('user_views.section', ['title' => __('names.return') ])
 
-    <section class="content-header">
-        <div class="container-fluid">
-            <div class="row m-2">
-                <div class="col-sm-6">
-                    <h1>[{{__('names.return')}}]</h1>
-                </div>
-            </div>
+    <div id="position">
+        <div class="container">
+            <ul>
+                <li><a href="../">{{__('menu.home')}}</a></li>
+                <li><a href="/user/rootorders">{{ __('names.orders') }}</a></li>
+                <li>{{ __('names.return') }}</li>
+            </ul>
         </div>
-    </section>
+    </div>
 
     <section>
-
-        <div class="content px-3">
+        <div class="container margin_60">
 
             @include('flash::message')
 
@@ -48,24 +47,17 @@
                     </tbody>
                 </table>
             </div>
-            <div class="card">
-                <div class="card-body">
-                    <div class="row">
-                        <!-- Name Field -->
-                        <div class="form-group col-sm-6">
-                            {!! Form::label('description', __('names.desc')) !!}
-                            {!! Form::textarea('description', null, ['class' => 'form-control']) !!}
-                        </div>
-                    </div>
-                </div>
 
-                <div class="card-footer">
-                    {!! Form::submit(__('buttons.save'), ['class' => 'btn btn-primary']) !!}
-                    <a href="{{ route('rootorders') }}" class="btn btn-default">{{__('buttons.cancel')}}</a>
+            <div class="row ">
+                <div class="form-group col-sm-6">
+                    {!! Form::label('description', __('names.desc')) !!}
+                    {!! Form::textarea('description', null, ['class' => 'form-control']) !!}
                 </div>
-
+                <div class="col-md-12">
+                    {!! Form::submit(__('buttons.save'), ['class' => 'btn_1 green']) !!}
+                    <a href="{{ route('rootorders') }}" class="btn_1 white">{{__('buttons.cancel')}}</a>
+                </div>
                 {!! Form::close() !!}
-
             </div>
 
         </div>
