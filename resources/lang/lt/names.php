@@ -184,7 +184,7 @@ return [
     'to' => 'Iki',
     'sum' => 'Suma',
     'total' => 'Galutinė suma',
-    'filterByPrice' => 'Filtruoti pagal kaina',
+    'filterByPrice' => 'Filtruoti pagal kainą',
 
     //Rating
     'alreadyVoted' => "Jūs jau prabalsavote už šį produktą!",
@@ -228,11 +228,6 @@ return [
     'editCustomer' => 'Redaguoti Klientą',
     'userLogs' => 'Vartotojų Žurnalai',
 
-
-
-
-
-
     'desc' => 'Aprašymas',
     'name' => 'Pavadinimas',
 
@@ -240,6 +235,7 @@ return [
     'new' => "Naujos",
 
     'orderBy' => 'Rūšiuoti pagal',
+
     //Discounts coupons
     "ndDiscountCoupons" => "Jūs dar neturite nuolaidų kuponų :(",
     "discountCouponCode" => "Nuolaidų kupono kodas",

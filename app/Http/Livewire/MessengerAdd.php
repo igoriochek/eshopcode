@@ -20,17 +20,23 @@ class MessengerAdd extends Component
         return User::where('id', '!=', Auth::user()->id)->get();
     }
 
+    private function getAdminUsersExceptAuthUser(): object
+    {
+        return User::where([
+            ['id', '!=', Auth::user()->id],
+            ['type', '=', User::TYPE_ADMIN]
+        ])->get();
+    }
+
+
     private function getNotAddedUsers(object $users, object $addUsers): object
     {
         foreach ($users as $user) {
-            $addUsers = $addUsers->where('id', '!=', $user->id);
+            $addUsers = $addUsers
+                ->where('id', '!=', $user->id
+                ->orderBy($user->name));
         }
 
-        return $addUsers;
-    }
-
-    private function ConvertAddUsersCollectionToQuery(object $addUsers)
-    {
         return $addUsers->toQuery()->paginate(5);
     }
 
@@ -45,8 +51,11 @@ class MessengerAdd extends Component
             ->section('content')
             ->with([
                 'users' => $users,
-                'addUsers' => $this->ConvertAddUsersCollectionToQuery(
-                    $this->getNotAddedUsers($users, $this->getUsersExceptAuthUser())
+                'addUsers' => $this->getNotAddedUsers(
+                    $users,
+                    Auth::user()->type == User::TYPE_USER
+                        ? $this->getAdminUsersExceptAuthUser()
+                        : $this->getUsersExceptAuthUser()
                 )
             ]);
     }

@@ -68,15 +68,15 @@
                         </div>
                         <a href="{{ route('facebook.login') }}" class="btn btn-primary-scale-2 btn-modern w-100 text-transform-none rounded-0 font-weight-bold align-items-center d-inline-flex justify-content-center text-3 py-3 auth-button mb-4" data-loading-text="Loading...">
                             <i class="fab fa-facebook-f fa-fw me-2"></i>
-                            {{ __('auth.loginWith').'Facebook' }}
+                            {{ __('auth.loginWith').' Facebook' }}
                         </a>
                         <a href="{{ route('google.login') }}" class="btn btn-primary-scale-2 btn-modern w-100 text-transform-none rounded-0 font-weight-bold align-items-center d-inline-flex justify-content-center text-3 py-3 auth-button mb-4" data-loading-text="Loading...">
                             <i class="fab fa-google fa-fw me-2"></i>
-                            {{ __('auth.loginWith').'Google' }}
+                            {{ __('auth.loginWith').' Google' }}
                         </a>
                         <a href="{{ route('twitter.login') }}" class="btn btn-primary-scale-2 btn-modern w-100 text-transform-none rounded-0 font-weight-bold align-items-center d-inline-flex justify-content-center text-3 py-3 auth-button mb-4" data-loading-text="Loading...">
                             <i class="fab fa-twitter fa-fw me-2"></i>
-                            {{ __('auth.loginWith').'Twitter' }}
+                            {{ __('auth.loginWith').' Twitter' }}
                         </a>
                         @if (Route::has('register'))
                             <div class="d-flex justify-content-center align-items-center">

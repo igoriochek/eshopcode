@@ -28,8 +28,25 @@
             .product-add-to-cart-wrapper {
                 position: absolute;
                 top: 20px;
-                right: 20px;
+                left: 20px;
                 z-index: 1000;
+
+                .product-add-to-cart-text {
+                    position: relative;
+                    top: 5px;
+                    right: -15px;
+                    display: none;
+                    justify-content: center;
+                    align-items: center;
+                    min-width: 90px;
+                    height: 40px;
+                    padding: 0 10px;
+                    background: #2a2c2f;
+                    color: #FFF;
+                    font-size: 0.8rem;
+                    border-radius: 4px;
+                    z-index: 1001;
+                }
 
                 .product-add-to-cart-button {
                     display: flex;
@@ -48,30 +65,18 @@
                     transform: translate3d(0, 5px, 0);
                     transition: all 300ms ease;
 
+                    &:hover + .product-add-to-cart-text {
+                        display: flex;
+                    }
+
                     &:hover, &:focus, &:active {
                         background: #0088CC;
-
-                        &:before {
-                            content: 'Add To Cart';
-                            position: absolute;
-                            top: 5px;
-                            left: -220%;
-                            display: flex;
-                            justify-content: center;
-                            align-items: center;
-                            width: 100px;
-                            height: 40px;
-                            background: #2a2c2f;
-                            color: #FFF;
-                            font-size: 0.8rem;
-                            border-radius: 4px;
-                        }
 
                         &:after {
                             content: '';
                             position: absolute;
                             top: 20px;
-                            left: -35%;
+                            right: -20px;
                             transform: rotate(45deg);
                             width: 10px;
                             aspect-ratio: 1;

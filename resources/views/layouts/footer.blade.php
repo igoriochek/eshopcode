@@ -51,11 +51,6 @@
             <div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
                 <h5 class="text-4 text-color-light mb-3">{{ __('footer.browse') }}</h5>
                 <ul class="list list-unstyled mb-0 footer-links">
-                    <li class="nav-list">
-                        <a class="{{ request()->is('products*') ? 'active' : '' }}" href="{{ url('/home') }}">
-                            {{ __('menu.home') }}
-                        </a>
-                    </li>
                     @guest
                         @include('layouts.menus.menu')
                     @endguest

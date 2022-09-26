@@ -44,7 +44,7 @@
                     <span class="amount font-weight-medium text-color-grey">€{{ $item->price_current }}</span>
                 </td>
                 <td class="product-quantity">
-                    <div class="quantity d-flex justify-content-center w-50 ms-1">
+                    <div class="quantity d-flex w-50">
                         <input readonly type="text" class="product-change-cart-number" title="Qty" value="{{ $item->count }}" name="quantity" min="1" max="5" minlength="1" maxlength="5">
                     </div>
                 </td>

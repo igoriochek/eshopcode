@@ -17,7 +17,8 @@
                                         {!! Form::open(['route' => ['addtocart'], 'method' => 'post', 'class' => 'd-flex justify-content-center justify-content-lg-start']) !!}
                                             <input type="hidden" name="id" value="{{ $product->id }}">
                                             <input type="hidden" name="count" value="1">
-                                            <button type="submit" class="text-decoration-none product-add-to-cart-button" title="Add to Cart">
+                                            <div class="product-add-to-cart-text">{{ __('buttons.addToCart') }}</div>
+                                            <button type="submit" class="text-decoration-none product-add-to-cart-button" title="{{ __('buttons.addToCart') }}">
                                                 <i class="fa-solid fa-bag-shopping"></i>
                                             </button>
                                         {!! Form::close() !!}
@@ -35,6 +36,7 @@
                                             <button type="submit" class="text-decoration-none product-add-to-cart-button" title="Add to Cart">
                                                 <i class="fa-solid fa-bag-shopping"></i>
                                             </button>
+                                            <div class="product-add-to-cart-text">{{ __('buttons.addToCart') }}</div>
                                         {!! Form::close() !!}
                                     </div>
                                 </div>

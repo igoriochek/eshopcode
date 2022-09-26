@@ -105,7 +105,7 @@
                                         <strong class="d-block text-dark mb-2">{{ __('Payment Methods') }}</strong>
                                         <div class="d-flex flex-column">
                                             <label class="d-flex align-items-center text-muted mb-0" for="payment_method1">
-                                                <input id="payment_method1" type="radio" class="me-2" name="payment_method" value="cash-on-delivery" checked="">
+                                                <input id="payment_method1" type="radio" class="me-2" name="payment_method" value="cash-on-delivery" checked="" disabled>
                                                 {{ __('Paysera') }}
                                             </label>
                                         </div>
