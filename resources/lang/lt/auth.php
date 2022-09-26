@@ -23,6 +23,7 @@ return [
     'rememberMe' => 'Prisiminti mane',
     'loginFb' => 'Prisijungti su Facebook',
     'loginGoogle' => 'Prisijungti su Google',
+    'loginTwitter' => 'Prisijungti su Twitter',
 
     //Register
     'register' => 'Registruotis',

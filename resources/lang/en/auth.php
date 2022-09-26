@@ -26,6 +26,7 @@ return [
     'rememberMe' => 'Remember Me',
     'loginFb' => 'Login with Facebook',
     'loginGoogle' => 'Login with Google',
+    'loginTwitter' => 'Login with Twitter',
 
     //Register
     'register' => 'Register',

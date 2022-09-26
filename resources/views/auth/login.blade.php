@@ -12,8 +12,9 @@
                         <hr>
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
-                            <a href="#0" class="social_bt facebook">{{ __('auth.loginFb') }}</a>
-                            <a href="#0" class="social_bt google">{{ __('auth.loginGoogle') }}</a>
+                            <a href="{{ route('facebook.login') }}" class="social_bt facebook">{{ __('auth.loginFb') }}</a>
+                            <a href="{{ route('google.login') }}" class="social_bt google">{{ __('auth.loginGoogle') }}</a>
+                            <a href="{{ route('twitter.login') }}" class="social_bt twitter">{{ __('auth.loginTwitter') }}</a>
                             <div class="divider"><span>0r</span></div>
                             <div class="form-group">
                                 <label for="email" >{{ __('auth.email') }}</label >
