@@ -88,7 +88,7 @@
                         </ul>
                     @else
                         <ul>
-                            <li><a href="/home" >{{ __('names.dashboard') }} </a></li>
+                            <li><a href="/home" >{{ __('names.home') }} </a></li>
                             <li><a href="/user/products" class="show-submenu">{{__('menu.products')}}</a></li>
                             <li><a href="/user/rootcategories" class="show-submenu">{{__('menu.categories')}}</a></li>
                             <li><a href="/user/promotions" class="show-submenu">{{__('menu.promotions')}}</a></li>

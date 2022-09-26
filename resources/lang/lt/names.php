@@ -237,8 +237,8 @@ return [
 
     //Discounts coupons
     "noDiscountCoupons" => "Jūs dar neturite nuolaidų kuponų :(",
-    "discountCouponCode" => "Nuolaidų kupono kodas",
-    "discountCouponValue" => "Nuolaidų kupono suma",
+    "discountCouponCode" => "Nuolaidų kupono kodas:",
+    "discountCouponValue" => "Nuolaidų kupono suma:",
 
     'desc' => 'Aprašymas',
     'name' => 'Pavadinimas',

@@ -4,56 +4,42 @@
 
     @include('user_views.section', ['title' => __('names.discountCoupons') ])
 
-    <section class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1>{{__('names.discountCoupons')}}</h1>
-                </div>
-            </div>
+    <div id="position">
+        <div class="container">
+            <ul>
+                <li>
+                    <a href="../">{{__('menu.home')}}</a>
+                </li>
+                <li>
+                    {{ __('names.discountCoupons') }}
+                </li>
+            </ul>
         </div>
-    </section>
+    </div>
 
-
-        <div class="col-sm-6">
-            <h3>[{{__('names.discountCouponsForYou')}}]</h3>
-            {{--        <a href="{{route("rootcategories")}}">Back to main categories</a>--}}
-        </div>
-        <div class="content px-3">
-
-            {{--        @include('flash::message')--}}
-
-            <div class="clearfix"></div>
-
-            <div class="card">
-                <div class="card-body p-0">
-                    {{--                @include('products.table')--}}
-
-                    @if(($discountCoupons->count()))
-                        @foreach( $discountCoupons as $prod )
-                            <div class="card-body">
-                                <h4 class="card-title"><a href="{{route('viewproduct', $prod->id)}}">{{$prod->code}}</a></h4>
-                                <h6 class="card-subtitle mb-2 text-muted">{{__('names.desc')}}</h6>
-                                <p class="card-text">{{$prod->value}}</p>
-                            </div>
-                        @endforeach
-
-                    @else
-                    {{__('names.noProducts')}}
-                    @endif
-
-
-
-
-                    <div class="card-footer clearfix">
-                        <div class="float-right">
-                            @if (!empty($discountCoupons->count())) {{ $discountCoupons->links() }} @endif
+    <div class="container margin_60">
+        <div class="row">
+            @if(($discountCoupons->count()))
+                <h4>{{__('names.discountCouponsForYou')}}</h4>
+                @foreach($discountCoupons as $discount)
+                    <div class="strip_all_tour_list wow fadeIn" data-wow-delay="0.1s"style="visibility: visible; animation-delay: 0.1s; animation-name: fadeIn;">
+                        <div class="row">
+                                <div class="tour_list_desc d-flex flex-column justify-content-center p-4">
+                                    <h3 class="card-title">
+                                        <a href="{{route('viewproduct', $discount->id)}}">{{__('names.discountCouponCode')}} {{$discount->code}}</a>
+                                    </h3>
+                                    <h6 class="card-text">{{__('names.discountCouponValue')}} {{$discount->value}}€</h6>
+                                    <p class="card-subtitle mb-2 text-muted">{{__('names.desc')}}</p>
+                                </div>
                         </div>
                     </div>
-                </div>
-
-            </div>
+                @endforeach
+            @else
+                {{__('names.noDiscountCoupons')}}
+            @endif
         </div>
+    </div>
+
 
 
 

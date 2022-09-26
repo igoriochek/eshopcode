@@ -11,7 +11,7 @@
                     <a href="../">{{__('menu.home')}}</a>
                 </li>
                 <li>
-                    <a href="/user/promotions">{{ __('names.promotions') }}</a>
+                    <a href="/promotions">{{ __('names.promotions') }}</a>
                 </li>
                 <li>
                     {{ __($promotion->name) }} {{ __('names.promotions') }}

@@ -236,8 +236,8 @@ return [
 
     //Discounts coupons
     "noDiscountCoupons" => "You have no discount coupons yet :(",
-    "discountCouponCode" => "Discount coupon code",
-    "discountCouponValue" => "Discount coupon value",
+    "discountCouponCode" => "Discount coupon code:",
+    "discountCouponValue" => "Discount coupon value:",
 
     'desc' => 'Description',
     'name' => 'Name',
