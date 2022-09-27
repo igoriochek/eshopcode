@@ -29,14 +29,14 @@
                             <i class="fas fa-times"></i>
                         </button>
                         {!! Form::close() !!}
-                        <a href="user/viewproduct/{{ $item['product']->id }}" title="{{ $item['product']->name }}">
+                        <a href="{{ route('viewproduct', $item['product']->id) }}" title="{{ $item['product']->name }}">
                             <img alt="{{ $item['product']->name }}" class="product-thumbnail-image"
                                  src="@if ($item['product']->image) {{ $item['product']->image }} @else /images/noimage.jpeg @endif">
                         </a>
                     </div>
                 </td>
                 <td class="product-name">
-                    <a href="user/viewproduct/{{ $item['product']->id }}">
+                    <a href="{{ route('viewproduct', $item['product']->id) }}">
                         {{ $item['product']->name }}
                     </a>
                 </td>
