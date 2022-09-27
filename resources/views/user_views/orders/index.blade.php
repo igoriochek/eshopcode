@@ -29,7 +29,7 @@
                                         <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>{{__('table.user')}}</th>
+{{--                                            <th>{{__('table.user')}}</th>--}}
                                             <th>{{__('table.status')}}</th>
                                             <th>{{__('table.sum')}}</th>
                                             <th> </th>
@@ -39,9 +39,9 @@
                                         @foreach($orders as $item)
                                             <tr>
                                                 <td>{{ $item->id }}</td>
-                                                <td>{{ $item->user->name }}</td>
+{{--                                                <td>{{ $item->user->name }}</td>--}}
                                                 <td>{{ $item->status->name }}</td>
-                                                <td>{{ $item->sum }}</td>
+                                                <td>{{ $item->sum }} EU</td>
                                                 <td width="120">
                                                     <div class='btn-group'>
                                                         <a href="{{ route('vieworder', [$item->id]) }}"
