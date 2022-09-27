@@ -36,6 +36,14 @@ return [
     'subtotal' => 'Subtotal',
     'removeProduct' => 'Remove product',
     'overview' => 'Overview',
+    'wantToApply' => 'Want to apply a discount to your cart?',
+    'selectDiscountCoupon' => 'Select Discount Coupon',
+    'yourOrder' => 'Your Order',
+    'paymentMethods' => 'Payment Methods',
+    'off' => 'OFF',
+    'discountCoupon' => 'Discount Coupon',
+    'acceptedOrder' => 'Thank you. Your order has been accepted.',
+    'canceledOrder' => 'Your order has been cancelled.',
 
     'adminUserCount' => 'Admin User Count',
     'canceled' => 'Canceled',
@@ -50,6 +58,8 @@ return [
     'admins' => 'Administrators',
     'users' => 'Users',
 
+    'hello' => 'Hello',
+
     //Categories
     'categories' => 'Categories',
     'categoryDetails' => 'Category Details',
@@ -57,6 +67,7 @@ return [
     'createCategory' => 'Create Category',
     'editCategory' => 'Edit Category',
     'noCategories' => 'No Categories',
+    'productsAvailable' => 'products available',
 
     //Charts
     'bar' => 'Bar',

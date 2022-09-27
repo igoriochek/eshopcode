@@ -33,8 +33,8 @@ class MessengerAdd extends Component
     {
         foreach ($users as $user) {
             $addUsers = $addUsers
-                ->where('id', '!=', $user->id
-                ->orderBy($user->name));
+                ->where('id', '!=', $user->id)
+                ->sortByDesc('name');
         }
 
         return $addUsers->toQuery()->paginate(5);

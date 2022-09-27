@@ -3,59 +3,55 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <section class="content-header">
-                <div>
-                    <div class="row mb-2">
-                        <div class="col-sm-6">
-                            <h1>{{__('names.categories')}}</h1>
-                        </div>
-                        {{--                <div class="col-sm-6">--}}
-                        {{--                    <a class="btn btn-primary float-right"--}}
-                        {{--                       href="{{ route('products.create') }}">--}}
-                        {{--                        Add New--}}
-                        {{--                    </a>--}}
-                        {{--                </div>--}}
-                    </div>
-                </div>
-            </section>
-
-            <div class="content px-3">
-
-                {{--        @include('flash::message')--}}
-
-                <div class="clearfix"></div>
-
-                <div class="card">
-                    <div class="card-body p-0">
-                        {{--                @include('products.table')--}}
-
-                        @if(!empty($categories))
-                            @forelse( $categories as $category )
-                                <div class="card-body">
-                                    <h4 class="card-title"><a href="{{route('innercategories', $category->id)}}">{{$category->name}}</a></h4>
-                                    <h6 class="card-subtitle mb-2 text-muted">{{__('names.productCount')}} {{ count($category->products) }}</h6>
-                                    <p class="card-text">{{$category->description}}</p>
-                                    @if(!empty($category->innerCategories) && count($category->innerCategories) > 0 )
-                                        <b>{{__('messages.subcategories')}}:</b>
-                                    @endif
-                                    @forelse($category->innerCategories as $c)
-                                        <a href="{{route('innercategories', $c->id)}}" class="card-link">{{$c->name}}</a> {{__('names.productCount')}} {{count($c->products)}}
-                                    @empty
-{{--                                        <b>{{__('messages.noinnercategories')}}</b>--}}
-                                    @endforelse
+            <div class="col-lg-3">
+                <aside class="sidebar">
+                    <h5 class="sidebar-title">{{ __('names.categories')}}</h5>
+                    @include('user_views.category.categoryTree')
+                </aside>
+            </div>
+            <div class="col-lg-9 ps-4">
+                <div class="blog-posts">
+                    @forelse( $categories as $category )
+                    <article class="post">
+                        <div class="row mb-2">
+                            <div class="col-lg-12">
+                                <div class="post-content">
+                                    <h5 class="pt-4 pt-lg-0 mb-3">
+                                        <a href="{{ route('innercategories', $category->id) }}">{{ $category->name }}</a>
+                                        <span class="text-muted" style="font-size: .8em">
+                                            ({{ count($category->products) }}
+                                            {{ __('names.productsAvailable') }})
+                                        </span>
+                                    </h5>
+                                    <p class="m-0 p-0">{{ $category->description }}</p>
                                 </div>
-                            @empty
-{{--                                {{__('names.noCategories')}}--}}
-                            @endforelse
-                            {{$categories->links()}}
-                        @endif
-
-                        <div class="card-footer clearfix">
-                            <div class="float-right">
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="post-meta">
+                                    <b>{{ __('messages.subcategories') }}:</b>
+                                    @forelse($category->innerCategories as $c)
+                                        <a href="{{ route('innercategories', $c->id) }}">
+                                            @if (!$loop->last)
+                                                {{ $c->name.', ' }}
+                                            @else
+                                                {{ $c->name }}
+                                            @endif
+                                        </a>
+                                    @empty
+                                        <span class="text-muted">{{ __('messages.subcategories') }}</span>
+                                    @endforelse
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    @empty
+                        <span class="text-muted">{{ __('names.noCategories') }}</span>
+                    @endforelse
+                    <div class="mt-4">
+                        {{ $categories->links() }}
                     </div>
-
                 </div>
             </div>
         </div>

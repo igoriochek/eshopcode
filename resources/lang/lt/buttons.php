@@ -12,6 +12,7 @@ return [
     | your views to better match your application.
     |
     */
+
     'add' => 'Pridėti',
     'addNew' => 'Pridėti Naują',
     'addNewMsg' => 'Sukurti naują žinutę',
@@ -36,6 +37,8 @@ return [
     'submit' => 'Paskelbti Apžvalgą',
     'postReview' => 'Paskelbti Apžvalgą',
     'proceedToCheckout' => 'Pereiti prie apmokėjimo ',
-    'contact' => 'Susisiekti'
+    'contact' => 'Susisiekti',
+    'applyCoupon' => 'Taikyti Kuponą',
+    'placeOrder' => 'Pateikite Užsakymą'
 
 ];

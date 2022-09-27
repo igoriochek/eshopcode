@@ -49,7 +49,7 @@
                 </ul>
             </div>
             <div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
-                <h5 class="text-4 text-color-light mb-3">{{ __('footer.browse') }}</h5>
+                <h5 class="text-4 text-color-light mb-3">{{ __('footer.menu') }}</h5>
                 <ul class="list list-unstyled mb-0 footer-links">
                     @guest
                         @include('layouts.menus.menu')
@@ -61,7 +61,7 @@
             </div>
             @auth
                 <div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
-                <h5 class="text-4 text-color-light mb-3">{{ __('footer.personal') }}</h5>
+                <h5 class="text-4 text-color-light mb-3">{{ __('footer.profile') }}</h5>
                 <ul class="list list-unstyled mb-0 footer-links">
                     <li class="mb-0">
                         <a href="{{ url('/user/viewcart') }}">
@@ -105,11 +105,6 @@
                 </div>
                 <div class="col-12 col-md-auto">
                     <div class="payment-cc justify-content-center justify-content-md-end">
-                        <i class="fab fa-cc-visa"></i>
-                        <i class="fab fa-cc-paypal"></i>
-                        <i class="fab fa-cc-stripe"></i>
-                        <i class="fab fa-cc-mastercard"></i>
-                        <i class="fab fa-cc-apple-pay"></i>
                     </div>
                 </div>
             </div>

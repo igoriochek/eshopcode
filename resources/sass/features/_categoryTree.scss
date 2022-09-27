@@ -1,0 +1,49 @@
+.category-tree {
+    ul {
+        list-style-type: none;
+        padding-left: 15px;
+    }
+
+    .nav-item {
+        .nav-link {
+            transition: color 100ms ease;
+
+            &:hover, &:focus {
+                color: #00a1f2;
+
+                i {
+                    color: #00a1f2;
+                    animation: ArrowPointing 500ms infinite linear;
+                }
+            }
+
+            @keyframes ArrowPointing {
+                0% {
+                    transform: translateX(0);
+                }
+                25% {
+                    transform: translateX(1.5px);
+                }
+                50% {
+                    transform: translateX(3px);
+                }
+                75% {
+                    transform: translateX(1.5px);
+                }
+                100% {
+                    transform: translateX(0);
+                }
+            }
+
+            i {
+                font-size: .8em;
+                color: #aaa;
+                margin-right: 5px;
+            }
+        }
+    }
+
+    .active {
+        font-weight: 700;
+    }
+}

@@ -12,6 +12,7 @@ return [
     | your views to better match your application.
     |
     */
+
     'add' => 'Add',
     'addNew' => 'Add New',
     'addNewMsg' => 'Create New Message',
@@ -27,7 +28,6 @@ return [
     'forgotPassword'=> 'Forgot Your Password?',
     'import' => 'Import',
     'login' => 'Login',
-    'pay'=> 'Pay',
     'preview' => 'Preview',
     'register' => 'Register',
     'save' => 'Save',
@@ -35,6 +35,8 @@ return [
     'showStatistics' => 'Show Statistics',
     'postReview' => 'Post Review',
     'proceedToCheckout' => 'Proceed to Checkout',
-    'contact' => 'Contact'
+    'contact' => 'Contact',
+    'applyCoupon' => 'Apply Coupon',
+    'placeOrder' => 'Place Order'
 
 ];

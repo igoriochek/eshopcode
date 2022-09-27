@@ -36,6 +36,16 @@ return [
     'subtotal' => 'Tarpinė suma',
     'removeProduct' => 'Pašalinti produktą',
     'overview' => 'Apžvalga',
+    'wantToApply' => 'Norite pritaikyti nuolaidą savo krepšeliui?',
+    'selectDiscountCoupon' => 'Pasirinkite Nuolaidos Kuponą',
+    'yourOrder' => 'Jūsų Užsakymas',
+    'paymentMethods' => 'Mokėjimo Metodai',
+    'off' => '',
+    'discountCoupon' => 'Nuolaidos Kuponas',
+    'acceptedOrder' => 'Ačiū. Jūsų užsakymas buvo priimtas.',
+    'canceledOrder' => 'Jūsų užsakymas buvo atšauktas.',
+
+    'hello' => 'Sveiki',
 
     //Categories
     'categories' => 'Kategorijos',
@@ -44,6 +54,7 @@ return [
     'createCategory' => 'Sukurti Kategorija',
     'editCategory' => 'Redaguoti kategorija',
     'noCategories' => 'Nėra Kategorijų',
+    'productsAvailable' => 'yra produktų',
 
     //Charts
     'bar' => 'Kaladėlė',

@@ -12,6 +12,7 @@ return [
     | your views to better match your application.
     |
     */
+
     'add' => 'Добавить',
     'addNew' => 'Добавить новый',
     'addNewMsg' => 'Создать новое сообщение',
@@ -35,6 +36,8 @@ return [
     'showStatistics' => 'Показать статистику',
     'postReview' => 'Опубликовать отзыв',
     'proceedToCheckout' => 'Перейти к оформлению заказа',
-    'contact' => 'Контакт'
+    'contact' => 'Контакт',
+    'applyCoupon' => 'Применить Kупон',
+    'placeOrder' => 'Разместить Заказ'
 
 ];

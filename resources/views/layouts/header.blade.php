@@ -49,7 +49,7 @@
                                         </a>
                                     </li>
                                     <li class="social-icons-twitter">
-                                        <a href="{{ route('facebook.login') }}" target="_blank" title="Twitter">
+                                        <a href="{{ route('twitter.login') }}" target="_blank" title="Twitter">
                                             <i class="fa-brands fa-twitter"></i>
                                         </a>
                                     </li>

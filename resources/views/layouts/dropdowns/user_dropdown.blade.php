@@ -1,6 +1,6 @@
 <ul class="dropdown-menu" aria-labelledby="navbarUserDropdown">
     <li class="dropdown-header">
-        {{ __('Hello').', '.Auth::user()->name }}
+        {{ __('names.hello').', '.Auth::user()->name }}
     </li>
     <li>
         <a class="dropdown-item" href="{{ url('/user/userprofile') }}"

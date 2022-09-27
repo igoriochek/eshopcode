@@ -12,8 +12,8 @@ return [
     'address' => 'Address',
     'phone' => 'Phone',
     'email' => 'Email',
-    'browse' => 'Browse',
-    'personal' => 'Personal',
+    'menu' => 'MENU',
+    'profile' => 'Profile',
     'copyright' => 'Buhalteres © 2022. All Rights Reserved',
 
 ];

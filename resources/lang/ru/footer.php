@@ -12,8 +12,8 @@ return [
     'address' => 'Адрес',
     'phone' => 'Телефон',
     'email' => 'Электронная почта',
-    'browse' => 'Обзор',
-    'personal' => 'Личный',
+    'menu' => 'МЕНЮ',
+    'profile' => 'Личный кабинет',
     'copyright' => 'Buhalteres © 2022. Все права защищены',
 
 ];

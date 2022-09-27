@@ -152,7 +152,7 @@ Route::group(array('prefix' => 'user', 'middleware' => ['auth', 'cookie-consent'
     });
     Route::get("rootcategories", [CategoryController::class, 'userRootCategories'])->name('rootcategories');
     Route::get("innercategories/{category_id}", [CategoryController::class, 'userInnerCategories'])->name('innercategories');
-    Route::get("categorytree", [CategoryController::class, 'userCategoryTree'])->name('categorytree');
+    //Route::get("categorytree", [CategoryController::class, 'userCategoryTree'])->name('categorytree');
     Route::get("viewcategory", [CategoryController::class, 'userViewCategory'])->name('viewcategory');
     Route::get("viewproduct/{id}", [ProductController::class, 'userViewProduct'])->where('id', '[0-9]+')->name('viewproduct');
     Route::get('products', [ProductController::class, 'userProductIndex'])->name('userproducts');
@@ -222,10 +222,7 @@ Route::prefix('twitter')->name('twitter.')->group(function () {
 Route::get('lang/{locale}', function ($locale) {
     app()->setLocale($locale);
     session()->put('locale', $locale);
-    if (Auth::user() && Auth::user()->type === User::TYPE_USER)
-        return redirect('user/products');
-    else
-        return redirect('products');
+    return redirect()->back();
 });
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
