@@ -12,8 +12,8 @@ return [
     'address' => 'Adresas',
     'phone' => 'Telefonas',
     'email' => 'El. Paštas',
-    'browse' => 'Naršyti',
-    'personal' => 'Asmeninis',
+    'menu' => 'MENIU',
+    'profile' => 'Vartotojo paskyra',
     'copyright' => 'Buhalteres © 2022. Visos teisės saugomos',
 
 ];

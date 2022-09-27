@@ -36,7 +36,7 @@
                                             <button type="submit" class="text-decoration-none product-add-to-cart-button" title="Add to Cart">
                                                 <i class="fa-solid fa-bag-shopping"></i>
                                             </button>
-                                            <div class="product-add-to-cart-text">{{ __('buttons.addToCart') }}</div>
+                                            <!--<div class="product-add-to-cart-text">{{ __('buttons.addToCart') }}</div>-->
                                         {!! Form::close() !!}
                                     </div>
                                 </div>
@@ -83,26 +83,26 @@
                             <i class="fas fa-search m-2"></i>
                         </button>
                     </div>
-                    <h5 class="product-sidebar-title">{{ __('names.filterByPrice') }}</h5>
+                    <h5 class="sidebar-title">{{ __('names.filterByPrice') }}</h5>
                     <div class="filter-by-price-widget-content">
                         <fieldset class="form-group">
-                            <div id="range-slider" class="slider mx-2 mb-4 mt-1" wire:ignore></div>
-                            <div class="filter-by-price-button-container">
+                            <div id="range-slider" class="slider mb-3 mt-1" wire:ignore></div>
+                            <div class="filter-by-price-button-container mb-3">
                                 <div class="d-flex">
-                                    <span>{{ __('names.price')}}:</span>
+                                    <span>{{ __('names.price')}} (€):</span>
                                     <input type="text" id="filter[pricefrom]" name="filter[pricefrom]"
                                            readonly
                                            value="{{ $filter["pricefrom"] ?? '0' }}"
-                                           class="border-0 text-end filter-by-price-number" style="max-width: 50px"/>
-                                    <span class="text-center">&nbsp;—&nbsp;</span>
+                                           class="border-0 text-end filter-by-price-number" style="max-width: 40px"/>
+                                    <span class="text-center"> — </span>
                                     <input type="text" id="filter[priceto]" name="filter[priceto]" readonly
                                            value="{{ $filter["priceto"] ?? '0' }}"
-                                           class="border-0 text-start filter-by-price-number" style="max-width: 50px"/>
+                                           class="border-0 text-start filter-by-price-number" style="max-width: 40px"/>
                                 </div>
                             </div>
                         </fieldset>
                     </div>
-                    <h5 class="product-sidebar-title">{{ __('names.categories') }}</h5>
+                    <h5 class="sidebar-title">{{ __('names.categories') }}</h5>
                     <ul class="nav nav-list flex-column">
                         @forelse($categories as $category)
                             <div class="nav-link">
@@ -162,7 +162,7 @@
                     value += elements[i].checked == true && value ? ',' : '';
                     value += elements[i].checked == true ? elements[i].value : "";
                 }
-                console.log(value);
+                //console.log(value);
                 document.getElementById("filter[categories.id]").value = value;
             }
         </script>

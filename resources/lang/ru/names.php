@@ -36,6 +36,14 @@ return [
     'subtotal' => 'Итого',
     'removeProduct' => 'Удалить товар',
     'overview' => 'Обзор',
+    'wantToApply' => 'Хотите применить скидку к своей корзине?',
+    'selectDiscountCoupon' => 'Выберите скидочный купон',
+    'yourOrder' => 'Твоя очередь',
+    'paymentMethods' => 'Способы оплаты',
+    'off' => '',
+    'discountCoupon' => 'Скидочный купон',
+    'acceptedOrder' => 'Спасибо. Ваш заказ принят.',
+    'canceledOrder' => 'Ваш заказ отменен.',
 
     'adminUserCount' => 'Количество пользователей-администраторов',
     'canceled' => 'Отменено',
@@ -50,6 +58,8 @@ return [
     'admins' => 'Администраторы',
     'users' => 'Пользователи',
 
+    'hello' => 'Здравствуйте',
+
     //Categories
     'categories' => 'Категории',
     'categoryDetails' => 'Сведения о категории',
@@ -57,6 +67,7 @@ return [
     'createCategory' => 'Создать категорию',
     'editCategory' => 'Редактировать категорию',
     'noCategories' => 'Нет категорий',
+    'productsAvailable' => 'доступные продукты',
 
     //Charts
     'bar' => 'Бар',
@@ -154,7 +165,7 @@ return [
     'invoice' => 'Счет',
     'invoicePreview' => 'Предварительный просмотр счета',
 
-    // Products
+    //Products
     'product' => 'Товар',
     'createProduct' => 'Создать продукт',
     'editProduct' => 'Редактировать товар',
@@ -235,6 +246,7 @@ return [
     'new' => "Новый",
 
     'orderBy' => 'Сортировать по',
+
     //Discounts coupons
     "ndDiscountCoupons" => "У вас еще нет купонов на скидку :(",
     "discountCouponCode" => "Код купона на скидку",

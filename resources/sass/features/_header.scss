@@ -295,8 +295,6 @@
                                     }
 
                                     .header-nav-features-img {
-                                        transition: all 200ms ease-in-out;
-
                                         &:hover, &:focus, &:active  {
                                             filter: invert(52%) sepia(37%) saturate(5169%) hue-rotate(170deg) brightness(98%) contrast(101%);
                                         }

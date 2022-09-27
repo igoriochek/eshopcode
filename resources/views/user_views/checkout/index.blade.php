@@ -6,28 +6,28 @@
         <div class="col">
             <ul class="breadcrumb font-weight-bold text-6 justify-content-center my-5">
                 <li class="text-transform-none me-3">
-                    <a href="{{ url('user/viewcart') }}" class="done">{{ __('Cart') }}</a>
+                    <a href="{{ url('user/viewcart') }}" class="done">{{ __('names.cart') }}</a>
                 </li>
                 <li class="text-transform-none text-color-grey-lighten me-3">
                     <i class="fa-solid fa-angle-right me-2"></i>
-                    <span class="active">{{ __('Checkout') }}</span>
+                    <span class="active">{{ __('names.checkout') }}</span>
                 </li>
                 <li class="text-transform-none text-color-grey-lighten me-3">
                     <i class="fa-solid fa-angle-right me-2"></i>
-                    <span>{{ __('Preview') }}</span>
+                    <span>{{ __('names.preview') }}</span>
                 </li>
                 <li class="text-transform-none text-color-grey-lighten">
                     <i class="fa-solid fa-angle-right me-2"></i>
-                    <span>{{ __('Order Complete') }}</span>
+                    <span>{{ __('names.orderComplete') }}</span>
                 </li>
             </ul>
         </div>
     </div>
     <div class="row">
         <div class="col text-center">
-            <p>{{ __('Want to apply a discount to your cart?') }}
+            <p>{{ __('names.wantToApply') }}
                 <a href="#" class="open-apply-coupon" data-bs-toggle="collapse" data-bs-target=".coupon-form-wrapper" aria-expanded="true">
-                    {{ __('Select discount coupon') }}
+                    {{ __('names.selectDiscountCoupon') }}
                 </a>
             </p>
         </div>
@@ -41,10 +41,10 @@
                             <select name="discount[]" class="form-control h-auto border-radius-0 line-height-1 py-3">
                                 <option value="" class="text-muted">{{ __('---') }}</option>
                                 @foreach($discounts as $item)
-                                    <option value="{{ $item->id }}">{{ $item->code }} - {{ $item->value }}% {{ __('OFF') }}</option>
+                                    <option value="{{ $item->id }}">{{ $item->code }} - {{ $item->value }}% {{ __('names.off') }}</option>
                                 @endforeach
                             </select>
-                            <button type="submit" class="btn apply-coupon-button mt-4 mt-md-0 ms-0 ms-md-3">{{ __('Apply Coupon') }}</button>
+                            <button type="submit" class="btn apply-coupon-button mt-4 mt-md-0 ms-0 ms-md-3">{{ __('buttons.applyCoupon') }}</button>
                         </div>
                     {!! Form::close() !!}
                 </div>
@@ -57,12 +57,12 @@
                 <div class="pin-wrapper">
                     <div class="card border-width-3 border-radius-0 border-color-hover-dark">
                         <div class="card-body">
-                            <h6 class="fw-bold text-uppercase mb-3">{{ __('Your order') }}</h6>
-                            <table class="shop_table cart-totals mb-3">
+                            <h6 class="fw-bold text-uppercase mb-3">{{ __('names.yourOrder') }}</h6>
+                            <table class="shop_table cart-totals mb-4 w-100">
                                 <tbody>
                                 <tr>
                                     <td colspan="2" class="border-bottom">
-                                        <strong class="text-dark">{{ __('Product') }}</strong>
+                                        <strong class="text-dark">{{ __('names.product') }}</strong>
                                     </td>
                                 </tr>
                                 @foreach($cartItems as $item)
@@ -80,7 +80,7 @@
                                 @endforeach
                                 <tr class="cart-subtotal border-bottom">
                                     <td>
-                                        <strong class="text-dark">{{ __('Subtotal') }}</strong>
+                                        <strong class="text-dark">{{ __('names.subtotal') }}</strong>
                                     </td>
                                     <td class="border-top-0 text-end">
                                         <strong>
@@ -92,7 +92,7 @@
                                 </tr>
                                 <tr class="total border-bottom">
                                     <td>
-                                        <strong class="text-dark">{{ __('Total') }}</strong>
+                                        <strong class="text-dark">{{ __('names.total') }}</strong>
                                     </td>
                                     <td class="text-end">
                                         <strong class="text-color-dark">
@@ -100,27 +100,22 @@
                                         </strong>
                                     </td>
                                 </tr>
-                                <tr class="payment-methods border-bottom">
+                                <tr class="payment-methods">
                                     <td colspan="2">
-                                        <strong class="d-block text-dark mb-2">{{ __('Payment Methods') }}</strong>
+                                        <strong class="d-block text-dark mb-2">{{ __('names.paymentMethods') }}</strong>
                                         <div class="d-flex flex-column">
                                             <label class="d-flex align-items-center text-muted mb-0" for="payment_method1">
-                                                <input id="payment_method1" type="radio" class="me-2" name="payment_method" value="cash-on-delivery" checked="" disabled>
+                                                <input id="payment_method1" type="radio" class="me-2" name="payment_method" value="cash-on-delivery" checked="">
                                                 {{ __('Paysera') }}
                                             </label>
                                         </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2">
-                                        {{ __('Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our privacy policy.') }}
                                     </td>
                                 </tr>
                                 </tbody>
                             </table>
                             <div class="d-flex justify-content-center w-100">
                                 <button type="submit" class="btn preview-button">
-                                    {{ __('Preview') }}
+                                    {{ __('buttons.preview') }}
                                     <i class="fas fa-arrow-right ms-2"></i>
                                 </button>
                             </div>
