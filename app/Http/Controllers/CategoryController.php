@@ -44,14 +44,19 @@ class CategoryController extends AppBaseController
             ->with('categories', $categories);
     }
 
+    private function getTreeCategories(): object
+    {
+        return Category::where('parent_id', '=', null)->get();
+    }
+
     public function userRootCategories(Request $request)
     {
-        $categories = $this->categoryRepository->allQuery(array("parent_id"=>null))->paginate("5");
-        $treeCategories = Category::where('parent_id', '=', null)->get();
+        //$categories = $this->categoryRepository->allQuery(array("parent_id"=>null))->paginate("5");
+        $treeCategories = $this->getTreeCategories();
 
         return view('user_views.category.categories_root_user')
             ->with([
-                'categories' => $categories,
+                //'categories' => $categories,
                 'treeCategories' => $treeCategories,
             ]);
     }
@@ -62,7 +67,7 @@ class CategoryController extends AppBaseController
             return redirect(route('rootcategories'));
 
         $category = $this->categoryRepository->find($request->category_id);
-        $treeCategories = Category::where('parent_id', '=', null)->get();
+        $treeCategories = $this->getTreeCategories();
         $products = $category->products()->paginate(12);
 
         $user = Auth::user();

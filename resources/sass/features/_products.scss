@@ -27,72 +27,42 @@
 
             .product-add-to-cart-wrapper {
                 position: absolute;
-                top: 20px;
-                left: 20px;
+                bottom: 0;
+                left: 0;
                 z-index: 1000;
-
-                .product-add-to-cart-text {
-                    position: relative;
-                    top: 5px;
-                    right: -15px;
-                    display: none;
-                    justify-content: center;
-                    align-items: center;
-                    min-width: 90px;
-                    height: 40px;
-                    padding: 0 10px;
-                    background: #2a2c2f;
-                    color: #FFF;
-                    font-size: 0.8rem;
-                    border-radius: 4px;
-                    z-index: 1001;
-                }
+                width: 100%;
 
                 .product-add-to-cart-button {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
                     position: relative;
-                    color: #212121;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    color: #fff;
                     border: none;
-                    background: #FFF;
-                    width: 50px;
+                    background: #0088CC;
+                    width: 100%;
                     height: 50px;
-                    border-radius: 100%;
                     font-size: 1rem;
                     box-shadow: 0 0 12px -4px rgb(0 0 0 / 40%);
                     opacity: 0;
-                    transform: translate3d(0, 5px, 0);
+                    transform: translate3d(0, -5px, 0);
                     transition: all 300ms ease;
 
                     &:hover, &:focus, &:active {
-                        background: #0088CC;
-
-                        /*&:after {
-                            content: '';
-                            position: absolute;
-                            top: 20px;
-                            right: -20px;
-                            transform: rotate(45deg);
-                            width: 10px;
-                            aspect-ratio: 1;
-                            background: #2a2c2f;
-                        }*/
-
-                        i {
-                            color: #FFF;
-                        }
+                        background: #00a1f2;
                     }
 
                     i {
-                        color: #5d5d5d;
-                        font-size: 1.3rem;
+                        font-size: 1.1rem;
+                        margin-right: 10px;
+                    }
+
+                    span {
+                        text-transform: uppercase;
+                        font-size: .8em;
+                        font-weight: 600;
                     }
                 }
-
-                /*&:hover + .product-add-to-cart-text {
-                    display: flex;
-                }*/
             }
         }
 
