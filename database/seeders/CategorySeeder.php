@@ -29,8 +29,8 @@ class CategorySeeder extends Seeder
                     'description' => "kategorija $faker->text",
                 ],
                 'ru' => [
-                    'name' => "RUcategory $faker->name",
-                    'description' => "RUcategory $faker->text",
+                    'name' => "категория $faker->name",
+                    'description' => "категория $faker->text",
                 ],
             ];
                $category = Category::create($cdata);

@@ -39,10 +39,10 @@ class PromotionSeeder extends Seeder
                     'name' => "akcija $faker->name",
                     'description' => "akcija $faker->text",
                 ],
-                /*'ru' => [
-                    'name' => "RU skidka $faker->name",
-                    'description' => "RU skidka $faker->text",
-                ],*/
+                'ru' => [
+                    'name' => "акция $faker->name",
+                    'description' => "акция $faker->text",
+                ],
                 'start' => $faker->date,
                 'finish' => $faker->date,
             ];

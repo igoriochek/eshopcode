@@ -62,7 +62,7 @@
                             <button type="submit" class="btn_full">
                                 {{ __('buttons.login') }}
                             </button>
-                            <a href="{{ route('register') }}" class="btn_full_outline">{{ __('Register') }}</a>
+                            <a href="{{ route('register') }}" class="btn_full_outline">{{ __('buttons.register') }}</a>
                         </form>
                     </div>
                 </div>

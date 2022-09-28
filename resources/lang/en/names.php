@@ -88,6 +88,9 @@ return [
     'discountCouponDetails' => 'Discount Coupon Details',
     'editDiscountCoupon' => 'Edit Discount Coupon',
     'noDiscounts' => 'No discounts available',
+    "noDiscountCoupons" => "You have no discount coupons yet :(",
+    "discountCouponCode" => "Discount coupon code:",
+    "discountCouponValue" => "Discount coupon value:",
 
     //Export Import
     'dataExpImp' => 'Data Export / Import',
@@ -233,11 +236,6 @@ return [
     'createCustomer' => 'Create Customer',
     'editCustomer' => 'Edit Customer',
     'userLogs' => 'User Logs',
-
-    //Discounts coupons
-    "noDiscountCoupons" => "You have no discount coupons yet :(",
-    "discountCouponCode" => "Discount coupon code:",
-    "discountCouponValue" => "Discount coupon value:",
 
     'desc' => 'Description',
     'name' => 'Name',

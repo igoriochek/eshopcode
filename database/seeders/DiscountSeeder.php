@@ -29,8 +29,8 @@ class DiscountSeeder extends Seeder
                     'description' => "nuolaida $faker->text",
                 ],
                 'ru' => [
-                    'name' => "RU skidka $faker->name",
-                    'description' => "RU skidka $faker->text",
+                    'name' => "скидка $faker->name",
+                    'description' => "скидка $faker->text",
                 ],
                 'proc' => rand(1,99),
             ];

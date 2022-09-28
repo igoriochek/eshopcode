@@ -88,6 +88,9 @@ return [
     'discountCouponDetails' => 'Nuolaidų kupono informacija',
     'editDiscountCoupon' => 'Redaguoti Nuolaidos Kuponą',
     'noDiscounts' => 'Nėra Nuolaidų',
+    "noDiscountCoupons" => "Jūs dar neturite nuolaidų kuponų :(",
+    "discountCouponCode" => "Nuolaidų kupono kodas:",
+    "discountCouponValue" => "Nuolaidų kupono suma:",
 
     //Export Import
     'dataExpImp' => 'Duomenų Eksportas / Importas',
@@ -234,11 +237,6 @@ return [
     'createCustomer' => 'Sukurti Klientą',
     'editCustomer' => 'Redaguoti Klientą',
     'userLogs' => 'Vartotojų Žurnalai',
-
-    //Discounts coupons
-    "noDiscountCoupons" => "Jūs dar neturite nuolaidų kuponų :(",
-    "discountCouponCode" => "Nuolaidų kupono kodas:",
-    "discountCouponValue" => "Nuolaidų kupono suma:",
 
     'desc' => 'Aprašymas',
     'name' => 'Pavadinimas',
