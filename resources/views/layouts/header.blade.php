@@ -80,27 +80,10 @@
                 <div class="main-menu">
                     <a href="#" class="open_close" id="close_in"><i class="icon_set_1_icon-77"></i></a>
                     @guest
-                        <ul class="d-flex justify-content-evenly">
-                            <li class="nav-item"><a href="/home" >{{__('menu.home')}}</a></li>
-                            <li class="nav-item"><a href="/products" >{{__('menu.products')}}</a></li>
-                            <li class="nav-item"><a href="/rootcategories" >{{__('menu.categories')}}</a></li>
-                            <li class="nav-item"><a href="/promotions" >{{__('menu.promotions')}}</a></li>
-                        </ul>
+                        @include('layouts.menus.guestmenu')
                     @else
-                        <ul>
-                            <li><a href="/home" >{{ __('names.home') }} </a></li>
-                            <li><a href="/user/products" class="show-submenu">{{__('menu.products')}}</a></li>
-                            <li><a href="/user/rootcategories" class="show-submenu">{{__('menu.categories')}}</a></li>
-                            <li><a href="/user/promotions" class="show-submenu">{{__('menu.promotions')}}</a></li>
-                            <li><a href="/user/discountCoupons" class="show-submenu">{{__('menu.discountCoupons')}}</a></li>
-                            <li><a href="/user/messenger" class="show-submenu">{{__('menu.messenger')}}</a></li>
-                        </ul>
+                        @include('layouts.menus.logedmenu')
                 </div><!-- End main-menu -->
-                <ul id="top_tools" >
-                    <li>
-                        <a href="/user/viewcart"><i class="icon_bag_alt"></i><strong>{{__('menu.cart')}}</strong></a>
-                    </li>
-                </ul>
             </nav>
             @endguest
         </div>
