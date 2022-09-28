@@ -93,11 +93,14 @@ return [
     'discountDetails' => 'Discount Details',
     'editDiscount'=> 'Edit Discount',
 
-    //DiscountCoupons
+    //Discount Coupons
     'createDiscountCoupon' => 'Create Discount Coupon',
     'discountCoupons' => 'Discount Coupons',
     'discountCouponDetails' => 'Discount Coupon Details',
     'editDiscountCoupon' => 'Edit Discount Coupon',
+    "noDiscountCoupons" => "You have no discount coupons yet :(",
+    "discountCouponCode" => "Discount coupon code",
+    "discountCouponValue" => "Discount coupon value",
 
     //Export Import
     'dataExpImp' => 'Data Export / Import',

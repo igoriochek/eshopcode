@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Schema;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -17,15 +18,16 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         //Change public path to htdocs
-        $this->app->bind('path.public', function() {
-            return base_path('htdocs');
-        });
+//        $this->app->bind('path.public', function() {
+//            return base_path('htdocs');
+//        });
     }
 
     public function boot(CartRepository $cartRepository, Request $request)
     {
+        Schema::defaultStringLength(191);
         //Force app to use https
-        URL::forceScheme('https');
+//        URL::forceScheme('https');
 
         //Cart item number
         View::composer('*', function($view) use($cartRepository, $request)

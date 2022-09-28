@@ -19,6 +19,8 @@ return [
     'incorrectpassword' => 'Neteisingas dabartinis slaptažodis.',
 
     "nocategories" => "Nėra Kategorijų",
+    "noinnercategories" => "Vidinių kategorijų nėra",
+    "subcategories" => "Vidinės kategorijos",
     "novideo" => "Nėra video",
     "passwordmismatch" => "Slaptažodis tuščias arba nesutampa",
     "makereturn" => "Atlikti grąžinimą",

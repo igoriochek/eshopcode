@@ -140,9 +140,7 @@
                                                 @endfor
                                             </div>
                                         </div>
-                                        <p class="product-user-rating-description">
-                                            {{ $rating->desription ?? 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.' }}
-                                        </p>
+                                        <p class="product-user-rating-description">{{ $rating->desription }}</p>
                                     </div>
                                 @empty
                                     <p class="mb-1 product-reviews-add-review-description">{{ __('names.noReviews') }}</p>
@@ -177,7 +175,7 @@
                                             <div class="col-sm-12">
                                                 <label class="form-label">{{ __('names.yourReview') }}*</label>
                                                 <div class="mb-3">
-                                                    <textarea class="form-control" rows="5" id="comment"></textarea>
+                                                    <textarea class="form-control" rows="5" id="comment" name="comment"></textarea>
                                                 </div>
                                             </div>
                                             <div class="col-sm-12">
@@ -222,10 +220,14 @@
     <script>
         $('button[type="button"]').click(function () {
             const value = $('input[type=radio][name=rating]:checked').val();
+            const desc = $('textarea#comment').val();
+            console.log(desc);
             $.post("{{route('addUserRating')}}",
                 {
                     "_token": "{{ csrf_token() }}",
                     rating: value,
+
+                    description: desc,
                     product: {{$product->id}}
                 },
                 function (data, status) {

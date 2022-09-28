@@ -24,7 +24,12 @@ class Ratings extends Model
 
 
     public $fillable = [
-        'value'
+        'value',
+        'user_id',
+        'product_id',
+        'description',
+        'created_at',
+        'updated_at'
     ];
 
     /**
@@ -33,7 +38,11 @@ class Ratings extends Model
      * @var array
      */
     protected $casts = [
-        'value' => 'integer'
+        'value' => 'integer',
+        'user_id' => 'integer',
+        'product_id' => 'integer',
+        'created_at' => 'date',
+        'updated_at' => 'date'
     ];
 
     /**

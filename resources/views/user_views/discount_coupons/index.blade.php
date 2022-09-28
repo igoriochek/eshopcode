@@ -20,15 +20,15 @@
                                 <div class="discount-coupon p-4 mb-4 mb-sm-5">
                                     <h4>
                                         <a class="discount-coupon-title" href="{{ route('viewproduct', $discountCoupon->id) }}">
-                                            {{ $discountCoupon->code }}
+                                            {{__('names.discountCouponCode')}}: {{ $discountCoupon->code }}
                                         </a>
                                     </h4>
-                                    <p class="discount-coupon-description">{{ $discountCoupon->value }}</p>
+                                    <p class="discount-coupon-description">{{__('names.discountCouponValue')}}: {{ $discountCoupon->value }} EU</p>
                                 </div>
                             @endforeach
                         @else
                             <span class="discount-coupons-empty">
-                                {{ __('names.noDiscount') }}
+                                {{ __('names.noDiscountCoupons') }}
                             </span>
                         @endif
                         @if (!empty($discountCoupons->count())) {{ $discountCoupons->links() }} @endif
