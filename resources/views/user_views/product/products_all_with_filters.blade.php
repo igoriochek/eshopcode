@@ -170,38 +170,38 @@
                         <button type="submit" class="filter-button" data-text-original="{{ __('buttons.filter') }}">
                             {{ __('buttons.filter') }}
                         </button>
-                        <hr>
-                        <div class="widget related-products">
-                            <h4>{{ __('names.topRated') }}</h4>
-                            @foreach($products->sortByDesc('average')->take(3) as $productByRating)
-                                <div class="post">
-                                    <figure class="post-thumb">
-                                        <a href="{{ route('viewproduct', $product->id) }}">
-                                            @if ($product->image)
-                                                <img src="{{ $product->image }}" alt="{{ $product->name }}">
-                                            @else
-                                                <img src="/images/noimage.jpeg" alt="noimage">
-                                            @endif
-                                        </a>
-                                    </figure>
-                                    <h5>
-                                        <a href="{{ route('viewproduct', $productByRating->id) }}">{{ $productByRating->name }}</a>
-                                    </h5>
-                                    <div class="rating flex-row justify-content-start">
-                                        @for($i = 1; $i <= 5; $i++)
-                                            <i class="@if ($productByRating->average >= $i) icon-star voted @else icon-star-empty @endif"></i>
-                                        @endfor
-                                    </div>
-                                    <div class="price">
-                                        @if ($productByRating->discount)
-                                            €{{ $productByRating->price - round(($productByRating->price * $productByRating->discount->proc / 100), 2) }}
-                                        @else
-                                            €{{ $productByRating->price }}
-                                        @endif
-                                    </div>
-                                </div>
-                            @endforeach
-                        </div>
+{{--                        <hr>--}}
+{{--                        <div class="widget related-products">--}}
+{{--                            <h4>{{ __('names.topRated') }}</h4>--}}
+{{--                            @foreach($products->sortByDesc('average')->take(3) as $productByRating)--}}
+{{--                                <div class="post">--}}
+{{--                                    <figure class="post-thumb">--}}
+{{--                                        <a href="{{ route('viewproduct', $product->id) }}">--}}
+{{--                                            @if ($product->image)--}}
+{{--                                                <img src="{{ $product->image }}" alt="{{ $product->name }}">--}}
+{{--                                            @else--}}
+{{--                                                <img src="/images/noimage.jpeg" alt="noimage">--}}
+{{--                                            @endif--}}
+{{--                                        </a>--}}
+{{--                                    </figure>--}}
+{{--                                    <h5>--}}
+{{--                                        <a href="{{ route('viewproduct', $productByRating->id) }}">{{ $productByRating->name }}</a>--}}
+{{--                                    </h5>--}}
+{{--                                    <div class="rating flex-row justify-content-start">--}}
+{{--                                        @for($i = 1; $i <= 5; $i++)--}}
+{{--                                            <i class="@if ($productByRating->average >= $i) icon-star voted @else icon-star-empty @endif"></i>--}}
+{{--                                        @endfor--}}
+{{--                                    </div>--}}
+{{--                                    <div class="price">--}}
+{{--                                        @if ($productByRating->discount)--}}
+{{--                                            €{{ $productByRating->price - round(($productByRating->price * $productByRating->discount->proc / 100), 2) }}--}}
+{{--                                        @else--}}
+{{--                                            €{{ $productByRating->price }}--}}
+{{--                                        @endif--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            @endforeach--}}
+{{--                        </div>--}}
                     </form>
                 </aside>
             </div>

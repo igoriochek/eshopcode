@@ -58,10 +58,9 @@
                                 </li>
                         @endguest
                             <li id="social_top" style="opacity: 1">
-                                <a href="#0"><i class="icon-facebook"></i>
-                                </a>
-                                <a href="#0"><i class="icon-instagram"></i>
-                                </a>
+                                <a href="{{ route('facebook.login') }}"><i class="icon-facebook"></i></a>
+                                <a href="{{ route('twitter.login') }}"><i class="icon-twitter"></i></a>
+                                <a href="{{ route('google.login') }}"><i class="icon-google"></i></a>
                             </li>
                     </ul>
                 </div>

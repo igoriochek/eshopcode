@@ -49,8 +49,9 @@
                 <div class="col-md-12">
                     <div id="social_footer">
                         <ul>
-                            <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                            <li><a href="{{ route('facebook.login') }}"><i class="icon-facebook"></i></a></li>
+                            <li><a href="{{ route('twitter.login') }}"><i class="icon-twitter"></i></a></li>
+                            <li><a href="{{ route('google.login') }}"><i class="icon-google"></i></a></li>
                         </ul>
                         <p>{{__('footer.copyright')}}</p>
                     </div>
