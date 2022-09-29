@@ -19,6 +19,7 @@ return [
     'addToCart' => 'Добавить в корзину',
     'back' => 'Назад',
     'backToMainCategories' => 'Вернуться к основным категориям',
+    'backToAllPromotions' => 'Вернуться ко всем акциям',
     'cancel' => 'Отмена',
     'checkout' => 'Оформить заказ',
     'chooseFile' => 'Выбрать файл',

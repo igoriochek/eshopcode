@@ -78,20 +78,16 @@
                                 class="header-nav-main header-nav-main-square header-nav-main-dropdown-no-borders header-nav-main-effect-3 header-nav-main-sub-effect-1 w-100">
                                 <nav class="collapse w-100" id="nav">
                                     <ul class="nav nav-pills w-100" id="mainNav">
-{{--                                        <li class="nav-list">--}}
-{{--                                            <a class="{{ request()->is('home') ? 'active' : '' }}" href="{{ url('/home') }}">--}}
-{{--                                                {{ __('menu.home') }}--}}
-{{--                                            </a>--}}
-{{--                                        </li>--}}
+                                        {{--                                        <li class="nav-list">--}}
+                                        {{--                                            <a class="{{ request()->is('home') ? 'active' : '' }}" href="{{ url('/home') }}">--}}
+                                        {{--                                                {{ __('menu.home') }}--}}
+                                        {{--                                            </a>--}}
+                                        {{--                                        </li>--}}
                                         @guest
                                             @include('layouts.menus.menu')
                                         @endguest
                                         @auth
-                                            @if (Auth::user()->type === 1)
-                                                @include('layouts.menus.admin_menu')
-                                            @elseif (Auth::user()->type === 2)
-                                                @include('layouts.menus.user_menu')
-                                            @endif
+                                            @include('layouts.menus.user_menu')
                                         @endauth
                                     </ul>
                                 </nav>
@@ -154,5 +150,21 @@
             event => window.innerWidth > maxWidth ? nav.classList.add('show') : nav.classList.remove('show'),
             true
         );
+
+        const header = document.querySelector('.header');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 0) header.style.position = 'relative'
+            if (window.scrollY > topbarHeight) header.style.position = 'sticky';
+        });
+
+        document.onscroll = () => onStickyNavbar();
+
+        const onStickyNavbar = () => {
+            if (document.body.scrollTop > topbarHeight || document.documentElement.scrollTop > topbarHeight)
+                header.style.top = '-42px';
+            else
+                header.style.top = '0';
+        }
     </script>
 @endpush

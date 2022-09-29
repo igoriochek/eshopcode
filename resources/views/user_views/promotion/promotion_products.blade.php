@@ -5,20 +5,22 @@
         <div class="row">
             <div class="col-lg-3">
                 <aside class="sidebar">
-                    <h5 class="sidebar-title">{{ __('names.categories')}}</h5>
-                    @include('user_views.category.categoryTree')
+                    <h5 class="sidebar-title">{{ __('names.promotions')}}</h5>
+                    @include('user_views.promotion.promotion_tree')
                 </aside>
             </div>
             <div class="col-lg-9">
-                <div class="d-flex justify-content-between align-items-center mb-4">
-                    <h5>{{ $maincategory->name }}</h5>
-                    <a href="{{ route("rootcategories") }}" class="category-return-button">{{__('buttons.backToMainCategories')}}</a>
-                </div>
                 <div class="row">
-                    @forelse ($products as $product)
-                        <div class="col-lg-4 col-md-6 mt-4 mt-md-0 mt-lg-0 mb-5">
-                            <div class="product">
-                                {!! Form::open(['route' => ['addtocart'], 'method' => 'post']) !!}
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h5>{{ $promotion->name }}</h5>
+                            <a href="{{ route("promotions") }}" class="promotion-return-button">
+                                {{ __('buttons.backToAllPromotions') }}
+                            </a>
+                        </div>
+                        @forelse ($products as $product)
+                            <div class="col-lg-4 col-md-6 mt-4 mt-md-0 mt-lg-0 mb-5">
+                                <div class="product">
+                                    {!! Form::open(['route' => ['addtocart'], 'method' => 'post']) !!}
                                     @if ($product->image)
                                         <div class="product-image-container">
                                             <a style="cursor: pointer" href="{{ route('viewproduct', $product->id) }}">
@@ -60,15 +62,15 @@
                                             <div class="product-price">
                                                 @if ($product->discount)
                                                     <span class="product-previous-price product-price-font-family">
-                                                    €{{ $product->price }}
-                                                </span>&nbsp
+                                                        €{{ $product->price }}
+                                                    </span>&nbsp
                                                     <span class="product-discounted-price product-price-font-family">
-                                                    €{{ $product->price - (round(($product->price * $product->discount->proc / 100), 2)) }}
-                                                </span>
+                                                        €{{ $product->price - (round(($product->price * $product->discount->proc / 100), 2)) }}
+                                                    </span>
                                                 @else
                                                     <span class="product-no-discount-price product-price-font-family">
-                                                    €{{ $product->price }}
-                                                </span>
+                                                        €{{ $product->price }}
+                                                    </span>
                                                 @endif
                                             </div>
                                         </div>
@@ -80,12 +82,12 @@
                                             </div>
                                         </div>
                                     </div>
-                                {!! Form::close() !!}
+                                    {!! Form::close() !!}
+                                </div>
                             </div>
-                        </div>
-                    @empty
-                        <span class="text-muted">{{ __('names.noProducts') }}</span>
-                    @endforelse
+                        @empty
+                            <span class="text-muted">{{ __('names.noProducts') }}</span>
+                        @endforelse
                     <div class="d-flex justify-content-start">
                         {{ $products->links() }}
                     </div>
