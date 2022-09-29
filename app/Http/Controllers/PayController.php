@@ -127,7 +127,8 @@ class PayController extends AppBaseController
                     $user = Auth::user();
 
                     if($user){
-                        $user->log("Created new Order ID:{$params['orderid']}");
+//                        $user->log("Created new Order ID:{$params['orderid']}");
+                        $user->log("Created new Order ID:{$newOrder->id}");
                     }
                     return 'OK';
                 }
