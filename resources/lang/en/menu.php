@@ -39,5 +39,6 @@ return [
     'userInfo'=> 'User Info',
     'usersReport' => 'Users Report',
     'usersActivitiesReport' => 'Users Activities Report',
+    'profile' => 'Profile',
 
 ];

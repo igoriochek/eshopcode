@@ -79,7 +79,9 @@
                 <div class="main-menu">
                     <a href="#" class="open_close" id="close_in"><i class="icon_set_1_icon-77"></i></a>
                     @guest
+                        <ul class="d-flex justify-content-evenly">
                         @include('layouts.menus.guestmenu')
+                        </ul>
                     @else
                         @include('layouts.menus.logedmenu')
                 </div><!-- End main-menu -->

@@ -41,4 +41,5 @@ return [
     'userInfo' => 'Vartotojo Informacija',
     'usersReport' => 'Vartotojų Ataskaitos',
     'usersActivitiesReport' => 'Vartotojų Aktyvumo Ataskaitos',
+    'profile' => 'Profilis',
 ];
