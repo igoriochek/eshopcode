@@ -171,7 +171,7 @@ class ReturnsController extends AppBaseController
         $user = Auth::user();
 
         if ($user) {
-            $user->log("Admin set Order ID:{$id} Return Status to: {$status}");
+            $user->log("Admin set Order ID:{$returns->order_id} Return Status to: {$status}");
         }
 
         Flash::success('Returns updated successfully.');

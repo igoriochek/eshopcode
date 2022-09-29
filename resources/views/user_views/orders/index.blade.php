@@ -28,7 +28,7 @@
                                     <table class="table" id="categories">
                                         <thead>
                                         <tr>
-                                            <th>ID</th>
+                                            <th>{{__("names.order")}} ID</th>
 {{--                                            <th>{{__('table.user')}}</th>--}}
                                             <th>{{__('table.status')}}</th>
                                             <th>{{__('table.sum')}}</th>
