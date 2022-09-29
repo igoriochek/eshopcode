@@ -28,7 +28,7 @@
 
   // Because flex properties aren't inherited, we need to redeclare these first
   // few properties so that content nested within behave properly.
-  // The `flex-wrap` property is inherited to simplify the expanded navbars
+  // The `flex-wrap` property is inherited to simplify the expanded headers
   %container-flex-properties {
     display: flex;
     flex-wrap: inherit;
@@ -111,7 +111,7 @@
 .navbar-collapse {
   flex-basis: 100%;
   flex-grow: 1;
-  // For always expanded or extra full navbars, ensure content aligns itself
+  // For always expanded or extra full headers, ensure content aligns itself
   // properly vertically. Can be easily overridden with flex utilities.
   align-items: center;
 }
@@ -231,7 +231,7 @@
 
 // Navbar themes
 //
-// Styles for switching between navbars with light or dark background.
+// Styles for switching between headers with light or dark background.
 
 // Dark links against a light background
 .navbar-light {

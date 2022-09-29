@@ -1,7 +1,7 @@
 .minus, .plus,
 .product-add-to-cart-number,
 .product-change-cart-number {
-    border: 1px solid #F0F0F0;
+    border: 1px solid #e7e7e7;
     width: 45px;
     aspect-ratio: 1;
     text-align: center;
@@ -30,6 +30,7 @@
 .product-add-to-cart-number,
 .product-change-cart-number {
     width: 40px;
+    -moz-appearance: textfield;
 
     &::-webkit-outer-spin-button,
     &::-webkit-inner-spin-button {

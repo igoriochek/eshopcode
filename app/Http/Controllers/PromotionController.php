@@ -39,24 +39,28 @@ class PromotionController extends AppBaseController
             ->with('promotions', $promotions);
     }
 
-    public function indexPromotions(Request $request)
+    private function getPromotions(): object
     {
-//         $categories = $this->categoryRepository->allQuery(array("parent_id"=>null))->paginate("3");
-        $promotions =  Promotion::translatedIn(app()->getLocale())->paginate(5);
-
-        return view('user_views.promotion.index')
-            ->with('promotions', $promotions);
+        return Promotion::translatedIn(app()->getLocale())->paginate(5);
     }
 
+    public function indexPromotions()
+    {
+        return view('user_views.promotion.index')
+            ->with('promotions', $this->getPromotions());
+    }
 
     public function promotionProducts(Request $request)
     {
-//         $categories = $this->categoryRepository->allQuery(array("parent_id"=>null))->paginate("3");
         $promotion = $this->promotionRepository->allQuery(['id' => $request->id])->first();
-        $products = Product::query()->where(['promotion_id' => $request->id])->paginate(5);
+        $products = Product::query()->where(['promotion_id' => $request->id])->paginate(12);
 
-
-        return view('user_views.promotion.promotionproducts',['promotion' => $promotion, 'products' => $products]);
+        return view('user_views.promotion.promotion_products')
+            ->with([
+                'promotions' => $this->getPromotions(),
+                'promotion' => $promotion,
+                'products' => $products
+            ]);
     }
 
     /**

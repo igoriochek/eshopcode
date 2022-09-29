@@ -95,7 +95,7 @@
                     <h5 class="sidebar-title">{{ __('names.filterByPrice') }}</h5>
                     <div class="filter-by-price-widget-content">
                         <fieldset class="form-group">
-                            <div id="range-slider" class="slider mb-3 mt-1" wire:ignore></div>
+                            <div id="range-slider" class="slider mb-3 mt-1 mx-1" wire:ignore></div>
                             <div class="filter-by-price-button-container mb-3">
                                 <div class="d-flex">
                                     <span>{{ __('names.price')}} (€):</span>

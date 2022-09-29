@@ -38,17 +38,23 @@ use App\Http\Livewire\MessengerShow;
 Route::get('/', function () {
     if (Auth::user() && Auth::user()->type === User::TYPE_USER)
         return redirect('user/products');
+    else if (Auth::user() && Auth::user()->type === User::TYPE_ADMIN)
+        return redirect('admin/dashboard');
     else
         return redirect('products');
 });
+
 Route::get('/home', function () {
     if (Auth::user() && Auth::user()->type === User::TYPE_USER)
         return redirect('user/products');
+    else if (Auth::user() && Auth::user()->type === User::TYPE_ADMIN)
+        return redirect('admin/dashboard');
     else
         return redirect('products');
 })->name("home");
 
 Route::group(array('prefix' => 'admin', 'middleware' => 'admin'), function () {
+    Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('adminDashboard');
     Route::resource('categories', CategoryController::class);
     Route::resource('cookies', \App\Http\Controllers\CookieController::class);
     Route::resource('products', ProductController::class);

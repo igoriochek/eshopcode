@@ -15,7 +15,9 @@
 @import 'mediaQueries';
 
 // Features
+@import 'features/adminView';
 @import 'features/header';
+@import 'features/adminHeader';
 @import 'features/footer';
 @import 'features/products';
 @import 'features/sidebar';
@@ -28,8 +30,8 @@
 @import 'features/orderComplete';
 @import 'features/scrollToTopButton';
 @import 'features/messenger';
-@import 'features/categoryTree';
-@import 'features/categories';
+@import 'features/tree';
+@import 'features/buttons';
 
 // Elements
 @import 'elements/body';

@@ -3,59 +3,104 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <section class="content-header">
-                <div>
-                    <div class="row mb-2">
-                        <div class="col-sm-6">
-                            <h1>{{__('names.promotions')}}</h1>
+            <div class="col-lg-3">
+                <aside class="sidebar">
+                    <h5 class="sidebar-title">{{ __('names.promotions')}}</h5>
+                    @include('user_views.promotion.promotion_tree')
+                </aside>
+            </div>
+            <div class="col-lg-9">
+                <div class="row">
+                    @forelse ($promotions as $promotion)
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h5>{{ $promotion->name }}</h5>
+                            <a href="{{ route("promotion", ["id" => $promotion->id]) }}" class="promotion-more-products-button">
+                                {{ __("names.more_for_promotions") }}
+                            </a>
                         </div>
+                        @forelse ($promotion->products as $product)
+                            <div class="col-lg-4 col-md-6 mt-4 mt-md-0 mt-lg-0 mb-5">
+                                <div class="product">
+                                    {!! Form::open(['route' => ['addtocart'], 'method' => 'post']) !!}
+                                        @if ($product->image)
+                                            <div class="product-image-container">
+                                                <a style="cursor: pointer" href="{{ route('viewproduct', $product->id) }}">
+                                                    <img src="{{ $product->image }}" alt="{{ $product->name }}" class="product-image mx-auto"/>
+                                                </a>
+                                                <div class="product-add-to-cart-wrapper">
+                                                    <div class="d-flex justify-content-center justify-content-lg-start">
+                                                        <input type="hidden" name="id" value="{{ $product->id }}">
+                                                        <button type="submit" class="text-decoration-none product-add-to-cart-button" title="Add to Cart">
+                                                            <i class="fa-solid fa-bag-shopping"></i>
+                                                            {{ __('buttons.addToCart') }}
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @else
+                                            <div class="product-image-container">
+                                                <a style="cursor: pointer" href="{{ route('viewproduct', $product->id) }}">
+                                                    <img src="/images/noimage.jpeg" alt="" class="product-image mx-auto"/>
+                                                </a>
+                                                <div class="product-add-to-cart-wrapper">
+                                                    <div class="d-flex justify-content-center justify-content-lg-start">
+                                                        <input type="hidden" name="id" value="{{ $product->id }}">
+                                                        <button type="submit" class="text-decoration-none product-add-to-cart-button" title="Add to Cart">
+                                                            <i class="fa-solid fa-bag-shopping"></i>
+                                                            <span>{{ __('buttons.addToCart') }}</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endif
+                                        <div class="product-information">
+                                            <div class="product-title-container">
+                                                <a class="product-title" href="{{ route('viewproduct', $product->id) }}">
+                                                    {{ $product->name }}
+                                                </a>
+                                            </div>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div class="product-price">
+                                                    @if ($product->discount)
+                                                        <span class="product-previous-price product-price-font-family">
+                                                        €{{ $product->price }}
+                                                    </span>&nbsp
+                                                        <span class="product-discounted-price product-price-font-family">
+                                                        €{{ $product->price - (round(($product->price * $product->discount->proc / 100), 2)) }}
+                                                    </span>
+                                                    @else
+                                                        <span class="product-no-discount-price product-price-font-family">
+                                                        €{{ $product->price }}
+                                                    </span>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                            <div class="w-100 d-flex justify-content-center flex-column mt-3">
+                                                <div class="d-flex justify-content-center">
+                                                    <input type="button" class="minus text-color-hover-light bg-color-hover-primary border-color-hover-primary" value="-">
+                                                    {!! Form::number('count', "1", ['class' => 'product-add-to-cart-number', "min" => "1", "max" => "5", "minlength" => "1", "maxlength" => "5", "oninput" => "this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null"]) !!}
+                                                    <input type="button" class="plus text-color-hover-light bg-color-hover-primary border-color-hover-primary" value="+">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {!! Form::close() !!}
+                                </div>
+                            </div>
+                            @if ($loop->iteration > 2)
+                                @break
+                            @endif
+                        @empty
+                            <span class="text-muted">{{ __('names.noProducts') }}</span>
+                        @endforelse
+                        <hr class="mb-5" style="background: #ccc">
+                    @empty
+                        <span class="text-muted mt-1">{{ __('names.noPromotions') }}</span>
+                    @endforelse
+                    <div class="d-flex justify-content-start">
+                        {{ $promotions->links() }}
                     </div>
-                </div>
-            </section>
-
-
-            @forelse ($promotions as $item)
-                <div class="col-sm-6">
-                    <h3>{{$item->name}}: {{__('names.products')}}</h3>
-                    {{--        <a href="{{route("rootcategories")}}">Back to main categories</a>--}}
-                </div>
-                <div class="content px-3">
-                    <div class="clearfix"></div>
-                    <div class="card">
-                        <div class="card-body p-0">
-                            {{--                @include('products.table')--}}
-
-                            @if(($item->products->count()))
-                                @foreach( $item->products as $prod )
-                                    <div class="card-body">
-                                        <h4 class="card-title"><a href="{{route('viewproduct', $prod->id)}}">{{$prod->name}}</a>
-                                        </h4>
-                                        <h6 class="card-subtitle mb-2 text-muted">{{__('names.desc')}}</h6>
-                                        <p class="card-text">{{$prod->description}}</p>
-                                    </div>
-                                    @if ($loop->iteration > 2)
-                                        <a href="{{route("promotion", ["id"=>$item->id])}}">{{__("names.more_for_promotions")}}</a>
-                                        @break
-                                    @endif
-                                @endforeach
-                        </div>
-                    </div>
-                </div>
-                @else
-                    {{__('names.noProducts')}}
-                @endif
-
-            @empty
-                {{__('names.noPromotions')}}
-            @endforelse
-
-
-            <div class="card-footer clearfix">
-                <div class="float-right">
-                    {{$promotions->links()}}
                 </div>
             </div>
-            {{--              </div>--}}
         </div>
     </div>
 @endsection
