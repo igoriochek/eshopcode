@@ -134,10 +134,8 @@ return [
 
     //Messenger
     'messages' => 'Pranešimai',
-    'addUsers' => 'Pridėti vartotojų',
-    'noNotAddedUsers' => 'Nerasta vartotojų, kurie nebuvo įtraukti',
-    'chat' => 'Pokalbis',
-    'user' => 'Vartotojas',
+    'contactUsers' => 'Susisiekite su vartotojais',
+    'noUncontactedUsers' => 'Nerasta nesusisiekusių vartotojų',
     'you' => 'Jūs',
     'typeMsg' => 'Įveskite savo žinutę...',
 

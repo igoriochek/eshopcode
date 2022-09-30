@@ -127,6 +127,10 @@ return [
     'unreadMsg' => 'непрочитанные сообщения.',
 
     //Messenger
+    'messages' => 'Сообщения',
+    'contactUsers' => 'Связаться с пользователями',
+    'noUncontactedUsers' => 'Пользователи, с которыми не связывались, не найдены',
+    'you' => 'Вы',
     'typeMsg' => 'Введите ваше сообщение здесь...',
 
     //Orders
@@ -231,6 +235,7 @@ return [
     'new' => "Новый",
 
     'orderBy' => 'Сортировать по',
+
     //Discounts coupons
     "ndDiscountCoupons" => "У вас еще нет купонов на скидку :(",
     "discountCouponCode" => "Код купона на скидку",

@@ -144,10 +144,8 @@ return [
 
     //Messenger
     'messages' => 'Messages',
-    'addUsers' => 'Add Users',
-    'noNotAddedUsers' => "No users which weren't not added found",
-    'chat' => 'Chat',
-    'user' => 'User',
+    'contactUsers' => 'Contact Users',
+    'noUncontactedUsers' => 'No uncontacted users found',
     'you' => 'You',
     'typeMsg' => 'Type your message here...',
 

@@ -28,7 +28,7 @@
             @endguest
             @auth
                 <a href="{{ url('/user/viewcart') }}" class="navbar-icon">
-                    <i class="fa-solid fa-cart-shopping fs-5"></i>
+                    <i class="fa-solid fa-cart-shopping fs-4"></i>
                     @if (!empty($cartItemCount))
                         <span class="shopping-cart-items">{{ $cartItemCount }}</span>
                     @endif
@@ -36,7 +36,7 @@
                 <li class="dropdown" style="list-style: none;">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle navbar-icon" href="#" role="button"
                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fa-solid fa-user fs-5"></i>
+                        <i class="fa-solid fa-user fs-4"></i>
                     </a>
                     @include('layouts.dropdown_menus.user_dropdown_menu')
                 </li>

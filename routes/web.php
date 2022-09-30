@@ -213,8 +213,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('lang/{locale}', function ($locale) {
     app()->setLocale($locale);
     session()->put('locale', $locale);
-    //return redirect()->back();
-    return view('home');
+    return redirect()->back();
 });
 
 //Route::resource('categories', App\Http\Controllers\CategoryController::class);

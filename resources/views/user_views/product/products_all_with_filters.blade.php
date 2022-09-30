@@ -70,11 +70,14 @@
                                             </div>
                                             <hr class="product-hr"/>
                                             <div class="product-button-container">
-                                                {!! Form::open(['route' => ['addtocart'], 'method' => 'post',
-                                                    'class' => 'd-flex justify-content-center justify-content-lg-start']) !!}
+                                                {!! Form::open(['route' => ['addtocart'], 'method' => 'post', 'class' => 'product-add-to-cart-container justify-content-center justify-content-md-between']) !!}
+                                                    <div class="d-flex">
+                                                        <input type="button" class="minus text-color-hover-light bg-color-hover-primary border-color-hover-primary" value="-">
+                                                        {!! Form::number('count', "1", ['class' => 'product-add-to-cart-number', "min" => "1", "max" => "5", "minlength" => "1", "maxlength" => "5", "oninput" => "this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null"]) !!}
+                                                        <input type="button" class="plus text-color-hover-light bg-color-hover-primary border-color-hover-primary" value="+">
+                                                    </div>
                                                     <input type="hidden" name="id" value="{{ $product->id }}">
-                                                    <input type="hidden" name="count" value="1">
-                                                    <input type="submit" value="{{__('buttons.addToCart')}}" class="product-add-to-cart">
+                                                    <input type="submit" value="{{__('buttons.addToCart')}}" class="product-add-to-cart-button">
                                                 {!! Form::close() !!}
                                             </div>
                                         </div>

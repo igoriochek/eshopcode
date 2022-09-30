@@ -33,11 +33,33 @@
     text-decoration: none;
     color: $pink-color;
     font-size: 1em;
-    font-weight: 500;
     transition: color 400ms ease;
 
     &:hover,
     &:focus {
         color: $button-hover-focus-background;
+    }
+}
+
+.more-products-button,
+.return-to-all-promotions {
+    width: 100%;
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    background-color: $pink-color;
+    color: $white-color;
+    transition: all 300ms ease;
+    font-size: 1em;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+
+    &:hover,
+    &:focus {
+        color: $white-color;
+        background-color: $button-hover-focus-background;
     }
 }

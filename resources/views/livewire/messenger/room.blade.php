@@ -1,10 +1,6 @@
 <div wire:poll.1s='updateMessages' class="messenger-room p-4 mb-sm-5">
     <div>
-        <h4 class="messenger-chat-name">{{ __('names.chat') }}</h4>
-        <p class="messenger-chat-user-name">
-            <span>{{ __('names.user') }}:</span>
-            {{ $user->name }}
-        </p>
+        <h4 class="messenger-chat-name">{{ $user->name }}</h4>
     </div>
     <div class="messenger-message-box" id="messsageBox">
         @forelse ($messages ?? [] as $message)

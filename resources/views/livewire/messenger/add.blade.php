@@ -20,7 +20,7 @@
                 <div class="col-lg-8 mb-5">
                     <div class="messenger-add-users p-4 mb-4 mb-sm-5">
                         <h4 class="messenger-add-users-title m-0">
-                            {{ __('names.addUsers') }}
+                            {{ __('names.contactUsers') }}
                         </h4>
                         <p class="p-0 m-0 showing-all-results">
                             {{ __('names.results').': '.$addUsers->count() }}

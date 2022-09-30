@@ -54,25 +54,24 @@
     }
 }
 
-.sidebar {
-    .category-tree-widget-content {
-        li {
-            list-style: none;
+.category-return-button {
+    width: 100%;
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    background-color: $pink-color;
+    color: $white-color;
+    transition: all 300ms ease;
+    font-size: 1em;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
 
-            a {
-                text-decoration: none;
-                color: $gray-color;
-                transition: color 400ms ease;
-
-                &:hover,
-                &:focus {
-                    color: $pink-color;
-                }
-            }
-
-            span {
-                color: $light-gray-color;
-            }
-        }
+    &:hover,
+    &:focus {
+        color: $white-color;
+        background-color: $button-hover-focus-background;
     }
 }

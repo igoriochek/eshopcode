@@ -95,9 +95,12 @@
                                 </div>
                             </div>
                             <p class="product-description">{{ $product->description }}</p>
-                                {!! Form::open(['route' => ['addtocart'], 'method' => 'post', 'class' => 'product-add-to-cart-container']) !!}
-                                {!! Form::number('count', "1",
-                                ['class' => 'product-add-to-cart-number', "minlength"=>"3", "maxlength"=>"5", "size"=>"5"]) !!}
+                            {!! Form::open(['route' => ['addtocart'], 'method' => 'post', 'class' => 'product-add-to-cart-container']) !!}
+                                <div class="d-flex">
+                                    <input type="button" class="minus text-color-hover-light bg-color-hover-primary border-color-hover-primary" value="-">
+                                    {!! Form::number('count', "1", ['class' => 'product-add-to-cart-number', "min" => "1", "max" => "5", "minlength" => "1", "maxlength" => "5", "oninput" => "this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null"]) !!}
+                                    <input type="button" class="plus text-color-hover-light bg-color-hover-primary border-color-hover-primary" value="+">
+                                </div>
                                 <input type="hidden" name="id" value="{{ $product->id }}">
                                 <input type="submit" value="{{__('buttons.addToCart')}}" class="product-add-to-cart-button">
                             {!! Form::close() !!}

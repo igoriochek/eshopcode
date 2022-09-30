@@ -18,6 +18,7 @@ return [
     'addToCart' => 'Добавить в корзину',
     'back' => 'Назад',
     'backToMainCategories' => 'Вернуться к основным категориям',
+    'backToAllPromotions' => 'Вернуться ко всем акциям',
     'cancel' => 'Отмена',
     'checkout' => 'Оформить заказ',
     'chooseFile' => 'Выбрать файл',
@@ -35,5 +36,6 @@ return [
     'showStatistics' => 'Показать статистику',
     'postReview' => 'Опубликовать отзыв',
     'proceedToCheckout' => 'Перейти к оформлению заказа',
+    'contact' => 'Контакт'
 
 ];

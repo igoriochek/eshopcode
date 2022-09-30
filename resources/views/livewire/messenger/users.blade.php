@@ -30,8 +30,8 @@
             </li>
             {{--<hr class="messenger-users-hr"/>--}}
         @empty
-            <div>
-                <span>{{__('table.noUsersFound')}}</span>
+            <div class="mt-4">
+                <span class="text-muted">{{__('table.noUsersFound')}}</span>
             </div>
         @endforelse
     </ul>

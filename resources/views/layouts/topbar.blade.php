@@ -26,6 +26,9 @@
                                 <a class="topbar_icon_link" href="#">
                                     <i class="fa-brands fa-instagram"></i>
                                 </a>
+                                <a class="topbar_icon_link" href="#">
+                                    <i class="fa-brands fa-twitter"></i>
+                                </a>
                             </div>
                             <div class="d-flex align-items-center">
                                 <ul class="m-0 p-0" style="list-style: none">
@@ -34,8 +37,11 @@
                                             @if (app()->getLocale() == 'lt')
                                                 <img src="/images/lt-flag.png" alt="lt-flag" style="width: 17px; height: 17px; margin-right: 5px; border-radius: 10px">
                                                 {{ __('LT') }}
-                                            @else
+                                            @elseif (app()->getLocale() == 'en')
                                                 <img src="/images/en-flag.png" alt="en-flag" style="width: 17px; height: 17px; margin-right: 5px; border-radius: 10px">
+                                                {{ __('EN') }}
+                                            @elseif (app()->getLocale() == 'ru')
+                                                <img src="/images/ru-flag.svg" alt="en-flag" style="width: 17px; height: 17px; margin-right: 5px; border-radius: 10px">
                                                 {{ __('EN') }}
                                             @endif
                                         </a>

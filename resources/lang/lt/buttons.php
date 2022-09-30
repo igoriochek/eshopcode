@@ -17,7 +17,8 @@ return [
     'addNewMsg' => 'Sukurti naują žinutę',
     'addToCart' => 'Pridėti į krepšelį',
     'back' => 'Grįžti',
-    'backToMainCategories' => 'Grįžti atgal į Kategorijas',
+    'backToMainCategories' => 'Grįžti atgal į kategorijas',
+    'backToAllPromotions' => 'Grįžti atgal į visas akcijas',
     'cancel' => 'Atšaukti',
     'checkout' => 'Atsiskaityti',
     'chooseFile' => 'Pasirinkite Failą',
@@ -33,6 +34,7 @@ return [
     'save' => 'Išsaugoti',
     'showLogs' => 'Rodyti Žurnalus',
     'showStatistics' => 'Rodyti Statistikas',
-    'sendResetPasswordLink' => 'Siųsti slaptažodžio nustatymo nuorodą'
+    'sendResetPasswordLink' => 'Siųsti slaptažodžio nustatymo nuorodą',
+    'contact' => 'Susisiekti'
 
 ];

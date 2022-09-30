@@ -12,7 +12,7 @@
                                 </h4>
                                 <a class="messenger-users-add" href="{{ route('livewire.messenger.add') }}">
                                     <i class="fa-solid fa-plus"></i>
-                                    {{__('buttons.addNew')}}
+                                    {{__('buttons.contact')}}
                                 </a>
                             </div>
                             <div class="category-tree-widget-content">

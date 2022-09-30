@@ -17,7 +17,8 @@ return [
     'addNewMsg' => 'Create New Message',
     'addToCart' => 'Add To Cart',
     'back' => 'Back',
-    'backToMainCategories' => 'Back to main Categories',
+    'backToMainCategories' => 'Back to main categories',
+    'backToAllPromotions' => 'Back to all promotions',
     'cancel' => 'Cancel',
     'checkout' => 'Checkout',
     'chooseFile' => 'Choose File',
@@ -35,6 +36,7 @@ return [
     'showStatistics' => 'Show Statistics',
     'submit' => 'Submit',
     'view' => 'View',
-    'sendResetPasswordLink' => 'Send Reset Password Link'
+    'sendResetPasswordLink' => 'Send Reset Password Link',
+    'contact' => 'Contact'
 
 ];

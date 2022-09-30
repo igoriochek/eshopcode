@@ -1,10 +1,14 @@
 .messenger-users-add {
     text-decoration: none;
-    color: $pink-color;
-    transition: color 300ms ease;
+    background: $pink-color;
+    padding: 10px 20px;
+    color: $white-color;
+    border-radius: 4px;
+    transition: all 300ms ease;
 
     &:hover, &:focus {
-        color: $button-hover-focus-background;
+        background: $button-hover-focus-background;
+        color: $white-color;
     }
 }
 

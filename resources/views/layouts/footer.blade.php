@@ -16,6 +16,9 @@
                         <a class="footer-link" href="#">
                             <i class="fa-brands fa-instagram fs-4"></i>
                         </a>
+                        <a class="footer-link" href="#">
+                            <i class="fa-brands fa-twitter fs-4"></i>
+                        </a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 mt-4 mt-md-5 mt-lg-0">
@@ -80,7 +83,7 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-12 col-lg-6">
-                    <ul class="mb-0 p-0 d-flex justify-content-center justify-content-lg-start list-unstyled" style="gap: 20px">
+                    <ul class="mb-0 p-0 d-flex justify-content-center justify-content-lg-start align-items-center list-unstyled text-center" style="gap: 20px">
                         <li>
                             <a class="footer-link" href="#">
                                 {{ __('footer.faq') }}
