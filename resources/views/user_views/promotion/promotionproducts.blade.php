@@ -51,7 +51,6 @@
                                                 {{ __('buttons.addToCart') }}
                                             </div>
                                         </button>
-                                        {!! Form::close() !!}
                                     </div>
                                 </div>
                                 <div class="product_description">
@@ -73,6 +72,17 @@
                                             €{{ $product->price }}
                                         @endif
                                     </div>
+                                    <div class="w-100 d-flex justify-content-center flex-column mt-3">
+                                        <div class="d-flex justify-content-center">
+                                            <div class="numbers-row">
+                                                {!! Form::number('count', "1", ['class' => 'qty2 form-control text-center', "min" => "1", "max" => "5", "minlength" => "1", "maxlength" => "5",
+                                                                "oninput" => "this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null"]) !!}
+                                                <input type="button" class="dec button_inc" value="-">
+                                                <input type="button" class="inc button_inc" value="+">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {!! Form::close() !!}
                                 </div>
                             </div>
                         </div>

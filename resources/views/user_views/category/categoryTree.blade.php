@@ -5,7 +5,7 @@
                 <a href="{{ route("innercategories", ["category_id" => $category->id ])}}"
                    class="nav-link {{ substr(url()->current(), -1) == "$category->id" ? 'active' : '' }}
                    {{ request()->is('user/rootcategories') || request()->is('rootcategories') ? 'fs-6 my-1' : '' }}">
-
+                    <i class="icon-th-thumb-empty"></i>
                     {{ $category->name }}
                     ({{ count($category->products) }})
                 </a>

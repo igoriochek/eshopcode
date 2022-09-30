@@ -20,7 +20,7 @@
     <div class="container margin_60">
         <div class="row">
             <aside class="col-lg-3 theiaStickySidebar" id="sidebar">
-                @include('user_views.promotion.promotionsList')
+                @include('user_views.promotion.promotionsLinks')
             </aside>
             <!--End aside -->
             <div class="col-lg-9">

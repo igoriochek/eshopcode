@@ -3,7 +3,7 @@
         @foreach($promotions as $promotion)
             @if (count($promotion->products)>0)
                 <li>
-                    <a href="{{$promotion->id}}" class="active">
+                    <a href="{{route("promotion", ["id"=>$promotion->id])}}" class="active">
                         <i class="icon-th-thumb-empty"></i>
                         {{$promotion->name}}
                         ({{count($promotion->products)}})
