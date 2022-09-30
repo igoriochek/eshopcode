@@ -23,6 +23,7 @@ use Response;
 class ReturnsController extends AppBaseController
 {
     use \App\Http\Controllers\forSelector;
+    use \App\Traits\LogTranslator;
 
     /** @var ReturnsRepository $returnsRepository */
     private $returnsRepository;
@@ -248,6 +249,11 @@ class ReturnsController extends AppBaseController
 
 
         $logs = $this->getOrderByReturnId($id);
+
+        foreach ($logs as $log ){
+            $log->activity = $this->logTranslate($log->activity, app()->getLocale());
+
+        }
 
         return view('user_views.returns.view')->with([
             'return' => $return,
