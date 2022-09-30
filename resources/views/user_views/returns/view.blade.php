@@ -27,7 +27,7 @@
 {{--            </a>--}}
 {{--        </div>--}}
 
-        <div>{{__('names.returnStatus')}}: {{ $return->status->name }}</div>
+        <div>{{__('names.returnStatus')}}: {{ __("status." .$return->status->name) }}</div>
 
         <div class="table table-responsive">
             <table class="table">
