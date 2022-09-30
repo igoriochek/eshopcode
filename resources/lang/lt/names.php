@@ -251,4 +251,11 @@ return [
     "ndDiscountCoupons" => "Jūs dar neturite nuolaidų kuponų :(",
     "discountCouponCode" => "Nuolaidų kupono kodas",
     "discountCouponValue" => "Nuolaidų kupono suma",
+    "zeroRecords" => "Įrašų nėra",
+    "showing" => "Rodomi",
+    "entries" => "užrašai",
+    "to" => "iki",
+    "of" => "iš",
+    "first" => "Pirmas",
+    "last" => "Paskutinis",
 ];

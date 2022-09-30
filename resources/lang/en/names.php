@@ -250,4 +250,12 @@ return [
     "ndDiscountCoupons" => "You have no discount coupons yet :(",
     "discountCouponCode" => "Discount coupon code",
     "discountCouponValue" => "Discount coupon value",
+    "zeroRecords" => "No matching records found",
+    "showing" => "Showing",
+    "entries" => "entries",
+    "to" => "to",
+    "of" => "of",
+    "first" => "First",
+    "last" => "Last",
+
 ];

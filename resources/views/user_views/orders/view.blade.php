@@ -46,7 +46,7 @@
 
 
 
-        <div>{{__('names.orderStatus')}}: {{ $order->status->name }}</div>
+        <div>{{__('names.orderStatus')}}: {{ __("status." . $order->status->name) }}</div>
 
         <div class="table table-responsive">
             <table class="table">
@@ -65,7 +65,13 @@
                 @foreach($orderItems as $item)
                     <tr>
                         @if($order->status->name == "Returned")
-                        <td class="text-center">{{$item->isReturned}}</td>
+                        <td class="text-center">
+                            @if ($item->isReturned !== null)
+                                {{__("status." .$item->isReturned)}}
+                            @else
+                                &nbsp;
+                            @endif
+                        </td>
                         @endif
 {{--                        <td>{{ $item->product_id }}</td>--}}
                         <td>{{ $item->product->name }}</td>
