@@ -20,10 +20,12 @@ return [
     'passwordConfirmToContinue' => 'Please confirm your password before continuing.',
     'resetPassword' => 'Reset Password',
     'sendResetPasswordLink' => 'Send Reset Password Link',
+    'or' => 'or',
 
     //Login
     'login'=> 'Login',
     'rememberMe' => 'Remember Me',
+    'loginWith' => 'Login With',
 
     //Register
     'register' => 'Register',
@@ -31,6 +33,7 @@ return [
     'email' => 'Email Address',
     'passwordEnter' => 'Password',
     'passwordEnterConfirm' => 'Confirm Password',
+    'registerParagraph' => 'Don`t have an account? ',
 
     //Verify
     'checkEmailForVerify' => 'Before proceeding, please check your email for a verification link.',

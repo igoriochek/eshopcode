@@ -11531,6 +11531,92 @@ textarea.form-control-lg {
     left: 0;
   }
 }
+.divider {
+    text-align: center;
+    height: 1px;
+    margin: 30px 0 20px 0;
+    background-color: #e1e8ed;
+}
+
+.divider span {
+    position: relative;
+    top: -20px;
+    display: inline-block;
+    padding: 10px;
+    font-style: italic;
+    background-color: white;
+}
+
+.auth-form .login-link {
+    font-weight: 600;
+    color: rgb(26, 26, 26);
+    transition: color 100ms ease 0s;
+    text-decoration: none;
+}
+
+.auth-form .auth-button:nth-child(3) {
+    font-weight: 600;
+    font-size: 0.8rem;
+    color: rgb(255, 255, 255);
+    background: rgb(66, 103, 178);
+    border-width: initial;
+    border-style: none;
+    border-color: initial;
+    border-image: initial;
+    transition: all 200ms ease 0s;
+}
+ .auth-form .auth-button {
+     text-transform: uppercase;
+     font-size: 0.9rem;
+     font-weight: 600;
+     border-width: initial;
+     border-style: none;
+     border-color: initial;
+     border-image: initial;
+     transition: background 200ms ease 0s;
+ }
+.auth-form .auth-button:nth-child(4) {
+    font-weight: 600;
+    font-size: 0.8rem;
+    color: rgb(255, 255, 255);
+    background: rgb(219, 74, 57);
+    border-width: initial;
+    border-style: none;
+    border-color: initial;
+    border-image: initial;
+    transition: all 200ms ease 0s;
+}
+ .auth-form .auth-button {
+     text-transform: uppercase;
+     font-size: 0.9rem;
+     font-weight: 600;
+     border-width: initial;
+     border-style: none;
+     border-color: initial;
+     border-image: initial;
+     transition: background 200ms ease 0s;
+ }
+.auth-form .auth-button:nth-child(5) {
+    font-weight: 600;
+    font-size: 0.8rem;
+    color: rgb(255, 255, 255);
+    background: rgb(29, 161, 242);
+    border-width: initial;
+    border-style: none;
+    border-color: initial;
+    border-image: initial;
+    transition: all 200ms ease 0s;
+}
+ .auth-form .auth-button {
+     text-transform: uppercase;
+     font-size: 0.9rem;
+     font-weight: 600;
+     border-width: initial;
+     border-style: none;
+     border-color: initial;
+     border-image: initial;
+     transition: background 200ms ease 0s;
+ }
 
 .banner {
   min-height: 700px;
