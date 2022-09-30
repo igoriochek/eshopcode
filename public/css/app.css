@@ -11593,3 +11593,15 @@ input[type=number] {
 .sidebar .widget .messenger-users-widget-content li span {
   color: lightgray;
 }
+
+
+.sidebar ul .nav-link {
+    transition: background 0.1s;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    padding: 8px 0;
+    display: block;
+    color: #666;
+    font-size: 0.9em;
+    text-decoration: none;
+    line-height: 20px;
+}
