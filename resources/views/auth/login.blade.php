@@ -3,9 +3,8 @@
 @section('content')
     @include('header', ['title' => __('auth.login')])
 
-    <section class="product-section py-5">
-
-    <div class="auth-form container" style="margin-top: 60px ; margin-bottom: 60px">
+    <section class="product-section py-5" style="margin-top: 60px ; margin-bottom: 60px">
+    <div class="auth-form container" >
         <div class="row justify-content-center">
             <div class="col-lg-4 mb-5 mb-lg-0">
                 <form method="POST" action="{{ route('login') }}">
@@ -46,7 +45,7 @@
                         <div class="form-group col-md-auto">
                             <div class="custom-control custom-checkbox">
                                 <input type="checkbox" class="custom-control-input" id="rememberme">
-                                <label class="form-label custom-control-label cur-pointer text-2" for="rememberme">
+                                <label class="form-label custom-control-label cur-pointer text-2" for="rememberme" style="margin-top: 10px">
                                     {{ __('auth.rememberMe') }}
                                 </label>
                             </div>

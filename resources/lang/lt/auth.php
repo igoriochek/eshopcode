@@ -18,9 +18,18 @@ return [
     'password' => 'Pateiktas slaptažodis yra neteisingas.',
     'throttle' => 'Bandėte prisijungti per daug kartų. Bandykite dar kartą po :seconds sekundžių.',
 
+    'passwordConfirmToContinue' => 'Prieš tęsdami patvirtinkite slaptažodį.',
+    'resetPassword' => 'Atstatyti slaptažodį',
+    'sendResetPasswordLink' => 'Siųsti slaptažodžio nustatymą',
+    'resetPasswordParagraph' => 'Prisiminėte savo slaptažodį?',
+
     //Login
     'login' => 'Prisijungti',
+    'loginWith' => 'Prisijungti su',
     'rememberMe' => 'Prisimink mane',
+    'or' => 'arba',
+    'registerParagraph' => "Neturi paskyros?",
+    'loginParagraph' => "Jau turite paskyrą?",
 
     //Register
     'register' => 'Registruotis',

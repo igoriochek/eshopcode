@@ -26,6 +26,8 @@ return [
     'login'=> 'Login',
     'rememberMe' => 'Remember Me',
     'loginWith' => 'Login With',
+    'loginParagraph' => 'Already have an account?',
+    'resetPasswordParagraph' => 'Remembered your password?',
 
     //Register
     'register' => 'Register',
