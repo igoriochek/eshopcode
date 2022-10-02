@@ -63,7 +63,7 @@
     </a>
     <div class="collapse" id="orders">
         <ul class="admin-navbar-item-dropdown">
-            @include('layouts.dropdowns.admin_cart_dropdown')
+            @include('layouts.dropdowns.admin_order_dropdown')
         </ul>
     </div>
 </li>
