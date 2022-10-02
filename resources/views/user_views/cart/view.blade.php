@@ -40,7 +40,7 @@
                                         </td>
                                         <td class="text-end">
                                             <strong class="text-dark">
-                                                <span class="amount text-dark">€{{ $cart->sum ?? '0'}}</span>
+                                                <span class="amount text-dark">€{{ $cart->sum ? number_format($cart->sum,2) : '0'}}</span>
                                             </strong>
                                         </td>
                                     </tr>

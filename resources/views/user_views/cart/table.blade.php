@@ -41,7 +41,7 @@
                     </a>
                 </td>
                 <td class="product-price">
-                    <span class="amount font-weight-medium text-color-grey">€{{ $item->price_current }}</span>
+                    <span class="amount font-weight-medium text-color-grey">€{{ number_format($item->price_current,2) }}</span>
                 </td>
                 <td class="product-quantity">
                     <div class="quantity d-flex w-50">

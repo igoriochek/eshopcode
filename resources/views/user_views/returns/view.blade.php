@@ -45,7 +45,7 @@
                     <tr>
 {{--                        <td>{{ $item->product_id }}</td>--}}
                         <td>{{ $item->product->name }}</td>
-                        <td>{{ $item->price_current }}</td>
+                        <td>{{ number_format($item->price_current,2) }}</td>
                         <td>{{ $item->count }}</td>
                     </tr>
                 @endforeach

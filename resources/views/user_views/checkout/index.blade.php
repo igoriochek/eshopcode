@@ -74,7 +74,7 @@
                                             </strong>
                                         </td>
                                         <td class="text-end align-top">
-                                            <span class="amount text-muted">€{{ $item->price_current * $item->count }}</span>
+                                            <span class="amount text-muted">€{{ number_format(($item->price_current * $item->count),2) }}</span>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -85,7 +85,7 @@
                                     <td class="border-top-0 text-end">
                                         <strong>
                                             <span class="amount font-weight-medium">
-                                                €{{ $cart->sum }}
+                                                €{{  number_format($cart->sum,2) }}
                                             </span>
                                         </strong>
                                     </td>
@@ -96,7 +96,7 @@
                                     </td>
                                     <td class="text-end">
                                         <strong class="text-color-dark">
-                                            <span class="amount text-dark text-5">€{{ $cart->sum }}</span>
+                                            <span class="amount text-dark text-5">€{{ number_format($cart->sum,2) }}</span>
                                         </strong>
                                     </td>
                                 </tr>

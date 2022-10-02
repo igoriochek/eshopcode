@@ -57,7 +57,7 @@
                                         <td class="border-top-0 text-end">
                                             <strong>
                                                 <span class="amount font-weight-medium">
-                                                    €{{ $cart->sum }}
+                                                    €{{ number_format($cart->sum,2) }}
                                                 </span>
                                             </strong>
                                         </td>

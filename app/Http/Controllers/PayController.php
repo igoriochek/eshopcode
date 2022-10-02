@@ -35,10 +35,12 @@ class PayController extends AppBaseController
 
 //        if (!preg_match("/\./", $amount)) {
             if(strpos($amount, ".") == strlen($amount)-2)  $amount = $amount . "0";
-            elseif(strpos($amount, ".") == strlen($amount)-3)  $amount = $amount . "00";
+            elseif (strpos($amount, ".") === false ) $amount = $amount . "00";
+//            elseif(strpos($amount, ".") == strlen($amount)-3)  $amount = $amount . "00";
 //        }
-        $amount = str_replace(".", "", $amount);
-//        $amount = preg_replace("/\D/", "", $amount);
+
+//        $amount = str_replace(".", "", $amount);
+        $amount = preg_replace("/\D/", "", $amount);
 
 
         $appUrl = env('APP_URL');
