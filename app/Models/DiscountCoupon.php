@@ -33,7 +33,8 @@ class DiscountCoupon extends Model
         'code',
         'used',
         'value',
-        'cart_id'
+        'cart_id',
+        'user_id',
     ];
 
     /**
@@ -60,4 +61,8 @@ class DiscountCoupon extends Model
     ];
 
 
+    public function user()
+    {
+        return $this->hasOne(User::class, 'id', 'user_id');
+    }
 }

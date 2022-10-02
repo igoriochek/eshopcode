@@ -345,12 +345,14 @@ class OrderController extends AppBaseController
 
             if ($discounts) {
                 foreach ($discounts as $discount) {
-                    $priceDiscounted = $amount * ($discount->value / 100);
-                    $newAmount = $amount - $priceDiscounted;
+                    //$priceDiscounted = $amount * ($discount->value / 100);
+                    //$newAmount = $amount - $priceDiscounted;
+                    $newAmount = $amount - $discount->value;
                     if ($newAmount > 0) {
                         $amount = $newAmount;
 
                         $discount->cart_id = $cart->id;
+                        $discount->used = 1;
                         $discount->save();
                     }
                 }
@@ -425,7 +427,6 @@ class OrderController extends AppBaseController
         });
 
         if ($user->id != $order->user_id) $user = User::query()->where(['id' => $order->user_id])->first();
-
 
         return view('user_views.orders.invoice')->with([
             'order' => $order,

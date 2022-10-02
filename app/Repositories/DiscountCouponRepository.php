@@ -19,7 +19,8 @@ class DiscountCouponRepository extends BaseRepository
     protected $fieldSearchable = [
         'code',
         'used',
-        'value'
+        'value',
+        'user_id',
     ];
 
     /**

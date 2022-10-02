@@ -41,7 +41,7 @@
                             <select name="discount[]" class="form-control h-auto border-radius-0 line-height-1 py-3">
                                 <option value="" class="text-muted">{{ __('---') }}</option>
                                 @foreach($discounts as $item)
-                                    <option value="{{ $item->id }}">{{ $item->code }} - {{ $item->value }}% {{ __('names.off') }}</option>
+                                    <option value="{{ $item->id }}">{{ $item->code }} - {{ $item->value }} EU {{ __('names.off') }}</option>
                                 @endforeach
                             </select>
                             <button type="submit" class="btn apply-coupon-button mt-4 mt-md-0 ms-0 ms-md-3">{{ __('buttons.applyCoupon') }}</button>

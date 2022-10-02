@@ -71,7 +71,8 @@
                                         @foreach($discounts as $item)
                                             <tr class="border-bottom">
                                                 <td class="text-dark">{{ $item->code }} - {{ $item->value }}% {{ __('names.off') }}</td>
-                                                <td colspan="3" style="text-align: right">-€{{ $amount * ($item->value / 100) }}</td>
+{{--                                                <td colspan="3" style="text-align: right">-€{{ $amount * ($item->value / 100) }}</td>--}}
+                                                <td colspan="3" style="text-align: right">-€{{ $item->value }}</td>
                                             </tr>
                                         @endforeach
                                     @endif
