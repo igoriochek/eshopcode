@@ -98,8 +98,9 @@
 {{--                                HERE--}}
 {{--                            </li>--}}
 {{--                        </ul>--}}
+{{--                        {{ number_format((float)$order->sum, 2, '.', '') }}--}}
                         <p class="text-black float-start"><span class="text-black me-3"> {{__('table.sum')}}</span><span
-                                style="font-size: 25px;"> {{ number_format($order->sum,2)}} €</span></p>
+                                style="font-size: 25px;"> {{ number_format($order->sum,2) }} €</span></p>
                     </div>
                 </div>
             </div>
