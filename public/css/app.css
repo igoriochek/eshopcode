@@ -662,6 +662,12 @@ progress {
     max-width: 1320px;
   }
 }
+
+.margin_60 {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
 .row {
   --bs-gutter-x: 1.5rem;
   --bs-gutter-y: 0;

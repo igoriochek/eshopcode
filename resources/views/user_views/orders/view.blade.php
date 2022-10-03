@@ -1,11 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
+    @include('header', ['title' => __('names.orders')])
+
+    <div class="margin_60 container">
 <section class="content-header">
     <div class="container-fluid">
         <div class="row m-2">
             <div class="col-sm-6">
-                <h1>[ {{__('names.order')}} ]</h1>
+                <h1>{{__('names.order')}} : {{ $order->order_id }}</h1>
             </div>
         </div>
     </div>
@@ -52,9 +55,9 @@
                 <thead>
                 <tr>
                     @if($order->status->name == "Returned")
-                        <th class="text-center">Status</th>
+                        <th class="text-center">{{__('table.status')}}</th>
                     @endif
-                        <th>{{__('table.productId')}}</th>
+{{--                        <th>{{__('table.productId')}}</th>--}}
                         <th>{{__('table.productName')}}</th>
                         <th>{{__('table.price')}}</th>
                         <th>{{__('table.count')}}</th>
@@ -66,9 +69,9 @@
                         @if($order->status->name == "Returned")
                         <td class="text-center">{{$item->isReturned}}</td>
                         @endif
-                        <td>{{ $item->product_id }}</td>
+{{--                        <td>{{ $item->product_id }}</td>--}}
                         <td>{{ $item->product->name }}</td>
-                        <td>{{ $item->price_current }}</td>
+                        <td>{{ $item->price_current }} €</td>
                         <td>{{ $item->count }}</td>
                     </tr>
                 @endforeach
@@ -97,5 +100,6 @@
         </div>
     </div>
 </div>
+    </div>
 @endsection
 

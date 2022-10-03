@@ -2,6 +2,7 @@
 
 @section('content')
     @include('header', ['title' => __('names.returns')])
+    <div class="margin_60 container">
     <section class="pt-5">
         <div class="container">
             <div class="row">
@@ -52,5 +53,6 @@
             </div>
         </div>
     </section>
+    </div>
 @endsection
 

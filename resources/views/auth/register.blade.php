@@ -3,7 +3,7 @@
 @section('content')
     @include('header', ['title' => __('auth.register')])
 
-    <section class="product-section py-5" style="margin-top: 60px ; margin-bottom: 60px">
+    <div class="margin_60 container">
     <div class="auth-form container">
         <div class="row justify-content-center">
             <div class="col-lg-4 mb-5 mb-lg-0">
@@ -87,6 +87,6 @@
             </div>
         </div>
     </div>
-    </section>
+    </div>
 
 @endsection
