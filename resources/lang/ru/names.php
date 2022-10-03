@@ -36,6 +36,7 @@ return [
     'subtotal' => 'Итого',
     'removeProduct' => 'Удалить товар',
     'overview' => 'Обзор',
+    'noDiscount' => 'Скидок нету',
 
     'adminUserCount' => 'Количество пользователей-администраторов',
     'canceled' => 'Отменено',
@@ -57,6 +58,11 @@ return [
     'createCategory' => 'Создать категорию',
     'editCategory' => 'Редактировать категорию',
     'noCategories' => 'Нет категорий',
+
+
+    //Subcategories
+    'subcategories' => 'Субкатегории',
+    'noSubcategories' => 'Нет субкатегорий',
 
     //Charts
     'bar' => 'Бар',
@@ -88,6 +94,9 @@ return [
     'discountCoupons' => 'Купоны на скидку',
     'discountCouponDetails' => 'Информация о купоне на скидку',
     'editDiscountCoupon' => 'Редактировать купон на скидку',
+    "noDiscountCoupons" => "У вас еще нет купонов на скидку :(",
+    "discountCouponCode" => "Код купона на скидку",
+    "discountCouponValue" => "Стоимость купона на скидку",
 
     //Export Import
     'dataExpImp' => 'Экспорт/импорт данных',
@@ -158,7 +167,7 @@ return [
     'product' => 'Товар',
     'createProduct' => 'Создать продукт',
     'editProduct' => 'Редактировать товар',
-    'продукты' => 'Продукты',
+    'products' => 'Продукты',
     'productCount' => 'Количество товаров',
     'productDetails' => 'Сведения о продукте',
     'productName' => 'Название продукта',
@@ -194,6 +203,8 @@ return [
     'voted' => "Спасибо за ваш голос!",
 
     //Reviews
+    'customerReview' => 'отзыв клиента',
+    'customerReviews' => 'отзывы клиентов',
     'review' => 'Отзыв',
     'reviews' => 'Отзывы',
     'addReview' => 'Добавить отзыв',
@@ -236,8 +247,5 @@ return [
 
     'orderBy' => 'Сортировать по',
 
-    //Discounts coupons
-    "ndDiscountCoupons" => "У вас еще нет купонов на скидку :(",
-    "discountCouponCode" => "Код купона на скидку",
-    "discountCouponValue" => "Стоимость купона на скидку",
+    'results' => 'Резултаты'
 ];

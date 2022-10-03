@@ -13,6 +13,11 @@ return [
     |
     */
 
+    'noOrder' => 'Без порядка',
+    'productName' => 'Название продукта',
+    'productPrice' => 'Цена',
+    'searchPlaceholder' => 'Искать',
+
     'avatar' => 'Аватар',
     'name' => 'Имя',
     'email' => 'Электронная почта',

@@ -12519,3 +12519,94 @@ footer .slogan-paragraph {
   font-size: 1em;
   color: #818181;
 }
+
+.auth-form h5, .auth-form .h5 {
+  margin-top: 20px;
+}
+.auth-form .form-label {
+  margin: 10px 0;
+}
+.auth-form .form-control {
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1.2em !important;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  background-color: #fff;
+  background-clip: padding-box;
+  border-color: rgba(0, 0, 0, 0.09);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0.375rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.auth-form .divider {
+  border: 0;
+  height: 1px;
+  margin: 44px auto;
+  background: rgba(0, 0, 0, 0.06);
+  text-align: center;
+  position: relative;
+  clear: both;
+}
+.auth-form .divider span {
+  position: absolute;
+  top: 0;
+  left: 43%;
+  transform: translateY(-12px);
+  background: #fff;
+}
+.auth-form .login-link {
+  transition: color 100ms ease;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+.auth-form .login-link:hover, .auth-form .login-link:focus, .auth-form .login-link:active {
+  color: #0088CC;
+}
+.auth-form .auth-button {
+  border: none;
+  text-transform: uppercase;
+  transition: background 200ms ease;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+.auth-form .auth-button:hover, .auth-form .auth-button:focus, .auth-form .auth-button:active {
+  background: #444444;
+}
+.auth-form .auth-button:nth-child(3) {
+  background: #4267B2;
+  border: none;
+  font-weight: 600;
+  font-size: 0.8rem;
+  transition: all 200ms ease;
+  color: #fff;
+}
+.auth-form .auth-button:nth-child(3):hover, .auth-form .auth-button:nth-child(3):focus, .auth-form .auth-button:nth-child(3):active {
+  background: #5787e8;
+}
+.auth-form .auth-button:nth-child(4) {
+  background: #db4a39;
+  border: none;
+  font-weight: 600;
+  font-size: 0.8rem;
+  transition: all 200ms ease;
+  color: #fff;
+}
+.auth-form .auth-button:nth-child(4):hover, .auth-form .auth-button:nth-child(4):focus, .auth-form .auth-button:nth-child(4):active {
+  background: #ef5e4d;
+}
+.auth-form .auth-button:nth-child(5) {
+  background: #1DA1F2;
+  border: none;
+  font-weight: 600;
+  font-size: 0.8rem;
+  transition: all 200ms ease;
+  color: #fff;
+}
+.auth-form .auth-button:nth-child(5):hover, .auth-form .auth-button:nth-child(5):focus, .auth-form .auth-button:nth-child(5):active {
+  background: #49b9ff;
+}

@@ -7,6 +7,19 @@
     }
 }
 
+@mixin loginButton($bg-color, $hover-bg-color) {
+    background: $bg-color;
+    border: none;
+    font-weight: 600;
+    font-size: .8rem;
+    transition: all 200ms ease;
+    color: #fff;
+
+    &:hover, &:focus, &:active {
+        background: $hover-bg-color;
+    }
+}
+
 @mixin header($background-image-url) {
     height: auto;
     width: 100%;

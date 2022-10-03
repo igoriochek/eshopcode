@@ -34,8 +34,11 @@ return [
     'save' => 'Сохранить',
     'showLogs' => 'Показать журналы',
     'showStatistics' => 'Показать статистику',
+    'submit' => 'Разместить',
     'postReview' => 'Опубликовать отзыв',
     'proceedToCheckout' => 'Перейти к оформлению заказа',
-    'contact' => 'Контакт'
+    'contact' => 'Контакт',
+    'applyCoupon' => 'Применить Kупон',
+    'placeOrder' => 'Разместить Заказ'
 
 ];

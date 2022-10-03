@@ -42,7 +42,7 @@
                                                 {{ __('EN') }}
                                             @elseif (app()->getLocale() == 'ru')
                                                 <img src="/images/ru-flag.svg" alt="en-flag" style="width: 17px; height: 17px; margin-right: 5px; border-radius: 10px">
-                                                {{ __('EN') }}
+                                                {{ __('RU') }}
                                             @endif
                                         </a>
                                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">

@@ -34,7 +34,10 @@ return [
     'save' => 'Išsaugoti',
     'showLogs' => 'Rodyti Žurnalus',
     'showStatistics' => 'Rodyti Statistikas',
+    'submit' => 'Pateikti',
     'sendResetPasswordLink' => 'Siųsti slaptažodžio nustatymo nuorodą',
-    'contact' => 'Susisiekti'
+    'contact' => 'Susisiekti',
+    'applyCoupon' => 'Taikyti Kuponą',
+    'placeOrder' => 'Pateikite Užsakymą'
 
 ];

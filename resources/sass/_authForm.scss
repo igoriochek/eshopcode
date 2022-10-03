@@ -1,0 +1,79 @@
+.auth-form {
+    h5 {
+        margin-top: 20px;
+    }
+
+    .form-label {
+        margin: 10px 0;
+    }
+
+    .form-control {
+        display: block;
+        width: 100%;
+        padding: 0.375rem 0.75rem;
+        font-size: 1.2em !important;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #212529;
+        background-color: #fff;
+        background-clip: padding-box;
+        border-color: rgba(0, 0, 0, 0.09);
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        border-radius: 0.375rem;
+        transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    }
+
+    .divider {
+        border: 0;
+        height: 1px;
+        margin: 44px auto;
+        background: rgba(0, 0, 0, 0.06);
+        text-align: center;
+        position: relative;
+        clear: both;
+
+        span {
+            position: absolute;
+            top: 0;
+            left: 43%;
+            transform: translateY(-12px);
+            background: #fff;
+        }
+    }
+
+    .login-link {
+        transition: color 100ms ease;
+        font-weight: 600;
+        color: #1a1a1a;
+
+        &:hover, &:focus, &:active {
+            color: #0088CC;
+        }
+    }
+
+    .auth-button {
+        border: none;
+        text-transform: uppercase;
+        transition: background 200ms ease;
+        font-size: .9rem;
+        font-weight: 600;
+
+        &:hover, &:focus, &:active {
+            background: #444444;
+        }
+
+        &:nth-child(3) {
+            @include loginButton(#4267B2, #5787e8);
+        }
+
+        &:nth-child(4) {
+            @include loginButton(#db4a39, #ef5e4d);
+        }
+
+        &:nth-child(5) {
+            @include loginButton(#1DA1F2, #49b9ff);
+        }
+    }
+}

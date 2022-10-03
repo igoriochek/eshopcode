@@ -37,6 +37,8 @@ return [
     'submit' => 'Submit',
     'view' => 'View',
     'sendResetPasswordLink' => 'Send Reset Password Link',
-    'contact' => 'Contact'
+    'contact' => 'Contact',
+    'applyCoupon' => 'Apply Coupon',
+    'placeOrder' => 'Place Order'
 
 ];
