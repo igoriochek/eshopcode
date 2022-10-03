@@ -2,7 +2,7 @@
 
 @section('content')
     @include('header', ['title' => __('names.returns')])
-    <div class="margin_60 container">
+    <div class="auth-form container py-5">
 <section class="content-header">
     <div class="container-fluid">
         <div class="row m-2">
@@ -28,7 +28,7 @@
 {{--            </a>--}}
 {{--        </div>--}}
 
-        <div>{{__('names.returnStatus')}}: {{ $return->status->name }}</div>
+        <div>{{__('names.returnStatus')}}: {{ __("status." .$return->status->name) }}</div>
 
         <div class="table table-responsive">
             <table class="table">

@@ -2,7 +2,7 @@
 
 @section('content')
     @include('header', ['title' => __('names.returns')])
-    <div class="margin_60 container">
+    <div class="auth-form container py-5">
     <section class="pt-5">
         <div class="container">
             <div class="row">
