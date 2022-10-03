@@ -25,6 +25,9 @@ class UserController extends Controller
             return view('home');
         }
 
+
+//        dd($user);
+//        exit();
         return view('user_views.user.profile', [
             'user' => $user
         ]);
@@ -51,7 +54,7 @@ class UserController extends Controller
         return redirect(route('userprofile'));
     }
 
-    public function changePassword(Request $request) 
+    public function changePassword(Request $request)
     {
         $validateData = $request->validate([
             'current_password' => 'required',
@@ -68,12 +71,13 @@ class UserController extends Controller
 
             Flash::success(__('messages.changedpassword'));
 
-            return redirect(route('userprofile'));
+//            return redirect(route('userprofile'));
         }
         else {
             Flash::error(__('messages.incorrectpassword'));
 
-            return redirect(route('userprofile'));
+//            return redirect(route('userprofile'));
         }
+        return redirect(route('userprofile'));
     }
 }
