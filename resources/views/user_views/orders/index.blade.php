@@ -29,7 +29,7 @@
                                                 <tr>
                                                     <td>{{ $item->id }}</td>
 {{--                                                    <td>{{ $item->user->name }}</td>--}}
-                                                    <td>{{ $item->status->name }}</td>
+                                                    <td>{{ __("status." . $item->status->name) }}</td>
                                                     <td>{{ $item->sum }} €</td>
                                                     <td width="120">
                                                         <div class='btn-group'>

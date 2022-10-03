@@ -252,6 +252,14 @@ return [
 
     'orderBy' => 'Order By',
 
-    'results' => 'Results'
+    'results' => 'Results',
+
+    "zeroRecords" => "No matching records found",
+    "showing" => "Showing",
+    "entries" => "entries",
+    "to" => "to",
+    "of" => "of",
+    "first" => "First",
+    "last" => "Last",
 
 ];

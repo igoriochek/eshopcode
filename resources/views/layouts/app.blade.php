@@ -46,49 +46,26 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.5.1/nouislider.min.js"></script>
     <script>
         $(document).ready(function() {
-            if ('{{ app()->getLocale() }}' === 'lt') {
-                $('#categories').DataTable({
-                    "language": {
-                        "emptyTable": "Lentelėje duomenų nėra",
-                        "info": "Rodoma _START_ iki _END_ po _TOTAL_ įrašų",
-                        "infoEmpty": "Rodoma 0 iki 0 po 0 įrašų",
-                        "infoFiltered": "(filtruojama iš _MAX_ įrašų)",
-                        "infoThousands": ",",
-                        "lengthMenu": "Rodoma po _MENU_ įrašų",
-                        "loadingRecords": "Pakrovimas...",
-                        "processing": "Apdorojimas...",
-                        "search": "Paieska: ",
-                        "zeroRecords": "Atitinkančių įrašų nerasta",
-                        "thousands": ",",
-                        "paginate": {
-                            "first": "Pirmas",
-                            "previous": "Ankstesnis",
-                            "next": "Kitas",
-                            "last": "Paskutinis"
-                        }
-                    }
-                });
-            } else {
                 $('#categories').DataTable(
                     {
                         "language" :
                             {
                                 "emptyTable": "No data available in table",
-                                "info": "Showing _START_ to _END_ of _TOTAL_ entries",
-                                "infoEmpty": "Showing 0 to 0 of 0 entries",
+                                "info": "{{__("names.showing")}} _START_ {{__("names.to")}} _END_ {{__("names.of")}} _TOTAL_ {{__("names.entries")}}",
+                                "infoEmpty": "{{__("names.showing")}}  0 {{__("names.to")}} 0 {{__("names.of")}} 0 {{__("names.entries")}}",
                                 "infoFiltered": "(filtered from _MAX_ total entries)",
                                 "infoThousands": ",",
-                                "lengthMenu": "Show _MENU_ entries",
+                                "lengthMenu": "{{__("names.showing")}} _MENU_ {{__("names.entries")}}",
                                 "loadingRecords": "Loading...",
                                 "processing": "Processing...",
-                                "search": "Search:",
-                                "zeroRecords": "No matching records found",
+                                "search": "{{__("names.search")}}:",
+                                "zeroRecords": "{{__("names.zeroRecords")}}:",
                                 "thousands": ",",
                                 "paginate": {
-                                    "first": "Pirmas",
+                                    "first": "{{__("names.first")}}",
                                     "previous": "&laquo;&nbsp;{{__("pagination.previous")}}",
                                     "next": "{{__("pagination.next") }}&nbsp;&raquo;",
-                                    "last": "Paskutinis"
+                                    "last": "{{__("names.last")}}"
                                 },
                                 "aria": {
                                     "sortAscending": ": activate to sort column ascending",
@@ -313,7 +290,7 @@
                             }
                     }
                 );
-            }
+
         });
 
         $( function() {

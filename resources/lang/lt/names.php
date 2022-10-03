@@ -243,6 +243,14 @@ return [
 
     'orderBy' => 'Rūšiuoti pagal',
 
-    'results' => 'Rezultatai'
+    'results' => 'Rezultatai',
+
+       "zeroRecords" => "Įrašų nėra",
+    "showing" => "Rodomi",
+    "entries" => "užrašai",
+    "to" => "iki",
+    "of" => "iš",
+    "first" => "Pirmas",
+    "last" => "Paskutinis",
 
 ];
