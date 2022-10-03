@@ -1,0 +1,172 @@
+.admin-header {
+    position: sticky;
+    z-index: 1030;
+    top: 0;
+    padding: 15px;
+    background: #fff;
+    overflow-x: hidden;
+
+    .admin-header-container {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        height: 100%;
+
+        .admin-header-top-container {
+            height: 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .admin-header-toggle-button {
+                border: none;
+                border-radius: 3px;
+                width: 40px;
+                height: 40px;
+                background: $pink-color;
+                transition: background 200ms ease;
+
+                &:hover, &:focus, &:active {
+                    background: $button-hover-focus-background;
+                }
+            }
+        }
+
+        .admin-header-center-container {
+            height: 90%;
+            overflow-y: scroll;
+
+            .admin-navbar {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                white-space: nowrap;
+
+                .admin-navbar-item {
+                    font-size: .9rem;
+                    position: relative;
+                    padding: 10px 0;
+
+                    &:hover, &:focus {
+                        .admin-navbar-link {
+                            color: $pink-color;
+                            transition: all 200ms ease;
+                        }
+                    }
+
+                    .admin-navbar-link {
+                        display: block;
+                        color: $gray-color;
+                        text-decoration: none;
+                        font-weight: 500;
+                    }
+
+                    .dropdown {
+                        &:after {
+                            position: absolute;
+                            top: 0;
+                            right: 0;
+                            content: '>';
+                            display: inline-block;
+                            font-size: 1rem;
+                            transition: all 100ms ease;
+                        }
+                    }
+
+                    .active {
+                        color: $pink-color;
+                    }
+
+                    i {
+                        font-size: 1.05rem;
+                        width: 30px;
+                        text-align: center;
+                    }
+
+                    .admin-navbar-item-dropdown {
+                        list-style: none;
+                        margin-left: 35px;
+                        margin-top: 5px;
+                        padding: 0;
+
+                        .admin-navbar-subitem {
+                            padding: 4px 0;
+
+                            .admin-navbar-sublink {
+                                color: #444;
+                                font-size: .7rem;
+                                transition: all 200ms ease;
+                                position: relative;
+                                text-decoration: none;
+                                font-weight: 500;
+
+                                &:hover, &:focus {
+                                    color: $pink-color;
+                                }
+                            }
+
+                            .subactive {
+                                color: $pink-color;
+                            }
+                        }
+                    }
+                }
+
+                .admin-navbar-link[aria-expanded='true'] {
+                    &:after {
+                        transform: rotate(90deg);
+                    }
+                }
+            }
+        }
+
+        .admin-header-bottom-container {
+            height: 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .dropdown-menu {
+                min-width: 5rem;
+            }
+
+            .admin-header-account-dropdown {
+                text-decoration: none;
+
+                &:hover, &:focus {
+                    .admin-header-account-icon,
+                    .admin-header-account-name {
+                        color: $pink-color;
+                    }
+                }
+
+                .admin-header-account-icon,
+                .admin-header-account-name {
+                    transition: all 200ms ease;
+                    color: $gray-color;
+                }
+
+                .admin-header-account-icon {
+                    margin-right: 5px;
+                }
+            }
+
+            .admin-navbar-language-dropdown {
+                color: $gray-color;
+                transition: all 200ms ease;
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                &:hover, &:focus {
+                    color: $pink-color;
+                }
+            }
+        }
+
+        .hide {
+            display: none;
+        }
+    }
+}
