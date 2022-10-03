@@ -37,37 +37,37 @@
 
                     <div class="form-group col-sm-6">
                         {!! Form::label('code', __('forms.name').':' )!!}
-                        {!! Form::text('name', null, ['class' => 'form-control']) !!}
+                        {!! Form::text('name', $user->name, ['class' => 'form-control']) !!}
                     </div>
 
                     <div class="form-group col-sm-6">
                         {!! Form::label('email', __('forms.email').':') !!}
-                        {!! Form::text('email', null, ['class' => 'form-control']) !!}
+                        {!! Form::text('email', $user->email, ['class' => 'form-control']) !!}
                     </div>
                     <div class="form-group col-sm-6">
                         {!! Form::label('street', __('forms.street').':') !!}
-                        {!! Form::text('street', null, ['class' => 'form-control']) !!}
+                        {!! Form::text('street', $user->street, ['class' => 'form-control']) !!}
                     </div>
 
                     <div class="form-group col-sm-6">
                         {!! Form::label('house_flat', __('forms.house_flat').':') !!}
-                        {!! Form::text('house_flat', null, ['class' => 'form-control']) !!}
+                        {!! Form::text('house_flat', $user->house_flat, ['class' => 'form-control']) !!}
                     </div>
 
 
                     <div class="form-group col-sm-6">
                         {!! Form::label('post_index', __('forms.post_index').':') !!}
-                        {!! Form::text('post_index', null, ['class' => 'form-control']) !!}
+                        {!! Form::text('post_index', $user->post_index, ['class' => 'form-control']) !!}
                     </div>
 
                     <div class="form-group col-sm-6">
                         {!! Form::label('city', __('forms.city').':') !!}
-                        {!! Form::text('city', null, ['class' => 'form-control']) !!}
+                        {!! Form::text('city', $user->city, ['class' => 'form-control']) !!}
                     </div>
 
                     <div class="form-group col-sm-6">
                         {!! Form::label('phone_number', __('forms.phone_number').':') !!}
-                        {!! Form::text('phone_number', null, ['class' => 'form-control']) !!}
+                        {!! Form::text('phone_number', $user->phone_number, ['class' => 'form-control']) !!}
                     </div>
 
                 </div>
