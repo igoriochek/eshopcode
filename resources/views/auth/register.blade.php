@@ -2,9 +2,7 @@
 
 @section('content')
     @include('header', ['title' => __('auth.register')])
-
-    <div class="margin_60 container">
-    <div class="auth-form container">
+    <div class="auth-form container py-5">
         <div class="row justify-content-center">
             <div class="col-lg-4 mb-5 mb-lg-0">
                 <form method="POST" action="{{ route('register') }}">
@@ -70,7 +68,7 @@
                     </div>
                     <div class="row">
                         <div class="form-group col">
-                            <button type="submit" class="btn btn-dark btn-modern w-100 text-uppercase rounded-0 font-weight-bold text-3 py-3 auth-button mb-3 mt-5" data-loading-text="Loading...">
+                            <button type="submit" class="btn w-100 text-light py-3 auth-button mb-3 mt-5" data-loading-text="Loading...">
                                 {{ __('buttons.register') }}
                             </button>
                             @if (Route::has('login'))

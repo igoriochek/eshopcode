@@ -143,7 +143,7 @@
                                                 @endfor
                                             </div>
                                         </div>
-                                        <p class="product-user-rating-description">{{ $rating->desription }}</p>
+                                        <p class="product-user-rating-description">{{ $rating->description }}</p>
                                     </div>
                                 @empty
                                     <p class="mb-1 product-reviews-add-review-description">{{ __('names.noReviews') }}</p>
@@ -224,14 +224,12 @@
         $('button[type="button"]').click(function () {
             const value = $('input[type=radio][name=rating]:checked').val();
             const desc = $('textarea#comment').val();
-            console.log(desc);
-            $.post("{{route('addUserRating')}}",
+            $.post("{{ route('addUserRating') }}",
                 {
                     "_token": "{{ csrf_token() }}",
                     rating: value,
-
                     description: desc,
-                    product: {{$product->id}}
+                    product: {{ $product->id }}
                 },
                 function (data, status) {
                     //alert("Data: " + data.val + "\nStatus: " + status);

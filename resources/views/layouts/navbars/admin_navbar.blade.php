@@ -2,7 +2,7 @@
     <div class="admin-header-container">
         <div class="admin-header-top-container">
             <a href="{{ url('/home') }}" class="admin-header-logo">
-                <img src="/images/bonatrip.png" alt="opatrip-logo" width="200px" class="logo" width="170">
+                <img src="/images/bonatrip.png" alt="bonatrip-logo" width="200px" class="logo" width="170">
             </a>
             <button class="admin-header-toggle-button" onclick="onClickOpenMenu()">
                 <i class="fa-sharp fa-solid fa-bars text-white fs-6"></i>

@@ -12458,14 +12458,13 @@ textarea.form-control-lg {
 .auth-form .form-control {
   display: block;
   width: 100%;
-  padding: 0.375rem 0.75rem;
-  font-size: 1.2em !important;
+  padding: 0.8rem 1.2rem;
+  font-size: 1em !important;
   font-weight: 400;
   line-height: 1.5;
   color: #212529;
-  background-color: #fff;
   background-clip: padding-box;
-  border-color: rgba(0, 0, 0, 0.09);
+  border-color: 1px solid lightgray;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -12491,26 +12490,28 @@ textarea.form-control-lg {
 .auth-form .login-link {
   transition: color 100ms ease;
   font-weight: 600;
-  color: #1a1a1a;
+  color: #3f3f3f;
+  text-decoration: none;
 }
 .auth-form .login-link:hover, .auth-form .login-link:focus, .auth-form .login-link:active {
-  color: #0088CC;
+  color: #cb34c2;
 }
 .auth-form .auth-button {
   border: none;
-  text-transform: uppercase;
   transition: background 200ms ease;
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 600;
+  border-radius: 5px;
+  background: #cb34c2;
 }
 .auth-form .auth-button:hover, .auth-form .auth-button:focus, .auth-form .auth-button:active {
-  background: #444444;
+  background: #a12c9b;
 }
 .auth-form .auth-button:nth-child(3) {
   background: #4267B2;
   border: none;
   font-weight: 600;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   transition: all 200ms ease;
   color: #fff;
 }
@@ -12521,7 +12522,7 @@ textarea.form-control-lg {
   background: #db4a39;
   border: none;
   font-weight: 600;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   transition: all 200ms ease;
   color: #fff;
 }
@@ -12532,7 +12533,7 @@ textarea.form-control-lg {
   background: #1DA1F2;
   border: none;
   font-weight: 600;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   transition: all 200ms ease;
   color: #fff;
 }

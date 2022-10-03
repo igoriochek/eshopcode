@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-lg-4 col-md-12">
                     <a class="navbar-brand fw-bold" href="{{ url('/home') }}">
-                        <img src="/images/opatrip-logo.svg" alt="opatrip-logo" width="200px">
+                        <img src="/images/bonatrip.png" alt="bonatrip-logo" width="200px">
                     </a>
                     <p class="my-4 slogan-paragraph">
                         {{ __('footer.slogan') }}

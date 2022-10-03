@@ -1,10 +1,10 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-white shadow">
     <div class="container">
         <a class="navbar-brand fw-bold d-none d-sm-block" href="{{ url('/') }}">
-            <img src="/images/bonatrip.png" alt="opatrip-logo" width="200px">
+            <img src="/images/bonatrip.png" alt="bonatrip-logo" width="200px">
         </a>
         <a class="navbar-brand fw-bold d-block d-sm-none" href="{{ url('/') }}">
-            <img src="/opatrip-logo-favicon.png" alt="opatrip-logo" width="50px">
+            <img src="/opatrip-logo-favicon.png" alt="bonatrip-logo" width="50px">
         </a>
         <div class="d-flex justify-content-center">
             <ul class="nav navbar-nav menu" style="@guest gap: 50px @endguest @auth gap: 30px @endauth">

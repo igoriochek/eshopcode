@@ -30,7 +30,7 @@
                         </div>
                         <div class="row">
                             <div class="form-group col">
-                                <button type="submit" class="btn btn-dark btn-modern w-100 text-uppercase rounded-0 font-weight-bold text-3 py-3 auth-button mb-3" data-loading-text="Loading...">
+                                <button type="submit" class="btn w-100 text-light py-3 auth-button mb-3" data-loading-text="Loading...">
                                     {{ __('auth.sendResetPasswordLink') }}
                                 </button>
                                 @if (Route::has('login'))
