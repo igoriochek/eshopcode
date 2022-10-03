@@ -72,7 +72,7 @@
                         <div class="col-md-3 mb-4 mb-md-0 my-md-4 align-items-md-center justify-content-md-center">
                             <h5 class="mb-2">
                                 <span
-                                    class="align-middle"><b>{{__('table.price')}}:</b> {{ $orderItem->price_current}} € x {{$orderItem->count}}</span>
+                                    class="align-middle"><b>{{__('table.price')}}:</b> {{ number_format($orderItem->price_current,2)}} € x {{$orderItem->count}}</span>
                             </h5>
                         </div>
                     </div>
@@ -91,7 +91,7 @@
 {{--                            </li>--}}
 {{--                        </ul>--}}
                         <p class="text-black float-start"><span class="text-black me-3"> {{__('table.sum')}}</span><span
-                                style="font-size: 25px;"> {{$order->sum}} €</span></p>
+                                style="font-size: 25px;"> {{ number_format($order->sum,2) }} €</span></p>
                     </div>
                 </div>
             </div>

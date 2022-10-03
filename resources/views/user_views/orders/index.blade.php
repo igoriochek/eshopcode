@@ -30,7 +30,7 @@
                                                     <td>{{ $item->id }}</td>
 {{--                                                    <td>{{ $item->user->name }}</td>--}}
                                                     <td>{{ __("status." . $item->status->name) }}</td>
-                                                    <td>{{ $item->sum }} €</td>
+                                                    <td>{{ number_format($item->sum,2) }} €</td>
                                                     <td width="120">
                                                         <div class='btn-group'>
                                                             <a href="{{ route('vieworder', [$item->id]) }}"

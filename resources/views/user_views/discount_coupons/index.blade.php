@@ -23,7 +23,7 @@
                                             {{__('names.discountCouponCode')}}: {{ $discountCoupon->code }}
                                         </a>
                                     </h4>
-                                    <p class="discount-coupon-description">{{__('names.discountCouponValue')}}: {{ $discountCoupon->value }} EU</p>
+                                    <p class="discount-coupon-description">{{__('names.discountCouponValue')}}: {{ number_format($discountCoupon->value,2) }} €</p>
                                 </div>
                             @endforeach
                         @else

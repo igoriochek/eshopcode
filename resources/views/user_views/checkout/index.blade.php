@@ -25,7 +25,7 @@
                                     <tr>
                                         <td>{{ $item['product']->name }}</td>
                                         <td>{{ $item->count }}</td>
-                                        <td>{{ $item['product']->price }}</td>
+                                        <td>{{ number_format($item['product']->price,2) }} €</td>
                                         <td>{{ $item['product']->description }}</td>
                                     </tr>
                                 @endforeach
@@ -33,7 +33,7 @@
                                 <tfoot>
                                 <tr>
                                     <td>{{__('names.sum')}}:</td>
-                                    <td colspan="3" style="text-align: right">{{ $cart->sum }}</td>
+                                    <td colspan="3" style="text-align: right">{{ number_format($cart->sum,2) }} €</td>
                                 </tr>
                                 </tfoot>
                             </table>

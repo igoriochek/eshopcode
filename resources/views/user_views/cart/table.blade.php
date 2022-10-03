@@ -14,7 +14,7 @@
             <tr>
                 <td>{{ $item['product']->name }}</td>
                 <td>{{ $item->count }}</td>
-                <td>{{ $item['product']->price }}</td>
+                <td>{{ number_format($item['product']->price,2) }} €</td>
                 <td>{{ $item['product']->description }}</td>
 
                 <td width="120">

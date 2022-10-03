@@ -5,6 +5,7 @@
             <th>{{__('table.code')}}</th>
             <th>{{__('table.used')}}</th>
             <th>{{__('table.value')}}</th>
+            <th>{{__('table.user')}}</th>
             <th>{{__('table.action')}}</th>
         </tr>
         </thead>
@@ -12,8 +13,9 @@
         @foreach($discountCoupons as $discountCoupon)
             <tr>
                 <td>{{ $discountCoupon->code }}</td>
-            <td>{{ $discountCoupon->used }}</td>
-            <td>{{ $discountCoupon->value }}</td>
+                <td>{{ $discountCoupon->used }}</td>
+                <td>{{ $discountCoupon->user->name ?? '-' }}</td></td>
+                <td>{{ $discountCoupon->value }}</td>
                 <td width="120">
                     {!! Form::open(['route' => ['discountCoupons.destroy', $discountCoupon->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>
