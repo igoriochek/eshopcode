@@ -14,6 +14,6 @@ return [
     'email' => 'Email',
     'menu' => 'MENU',
     'profile' => 'Profile',
-    'copyright' => 'Buhalteres © 2022. All Rights Reserved',
+    'copyright' => 'Buhalteres.lt © 2022. All Rights Reserved',
 
 ];
