@@ -12,11 +12,7 @@
                     @include('layouts.menus.menu')
                 @endguest
                 @auth
-                    @if (Auth::user()->type == 1)
-                        @include('layouts.menus.admin_menu')
-                    @else
-                        @include('layouts.menus.menu')
-                    @endif
+                    @include('layouts.menus.menu')
                 @endauth
             </ul>
         </div>
@@ -38,7 +34,7 @@
                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fa-solid fa-user fs-4"></i>
                     </a>
-                    @include('layouts.dropdown_menus.user_dropdown_menu')
+                    @include('layouts.dropdowns.account_dropdown')
                 </li>
             @endauth
             <a href="#" class="hamburger-menu-button">
@@ -53,4 +49,14 @@
     const menu = document.querySelector('.menu');
 
     hamburgerMenuButton.addEventListener('click', () => menu.classList.toggle('active'));
+
+    const navbar = document.querySelector('.navbar');
+    const topbarHeight = 45;
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 0) navbar.style.position = 'relative'
+        if (window.scrollY > topbarHeight) navbar.style.position = 'sticky';
+    });
+
+    document.onscroll = () => navbar.style.top = '0';
 </script>

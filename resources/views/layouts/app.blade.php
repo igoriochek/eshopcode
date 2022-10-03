@@ -13,11 +13,15 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap"
+          rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
     <!-- Styles -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/jquery-ui.min.css') }}" rel="stylesheet">
     <link href="{{ asset('datatables/media/css/jquery.dataTables.min.css') }}" rel="stylesheet">
@@ -28,9 +32,19 @@
     @stack('css')
     @livewireStyles
 </head>
-<body>
-    @include('layouts.topbar')
-    @include('layouts.navbar')
+<body class="@auth @if (Auth::user()->type == 1) admin-view @endif @endauth">
+    @auth
+        @if (Auth::user()->type == 1)
+            @include('layouts.navbars.admin_navbar')
+        @else
+            @include('layouts.topbar')
+            @include('layouts.navbars.navbar')
+        @endif
+    @endauth
+    @guest
+        @include('layouts.topbar')
+        @include('layouts.navbars.navbar')
+    @endguest
     <main class="main">
         @yield('content')
         <button type="button" class="scroll-to-top-button">
@@ -45,10 +59,10 @@
     <script src="{{asset('js/jquery-ui.js')}}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.5.1/nouislider.min.js"></script>
     <script>
-        $(document).ready(function() {
+        (document).ready(function() {
                 $('#categories').DataTable(
                     {
-                        "language" :
+                        "language":
                             {
                                 "emptyTable": "No data available in table",
                                 "info": "{{__("names.showing")}} _START_ {{__("names.to")}} _END_ {{__("names.of")}} _TOTAL_ {{__("names.entries")}}",
@@ -293,42 +307,26 @@
 
         });
 
-        $( function() {
-            $( "#start" ).datepicker();
-        } );
+        $(function () {
+            $("#start").datepicker();
+        });
 
-        $( function() {
-            $( "#finish" ).datepicker();
-        } );
+        $(function () {
+            $("#finish").datepicker();
+        });
 
-        const topbarNavbarHeight = 145;
+        const showButtonOnHeight = 100;
         const scrollToTopButton = document.querySelector('.scroll-to-top-button');
 
         scrollToTopButton.addEventListener('click', () => window.scrollTo(0, 0));
 
         window.addEventListener('scroll', () => {
-            const navbar = document.querySelector('.navbar');
+            scrollToTopButton.classList.toggle('show', window.scrollY > showButtonOnHeight);
 
-            navbar.classList.toggle('navbar-static-top', window.scrollY > 0);
-            navbar.classList.toggle('fixed-top', window.scrollY > topbarNavbarHeight);
-
-            scrollToTopButton.classList.toggle('show', window.scrollY > topbarNavbarHeight);
-
-            if (document.body.scrollTop > topbarNavbarHeight
-                || document.documentElement.scrollTop > topbarNavbarHeight)
-            scrollToTopButton.classList.add('fade-in');
+            if (document.body.scrollTop > showButtonOnHeight
+                || document.documentElement.scrollTop > showButtonOnHeight)
+                scrollToTopButton.classList.add('fade-in');
         });
-
-        window.onscroll = () => onFixedNavbar();
-
-        const onFixedNavbar = () => {
-            const main = document.querySelector('main');
-            if (document.body.scrollTop > topbarNavbarHeight
-                || document.documentElement.scrollTop > topbarNavbarHeight)
-                main.style.marginTop = '100px';
-            else
-                main.style.marginTop = '0';
-        }
 
         const minuses = document.querySelectorAll('.minus');
         const pluses = document.querySelectorAll('.plus');
