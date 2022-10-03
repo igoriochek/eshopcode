@@ -36,7 +36,9 @@ class MessengerAdd extends Component
                 ->where('id', '!=', $user->id)
                 ->sortByDesc('name');
         }
-
+//        dd($addUsers);
+//        exit();
+        if ( count($addUsers) == 0) return $addUsers;
         return $addUsers->toQuery()->paginate(5);
     }
 
