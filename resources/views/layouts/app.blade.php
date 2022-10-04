@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta name="verify-paysera" content="b46f8f093193110b774d21e073cc6c15">
+    <meta name="verify-paysera" content="fd75482df21aae351f2d6303486ed9fb">
     <!-- Title -->
     <title>{{ config('app.name', 'Bonatrip') }}</title>
     <!-- Favicon -->
