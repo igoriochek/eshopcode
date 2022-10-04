@@ -19,10 +19,10 @@
                     <strong>{{ $item->count }}</strong>
                 </td>
                 <td>
-                    <strong>{{ $item['product']->price}}€</strong>
+                    <strong>{{ number_format($item['product']->price,2) }} €</strong>
                 </td>
                 <td>
-                    <strong>{{ $item['product']->price  * $item->count }}€</strong>
+                    <strong>{{ number_format($item['product']->price  * $item->count,2) }} €</strong>
                 </td>
 
                 <td class="options">
@@ -37,7 +37,7 @@
     <div class="row justify-content-end">
         <div class="column col-lg-4 col-md-6">
             <ul class="totals-table">
-                <li class="clearfix total"><span class="col">{{__('names.total')}}</span><span class="col">{{$cart->sum}}€</span></li>
+                <li class="clearfix total"><span class="col">{{__('names.total')}}</span><span class="col">{{number_format($cart->sum,2) }} €</span></li>
             </ul>
             <a href="{{route('checkout')}}" class="btn_full">{{__('names.checkoutPreview')}}<i class="icon-left"></i></a>
         </div>

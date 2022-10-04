@@ -23,7 +23,7 @@ use Response;
 class ReturnsController extends AppBaseController
 {
     use \App\Http\Controllers\forSelector;
-
+    use \App\Traits\LogTranslator;
     /** @var ReturnsRepository $returnsRepository */
     private $returnsRepository;
     /** @var ReturnItemRepository $returnItemRepository */
@@ -171,7 +171,7 @@ class ReturnsController extends AppBaseController
         $user = Auth::user();
 
         if ($user) {
-            $user->log("Admin set Order ID:{$id} Return Status to: {$status}");
+            $user->log("Admin set Order ID:{$returns->order_id} Return Status to: {$status}");
         }
 
         Flash::success('Returns updated successfully.');
@@ -249,6 +249,11 @@ class ReturnsController extends AppBaseController
 
         $logs = $this->getOrderByReturnId($id);
 
+        foreach ($logs as $log ){
+            $log->activity = $this->logTranslate($log->activity, app()->getLocale());
+
+        }
+
         return view('user_views.returns.view')->with([
             'return' => $return,
             'returnItems' => $returnItems,
@@ -289,6 +294,34 @@ class ReturnsController extends AppBaseController
     {
         $userId = Auth::id();
         $input = $request->all();
+
+        if (empty($input['return_items'])) {
+            Flash::error('Returns items  selected');
+
+            $order = Order::query()
+                ->where([
+                    'id' => $id,
+                    'user_id' => $userId,
+                ])
+                ->first();
+
+            if (empty($order)) {
+                Flash::error('Order not found');
+
+                return redirect(route('rootorders'));
+            }
+
+            $orderItems = OrderItem::query()
+                ->with('product')
+                ->where([
+                    'order_id' => $order->id,
+                ])
+                ->get();
+
+            return view('user_views.orders.return')->with([
+                'order' => $order, 'orderItems' => $orderItems,
+            ]);
+        }
 
         $return_items = $input['return_items'];
         $order = Order::query()

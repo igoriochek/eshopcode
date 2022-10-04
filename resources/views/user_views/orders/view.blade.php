@@ -25,9 +25,9 @@
                 <thead>
                 <tr>
                     @if($order->status->name == "Returned")
-                        <th class="text-center">Status</th>
+                        <th class="text-center">{{__('table.status')}}</th>
                     @endif
-                        <th>{{__('table.productId')}}</th>
+{{--                        <th>{{__('table.productId')}}</th>--}}
                         <th>{{__('table.productName')}}</th>
                         <th>{{__('table.price')}}</th>
                         <th>{{__('table.count')}}</th>
@@ -37,11 +37,17 @@
                 @foreach($orderItems as $item)
                     <tr>
                         @if($order->status->name == "Returned")
-                        <td class="text-center">{{$item->isReturned}}</td>
+                            <td class="text-center">
+                                @if ($item->isReturned !== null)
+                                    {{__("status." .$item->isReturned)}}
+                                @else
+                                    &nbsp;
+                                @endif
+                            </td>
                         @endif
-                        <td>{{ $item->product_id }}</td>
+{{--                        <td>{{ $item->product_id }}</td>--}}
                         <td>{{ $item->product->name }}</td>
-                        <td>{{ $item->price_current }}</td>
+                        <td>{{ number_format($item->price_current,2) }} €</td>
                         <td>{{ $item->count }}</td>
                     </tr>
                 @endforeach
@@ -72,7 +78,7 @@
                 @endif
             @endif
 
-            <div>{{__('names.orderStatus')}}: {{ $order->status->name }}</div>
+            <div>{{__('names.orderStatus')}}: {{ __("status." . $order->status->name) }}</div>
 
         </div>
 

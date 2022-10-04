@@ -9,7 +9,7 @@
             <ul>
                 <li><a href="../">{{__('menu.home')}}</a></li>
                 <li><a href="/user/rootoreturns">{{ __('names.returns') }}</a></li>
-                <li>{{ __('names.return') }}</li>
+                <li>{{__('names.return')}}: {{ $return->id }}</li>
             </ul>
         </div>
     </div>
@@ -33,7 +33,7 @@
             <table class="table">
                 <thead>
                 <tr>
-                    <th>{{__('table.productId')}}</th>
+{{--                    <th>{{__('table.productId')}}</th>--}}
                     <th>{{__('table.productName')}}</th>
                     <th>{{__('table.price')}}</th>
                     <th>{{__('table.count')}}</th>
@@ -43,16 +43,16 @@
                 <tbody>
                 @foreach($returnItems as $item)
                     <tr>
-                        <td>{{ $item->product_id }}</td>
+{{--                        <td>{{ $item->product_id }}</td>--}}
                         <td>{{ $item->product->name }}</td>
-                        <td>{{ $item->price_current }}</td>
+                        <td>{{ number_format($item->price_current,2) }} €</td>
                         <td>{{ $item->count }}</td>
                     </tr>
                 @endforeach
                 </tbody>
             </table>
 
-            <div>{{__('names.returnStatus')}}: {{ $return->status->name }}</div>
+            <div>{{__('names.returnStatus')}}: {{ __("status." .$return->status->name) }}</div>
         </div>
 
         <div class="container-fluid">

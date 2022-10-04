@@ -82,11 +82,11 @@
                                     <div class="price">
                                         @if ($product->discount)
                                             <span class="offer">
-                                                    €{{ $product->price }}
+                                                    {{ number_format($product->price,2) }} €
                                                 </span>
                                             €{{ $product->price - round(($product->price * $product->discount->proc / 100), 2) }}
                                         @else
-                                            €{{ $product->price }}
+                                            {{ number_format($product->price,2) }} €
                                         @endif
                                     </div>
                                     <div class="w-100 d-flex justify-content-center flex-column mt-3">

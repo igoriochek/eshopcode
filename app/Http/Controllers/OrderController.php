@@ -28,7 +28,7 @@ use StyledPDF;
 class OrderController extends AppBaseController
 {
     use \App\Http\Controllers\forSelector;
-
+    use \App\Traits\LogTranslator;
     /** @var OrderRepository $orderRepository */
     private $orderRepository;
 
@@ -275,6 +275,11 @@ class OrderController extends AppBaseController
         }
         $logs = LogActivity::search("Order ID:{$id}")->get();
 
+        foreach ($logs as $log ){
+            $log->activity = $this->logTranslate($log->activity, app()->getLocale());
+
+        }
+
         return view('user_views.orders.view')->with([
             'order' => $order,
             'orderItems' => $orderItems,
@@ -344,6 +349,7 @@ class OrderController extends AppBaseController
                         $amount = $newAmount;
 
                         $discount->cart_id = $cart->id;
+                        $discount->used = 1;
                         $discount->save();
                     }
                 }

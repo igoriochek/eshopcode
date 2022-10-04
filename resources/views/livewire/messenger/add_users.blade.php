@@ -22,6 +22,8 @@
         </div>
     @endforelse
     <div class="pt-3 mt-3">
-        {{ $addUsers->links() }}
+        @if (count($addUsers)>5)
+            {{ $addUsers->links() }}
+        @endif
     </div>
 </ul>

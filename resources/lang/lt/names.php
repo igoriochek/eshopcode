@@ -244,6 +244,14 @@ return [
     'old' => "Senos",
     'new' => "Naujos",
 
-    'orderBy' => 'Rūšiuoti pagal'
+    'orderBy' => 'Rūšiuoti pagal',
+
+    "zeroRecords" => "Įrašų nėra",
+    "showing" => "Rodomi",
+    "entries" => "užrašai",
+    "to" => "iki",
+    "of" => "iš",
+    "first" => "Pirmas",
+    "last" => "Paskutinis",
 
 ];

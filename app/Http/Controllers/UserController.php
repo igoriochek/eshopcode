@@ -68,12 +68,13 @@ class UserController extends Controller
 
             Flash::success(__('messages.changedpassword'));
 
-            return redirect(route('userprofile'));
+//            return redirect(route('userprofile'));
         }
         else {
             Flash::error(__('messages.incorrectpassword'));
 
-            return redirect(route('userprofile'));
+//            return redirect(route('userprofile'));
         }
+        return redirect(route('userprofile'));
     }
 }

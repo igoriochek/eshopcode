@@ -28,7 +28,7 @@
                                     <h3 class="card-title">
                                         <a href="{{route('viewproduct', $discount->id)}}">{{__('names.discountCouponCode')}} {{$discount->code}}</a>
                                     </h3>
-                                    <h6 class="card-text">{{__('names.discountCouponValue')}} {{$discount->value}}€</h6>
+                                    <h6 class="card-text">{{__('names.discountCouponValue')}} {{ number_format($discount->value,2)}} €</h6>
                                 </div>
                         </div>
                     </div>

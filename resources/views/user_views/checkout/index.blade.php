@@ -85,7 +85,7 @@
                                         {{ $item->count }}
                                     </div>
                                     <div class="col second">
-                                        {{ $item['product']->price }}€
+                                        {{ number_format($item['product']->price,2) }} €
                                     </div>
                                 </li>
                             @endforeach
@@ -95,7 +95,7 @@
                                 </div>
                                 <div class="col empty_col" ></div>
                                 <div class="col second">
-                                    <strong>{{ $cart->sum }}€</strong>
+                                    <strong>{{ number_format($cart->sum,2) }} €</strong>
                                 </div>
                             </li>
                         </ul>
@@ -107,7 +107,7 @@
                                     <div class="styled-select-filters">
                                         <select name="discount[]" size="10" multiple>
                                             @forelse($discounts as $item)
-                                                <option value="{{ $item->id }}">{{ $item->code }}: {{ $item->value }}€</option>
+                                                <option value="{{ $item->id }}">{{ $item->code }} - {{ $item->value }} € {{ __('names.off') }}</option>
                                             @empty
                                                 <option value="">{{ __('names.noDiscounts') }}</option>
                                             @endforelse

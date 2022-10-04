@@ -243,6 +243,14 @@ return [
     'old' => "Old",
     'new' => "New",
 
-    'orderBy' => 'Order By'
+    'orderBy' => 'Order By',
+
+    "zeroRecords" => "No matching records found",
+    "showing" => "Showing",
+    "entries" => "entries",
+    "to" => "to",
+    "of" => "of",
+    "first" => "First",
+    "last" => "Last",
 
 ];

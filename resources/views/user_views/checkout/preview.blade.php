@@ -87,7 +87,7 @@
                                         {{ $item->count }}
                                     </div>
                                     <div class="col second">
-                                        {{ $item['product']->price }}€
+                                        {{ number_format($item['product']->price,2) }} €
                                     </div>
                                 </li>
                             @endforeach
@@ -115,7 +115,7 @@
                                 </div>
                                 <div class="col empty_col" ></div>
                                 <div class="col second">
-                                    <strong>{{ $amount }}€</strong>
+                                    <strong>{{ number_format($amount,2) }} €</strong>
                                 </div>
                             </li>
                         </ul>
