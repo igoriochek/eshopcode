@@ -1,17 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    @include('header', ['title' => __('names.returns')])
+    @include('header', ['url' => route("rootoreturns") ,'title' => __('names.returns'), 'paragraph'=>__('names.return').' '.$return->id ])
     <div class="auth-form container py-5">
-<section class="content-header">
-    <div class="container-fluid">
-        <div class="row m-2">
-            <div class="col-sm-6">
-                <h1>{{__('names.return')}}: {{ $return->id }}</h1>
-            </div>
-        </div>
-    </div>
-</section>
 
 <section>
 

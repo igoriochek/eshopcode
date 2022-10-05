@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    @include('header', ['title' => $maincategory->name])
+    @include('header', ['url' => route("rootcategories") ,'title' => __('names.categories'), 'paragraph'=>$maincategory->name])
     <section class="product-section">
         <div class="container">
             <div class="row mb-5">

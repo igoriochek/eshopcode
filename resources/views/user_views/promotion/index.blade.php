@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    @include('header', ['title' => __('names.promotions')])
+    @include('header', ['url' => route("promotions") ,'title' => __('names.promotions')])
     <section class="pt-5">
         <div class="container">
             <div class="row mb-5">

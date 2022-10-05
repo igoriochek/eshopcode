@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    @include('header', ['title' => $product->name])
+    @include('header', ['url' => route("userproducts") ,'title' => __('names.products'), 'paragraph'=>$product->name])
     <section class="product-section">
         <div class="container">
             <div class="row">

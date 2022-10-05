@@ -34,8 +34,17 @@ use App\Http\Livewire\MessengerShow;
 */
 
 Route::get('/', function () {
-    return view('home');
+    if (Auth::user())
+        return redirect('user/products');
+    else
+        return redirect('products');
 });
+Route::get('/home', function () {
+    if (Auth::user())
+        return redirect('user/products');
+    else
+        return redirect('products');
+})->name("home");
 
 Route::group(array('prefix' => 'admin', 'middleware' => 'admin'), function () {
     Route::resource('categories', CategoryController::class);
@@ -177,7 +186,7 @@ Route::group(array('prefix' => 'user', 'middleware' => ['auth', 'cookie-consent'
     Route::get('messenger/{id}', MessengerShow::class)->name('livewire.messenger.show');
 });
 
-Route::get("homepage", [App\Http\Controllers\HomeController::class, 'userhomepage'])->name('userhomepage');
+//Route::get("homepage", [App\Http\Controllers\HomeController::class, 'userhomepage'])->name('userhomepage');
 Route::get("rootcategories", [CategoryController::class, 'userRootCategories'])->name('rootcategories');
 Route::get("innercategories/{category_id}", [CategoryController::class, 'userInnerCategories'])->name('innercategories');
 Route::get("categorytree", [CategoryController::class, 'userCategoryTree'])->name('categorytree');
@@ -190,7 +199,7 @@ Route::get('promotion/{id}', [\App\Http\Controllers\PromotionController::class, 
 Auth::routes();
 Route::get("logout", function () {
     Auth::logout();
-    return redirect()->route('home');
+    return redirect()('products');
 })->name("getlogout");
 
 Route::prefix('facebook')->name('facebook.')->group(function () {
@@ -208,7 +217,7 @@ Route::prefix('twitter')->name('twitter.')->group(function () {
     Route::get('callback', [TwitterController::class, 'callbackFromTwitter'])->name('callback');
 });
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('lang/{locale}', function ($locale) {
     app()->setLocale($locale);

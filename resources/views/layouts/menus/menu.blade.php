@@ -1,8 +1,4 @@
-<li class="nav-item">
-    <a href="/" style="color: {{ request()->is('home') ? '#c736c0' : '' }}">
-        {{__('menu.home')}}
-    </a>
-</li>
+
 @guest
     <li class="nav-item">
         <a href="/products" style="color: {{ request()->is('user/products*') ? '#c736c0' : '' }}">
@@ -17,6 +13,16 @@
     <li class="nav-item">
         <a href="/promotions" style="color: {{ request()->is('user/promotions*') ? '#c736c0' : '' }}">
             {{__('menu.promotions')}}
+        </a>
+    </li>
+    <li class="nav-item">
+        <a href="/user/discountCoupons" style="color: {{ request()->is('user/discountCoupons*') ? '#c736c0' : '' }}">
+            {{__('menu.discountCoupons')}}
+        </a>
+    </li>
+    <li class="nav-item">
+        <a href="/user/messenger" style="color: {{ request()->is('user/messenger*') ? '#c736c0' : '' }}">
+            {{__('menu.messenger')}}
         </a>
     </li>
 @endguest

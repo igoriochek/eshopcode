@@ -8,18 +8,15 @@
                         <span class="header-span"></span>
                         <ul class="d-flex flex-wrap align-items-center p-0 m-0 list-unstyled">
                             <li>
-                                <a class="header-subtitle-home" href="{{ url('/home') }}">
-                                    {{ __('names.home') }}
+                                <a class="header-subtitle-home" href="{{ $url ?? ''}}">
+                                    {{ __( $title ) }}
                                 </a>
                             </li>
                             <li class="header-subtitle-route">
-                                {{ $title }}
+                                {{ $paragraph ?? '' }}
                             </li>
                         </ul>
                     </div>
-                    <h1 class="header-title">
-                        {{ $title }}
-                    </h1>
                 </div>
             </div>
         </div>

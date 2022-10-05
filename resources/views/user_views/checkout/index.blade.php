@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    @include('header', ['title' => __('names.checkout')])
+    @include('header', ['url' => route("viewcart") ,'title' => __('names.cart'), 'paragraph'=> __('names.checkout')])
     <section class="product-section">
         <div class="container">
             <div class="row">

@@ -1,17 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    @include('header', ['title' => __('names.orders')])
+    @include('header', ['url' => route("rootorders") ,'title' => __('names.orders'), 'paragraph'=>__('names.return').' '.__('names.order').' '.$order->order_id ])
     <div class="auth-form container py-5">
-    <section class="content-header">
-        <div class="container-fluid">
-            <div class="row m-2">
-                <div class="col-sm-6">
-                    <h1>{{__('names.return')}} {{__('names.order')}} : {{ $order->order_id }}</h1>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <section>
 
