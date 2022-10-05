@@ -38,6 +38,7 @@ return [
     'sendResetPasswordLink' => 'Siųsti slaptažodžio nustatymo nuorodą',
     'contact' => 'Susisiekti',
     'applyCoupon' => 'Taikyti Kuponą',
-    'placeOrder' => 'Pateikite Užsakymą'
+    'placeOrder' => 'Pateikite Užsakymą',
+    'proceedToCheckout' => 'Pereiti prie apmokėjimo ',
 
 ];

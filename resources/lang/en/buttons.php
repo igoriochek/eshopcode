@@ -39,6 +39,7 @@ return [
     'sendResetPasswordLink' => 'Send Reset Password Link',
     'contact' => 'Contact',
     'applyCoupon' => 'Apply Coupon',
-    'placeOrder' => 'Place Order'
+    'placeOrder' => 'Place Order',
+    'proceedToCheckout' => 'Proceed to Checkout',
 
 ];

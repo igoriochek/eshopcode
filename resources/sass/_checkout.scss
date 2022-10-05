@@ -1,0 +1,102 @@
+.checkout {
+    @include orderSteps;
+
+    .open-apply-coupon {
+        text-transform: uppercase;
+        color: #222;
+        font-weight: 600;
+        transition: color 200ms ease;
+
+        &:hover, &:focus, &:active {
+            color: #ee3ee2;
+        }
+    }
+
+    .card {
+        border-width: 3px !important;
+        border-radius: 0;
+
+        .card-body {
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+
+            .form-control {
+                border-color: rgba(0, 0, 0, 0.09);
+                font-size: .9rem;
+                border-radius: 0;
+            }
+
+            .apply-coupon-button {
+                border-radius: 0;
+                font-size: .9rem;
+                font-weight: 600;
+                padding: .95rem 1.5rem;
+                transition: all 200ms ease;
+                color: #222;
+                background: #eee;
+                text-transform: uppercase;
+                width: clamp(220px, 100%, 270px);
+
+                &:hover, &:focus, &:active {
+                    background: #ee3ee2;
+                    color: #fff;
+                }
+            }
+        }
+    }
+
+    .shop_table {
+        td {
+            padding: 15px 10px;
+            font-size: 1rem;
+        }
+
+        .cart-item {
+            td {
+                span, strong {
+                    font-weight: 400;
+                }
+            }
+        }
+
+        .cart-subtotal,
+        .cart-discount {
+            td {
+                padding-top: 30px;
+                font-weight: 500;
+            }
+        }
+
+        .total {
+            td {
+                font-size: 1.2rem;
+
+                strong {
+                    span {
+                        font-size: 1.4rem;
+                    }
+                }
+            }
+        }
+
+        .border-bottom {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        }
+    }
+
+    .preview-button {
+        border-radius: 0;
+        font-size: .9rem;
+        font-weight: 600;
+        padding: .95rem 1.6rem;
+        transition: all 200ms ease;
+        color: #fff;
+        background: #222;
+        text-transform: uppercase;
+
+        &:hover, &:focus, &:active {
+            background: #ee3ee2;
+        }
+    }
+}

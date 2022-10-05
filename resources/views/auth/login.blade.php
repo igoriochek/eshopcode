@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    @include('header', ['title' => __('auth.login')])
+    @include('header', ['url' => route("userproducts") ,'title' => __('names.products'), 'paragraph'=> __('auth.login')])
     <div class="auth-form container py-5">
         <div class="row justify-content-center">
             <div class="col-lg-4 mb-5 mb-lg-0">

@@ -18,14 +18,6 @@
                     </div>
                 </div>
                 <div class="col-lg-8 mb-5">
-                    <div class="row mb-4 align-items-center">
-                        <div class="col-lg-12">
-                            <p class="p-0 m-0 showing-all-results">
-                                {{ __('names.results').': '.$promotions->count() }}
-                            </p>
-                        </div>
-                    </div>
-                    <hr class="hr"/>
                     <div class="row">
                         @forelse ($promotions as $promotion)
                             <div class="col-lg-12 mb-5">

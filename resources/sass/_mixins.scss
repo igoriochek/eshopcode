@@ -80,3 +80,31 @@
         box-shadow: 5px 5px $white-color;
     }
 }
+
+@mixin orderSteps {
+    .breadcrumb {
+        background: none;
+        margin: 0;
+        padding: 0;
+        position: relative;
+        z-index: 1;
+        font-weight: 700;
+        font-size: 1.3rem;
+        color: #aaa;
+
+        li {
+            i {
+                color: #ccc;
+            }
+
+            .active {
+                color: #ee3ee2;
+            }
+
+            .done {
+                color: #222;
+                text-decoration: none;
+            }
+        }
+    }
+}

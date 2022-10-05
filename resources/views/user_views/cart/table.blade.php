@@ -1,31 +1,65 @@
-<div class="table table-responsive">
-    <table class="table" id="categories">
+<div class="table-responsive">
+    <table class="shop_table">
         <thead>
-        <tr>
-            <th>{{__('table.name')}}</th>
-            <th>{{__('table.count')}}</th>
-            <th>{{__('table.price')}}</th>
-            <th>{{__('table.description')}}</th>
-            <th> </th>
+        <tr class="text-dark">
+            <th class="product-thumbnail" width="15%">
+            </th>
+            <th class="product-name text-uppercase" width="30%">
+                {{ __('names.product') }}
+            </th>
+            <th class="product-price text-uppercase" width="15%">
+                {{ __('names.price') }}
+            </th>
+            <th class="product-quantity text-uppercase" width="20%">
+                {{ __('names.quantity') }}
+            </th>
+            <th class="product-subtotal text-uppercase text-end" width="20%">
+                {{ __('names.subtotal') }}
+            </th>
         </tr>
         </thead>
         <tbody>
-        @foreach($cartItems as $item)
-            <tr>
-                <td>{{ $item['product']->name }}</td>
-                <td>{{ $item->count }}</td>
-                <td>{{ number_format($item['product']->price,2) }} €</td>
-                <td>{{ $item['product']->description }}</td>
-
-                <td width="120">
-                    {!! Form::open(['route' => ['userCartItemDestroy', $item->id], 'method' => 'delete']) !!}
-                    <div class='btn-group'>
-                        {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
+        @forelse($cartItems as $item)
+            <tr class="cart_table_item">
+                <td class="product-thumbnail">
+                    <div class="product-thumbnail-wrapper">
+                        {!! Form::open(['route' => ['userCartItemDestroy', $item->id], 'method' => 'delete']) !!}
+                        <button type="submit" class="product-thumbnail-remove" title="{{ __('names.removeProduct') }}"
+                                onclick="return confirm('{{ __('names.areYouSureProduct Are you sure you want this remove this product') }}?')">
+                            <i class="fas fa-times"></i>
+                        </button>
+                        {!! Form::close() !!}
+                        <a href="{{ route('viewproduct', $item['product']->id) }}" title="{{ $item['product']->name }}">
+                            <img alt="{{ $item['product']->name }}" class="product-thumbnail-image"
+                                 src="@if ($item['product']->image) {{ $item['product']->image }} @else /images/noimage.jpeg @endif">
+                        </a>
                     </div>
-                    {!! Form::close() !!}
+                </td>
+                <td class="product-name">
+                    <a href="{{ route('viewproduct', $item['product']->id) }}">
+                        {{ $item['product']->name }}
+                    </a>
+                </td>
+                <td class="product-price">
+                    <span class="amount">{{ number_format($item->price_current,2) }} €</span>
+                </td>
+                <td class="product-quantity">
+                    <div class="quantity" style="margin-left: 40px">
+                        <span class="product-change-cart-number"> {{ $item->count }}</span>
+                    </div>
+                </td>
+                <td class="product-subtotal text-end">
+                    <span>{{ number_format($item->price_current * $item->count,2) }} €</span>
                 </td>
             </tr>
-        @endforeach
+        @empty
+            <tr>
+                <td colspan="12" class="text-center">{{ __('names.emptyCart') }}</td>
+            </tr>
+        @endforelse
+        <tr>
+            <td colspan="5"></td>
+        </tr>
         </tbody>
     </table>
 </div>

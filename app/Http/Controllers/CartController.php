@@ -236,14 +236,25 @@ class CartController extends AppBaseController
 
     public function viewCart(Request $request)
     {
-        $cart = $this->cartRepository->getOrSetCart($request);
-
-        $cartItems = $this->getCartItems($cart);
+        $cart = $this->getCart($request);
+        $cartItems = $this->getCartItemsByCart($cart);
 
         return view('user_views.cart.view')
-            ->with(['cartItems'=> $cartItems]);
+            ->with([
+                'cartItems' => $cartItems,
+                'cart' => $cart
+            ]);
     }
 
+    private function getCartItemsByCart($cart) {
+        return CartItem::query()
+            ->with('product')
+            ->where('cart_id', $cart->id)
+            ->get();
+    }
 
-
+    private function getCart($request)
+    {
+        return $this->cartRepository->getOrSetCart($request);
+    }
 }

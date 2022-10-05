@@ -37,6 +37,8 @@ return [
     'removeProduct' => 'Удалить товар',
     'overview' => 'Обзор',
     'noDiscount' => 'Скидок нету',
+    'preview' => 'Предпросмотр',
+
 
     'adminUserCount' => 'Количество пользователей-администраторов',
     'canceled' => 'Отменено',

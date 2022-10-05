@@ -18,26 +18,12 @@
                     </div>
                 </div>
                 <div class="col-lg-8 mb-5">
-                    <div class="row mb-4 align-items-center">
-                        <div class="col-lg-12">
-                            <p class="p-0 m-0 showing-all-results">
-                                {{ __('names.results').': '.$promotions->count() }}
-                            </p>
-                        </div>
+                    <div>
+                        <h3 class="column-title">{{ $promotion->name }}</h3>
                     </div>
                     <hr class="hr"/>
                     <div class="row">
                         <div class="col-lg-12">
-                            <div class="col-sm-12 d-flex justify-content-between align-items-center flex-column flex-md-row mb-4">
-                                <div>
-                                    <h3 class="column-title">{{ $promotion->name }}</h3>
-                                </div>
-                                <div class="d-flex align-items-center mt-4 mt-md-0">
-                                    <a href="{{ route("promotions") }}" class="return-to-all-promotions">
-                                        {{ __('buttons.backToAllPromotions') }}
-                                    </a>
-                                </div>
-                            </div>
                             <div class="row">
                                 @forelse ($products as $product)
                                     <div class="col-lg-6 mt-4 mt-lg-0 mb-5">
