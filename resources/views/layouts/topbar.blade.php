@@ -20,13 +20,13 @@
                         </div>
                         <div class="d-flex justify-content-between ms-auto" style="gap: 5px">
                             <div class="d-flex align-items-center " style="gap: 15px">
-                                <a class="topbar_icon_link" href="#">
+                                <a class="topbar_icon_link" href="{{ route('facebook.login') }}">
                                     <i class="fa-brands fa-facebook"></i>
                                 </a>
-                                <a class="topbar_icon_link" href="#">
-                                    <i class="fa-brands fa-instagram"></i>
+                                <a class="topbar_icon_link" href="{{ route('google.login') }}">
+                                    <i class="fa-brands fa-google"></i>
                                 </a>
-                                <a class="topbar_icon_link" href="#">
+                                <a class="topbar_icon_link" href="{{ route('twitter.login') }}">
                                     <i class="fa-brands fa-twitter"></i>
                                 </a>
                             </div>

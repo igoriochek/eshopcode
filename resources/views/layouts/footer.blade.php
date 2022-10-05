@@ -10,13 +10,13 @@
                         {{ __('footer.slogan') }}
                     </p>
                     <div class="d-flex" style="gap: 20px">
-                        <a class="footer-link" href="#">
+                        <a class="footer-link" href="{{ route('facebook.login') }}">
                             <i class="fa-brands fa-facebook fs-4"></i>
                         </a>
-                        <a class="footer-link" href="#">
-                            <i class="fa-brands fa-instagram fs-4"></i>
+                        <a class="footer-link" href="{{ route('google.login') }}">
+                            <i class="fa-brands fa-google fs-4"></i>
                         </a>
-                        <a class="footer-link" href="#">
+                        <a class="footer-link" href="{{ route('twitter.login') }}">
                             <i class="fa-brands fa-twitter fs-4"></i>
                         </a>
                     </div>
