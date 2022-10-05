@@ -22,14 +22,6 @@
                         <div class="col-lg-12 d-flex justify-content-between flex-column flex-md-row">
                             <div>
                                 <h3 class="column-title">{{ $maincategory->name }}</h3>
-                                <p class="p-0 m-0 showing-all-results">
-                                    {{ __('names.results').': '.$products->count() }}
-                                </p>
-                            </div>
-                            <div class="d-flex align-items-center mt-4 mt-md-0">
-                                <a href="{{ route("rootcategories") }}" class="category-return-button">
-                                    {{ __('buttons.backToMainCategories') }}
-                                </a>
                             </div>
                         </div>
                     </div>
