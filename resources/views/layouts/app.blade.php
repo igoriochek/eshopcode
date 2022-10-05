@@ -59,7 +59,7 @@
     <script src="{{asset('js/jquery-ui.js')}}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.5.1/nouislider.min.js"></script>
     <script>
-        (document).ready(function() {
+        $(document).ready(function() {
                 $('#categories').DataTable(
                     {
                         "language":
