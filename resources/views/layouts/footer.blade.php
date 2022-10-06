@@ -29,6 +29,28 @@
                         </span>
                         <a href="mailto:mail@example.com">info@buhalteres.lt</a>
                     </li>
+
+                    <li class="pb-1 mb-2">
+                        <span
+                            class="d-block font-weight-normal line-height-1 text-color-light">
+                            {{ __('footer.companycode') }}
+                        </span>
+                        302546905
+                    </li>
+                    <li class="pb-1 mb-2">
+                        <span
+                            class="d-block font-weight-normal line-height-1 text-color-light">
+                            {{ __('footer.vatcode') }}
+                        </span>
+                        LT100005776419
+                    </li>
+                    <li class="pb-1 mb-2">
+                        <span
+                            class="d-block font-weight-normal line-height-1 text-color-light">
+                            {{ __('footer.ac') }}
+                        </span>
+                        LT53 3500 0100 0156 4853
+                    </li>
                 </ul>
                 <ul class="social-icons social-icons-clean-with-border social-icons-medium">
                     <li class="social-icons-facebook">

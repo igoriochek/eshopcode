@@ -15,5 +15,8 @@ return [
     'menu' => 'MENIU',
     'profile' => 'Vartotojo paskyra',
     'copyright' => 'Buhalteres.lt © 2022. Visos teisės saugomos',
+    'companycode' => "Įmonės kodas",
+    'vatcode' => "PVM kodas",
+    'ac' => "A. s.",
 
 ];

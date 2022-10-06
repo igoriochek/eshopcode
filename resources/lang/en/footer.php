@@ -15,5 +15,8 @@ return [
     'menu' => 'MENU',
     'profile' => 'Profile',
     'copyright' => 'Buhalteres.lt © 2022. All Rights Reserved',
+    'companycode' => "Company Code",
+    'vatcode' => "VAT",
+    'ac' => "A/C",
 
 ];
