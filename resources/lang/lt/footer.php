@@ -14,10 +14,11 @@ return [
     'aboutUsTeam' => 'Apie mus / Komanda',
     'career' => 'Karjera',
     'allLocations' => 'Lokacijos',
+    'menu' => 'MENIU',
     'faq' => 'D.U.K.',
     'privacyPolicy' => 'Privatumo politika',
     'termsOfService' => 'Paslaugų teikimo sąlygos',
     'contantSupport' => 'Kontaktai / Pagalba',
-    'copyright' => 'Autorių teisės © 2022 Bopatrip. Visos teisės saugomos.'
+    'copyright' => 'Autorių teisės © 2022 OPATRIP. Visos teisės saugomos.'
 
 ];

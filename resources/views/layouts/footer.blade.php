@@ -23,27 +23,29 @@
                 </div>
                 <div class="col-lg-4 col-md-6 mt-4 mt-md-5 mt-lg-0">
                     <h5 class="fw-bold mb-5 footer-bar-title">
-                        {{ __('footer.information') }}
+                        {{ __('footer.menu') }}
                     </h5>
+
                     <ul class="list-unstyled mb-0">
-                        <li class="mb-4">
-                            <a class="footer-link" href="{{ url('/') }}">
-                                <i class="fa-solid fa-address-card fs-5 me-1"></i>
-                                <span>{{ __('footer.aboutUsTeam') }}</span>
-                            </a>
-                        </li>
-                        <li class="mb-4">
-                            <a class="footer-link" href="{{ url('/') }}">
-                                <i class="fa-solid fa-briefcase fs-5 me-1"></i>
-                                <span>{{ __('footer.career') }}</span>
-                            </a>
-                        </li>
-                        <li class="mb-4">
-                            <a class="footer-link" href="{{ url('/') }}">
-                                <i class="fa-solid fa-earth-africa fs-5 me-1"></i>
-                                <span>{{ __('footer.allLocations') }}</span>
-                            </a>
-                        </li>
+                            @include('layouts.menus.user_menu')
+{{--                        <li class="mb-4">--}}
+{{--                            <a class="footer-link" href="{{ url('/') }}">--}}
+{{--                                <i class="fa-solid fa-address-card fs-5 me-1"></i>--}}
+{{--                                <span>{{ __('footer.aboutUsTeam') }}</span>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+{{--                        <li class="mb-4">--}}
+{{--                            <a class="footer-link" href="{{ url('/') }}">--}}
+{{--                                <i class="fa-solid fa-briefcase fs-5 me-1"></i>--}}
+{{--                                <span>{{ __('footer.career') }}</span>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+{{--                        <li class="mb-4">--}}
+{{--                            <a class="footer-link" href="{{ url('/') }}">--}}
+{{--                                <i class="fa-solid fa-earth-africa fs-5 me-1"></i>--}}
+{{--                                <span>{{ __('footer.allLocations') }}</span>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
                     </ul>
                 </div>
                 <div class="col-lg-4 col-md-6 mt-4 mt-md-5 mt-lg-0 position-relative">
@@ -63,17 +65,17 @@
                             </div>
                             <span class="contact-travel-paragraph">{{ __('+370 679 22249') }}</span>
                         </li>
-                        <li class="d-flex align-items-center mb-4" style="gap: 20px">
-                            <a href="#" class="footer-link">
-                                <i class="fa-brands fa-whatsapp fs-4"></i>
-                            </a>
-                            <a href="#" class="footer-link">
-                                <i class="fa-brands fa-viber fs-4"></i>
-                            </a>
-                            <a href="#" class="footer-link">
-                                <i class="fa-brands fa-telegram fs-4"></i>
-                            </a>
-                        </li>
+{{--                        <li class="d-flex align-items-center mb-4" style="gap: 20px">--}}
+{{--                            <a href="#" class="footer-link">--}}
+{{--                                <i class="fa-brands fa-whatsapp fs-4"></i>--}}
+{{--                            </a>--}}
+{{--                            <a href="#" class="footer-link">--}}
+{{--                                <i class="fa-brands fa-viber fs-4"></i>--}}
+{{--                            </a>--}}
+{{--                            <a href="#" class="footer-link">--}}
+{{--                                <i class="fa-brands fa-telegram fs-4"></i>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
                     </ul>
                 </div>
             </div>
@@ -83,28 +85,28 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-12 col-lg-6">
-                    <ul class="mb-0 p-0 d-flex justify-content-center justify-content-lg-start align-items-center list-unstyled text-center" style="gap: 20px">
-                        <li>
-                            <a class="footer-link" href="#">
-                                {{ __('footer.faq') }}
-                            </a>
-                        </li>
-                        <li>
-                            <a class="footer-link" href="#">
-                                {{ __('footer.privacyPolicy') }}
-                            </a>
-                        </li>
-                        <li>
-                            <a class="footer-link" href="#">
-                                {{ __('footer.termsOfService') }}
-                            </a>
-                        </li>
-                        <li>
-                            <a class="footer-link" href="#">
-                                {{ __('footer.contantSupport') }}
-                            </a>
-                        </li>
-                    </ul>
+{{--                    <ul class="mb-0 p-0 d-flex justify-content-center justify-content-lg-start align-items-center list-unstyled text-center" style="gap: 20px">--}}
+{{--                        <li>--}}
+{{--                            <a class="footer-link" href="#">--}}
+{{--                                {{ __('footer.faq') }}--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+{{--                        <li>--}}
+{{--                            <a class="footer-link" href="#">--}}
+{{--                                {{ __('footer.privacyPolicy') }}--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+{{--                        <li>--}}
+{{--                            <a class="footer-link" href="#">--}}
+{{--                                {{ __('footer.termsOfService') }}--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+{{--                        <li>--}}
+{{--                            <a class="footer-link" href="#">--}}
+{{--                                {{ __('footer.contantSupport') }}--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+{{--                    </ul>--}}
                 </div>
                 <div class="col-12 col-lg-6 mt-4 mt-lg-0">
                     <p class="mb-0 copyright-paragraph text-center text-lg-end">
