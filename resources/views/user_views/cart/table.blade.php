@@ -31,7 +31,7 @@
                                                 href="shop-product-right.html">{{ $item['product']->name }}</a></h6>
                         </td>
                         <td class="product-des product-name pr-25" data-title="Price">
-                            <h4 class="text-brand">{{ $item['product']->price }}</h4>
+                            <h4 class="text-brand">{{ number_format($item['product']->price,2) }} €</h4>
                         </td>
                         <td class="text-center detail-info" data-title="Stock">
                             <div class="detail-extralink mr-15">

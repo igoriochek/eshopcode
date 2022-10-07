@@ -36,7 +36,7 @@
                         <tr>
                             <td>{{ $item['product']->name }}</td>
                             <td>{{ $item->count }}</td>
-                            <td>{{ $item['product']->price }}</td>
+                            <td>{{ number_format($item['product']->price,2) }} €</td>
                             <td>{{ $item['product']->description }}</td>
                         </tr>
                     @endforeach
@@ -44,7 +44,7 @@
                     <tfoot>
                     <tr>
                         <td>{{__('names.sum')}}:</td>
-                        <td colspan="3" style="text-align: right">{{ $cart->sum }}</td>
+                        <td colspan="3" style="text-align: right">{{ number_format($cart->sum,2) }} €</td>
                     </tr>
                     </tfoot>
                 </table>
@@ -75,7 +75,7 @@
                     <div>{{__('names.discount')}}</div>
                     <select name="discount[]" size="10" multiple>
                         @foreach($discounts as $item)
-                            <option value="{{ $item->id }}">{{ $item->code }}: {{ $item->value }}</option>
+                            <option value="{{ $item->id }}">{{ $item->code }} - {{ $item->value }} € {{ __('names.off') }}</option>
                         @endforeach
                     </select>
                 </div>

@@ -1,14 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="page-header breadcrumb-wrap">
-        <div class="container">
-            <div class="breadcrumb">
-                <a href="{{route('home')}}" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
-                <span></span> Pages <span></span> My Account
-            </div>
-        </div>
-    </div>
     <div class="page-content pt-20 pb-150">
         <div class="container">
             <div class="row">
@@ -63,7 +55,7 @@
                                                             <tr>
                                                                 <td>{{ $item->id }}</td>
                                                                 <td>{{ __("status." . $item->status->name) }}</td>
-                                                                <td>{{ $item->sum }} €</td>
+                                                                <td>{{ number_format($item->sum,2) }} €</td>
                                                                 <td width="120">
                                                                     <div class='btn-group'>
                                                                         <a href="{{ route('vieworder', [$item->id]) }}"

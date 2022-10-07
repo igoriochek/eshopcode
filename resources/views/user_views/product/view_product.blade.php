@@ -62,7 +62,7 @@
                                             </div>
                                         @else
                                             <div class="product-price primary-color float-left">
-                                                <span class="current-price text-brand">{{ $product->price }}</span>
+                                                <span class="current-price text-brand">{{ number_format($product->price,2) }} €</span>
                                             </div>
                                         @endif
                                     </div>

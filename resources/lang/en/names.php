@@ -244,6 +244,7 @@ return [
     "of" => "of",
     "first" => "First",
     "last" => "Last",
+    'off' => 'OFF',
 
 
 

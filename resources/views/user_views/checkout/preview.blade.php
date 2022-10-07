@@ -36,7 +36,7 @@
                         <tr>
                             <td>{{ $item['product']->name }}</td>
                             <td>{{ $item->count }}</td>
-                            <td>{{ $item['product']->price }}</td>
+                            <td>{{ number_format($item['product']->price,2) }} €</td>
                             <td>{{ $item['product']->description }}</td>
                         </tr>
                     @endforeach
@@ -49,14 +49,14 @@
                         </tr>
                         @foreach($discounts as $item)
                             <tr>
-                                <td>{{__('names.discount')}}:</td>
-                                <td colspan="3" style="text-align: right">{{ $item->value }}</td>
+                                <td>{{__('names.discount')}} {{ $item->code }}</td>
+                                <td colspan="3" style="text-align: right">- {{ number_format($item->value,2) }} €</td>
                             </tr>
                         @endforeach
                     @endif
                     <tr>
                         <td>{{__('names.total')}}:</td>
-                        <td colspan="3" style="text-align: right">{{ $amount }}</td>
+                        <td colspan="3" style="text-align: right">{{ number_format($amount,2) }} €</td>
                     </tr>
                     </tfoot>
                 </table>

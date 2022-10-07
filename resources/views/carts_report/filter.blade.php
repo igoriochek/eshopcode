@@ -16,8 +16,8 @@
             <label for="status.name">{{__('reports.status')}}:</label>
             <select name="status.name" class="form-control">
                 <option></option>
-                <option value="Draft">On</option>
-                <option value="New">Off</option>
+                <option value="On">On</option>
+                <option value="Off">Off</option>
             </select>
         </div>
         <div class="form-group col-sm-2">

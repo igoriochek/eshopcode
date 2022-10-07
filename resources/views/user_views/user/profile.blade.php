@@ -1,14 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="page-header breadcrumb-wrap">
-        <div class="container">
-            <div class="breadcrumb">
-                <a href="{{route('home')}}" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
-                <span></span> Pages <span></span> My Account
-            </div>
-        </div>
-    </div>
     <div class="page-content pt-20 pb-150">
         <div class="container">
             <div class="row">
@@ -52,31 +44,31 @@
                                             <div class="row">
                                                 <div class="form-group col-md-6">
                                                     {!! Form::label('code', __('forms.name').':' )!!}
-                                                    {!! Form::text('name', null, ['class' => 'form-control']) !!}
+                                                    {!! Form::text('name', $user->name, ['class' => 'form-control']) !!}
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     {!! Form::label('email', __('forms.email').':') !!}
-                                                    {!! Form::text('email', null, ['class' => 'form-control']) !!}
+                                                    {!! Form::text('email', $user->email, ['class' => 'form-control']) !!}
                                                 </div>
                                                 <div class="form-group col-md-12">
                                                     {!! Form::label('street', __('forms.street').':') !!}
-                                                    {!! Form::text('street', null, ['class' => 'form-control']) !!}
+                                                    {!! Form::text('street', $user->street, ['class' => 'form-control']) !!}
                                                 </div>
                                                 <div class="form-group col-md-12">
                                                     {!! Form::label('house_flat', __('forms.house_flat').':') !!}
-                                                    {!! Form::text('house_flat', null, ['class' => 'form-control']) !!}
+                                                    {!! Form::text('house_flat', $user->house_flat, ['class' => 'form-control']) !!}
                                                 </div>
                                                 <div class="form-group col-md-12">
                                                     {!! Form::label('post_index', __('forms.post_index').':') !!}
-                                                    {!! Form::text('post_index', null, ['class' => 'form-control']) !!}
+                                                    {!! Form::text('post_index', $user->post_index, ['class' => 'form-control']) !!}
                                                 </div>
                                                 <div class="form-group col-md-12">
                                                     {!! Form::label('city', __('forms.city').':') !!}
-                                                    {!! Form::text('city', null, ['class' => 'form-control']) !!}
+                                                    {!! Form::text('city', $user->city, ['class' => 'form-control']) !!}
                                                 </div>
                                                 <div class="form-group col-md-12">
                                                     {!! Form::label('phone_number', __('forms.phone_number').':') !!}
-                                                    {!! Form::text('phone_number', null, ['class' => 'form-control']) !!}
+                                                    {!! Form::text('phone_number', $user->phone_number, ['class' => 'form-control']) !!}
                                                 </div>
                                                 <div class="col-md-12">
                                                     {!! Form::submit(__('buttons.save'), ['class' => 'btn btn-primary']) !!}

@@ -58,7 +58,7 @@ class Order extends Model
         'user_id' => 'integer',
         'admin_id' => 'integer',
         'status_id' => 'integer',
-        'sum' => 'integer',
+        'sum' => 'double',
         'created_at' => 'datetime',
         'updated_at' => 'datetime'
     ];

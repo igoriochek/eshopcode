@@ -39,15 +39,15 @@
                                                     {{__('names.rating')}}<span
                                                         class="font-small ml-5 text-muted"> {{$product->rating}}</span>
                                                 </div>
-                                                <div class="product-card-bottom text-center">
+                                                <div class="product-card-bottom d-flex justify-content-center">
                                                     <div class="product-price">
-                                                        <span>{{$product->price}}</span>
+                                                        <span>{{ number_format($product->price,2)}} €</span>
                                                     </div>
 
                                                 </div>
-                                                <div class="product-card-bottom">
-                                                    <div class="add-cart d-flex">
-                                                        <div class="col-6">
+                                                <div class="product-card-bottom d-flex justify-content-center">
+                                                    <div class="add-cart d-flex justify-content-center">
+                                                        <div class="col-3">
                                                             {!! Form::open(['route' => ['addtocart'], 'method' => 'post']) !!}
 
                                                             {!! Form::number('count', "1", ['class' => 'form-control col-lg-5 col-sm-5', "minlength"=>"3", "maxlength"=>"5", "size"=>"5"]) !!}
