@@ -37,9 +37,6 @@
                 <nav>
                     <ul class="mobile-menu font-heading">
                         <li class="menu-item">
-                            <a href="/home">{{__('menu.home')}}</a>&nbsp;&nbsp;
-                        </li>
-                        <li class="menu-item">
                             <a href="/user/products">{{__('menu.products')}}</a>&nbsp;&nbsp;
                         </li>
                         <li class="menu-item">

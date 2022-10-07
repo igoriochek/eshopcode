@@ -19,12 +19,17 @@ class Ratings extends Model
     use HasFactory;
 
     public $table = 'ratings';
-    
+
 
 
 
     public $fillable = [
-        'value'
+        'value',
+        'user_id',
+        'product_id',
+        'description',
+        'created_at',
+        'updated_at'
     ];
 
     /**
@@ -45,5 +50,5 @@ class Ratings extends Model
         'value' => 'required'
     ];
 
-    
+
 }

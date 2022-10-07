@@ -37,13 +37,13 @@ use App\Http\Livewire\MessengerShow;
 */
 
 Route::get('/', function () {
-    if (Auth::user() && Auth::user()->type === User::TYPE_USER)
+    if (Auth::user())
         return redirect('user/products');
     else
         return redirect('products');
 });
 Route::get('/home', function () {
-    if (Auth::user() && Auth::user()->type === User::TYPE_USER)
+    if (Auth::user())
         return redirect('user/products');
     else
         return redirect('products');

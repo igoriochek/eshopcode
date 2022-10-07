@@ -21,17 +21,18 @@
                             @foreach($discountCoupons as $discountCoupon)
                                 <div class="discount-coupon p-4 mb-4 mb-sm-5">
                                     <h4>
-                                        <a class="discount-coupon-title"
-                                           href="{{ route('viewproduct', $discountCoupon->id) }}">
-                                            {{ $discountCoupon->code }}
+                                        <a class="discount-coupon-title" href="{{ route('viewproduct', $discountCoupon->id) }}">
+                                            {{__('names.discountCouponCode')}}: {{ $discountCoupon->code }}
                                         </a>
                                     </h4>
-                                    <p class="discount-coupon-description">{{ $discountCoupon->value }}</p>
+                                    <h6 class="discount-coupon-description">
+                                        {{__('names.discountCouponValue')}}: {{number_format($discountCoupon->value,2)}} €
+                                    </h6>
                                 </div>
                             @endforeach
                         @else
                             <span class="discount-coupons-empty">
-                                {{ __('names.noDiscount') }}
+                                {{__('names.noDiscountCoupons')}}
                             </span>
                         @endif
                         @if (!empty($discountCoupons->count()))

@@ -95,6 +95,9 @@ return [
     'discountCoupons' => 'Nuolaidų kuponai',
     'discountCouponDetails' => 'Nuolaidų kupono informacija',
     'editDiscountCoupon' => 'Redaguoti Nuolaidos Kuponą',
+    "ndDiscountCoupons" => "Jūs dar neturite nuolaidų kuponų :(",
+    "discountCouponCode" => "Nuolaidų kupono kodas",
+    "discountCouponValue" => "Nuolaidų kupono suma",
 
     //Export Import
     'dataExpImp' => 'Duomenų Eksportas / Importas',

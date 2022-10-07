@@ -37,14 +37,14 @@
                                             {{-- __('names.productCount') --}} {{-- count($c->products) --}}
                                         @empty
                                             <span class="categories-empty">
-                                                {{ __('names.noSubcategories') }}
+                                                <b>{{__('messages.noinnercategories')}}</b>--}}
                                             </span>
                                         @endforelse
                                     </div>
                                 </div>
                             @empty
                                 <span class="categories-empty">
-                                    {{ __('names.noCategories') }}
+                                   {{__('names.noCategories')}}--}}
                                 </span>
                             @endforelse
                             <div class="pagination-area mt-20 mb-20">
