@@ -31,10 +31,10 @@ class PayController extends AppBaseController
         $cartId = $request->session()->get('appPayCartId');
         $amount = $request->session()->get('appPayAmount');
 
-        if (!preg_match("/\./", $amount)) {
-            $amount = $amount * 100;
-        }
-        $amount = preg_replace("/\D/", "", $amount);
+        if(strpos($amount, ".") == strlen($amount)-2)  $amount = $amount . "0";
+        elseif(strpos($amount, ".") == strlen($amount)-3)  $amount = $amount . "00";
+
+        $amount = str_replace(".", "", $amount);
 
         $appUrl = env('APP_URL');
         $payment = [
@@ -127,7 +127,7 @@ class PayController extends AppBaseController
                     $user = Auth::user();
 
                     if($user){
-                        $user->log("Created new Order ID:{$params['orderid']}");
+                        $user->log("Created new Order ID:{$newOrder->id}");
                     }
                     return 'OK';
                 }

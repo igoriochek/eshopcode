@@ -5,7 +5,7 @@
     <div class="container-fluid">
         <div class="row m-2">
             <div class="col-sm-6">
-                <h1>[{{__('names.returns')}}]</h1>
+                <h1>{{__('names.return')}}: {{ $return->id }}</h1>
             </div>
         </div>
     </div>
@@ -26,13 +26,12 @@
 {{--            </a>--}}
 {{--        </div>--}}
 
-        <div>{{__('names.returnStatus')}}: {{ $return->status->name }}</div>
+        <div>{{__('names.returnStatus')}}: {{ __("status." .$return->status->name) }}</div>
 
         <div class="table table-responsive">
             <table class="table">
                 <thead>
                 <tr>
-                    <th>{{__('table.productId')}}</th>
                     <th>{{__('table.productName')}}</th>
                     <th>{{__('table.price')}}</th>
                     <th>{{__('table.count')}}</th>
@@ -42,9 +41,8 @@
                 <tbody>
                 @foreach($returnItems as $item)
                     <tr>
-                        <td>{{ $item->product_id }}</td>
                         <td>{{ $item->product->name }}</td>
-                        <td>{{ $item->price_current }}</td>
+                        <td>{{ $item->price_current }} €</td>
                         <td>{{ $item->count }}</td>
                     </tr>
                 @endforeach

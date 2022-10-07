@@ -232,6 +232,14 @@ return [
     'orderBy' => 'Rūšiuoti pagal',
     'view' => 'Peržiūrėti',
     'home' => 'Pradžia',
-    'followUs' => 'Sekite mus'
+    'followUs' => 'Sekite mus',
+
+    "zeroRecords" => "Įrašų nėra",
+    "showing" => "Rodomi",
+    "entries" => "užrašai",
+    "to" => "iki",
+    "of" => "iš",
+    "first" => "Pirmas",
+    "last" => "Paskutinis",
 
 ];

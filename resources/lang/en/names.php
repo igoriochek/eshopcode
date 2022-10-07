@@ -235,7 +235,15 @@ return [
     'orderBy' => 'Order By',
     'view' => 'View',
     'home' => 'Home',
-    'followUs' => 'Follow Us'
+    'followUs' => 'Follow Us',
+
+    "zeroRecords" => "No matching records found",
+    "showing" => "Showing",
+    "entries" => "entries",
+    "to" => "to",
+    "of" => "of",
+    "first" => "First",
+    "last" => "Last",
 
 
 
