@@ -10,15 +10,15 @@
             transition: color 100ms ease;
 
             &:hover, &:focus {
-                color: #00a1f2;
+                color: $primary-hover-color;
 
                 i {
-                    color: #00a1f2;
-                    animation: ArrowPointing 500ms infinite linear;
+                    color: $primary-hover-color;
+                    //animation: ArrowPointing 500ms infinite linear;
                 }
             }
 
-            @keyframes ArrowPointing {
+            /*@keyframes ArrowPointing {
                 0% {
                     transform: translateX(0);
                 }
@@ -34,7 +34,7 @@
                 100% {
                     transform: translateX(0);
                 }
-            }
+            }*/
 
             i {
                 font-size: .8em;

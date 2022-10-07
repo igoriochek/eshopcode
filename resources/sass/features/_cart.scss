@@ -1,6 +1,12 @@
 .cart {
     @include orderSteps;
 
+    .card {
+        background: #f1f1f1;
+        border: none;
+        border-radius: 10px;
+    }
+
     .shop_table {
         width: 100%;
         margin: 0;
@@ -18,8 +24,7 @@
         .product-thumbnail {
             .product-thumbnail-wrapper {
                 position: relative;
-                width: 65px;
-                height: 65px;
+                max-height: 65px;
 
                 .product-thumbnail-remove {
                     position: absolute;
@@ -32,7 +37,7 @@
                     color: #212121;
                     width: 20px;
                     height: 20px;
-                    background: #FFF;
+                    background: $white-color;
                     border: 1px solid #dbdbdb;
                     border-radius: 100%;
                     box-shadow: 0 0 19px -6px rgb(0 0 0 / 50%);
@@ -61,7 +66,7 @@
                 transition: color 200ms ease;
 
                 &:hover, &:focus, &:active {
-                    color: #0088CC;
+                    color: $primary-color;
                 }
             }
         }
@@ -93,17 +98,17 @@
             }
 
             .proceed-to-checkout-button {
-                border-radius: 0;
+                border-radius: 7px;
                 font-size: .9rem;
                 font-weight: 600;
                 padding: .95rem 1.5rem;
                 transition: all 200ms ease;
-                color: #fff;
-                background: #222;
+                color: $white-color;
+                background: $primary-color;
                 text-transform: uppercase;
 
                 &:hover, &:focus, &:active {
-                    background: #0088CC;
+                    background: $primary-hover-color;
                 }
             }
         }

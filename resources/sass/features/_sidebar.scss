@@ -1,4 +1,8 @@
 .sidebar {
+    background: #f1f1f1;
+    border-radius: 10px;
+    padding: 20px;
+
     .product-search-input {
         border-color: rgba(0, 0, 0, 0.09);
         font-size: .8em !important;
@@ -16,28 +20,35 @@
     .sidebar-title {
         font-size: 1em;
         font-weight: 600;
-        color: #212529;
+        color: $secondary-color;
         padding-top: 1rem;
-        text-transform: uppercase;
     }
 
     ul {
         .nav-link {
             transition: background 0.1s;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+            border-bottom: 1px solid $secondary-color;
             padding: 8px 0;
             display: block;
             color: #666;
             font-size: 0.9em;
             text-decoration: none;
             line-height: 20px;
+
+            .form-check-input {
+                width: 15px;
+                height: 15px;
+
+                &:checked {
+                    background-color: $primary-color;
+                }
+            }
         }
     }
 
     .product-filter-button {
         margin-top: 30px;
         margin-bottom: 10px;
-        text-transform: uppercase;
         padding: .8rem 2.5rem;
         border-radius: 5px;
         width: 100%;
@@ -47,5 +58,18 @@
     .ui-state-default, .ui-widget-content .ui-state-default {
         border-radius: 10px;
         transition: background 300ms ease;
+        background: $white-color;
+        border: 3px solid $primary-color;
+
+        &:hover, &:focus {
+            background: $primary-hover-color;
+        }
+    }
+
+    .ui-widget-header {
+        border: none;
+        background: $primary-color;
+        color: #333333;
+        font-weight: bold;
     }
 }

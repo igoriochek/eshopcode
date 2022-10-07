@@ -1,9 +1,9 @@
 a {
     text-decoration: none;
-    color: #0088CC;
+    color: $primary-color;
     transition: color 100ms ease;
 
     &:hover, &:focus, &:active {
-        color: #0A66C2;
+        color: $primary-hover-color;
     }
 }

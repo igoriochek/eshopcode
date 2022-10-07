@@ -25,7 +25,7 @@
             <div class="col-lg-8">
                 <div class="card order-complete-success">
                     <div class="card-body text-center">
-                        <p class="text-dark fw-bold mb-0">
+                        <p class="mb-0">
                             <i class="fas fa-check me-1"></i>
                             {{ __('names.acceptedOrder') }}
                         </p>

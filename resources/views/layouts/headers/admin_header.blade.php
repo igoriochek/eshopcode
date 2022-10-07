@@ -2,10 +2,11 @@
     <div class="admin-header-container">
         <div class="admin-header-top-container">
             <a href="{{ url('/home') }}" class="admin-header-logo">
-                <img src="{{asset("images/buhalteres-logo-web.svg")}}" alt="buhalterės.lt logotipas" class="logo" width="170">
+                <img src="{{asset("images/nauja2s.png")}}" alt="buhalterės.lt logotipas" class="logo" width="80">
             </a>
             <button class="admin-header-toggle-button" onclick="onClickOpenMenu()">
-                <i class="fa-sharp fa-solid fa-bars text-white"></i>
+                <i class="fa-sharp fa-solid fa-bars text-white fs-5 me-1"></i>
+                <span class="text-white fs-6">{{ __('footer.menu') }}</span>
             </button>
         </div>
         <hr class="admin-header-hr">
@@ -19,7 +20,7 @@
             <a href="#" class="admin-header-account-dropdown" role="button"
                id="navbarUserDropdown"
                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img src="{{ asset('images/icons/icon-account.png') }}" height="25" alt="icon-account" class="admin-header-account-icon">
+                <i class="fa-solid fa-user fs-5 admin-header-account-icon"></i>
                 <span class="admin-header-account-name">{{ Auth::user()->name }}</span>
             </a>
             @include('layouts.dropdowns.admin_dropdown')

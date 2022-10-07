@@ -1,6 +1,6 @@
 <footer class="footer">
     <div class="container">
-        <div class="row py-4 my-5">
+        <div class="row mb-3 mt-5">
             <div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
                 <h5 class="text-4 text-color-light mb-3">{{ __('footer.contactInfo') }}</h5>
                 <ul class="list list-unstyled">
@@ -9,25 +9,20 @@
                             class="d-block font-weight-normal line-height-1 text-color-light">
                             {{ __('footer.address') }}
                         </span>
-                        Konstitucijos pr. 7, Vilnius, Verslo centras „Europa“, 12 aukštas, LT-09308
+                        Logistikos g. 4, Sausių kaimas, Trakų raj. savivaldybė, Vilniaus apskritis
                     </li>
                     <li class="pb-1 mb-2">
                         <span class="d-block font-weight-normal line-height-1 text-color-light">
                             {{ __('footer.phone') }}
                         </span>
-                        <a href="tel:+1234567890">+370 653 333 30</a>
-                    </li>
-                    <li class="pb-1 mb-2">
-                        <span class="d-block font-weight-normal line-height-1 text-color-light">
-                            {{ __('Viber, Whatsapp') }}
-                        </span>
-                        +370 685 777 77
+                        +370 64518105,
+                        +370 64683017
                     </li>
                     <li class="pb-1 mb-2">
                         <span class="d-block font-weight-normal line-height-1 text-color-light">
                             {{ __('footer.email') }}
                         </span>
-                        <a href="mailto:mail@example.com">info@buhalteres.lt</a>
+                        <a href="mailto:mail@example.com">dinobalt.info@gmail.com</a>
                     </li>
                 </ul>
                 <ul class="social-icons social-icons-clean-with-border social-icons-medium">
@@ -98,7 +93,7 @@
         </div>
     </div>
     <div class="container">
-        <div class="footer-copyright pt-4 pb-5">
+        <div class="footer-copyright py-4">
             <div class="row align-items-center justify-content-md-between">
                 <div class="col-12 col-md-auto text-center text-md-start mb-2 mb-md-0">
                     <p class="mb-0">{{ __('footer.copyright') }}</p>

@@ -13,9 +13,9 @@
     transition: all 100ms ease;
 
     &:hover, &:focus, &:active {
-        background: #0088CC;
-        color: #fff;
-        border-color: #0088CC;
+        background: $primary-color;
+        color: $white-color;
+        border-color: $primary-color;
     }
 }
 

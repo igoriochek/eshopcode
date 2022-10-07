@@ -44,6 +44,7 @@ return [
     'discountCoupon' => 'Discount Coupon',
     'acceptedOrder' => 'Thank you. Your order has been accepted.',
     'canceledOrder' => 'Your order has been cancelled.',
+    'areYouSureProduct' => 'Are you sure you want this remove this product',
 
     'adminUserCount' => 'Admin User Count',
     'canceled' => 'Canceled',

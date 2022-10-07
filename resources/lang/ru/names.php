@@ -44,6 +44,7 @@ return [
     'discountCoupon' => 'Скидочный купон',
     'acceptedOrder' => 'Спасибо. Ваш заказ принят.',
     'canceledOrder' => 'Ваш заказ отменен.',
+    'areYouSureProduct' => 'Вы уверены, что хотите удалить этот продукт',
 
     'adminUserCount' => 'Количество пользователей-администраторов',
     'canceled' => 'Отменено',

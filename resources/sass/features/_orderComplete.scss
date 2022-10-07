@@ -4,8 +4,9 @@
 
     .order-complete-success,
     .order-complete-fail {
-        border-width: 3px !important;
-        border-radius: 0 !important;
+        border: none;
+        border-radius: 10px;
+        background: #f1f1f1;
 
         .card-body {
             padding: 2rem;
@@ -13,7 +14,9 @@
             z-index: 1;
 
             p {
-                font-size: 1.35em !important;
+                font-weight: 500;
+                color: $secondary-color;
+                font-size: 1.3em !important;
             }
         }
     }

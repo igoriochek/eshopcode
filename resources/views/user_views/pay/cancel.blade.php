@@ -25,7 +25,7 @@
             <div class="col-lg-8">
                 <div class="card order-complete-fail">
                     <div class="card-body text-center">
-                        <p class="text-dark fw-bold mb-0">
+                        <p class="mb-0">
                             <i class="fa-solid fa-xmark me-1 fs-5"></i>
                             {{ __('names.canceledOrder') }}
                         </p>

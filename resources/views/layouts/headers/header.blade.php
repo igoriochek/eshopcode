@@ -5,21 +5,13 @@
                 <div class="header-row justify-content-between">
                     <div class="header-column col-auto px-0">
                         <div class="header-row">
-                            <p class="font-weight-semibold mb-0 d-none d-sm-block d-md-none me-3">
-                                <i class="fa-solid fa-phone"></i>
-                                +370 653 333 30
-                            </p>
-                            <p class="font-weight-semibold mb-0 d-none d-sm-block d-md-none me-3">
-                                <i class="fa-solid fa-envelope"></i>
-                                info@buhalteres.lt
-                            </p>
                             <p class="font-weight-semibold mb-0 d-none d-md-block me-3">
-                                <i class="fa-solid fa-phone"></i>
-                                +370 653 333 30
+                                <i class="fa-solid fa-location-dot"></i>
+                                Vilnius-Kaunas automagistralė A1 23 km
                             </p>
                             <p class="font-weight-semibold mb-0 d-none d-md-block me-3">
                                 <i class="fa-solid fa-envelope"></i>
-                                info@buhalteres.lt
+                                dinobalt.info@gmail.com
                             </p>
                         </div>
                     </div>
@@ -31,6 +23,8 @@
                                         <a class="nav-link text-color-default text-color-hover-primary text-uppercase"
                                            href="#" role="button" id="dropdownLanguage" data-bs-toggle="dropdown"
                                            aria-haspopup="true" aria-expanded="false">
+                                            <span class="d-none">{{ $lang = app()->getLocale() }}</span>
+                                            <img src="{{ asset("images/$lang.png") }}" alt="{{ app()->getLocale() }}" class="me-1">
                                             {{ app()->getLocale() }}
                                             <i class="fas fa-angle-down"></i>
                                         </a>
@@ -66,7 +60,7 @@
                     <div class="header-row justify-content-between">
                         <div class="header-logo z-index-2 col-lg-2 px-0" style="width: auto; height: auto">
                             <a href="{{ url('/home') }}">
-                                <img src="{{asset("images/buhalteres-logo-web.svg")}}" alt="buhalterės.lt logotipas" class="logo" width="260.86px" height="45px">
+                                <img src="{{ asset("images/nauja2s.png") }}" alt="dinobalt-logo" class="logo" width="90">
                             </a>
                         </div>
                         <div
@@ -76,7 +70,7 @@
                             data-sticky-header-style-deactive="{'margin-left': '0'}" style="margin-left: 0;">
                             <div
                                 class="header-nav-main header-nav-main-square header-nav-main-dropdown-no-borders header-nav-main-effect-3 header-nav-main-sub-effect-1 w-100">
-                                <nav class="collapse w-100" id="nav">
+                                <nav class="collapse" id="nav">
                                     <ul class="nav nav-pills w-100" id="mainNav">
                                         {{--                                        <li class="nav-list">--}}
                                         {{--                                            <a class="{{ request()->is('home') ? 'active' : '' }}" href="{{ url('/home') }}">--}}
@@ -93,8 +87,9 @@
                                 </nav>
                             </div>
                             <div class="d-flex justify-content-end w-100">
-                                <button class="btn header-btn-collapse-nav hamburger-button" data-bs-toggle="collapse" data-bs-target=".header-nav-main nav" aria-expanded="true">
+                                <button class="btn header-btn-collapse-nav hamburger-button text-light" data-bs-toggle="collapse" data-bs-target=".header-nav-main nav" aria-expanded="true">
                                     <i class="fas fa-bars"></i>
+                                    {{ __('footer.menu') }}
                                 </button>
                             </div>
                         </div>
@@ -103,7 +98,7 @@
                                 <div class="header-nav-feature d-inline-flex top-2 ms-2">
                                     @guest
                                         <a href="{{ route('login') }}" role="button"
-                                           class="login-button btn btn-primary btn-rounded px-4 py-2 fw-bold text-uppercase">
+                                           class="login-button btn btn-primary px-4 py-2">
                                             {{ __('buttons.login') }}
                                         </a>
                                     @endguest
@@ -111,11 +106,12 @@
                                         <a href="#" class="header-nav-features-toggle" role="button"
                                            id="navbarUserDropdown"
                                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <img src="{{ asset('images/icons/icon-account.png') }}" height="37" alt="icon-account" class="header-nav-features-img">
+                                            <i class="fa-solid fa-user header-nav-features-icon me-1"></i>
+                                            <span class="header-nav-features-name">{{ Auth::user()->name }}</span>
                                         </a>
                                         @include('layouts.dropdowns.user_dropdown')
                                         <a href="{{ url('/user/viewcart') }}" class="header-nav-features-toggle">
-                                            <img src="{{ asset('images/icons/icon-cart-big.svg') }}" height="35" alt="icon-cart-big" class="header-nav-features-img">
+                                            <i class="fa-solid fa-bag-shopping header-nav-features-icon"></i>
                                             @if (!empty($cartItemCount))
                                                 <span class="shopping-cart-items">{{ $cartItemCount }}</span>
                                             @endif
@@ -162,7 +158,7 @@
 
         const onStickyNavbar = () => {
             if (document.body.scrollTop > topbarHeight || document.documentElement.scrollTop > topbarHeight)
-                header.style.top = '-42px';
+                header.style.top = '-38px';
             else
                 header.style.top = '0';
         }

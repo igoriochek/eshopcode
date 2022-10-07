@@ -2,14 +2,14 @@
     .page-item {
         .page-link {
             border-color: #cec7ce;
-            color: #0088CC;
+            color: $primary-color;
         }
     }
 
     .page-item.active .page-link {
         z-index: 3;
-        background-color: #0088CC;
+        background-color: $primary-color;
         color: $white-color;
-        border-color: #0088CC;
+        border-color: $primary-color;
     }
 }

@@ -1,17 +1,16 @@
 .messenger-users-contact {
     text-decoration: none;
-    text-transform: uppercase;
-    background: #0088CC;
-    color: #fff;
-    font-weight: 600;
-    font-size: .9em;
+    background: $primary-color;
+    color: $white-color;
+    font-weight: 400;
+    font-size: 1em;
     margin-left: 20px;
     padding: 10px 20px;
     border: 0;
     transition: background 300ms ease;
 
     &:hover, &:focus {
-        background: #00a1f2;
+        background: $primary-hover-color;
     }
 }
 
@@ -46,20 +45,18 @@
             height: 40px;
             border: none;
             border-radius: 5px;
-            background-color: #0088CC;
+            background-color: $primary-color;
             color: white;
             transition: background-color 300ms ease;
-            font-size: .9em;
-            font-weight: 600;
+            font-size: 1em;
             text-decoration: none;
             display: flex;
             justify-content: center;
             align-items: center;
-            text-transform: uppercase;
 
             &:hover,
             &:focus {
-                background-color: #00a1f2;
+                background-color: $primary-hover-color;
             }
         }
     }
@@ -80,17 +77,7 @@
             position: relative;
 
             &:hover, &:focus {
-                color: inherit;
-
-                &:before {
-                    content: '';
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 5px;
-                    height: 100%;
-                    background: #0088CC;
-                }
+                background: #e1e1e1;
             }
 
             .messenger-user-unread-container {
@@ -100,15 +87,14 @@
                 .messenger-user-unread {
                     width: 19px;
                     height: 19px;
-                    background-color: #0088CC;
+                    background-color: $primary-hover-color;
                     border-radius: 10px;
-                    color: #fff;
+                    color: $white-color;
                     display: flex;
                     justify-content: center;
                     align-items: center;
                     font-size: 0.65em;
                     font-weight: 600;
-                    padding-top: 2px;
                 }
             }
 
@@ -167,16 +153,14 @@
     }
 
     .messenger-users-hr {
-        height: 2px;
-        background-color: #dcdcdc;
+        background-color: $secondary-color;
     }
 }
 
 .messenger-room {
     .messenger-chat-user-name {
-        color: #222;
+        color: $secondary-color;
         padding-bottom: 10px;
-        text-transform: uppercase;
     }
 
     .messenger-message-box {
@@ -187,7 +171,7 @@
         margin: 15px 0;
         scroll-behavior: smooth;
         border-radius: 5px;
-        background-color: #f6f6f6;
+        background-color: #f1f1f1;
 
         .messenger-message-from-container,
         .messenger-message-to-container {
@@ -204,8 +188,9 @@
 
         .messenger-message-from-container {
             .messenger-message-from {
-                background-color: #fff;
+                background-color: $white-color;
                 border-radius: 0 15px 15px 15px;
+                color: $secondary-color;
             }
         }
 
@@ -221,8 +206,8 @@
             justify-content: flex-start;
 
             .messenger-message-to {
-                background-color: #1eacf3;
-                color: #fff;
+                background-color: orange;
+                color: $white-color;
                 border-radius: 15px 0 15px 15px;
             }
         }
@@ -234,13 +219,13 @@
 
         .messenger-message-date {
             font-size: 0.7em;
-            color: #d7d7d7;
+            color: $tertiary-color;
         }
     }
 
     .messenger-form-container {
         display: flex;
-        justify-content: start;
+        justify-content: flex-start;
         align-content: center;
         height: 45px;
         width: 100%;
@@ -263,16 +248,15 @@
             height: 100%;
             border: none;
             border-radius: 0 5px 5px 0;
-            background-color: #0088CC;
+            background-color: $primary-color;
             color: white;
-            transition: background-color 300ms ease;
-            text-transform: uppercase;
-            font-size: .9em;
-            font-weight: 600;
+            transition: background-color 200ms ease;
+            font-size: 1em;
+            font-weight: 400;
 
             &:hover,
             &:focus {
-                background-color: #00a1f2;
+                background-color: $primary-hover-color;
             }
         }
     }

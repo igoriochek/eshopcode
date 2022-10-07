@@ -25,7 +25,7 @@
                 <div class="clearfix"></div>
 
                 <div class="card">
-                    <div class="card-body p-0">
+                    <div class="card-body p-3">
                         {{--                @include('products.table')--}}
 
                         @if(($discountCoupons->count()))
@@ -43,12 +43,10 @@
 
 
 
-                        <div class="card-footer clearfix">
-                            <div class="float-right">
-                                @if (!empty($discountCoupons->count()))
-                                    {{ $discountCoupons->links() }}
-                                @endif
-                            </div>
+                        <div class="float-right">
+                            @if (!empty($discountCoupons->count()))
+                                {{ $discountCoupons->links() }}
+                            @endif
                         </div>
                     </div>
 

@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'buhalteres'),
+    'name' => env('APP_NAME', 'dinobalt'),
 
     /*
     |--------------------------------------------------------------------------
@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'https://www.dinobalt.lt'),
 
     'asset_url' => env('ASSET_URL', null),
 

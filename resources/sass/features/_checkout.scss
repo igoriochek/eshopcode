@@ -2,19 +2,19 @@
     @include orderSteps;
 
     .open-apply-coupon {
-        text-transform: uppercase;
-        color: #222;
+        color: $secondary-color;
         font-weight: 600;
         transition: color 200ms ease;
 
         &:hover, &:focus, &:active {
-            color: #0088CC;
+            color: $primary-color;
         }
     }
 
     .card {
-        border-width: 3px !important;
-        border-radius: 0;
+        background: #f1f1f1;
+        border-radius: 10px;
+        border: none;
 
         .card-body {
             padding: 2rem;
@@ -24,23 +24,20 @@
             .form-control {
                 border-color: rgba(0, 0, 0, 0.09);
                 font-size: .9rem;
-                border-radius: 0;
+                border-radius: 5px;
             }
 
             .apply-coupon-button {
-                border-radius: 0;
-                font-size: .9rem;
-                font-weight: 600;
+                border-radius: 6px;
+                font-size: 1rem;
                 padding: .95rem 1.5rem;
                 transition: all 200ms ease;
-                color: #222;
-                background: #eee;
-                text-transform: uppercase;
+                color: $white-color;
+                background: $primary-color;
                 width: clamp(220px, 100%, 270px);
 
                 &:hover, &:focus, &:active {
-                    background: #0088CC;
-                    color: #fff;
+                    background: $primary-hover-color;
                 }
             }
         }
@@ -79,24 +76,18 @@
                 }
             }
         }
-
-        .border-bottom {
-            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-        }
     }
 
     .preview-button {
-        border-radius: 0;
-        font-size: .9rem;
-        font-weight: 600;
+        border-radius: 6px;
+        font-size: 1rem;
         padding: .95rem 1.6rem;
         transition: all 200ms ease;
-        color: #fff;
-        background: #222;
-        text-transform: uppercase;
+        color: $white-color;
+        background: $primary-color;
 
         &:hover, &:focus, &:active {
-            background: #0088CC;
+            background: $primary-hover-color;
         }
     }
 }

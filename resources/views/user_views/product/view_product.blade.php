@@ -22,16 +22,13 @@
                     <div class="col-md-6">
                         <div class="summary entry-summary position-relative">
                             <h3 class="mb-0 font-weight-bold">{{ $product->name }}</h3>
-                            <div class="pb-0 clearfix d-flex align-items-center mt-2">
+                            <div class="pb-0 clearfix d-flex align-items-center mt-2 mb-4">
                                 <div class="product-rating">
-                                    <span>{{ $average }}</span>
-                                    <span>/</span>
-                                    <span>5</span>
-                                    @if ($average > 0)
-                                        <i class="fa-solid fa-star ms-1"></i>
-                                    @else
-                                        <i class="fa-regular fa-star ms-1"></i>
-                                    @endif
+                                    @for($i = 1; $i <= 5; $i++)
+                                        <i class="product-rating-star @if ($average >= $i) fa-solid fa-star
+                                        @elseif ($average >= $i - .5) fa-solid fa-star-half-stroke
+                                        @else fa-regular fa-star @endif"></i>
+                                    @endfor
                                 </div>
                                 <div class="review-num">
                                     <a href="#description" class="text-decoration-none link text-color-default text-color-hover-primary" data-hash="" data-hash-offset="0" data-hash-offset-lg="75" data-hash-trigger-click=".nav-link-reviews" data-hash-trigger-click-delay="1000">
@@ -40,9 +37,6 @@
                                         </span>
                                     </a>
                                 </div>
-                            </div>
-                            <div class="divider divider-small">
-                                <hr class="bg-color-grey-scale-4">
                             </div>
                             <p class="price mb-3">
                                 @if ($product->discount)
@@ -55,13 +49,13 @@
                             <p class="mb-3">{{ $product->description }}</p>
                             <ul class="list list-unstyled text-2">
                                 <li class="mb-0">
-                                    <span class="text-uppercase">{{ __('names.categories') }}:</span>
+                                    <span>{{ __('names.categories') }}:</span>
                                     @forelse ($product->categories as $category)
                                         <a class="link" href="{{ url("/user/innercategories/$category->id") }}">
                                             {{ $category->name }}
                                         </a>
                                     @empty
-                                        <span class="fw-bold text-dark">{{ __('names.noCategories') ?? '-' }}</span>
+                                        <span class="fw-bold">{{ __('names.noCategories') ?? '-' }}</span>
                                     @endforelse
                                 </li>
                             </ul>
@@ -83,7 +77,7 @@
                 <div id="description" class="tabs tabs-simple tabs-simple-full-width-line tabs-product tabs-dark mb-2">
                     <ul class="nav nav-tabs justify-content-start" role="tablist">
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link active font-weight-bold text-3 text-uppercase py-2 px-3" href="#productDescription" data-bs-toggle="tab" aria-selected="true" role="tab">
+                            <a class="nav-link active font-weight-bold text-3 py-2 px-3" href="#productDescription" data-bs-toggle="tab" aria-selected="true" role="tab">
                                 {{ __('names.description') }}
                             </a>
                         </li>
@@ -93,13 +87,14 @@
 {{--                            </a>--}}
 {{--                        </li>--}}
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link nav-link-reviews font-weight-bold text-3 text-uppercase py-2 px-3" href="#productReviews" data-bs-toggle="tab" aria-selected="false" tabindex="-1" role="tab">
+                            <a class="nav-link nav-link-reviews font-weight-bold text-3 py-2 px-3" href="#productReviews" data-bs-toggle="tab" aria-selected="false" tabindex="-1" role="tab">
                                 {{ __('names.reviews').' ('.$product->ratings->count().') ' }}
                             </a>
                         </li>
                     </ul>
+                    <hr>
                     <div class="tab-content p-0">
-                        <div class="tab-pane px-0 py-3 active" id="productDescription" role="tabpanel">
+                        <div class="tab-pane px-0 active" id="productDescription" role="tabpanel">
                             <p>{{ $product->description }}</p>
                         </div>
 {{--                        <div class="tab-pane px-0 py-3" id="productInfo" role="tabpanel">--}}
@@ -161,7 +156,7 @@
                                     <p class="text-muted">{{ __('names.noReviews') }}</p>
                                 @endforelse
                             </ul>
-                            <hr class="solid my-5">
+                            <hr class="my-4">
                             <h5>{{ __('names.addReview') }}</h5>
                             <div class="row">
                                 <div class="col product-review-add-review-form" id="review-product">
@@ -181,9 +176,8 @@
                                         @endguest
                                         @auth
                                             <div class="col-sm-12">
-                                                <label class="form-label required text-dark fw-bold">
-                                                    {{ __('names.rating') }}
-                                                    <span>*</span>
+                                                <label class="form-label required">
+                                                    {{ __('names.rating') }}*
                                                 </label>
                                                 <div class="rating" style="gap: 5px">
                                                     <input type="radio" name="rating" value="5" id="5"><label for="5">
@@ -204,9 +198,8 @@
                                                 </div>
                                             </div>
                                             <div class="col-sm-12">
-                                                <label class="form-label required text-dark fw-bold">
-                                                    {{ __('names.review') }}
-                                                    <span>*</span>
+                                                <label class="form-label required">
+                                                    {{ __('names.review') }}*
                                                 </label>
                                                 <div class="mb-3">
                                                     <textarea class="form-control" rows="5" id="comment" name="comment"></textarea>

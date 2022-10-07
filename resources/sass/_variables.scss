@@ -1,6 +1,6 @@
 // Body
-$body-bg: #ffffff;
-$body-color: #777;
+$body-bg: #fff;
+$body-color: #999;
 
 // Typography
 $font-family-sans-serif: 'Nunito', sans-serif;
@@ -9,5 +9,13 @@ $font-size-base: 14px;
 $line-height-base: 30px;
 
 // Colors
-$white-color: #FFFF;
-$cyan-color: #0088CC;
+$white-color: #fff;
+$primary-color: #f28615;
+$primary-hover-color: #ff6600;
+$secondary-color: #373a40;
+$tertiary-color: #84888c;
+$border-color: #e5e8ea;
+
+// Breakpoints
+$medium-breakpoint: 992px;
+$small-breakpoint: 575px;

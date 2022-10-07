@@ -1,14 +1,13 @@
 .footer {
-    background: #212529;
-    border-top: 4px solid #212529;
+    background: #fafafa;
+    border-top: 1px solid $border-color;
     font-size: 0.9em;
     padding: 0;
     position: relative;
     clear: both;
 
     h5 {
-        color: #FFF;
-        text-transform: uppercase;
+        color: $secondary-color;
         font-weight: 600;
         line-height: 18px;
         margin: 0 0 14px 0;
@@ -17,7 +16,7 @@
 
     ul {
         li {
-            color: #a8a8a8;
+            color: $tertiary-color;
             line-height: 1.5;
 
             a {
@@ -30,15 +29,14 @@
             }
 
             span {
-                color: #FFF !important;
-                text-transform: uppercase;
+                color: $secondary-color !important;
             }
         }
     }
 
     .footer-links {
         li {
-            color: #a8a8a8;
+            color: $tertiary-color;
             line-height: $line-height-base;
 
             a {
@@ -46,13 +44,12 @@
                 transition: color 200ms ease;
 
                 &:hover, &:focus, &:active {
-                    color: #d9d9d9;
+                    color: $secondary-color;
                 }
             }
 
             span {
-                color: #FFF !important;
-                text-transform: uppercase;
+                color: $tertiary-color !important;
             }
         }
     }
@@ -83,7 +80,7 @@
                 font-size: 0.8rem;
 
                 i {
-                    color: #FFFF;
+                    color: $secondary-color
                 }
             }
         }
@@ -103,31 +100,13 @@
 
     .container {
         .footer-copyright {
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-top: 1px solid $border-color;
 
             p {
-                color: #555;
+                color: $tertiary-color;
                 margin: 0;
                 padding: 0;
                 font-size: 0.9em;
-            }
-
-            .payment-cc {
-                display: flex;
-
-                i {
-                    font-size: 2rem;
-                    transition: ease color 300ms;
-                    margin-right: 10px;
-
-                    &:last-of-type {
-                        margin-right: 0;
-                    }
-
-                    &:hover, &:focus, &:active {
-                        color: #FFF;
-                    }
-                }
             }
         }
     }

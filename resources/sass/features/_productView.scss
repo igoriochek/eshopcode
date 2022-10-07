@@ -46,16 +46,18 @@
 
         .sale {
             order: 2;
-            font-size: 0.9em;
+            font-size: 0.8em;
             font-weight: 600;
+            color: $primary-hover-color;
         }
 
         .amount {
             order: 1;
-            font-size: 0.7em;
+            font-size: 0.6em;
             font-weight: 500;
             margin-right: 10px;
             text-decoration: line-through;
+            color: $tertiary-color;
         }
 
         .default-price {
@@ -78,48 +80,49 @@
         .product-add-to-cart-button {
             margin-left: 20px;
             border-radius: 5px;
-            font-size: .7rem;
-            font-weight: 600;
+            font-size: .9rem;
             padding: .5rem 1.5rem;
             transition: background 200ms ease;
-            color: #fff;
-            background: #222;
-            text-transform: uppercase;
+            color: $white-color;
+            background: $primary-color;
 
             &:hover, &:focus, &:active {
-                background: #444;
+                background: $primary-hover-color;
             }
         }
     }
 
     .nav-tabs {
         border: 0;
-        margin-bottom: 10px;
-        border-bottom: 3px solid #eee;
+        margin: 30px 0;
 
         li {
             margin-bottom: -3px;
 
             .nav-link {
                 padding: 15px 30px;
-                background: none;
+                margin-right: 10px;
+                background: #fafafa;
                 border: 0;
-                border-bottom: 3px solid #eee;
-                border-radius: 0;
-                color: #777;
+                border-bottom: 1px solid #eee;
+                border-radius: 5px;
+                color: $secondary-color;
                 font-size: 14px;
-                font-weight: 600;
-                transition: all 200ms ease;
+                font-weight: 400;
+                transition: all 100ms ease;
 
-                &:hover, &:focus, &:active {
-                    border-bottom: 3px solid #212529;
-                    color: #212529;
+                &:hover, &:focus {
+                    color: $primary-color;
                 }
             }
 
             .active {
-                border-bottom: 3px solid #212529;
-                color: #212529;
+                background: $primary-color;
+                color: $white-color;
+
+                &:hover, &:focus {
+                    color: $white-color;
+                }
             }
         }
     }
@@ -137,7 +140,7 @@
                 margin-bottom: 10px;
 
                 .comment-block {
-                    background: #F5F7F7;
+                    background: #fafafa;
                     border-radius: 5px;
                     padding: 30px;
                     position: relative;
@@ -148,6 +151,7 @@
                         line-height: 21px;
                         margin: 0;
                         padding: 0 0 5px 0;
+                        color: $secondary-color;
 
                         .comment-rating {
                             i {
@@ -172,12 +176,16 @@
         textarea {
             padding: 14px 20px;
             font-size: 15px;
-            border-color: #ededed;
+            border-color: $border-color;
         }
 
         input[type='text'],
         input[type='email'] {
             height: 50px;
+        }
+
+        .form-label {
+            color: $secondary-color;
         }
 
         .rating {
@@ -225,13 +233,13 @@
             font-weight: 600;
             padding: .5rem 2rem;
             transition: background 200ms ease;
-            color: #fff;
-            background: #0088CC;
+            color: $white-color;
+            background: $primary-color;
             text-transform: uppercase;
             border: none;
 
             &:hover, &:focus, &:active {
-                background: #00a1f2;
+                background: $primary-hover-color;
             }
         }
     }

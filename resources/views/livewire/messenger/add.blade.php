@@ -6,7 +6,7 @@
                     <div class="sidebar">
                         <div class="widget">
                             <div class="widget-title-container d-flex justify-content-between align-items-center mb-2">
-                                <h6 class="widget-title m-0 text-uppercase">
+                                <h6 class="widget-title m-0">
                                     {{ __('names.messages') }}
                                 </h6>
                             </div>
@@ -18,7 +18,7 @@
                 </div>
                 <div class="col-lg-8 mb-5">
                     <div class="messenger-add-users p-4 mb-4 mb-sm-5">
-                        <h6 class="messenger-add-users-title m-0 text-uppercase">
+                        <h6 class="messenger-add-users-title m-0">
                             {{ __('names.contactUsers') }}
                         </h6>
                         @include('livewire.messenger.add_users')

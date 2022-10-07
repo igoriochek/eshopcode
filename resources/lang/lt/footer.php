@@ -12,8 +12,8 @@ return [
     'address' => 'Adresas',
     'phone' => 'Telefonas',
     'email' => 'El. Paštas',
-    'menu' => 'MENIU',
+    'menu' => 'Meniu',
     'profile' => 'Vartotojo paskyra',
-    'copyright' => 'Buhalteres.lt © 2022. Visos teisės saugomos',
+    'copyright' => 'dinobalt.lt © 2022. Visos teisės saugomos',
 
 ];

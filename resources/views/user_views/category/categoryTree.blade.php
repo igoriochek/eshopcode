@@ -1,4 +1,4 @@
-<ul class="category-tree nav nav-list flex-column mb-5">
+<ul class="category-tree nav nav-list flex-column mb-3">
     @foreach($treeCategories as $category)
         <li class="nav-item">
             <a href="{{ route("innercategories", ["category_id" => $category->id ]) }}"

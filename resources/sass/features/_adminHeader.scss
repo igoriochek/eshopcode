@@ -3,7 +3,7 @@
     z-index: 1030;
     top: 0;
     padding: 15px;
-    background: #fff;
+    background: $white-color;
     overflow-x: hidden;
 
     .admin-header-container {
@@ -20,14 +20,15 @@
 
            .admin-header-toggle-button {
                border: none;
-               border-radius: 3px;
-               width: 30px;
-               height: 30px;
-               background: #0088CC;
+               border-radius: 5px;
+               width: auto;
+               padding: 0 15px;
+               height: 40px;
+               background: $primary-color;
                transition: background 200ms ease;
 
                &:hover, &:focus, &:active {
-                   background: #00a1f2;
+                   background: $primary-hover-color;
                }
            }
         }
@@ -44,21 +45,16 @@
 
                 .admin-navbar-item {
                     font-size: .9rem;
-                    padding: 7px 0;
+                    margin: 10px 0;
+                    padding: 5px;
                     position: relative;
+                    background: #f1f1f1;
+                    border-radius: 5px;
 
                     &:hover, &:focus {
                         .admin-navbar-link {
-                            color: #0088CC;
+                            color: $primary-color;
                             transition: all 200ms ease;
-
-                            &:before {
-                                content: '';
-                                position: absolute;
-                                width: 3px;
-                                height: 28px;
-                                background: #0088CC;
-                            }
                         }
                     }
 
@@ -70,24 +66,12 @@
                     .dropdown {
                         &:after {
                             position: absolute;
-                            top: 0;
-                            right: 0;
+                            top: -1px;
+                            right: 5px;
                             content: '>';
                             display: inline-block;
                             font-size: 1rem;
                             transition: all 100ms ease;
-                        }
-                    }
-
-                    .active {
-                        color: #0088CC;
-
-                        &:before {
-                            content: '';
-                            position: absolute;
-                            width: 3px;
-                            height: 28px;
-                            background: #0088CC;
                         }
                     }
 
@@ -114,13 +98,31 @@
                                 position: relative;
 
                                 &:hover, &:focus {
-                                    color: #0088CC;
+                                    color: $primary-color;
                                 }
                             }
 
                             .subactive {
-                                color: #0088CC;
+                                color: $primary-color;
                             }
+                        }
+                    }
+                }
+
+                .active {
+                    background: $primary-color;
+                    color: $white-color;
+                    transition: all 200ms ease;
+
+                    .admin-navbar-link {
+                        color: $white-color;
+                    }
+
+                    &:hover, &:focus {
+                        transform: scaleX(.97) scaleY(.97);
+
+                        .admin-navbar-link {
+                            color: $white-color;
                         }
                     }
                 }
@@ -140,15 +142,11 @@
             align-items: center;
 
             .admin-header-account-dropdown {
-                transition: all 200ms ease;
-
                 &:hover, &:focus {
-                    .admin-header-account-icon {
-                        filter: invert(52%) sepia(37%) saturate(5169%) hue-rotate(170deg) brightness(98%) contrast(101%);
-                    }
-
+                    .admin-header-account-icon,
                     .admin-header-account-name {
-                        color: #0088CC;
+                        transition: all 200ms ease;
+                        color: $primary-color;
                     }
                 }
 
@@ -156,8 +154,9 @@
                     margin-right: 5px;
                 }
 
+                .admin-header-account-icon,
                 .admin-header-account-name {
-                    color: #444;
+                    color: $secondary-color;
                 }
             }
 
@@ -167,7 +166,7 @@
                 position: relative;
 
                 &:hover, &:focus {
-                    color: #0088CC;
+                    color: $primary-color;
                 }
             }
         }

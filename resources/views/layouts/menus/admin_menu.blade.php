@@ -1,26 +1,26 @@
-<li class="admin-navbar-item">
-    <a class="admin-navbar-link {{ request()->is('admin/products*') ? 'active' : '' }}" href="/admin/products">
+<li class="admin-navbar-item {{ request()->is('admin/products*') ? 'active' : '' }}">
+    <a class="admin-navbar-link" href="/admin/products">
         <i class="fa-solid fa-grip"></i>
         {{ __('menu.products') }}
     </a>
 </li>
-<li class="admin-navbar-item">
-    <a class="admin-navbar-link {{ request()->is('admin/categories*') ? 'active' : '' }}" href="/admin/categories">
+<li class="admin-navbar-item {{ request()->is('admin/categories*') ? 'active' : '' }}">
+    <a class="admin-navbar-link" href="/admin/categories">
         <i class="fa-solid fa-sitemap"></i>
         {{ __('menu.categories') }}
     </a>
 </li>
-<li class="admin-navbar-item">
-    <a class="admin-navbar-link {{ request()->is('admin/promotions*') ? 'active' : '' }}" href="/admin/promotions">
+<li class="admin-navbar-item {{ request()->is('admin/promotions*') ? 'active' : '' }}">
+    <a class="admin-navbar-link" href="/admin/promotions">
         <i class="fa-solid fa-star"></i>
         {{ __('menu.promotions') }}
     </a>
 </li>
-<li class="admin-navbar-item">
-    <a class="admin-navbar-link dropdown {{
+<li class="admin-navbar-item {{
         request()->is('admin/discounts*') ||
         request()->is('admin/discountCoupons*')
-        ? 'active' : '' }}" href="#"
+        ? 'active' : '' }}">
+    <a class="admin-navbar-link dropdown" href="#"
             data-bs-toggle="collapse" data-bs-target="#discounts" aria-expanded="false">
         <i class="fa-solid fa-tag"></i>
         {{ __('menu.discounts') }}
@@ -31,17 +31,17 @@
         </ul>
     </div>
 </li>
-<li class="admin-navbar-item">
-    <a class="admin-navbar-link {{ request()->is('admin/customers*') ? 'active' : '' }}" href="/admin/customers">
+<li class="admin-navbar-item {{ request()->is('admin/customers*') ? 'active' : '' }}">
+    <a class="admin-navbar-link" href="/admin/customers">
         <i class="fa-solid fa-user"></i>
         {{ __('menu.users') }}
     </a>
 </li>
-<li class="admin-navbar-item">
-    <a class="admin-navbar-link dropdown {{
+<li class="admin-navbar-item {{
             request()->is('admin/carts*') ||
             request()->is('admin/cartStatuses*')
-            ? 'active' : '' }}" href="#"
+            ? 'active' : '' }}">
+    <a class="admin-navbar-link dropdown" href="#"
        data-bs-toggle="collapse" data-bs-target="#carts" aria-expanded="false">
         <i class="fa-solid fa-cart-shopping"></i>
         {{ __('menu.carts') }}
@@ -52,11 +52,11 @@
         </ul>
     </div>
 </li>
-<li class="admin-navbar-item">
-    <a class="admin-navbar-link dropdown {{
+<li class="admin-navbar-item {{
             request()->is('admin/orders*') ||
             request()->is('admin/orderStatuses*')
-            ? 'active' : '' }}" href="#"
+            ? 'active' : '' }}">
+    <a class="admin-navbar-link dropdown" href="#"
        data-bs-toggle="collapse" data-bs-target="#orders" aria-expanded="false">
         <i class="fa-solid fa-folder"></i>
         {{ __('menu.orders') }}
@@ -67,11 +67,11 @@
         </ul>
     </div>
 </li>
-<li class="admin-navbar-item">
-    <a class="admin-navbar-link dropdown {{
+<li class="admin-navbar-item {{
             request()->is('admin/returns*') ||
             request()->is('admin/returnStatuses*')
-            ? 'active' : '' }}" href="#"
+            ? 'active' : '' }}">
+    <a class="admin-navbar-link dropdown" href="#"
        data-bs-toggle="collapse" data-bs-target="#returns" aria-expanded="false">
         <i class="fa-solid fa-rotate-left"></i>
         {{ __('menu.returns') }}
@@ -82,26 +82,26 @@
         </ul>
     </div>
 </li>
-<li class="admin-navbar-item">
-    <a class="admin-navbar-link {{ request()->is('admin/cookies*') ? 'active' : '' }}" href="/admin/cookies">
+<li class="admin-navbar-item {{ request()->is('admin/cookies*') ? 'active' : '' }}">
+    <a class="admin-navbar-link" href="/admin/cookies">
         <i class="fa-solid fa-cookie"></i>
         {{ __('menu.cookies') }}
     </a>
 </li>
-<li class="admin-navbar-item">
-    <a class="admin-navbar-link {{ request()->is('admin/data_export_import*') ? 'active' : '' }}" href="/admin/data_export_import">
+<li class="admin-navbar-item {{ request()->is('admin/data_export_import*') ? 'active' : '' }}">
+    <a class="admin-navbar-link" href="/admin/data_export_import">
         <i class="fa-solid fa-file"></i>
         {{ __('menu.importExport') }}
     </a>
 </li>
-<li class="admin-navbar-item">
-    <a class="admin-navbar-link dropdown {{
+<li class="admin-navbar-item {{
         request()->is('admin/orders_report') ||
         request()->is('admin/returns_report') ||
         request()->is('admin/carts_report') ||
         request()->is('admin/users_report') ||
         request()->is('admin/user_activities_report') ?
-        'active' : '' }}" href="#"
+        'active' : '' }}">
+    <a class="admin-navbar-link dropdown" href="#"
             data-bs-toggle="collapse" data-bs-target="#reports" aria-expanded="false">
         <i class="fa-solid fa-id-card-clip"></i>
         {{ __('menu.reports') }}
@@ -112,8 +112,8 @@
         </ul>
     </div>
 </li>
-<li class="admin-navbar-item">
-    <a class="admin-navbar-link {{ request()->is('admin/messenger*') ? 'active' : '' }}" href="/admin/messenger">
+<li class="admin-navbar-item {{ request()->is('admin/messenger*') ? 'active' : '' }}">
+    <a class="admin-navbar-link" href="/admin/messenger">
         <i class="fa-solid fa-comment"></i>
         {{ __('menu.messenger') }}
     </a>

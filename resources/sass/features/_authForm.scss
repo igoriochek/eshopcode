@@ -14,10 +14,10 @@
         font-size: 1.2em !important;
         font-weight: 400;
         line-height: 1.5;
-        color: #212529;
-        background-color: #fff;
+        color: $secondary-color;
+        background-color: $white-color;
         background-clip: padding-box;
-        border-color: rgba(0, 0, 0, 0.09);
+        border-color: $border-color;
         -webkit-appearance: none;
         -moz-appearance: none;
         appearance: none;
@@ -39,7 +39,7 @@
              top: 0;
              left: 43%;
              transform: translateY(-12px);
-             background: #fff;
+             background: $white-color;
          }
     }
 
@@ -49,19 +49,20 @@
         color: #1a1a1a;
 
         &:hover, &:focus, &:active {
-            color: #0088CC;
+            color: $primary-color;
         }
     }
 
     .auth-button {
         border: none;
-        text-transform: uppercase;
+        border-radius: 7.5px;
         transition: background 200ms ease;
-        font-size: .9rem;
-        font-weight: 600;
+        font-size: 1rem;
+        font-weight: 500;
+        background: $primary-color;
 
         &:hover, &:focus, &:active {
-            background: #444444;
+            background: $primary-hover-color
         }
 
         &:nth-child(3) {

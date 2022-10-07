@@ -32,7 +32,7 @@
             </p>
         </div>
     </div>
-    <div class="row justify-content-center coupon-form-wrapper mb-5 collapse show">
+    <div class="row justify-content-center coupon-form-wrapper mb-5 collapse">
         <div class="col-12 col-md-8">
             <div class="card">
                 <div class="card-body">
@@ -57,7 +57,7 @@
                 <div class="pin-wrapper">
                     <div class="card border-width-3 border-radius-0 border-color-hover-dark">
                         <div class="card-body">
-                            <h6 class="fw-bold text-uppercase mb-3">{{ __('names.yourOrder') }}</h6>
+                            <h6 class="fw-bold mb-3">{{ __('names.yourOrder') }}</h6>
                             <table class="shop_table cart-totals mb-4 w-100">
                                 <tbody>
                                 <tr>

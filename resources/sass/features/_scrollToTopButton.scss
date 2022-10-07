@@ -4,17 +4,17 @@
 
     .scroll-to-top-button {
         position: fixed;
-        bottom: 0;
-        right: 30px;
+        bottom: 20px;
+        right: 20px;
         display: flex;
         align-items: center;
         justify-content: center;
         border: none;
-        color: #fff;
-        background-color: #0088CC;
-        border-radius: 6px 6px 0 0;
-        width: 50px;
-        height: 45px;
+        color: $white-color;
+        background-color: $primary-color;
+        border-radius: 20px;
+        width: 40px;
+        height: 40px;
         line-height: 50px;
         overflow: hidden;
         cursor: pointer;
@@ -25,16 +25,16 @@
         opacity: 0;
 
         &:hover {
-            background: #00a1f2;
+            background: $primary-hover-color;
         }
 
         i {
-            font-size: .8em;
+            font-size: 1em;
         }
     }
 
     .scroll-to-top-button.show {
-        opacity: 1;
+        opacity: .5;
     }
 
     .fade-in {
@@ -46,7 +46,7 @@
             }
 
             to {
-                opacity: 1;
+                opacity: .5;
             }
         }
     }

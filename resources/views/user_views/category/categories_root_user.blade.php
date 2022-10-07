@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <aside class="sidebar">
-                    <h5 class="text-uppercase">{{ __('names.categories')}}</h5>
+                    <h5>{{ __('names.categories')}}</h5>
                     @include('user_views.category.categoryTree')
                 </aside>
             </div>

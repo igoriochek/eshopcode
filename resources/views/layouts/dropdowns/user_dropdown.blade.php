@@ -1,22 +1,19 @@
 <ul class="dropdown-menu" aria-labelledby="navbarUserDropdown">
-    <li class="dropdown-header">
-        {{ __('names.hello').', '.Auth::user()->name }}
-    </li>
     <li>
         <a class="dropdown-item" href="{{ url('/user/userprofile') }}"
-           style="color: {{ request()->is('user/userprofile*') ? '#0088CC' : '' }}">
+           style="color: {{ request()->is('user/userprofile*') ? '#f28615' : '' }}">
             {{__('menu.profile')}}
         </a>
     </li>
     <li>
         <a class="dropdown-item" href="{{ url('/user/rootorders') }}"
-           style="color: {{ request()->is('user/rootorders*') ? '#0088CC' : '' }}">
+           style="color: {{ request()->is('user/rootorders*') ? '#f28615' : '' }}">
             {{__('menu.orders')}}
         </a>
     </li>
     <li>
         <a class="dropdown-item" href="{{ url('/user/rootoreturns') }}"
-           style="color: {{ request()->is('user/rootoreturns*') ? '#0088CC' : '' }}">
+           style="color: {{ request()->is('user/rootoreturns*') ? '#f28615' : '' }}">
             {{__('menu.returns')}}
         </a>
     </li>

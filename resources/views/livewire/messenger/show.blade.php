@@ -6,11 +6,10 @@
                     <div class="sidebar">
                         <div class="widget">
                             <div class="widget-title-container d-flex justify-content-between align-items-center mb-2">
-                                <h6 class="widget-title m-0 text-uppercase">
+                                <h6 class="widget-title m-0">
                                     {{ __('names.messages') }}
                                 </h6>
                                 <a class="btn btn-primary messenger-users-contact" href="{{ route('livewire.messenger.add') }}">
-                                    <i class="fa-solid fa-plus"></i>
                                     {{ __('buttons.contact') }}
                                 </a>
                             </div>
