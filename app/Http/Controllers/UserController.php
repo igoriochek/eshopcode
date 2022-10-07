@@ -32,7 +32,7 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate(User::$rules);
+        $request->validate(User::$updateInfoRules);
         $id = Auth::user()->id;
 
         $user = User::find($id);
@@ -51,7 +51,7 @@ class UserController extends Controller
         return redirect(route('userprofile'));
     }
 
-    public function changePassword(Request $request) 
+    public function changePassword(Request $request)
     {
         $validateData = $request->validate([
             'current_password' => 'required',

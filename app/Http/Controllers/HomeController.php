@@ -22,7 +22,7 @@ class HomeController extends Controller
 
     public function __construct(CartRepository $cartRepo)
     {
-        $this->middleware(['auth', 'cookie-consent']);
+        $this->middleware(['cookie-consent']);
         $this->cartRepository = $cartRepo;
     }
 
@@ -33,17 +33,19 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-        $user = Auth::user();
+//        $user = Auth::user();
 
 
-        return view('home',
+       /* return view('home',
             [
                 'lang' => app()->getLocale(),
                 'cartItems' => $this->getCartItems($request),
                 'orders' => $this->getOrders($user->id),
                 'returns' => $this->getReturns($user->id),
                 'messages' => $this->getMessages($user->id)
-            ]);
+            ]);*/
+
+        return view('home', ['lang' => app()->getLocale()]);
     }
 
     public function userhomepage(Request $request)

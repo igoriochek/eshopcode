@@ -3,6 +3,8 @@
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PayController;
 use App\Http\Controllers\ReturnsController;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
@@ -35,8 +37,17 @@ use App\Http\Livewire\MessengerShow;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    if (Auth::user() && Auth::user()->type === User::TYPE_USER)
+        return redirect('user/products');
+    else
+        return redirect('products');
 });
+Route::get('/home', function () {
+    if (Auth::user() && Auth::user()->type === User::TYPE_USER)
+        return redirect('user/products');
+    else
+        return redirect('products');
+})->name("home");
 
 Route::group(array('prefix' => 'admin', 'middleware' => 'admin'), function () {
     Route::resource('categories', CategoryController::class);
@@ -140,7 +151,7 @@ Route::group(array('prefix' => 'admin', 'middleware' => 'admin'), function () {
         Route::get('/', function () {
             return redirect()->route('userhomepage');
         });
-        Route::get("homepage", [App\Http\Controllers\HomeController::class, 'userhomepage'])->name('userhomepage');
+//        Route::get("homepage", [App\Http\Controllers\HomeController::class, 'userhomepage'])->name('userhomepage');
         Route::get("rootcategories", [CategoryController::class, 'userRootCategories'])->name('rootcategories');
         Route::get("innercategories/{category_id}", [CategoryController::class, 'userInnerCategories'])->name('innercategories');
         Route::get("categorytree", [CategoryController::class, 'userCategoryTree'])->name('categorytree');
@@ -179,10 +190,20 @@ Route::group(array('prefix' => 'admin', 'middleware' => 'admin'), function () {
         Route::get('messenger/{id}', MessengerShow::class)->name('livewire.messenger.show');
     });
 
+//Route::get("home", [App\Http\Controllers\HomeController::class, 'index'])->name('userhomepage');
+Route::get("rootcategories", [CategoryController::class, 'userRootCategories'])->name('rootcategories');
+Route::get("innercategories/{category_id}", [CategoryController::class, 'userInnerCategories'])->name('innercategories');
+Route::get("categorytree", [CategoryController::class, 'userCategoryTree'])->name('categorytree');
+Route::get("viewcategory", [CategoryController::class, 'userViewCategory'])->name('viewcategory');
+Route::get("viewproduct/{id}", [ProductController::class, 'userViewProduct'])->where('id', '[0-9]+')->name('viewproduct');
+Route::get('products', [ProductController::class, 'userProductIndex'])->name('userproducts');
+Route::get('promotions', [\App\Http\Controllers\PromotionController::class, 'indexPromotions'])->name('promotions');
+Route::get('promotion/{id}', [\App\Http\Controllers\PromotionController::class, 'promotionProducts'])->name('promotion');
+
     Auth::routes();
     Route::get("logout", function () {
         Auth::logout();
-        return redirect()->route('home');
+        return redirect()('products');
     })->name("getlogout");
 
     Route::prefix('facebook')->name('facebook.')->group(function () {
@@ -200,13 +221,12 @@ Route::group(array('prefix' => 'admin', 'middleware' => 'admin'), function () {
         Route::get('callback', [TwitterController::class, 'callbackFromTwitter'])->name('callback');
     });
 
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
     Route::get('lang/{locale}', function ($locale) {
         app()->setLocale($locale);
         session()->put('locale', $locale);
-//    return redirect()->back();
-        return redirect()->route('home');
+        return redirect()->back();
     });
 
 
