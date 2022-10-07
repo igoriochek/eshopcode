@@ -37,6 +37,7 @@ return [
     'leaveReview' => 'Оставить отзыв',
     'uploadFile' => 'Загрузить файл',
     'addReview' => 'Добавить отзыв',
-    'contact' => 'Связaтьcя'
+    'contact' => 'Связaтьcя',
+    'continueShopping' => 'Назад в магазин',
 
 ];

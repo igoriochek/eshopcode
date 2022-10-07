@@ -5500,6 +5500,7 @@ table .product-thumbnail img {
 
 .shopping-summery table > :not(caption) > * > * {
   padding: 15px 0;
+    padding-left: 10px;
 }
 
 .shopping-summery table td, .shopping-summery table th, .shopping-summery table thead {
@@ -5517,10 +5518,12 @@ table .product-thumbnail img {
 
 .shopping-summery table thead th.start {
   border-radius: 20px 0 0 20px;
+    padding-left: 10px;
 }
 
 .shopping-summery table thead th.end {
   border-radius: 0 20px 20px 0;
+    padding-right: 10px;
 }
 
 .shopping-summery table tbody tr img {

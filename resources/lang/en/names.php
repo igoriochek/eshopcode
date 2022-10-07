@@ -124,7 +124,7 @@ return [
     'myOrders'=> 'My Orders',
     'myReturns' => 'My Returns',
     'openMsg' => 'Open messenger',
-    'noProductsInCart' => 'You don`t have ny Products in your Cart!',
+    'noProductsInCart' => 'You don`t have any Products in your Cart!',
     'pricePerItem' => 'Price per Item',
     'quantity' => 'Quantity',
     'viewAllOrders' => 'View All Orders',

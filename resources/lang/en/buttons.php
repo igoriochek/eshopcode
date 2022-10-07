@@ -33,4 +33,5 @@ return [
     'save' => 'Save',
     'showLogs' => 'Show Logs',
     'showStatistics' => 'Show Statistics',
+    'continueShopping' => 'Back to products',
 ];

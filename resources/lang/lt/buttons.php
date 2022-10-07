@@ -33,4 +33,5 @@ return [
     'save' => 'Išsaugoti',
     'showLogs' => 'Rodyti Žurnalus',
     'showStatistics' => 'Rodyti Statistikas',
+    'continueShopping' => 'Grįžti į parduotuvę',
 ];
