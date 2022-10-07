@@ -8,11 +8,6 @@
                     <div class="shop-product-fillter">
                         <div class="totall-product">
                             <h1>{{__('names.discountCoupons')}}</h1>
-                            @if(!empty($discountCoupons))
-                                <p>
-                                    {{ __('names.results').': '.$discountCoupons->count() }}
-                                </p>
-                            @endif
                         </div>
                     </div>
                     <hr class="hr"/>

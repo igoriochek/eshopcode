@@ -8,9 +8,6 @@
                     <div class="row mb-4 align-items-center">
                         <div class="col-lg-12">
                             <h3 class="column-title">{{ __('names.promotions') }}</h3>
-                            <p class="p-0 m-0 showing-all-results">
-                                {{ __('names.results').': '.$promotions->count() }}
-                            </p>
                         </div>
                     </div>
                     <hr class="hr"/>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreatePromotionRequest;
 use App\Http\Requests\UpdatePromotionRequest;
 use App\Models\Product;
+use App\Models\Promotion;
 use App\Repositories\PromotionRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
@@ -15,6 +16,7 @@ class PromotionController extends AppBaseController
 {
     /** @var PromotionRepository $promotionRepository*/
     private $promotionRepository;
+    use \App\Http\Controllers\PrepareTranslations;
 
     public function __construct(PromotionRepository $promotionRepo)
     {
@@ -30,7 +32,7 @@ class PromotionController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $promotions = $this->promotionRepository->all();
+        $promotions = Promotion::translatedIn(app()->getLocale())->get();
 
         return view('promotions.index')
             ->with('promotions', $promotions);
@@ -39,7 +41,7 @@ class PromotionController extends AppBaseController
     public function indexPromotions(Request $request)
     {
 //         $categories = $this->categoryRepository->allQuery(array("parent_id"=>null))->paginate("3");
-        $promotions = $this->promotionRepository->allQuery()->paginate(5);
+        $promotions =  Promotion::translatedIn(app()->getLocale())->paginate(5);
 
         return view('user_views.promotion.index')
             ->with('promotions', $promotions);
@@ -76,6 +78,7 @@ class PromotionController extends AppBaseController
     public function store(CreatePromotionRequest $request)
     {
         $input = $request->all();
+        $input = $this->prepare($input, ["name", "description"]);
 
         $promotion = $this->promotionRepository->create($input);
 
@@ -142,7 +145,8 @@ class PromotionController extends AppBaseController
             return redirect(route('promotions.index'));
         }
 
-        $promotion = $this->promotionRepository->update($request->all(), $id);
+        $input = $this->prepare($request->all(), ["name", "description"]);
+        $promotion->update($input);
 
         Flash::success('Promotion updated successfully.');
 

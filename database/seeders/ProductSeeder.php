@@ -27,8 +27,8 @@ class ProductSeeder extends Seeder
                     'description' => "produktas $faker->text",
                 ],
                 'ru' => [
-                    'name' => "RUproduct $faker->name",
-                    'description' => "RUproduct $faker->text",
+                    'name' => "продукт $faker->name",
+                    'description' => "продукт $faker->text",
                 ],
                 'price' => rand(1,1000),
                 'promotion_id' => ( $i % 10 ? rand(1,10) : null )
