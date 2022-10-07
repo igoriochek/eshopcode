@@ -8,9 +8,6 @@
                     <div class="shop-product-fillter">
                         <div class="totall-product">
                             <h1>{{__('names.products')}}</h1>
-                            @if(!empty($products))
-                                <p>We found <strong class="text-brand">{{count($products)}}</strong> items for you!</p>
-                            @endif
                         </div>
                     </div>
                     <div class="row product-grid">
