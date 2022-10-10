@@ -6,7 +6,7 @@
             <div class="col-lg-9">
                 <div class="shop-product-fillter">
                     <div class="totall-product">
-                        <h4 class="mb-2">{{ $maincategory->name }}</h4>
+                        <h4 class="mb-2">{{ $promotion->name ?? __('names.promotion')}}</h4>
                         <p>
                             {{ __('names.showing') }}
                             @if ($products->currentPage() !== $products->lastPage())
@@ -22,8 +22,8 @@
                             {{ $products->total().' '.__('names.resultsOf') }}
                         </p>
                     </div>
-                    <a href="{{ route("rootcategories") }}" class="fs-6">
-                        {{__('buttons.backToMainCategories')}}
+                    <a href="{{ route("promotions") }}" class="fs-6">
+                        {{ __('names.backToAllPromotions') }}
                     </a>
                 </div>
                 <div class="row product-grid">
@@ -81,11 +81,11 @@
                                     </div>
                                     <div class="product-card-bottom">
                                         <div class="add-cart w-100">
-                                                {!! Form::open(['route' => ['addtocart'], 'method' => 'post', 'class' => 'd-flex justify-content-between align-items-center']) !!}
-                                                    {!! Form::number('count', "1", ['style' => 'height: 40px', "min" => "1", "max" => "5", "minlength" => "1", "maxlength" => "5", "oninput" => "this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null"]) !!}
-                                                    <input type="hidden" name="id" value="{{ $product->id }}">
-                                                    <input type="submit" value="{{ __('buttons.addToCart') }}" class="ms-3 add">
-                                                {!! Form::close() !!}
+                                            {!! Form::open(['route' => ['addtocart'], 'method' => 'post', 'class' => 'd-flex justify-content-between align-items-center']) !!}
+                                            {!! Form::number('count', "1", ['style' => 'height: 40px', "min" => "1", "max" => "5", "minlength" => "1", "maxlength" => "5", "oninput" => "this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null"]) !!}
+                                            <input type="hidden" name="id" value="{{ $product->id }}">
+                                            <input type="submit" value="{{ __('buttons.addToCart') }}" class="ms-3 add">
+                                            {!! Form::close() !!}
                                         </div>
                                     </div>
                                 </div>
@@ -108,7 +108,7 @@
                         <h5 class="section-title style-1 mb-30">
                             {{ __('names.categories') }}
                         </h5>
-                        @include('user_views.category.categoryTreeview')
+                        @include('user_views.promotion.promotion_tree')
                     </div>
                 </div>
             </div>

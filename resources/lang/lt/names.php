@@ -45,6 +45,9 @@ return [
     'noSubcategories' => 'Nėra subkategorijų',
     'filterByPrice' => 'Filtruoti pagal kainą',
     'filterByCategory' => 'Filtruoti pagal Kategoriją',
+    'showing' => 'Rodama',
+    'of' => 'iš',
+    'resultsOf' => 'rezultatų',
 
     //Charts
     'bar' => 'Kaladėlė',
@@ -179,6 +182,7 @@ return [
     'promotion' => 'Akcija',
     'promotions' => 'Akcijos',
     'promotionDetails' => 'Akcijos Informacija',
+    'backToAllPromotions' => 'Atgal į visas akcijas',
 
     //Price
     'discount' => 'Nuolaida',
