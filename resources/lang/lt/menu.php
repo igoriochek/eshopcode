@@ -39,5 +39,6 @@ return [
     'usersReport' => 'Vartotojų Ataskaitos',
     'usersActivitiesReport' => 'Vartotojų Aktyvumo Ataskaitos',
     'profile' => 'Profilis',
+    'termsofservice' => 'Taisyklės',
 
 ];
