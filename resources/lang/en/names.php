@@ -66,7 +66,9 @@ return [
     'noSubcategories' => 'No subcategories',
     'filterByPrice' => 'Filter By Price',
     'filterByCategory' => 'Filter by Category',
-
+    'showing' => 'Showing',
+    'of' => 'of',
+    'resultsOf' => 'results',
 
     //Charts
     'bar' => 'Bar',
@@ -188,6 +190,7 @@ return [
     'promotion' => 'Promotion',
     'promotions' => 'Promotions',
     'promotionDetails' => 'Promotion Details',
+    'backToAllPromotions' => 'Back To All Promotions',
 
     //Price
     'discount' => 'Discount',
