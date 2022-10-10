@@ -32,6 +32,7 @@ return [
     'editCartStatus' => 'Редактировать статус корзины',
     'emptyCart' => 'Ваша корзина пуста',
     'removeProduct' => 'Удалить товар',
+    'overview' => 'Обзор',
 
     //Categories
     'category' => 'Категория',

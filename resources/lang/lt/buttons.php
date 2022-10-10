@@ -34,4 +34,5 @@ return [
     'showLogs' => 'Rodyti Žurnalus',
     'showStatistics' => 'Rodyti Statistikas',
     'continueShopping' => 'Grįžti į parduotuvę',
+    'proceedToCheckout' => 'Pereiti prie apmokėjimo',
 ];

@@ -39,5 +39,6 @@ return [
     'addReview' => 'Добавить отзыв',
     'contact' => 'Связaтьcя',
     'continueShopping' => 'Назад в магазин',
+    'proceedToCheckout' => 'Перейти к оформлению заказа',
 
 ];

@@ -31,6 +31,7 @@ return [
     'editCartItem' => 'Edit Cart Item',
     'editCartStatus' => 'Edit Cart Status',
     'emptyCart' => 'Your Cart is empty',
+    'overview' => 'Overview',
 
     'adminUserCount' => 'Admin User Count',
     'canceled' => 'Canceled',

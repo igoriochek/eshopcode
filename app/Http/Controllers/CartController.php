@@ -240,7 +240,7 @@ class CartController extends AppBaseController
         $cartItems = $this->getCartItems($cart);
 
         return view('user_views.cart.view')
-            ->with(['cartItems'=> $cartItems]);
+            ->with(['cart' => $cart ,'cartItems'=> $cartItems]);
     }
 
 
