@@ -37,4 +37,6 @@ return [
     'proceedToCheckout' => 'Proceed to Checkout',
     'applyCoupon' => 'Apply Coupon',
     'placeOrder' => 'Place Order'
+    'contact' => 'Contact'
+
 ];

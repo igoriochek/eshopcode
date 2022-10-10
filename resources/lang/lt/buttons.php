@@ -36,5 +36,7 @@ return [
     'continueShopping' => 'Grįžti į parduotuvę',
     'proceedToCheckout' => 'Pereiti prie apmokėjimo',
     'applyCoupon' => 'Taikyti Kuponą',
-    'placeOrder' => 'Pateikti Užsakymą'
+    'placeOrder' => 'Pateikti Užsakymą',
+    'contant' => 'Susisiekti'
+
 ];

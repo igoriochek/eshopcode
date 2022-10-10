@@ -147,6 +147,10 @@ return [
     'unreadMsg' => 'unread messages.',
 
     //Messenger
+    'messages' => 'Messages',
+    'you' => 'You',
+    'contactUsers' => 'Contact Users',
+    'noUncontactedUsers' => 'No uncontacted users found',
     'typeMsg' => 'Type your message here...',
 
     //Orders
