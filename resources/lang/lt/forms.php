@@ -12,7 +12,10 @@ return [
     | you want to customize your views to better match your application.
     |
     */
-    'accountDetails' => 'Paskyros duomenys',
+    'profileSettings' => 'Paskyros nustatymai',
+    'passwordSettings' => 'Slaptažodžio nustatymai',
+    'editProfile' => 'Redaguoti profilį',
+    'editPassword' => 'Keisti slaptažodį',
     'avatar' => 'Nuotrauka',
     'name' => 'Vardas',
     'email' => 'El paštas',

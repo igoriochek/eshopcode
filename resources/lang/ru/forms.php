@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'avatar' => 'Аватар',
+
     'name' => 'Имя',
     'email' => 'Электронная почта',
     'description' => "Описание",
@@ -27,7 +27,7 @@ return [
     'user' => "Пользователь",
     'userProfile' => 'Профиль пользователя',
     'yourProfile' => 'Ваш профиль',
-    'changePassword' => 'Изменить пароль',
+    'editPassword' => 'Изменить пароль',
     'profileSettings' => 'Настройки профиля',
     'passwordSettings' => 'Настройки пароля',
     'editProfile' => 'Редактировать профиль',

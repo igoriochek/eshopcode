@@ -12,7 +12,10 @@ return [
 | you want to customize your views to better match your application.
 |
 */
-    'accountDetails' => 'Account Details',
+    'profileSettings' => 'Profile Settings',
+    'passwordSettings' => 'Password Settings',
+    'editProfile' => 'Edit profile',
+    'editPassword' => 'Edit password',
     'avatar' => 'Avatar',
     'name' => 'Name',
     'email' => 'Email',

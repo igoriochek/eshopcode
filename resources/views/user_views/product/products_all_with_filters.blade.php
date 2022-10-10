@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <section>
+    <div class="container py-5">
         <div class="container mb-30">
             <div class="row">
                 <div class="col-lg-4-5">
@@ -145,7 +145,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </div>
     @push('scripts')
         <script>
             var slider = document.getElementById('slider');

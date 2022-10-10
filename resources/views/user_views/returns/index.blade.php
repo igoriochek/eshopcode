@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+    <div class="container py-5">
     <div class="page-content pt-20 pb-150">
         <div class="container">
             <div class="row">
@@ -81,6 +82,6 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div></div>
 @endsection
 
