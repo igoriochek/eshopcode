@@ -52,7 +52,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.5.1/nouislider.min.js"></script>
 <!-- Vendor JS-->
 <script src="{{asset('/js/vendor/modernizr-3.6.0.min.js')}}"></script>
-<script src="{{asset('/js/vendor/jquery-3.6.0.min.js')}}"></script>
 <script src="{{asset('/js/vendor/jquery-migrate-3.3.0.min.js')}}"></script>
 <script src="{{asset('/js/vendor/bootstrap.bundle.min.js')}}"></script>
 <script src="{{asset('/js/plugins/slick.js')}}"></script>
