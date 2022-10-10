@@ -36,5 +36,7 @@ return [
     'continueShopping' => 'Back to products',
     'proceedToCheckout' => 'Proceed to Checkout',
     'applyCoupon' => 'Apply Coupon',
-    'placeOrder' => 'Place Order'
+    'placeOrder' => 'Place Order',
+    'contact' => 'Contact'
+
 ];

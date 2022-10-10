@@ -3,35 +3,62 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use Livewire\WithPagination;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Traits\MessengerUsers;
 use Flash;
 
 class MessengerAdd extends Component
 {
-    use \App\Traits\MessengerUsers;
+    use WithPagination, MessengerUsers;
 
-    private function getTableUsers()
+    protected $paginationTheme = 'bootstrap';
+
+    private function getUsersExceptAuthUser(): object
     {
-        $table_users = User::where('id', '!=', Auth::user()->id)->get();
+        return User::where('id', '!=', Auth::user()->id)->get();
+    }
 
-        if ((empty($table_users))) {
-            Flash::error('Available users have not been found.');
+    private function getAdminUsersExceptAuthUser(): object
+    {
+        return User::where([
+            ['id', '!=', Auth::user()->id],
+            ['type', '=', User::TYPE_ADMIN]
+        ])->get();
+    }
 
-            return redirect(route('livewire.messenger.index'));
+
+    private function getNotAddedUsers(object $users, object $addUsers): object
+    {
+        foreach ($users as $user) {
+            $addUsers = $addUsers
+                ->where('id', '!=', $user->id)
+                ->sortByDesc('name');
         }
-
-        return $table_users;
+//        dd($addUsers);
+//        exit();
+        if ( count($addUsers) == 0) return $addUsers;
+        return $addUsers->toQuery()->paginate(5);
     }
 
     public function render()
     {
         $users = $this->getUsers();
-        $table_users = $this->getTableUsers();
+
+        $this->getLastMessage($users);
 
         return view('livewire.messenger.add')
             ->extends('layouts.app')
             ->section('content')
-            ->with(['users' => $users, 'table_users' => $table_users]);
+            ->with([
+                'users' => $users,
+                'addUsers' => $this->getNotAddedUsers(
+                    $users,
+                    Auth::user()->type == User::TYPE_USER
+                        ? $this->getAdminUsersExceptAuthUser()
+                        : $this->getUsersExceptAuthUser()
+                )
+            ]);
     }
 }

@@ -149,6 +149,10 @@ return [
     'unreadMsg' => 'neperskaitytas žinutes.',
 
     //Messenger
+    'messages' => 'Pranešimai',
+    'you' => 'Jūs',
+    'contactUsers' => 'Susisiekite su vartotojais',
+    'noUncontactedUsers' => 'Nerasta nesusisiekusių vartotojų',
     'typeMsg' => 'Įveskite savo žinutę...',
 
     //Orders
