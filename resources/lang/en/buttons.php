@@ -35,4 +35,6 @@ return [
     'showStatistics' => 'Show Statistics',
     'continueShopping' => 'Back to products',
     'proceedToCheckout' => 'Proceed to Checkout',
+    'applyCoupon' => 'Apply Coupon',
+    'placeOrder' => 'Place Order'
 ];

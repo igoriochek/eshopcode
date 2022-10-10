@@ -32,6 +32,14 @@ return [
     'editCartStatus' => 'Redaguoti Krepšelio Statusą',
     'emptyCart' => 'Jūsų prekių krepšelis yra tuščias',
     'overview' => 'Apžvalga',
+    'yourOrder' => 'Jūsų Užsakymas',
+    'wantToApply' => 'Norite pritaikyti nuolaidą savo krepšeliui?',
+    'selectDiscountCoupon' => 'Pasirinkite Nuolaidos Kuponą',
+    'paymentMethods' => 'Mokėjimo Metodai',
+    'off' => '',
+    'discountCoupon' => 'Nuolaidos Kuponas',
+    'acceptedOrder' => 'Ačiū. Jūsų užsakymas buvo priimtas.',
+    'canceledOrder' => 'Jūsų užsakymas buvo atšauktas.',
 
     //Categories
     'categories' => 'Kategorijos',

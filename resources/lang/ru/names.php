@@ -33,6 +33,14 @@ return [
     'emptyCart' => 'Ваша корзина пуста',
     'removeProduct' => 'Удалить товар',
     'overview' => 'Обзор',
+    'yourOrder' => 'Ваш заказ',
+    'wantToApply' => 'Хотите применить скидку к своей корзине?',
+    'selectDiscountCoupon' => 'Выберите скидочный купон',
+    'paymentMethods' => 'Способы оплаты',
+    'off' => '',
+    'discountCoupon' => 'Скидочный купон',
+    'acceptedOrder' => 'Спасибо. Ваш заказ принят.',
+    'canceledOrder' => 'Ваш заказ отменен.',
 
     //Categories
     'category' => 'Категория',

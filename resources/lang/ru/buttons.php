@@ -40,5 +40,7 @@ return [
     'contact' => 'Связaтьcя',
     'continueShopping' => 'Назад в магазин',
     'proceedToCheckout' => 'Перейти к оформлению заказа',
+    'applyCoupon' => 'Применить Kупон',
+    'placeOrder' => 'Разместить Заказ'
 
 ];

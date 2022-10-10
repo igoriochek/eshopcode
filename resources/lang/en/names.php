@@ -32,6 +32,13 @@ return [
     'editCartStatus' => 'Edit Cart Status',
     'emptyCart' => 'Your Cart is empty',
     'overview' => 'Overview',
+    'wantToApply' => 'Want to apply a discount to your cart?',
+    'selectDiscountCoupon' => 'Select Discount Coupon',
+    'yourOrder' => 'Your Order',
+    'paymentMethods' => 'Payment Methods',
+    'discountCoupon' => 'Discount Coupon',
+    'acceptedOrder' => 'Thank you. Your order has been accepted.',
+    'canceledOrder' => 'Your order has been cancelled.',
 
     'adminUserCount' => 'Admin User Count',
     'canceled' => 'Canceled',

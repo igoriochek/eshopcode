@@ -35,4 +35,6 @@ return [
     'showStatistics' => 'Rodyti Statistikas',
     'continueShopping' => 'Grįžti į parduotuvę',
     'proceedToCheckout' => 'Pereiti prie apmokėjimo',
+    'applyCoupon' => 'Taikyti Kuponą',
+    'placeOrder' => 'Pateikti Užsakymą'
 ];
