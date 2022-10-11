@@ -9,20 +9,13 @@
         </div>
     </div>
 </div>
-{{-- Content--}}
-{{--@if (Auth::user()->type==1)--}}
-{{--    @include('layouts.dropdown_menus.adminmenu')--}}
-{{--    @include('layouts.dropdown_menus.adminreportmenu')--}}
-{{--    @include('layouts.dropdown_menus.usermenu')--}}
-{{--@elseif (Auth::user()->type == 2)--}}
-{{--    @include('layouts.menus.guest_user_menu')--}}
-{{--    @include('layouts.dropdown_menus.usermenu')--}}
-{{--@endif--}}
 <div class="mobile-header-active mobile-header-wrapper-style">
     <div class="mobile-header-wrapper-inner">
         <div class="mobile-header-top">
             <div class="mobile-header-logo">
-                <a href="index.html"><img src="{{asset('/images/theme/logo.svg')}}" alt="logo"/></a>
+                <a href="{{ route('home') }}" class="fs-3 fw-bolder py-2">
+                    CONTENTUM
+                </a>
             </div>
             <div class="mobile-menu-close close-style-wrap close-style-position-inherit">
                 <button class="close-style search-close">
@@ -37,15 +30,21 @@
                 <nav>
                     <ul class="mobile-menu font-heading">
                         <li class="menu-item">
-                            <a href="/user/products">{{__('menu.products')}}</a>&nbsp;&nbsp;
+                            <a href="@if(Auth::user()) /user/products @else /products @endif">{{__('menu.products')}}</a>&nbsp;&nbsp;
                         </li>
                         <li class="menu-item">
-                            <a href="/user/rootcategories">{{__('menu.categories')}}</a>&nbsp;&nbsp;
+                            <a href="@if(Auth::user()) /user/rootcategories @else /rootcategories @endif">{{__('menu.categories')}}</a>&nbsp;&nbsp;
                         </li>
                         <li class="menu-item">
-                            <a href="/user/promotions">{{__('menu.promotions')}}</a>&nbsp;&nbsp;
+                            <a href="@if(Auth::user()) /user/promotions @else /promotions @endif">{{__('menu.promotions')}}</a>&nbsp;&nbsp;
                         </li>
-                        <li></li>
+                        <li class="menu-item">
+                            <a href="/user/discountCoupons">{{__('menu.discountCoupons')}}</a>&nbsp;&nbsp;
+                        </li>
+                        <li class="menu-item">
+                            <a href="/user/messenger">{{__('menu.messenger')}}</a>&nbsp;&nbsp;
+                        </li>
+                        <div style="height: 20px"></div>
                         @auth
                             @if (Auth::user()->type==1)
                                 <li class="menu-item-has-children">
@@ -87,10 +86,10 @@
                                 </li>
                             @endif
                             <li class="menu-item">
-                                <a class="mini-cart-icon" href="{{url('/user/viewcart')}}">
-                                    <img alt="cart-icon" src="{{asset('/images/theme/icons/icon-cart.svg')}}"/>
+                                <a href="{{ url('/user/viewcart') }}">
+                                    <img alt="cart-icon" src="{{ asset('/images/theme/icons/icon-cart.svg') }}" width="15" class="me-1" />
                                     @if (!empty($cartItemCount))
-                                        <span class="pro-count blue">{{ $cartItemCount }}</span>
+                                        <span class="pro-count blue">({{ $cartItemCount }})</span>
                                     @endif
                                     {{__('names.cart')}}
                                 </a>
@@ -130,13 +129,13 @@
                 </nav>
                 <!-- mobile menu end -->
             </div>
-            <div class="mobile-social-icon mb-50 mt-20">
+            <div class="mobile-social-icon mb-50 mt-40">
                 <h6 class="mb-15">{{__('names.followUs')}}</h6>
-                <a href="#"><img src="{{asset('/images/theme/icons/icon-facebook-white.svg')}}" alt=""/></a>
-                <a href="#"><img src="{{asset('/images/theme/icons/icon-twitter-white.svg')}}" alt=""/></a>
-                <a href="#"><img src="{{asset('/images/theme/icons/icon-instagram-white.svg')}}" alt=""/></a>
-                <a href="#"><img src="{{asset('/images/theme/icons/icon-pinterest-white.svg')}}" alt=""/></a>
-                <a href="#"><img src="{{asset('/images/theme/icons/icon-youtube-white.svg')}}" alt=""/></a>
+                <a href="#"><img src="{{asset('/images/theme/icons/icon-facebook-white.svg')}}" alt="facebook"/></a>
+                <a href="#"><img src="{{asset('/images/theme/icons/icon-twitter-white.svg')}}" alt="twitter"/></a>
+                <a href="#"><img src="{{asset('/images/theme/icons/icon-instagram-white.svg')}}" alt="instagram"/></a>
+                <a href="#"><img src="{{asset('/images/theme/icons/icon-pinterest-white.svg')}}" alt="pinterest"/></a>
+                <a href="#"><img src="{{asset('/images/theme/icons/icon-youtube-white.svg')}}" alt="youtube"/></a>
             </div>
         </div>
     </div>
