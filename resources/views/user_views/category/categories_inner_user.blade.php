@@ -1,7 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container mb-30" style="transform: none;">
+    @include('page_header', [
+        'secondPageLink' => 'rootcategories',
+        'secondPageName' => __('names.categories'),
+        'hasThirdPage' => true,
+        'thirdPageName' => $maincategory->name
+    ])
+    <div class="container mb-30 mt-30" style="transform: none;">
         <div class="row" style="transform: none;">
             <div class="col-lg-9">
                 <div class="shop-product-fillter">
@@ -22,7 +28,7 @@
                             {{ $products->total().' '.__('names.resultsOf') }}
                         </p>
                     </div>
-                    <a href="{{ route("rootcategories") }}" class="fs-6">
+                    <a href="{{ route("rootcategories") }}" class="btn btn-primary">
                         {{__('buttons.backToMainCategories')}}
                     </a>
                 </div>

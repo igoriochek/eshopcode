@@ -28,7 +28,9 @@ class Product extends Model implements TranslatableContract
     use HasFactory,Translatable;
 
     public $table = 'products';
+
     public $translatedAttributes = ['name', 'description'];
+
     public $fillable = [
         'price',
         'count',
@@ -83,6 +85,11 @@ class Product extends Model implements TranslatableContract
         return $this->belongsTo(Discount::class);
     }
 
+    public function ratings()
+    {
+        return $this->hasMany(Ratings::class);
+    }
+
     public function scopePriceFrom(Builder $query, $price) : Builder
     {
         return $query->where('price', '>=', $price);
@@ -96,6 +103,4 @@ class Product extends Model implements TranslatableContract
     {
         return $query->where('name', 'like', "%$name%");
     }
-
-
 }

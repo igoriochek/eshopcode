@@ -192,43 +192,12 @@ class ProductController extends AppBaseController
     public function userViewProduct($id)
     {
         $product = $this->productRepository->find($id);
+        $productRatings = $this->getProductRatings($id);
 
-        $sumAndCount = $this->calculateRatingSumAndCount($this->getProductRatings($id));
+        $sumAndCount = $this->calculateRatingSumAndCount($productRatings);
 
         $sum = $sumAndCount['sum'];
         $count = $sumAndCount['count'];
-
-        /*$arrated = [1=>0,2=>0, 3=>0, 4=>0, 5=>0];
-        $sum = 0;
-        $count = 0;
-        foreach ($rated as $row) {
-            $arrated[$row['value']]++;
-            $sum += $row['value'];
-            $count++;
-        }
-        $rateName = "NO RATING";
-        if ( $count ) {
-            foreach ($arrated as $k => $v) {
-                $arrated[$k] = round(($v / $count * 100), 0);
-            }
-            switch (round(($sum / $count), 0)) {
-                case 1:
-                    $rateName = "POOR";
-                    break;
-                case 2:
-                    $rateName = "BAD";
-                    break;
-                case 3:
-                    $rateName = "AVERAGE";
-                    break;
-                case 4:
-                    $rateName = "GOOD";
-                    break;
-                case 5:
-                    $rateName = "VERY GOOD";
-                    break;
-            }
-        }*/
 
         $this->logUserViewedProduct($product);
 
@@ -237,9 +206,10 @@ class ProductController extends AppBaseController
                 'product' => $product,
                 'voted' => $this->getVotedCondition($id),
                 'average' => $this->calculateAverageRating($sum, $count),
-                'rateCount' => $count
-                //'arrated' => $arrated,
-                //'rateName' => $rateName,
+                'rateCount' => $count,
+                'percentages' => $this->calculateAndGetRatingStarPercentages(
+                    $count, $this->addRatingStarValues($productRatings)
+                )
             ]);
     }
 

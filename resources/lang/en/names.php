@@ -13,7 +13,6 @@ return [
     |
     */
 
-
     //Carts
     'cart' => 'Cart',
     'cartDetails' => 'Cart Details',
@@ -175,7 +174,6 @@ return [
     'invoice' => 'Invoice',
     'invoicePreview' => 'Invoice Preview',
 
-
     // Products
     'createProduct' => 'Create Product',
     'editProduct' => 'Edit Product',
@@ -185,6 +183,7 @@ return [
     'productName' => 'Product Name',
     'productOrders' => 'Product Orders',
     'noProducts' => 'No Products',
+    'saleOff' => 'Sale Off',
 
     //Promotions
     'createPromotion' => 'Create Promotion',
@@ -205,13 +204,22 @@ return [
     'sum' => 'Sum',
     'total' => 'Total',
 
-
-    //Rating
-    'alreadyVoted' => "You have already voted for this product",
+    //Reviews
     'rating' => 'Rating',
-    'ratingOrRatings' => 'Rating(s)',
-    'starRating' => 'Star Rating',
-    'voted' => "Thank you for your vote!",
+    'ratings' => 'Ratings',
+    'review' => 'Review',
+    'reviews' => 'Reviews',
+    'outOf' => 'out of',
+    'star' => 'Star',
+    'stars' => 'Stars',
+    'customerRatings' => 'Customer Ratings',
+    'customerReviews' => 'Customer Reviews',
+    'addAReview' => 'Add a Review',
+    'noReviews' => 'No Reviews',
+    'loginToReview' => 'Please login to review this product',
+    'alreadyReviewed' => 'You have already left a review for this product',
+    'reviewProduct' => 'Thank you for reviewing this product',
+    'yourReview' => 'Your review',
 
     //Returns
     'checkReturn' => 'Check to Return',

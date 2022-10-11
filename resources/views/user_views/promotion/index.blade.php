@@ -1,7 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container mb-30" style="transform: none;">
+    @include('page_header', [
+    'secondPageLink' => 'promotions',
+    'secondPageName' => __('names.promotions'),
+    'hasThirdPage' => false
+])
+    <div class="container mb-30 mt-30" style="transform: none;">
         <div class="row" style="transform: none;">
                 <div class="col-lg-9">
                     @forelse ($promotions as $promotion)
@@ -11,7 +16,7 @@
                                 <h4 class="mb-2">{{ $promotion->name ?? __('names.promotion') }}</h4>
                             </div>
                             @if (count($promotion->products) > 3)
-                                <a class="fs-6" href="{{ route("promotion", ["id" => $promotion->id]) }}">
+                                <a class="btn btn-primary" href="{{ route("promotion", ["id" => $promotion->id]) }}">
                                     {{ __("names.more_for_promotions") }}
                                 </a>
                             @endif

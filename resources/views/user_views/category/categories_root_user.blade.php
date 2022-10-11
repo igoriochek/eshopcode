@@ -1,7 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container mb-30" style="transform: none;">
+    @include('page_header', [
+        'secondPageLink' => 'rootcategories',
+        'secondPageName' => __('names.categories'),
+        'hasThirdPage' => false
+    ])
+    <div class="container mb-30 mt-30" style="transform: none;">
         <div class="row" style="transform: none;">
             <div class="col-lg-12 primary-sidebar sticky-sidebar" style="position: relative; overflow: visible; box-sizing: border-box; min-height: 1px;">
                 <!-- Product sidebar Widget -->

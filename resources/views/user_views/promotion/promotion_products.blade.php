@@ -1,7 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container mb-30" style="transform: none;">
+    @include('page_header', [
+    'secondPageLink' => 'promotions',
+    'secondPageName' => __('names.promotions'),
+    'hasThirdPage' => true,
+    'thirdPageName' => $promotion->name
+])
+    <div class="container mb-30 mt-30" style="transform: none;">
         <div class="row" style="transform: none;">
             <div class="col-lg-9">
                 <div class="shop-product-fillter">
@@ -22,7 +28,7 @@
                             {{ $products->total().' '.__('names.resultsOf') }}
                         </p>
                     </div>
-                    <a href="{{ route("promotions") }}" class="fs-6">
+                    <a href="{{ route("promotions") }}" class="btn btn-primary">
                         {{ __('names.backToAllPromotions') }}
                     </a>
                 </div>
@@ -106,7 +112,7 @@
                 <div class="theiaStickySidebar" style="padding-top: 0px; padding-bottom: 1px; position: static; transform: none;">
                     <div class="sidebar-widget widget-category-2 mb-30">
                         <h5 class="section-title style-1 mb-30">
-                            {{ __('names.categories') }}
+                            {{ __('names.promotions') }}
                         </h5>
                         @include('user_views.promotion.promotion_tree')
                     </div>

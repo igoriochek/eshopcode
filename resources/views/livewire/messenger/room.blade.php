@@ -1,6 +1,6 @@
 <div wire:poll.1s='updateMessages'>
     <div>
-        <h4 class="pb-2">{{$user->name}}</h4>
+        <h4 class="pb-2">{{ $user->name }}</h4>
     </div>
     <div class="card" id="messsageBox" style="display: flex-column; padding: 20px; overflow: scroll; height: 50vh; margin: 15px 0;">
         @forelse ($messages ?? [] as $message)

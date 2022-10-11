@@ -15,13 +15,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  */
 class Ratings extends Model
 {
-
     use HasFactory;
 
     public $table = 'ratings';
-
-
-
 
     public $fillable = [
         'value',
@@ -50,5 +46,8 @@ class Ratings extends Model
         'value' => 'required'
     ];
 
-
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

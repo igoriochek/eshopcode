@@ -182,6 +182,7 @@ return [
     'search' => 'Поиск',
     'topRated' => 'Самые популярные',
     'productDescription' => 'Описание продукта',
+    'saleOff' => 'Распродажа',
 
     //Promotions
     'createPromotion' => 'Создать акцию',
@@ -203,24 +204,22 @@ return [
     'discountedPrice' => 'Цена со скидкой',
     'totalCost' => 'Общая стоимость',
 
-    //Rating
-    'alreadyVoted' => "Вы уже голосовали за этот товар",
+    //Reviews
     'rating' => 'Рейтинг',
     'ratings' => 'Рейтинги',
-    'ratingOrRatings' => 'Рейтинг(и)',
-    'starRating' => 'Звездный рейтинг',
-    'voted' => "Спасибо за ваш голос!",
-    'createRating'=> 'Создать рейтинг',
-    'editRating' => 'Редактировать рейтинг',
-    'ratingDetails' => 'Подробности рейтинга',
-
-    //Reviews
-    'customerReviews' => 'Отзывы пользователя',
+    'review' => 'Отзыв',
     'reviews' => 'Отзывы',
-    'reviewsFound' => 'Найдено отзывов',
-    'addReview' => 'Добавить отзыв',
-    'writeReview' => 'Напишите свой отзыв',
+    'outOf' => 'из',
+    'star' => 'Звезда',
+    'stars' => 'Звезд',
+    'customerRatings' => 'Рейтинги клиентов',
+    'customerReviews' => 'Отзывы клиентов',
+    'addAReview' => 'Добавить отзыв',
     'noReviews' => 'Нет отзывов',
+    'loginToReview' => 'Пожалуйста, войдите, чтобы оставить отзыв об этом продукте',
+    'alreadyReviewed' => 'Вы уже оставляли отзыв об этом товаре',
+    'reviewProduct' => 'Спасибо за отзыв об этом продукте',
+    'yourReview' => 'Ваш отзыв',
 
     //Returns
     'checkReturn' => 'Отметить, чтобы вернуться',

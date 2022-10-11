@@ -41,6 +41,7 @@ return [
     'continueShopping' => 'Назад в магазин',
     'proceedToCheckout' => 'Перейти к оформлению заказа',
     'applyCoupon' => 'Применить Kупон',
-    'placeOrder' => 'Разместить Заказ'
+    'placeOrder' => 'Разместить Заказ',
+    'submitReview' => 'Добавить Отзыв'
 
 ];

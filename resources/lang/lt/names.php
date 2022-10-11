@@ -186,6 +186,7 @@ return [
     'productName' => 'Produkto pavadinimas',
     'productOrders' => 'Produktų užsakymai',
     'noProducts' => 'Nėra produktų',
+    'saleOff' => 'Išpardavimas',
 
     //Promotions
     'createPromotion' => 'Sukurti Akciją',
@@ -207,12 +208,22 @@ return [
     'sum' => 'Suma',
     'total' => 'Galutinė suma',
 
-    //Rating
-    'alreadyVoted' => "Jūs jau prabalsavote už šį produktą!",
+    //Reviews
     'rating' => 'Įvertinimas',
-    'ratingOrRatings' => 'Įvertinimas(ai)',
-    'starRating' => 'Įvertinimas Žvaigždutėmis',
-    'voted' => "Ačiū už jūsų balsą!",
+    'ratings' => 'Įvertinimai',
+    'review' => 'Atsiliepimas',
+    'reviews' => 'Atsiliepimai',
+    'outOf' => 'iš',
+    'star' => 'Žvaigždė',
+    'stars' => 'Žvaigždės',
+    'customerRatings' => 'Klientų įvertinimai',
+    'customerReviews' => 'Klientų atsiliepimai',
+    'addAReview' => 'Pridėti atsiliepimą',
+    'noReviews' => 'Nėra atsiliepimų',
+    'loginToReview' => 'Prisijunkite, kad galėtumėte pridėti atsiliepimą šiai produktui',
+    'alreadyReviewed' => 'Jūs jau palikote atsiliepimą apie šį produktą',
+    'reviewProduct' => 'Dėkojame, kad įvertinote šį produktą',
+    'yourReview' => 'Jūsų atsiliepimas',
 
     //Returns
     'checkReturn' => 'Pasirinkite kuriuos norite grąžinti',
