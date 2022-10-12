@@ -22,7 +22,6 @@
 
     <link rel="stylesheet" href="{{asset('css/plugins/animate.min.css')}}" />
     <link rel="stylesheet" href="{{asset('css/app.css?v=5.5')}}" />
-    <link rel="stylesheet" href="{{ asset('css/custom.css') }}" />
     <link href="{{ asset('css/jquery-ui.min.css') }}" rel="stylesheet">
     <link href="{{ asset('datatables/media/css/jquery.dataTables.min.css') }}" rel="stylesheet">
     <link href="{{ asset('fontawesome-free/css/all.min.css') }}" rel="stylesheet">

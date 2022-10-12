@@ -3,7 +3,7 @@
 @section('content')
     @include('page_header', [
         'secondPageLink' => 'products',
-        'secondPageName' => __('names.products'),
+        'secondPageName' => __('menu.products'),
         'hasThirdPage' => true,
         'thirdPageName' => $product->name
     ])

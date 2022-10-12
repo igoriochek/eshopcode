@@ -183,6 +183,8 @@ return [
     'topRated' => 'Самые популярные',
     'productDescription' => 'Описание продукта',
     'saleOff' => 'Распродажа',
+    'searchForItems' => 'Поиск предметов',
+    'search' => 'Поиск',
 
     //Promotions
     'createPromotion' => 'Создать акцию',

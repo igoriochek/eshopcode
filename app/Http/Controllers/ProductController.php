@@ -87,7 +87,7 @@ class ProductController extends AppBaseController
             ])
             ->allowedIncludes('categories')
             ->orderBy($orderBy)
-            ->paginate(10)
+            ->paginate(12)
             ->appends(request()->query());
 
         foreach ($products as $product) {
