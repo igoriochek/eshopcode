@@ -96,8 +96,11 @@
                 <!-- End main-menu -->
                 <ul id="top_tools" class="mt-1 mt-lg-0">
                     <li class="p-0 pe-3">
-                        <a href="/user/viewcart">
+                        <a href="/user/viewcart" class="cart_bt">
                             <i class="icon_bag_alt fs-4"></i>
+                            @if (!empty($cartItemCount))
+                                <strong class="shopping-cart-items">{{ $cartItemCount }}</strong>
+                            @endif
                         </a>
                     </li>
                 </ul>
