@@ -36,13 +36,13 @@ use App\Http\Livewire\MessengerShow;
 */
 
 Route::get('/', function () {
-    if (Auth::user() && Auth::user()->type === User::TYPE_USER)
+    if (Auth::user())
         return redirect('user/products');
     else
         return redirect('products');
 });
 Route::get('/home', function () {
-    if (Auth::user() && Auth::user()->type === User::TYPE_USER)
+    if (Auth::user())
         return redirect('user/products');
     else
         return redirect('products');
@@ -148,7 +148,7 @@ Route::group(array('prefix' => 'admin', 'middleware' => 'admin'), function () {
 
 Route::group(array('prefix' => 'user', 'middleware' => ['auth', 'cookie-consent']), function () {
     Route::get('/', function () {
-        return redirect()->route('userhomepage');
+        return redirect()->route('userproducts');
     });
     Route::get("rootcategories", [CategoryController::class, 'userRootCategories'])->name('rootcategories');
     Route::get("innercategories/{category_id}", [CategoryController::class, 'userInnerCategories'])->name('innercategories');

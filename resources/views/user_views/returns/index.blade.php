@@ -4,15 +4,6 @@
 
     @include('user_views.section', ['title' => __('names.myReturns') ])
 
-    <div id="position">
-        <div class="container">
-            <ul>
-                <li><a href="../">{{__('menu.home')}}</a></li>
-                <li>{{ __('names.returns') }}</li>
-            </ul>
-        </div>
-    </div>
-
     <div class="container margin_60">
         @include('flash::message')
         <div class="row">

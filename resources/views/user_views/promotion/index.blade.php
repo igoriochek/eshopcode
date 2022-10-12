@@ -4,19 +4,6 @@
 
     @include('user_views.section', ['title' => __('names.promotions') ])
 
-    <div id="position">
-        <div class="container">
-            <ul>
-                <li>
-                    <a href="../">{{__('menu.home')}}</a>
-                </li>
-                <li>
-                    {{ __('names.promotions') }}
-                </li>
-            </ul>
-        </div>
-    </div>
-
     <div class="container margin_60">
         <div class="row">
             <aside class="col-lg-3 theiaStickySidebar" id="sidebar">

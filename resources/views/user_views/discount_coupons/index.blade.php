@@ -4,19 +4,6 @@
 
     @include('user_views.section', ['title' => __('names.discountCoupons') ])
 
-    <div id="position">
-        <div class="container">
-            <ul>
-                <li>
-                    <a href="../">{{__('menu.home')}}</a>
-                </li>
-                <li>
-                    {{ __('names.discountCoupons') }}
-                </li>
-            </ul>
-        </div>
-    </div>
-
     <div class="container margin_60">
         <div class="row">
             @if(($discountCoupons->count()))

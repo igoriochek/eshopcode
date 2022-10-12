@@ -2,18 +2,6 @@
 
 @section('content')
     @include('user_views.section', ['title' => __('names.products')])
-    <div id="position">
-        <div class="container">
-            <ul>
-                <li>
-                    <a href="{{ url('/home') }}">{{ __('names.home') }}</a>
-                </li>
-                <li>
-                    {{ __('names.products') }}
-                </li>
-            </ul>
-        </div>
-    </div>
     <div class="container margin_60">
         <div class="row">
             <div class="col-lg-9">

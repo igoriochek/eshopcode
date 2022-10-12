@@ -71,7 +71,11 @@
         <div class="row">
             <div class="col-3">
                 <div class="logo_home">
-                    <h1 class="m-0"><a href="../">LOGO</a></h1>
+                    @guest
+                    <h1 class="m-0"><a href="/products">LOGO</a></h1>
+                    @else
+                        <h1 class="m-0"><a href="/user/products">LOGO</a></h1>
+                    @endguest
                 </div>
             </div>
             <nav class="col-9">

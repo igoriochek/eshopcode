@@ -6,9 +6,6 @@
         <div class="container">
             <ul>
                 <li>
-                    <a href="{{ url('/home') }}">{{ __('names.home') }}</a>
-                </li>
-                <li>
                     <a href="{{ url('/user/rootcategories') }}">{{ __('names.categories') }}</a>
                 </li>
                 <li>

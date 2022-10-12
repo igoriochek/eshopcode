@@ -8,9 +8,6 @@
         <div class="container">
             <ul>
                 <li>
-                    <a href="../">{{__('menu.home')}}</a>
-                </li>
-                <li>
                     <a href="/promotions">{{ __('names.promotions') }}</a>
                 </li>
                 <li>

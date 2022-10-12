@@ -2,14 +2,13 @@
 
 @section('content')
 
-    @include('user_views.section', ['title' => __('names.return') ])
+    @include('user_views.section', ['title' => __('names.return').' '.__('names.order').' '.$order->order_id ])
 
     <div id="position">
         <div class="container">
             <ul>
-                <li><a href="../">{{__('menu.home')}}</a></li>
                 <li><a href="/user/rootorders">{{ __('names.orders') }}</a></li>
-                <li>{{ __('names.return') }}</li>
+                <li>{{ __('names.return') }} {{__('names.order')}} {{ __($order->id) }}</li>
             </ul>
         </div>
     </div>

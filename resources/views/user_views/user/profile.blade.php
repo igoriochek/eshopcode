@@ -4,15 +4,6 @@
 
     @include('user_views.section', ['title' => __('menu.userInfo') ])
 
-    <div id="position">
-        <div class="container">
-            <ul>
-                <li><a href="../">{{__('menu.home')}}</a></li>
-                <li>{{__('forms.userProfile')}}</li>
-            </ul>
-        </div>
-    </div>
-
     <div class="margin_60 container">
         <div id="tabs" class="tabs">
             <nav>

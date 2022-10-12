@@ -1,17 +1,6 @@
 <div>
     @include('user_views.section', ['title' => __('menu.messenger')])
-    <div id="position">
-        <div class="container">
-            <ul>
-                <li>
-                    <a href="{{ url('/home') }}">{{ __('names.home') }}</a>
-                </li>
-                <li>
-                    {{ __('menu.messenger') }}
-                </li>
-            </ul>
-        </div>
-    </div>
+
     <section class="pt-5">
         <div class="container">
             <div class="row mb-5">

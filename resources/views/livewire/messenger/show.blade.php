@@ -4,9 +4,6 @@
         <div class="container">
             <ul>
                 <li>
-                    <a href="{{ url('/home') }}">{{ __('names.home') }}</a>
-                </li>
-                <li>
                     <a href="{{ url('/user/messenger') }}">{{ __('menu.messenger') }}</a>
                 </li>
                 <li>
