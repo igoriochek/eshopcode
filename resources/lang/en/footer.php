@@ -9,13 +9,13 @@ return [
     */
 
     'contactInfo'=>'Contact Info',
-    'address' => 'Adress',
+    'address' => 'Address',
     'phone' => 'Phone',
     'email' => 'Email',
-    'hours' => 'Mon - Fri : 8.00am - 6.00pm',
+    'hours' => 'Hours',
     'menu'=>'Menu',
     'profile'=>'Profile',
     'securedPayment' => 'Secured Payment',
-    'copyright' => 'Copyright © 2022 Contentum',
+    'copyright' => 'Copyright © 2022, Contentum',
     'allRightsReserved' => 'All rights reserved',
 ];

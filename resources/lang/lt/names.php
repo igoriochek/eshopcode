@@ -185,7 +185,7 @@ return [
     'productOrders' => 'Produktų užsakymai',
     'noProducts' => 'Nėra produktų',
     'saleOff' => 'Išpardavimas',
-    'searchForItems' => 'Ieškokite prekių',
+    'searchForItems' => 'Ieškoti prekių',
     'search' => 'Ieškoti',
 
     //Promotions

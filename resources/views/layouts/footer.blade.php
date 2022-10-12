@@ -11,10 +11,26 @@
                             <h4 class="widget-title text-uppercase text-brand">{{__('footer.contactInfo')}}</h4>
                         </div>
                         <ul class="contact-infor">
-                            <li><img src="{{asset('/images/theme/icons/icon-location.svg')}}" alt="" /><strong>{{__('footer.address')}}: </strong> <span>5171 W Campbell Ave undefined Kent, Utah 53127 United States</span></li>
-                            <li><img src="{{asset('/images/theme/icons/icon-contact.svg')}}" alt="" /><strong>{{__('footer.phone')}}: </strong><span>(+91) - 540-025-124553</span></li>
-                            <li><img src="{{asset('/images/theme/icons/icon-email-2.svg')}}" alt="" /><strong>{{__('footer.email')}}: </strong><span>sale@Nest.com</span></li>
-                            <li><img src="{{asset('/images/theme/icons/icon-clock.svg')}}" alt="" /><strong>{{__('footer.hours')}}</strong></li>
+                            <li>
+                                <img src="{{asset('/images/theme/icons/icon-location.svg')}}" alt="" />
+                                <strong>{{__('footer.address')}}: </strong>
+                                <span>ADDRESS</span>
+                            </li>
+                            <li>
+                                <img src="{{asset('/images/theme/icons/icon-contact.svg')}}" alt="" />
+                                <strong>{{__('footer.phone')}}: </strong>
+                                <span>NUMBER</span>
+                            </li>
+                            <li>
+                                <img src="{{asset('/images/theme/icons/icon-email-2.svg')}}" alt="" />
+                                <strong>{{__('footer.email')}}: </strong>
+                                <span>EMAIL</span>
+                            </li>
+                            <li>
+                                <img src="{{asset('/images/theme/icons/icon-clock.svg')}}" alt="" />
+                                <strong>{{ __('footer.hours') }}: </strong>
+                                <span>HOURS</span>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -74,7 +90,11 @@
                 <div class="footer-bottom"></div>
             </div>
             <div class="col-xl-4 col-lg-6 col-md-6">
-                <p class="font-sm mb-0"><strong class="text-brand">{{__('footer.copyright')}}</strong><br />{{__('footer.allRightsReserved')}}</p>
+                <p class="font-sm mb-0">
+                    <strong class="text-brand">{{__('footer.copyright')}}</strong>
+                    <br />
+                    {{__('footer.allRightsReserved')}}
+                </p>
             </div>
             <div class="col-xl-4 col-lg-6 text-center d-none d-xl-block">
             </div>
