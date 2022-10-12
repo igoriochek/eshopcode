@@ -51,6 +51,9 @@
                                             <a href="{{ Auth::user() ? url("/user/innercategories/$category->id") : url("/innercategories/$category->id") }}">
                                                 {{ $category->name }}
                                             </a>
+                                            @if (!$loop->first)
+                                                @break
+                                            @endif
                                         @endforeach
                                     </div>
                                     <h2>

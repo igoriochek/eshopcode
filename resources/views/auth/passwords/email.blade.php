@@ -30,17 +30,8 @@
                                     </span>
                                     @enderror
                                 </div>
-                                <div class="login_footer form-group mb-50">
-                                    <div class="chek-form">
-                                        <div class="custome-checkbox">
-                                            <input class="form-check-input" type="checkbox" name="checkbox"
-                                                   id="exampleCheckbox1" value=""/>
-                                            <label class="form-check-label" for="exampleCheckbox1"><span>I agree to terms & Policy.</span></label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <button type="submit" class="btn btn-heading btn-block hover-up"
+                                <div class="form-group mt-50">
+                                    <button type="submit" class="btn btn-heading w-100 hover-up"
                                             name="login">{{ __('auth.sendResetPasswordLink') }}
                                     </button>
                                 </div>

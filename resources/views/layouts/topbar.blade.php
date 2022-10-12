@@ -16,7 +16,7 @@
                             <a id="navbarDropDown"  class="language-dropdown-active" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"  aria-expanded="false">
                                 {{__('messages.chooselang')}} <i class="fi-rs-angle-small-down"></i>
                             </a>
-                            <ul class="language-dropdown" aria-labelledby="navbarDropdown">
+                            <ul class="language-dropdown" aria-labelledby="navbarDropdown" style="z-index: 9999999">
                                 @foreach (config('translatable.locales') as $locale)
                                     <li>
                                         <a class="dropdown-item" href="/lang/{{ $locale }}"

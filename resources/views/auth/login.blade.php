@@ -58,21 +58,22 @@
                                        href="{{  route('password.request')  }}">{{__('buttons.forgotPassword')}}</a>
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-heading btn-block hover-up"
+                                    <button type="submit" class="btn btn-heading w-100 hover-up"
                                             name="login">{{ __('buttons.login') }}
                                     </button>
                                 </div>
                             </form>
-                            <div class="card-login mt-40 p-0 ml-0">
-                                <a href="{{ route('facebook.login') }}" class="social-login facebook-login">
+                            <hr class="my-5">
+                            <div class="card-login mt-40 p-0 ml-0 border-0">
+                                <a href="{{ route('facebook.login') }}" class="social-login facebook-login fs-6">
                                     <img src="{{asset('/images/theme/icons/logo-facebook.svg')}}" alt=""/>
                                     <span>{{__('auth.continueFacebook')}}</span>
                                 </a>
-                                <a href="{{ route('google.login') }}" class="social-login google-login">
+                                <a href="{{ route('google.login') }}" class="social-login google-login fs-6">
                                     <img src="{{asset('/images/theme/icons/logo-google.svg')}}" alt=""/>
                                     <span>{{__('auth.continueGoogle')}}</span>
                                 </a>
-                                <a href="{{ route('twitter.login') }}" class="social-login apple-login">
+                                <a href="{{ route('twitter.login') }}" class="social-login apple-login fs-6">
                                     <img src="{{asset('/images/theme/icons/icon-twitter-white.svg')}}" alt=""/>
                                     <span>{{__('auth.continueTwitter')}}</span>
                                 </a>

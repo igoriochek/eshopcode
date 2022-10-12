@@ -78,26 +78,12 @@
                                         autocomplete="new-password"
                                     />
                                 </div>
-                                <div class="form-group mb-30">
-                                    <button type="submit" class="btn btn-fill-out btn-block hover-up font-weight-bold"
+                                <div class="form-group mt-50">
+                                    <button type="submit" class="btn btn-fill-out w-100 hover-up font-weight-bold"
                                             name="login"> {{ __('buttons.register') }}
                                     </button>
                                 </div>
                             </form>
-                            <div class="card-login mt-40 p-0 ml-0">
-                                <a href="{{ route('facebook.login') }}" class="social-login facebook-login">
-                                    <img src="{{asset('/images/theme/icons/logo-facebook.svg')}}" alt=""/>
-                                    <span>{{__('auth.continueFacebook')}}</span>
-                                </a>
-                                <a href="{{ route('google.login') }}" class="social-login google-login">
-                                    <img src="{{asset('/images/theme/icons/logo-google.svg')}}" alt=""/>
-                                    <span>{{__('auth.continueGoogle')}}</span>
-                                </a>
-                                <a href="{{ route('twitter.login') }}" class="social-login apple-login">
-                                    <img src="{{asset('/images/theme/icons/icon-twitter-white.svg')}}" alt=""/>
-                                    <span>{{__('auth.continueTwitter')}}</span>
-                                </a>
-                            </div>
                         </div>
                     </div>
                 </div>
