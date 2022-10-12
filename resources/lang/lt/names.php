@@ -172,6 +172,7 @@ return [
     'search' => 'Search',
     'topRated' => 'Geriausiai atsiliepimai',
     'productDescription' => 'Produkto Aprašymas',
+    'results' => 'rezultatai',
 
     //Promotions
     'createPromotion' => 'Sukurti Akciją',

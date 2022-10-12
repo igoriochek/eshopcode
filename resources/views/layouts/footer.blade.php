@@ -1,4 +1,4 @@
-<footer class="revealed">
+<footer class="revealed pt-5">
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
@@ -29,7 +29,7 @@
                     <span>{{__('footer.menu')}}</span>
                 </h5>
                 <ul>
-                    @include('layouts.menus.guestmenu')
+                    @include('layouts.menus.logedmenu')
                 </ul>
             </div>
             @auth

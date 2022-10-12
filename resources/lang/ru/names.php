@@ -172,6 +172,7 @@ return [
     'search' => 'Поиск',
     'topRated' => 'Самые популярные',
     'productDescription' => 'Описание продукта',
+    'results' => 'Pезультаты',
 
     //Promotions
     'createPromotion' => 'Создать акцию',

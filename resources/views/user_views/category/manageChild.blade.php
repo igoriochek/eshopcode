@@ -1,4 +1,4 @@
-<ul style="list-style-type: none;">
+<ul style="list-style-type: none;" class="ps-3">
     @foreach($childs as $child)
         @if (count($child->products) > 0)
         <li class="nav-item">

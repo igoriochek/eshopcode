@@ -10,7 +10,7 @@
                         <div class="row">
                             <div class="col-6">
                                 <div class="results_shop">
-                                    {{ __('Showing ') }}
+                                    {{ __('names.showing') }}
                                     @if ($products->currentPage() !== $products->lastPage())
                                         {{ ($products->count() * $products->currentPage() - $products->count() + 1).__('–').($products->count() * $products->currentPage()) }}
                                     @else
@@ -20,12 +20,12 @@
                                             {{ ($products->total() - $products->count()).__('–').$products->total() }}
                                         @endif
                                     @endif
-                                    {{ __(' of ') }}
-                                    {{ $products->total().__(' results') }}
+                                    {{ __('names.of') }}
+                                    {{ $products->total().' '.__('names.results') }}
                                 </div>
                             </div>
                             <div class="col-6">
-                                <div class="form-group">
+                                <div class="form-group" style="min-width: 150px">
                                     <form method="get" action="{{ route("userproducts") }}" id="orderForm">
                                         {!! Form::select('order', $order_list, $selectedProduct, ['class' => 'ps-3', 'id' => 'orderSelector']) !!}
                                     </form>
@@ -111,7 +111,7 @@
             <div class="col-lg-3">
                 <aside class="sidebar">
                     <form method="get" action="{{ route("userproducts") }}">
-                        <div class="widget">
+                        <div class="widget p-0">
                             <div class="input-group">
                                 <input type="text" name="filter[namelike]" class="form-control" id="filter[namelike]"
                                        placeholder="{{ __('names.search') }}..." value="{{ $filter["namelike"] ?? "" }}">
@@ -124,7 +124,7 @@
                         </div>
                         <!-- End Search -->
                         <hr>
-                        <div class="widget">
+                        <div class="widget p-0">
                             <h4>{{ __('names.filters') }}</h4>
                             <fieldset class="form-group">
                                 <div id="range-slider" class="slider mx-2 mt-5 mb-2" wire:ignore>
@@ -141,7 +141,7 @@
                         </div>
                         <!-- End widget -->
                         <hr>
-                        <div class="widget" id="cat_shop">
+                        <div class="widget p-0" id="cat_shop">
                             <h4 class="mb-3">{{ __('names.categories') }}</h4>
                             <ul>
                                 @forelse($categories as $category)

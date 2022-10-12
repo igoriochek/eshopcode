@@ -172,6 +172,7 @@ return [
     'search' => 'Search',
     'topRated' => 'Top Rated',
     'productDescription' => 'Product Description',
+    'results' => 'results',
 
     //Promotions
     'createPromotion' => 'Create Promotion',
