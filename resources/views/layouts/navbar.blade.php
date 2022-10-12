@@ -14,7 +14,13 @@
                     <div class="header-action-right">
                         <div class="header-action-2">
                             @guest
-                                @include('layouts.menus.guest_user_menu')
+                                <div class="main-menu main-menu-padding-1 main-menu-lh-2 d-none d-lg-block font-heading me-4">
+                                    <nav>
+                                        <ul>
+                                            @include('layouts.menus.guest_user_menu')
+                                        </ul>
+                                    </nav>
+                                </div>
                                 @if (Route::has('login'))
                                     <div class="header-action mr-20 fs-5">
                                         <i class="fi fi-rs-sign-in mr-10"></i><a
@@ -29,7 +35,13 @@
                                         @include('layouts.dropdown_menus.adminreportmenu')
                                         @include('layouts.dropdown_menus.usermenu')
                                     @elseif (Auth::user()->type == 2)
-                                        @include('layouts.menus.guest_user_menu')
+                                        <div class="main-menu main-menu-padding-1 main-menu-lh-2 d-none d-lg-block font-heading me-4">
+                                            <nav>
+                                                <ul>
+                                                    @include('layouts.menus.guest_user_menu')
+                                                </ul>
+                                            </nav>
+                                        </div>
                                         @include('layouts.dropdown_menus.usermenu')
                                     @endif
                                 @endauth
