@@ -93,6 +93,7 @@ return [
     'usingPromoCode' => 'Using Promo Code?',
     'enterCoupon' => 'Enter Your Coupon',
     'apply' => 'Apply',
+
     //Discounts
     'createDiscount' => 'Create Discount',
     'discounts' => 'Discounts',
@@ -130,8 +131,6 @@ return [
     'loggedIn' => 'You are logged in!',
     'language' => 'Language is',
     'myCart' => 'My Cart',
-    'myOrders'=> 'My Orders',
-    'myReturns' => 'My Returns',
     'openMsg' => 'Open messenger',
     'noProductsInCart' => 'You don`t have any Products in your Cart!',
     'pricePerItem' => 'Price per Item',
@@ -184,6 +183,8 @@ return [
     'productOrders' => 'Product Orders',
     'noProducts' => 'No Products',
     'saleOff' => 'Sale Off',
+    'searchForItems' => 'Search For Items',
+    'search' => 'Search',
 
     //Promotions
     'createPromotion' => 'Create Promotion',

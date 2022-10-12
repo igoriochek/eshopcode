@@ -133,8 +133,6 @@ return [
     'loggedIn' => 'Jūs esate prisijungę!',
     'language' => 'Kalba yra',
     'myCart' => 'Mano Krepšelis',
-    'myOrders'=> 'Mano Užsakymai',
-    'myReturns' => 'Mano Grąžinimai',
     'openMsg' => 'Atidaryti Pranešėją',
     'noProductsInCart' => 'Jūsų krepšelyje nėra jokių produktų!',
     'pricePerItem' => 'Kaina už prekę',
@@ -187,6 +185,8 @@ return [
     'productOrders' => 'Produktų užsakymai',
     'noProducts' => 'Nėra produktų',
     'saleOff' => 'Išpardavimas',
+    'searchForItems' => 'Ieškokite prekių',
+    'search' => 'Ieškoti',
 
     //Promotions
     'createPromotion' => 'Sukurti Akciją',
