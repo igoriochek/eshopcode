@@ -29,4 +29,9 @@
         {{ __('menu.termsofservice') }}
     </a>
 </li>
+<li class="nav-list">
+    <a class="{{ request()->is('user/policy*') ? 'active' : '' }}" href="{{ url('/policy') }}">
+        {{ __('menu.policy') }}
+    </a>
+</li>
 

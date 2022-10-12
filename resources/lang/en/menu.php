@@ -38,5 +38,6 @@ return [
     'usersActivitiesReport' => 'Users Activities Report',
     'profile' => 'Profile',
     'termsofservice' => 'Rules',
+    'policy' => 'Privacy Policy',
 
 ];
