@@ -1785,7 +1785,7 @@ span.flatpickr-weekday {
 }
 
 .header-top-02 {
-  background-color: #EBEEF6;
+  background-color: #F5F5F5;
   padding: 5px 0;
   border-bottom: 1px solid #eee;
 }
@@ -2150,7 +2150,6 @@ span.flatpickr-weekday {
   transform: translateY(-50%);
   width: 1px;
   height: 20px;
-  background: #AAACB2;
   right: -15px;
 }
 @media only screen and (min-width: 768px) and (max-width: 991px), only screen and (max-width: 767px) {
@@ -2948,8 +2947,8 @@ span.flatpickr-weekday {
 }
 .header-action__number {
   position: absolute;
-  top: -4px;
-  right: 0;
+  top: -10px;
+  right: -10px;
   padding: 0 4px;
   min-width: 20px;
   height: 20px;

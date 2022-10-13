@@ -23,7 +23,7 @@ return [
     'or' => 'or Login With',
 
     //Login
-    'login'=> 'Login',
+    'login'=> 'Log in',
     'rememberMe' => 'Remember Me',
     'loginParagraph' => 'Already have an account?',
     'resetPasswordParagraph' => 'Remembered your password?',

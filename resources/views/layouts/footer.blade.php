@@ -1,4 +1,4 @@
-<div class="footer-section">
+<div class="footer-section bg-color-01">
     <div class="footer-widget-area section-padding-01">
         <div class="container">
             <div class="row gy-6">
@@ -8,16 +8,16 @@
                             <h4 class="footer-widget__title text-uppercase">{{__('footer.contactInfo')}}</h4>
                         </a>
                         <div class="footer-widget__info" style="margin-top: 0">
-                            <p>{{__('footer.address')}}</p>
-                            <span class="number">ADDRESS</span>
+                            <span class="number"><i class="fas fa-map-marker"></i> {{__('footer.address')}}</span>
+                            <p>ADDRESS</p>
                         </div>
                         <div class="footer-widget__info" style="margin-top: 0">
-                            <p>{{__('footer.phone')}}</p>
-                            <span class="number"><a href="tel://0037060000000">PHONE</a></span>
+                            <span class="number"><i class="fas fa-phone"></i> {{__('footer.phone')}}</span>
+                            <p><a href="tel://0037060000000">PHONE</a></p>
                         </div>
                         <div class="footer-widget__info" style="margin-top: 0">
-                            <p>{{__('footer.email')}}</p>
-                            <span class="number"> <a href="mailto:help@mdproject.com">EMAIL</a></span>
+                            <span class="number"><i class="far fa-envelope"></i> {{__('footer.email')}}</span>
+                            <p> <a href="mailto:help@mdproject.com">EMAIL</a></p>
                         </div>
                     </div>
                 </div>

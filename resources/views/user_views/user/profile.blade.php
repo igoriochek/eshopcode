@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+    <div class="container py-10">
     <div class="dashboard-content">
         <div class="container">
             <div class="dashboard-settings">
@@ -101,5 +102,6 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
 @endsection
