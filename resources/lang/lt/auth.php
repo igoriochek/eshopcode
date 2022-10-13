@@ -32,7 +32,7 @@ return [
 
     //Register
     'register' => 'Registruotis',
-    'registerParagraph' => "Neturi paskyros?",
+    'registerParagraph' => "Neturite paskyros?",
 
     //Reset Password
     'resetPassword' => 'Atstatyti slaptažodį',

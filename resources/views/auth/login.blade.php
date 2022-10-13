@@ -8,7 +8,8 @@
                     <h5 class="modal-title">{{ __('auth.login') }}</h5>
                     <p class="modal-description">{{ __('auth.registerParagraph') }}
                         <a class="login-link" href="{{ route('register') }}">
-                            {{ __('buttons.register') }}</a>
+                            {{ __('buttons.register') }}
+                        </a>
                     </p>
                 </div>
                 <div class="modal-body">
@@ -36,8 +37,8 @@
                         </div>
                         <div class="modal-form d-flex justify-content-between flex-wrap gap-2">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                                <label for="rememberme">{{ __('auth.rememberMe') }}</label>
+                                <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                                <label for="remember">{{ __('auth.rememberMe') }}</label>
                             </div>
                             <div class="text-end">
                                 @if (Route::has('password.request'))
