@@ -13,6 +13,10 @@ return [
     |
     */
 
+    'profileSettings' => 'Paskyros nustatymai',
+    'passwordSettings' => 'Slaptažodžio nustatymai',
+    'editProfile' => 'Redaguoti profilį',
+    'editPassword' => 'Keisti slaptažodį',
     'avatar' => 'Nuotrauka',
     'name' => 'Vardas',
     'email' => 'El paštas',

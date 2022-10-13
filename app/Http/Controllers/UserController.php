@@ -51,7 +51,7 @@ class UserController extends Controller
         return redirect(route('userprofile'));
     }
 
-    public function changePassword(Request $request) 
+    public function changePassword(Request $request)
     {
         $validateData = $request->validate([
             'current_password' => 'required',
@@ -68,12 +68,11 @@ class UserController extends Controller
 
             Flash::success(__('messages.changedpassword'));
 
-            return redirect(route('userprofile'));
         }
         else {
             Flash::error(__('messages.incorrectpassword'));
 
-            return redirect(route('userprofile'));
         }
+        return redirect(route('userprofile'));
     }
 }

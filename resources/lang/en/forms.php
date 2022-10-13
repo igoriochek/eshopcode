@@ -13,6 +13,10 @@ return [
 |
 */
 
+    'profileSettings' => 'Profile Settings',
+    'passwordSettings' => 'Password Settings',
+    'editProfile' => 'Edit profile',
+    'editPassword' => 'Change password',
     'avatar' => 'Avatar',
     'name' => 'Name',
     'email' => 'Email',
