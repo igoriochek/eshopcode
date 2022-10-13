@@ -11,6 +11,7 @@ return [
 
     'usermenu' => 'User menu',
     'adminmenu' => 'Admin menu',
+    'profile' => 'Profile',
 
     'admin' => 'Admin',
     'cart' => 'Cart',

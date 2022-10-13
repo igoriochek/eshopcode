@@ -54,9 +54,9 @@
                         <p>{{ __('auth.or') }}</p>
 
                         <ul class="modal-social-btn">
-                            <li><a href="#" class="btn facebook text-center "><i class="fab fa-facebook"></i> Facebook</a></li>
-                            <li class="pt-3"><a href="#" class="btn google text-center"><i class="fab fa-google"></i> Google</a></li>
-                            <li class="pt-3"><a href="#" class="btn twitter text-center"><i class="fab fa-twitter"></i> Twitter</a></li>
+                            <li><a href="{{ route('facebook.login') }}" class="btn facebook text-center "><i class="fab fa-facebook"></i> Facebook</a></li>
+                            <li class="pt-3"><a href="{{ route('google.login') }}" class="btn google text-center"><i class="fab fa-google"></i> Google</a></li>
+                            <li class="pt-3"><a href="{{ route('twitter.login') }}" class="btn twitter text-center"><i class="fab fa-twitter"></i> Twitter</a></li>
                         </ul>
                     </div>
                 </div>

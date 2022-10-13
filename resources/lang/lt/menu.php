@@ -11,6 +11,7 @@ return [
 
     'usermenu' => 'Vartotojo meniu',
     'adminmenu' => 'Aministratoriaus meniu',
+    'profile' => 'Profilis',
 
     'admin' => 'Administratorius',
     'cart' => 'Prekių Krepšelis',
