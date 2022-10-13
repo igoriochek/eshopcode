@@ -18535,7 +18535,6 @@ span.flatpickr-weekday {
   padding: 0;
   margin: 0;
   list-style-type: none;
-  display: flex;
   flex-wrap: wrap;
   margin-left: -10px;
   margin-right: -10px;

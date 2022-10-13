@@ -416,9 +416,6 @@
                             <div class="header-user__button">
                                 <button onclick="location.href='{{route("login")}}'" class="header-user__login">Log In</button>
                             </div>
-                            <div class="header-user__button">
-                                <button onclick="location.href='{{route("register")}}'" class="header-user__signup btn btn-primary btn-hover-primary">Sign Up</button>
-                            </div>
                             @endguest
                         </div>
                         <!-- Header User Button End -->

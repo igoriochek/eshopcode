@@ -1,73 +1,65 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('auth.login') }}</div>
-
-                <div class="card-body">
+    <div class="modal-dialog modal-dialog-centered modal-login">
+        <div class="modal-wrapper">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">{{ __('auth.login') }}</h5>
+                    <p class="modal-description">{{ __('auth.registerParagraph') }}
+                        <a class="login-link" href="{{ route('register') }}">
+                            {{ __('buttons.register') }}</a>
+                    </p>
+                </div>
+                <div class="modal-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
-
-                        <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('auth.email') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                        <div class="modal-form">
+                            <label class="form-label">{{ __('auth.email') }}</label>
+                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                 @error('email')
-                                    <span class="invalid-feedback" role="alert">
+                                <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            </div>
                         </div>
+                        <div class="modal-form">
+                            <label class="form-label">{{ __('auth.passwordEnter') }}</label>
+                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
-                        <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('auth.passwordEnter') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
+                            @error('password')
+                            <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                                @enderror
-                            </div>
+                            @enderror
                         </div>
-
-                        <div class="row mb-3">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('auth.rememberMe') }}
-                                    </label>
-                                </div>
+                        <div class="modal-form d-flex justify-content-between flex-wrap gap-2">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                                <label for="rememberme">{{ __('auth.rememberMe') }}</label>
                             </div>
-                        </div>
-
-                        <div class="row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('buttons.login') }}
-                                </button>
-
+                            <div class="text-end">
                                 @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('buttons.forgotPassword') }}
-                                    </a>
+                                <a class="modal-form__link" href="{{ route('password.request') }}">{{ __('buttons.forgotPassword') }}</a>
                                 @endif
                             </div>
                         </div>
+                        <div class="modal-form">
+                            <button type="submit" class="btn btn-primary btn-hover-secondary w-100">{{ __('buttons.login') }}</button>
+                        </div>
                     </form>
+                    <div class="modal-social-option">
+                        <p>{{ __('auth.or') }}</p>
+
+                        <ul class="modal-social-btn">
+                            <li><a href="#" class="btn facebook text-center "><i class="fab fa-facebook"></i> Facebook</a></li>
+                            <li class="pt-3"><a href="#" class="btn google text-center"><i class="fab fa-google"></i> Google</a></li>
+                            <li class="pt-3"><a href="#" class="btn twitter text-center"><i class="fab fa-twitter"></i> Twitter</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 @endsection
