@@ -19,7 +19,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/jquery-ui.min.css') }}" rel="stylesheet">
@@ -60,20 +61,18 @@
 </head>
 <body>
 
-@include('layouts.topbar')
-@include('layouts.navibar')
+<main class="main-wrapper">
 
-    <main class="main">
-        @yield('content')
-        <button id="backBtn" class="back-to-top backBtn">
-            <i class="arrow-top fal fa-long-arrow-up"></i>
-            <i class="arrow-bottom fal fa-long-arrow-up"></i>
-        </button>
-    </main>
-
+    @include('layouts.navi.topbar')
+    @include('layouts.navi.navibar')
+    @yield('content')
+    <button id="backBtn" class="back-to-top backBtn">
+        <i class="arrow-top fal fa-long-arrow-up"></i>
+        <i class="arrow-bottom fal fa-long-arrow-up"></i>
+    </button>
 </main>
-@include('layouts.footer')
 
+@include('layouts.footer')
 
 
 <script src="{{asset('js/jquery-3.6.0.min.js')}}"></script>
@@ -112,10 +111,10 @@
 
 <script>
 
-    $(document).ready(function() {
+    $(document).ready(function () {
         $('#categories').DataTable(
             {
-                "language" :
+                "language":
                     {
                         "emptyTable": "No data available in table",
                         "info": "Showing _START_ to _END_ of _TOTAL_ entries",
@@ -359,14 +358,13 @@
         );
     });
 
-    $( function() {
-        $( "#start" ).datepicker();
-    } );
+    $(function () {
+        $("#start").datepicker();
+    });
 
-    $( function() {
-        $( "#finish" ).datepicker();
-    } );
-
+    $(function () {
+        $("#finish").datepicker();
+    });
 
 
 </script>

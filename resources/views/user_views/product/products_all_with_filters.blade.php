@@ -1,22 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-    <section class="content-header">
-        <div class="container-fluid">
-            <div class="row m-2">
-                <div class="col-sm-6">
-                    <h1>{{__('names.categories')}}</h1>
-                </div>
-                {{--                <div class="col-sm-6">--}}
-                {{--                    <a class="btn btn-primary float-right"--}}
-                {{--                       href="{{ route('products.create') }}">--}}
-                {{--                        Add New--}}
-                {{--                    </a>--}}
-                {{--                </div>--}}
-
-            </div>
-        </div>
-    </section>
+    @include('layouts.navi.page-banner',[
+     'secondPageLink' => 'products',
+    'secondPageName' => __('names.products'),
+    'hasThirdPage' => false
+])
 
     <section>
         <div class="row m-2">
@@ -98,7 +87,8 @@
                                     <p>
                                         @if ($product->discount )
                                             {{__("names.old")}}:<strike>{{$product->price}}</strike>&nbsp;&nbsp;&nbsp;
-                                            <b>{{__("names.new")}}:{{ round(($product->price * $product->discount->proc / 100),2) }}</b>
+                                            <b>{{__("names.new")}}
+                                                :{{ round(($product->price * $product->discount->proc / 100),2) }}</b>
                                         @else
                                             {{ $product->price }}
                                         @endif
