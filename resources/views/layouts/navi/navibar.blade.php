@@ -1,3 +1,4 @@
+<main class="main-wrapper">
 <div class="header-section header-sticky">
     <div class="header-main-06">
         <div class="container custom-container position-relative">
@@ -26,9 +27,19 @@
                                 @endif
                             </a>
                         </div>
+                        <!-- Header Mobile Toggle Start -->
+                        <div class="header-toggle">
+                            <button class="header-toggle__btn d-xl-none" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMobileMenu">
+                                <span class="line"></span>
+                                <span class="line"></span>
+                                <span class="line"></span>
+                            </button>
+                        </div>
+                        <!-- Header Mobile Toggle End -->
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+</main>

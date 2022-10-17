@@ -1,3 +1,4 @@
+<main class="main-wrapper">
 <div class="header-top-02 d-none d-sm-block">
     <div class="container">
 
@@ -71,16 +72,16 @@
                         <a class="language-toggle" href="#">{{ Auth::user()->name }}</a>
                         <ul class="language-dropdown">
                             @if( Auth::user()->type == 2 )
-                                <a class="dropdown-item" href="/user/userprofile">{{__('menu.userInfo')}}</a>
-                                <a href="/user/rootorders" class="dropdown-item">{{__('names.myOrders')}}</a>
-                                <a href="/user/rootoreturns" class="dropdown-item">{{__('names.myReturns')}}</a>
+                                <li><a href="/user/userprofile">{{__('menu.userInfo')}}</a></li>
+                                <li><a href="/user/rootorders">{{__('names.myOrders')}}</a></li>
+                                <li><a href="/user/rootoreturns">{{__('names.myReturns')}}</a></li>
                             @endif
                             <form id="logout-form" action="{{ route('logout') }}" method="POST">
                                 @csrf
-                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                <li><a href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                    document.getElementById('logout-form').submit();">{{ __('menu.logout') }}
-                                </a>
+                                </a></li>
                             </form>
                         </ul>
                     </div>
@@ -89,3 +90,4 @@
         </div>
     </div>
 </div>
+</main>
