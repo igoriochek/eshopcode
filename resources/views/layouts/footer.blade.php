@@ -9,7 +9,7 @@
                             class="d-block font-weight-normal line-height-1 text-color-light">
                             {{ __('footer.address') }}
                         </span>
-                        Logistikos g. 4, Sausių kaimas, Trakų raj. savivaldybė, Vilniaus apskritis
+                        Pakapių k. 5, Pakapių k., LT-88403 Telšių r.
                     </li>
                     <li class="pb-1 mb-2">
                         <span class="d-block font-weight-normal line-height-1 text-color-light">
@@ -23,6 +23,28 @@
                             {{ __('footer.email') }}
                         </span>
                         <a href="mailto:mail@example.com">dinobalt.info@gmail.com</a>
+                    </li>
+
+                    <li class="pb-1 mb-2">
+                        <span
+                            class="d-block font-weight-normal line-height-1 text-color-light">
+                            {{ __('footer.companycode') }}
+                        </span>
+                        302685495
+                    </li>
+                    <li class="pb-1 mb-2">
+                        <span
+                            class="d-block font-weight-normal line-height-1 text-color-light">
+                            {{ __('footer.vatcode') }}
+                        </span>
+                        LT100007947217
+                    </li>
+                    <li class="pb-1 mb-2">
+                        <span
+                            class="d-block font-weight-normal line-height-1 text-color-light">
+                            {{ __('footer.ac') }}
+                        </span>
+                        LT53 3500 0100 0156 4853
                     </li>
                 </ul>
                 <ul class="social-icons social-icons-clean-with-border social-icons-medium">

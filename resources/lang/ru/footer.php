@@ -15,5 +15,8 @@ return [
     'menu' => 'МенЮ',
     'profile' => 'Личный кабинет',
     'copyright' => 'dinobalt.lt © 2022. Все права защищены',
+    'companycode' => "Код предприятия",
+    'vatcode' => "Код НДС",
+    'ac' => "Р/с",
 
 ];

@@ -78,7 +78,7 @@
                                         {{--                                            </a>--}}
                                         {{--                                        </li>--}}
                                         @guest
-                                            @include('layouts.menus.menu')
+                                            @include('layouts.menus.menutop')
                                         @endguest
                                         @auth
                                             @include('layouts.menus.user_menu')

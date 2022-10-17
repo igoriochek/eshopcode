@@ -35,7 +35,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot(CartRepository $cartRepository, Request $request)
     {
         //Force app to use https
-        //URL::forceScheme('https');
+//        URL::forceScheme('https');
 
         //Cart item number
         View::composer('*', function($view) use($cartRepository, $request)

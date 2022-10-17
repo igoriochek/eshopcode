@@ -203,7 +203,8 @@ Route::get("viewproduct/{id}", [ProductController::class, 'userViewProduct'])->w
 Route::get('products', [ProductController::class, 'userProductIndex'])->name('userproducts');
 Route::get('promotions', [\App\Http\Controllers\PromotionController::class, 'indexPromotions'])->name('promotions');
 Route::get('promotion/{id}', [\App\Http\Controllers\PromotionController::class, 'promotionProducts'])->name('promotion');
-
+Route::get("termsofservice", [\App\Http\Controllers\TermsOfServiceController::class, 'index'])->name('termsofservice');
+Route::get("policy", [\App\Http\Controllers\TermsOfServiceController::class, 'policy'])->name('policy');
 Auth::routes();
 Route::get("logout", function () {
     Auth::logout();
