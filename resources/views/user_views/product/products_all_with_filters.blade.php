@@ -6,143 +6,172 @@
     'secondPageName' => __('names.products'),
     'hasThirdPage' => false
 ])
+    <main class="main-wrapper">
+        <div class="shop-section section-padding-01">
+            <div class="container">
+                <div class="row gy-10">
 
-    <section>
-        <div class="row m-2">
+                    <div class="shop-main-content">
 
-            {{--        @include('flash::message')--}}
-            <div class="col-sm-2">
-                <div class="card">
-                    <div class="card-body p-0">
-                        <form method="get" action="{{route("userproducts")}}">
-                            <div class="form-group">
-                                <label for="filter[namelike]">{{__('names.productName')}}</label>
-                                <input type="text" name="filter[namelike]" class="form-control" id="filter[namelike]"
-                                       placeholder="" value="{{$filter["namelike"] ?? ""}}">
-                            </div>
-                            <fieldset class="form-group">
-                                <div class="row">
-                                    <div>
-                                        <legend class="col-form-label col-sm-4 pt-0">{{__('names.categories')}}</legend>
-                                    </div>
-                                    <div class="col-sm-10">
-                                        @forelse($categories as $category)
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox"
-                                                       value="{{$category->id}}" id="category" onclick="calc();"
-                                                    {{--                                           name="filter[categories.id]"--}}
-                                                @if ($filter && $filter["categories.id"])
-                                                    {{ in_array($category->id, $selCategories) ? "checked=\"checked\"" : ""}}
-                                                    @endif
-                                                >
-                                                <label class="form-check-label" for="categories.id">
-                                                    {{$category->name}}
-                                                </label>
-                                            </div>
-                                        @empty
-                                            ---
-                                        @endforelse
-                                        <input type="text" value="{{implode(",",$selCategories)}}"
-                                               name="filter[categories.id]" id="filter[categories.id]">
-                                    </div>
-                                </div>
-                                <div>&nbsp;</div>
-                            </fieldset>
-                            <fieldset class="form-group">
-                                <div class="price_filter">
-                                    <label for="amount">{{__('names.price')}} :</label>
-                                    <div id="slider" class="slider" wire:ignore></div>
-                                    <div>&nbsp;</div>
-                                    <div><label for="amount">{{__('names.from')}} :</label>
-                                        <input type="text" id="filter[pricefrom]" name="filter[pricefrom]" readonly
-                                               value="{{$filter["pricefrom"] ?? ""}}"/></div>
-                                    <div><label for="amount">{{__('names.to')}} :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                                        <input type="text" id="filter[priceto]" name="filter[priceto]" readonly
-                                               value="{{$filter["priceto"] ?? ""}}"/></div>
-
-                                    <div><label for="order">{{__('names.orderBy')}}:</label>
-                                        {!! Form::select('order', $order_list, $selectedProduct, ['class' => 'form-control custom-select']) !!}
-                                    </div>
-                                </div>
-                            </fieldset>
-                            <div>&nbsp;</div>
-                            <div>&nbsp;</div>
-                            <input type="submit" value="{{__('buttons.filter')}}">
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-10">
-                <div class="card">
-                    <div class="card-body p-0">
-                        {{--                @include('products.table')--}}
-
-                        @if(!empty($products))
-                            @forelse( $products as $product )
-                                <div class="card-body">
-                                    <h4 class="card-title"><a
-                                            href="{{route('viewproduct', $product->id)}}">{{$product->name}}</a></h4>
-                                    <h6 class="card-subtitle mb-2 text-muted">{{__('names.desc')}}</h6>
-                                    <p class="card-text">{{$product->description}}</p>
-                                    <p>
-                                        @if ($product->discount )
-                                            {{__("names.old")}}:<strike>{{$product->price}}</strike>&nbsp;&nbsp;&nbsp;
-                                            <b>{{__("names.new")}}
-                                                :{{ round(($product->price * $product->discount->proc / 100),2) }}</b>
+                        <div class="archive-filter-bars">
+                            <div class="archive-filter-bar">
+                                <p>
+                                    {{ __('names.showing') }}
+                                    @if ($products->currentPage() !== $products->lastPage())
+                                        {{ ($products->count() * $products->currentPage() - $products->count() + 1).__('–').($products->count() * $products->currentPage())}}
+                                    @else
+                                        @if ($products->total() - $products->count() === 0)
+                                            {{ 1 }}
                                         @else
-                                            {{ $product->price }}
+                                            {{ ($products->total() - $products->count()).__('–').$products->total() }}
                                         @endif
-                                    </p>
-                                    @forelse($product->categories as $c)
-                                        <a href="{{route('innercategories', $c->id)}}"
-                                           class="card-link">{{$c->name}}</a>
-                                    @empty
-                                        ---{{__('names.noCategories')}}---
-                                    @endforelse
+                                    @endif
+                                    {{ __('names.of') }}
+                                    {{ $products->total().' '.__('names.results') }}
+                                </p>
+                            </div>
+                            <div class="archive-filter-bar">
+                                <div class="filter-bar-wrapper">
+                                    <span>{{__('names.view')}}</span>
+                                    <ul class="nav">
+                                        <li><button class="active" data-bs-toggle="tab" data-bs-target="#grid"><i class="fas fa-th"></i></button></li>
+                                        <li><button data-bs-toggle="tab" data-bs-target="#list"><i class="fas fa-bars"></i></button></li>
+                                    </ul>
+                                    <div class="filter-select filter-select-icon">
+                                        <form method="get" action="{{ route("userproducts") }}" id="orderForm">
+                                            <input type="hidden" id="orderBy" value="">
+                                            {!! Form::select('order', $order_list, $selectedProduct, ['class' => 'edumall-nice-select','data-select' => '{&quot;fieldLabel&quot;:&quot;Sort by:&quot;}', 'id' => 'orderSelector']) !!}
+                                        </form>
+                                    </div>
                                 </div>
-                            @empty
-                                {{__('names.noCategories')}}
-                            @endforelse
-                            {{$products->links()}}
-                        @endif
+                            </div>
+                        </div>
 
-                        <!--<div class="card-footer clearfix">
-                    <div class="float-right">
+                        <div class="tab-content">
+                            <div class="tab-pane fade show active" id="grid">
+                                <div class="row gy-6">
+                                    @include('user_views.product.products_grid')
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="list">
+                                @include('user_views.product.products_list')
+                            </div>
+                        </div>
+
+                        <div class="page-pagination d-flex justify-content-center">
+                            {{ $products -> links() }}
+                        </div>
 
                     </div>
-                </div>-->
+
+                    <div class="shop-main-sidebar">
+
+                        <div class="sidebar-widget-wrapper">
+
+                            <form method="get" action="{{route("userproducts")}}">
+
+                                <div class="sidebar-widget-wrap bg-color-10">
+                                    <h4 class="sidebar-widget-wrap__title">{{__('names.search')}}</h4>
+                                    <div class="header-serach">
+                                        <input type="text" name="filter[namelike]" class="header-serach__input"
+                                               id="filter[namelike]" placeholder="{{ __('names.search').'...' }}" value="{{$filter["namelike"] ?? ""}}">
+                                        <button type="submit" class="header-serach__btn">
+                                            <i class="fas fa-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="sidebar-widget-wrap bg-color-10 mt-4">
+                                    <h4 class="sidebar-widget-wrap__title">{{ __('names.filterByPrice') }}</h4>
+                                    <div class="widget-filter__wrapper">
+                                        <div class="widget-filter__range-slider">
+                                            <fieldset class="form-group">
+                                                <div id="range-slider" class="slider mb-3 mt-1 mx-1" wire:ignore></div>
+                                                <div class="filter-by-price-button-container mb-3">
+                                                    <div class="d-flex">
+                                                        <span>{{ __('names.price')}} (€):</span>
+                                                        <input type="text" id="filter[pricefrom]" name="filter[pricefrom]"
+                                                               readonly
+                                                               value="{{ $filter["pricefrom"] ?? '0' }}"
+                                                               class="border-0 text-end filter-by-price-number" style="max-width: 50px; background: none"/>
+                                                        <span class="text-center"> — </span>
+                                                        <input type="text" id="filter[priceto]" name="filter[priceto]" readonly
+                                                               value="{{ $filter["priceto"] ?? '0' }}"
+                                                               class="border-0 text-start filter-by-price-number" style="max-width: 50px; background: none"/>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                            <div class="widget-filter__range-btn d-flex justify-content-end">
+                                                <button type="submit" id="filterSubmit" class="btn btn-white btn-hover-primary">{{__('buttons.filter')}}</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="sidebar-widget-wrap bg-color-10 mt-4">
+                                    <h4 class="sidebar-widget-wrap__title">{{__('names.filterByCategory')}}</h4>
+                                    <div class="widget-filter">
+                                        <div class="widget-filter__wrapper">
+                                            <ul class="widget-filter__list">
+                                                @forelse($categories as $category)
+                                                    <li>
+                                                        <div class="widget-filter__item">
+                                                            <input type="checkbox"  value="{{ $category->id }}" id="category{{ $category->id }}" onclick="calc();"
+                                                            @if ($filter && array_key_exists('categories.id', $filter))
+                                                                {{ in_array($category->id, $selCategories) ? "checked=\"checked\"" : ""}}
+                                                                @endif>
+                                                            <label for="category{{ $category->id }}">
+                                                                {{ $category->name }}
+                                                            </label>
+                                                        </div>
+                                                    </li>
+                                                @empty
+                                                    <span class="text-muted">{{ __('names.noCategories') }}</span>
+                                                @endforelse
+                                                <input type="text" value="{{ implode(",", $selCategories) }}"
+                                                       name="filter[categories.id]" id="filter[categories.id]" class="d-none">
+                                            </ul>
+                                        </div>
+                                        <div class="widget-filter__range-btn d-flex justify-content-end pt-4">
+                                            <button type="submit" id="filterSubmit" class="btn btn-white btn-hover-primary">{{__('buttons.filter')}}</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </form>
+
+                        </div>
+
                     </div>
 
                 </div>
             </div>
         </div>
-    </section>
+    </main>
+
 
     @push('scripts')
         <script>
-            var slider = document.getElementById('slider');
-
-            noUiSlider.create(slider, {
-                // start: [0, 1000],
-                start: [{{$filter["pricefrom"] ?? 0}}, {{$filter["priceto"] ?? 1000}}],
-                connect: true,
-                step: 1,
-                range: {
-                    'min': 0,
-                    'max': 1000
-                }
+            const orderForm = document.getElementById('orderForm');
+            const orderSelector = document.getElementById('orderSelector');
+            orderSelector.onchange = () => orderForm.submit();
+            const rangeSlider = document.getElementById('range-slider');
+            const priceFrom = document.getElementById('filter[pricefrom]');
+            const priceTo = document.getElementById('filter[priceto]');
+            $(() => {
+                $(rangeSlider).slider({
+                    range: true,
+                    min: 0,
+                    max: 1000,
+                    values: [{{ $filter["pricefrom"] ?? 0 }}, {{ $filter["priceto"] ?? 1000 }}],
+                    slide: (event, ui) => {
+                        $(priceFrom).val(ui.values[0]);
+                        $(priceTo).val(ui.values[1]);
+                    }
+                });
+                $(priceFrom).val($(rangeSlider).slider("values", 0));
+                $(priceTo).val($(rangeSlider).slider("values", 1));
             });
-
-            slider.noUiSlider.on("change", (event) => {
-                var pricefrom = document.getElementById('filter[pricefrom]');
-                var priceto = document.getElementById('filter[priceto]');
-                var price = slider.noUiSlider.get();
-                price = price.toString().split(",");
-                pricefrom.value = price[0];
-                priceto.value = price[1];
-                // console.log(slider.noUiSlider.get());
-            });
-
             function calc() {
                 var elements = document.querySelectorAll("input[type='checkbox']");
                 // console.log(elements);
@@ -151,10 +180,11 @@
                     value += elements[i].checked == true && value ? ',' : '';
                     value += elements[i].checked == true ? elements[i].value : "";
                 }
-                console.log(value);
+                //console.log(value);
                 document.getElementById("filter[categories.id]").value = value;
             }
         </script>
+
     @endpush
 
 @endsection

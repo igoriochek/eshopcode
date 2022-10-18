@@ -155,6 +155,9 @@ return [
     'productName' => 'Produkto pavadinimas',
     'productOrders' => 'Produktų užsakymai',
     'noProducts' => 'Nėra produktų',
+    'search' => 'Ieškoti',
+    'filterByPrice' => 'Filtruoti pagal kaina',
+    'filterByCategory' => 'Filtruoti pagal kategorija',
 
     //Promotions
     'createPromotion' => 'Sukurti Akciją',
@@ -218,6 +221,11 @@ return [
     'old' => "Senos",
     'new' => "Naujos",
 
-    'orderBy' => 'Rūšiuoti pagal'
+    'orderBy' => 'Rūšiuoti pagal',
+
+    "showing" => "Rodomi",
+    "of" => "iš",
+    'results' => 'rezultatai',
+    'view' => 'Vaizdas',
 
 ];

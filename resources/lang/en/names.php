@@ -156,6 +156,9 @@ return [
     'productName' => 'Product Name',
     'productOrders' => 'Product Orders',
     'noProducts' => 'No Products',
+    'search' => 'Search',
+    'filterByPrice' => 'Filter by price',
+    'filterByCategory' => 'Filter by category',
 
     //Promotions
     'createPromotion' => 'Create Promotion',
@@ -216,7 +219,12 @@ return [
     'old' => "Old",
     'new' => "New",
 
-    'orderBy' => 'Order By'
+    'orderBy' => 'Order By',
+
+    "showing" => "Showing",
+    "of" => "of",
+    'results' => 'results',
+    'view' => 'View',
 
 
 ];
