@@ -15,8 +15,8 @@ class TermsOfServiceController extends Controller
 
     }
 
-    public function index( Request $request ) {
-        return view('user_views.terms.index', ['lang' => app()->getLocale()]);
+    public function rules( Request $request ) {
+        return view('user_views.terms.rules', ['lang' => app()->getLocale()]);
     }
 
     public function policy(Request $request) {
