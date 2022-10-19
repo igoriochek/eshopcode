@@ -55,7 +55,7 @@
                     <ul class="list-unstyled mb-0">
                         <li class="d-flex align-items-center mb-4">
                             <div style="width: 50px">
-                                <i class="fa-solid fa-buildings"></i>
+                                <i class="fa-sharp fa-solid fa-building"></i>
                             </div>
                             <span class="contact-travel-paragraph">{{ __('UAB OPATRIP') }}</span>
                         </li>
