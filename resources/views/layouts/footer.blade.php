@@ -27,7 +27,7 @@
                     </h5>
 
                     <ul class="list-unstyled mb-0">
-                            @include('layouts.menus.user_menu')
+                            @include('layouts.menus.user_menu_bootom')
 {{--                        <li class="mb-4">--}}
 {{--                            <a class="footer-link" href="{{ url('/') }}">--}}
 {{--                                <i class="fa-solid fa-address-card fs-5 me-1"></i>--}}
@@ -64,6 +64,20 @@
                                 <i class="fa-solid fa-phone fs-3 contact-travel-icon"></i>
                             </div>
                             <span class="contact-travel-paragraph">{{ __('+370 679 22249') }}</span>
+                        </li>
+                        <li class="d-flex align-items-center mb-4">
+                            <div style="width: 50px">
+{{--                                <i class="fa-solid fa-phone fs-3 contact-travel-icon"></i>--}}
+                                <i class="fa-sharp fa-solid fa-clipboard"></i>
+                            </div>
+                            <span class="contact-travel-paragraph">{{ __('300111402') }}</span>
+                        </li>
+                        <li class="d-flex align-items-center mb-4">
+                            <div style="width: 50px">
+{{--                                <i class="fa-solid fa-phone fs-3 contact-travel-icon"></i>--}}
+                                <i class="fa-solid fa-book"></i>
+                            </div>
+                            <span class="contact-travel-paragraph">{{ __('LT100001696617') }}</span>
                         </li>
 {{--                        <li class="d-flex align-items-center mb-4" style="gap: 20px">--}}
 {{--                            <a href="#" class="footer-link">--}}
