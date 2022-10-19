@@ -30,14 +30,15 @@
 </li>
 
 <li class="mb-4">
-    <i class="fa-solid fa-envelope"></i>
+{{--    <i class="fa-solid fa-envelope"></i>--}}
+    <i class="fa-solid fa-pen"></i>
     <a class="footer-link"href="{{ url('/termsofservice') }}">
         {{ __('menu.termsofservice') }}
     </a>
 </li>
 
 <li class="mb-4">
-    <i class="fa-solid fa-envelope"></i>
+    <i class="fa-sharp fa-solid fa-file"></i>
     <a class="footer-link"href="{{ url('/policy') }}">
         {{ __('menu.policy') }}
     </a>
