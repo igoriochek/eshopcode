@@ -1,6 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
+    <div class="page-navigation">
+        <div class="container">
+            <a href="{{ url('/') }}">
+                {{ __('menu.home') }}
+            </a>
+            <i class="fa-solid fa-angle-right"></i>
+            <span>
+                {{ __('menu.orders') ?? '' }}
+            </span>
+        </div>
+    </div>
     <div class="container">
         <div class="row">
             <section class="content-header">

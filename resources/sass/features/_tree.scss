@@ -8,43 +8,30 @@
     .nav-item {
         .nav-link {
             transition: color 100ms ease;
+            color: $black-color;
 
             &:hover, &:focus {
-                color: #00a1f2;
+                color: $yellow-color;
 
                 i {
-                    color: #00a1f2;
+                    color: $yellow-color;
                     animation: ArrowPointing 500ms infinite linear;
-                }
-            }
-
-            @keyframes ArrowPointing {
-                0% {
-                    transform: translateX(0);
-                }
-                25% {
-                    transform: translateX(1.5px);
-                }
-                50% {
-                    transform: translateX(3px);
-                }
-                75% {
-                    transform: translateX(1.5px);
-                }
-                100% {
-                    transform: translateX(0);
                 }
             }
 
             i {
                 font-size: .8em;
-                color: #aaa;
+                color: $black-color;
                 margin-right: 5px;
             }
         }
-    }
 
-    .active {
-        font-weight: 700;
+        .active {
+            color: $yellow-color;
+
+            i {
+                color: $yellow-color;
+            }
+        }
     }
 }

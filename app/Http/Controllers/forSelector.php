@@ -134,14 +134,35 @@ trait forSelector
         return $c;
     }
 
-    public function productOrder() {
+    public function productsOrderSelector(): array
+    {
         $c = array();
-        $titles = ['No order', 'Product name', "Price"];
-        for( $i = 0; $i < count($titles); $i++){
+
+        $titles = [
+            __('forms.default'),
+            __('forms.productNameAsc'),
+            __('forms.productNameDesc'),
+            __('forms.priceAsc'),
+            __('forms.priceDesc')
+        ];
+
+        for($i = 0; $i < count($titles); $i++){
             $c[$i] = $titles[$i];
         }
-        return $c;
 
+        return $c;
     }
 
+    public function productsPaginateNumberSelector(): array
+    {
+        $c = array();
+
+        $numbers = [12, 24, 36];
+
+        for($i = 0; $i < count($numbers); $i++){
+            $c[$i] = $numbers[$i];
+        }
+
+        return $c;
+    }
 }

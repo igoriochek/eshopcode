@@ -8,12 +8,16 @@ return [
     |--------------------------------------------------------------------------
     */
 
-    'contactInfo' => 'Kontaktinė informacija',
+    'description' => 'Statybų organizavimo paslaugas teikianti įmonė',
+    'timeDesc' => 'Darbo laikas',
+    'timeOne' => 'Pir.-Ket.',
+    'timeTwo' => 'Penkt.',
+    'contactUs' => 'Susisiekite su mumis',
     'address' => 'Adresas',
     'phone' => 'Telefonas',
     'email' => 'El. Paštas',
     'menu' => 'MENIU',
     'profile' => 'Vartotojo paskyra',
-    'copyright' => 'Buhalteres.lt © 2022. Visos teisės saugomos',
+    'copyright' => '© 2022 UAB "Aurintus"',
 
 ];

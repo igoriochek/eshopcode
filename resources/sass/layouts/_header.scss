@@ -6,21 +6,17 @@
     .header-body {
         display: flex;
         flex-direction: column;
-        background: #FFF;
         transition: min-height 0.3s ease;
         width: 100%;
-        border-top: 3px solid #EDEDED;
-        border-bottom: 1px solid #EDEDED;
+        background: $white-color;
+        border-bottom: 2px solid $gray-color;
         z-index: 1001;
-
-        .header-body-bottom-border-fixed {
-            border-bottom: 1px solid rgba(234, 234, 234, 0.5) !important;
-        }
 
         .header-top {
             display: flex;
             align-items: center;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+            background: $black-color;
+            color: $gray-color;
 
             .header-top-small-minheight {
                 min-height: 38px;
@@ -50,6 +46,21 @@
                         .header-row {
                             justify-content: inherit;
 
+                            i {
+                                font-size: .9rem;
+                                color: $yellow-color;
+                            }
+
+                            p {
+                                font-size: .8rem;
+                            }
+
+                            span {
+                                min-height: calc(100% / 3);
+                                min-width: 1px;
+                                background: #3b3b3b;
+                            }
+
                             .header-nav-top {
                                 display: flex;
                                 align-self: stretch;
@@ -57,16 +68,17 @@
 
                                 .nav > li > a,
                                 .nav > li > span {
-                                    color: #777777;
-                                    font-size: 0.9em;
+                                    color: $gray-color;
+                                    font-size: .85em;
                                     padding: 6px 10px;
                                     display: inline-block;
-                                    letter-spacing: -0.3px;
+                                    letter-spacing: -.3px;
                                     font-weight: 500;
-                                    transition: color 100ms ease;
+                                    opacity: 1;
+                                    transition: opacity 200ms ease;
 
                                     &:hover, &:focus, &:active {
-                                        color: #0088CC;
+                                        opacity: .8;
                                     }
                                 }
 
@@ -128,27 +140,25 @@
                                     }
 
                                     a {
-                                        color: #999;
                                         padding: 3px 9px;
-                                        font-size: 0.9em;
                                         text-align: center;
+                                        color: $black-color;
                                     }
                                 }
 
                                 .dropdown {
                                     .dropdown-item {
-                                        font-size: 0.75em;
+                                        font-size: 0.6em;
                                     }
                                 }
 
                                 .social-icons {
                                     padding: 0;
-                                    margin: 0 0 0 1rem;
+                                    margin: 0;
                                     width: auto;
 
                                     li {
                                         display: inline-block;
-                                        margin: -1px 1px 0 0;
                                         padding: 0;
                                         border-radius: 100%;
                                         overflow: visible;
@@ -157,9 +167,9 @@
                                             transition: all 0.2s ease;
                                             border-radius: 100%;
                                             display: block;
-                                            height: 28px;
-                                            line-height: 28px;
-                                            width: 28px;
+                                            height: 22px;
+                                            line-height: 22px;
+                                            width: 22px;
                                             text-align: center;
                                             color: #333 !important;
                                             text-decoration: none;
@@ -167,6 +177,17 @@
 
                                             i {
                                                 color: #777777;
+                                            }
+                                        }
+                                    }
+
+                                    .social-icons-facebook,
+                                    .social-icons-google,
+                                    .social-icons-twitter {
+                                        a {
+                                            i {
+                                                font-size: .9em;
+                                                color: #FFFF;
                                             }
                                         }
                                     }
@@ -224,15 +245,22 @@
                         }
 
                         .hamburger-button {
-                            background: #0088CC;
-                            transition: background 200ms ease;
+                            background: $yellow-color;
+                            border-radius: 0;
+                            height: 45px;
+                            width: 45px;
+                            aspect-ratio: 1;
 
                             i {
-                                color: #fff;
+                                color: $black-color;
                             }
 
                             &:hover, &:focus, &:active {
-                                background: #00a1f2;
+                                background: $black-color;
+
+                                 i {
+                                     color: $yellow-color;
+                                 }
                             }
                         }
 
@@ -245,38 +273,63 @@
                                 position: relative;
                                 z-index: 2;
 
-                                .login-button {
-                                    text-transform: uppercase;
-                                    border-radius: 5px;
-                                    height: 38px;
-                                    background: transparent;
-                                    color: #0088CC;
-                                    border: 2px solid #0088CC;
-                                    display: flex;
-                                    justify-content: center;
-                                    align-items: center;
-                                    font-size: .8rem;
-                                    transition: all 200ms ease;
+                                .dropdown-menu {
+                                    border: 0;
+                                    margin-top: -2px;
+                                    margin-left: -2px;
+                                    box-shadow: 0 10px 30px 10px rgb(0 0 0 / 5%);
+                                    background: #FFF;
+                                    min-width: 100px;
+                                    z-index: 10000;
+                                    margin-right: 20px;
+                                    transition: opacity .2s ease-out;
+                                    border-radius: 0;
 
-                                    &:hover, &:focus, &:active {
-                                        background: #0088CC;
-                                        color: #fff;
+
+                                    &:before {
+                                        content: '';
+                                        display: block;
+                                        position: absolute;
+                                        top: 0;
+                                        right: 33px;
+                                        width: 0;
+                                        height: 0;
+                                        border-left: 7px solid transparent;
+                                        border-right: 7px solid transparent;
+                                        border-bottom: 7px solid white;
+                                        transform: translate3d(-7px, -6px, 0);
                                     }
+
+                                    a {
+                                        padding: 3px 9px;
+                                        text-align: center;
+                                        color: $black-color;
+
+                                        &:active {
+                                            background: $black-color;
+                                            color: $yellow-color;
+                                        }
+                                    }
+                                }
+
+                                .login-button {
+                                    @include primaryButton;
+                                    height: 45px;
                                 }
 
                                 .header-nav-features-toggle {
                                     color: #444;
                                     margin: 0 .8rem;
                                     font-size: 1.4rem;
-                                    transition: color 100ms ease;
+                                    transition: color 200ms ease;
 
                                     &:last-of-type {
                                         position: relative;
 
                                         .shopping-cart-items {
                                             position: absolute;
-                                            top: -5px;
-                                            left: 18px;
+                                            top: -2px;
+                                            left: 16px;
                                             width: 16px;
                                             height: 16px;
                                             background-color: #f33535;
@@ -291,12 +344,11 @@
                                     }
 
                                     &:hover, &:focus, &:active {
-                                        color: #0088CC;
-                                    }
+                                        color: $yellow-color;
 
-                                    .header-nav-features-img {
-                                        &:hover, &:focus, &:active  {
-                                            filter: invert(52%) sepia(37%) saturate(5169%) hue-rotate(170deg) brightness(98%) contrast(101%);
+                                        .header-nav-features-img {
+                                            transition: filter 200ms ease;
+                                            filter: invert(64%) sepia(9%) saturate(6099%) hue-rotate(3deg) brightness(115%) contrast(101%);
                                         }
                                     }
                                 }

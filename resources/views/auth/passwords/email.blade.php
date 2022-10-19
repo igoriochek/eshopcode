@@ -1,16 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="auth-form container">
+<div class="auth-form container pt-4">
     <div class="row justify-content-center">
-        <div class="col-md-6 col-lg-5">
-            <h5 class="font-weight-bold text-5 mb-0">{{ __('auth.resetPassword') }}</h5>
+        <div class="col-md-8 col-lg-6">
             @if (session('status'))
                 <div class="alert alert-success" role="alert">
                     {{ session('status') }}
                 </div>
             @endif
-            <form method="POST" action="{{ route('password.email') }}">
+            <form method="POST" action="{{ route('password.email') }}" class="auth-form-container">
+                <h4 class="form-title">{{ __('auth.resetPassword') }}</h4>
                 @csrf
                 <div class="row mb-5">
                     <div class="form-group col">

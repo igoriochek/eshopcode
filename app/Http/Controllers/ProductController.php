@@ -57,20 +57,47 @@ class ProductController extends AppBaseController
         $selCategories = $filter && array_key_exists('categories.id', $filter)
             ? $filter['categories.id']
             : array();
-        $selectedProduct = $request->order != null ? $request->order : 0;
-
-//        $categories = $this->categoryRepository->allQuery(array("parent_id"=>$request->category_id))->get();
         $categories = $this->categoryRepository->allQuery()->get();
+
+        $selectedOrder = $request->order != null ? $request->order : 0;
         $orderBy = "";
-        switch ($selectedProduct){
+        $orderByDirection = "";
+
+        switch ($selectedOrder){
             case "0":
                 $orderBy = "products.id";
+                $orderByDirection = "asc";
                 break;
             case "1":
                 $orderBy = "products_translations.name";
+                $orderByDirection = "asc";
                 break;
             case "2":
+                $orderBy = "products_translations.name";
+                $orderByDirection = "desc";
+                break;
+            case "3":
                 $orderBy = "products.price";
+                $orderByDirection = "asc";
+                break;
+            case "4":
+                $orderBy = "products.price";
+                $orderByDirection = "desc";
+                break;
+        }
+
+        $selectedProductsPerPage = $request->productsPerPage != null ? $request->productsPerPage : 0;
+        $paginateNumber = "";
+
+        switch ($selectedProductsPerPage){
+            case "0":
+                $paginateNumber = 12;
+                break;
+            case "1":
+                $paginateNumber = 24;
+                break;
+            case "2":
+                $paginateNumber = 36;
                 break;
         }
 
@@ -86,8 +113,8 @@ class ProductController extends AppBaseController
                 AllowedFilter::scope('priceto'),
             ])
             ->allowedIncludes('categories')
-            ->orderBy($orderBy)
-            ->paginate(12)
+            ->orderBy($orderBy, $orderByDirection)
+            ->paginate($paginateNumber)
             ->appends(request()->query());
 
         foreach ($products as $product) {
@@ -104,8 +131,10 @@ class ProductController extends AppBaseController
                 'categories' => $categories,
                 'filter' => $filter ? $filter : array(),
                 'selCategories' => $selCategories ? explode(",",$selCategories) : array(),
-                'order_list' => $this->productOrder(),
-                'selectedProduct' => $selectedProduct,
+                'paginate_list' => $this->productsPaginateNumberSelector(),
+                'order_list' => $this->productsOrderSelector(),
+                'selectedProductsPerPage' => $selectedProductsPerPage,
+                'selectedOrder' => $selectedOrder,
 //                'pricefrom' => $request->query('filter[pricefrom]') == null ? "" : $request->query('filter[pricefrom]'),
 //                'priceto' => $request->query('filter[priceto]') == null ? "" : $request->query('filter[priceto]'),
             ]);

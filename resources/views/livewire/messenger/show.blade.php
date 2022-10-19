@@ -1,5 +1,20 @@
 <div>
-    <section class="pt-5">
+    <div class="page-navigation">
+        <div class="container">
+            <a href="{{ url('/') }}">
+                {{ __('menu.home') }}
+            </a>
+            <i class="fa-solid fa-angle-right"></i>
+            <a href="{{ Auth::user() ? url("/user/messenger") : url("/messenger") }}">
+                {{ __('menu.messenger') ?? '' }}
+            </a>
+            <i class="fa-solid fa-angle-right"></i>
+            <span>
+                {{ $user->name }}
+            </span>
+        </div>
+    </div>
+    <section class="pt-2">
         <div class="container">
             <div class="row mb-5">
                 <div class="col-lg-4 mt-4 mt-md-5 mt-lg-0">
@@ -10,7 +25,7 @@
                                     {{ __('names.messages') }}
                                 </h6>
                                 <a class="btn btn-primary messenger-users-contact" href="{{ route('livewire.messenger.add') }}">
-                                    <i class="fa-solid fa-plus"></i>
+                                    <i class="fa-solid fa-plus me-2"></i>
                                     {{ __('buttons.contact') }}
                                 </a>
                             </div>

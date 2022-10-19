@@ -1,6 +1,21 @@
 @extends('layouts.app')
 
 @section('content')
+    <div class="page-navigation">
+        <div class="container">
+            <a href="{{ url('/') }}">
+                {{ __('menu.home') }}
+            </a>
+            <i class="fa-solid fa-angle-right"></i>
+            <a href="{{ Auth::user() ? url("/user/products") : url("/products") }}">
+                {{ __('menu.products') ?? '' }}
+            </a>
+            <i class="fa-solid fa-angle-right"></i>
+            <span>
+                {{ $product->name ?? '' }}
+            </span>
+        </div>
+    </div>
     <div class="container product-section">
         <div class="row">
             <div class="col-lg-12">
@@ -21,20 +36,20 @@
                     </div>
                     <div class="col-md-6">
                         <div class="summary entry-summary position-relative">
-                            <h3 class="mb-0 font-weight-bold">{{ $product->name }}</h3>
+                            <h3 class="mb-0 product-title">{{ $product->name }}</h3>
                             <div class="pb-0 clearfix d-flex align-items-center mt-2">
                                 <div class="product-rating">
                                     <span>{{ $average }}</span>
                                     <span>/</span>
                                     <span>5</span>
                                     @if ($average > 0)
-                                        <i class="fa-solid fa-star ms-1"></i>
+                                        <i class="fa-solid fa-star ms-1 text-warning"></i>
                                     @else
-                                        <i class="fa-regular fa-star ms-1"></i>
+                                        <i class="fa-regular fa-star ms-1 text-warning"></i>
                                     @endif
                                 </div>
                                 <div class="review-num">
-                                    <a href="#description" class="text-decoration-none link text-color-default text-color-hover-primary" data-hash="" data-hash-offset="0" data-hash-offset-lg="75" data-hash-trigger-click=".nav-link-reviews" data-hash-trigger-click-delay="1000">
+                                    <a href="#description" class="text-decoration-none link" data-hash="" data-hash-offset="0" data-hash-offset-lg="75" data-hash-trigger-click=".nav-link-reviews" data-hash-trigger-click-delay="1000">
                                         <span class="count text-color-inherit" itemprop="ratingCount">
                                             {{ __('names.reviews').' ('.$rateCount.')' }}
                                         </span>
@@ -55,13 +70,13 @@
                             <p class="mb-3">{{ $product->description }}</p>
                             <ul class="list list-unstyled text-2">
                                 <li class="mb-0">
-                                    <span class="text-uppercase">{{ __('names.categories') }}:</span>
+                                    <span class="fw-bold">{{ __('names.categories') }}:</span>
                                     @forelse ($product->categories as $category)
                                         <a class="link" href="{{ url("/user/innercategories/$category->id") }}">
                                             {{ $category->name }}
                                         </a>
                                     @empty
-                                        <span class="fw-bold text-dark">{{ __('names.noCategories') ?? '-' }}</span>
+                                        <span class="fw-normal text-dark">{{ __('names.noCategories') ?? '-' }}</span>
                                     @endforelse
                                 </li>
                             </ul>
@@ -83,17 +98,12 @@
                 <div id="description" class="tabs tabs-simple tabs-simple-full-width-line tabs-product tabs-dark mb-2">
                     <ul class="nav nav-tabs justify-content-start" role="tablist">
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link active font-weight-bold text-3 text-uppercase py-2 px-3" href="#productDescription" data-bs-toggle="tab" aria-selected="true" role="tab">
+                            <a class="nav-link active py-2 px-3" href="#productDescription" data-bs-toggle="tab" aria-selected="true" role="tab">
                                 {{ __('names.description') }}
                             </a>
                         </li>
-{{--                        <li class="nav-item" role="presentation">--}}
-{{--                            <a class="nav-link font-weight-bold text-3 text-uppercase py-2 px-3" href="#productInfo" data-bs-toggle="tab" aria-selected="false" tabindex="-1" role="tab">--}}
-{{--                                {{ __('names.additionalInformation') }}--}}
-{{--                            </a>--}}
-{{--                        </li>--}}
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link nav-link-reviews font-weight-bold text-3 text-uppercase py-2 px-3" href="#productReviews" data-bs-toggle="tab" aria-selected="false" tabindex="-1" role="tab">
+                            <a class="nav-link nav-link-reviews py-2 px-3" href="#productReviews" data-bs-toggle="tab" aria-selected="false" tabindex="-1" role="tab">
                                 {{ __('names.reviews').' ('.$product->ratings->count().') ' }}
                             </a>
                         </li>
@@ -162,7 +172,7 @@
                                 @endforelse
                             </ul>
                             <hr class="solid my-5">
-                            <h5>{{ __('names.addReview') }}</h5>
+                            <h5 class="add-a-review-title">{{ __('names.addReview') }}</h5>
                             <div class="row">
                                 <div class="col product-review-add-review-form" id="review-product">
                                     @if (!$voted)
@@ -252,27 +262,6 @@
                     }
                 }
             );
-        });
-
-        const minus = document.querySelector('.minus');
-        const plus = document.querySelector('.plus');
-        const amount = document.querySelector('.product-add-to-cart-number');
-
-        const minValue = 1;
-        const maxValue = 5;
-
-        minus.addEventListener('click', e => {
-            e.preventDefault();
-            const currentValue = Number(amount.value) || 0;
-            if (currentValue === minValue) return;
-            amount.value = currentValue - 1;
-        });
-
-        plus.addEventListener('click', e => {
-            e.preventDefault();
-            const currentValue = Number(amount.value) || 0;
-            if (currentValue === maxValue) return;
-            amount.value = currentValue + 1;
         });
     </script>
 @endpush

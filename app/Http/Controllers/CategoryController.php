@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateCategoryRequest;
 use App\Models\Product;
 use App\Repositories\CategoryRepository;
 use App\Repositories\ProductRepository;
+use App\Traits\ProductRatings;
 use Flash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,6 +17,8 @@ use App\Models\Category;
 
 class CategoryController extends AppBaseController
 {
+    use ProductRatings;
+
     /** @var CategoryRepository $categoryRepository*/
     private $categoryRepository;
     private $productRepository;
@@ -67,6 +70,13 @@ class CategoryController extends AppBaseController
 
         $category = $this->categoryRepository->find($request->category_id);
         $products = $category->products()->paginate(12);
+
+        foreach ($products as $product) {
+            $sumAndCount = $this->calculateRatingSumAndCount($this->getProductRatings($product->id));
+            $product->sum = $sumAndCount['sum'];
+            $product->count = $sumAndCount['count'];
+            $product->average = $this->calculateAverageRating($product->sum, $product->count);
+        }
 
         $user = Auth::user();
 

@@ -39,5 +39,6 @@ return [
     'textMsg' => 'Žinutės tekstas',
     'typeYourMsgHere' => 'Įveskite savo žinutę čia...',
     'updatedAt' => 'Atnaujinta',
+    'areYouSureCart' => 'Ar tikrai norite pašalinti šį produktą iš savo krepšelio'
 
 ];

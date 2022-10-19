@@ -31,7 +31,7 @@
                 <div class="pin-wrapper">
                     <div class="card border-width-3 border-radius-0 border-color-hover-dark">
                         <div class="card-body">
-                            <h6 class="fw-bold text-uppercase mb-3">{{ __('names.overview') }}</h6>
+                            <h5 class="fw-bold mb-3">{{ __('names.overview') }}</h5>
                             <table class="shop_table cart-totals mb-4">
                                 <tbody>
                                     <tr class="total">

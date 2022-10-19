@@ -1,10 +1,21 @@
 @extends('layouts.app')
 
 @section('content')
+    <div class="page-navigation">
+        <div class="container">
+            <a href="{{ url('/') }}">
+                {{ __('menu.home') }}
+            </a>
+            <i class="fa-solid fa-angle-right"></i>
+            <span>
+                {{ __('menu.promotions') ?? '' }}
+            </span>
+        </div>
+    </div>
     <div class="container">
         <div class="row">
             <div class="col-lg-3">
-                <aside class="sidebar">
+                <aside class="sidebar px-3 pt-1 pb-4">
                     <h5 class="sidebar-title">{{ __('names.promotions')}}</h5>
                     @include('user_views.promotion.promotion_tree')
                 </aside>
@@ -13,7 +24,7 @@
                 <div class="row">
                     @forelse ($promotions as $promotion)
                         <div class="d-flex justify-content-between align-items-center mb-4">
-                            <h5>{{ $promotion->name }}</h5>
+                            <h4 style="font-family: 'Times New Roman', sans-serif">{{ $promotion->name }}</h4>
                             <a href="{{ route("promotion", ["id" => $promotion->id]) }}" class="promotion-more-products-button">
                                 {{ __("names.more_for_promotions") }}
                             </a>
@@ -60,6 +71,16 @@
                                                 </a>
                                             </div>
                                             <div class="d-flex justify-content-between align-items-center">
+                                                <div class="product-rating">
+                                                    <span>{{ $product->average ?? 0 }}</span>
+                                                    <span>/</span>
+                                                    <span>5</span>
+                                                    @if ($product->average > 0)
+                                                        <i class="fa-solid fa-star text-warning ms-1"></i>
+                                                    @else
+                                                        <i class="fa-regular fa-star text-warning ms-1"></i>
+                                                    @endif
+                                                </div>
                                                 <div class="product-price">
                                                     @if ($product->discount)
                                                         <span class="product-previous-price product-price-font-family">
@@ -96,7 +117,7 @@
                     @empty
                         <span class="text-muted mt-1">{{ __('names.noPromotions') }}</span>
                     @endforelse
-                    <div class="d-flex justify-content-start">
+                    <div class="d-flex justify-content-center">
                         {{ $promotions->links() }}
                     </div>
                 </div>

@@ -1,7 +1,3 @@
-// Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
-
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
@@ -14,13 +10,24 @@
 // Media Queries
 @import 'mediaQueries';
 
+// Keyframes
+@import 'keyframes';
+
+// Elements
+@import 'elements/body';
+@import 'elements/a';
+@import 'elements/headers';
+
+// Layouts
+@import 'layouts/header';
+@import 'layouts/adminHeader';
+@import 'layouts/main';
+@import 'layouts/sidebar';
+@import 'layouts/footer';
+
 // Features
-@import 'features/adminView';
-@import 'features/header';
-@import 'features/adminHeader';
-@import 'features/footer';
+@import 'features/pageNavigation';
 @import 'features/products';
-@import 'features/sidebar';
 @import 'features/pagination';
 @import 'features/productView';
 @import 'features/productQuantity';
@@ -32,8 +39,4 @@
 @import 'features/messenger';
 @import 'features/tree';
 @import 'features/buttons';
-
-// Elements
-@import 'elements/body';
-@import 'elements/a';
-@import 'elements/headers';
+@import 'features/tabs';

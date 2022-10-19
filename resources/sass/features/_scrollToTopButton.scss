@@ -1,7 +1,4 @@
 .main {
-    padding: 40px 0;
-    min-height: 30vh;
-
     .scroll-to-top-button {
         position: fixed;
         bottom: 0;
@@ -10,8 +7,8 @@
         align-items: center;
         justify-content: center;
         border: none;
-        color: #fff;
-        background-color: #0088CC;
+        color: $white-color;
+        background-color: $yellow-color;
         border-radius: 6px 6px 0 0;
         width: 50px;
         height: 45px;
@@ -25,7 +22,8 @@
         opacity: 0;
 
         &:hover {
-            background: #00a1f2;
+            background-color: $black-color;
+            color: $yellow-color;
         }
 
         i {

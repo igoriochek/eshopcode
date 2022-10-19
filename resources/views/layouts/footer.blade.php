@@ -1,33 +1,38 @@
 <footer class="footer">
-    <div class="container">
+    <div class="container pb-4">
         <div class="row py-4 my-5">
-            <div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
-                <h5 class="text-4 text-color-light mb-3">{{ __('footer.contactInfo') }}</h5>
-                <ul class="list list-unstyled">
-                    <li class="pb-1 mb-2">
-                        <span
-                            class="d-block font-weight-normal line-height-1 text-color-light">
-                            {{ __('footer.address') }}
-                        </span>
-                        Konstitucijos pr. 7, Vilnius, Verslo centras „Europa“, 12 aukštas, LT-09308
+            <div class="col-md-6 @auth col-lg-3 @else col-lg-4 @endauth mb-5 mb-lg-0">
+                <a href="{{ url('/home') }}">
+                    <img src="{{ asset("images/logo_footer.png") }}" alt="logo_footer" class="logo_footer" width="180">
+                </a>
+                <p class="py-5 m-0">
+                    {{ __('footer.description') }}.
+                </p>
+                <div class="d-flex">
+                    <div class="me-3">
+                        <i class="fa-regular fa-clock fs-5"></i>
+                    </div>
+                    <div class="w-100 d-flex flex-column">
+                        <span>{{ __('footer.timeDesc') }}:</span>
+                        <span>{{ __('footer.timeOne') }}: 10:00 - 18:00</span>
+                        <span>{{ __('footer.timeTwo') }}: 10:00 - 17:00</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 @auth col-lg-3 @else col-lg-4 @endauth mb-5 mb-lg-0 ps-1 @auth ps-3 @else ps-5 @endauth">
+                <h5 class="mb-5">{{ __('footer.contactUs') }}</h5>
+                <ul class="list list-unstyled pt-3">
+                    <li class="pb-4">
+                        <i class="fa-solid fa-location-dot fs-5 me-3"></i>
+                        Karaliaučiaus g. 3-17, LT-06281 Vilnius
                     </li>
-                    <li class="pb-1 mb-2">
-                        <span class="d-block font-weight-normal line-height-1 text-color-light">
-                            {{ __('footer.phone') }}
-                        </span>
-                        <a href="tel:+1234567890">+370 653 333 30</a>
+                    <li class="pb-4">
+                        <i class="fa-solid fa-phone fs-5 me-3"></i>
+                        +370 689 96899
                     </li>
-                    <li class="pb-1 mb-2">
-                        <span class="d-block font-weight-normal line-height-1 text-color-light">
-                            {{ __('Viber, Whatsapp') }}
-                        </span>
-                        +370 685 777 77
-                    </li>
-                    <li class="pb-1 mb-2">
-                        <span class="d-block font-weight-normal line-height-1 text-color-light">
-                            {{ __('footer.email') }}
-                        </span>
-                        <a href="mailto:mail@example.com">info@buhalteres.lt</a>
+                    <li class="pb-4">
+                        <i class="fa-regular fa-envelope fs-5 me-3"></i>
+                        info@aurintus.lt
                     </li>
                 </ul>
                 <ul class="social-icons social-icons-clean-with-border social-icons-medium">
@@ -48,63 +53,106 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
-                <h5 class="text-4 text-color-light mb-3">{{ __('footer.menu') }}</h5>
+            <div class="col-md-6 @auth col-lg-3 @else col-lg-4 @endauth mb-5 mb-lg-0 ps-1 @auth ps-3 @else ps-5 @endauth">
+                <h5 class="mb-5 pb-2">{{ __('footer.menu') }}</h5>
                 <ul class="list list-unstyled mb-0 footer-links">
-                    @guest
-                        @include('layouts.menus.menu')
-                    @endguest
-                    @auth
-                        @include('layouts.menus.user_menu')
-                    @endauth
+                    <li class="nav-list">
+                        <a class="{{ request()->is('products*') ? 'active' : '' }}" href="{{ url('/products') }}">
+                            <i class="fa-solid fa-angle-right me-2"></i>
+                            {{ __('menu.products') }}
+                        </a>
+                    </li>
+                    <li class="nav-list">
+                        <a class="{{ request()->is('rootcategories*') ? 'active' : '' }}" href="{{ url('/rootcategories') }}">
+                            <i class="fa-solid fa-angle-right me-2"></i>
+                            {{ __('menu.categories') }}
+                        </a>
+                    </li>
+                    <li class="nav-list">
+                        <a class="{{ request()->is('promotions*') ? 'active' : '' }}" href="{{ url('/promotions') }}">
+                            <i class="fa-solid fa-angle-right me-2"></i>
+                            {{ __('menu.promotions') }}
+                        </a>
+                    </li>
+                    <li class="nav-list">
+                        <a class="{{ request()->is('user/discountCoupons*') ? 'active' : '' }}" href="{{ url('/user/discountCoupons') }}">
+                            <i class="fa-solid fa-angle-right me-2"></i>
+                            {{ __('menu.discountCoupons') }}
+                        </a>
+                    </li>
+                    <li class="nav-list">
+                        <a class="{{ request()->is('user/messenger*') ? 'active' : '' }}" href="{{ url('/user/messenger') }}">
+                            <i class="fa-solid fa-angle-right me-2"></i>
+                            {{ __('menu.messenger') }}
+                        </a>
+                    </li>
+                    <li class="nav-list">
+                        <a class="{{ request()->is('user/termsofservice*') ? 'active' : '' }}" href="{{ url('/termsofservice') }}">
+                            <i class="fa-solid fa-angle-right me-2"></i>
+                            {{ __('menu.termsofservice') }}
+                        </a>
+                    </li>
+                    <li class="nav-list">
+                        <a class="{{ request()->is('user/policy*') ? 'active' : '' }}" href="{{ url('/policy') }}">
+                            <i class="fa-solid fa-angle-right me-2"></i>
+                            {{ __('menu.policy') }}
+                        </a>
+                    </li>
                 </ul>
             </div>
             @auth
-                <div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
-                <h5 class="text-4 text-color-light mb-3">{{ __('footer.profile') }}</h5>
-                <ul class="list list-unstyled mb-0 footer-links">
-                    <li class="mb-0">
-                        <a href="{{ url('/user/viewcart') }}">
-                            {{__('menu.cart')}}
-                        </a>
-                    </li>
-                    <li class="mb-0">
-                        <a href="{{ url('/user/rootorders') }}">
-                            {{__('menu.orders')}}
-                        </a>
-                    </li>
-                    <li class="mb-0">
-                        <a href="{{ url('/user/rootoreturns') }}">
-                            {{__('menu.returns')}}
-                        </a>
-                    </li>
-                    <li class="mb-0">
-                        <a href="{{ url('/user/userprofile') }}">
-                            {{__('menu.profile')}}
-                        </a>
-                    </li>
-                    <li class="mb-0">
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                            @csrf
-                            <a href="{{ route('logout') }}"
-                               onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                {{ __('menu.logout') }}
+                <div class="col-md-6 @auth col-lg-3 @else col-lg-4 @endauth mb-5 mb-lg-0 ps-1 @auth ps-3 @else ps-5 @endauth">
+                    <h5 class="mb-5 pb-2">{{ __('footer.profile') }}</h5>
+                    <ul class="list list-unstyled mb-0 footer-links">
+                        <li class="mb-0">
+                            <a href="{{ url('/user/viewcart') }}">
+                                <i class="fa-solid fa-angle-right me-2"></i>
+                                {{__('menu.cart')}}
                             </a>
-                        </form>
-                    </li>
-                </ul>
-            </div>
+                        </li>
+                        <li class="mb-0">
+                            <a href="{{ url('/user/rootorders') }}">
+                                <i class="fa-solid fa-angle-right me-2"></i>
+                                {{__('menu.orders')}}
+                            </a>
+                        </li>
+                        <li class="mb-0">
+                            <a href="{{ url('/user/rootoreturns') }}">
+                                <i class="fa-solid fa-angle-right me-2"></i>
+                                {{__('menu.returns')}}
+                            </a>
+                        </li>
+                        <li class="mb-0">
+                            <a href="{{ url('/user/userprofile') }}">
+                                <i class="fa-solid fa-angle-right me-2"></i>
+                                {{__('menu.profile')}}
+                            </a>
+                        </li>
+                        <li class="mb-0">
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                                @csrf
+                                <a href="{{ route('logout') }}"
+                                   onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    <i class="fa-solid fa-angle-right me-2"></i>
+                                    {{ __('menu.logout') }}
+                                </a>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
             @endauth
         </div>
     </div>
-    <div class="container">
-        <div class="footer-copyright pt-4 pb-5">
-            <div class="row align-items-center justify-content-md-between">
-                <div class="col-12 col-md-auto text-center text-md-start mb-2 mb-md-0">
-                    <p class="mb-0">{{ __('footer.copyright') }}</p>
-                </div>
-                <div class="col-12 col-md-auto">
-                    <div class="payment-cc justify-content-center justify-content-md-end">
+    <div class="bottom-footer">
+        <div class="container">
+            <div class="footer-copyright py-4">
+                <div class="row align-items-center justify-content-md-between">
+                    <div class="col-12 col-md-auto text-center text-md-start">
+                        <p class="mb-0">{{ __('footer.copyright') }}</p>
+                    </div>
+                    <div class="col-12 col-md-auto">
+                        <div class="d-flex justify-content-center justify-content-md-end">
+                        </div>
                     </div>
                 </div>
             </div>

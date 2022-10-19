@@ -28,7 +28,14 @@ return [
     'userProfile' => 'Профиль пользователя',
     'admin' => "Администратор",
     'to' => 'к',
-     'current_password' => "Текущий пароль",
-     'new_password' => "Новый пароль",
-     'confirm_password' => 'Подтвердить пароль'
+
+    'current_password' => "Текущий пароль",
+    'new_password' => "Новый пароль",
+    'confirm_password' => 'Подтвердить пароль',
+
+    'default' => 'Дефолт',
+    'productNameAsc' => 'Название Продукта — по возрастанию',
+    'productNameDesc' => 'Название Продукта - по убыванию',
+    'priceAsc' => 'Цена - по возрастанию',
+    'priceDesc' => 'Цена - по убыванию'
 ];

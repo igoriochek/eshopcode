@@ -2,41 +2,27 @@
     &:hover, &:focus, &:active {
         a {
             background: $bg-color;
-            i {
-                color: #FFFF;
-            }
         }
     }
 }
 
-@mixin navItemBefore {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 3px;
-    bottom: -21px;
-    left: 0;
-    background: #0088CC;
-}
-
 @mixin primaryButton {
-    background: #0088CC;
-    color: #fff;
+    background: $yellow-color;
+    color: $black-color;
     border: none;
+    border-radius: 0;
+    text-transform: uppercase;
     font-weight: 600;
     font-size: .8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
     transition: all 200ms ease;
 
-    &:hover, &:focus {
-        background: #00a1f2;
-    }
-
-    &:active {
-        background: #006ea6;
-    }
-
-    &:disabled {
-        background: #0088CC;
+    &:hover, &:focus, &:active {
+        background: $black-color;
+        color: $yellow-color;
     }
 }
 
@@ -46,7 +32,7 @@
     font-weight: 600;
     font-size: .8rem;
     transition: all 200ms ease;
-    color: #fff;
+    color: $white-color;
 
     &:hover, &:focus, &:active {
         background: $hover-bg-color;
@@ -63,6 +49,7 @@
         font-weight: 700;
         font-size: 1.3rem;
         color: #aaa;
+        font-family: $font-family-times-new-roman;
 
         li {
             i {
@@ -70,11 +57,11 @@
             }
 
             .active {
-                color: #0088CC;
+                color: $yellow-color;
             }
 
             .done {
-                color: #222;
+                color: $black-color;
             }
         }
     }

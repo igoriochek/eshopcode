@@ -1,4 +1,4 @@
-<ul class="promotion-tree nav nav-list flex-column mb-5">
+<ul class="promotion-tree nav nav-list flex-column">
     @foreach($promotions as $promotion)
         <li class="nav-item">
             <a href="{{ route("promotion", ["id" => $promotion->id] ) }}"

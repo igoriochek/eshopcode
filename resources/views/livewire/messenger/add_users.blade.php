@@ -22,9 +22,9 @@
             <span class="text-muted">{{ __('names.noUncontactedUsers') }}</span>
         </div>
     @endforelse
-    <div class="pt-3 mt-3">
-        @if (count($addUsers)>0)
+    @if (count($addUsers) > 5)
+        <div class="pt-3 mt-3">
             {{ $addUsers->links() }}
-        @endif
-    </div>
+        </div>
+    @endif
 </ul>

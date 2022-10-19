@@ -1,4 +1,4 @@
-<div wire:poll.1s='updateMessages' class="messenger-room p-2 mb-sm-5">
+<div wire:poll.1s='updateMessages' class="messenger-room p-4">
     <div>
         <h6 class="messenger-chat-user-name">
             {{ $user->name }}

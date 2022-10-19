@@ -1,7 +1,7 @@
 <ul class="dropdown-menu" aria-labelledby="navbarUserDropdown">
     <li>
         <a class="dropdown-item" href="{{ url('/user/userprofile') }}"
-           style="color: {{ request()->is('user/userprofile*') ? '#0088CC' : '' }}; font-size: .9rem;">
+           style="color: {{ request()->is('user/userprofile*') ? '#ffa600' : '' }}; font-size: .9rem;">
             {{__('menu.profile')}}
         </a>
     </li>

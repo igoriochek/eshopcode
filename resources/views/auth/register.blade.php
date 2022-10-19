@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="auth-form container">
+<div class="auth-form container pt-4">
     <div class="row justify-content-center">
-        <div class="col-md-6 col-lg-5">
-            <h5 class="font-weight-bold text-5 mb-0">{{ __('auth.register') }}</h5>
-            <form method="POST" action="{{ route('register') }}">
+        <div class="col-md-8 col-lg-6">
+            <form method="POST" action="{{ route('register') }}" class="auth-form-container">
+                <h4 class="form-title">{{ __('auth.register') }}</h4>
                 @csrf
                 <div class="row">
                     <div class="form-group col">

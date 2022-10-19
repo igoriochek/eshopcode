@@ -1,14 +1,20 @@
 .product-section {
+    background: $white-color;
+    padding-top: 32px;
+
+    .product-title {
+        font-family: $font-family-times-new-roman;
+    }
+
     .product-rating {
         display: flex;
         align-items: center;
         margin-right: 10px;
-        color: #111;
+        color: $black-color;
         font-weight: bold;
 
         i {
             font-size: 1.1rem;
-            color: #ffbb33;
         }
     }
 
@@ -65,8 +71,14 @@
     }
 
     .link {
+        color: $black-color;
         font-weight: 600;
         margin-right: 6px;
+        transition: color 200ms ease;
+
+        &:hover, &:focus, &:active {
+            color: $yellow-color;
+        }
     }
 
     .product-add-to-cart-container {
@@ -76,51 +88,8 @@
         display: flex;
 
         .product-add-to-cart-button {
+            @include primaryButton;
             margin-left: 20px;
-            border-radius: 5px;
-            font-size: .7rem;
-            font-weight: 600;
-            padding: .5rem 1.5rem;
-            transition: background 200ms ease;
-            color: #fff;
-            background: #222;
-            text-transform: uppercase;
-
-            &:hover, &:focus, &:active {
-                background: #444;
-            }
-        }
-    }
-
-    .nav-tabs {
-        border: 0;
-        margin-bottom: 10px;
-        border-bottom: 3px solid #eee;
-
-        li {
-            margin-bottom: -3px;
-
-            .nav-link {
-                padding: 15px 30px;
-                background: none;
-                border: 0;
-                border-bottom: 3px solid #eee;
-                border-radius: 0;
-                color: #777;
-                font-size: 14px;
-                font-weight: 600;
-                transition: all 200ms ease;
-
-                &:hover, &:focus, &:active {
-                    border-bottom: 3px solid #212529;
-                    color: #212529;
-                }
-            }
-
-            .active {
-                border-bottom: 3px solid #212529;
-                color: #212529;
-            }
         }
     }
 
@@ -137,8 +106,8 @@
                 margin-bottom: 10px;
 
                 .comment-block {
-                    background: #F5F7F7;
-                    border-radius: 5px;
+                    background: $gray-color;
+                    border-radius: 0;
                     padding: 30px;
                     position: relative;
 
@@ -152,7 +121,7 @@
                         .comment-rating {
                             i {
                                 font-size: 1.1rem;
-                                color: #ffbb33;
+                                color: #ffa906;
                             }
                         }
                     }
@@ -166,13 +135,18 @@
         }
     }
 
+    .add-a-review-title {
+        font-family: $font-family-times-new-roman;
+    }
+
     .product-review-add-review-form {
         input[type='text'],
         input[type='email'],
         textarea {
-            padding: 14px 20px;
-            font-size: 15px;
-            border-color: #ededed;
+            padding: 15px;
+            font-size: 1em;
+            border-color: $gray-color;
+            border-radius: 0;
         }
 
         input[type='text'],
@@ -195,7 +169,7 @@
             position: relative;
             width: 1em;
             font-size: 1.5em;
-            color: #FFD600;
+            color: #fcb600;
             cursor: pointer;
         }
 
@@ -220,19 +194,7 @@
         }
 
         .product-reviews-add-review-submit {
-            border-radius: 5px;
-            font-size: .7rem;
-            font-weight: 600;
-            padding: .5rem 2rem;
-            transition: background 200ms ease;
-            color: #fff;
-            background: #0088CC;
-            text-transform: uppercase;
-            border: none;
-
-            &:hover, &:focus, &:active {
-                background: #00a1f2;
-            }
+            @include primaryButton;
         }
     }
 }

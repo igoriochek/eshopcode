@@ -2,18 +2,17 @@
     @include orderSteps;
 
     .open-apply-coupon {
-        text-transform: uppercase;
-        color: #222;
+        color: $black-color;
         font-weight: 600;
         transition: color 200ms ease;
 
         &:hover, &:focus, &:active {
-            color: #0088CC;
+            color: $yellow-color;
         }
     }
 
     .card {
-        border-width: 3px !important;
+        border: none;
         border-radius: 0;
 
         .card-body {
@@ -28,20 +27,9 @@
             }
 
             .apply-coupon-button {
-                border-radius: 0;
-                font-size: .9rem;
-                font-weight: 600;
-                padding: .95rem 1.5rem;
-                transition: all 200ms ease;
-                color: #222;
-                background: #eee;
-                text-transform: uppercase;
-                width: clamp(220px, 100%, 270px);
-
-                &:hover, &:focus, &:active {
-                    background: #0088CC;
-                    color: #fff;
-                }
+                @include primaryButton;
+                width: 220px;
+                padding: 18px 15px;
             }
         }
     }
@@ -86,17 +74,7 @@
     }
 
     .preview-button {
-        border-radius: 0;
-        font-size: .9rem;
-        font-weight: 600;
-        padding: .95rem 1.6rem;
-        transition: all 200ms ease;
-        color: #fff;
-        background: #222;
-        text-transform: uppercase;
-
-        &:hover, &:focus, &:active {
-            background: #0088CC;
-        }
+        @include primaryButton;
+        padding: 15px 20px;
     }
 }

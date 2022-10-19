@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="auth-form container">
+<div class="auth-form container pt-4">
     <div class="row justify-content-center">
-        <div class="col-md-6 col-lg-5 mb-5 mb-lg-0">
-            <h5>{{ __('auth.login') }}</h5>
-            <form method="POST" action="{{ route('login') }}">
+        <div class="col-md-8 col-lg-6 mb-5 mb-lg-0">
+            <form method="POST" action="{{ route('login') }}" class="auth-form-container">
+                <h4 class="form-title">{{ __('auth.login') }}</h4>
                 @csrf
-                <div class="row">
+                <div class="row mb-2">
                     <div class="form-group col">
                         <label class="form-label text-dark">
                             {{ __('auth.email') }}
@@ -41,8 +41,8 @@
                 </div>
                 <div class="row justify-content-between align-items-center my-3">
                     <div class="form-group col-md-auto">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="rememberme">
+                        <div class="d-flex gap-2 align-items-center">
+                            <input type="checkbox" id="rememberme">
                             <label class="form-label custom-control-label cur-pointer text-2" for="rememberme">
                                 {{ __('auth.rememberMe') }}
                             </label>

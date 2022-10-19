@@ -26,13 +26,13 @@
     <div class="row">
         <div class="col text-center">
             <p>{{ __('names.wantToApply') }}
-                <a href="#" class="open-apply-coupon" data-bs-toggle="collapse" data-bs-target=".coupon-form-wrapper" aria-expanded="true">
+                <a href="#" class="open-apply-coupon" data-bs-toggle="collapse" data-bs-target=".coupon-form-wrapper" aria-expanded="false">
                     {{ __('names.selectDiscountCoupon') }}
                 </a>
             </p>
         </div>
     </div>
-    <div class="row justify-content-center coupon-form-wrapper mb-5 collapse show">
+    <div class="row justify-content-center coupon-form-wrapper mb-5 collapse">
         <div class="col-12 col-md-8">
             <div class="card">
                 <div class="card-body">
@@ -57,7 +57,7 @@
                 <div class="pin-wrapper">
                     <div class="card border-width-3 border-radius-0 border-color-hover-dark">
                         <div class="card-body">
-                            <h6 class="fw-bold text-uppercase mb-3">{{ __('names.yourOrder') }}</h6>
+                            <h5 class="fw-bold mb-3">{{ __('names.yourOrder') }}</h5>
                             <table class="shop_table cart-totals mb-4 w-100">
                                 <tbody>
                                 <tr>

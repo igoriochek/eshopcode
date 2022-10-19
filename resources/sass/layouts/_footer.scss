@@ -1,13 +1,26 @@
 .footer {
-    background: #212529;
-    border-top: 4px solid #212529;
-    font-size: 0.9em;
+    background: #010717;
+    border-top: 4px solid $gray-color;
+    font-size: 1em;
     padding: 0;
     position: relative;
     clear: both;
+    color: $white-color;
+
+    p {
+        line-height: 24px;
+    }
+
+    i {
+        color: $yellow-color;
+    }
+
+    span {
+        line-height: 28px;
+    }
 
     h5 {
-        color: #FFF;
+        color: $white-color;
         text-transform: uppercase;
         font-weight: 600;
         line-height: 18px;
@@ -17,41 +30,31 @@
 
     ul {
         li {
-            color: #a8a8a8;
             line-height: 1.5;
-
-            a {
-                color: inherit;
-                transition: color 200ms ease;
-
-                &:hover, &:focus, &:active {
-                    color: #d9d9d9;
-                }
-            }
-
-            span {
-                color: #FFF !important;
-                text-transform: uppercase;
-            }
+            display: flex;
         }
     }
 
     .footer-links {
         li {
-            color: #a8a8a8;
-            line-height: $line-height-base;
+            color: $white-color;
+            line-height: 32px;
 
             a {
                 color: inherit;
                 transition: color 200ms ease;
 
                 &:hover, &:focus, &:active {
-                    color: #d9d9d9;
+                    color: $yellow-color;
+
+                    i {
+                        animation: ArrowPointing 500ms infinite linear;
+                    }
                 }
             }
 
             span {
-                color: #FFF !important;
+                color: $white-color;
                 text-transform: uppercase;
             }
         }
@@ -83,7 +86,7 @@
                 font-size: 0.8rem;
 
                 i {
-                    color: #FFFF;
+                    color: $white-color;
                 }
             }
         }
@@ -101,32 +104,16 @@
         }
     }
 
-    .container {
-        .footer-copyright {
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+    .bottom-footer {
+        background: rgba(255, 255, 255, .05);
 
-            p {
-                color: #555;
-                margin: 0;
-                padding: 0;
-                font-size: 0.9em;
-            }
-
-            .payment-cc {
-                display: flex;
-
-                i {
-                    font-size: 2rem;
-                    transition: ease color 300ms;
-                    margin-right: 10px;
-
-                    &:last-of-type {
-                        margin-right: 0;
-                    }
-
-                    &:hover, &:focus, &:active {
-                        color: #FFF;
-                    }
+        .container {
+            .footer-copyright {
+                p {
+                    color: $white-color;
+                    margin: 0;
+                    padding: 0;
+                    font-size: 1em;
                 }
             }
         }

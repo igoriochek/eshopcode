@@ -4,16 +4,16 @@
         <tr class="text-dark">
             <th class="product-thumbnail" width="15%">
             </th>
-            <th class="product-name text-uppercase" width="30%">
+            <th class="product-name" width="30%">
                 {{ __('names.product') }}
             </th>
-            <th class="product-price text-uppercase" width="15%">
+            <th class="product-price" width="15%">
                 {{ __('names.price') }}
             </th>
-            <th class="product-quantity text-uppercase" width="20%">
+            <th class="product-quantity" width="20%">
                 {{ __('names.quantity') }}
             </th>
-            <th class="product-subtotal text-uppercase text-end" width="20%">
+            <th class="product-subtotal text-end" width="20%">
                 {{ __('names.subtotal') }}
             </th>
         </tr>
@@ -25,7 +25,7 @@
                     <div class="product-thumbnail-wrapper">
                         {!! Form::open(['route' => ['userCartItemDestroy', $item->id], 'method' => 'delete']) !!}
                         <button type="submit" class="product-thumbnail-remove" title="{{ __('names.removeProduct') }}"
-                                onclick="return confirm('{{ __('names.areYouSureProduct Are you sure you want this remove this product') }}?')">
+                                onclick="return confirm('{{ __('messages.areYouSureCart') }}?')">
                             <i class="fas fa-times"></i>
                         </button>
                         {!! Form::close() !!}
@@ -45,7 +45,7 @@
                 </td>
                 <td class="product-quantity">
                     <div class="quantity d-flex w-50">
-                        <input readonly type="text" class="product-change-cart-number" title="Qty" value="{{ $item->count }}" name="quantity" min="1" max="5" minlength="1" maxlength="5">
+                        <input readonly type="text" class="product-change-cart-number text-start" title="Qty" value="{{ $item->count }}" name="quantity" min="1" max="5" minlength="1" maxlength="5">
                     </div>
                 </td>
                 <td class="product-subtotal text-end">

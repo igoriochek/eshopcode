@@ -22,7 +22,7 @@
     .admin-header {
         max-width: 250px;
         height: 100vh;
-        border-right: 1px solid #EDEDED;
+        border-right: 1px solid $gray-color;
 
         .admin-header-container {
             .admin-header-top-container {
@@ -60,35 +60,19 @@
                     border-radius: 4px;
                     font-size: 13px;
                     font-style: normal;
-                    font-weight: 600;
+                    letter-spacing: .4px;
                     padding: 0.5rem 0.8rem;
-                    letter-spacing: -0.5px;
-                    text-transform: uppercase;
                     text-decoration: none;
                     color: #444;
                     position: relative;
 
-                    &:before {
-                        @include navItemBefore;
-                        opacity: 0;
-                    }
-
                     &:hover, &:focus, &:active {
-                        color: #0088CC;
-
-                        &:before {
-                            opacity: 1;
-                        }
+                        color: $yellow-color;
                     }
                 }
 
                 .active {
-                    color: #0088CC;
-
-                    &:before {
-                        @include navItemBefore;
-                        opacity: 1;
-                    }
+                    color: $yellow-color;
                 }
             }
         }
@@ -99,8 +83,8 @@
     }
 
     .container {
-        max-width: 1150px;
-        padding: 0 3rem;
+        max-width: 1200px;
+        padding: 0 2rem;
     }
 }
 
@@ -171,15 +155,15 @@
                 transition: all 200ms ease;
 
                 &:hover, &:focus, &:active {
-                    background: #0088CC;
+                    background: $black-color;
 
                     a {
-                        color: #fff;
+                        color: $yellow-color;
                     }
                 }
 
                 a {
-                    color: #0088CC;
+                    color: $black-color;
                     border-radius: 0 !important;
                     text-transform: uppercase;
                     font-weight: 700;

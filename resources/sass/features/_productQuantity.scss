@@ -1,7 +1,7 @@
 .minus, .plus,
 .product-add-to-cart-number,
 .product-change-cart-number {
-    border: 1px solid #e7e7e7;
+    border: 1px solid $gray-color;
     width: 45px;
     aspect-ratio: 1;
     text-align: center;
@@ -13,18 +13,10 @@
     transition: all 100ms ease;
 
     &:hover, &:focus, &:active {
-        background: #0088CC;
-        color: #fff;
-        border-color: #0088CC;
+        background: $black-color;
+        color: $yellow-color;
+        border-color: $black-color;
     }
-}
-
-.minus {
-    border-radius: 3px 0 0 3px;
-}
-
-.plus {
-    border-radius: 0 3px 3px 0;
 }
 
 .product-add-to-cart-number,

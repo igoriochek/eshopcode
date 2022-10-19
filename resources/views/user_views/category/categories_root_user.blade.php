@@ -1,11 +1,22 @@
 @extends('layouts.app')
 
 @section('content')
+    <div class="page-navigation">
+        <div class="container">
+            <a href="{{ url('/') }}">
+                {{ __('menu.home') }}
+            </a>
+            <i class="fa-solid fa-angle-right"></i>
+            <span>
+                {{ __('menu.categories') ?? '' }}
+            </span>
+        </div>
+    </div>
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <aside class="sidebar">
-                    <h5 class="text-uppercase">{{ __('names.categories')}}</h5>
+                <aside class="sidebar pb-4 px-4">
+                    <h2 class="sidebar-title fs-5">{{ __('names.categories')}}</h2>
                     @include('user_views.category.categoryTree')
                 </aside>
             </div>
