@@ -14,23 +14,33 @@
                             <li>
                                 <img src="{{asset('/images/theme/icons/icon-location.svg')}}" alt="" />
                                 <strong>{{__('footer.address')}}: </strong>
-                                <span>ADDRESS</span>
+                                <span>Birželio 23-iosios g. 15-41, LT-03206 Vilnius</span>
+                            </li>
+                            <li>
+                                <img src="{{asset('/images/theme/icons/icon-3.svg')}}" alt="" />
+                                <strong>{{__('footer.companycode')}}: </strong>
+                                <span>302900421</span>
+                            </li>
+                            <li>
+                                <img src="{{asset('/images/theme/icons/icon-1.svg')}}" alt="" />
+                                <strong>{{__('footer.vatcode')}}: </strong>
+                                <span>LT100007714016</span>
                             </li>
                             <li>
                                 <img src="{{asset('/images/theme/icons/icon-contact.svg')}}" alt="" />
                                 <strong>{{__('footer.phone')}}: </strong>
-                                <span>NUMBER</span>
+                                <span>+ 370 650 99090</span>
                             </li>
                             <li>
                                 <img src="{{asset('/images/theme/icons/icon-email-2.svg')}}" alt="" />
                                 <strong>{{__('footer.email')}}: </strong>
-                                <span>EMAIL</span>
+                                <span>info@contentum.lt </span>
                             </li>
-                            <li>
-                                <img src="{{asset('/images/theme/icons/icon-clock.svg')}}" alt="" />
-                                <strong>{{ __('footer.hours') }}: </strong>
-                                <span>HOURS</span>
-                            </li>
+{{--                            <li>--}}
+{{--                                <img src="{{asset('/images/theme/icons/icon-clock.svg')}}" alt="" />--}}
+{{--                                <strong>{{ __('footer.hours') }}: </strong>--}}
+{{--                                <span>HOURS</span>--}}
+{{--                            </li>--}}
                         </ul>
                     </div>
                 </div>
@@ -100,11 +110,12 @@
             </div>
             <div class="col-xl-4 col-lg-6 col-md-6 text-end d-none d-md-block">
                 <div class="mobile-social-icon">
-                    <a href="#"><img src="{{asset('/images/theme/icons/icon-facebook-white.svg')}}" alt="" /></a>
-                    <a href="#"><img src="{{asset('/images/theme/icons/icon-twitter-white.svg')}}" alt="" /></a>
-                    <a href="#"><img src="{{asset('/images/theme/icons/icon-instagram-white.svg')}}" alt="" /></a>
-                    <a href="#"><img src="{{asset('/images/theme/icons/icon-pinterest-white.svg')}}" alt="" /></a>
-                    <a href="#"><img src="{{asset('/images/theme/icons/icon-youtube-white.svg')}}" alt="" /></a>
+                    <a href="/facebook/auth"><img src="{{asset('/images/theme/icons/icon-facebook-white.svg')}}" alt="/facebook/auth" /></a>
+                    <a href="/google/auth"><img src="{{asset('/images/theme/icons/icon-google.svg')}}" alt="/google/auth" /></a>
+                    <a href="/twitter/auth"><img src="{{asset('/images/theme/icons/icon-twitter-white.svg')}}" alt="/twitter/auth" /></a>
+{{--                    <a href="#"><img src="{{asset('/images/theme/icons/icon-instagram-white.svg')}}" alt="" /></a>--}}
+{{--                    <a href="#"><img src="{{asset('/images/theme/icons/icon-pinterest-white.svg')}}" alt="" /></a>--}}
+{{--                    <a href="#"><img src="{{asset('/images/theme/icons/icon-youtube-white.svg')}}" alt="" /></a>--}}
                 </div>
             </div>
         </div>

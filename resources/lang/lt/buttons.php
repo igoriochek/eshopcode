@@ -37,7 +37,7 @@ return [
     'proceedToCheckout' => 'Pereiti prie apmokėjimo',
     'applyCoupon' => 'Taikyti Kuponą',
     'placeOrder' => 'Pateikti Užsakymą',
-    'contant' => 'Susisiekti',
+    'contact' => 'Susisiekti',
     'submitReview' => 'Pateikite atsiliepimą'
 
 ];

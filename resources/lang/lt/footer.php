@@ -19,4 +19,7 @@ return [
     'securedPayment' => 'Saugus Mokėjimas',
     'copyright' => 'Autorių teisės © 2022, Contentum',
     'allRightsReserved' => 'Visos teisės saugomos',
+    'companycode' => "Įmonės kodas",
+    'vatcode' => "PVM kodas",
+    'ac' => "A. s.",
 ];

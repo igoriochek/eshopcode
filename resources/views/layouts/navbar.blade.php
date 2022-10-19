@@ -17,7 +17,7 @@
                                 <div class="main-menu main-menu-padding-1 main-menu-lh-2 d-none d-lg-block font-heading me-4">
                                     <nav>
                                         <ul>
-                                            @include('layouts.menus.guest_user_menu')
+                                            @include('layouts.menus.guest_user_menu_top')
                                         </ul>
                                     </nav>
                                 </div>
@@ -38,7 +38,7 @@
                                         <div class="main-menu main-menu-padding-1 main-menu-lh-2 d-none d-lg-block font-heading me-4">
                                             <nav>
                                                 <ul>
-                                                    @include('layouts.menus.guest_user_menu')
+                                                    @include('layouts.menus.guest_user_menu_top')
                                                 </ul>
                                             </nav>
                                         </div>

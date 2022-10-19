@@ -42,4 +42,6 @@ return [
     'usersReport' => 'Отчет о пользователях',
     'usersActivitiesReport' => 'Отчет о действиях пользователей',
     'profile' => 'Профиль',
+    'termsofservice' => 'Правила',
+    'policy' => 'Политика конфиденциальности',
 ];

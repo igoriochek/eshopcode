@@ -13,9 +13,9 @@
 <li>
     <a href="/user/messenger">{{__('menu.messenger')}}</a>
 </li>
-<li>
-    <a href="{{ url('/termsofservice') }}">{{ __('menu.termsofservice') }}</a>
-</li>
-<li>
-    <a href="{{ url('/policy') }}">{{ __('menu.policy') }}</a>
-</li>
+{{--<li>--}}
+{{--    <a href="{{ url('/termsofservice') }}">{{ __('menu.termsofservice') }}</a>--}}
+{{--</li>--}}
+{{--<li>--}}
+{{--    <a href="{{ url('/policy') }}">{{ __('menu.policy') }}</a>--}}
+{{--</li>--}}

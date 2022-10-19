@@ -18,4 +18,7 @@ return [
     'securedPayment' => 'Secured Payment',
     'copyright' => 'Copyright © 2022, Contentum',
     'allRightsReserved' => 'All rights reserved',
+    'companycode' => "Company Code",
+    'vatcode' => "VAT",
+    'ac' => "A/C",
 ];

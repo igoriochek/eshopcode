@@ -18,4 +18,7 @@ return [
     'securedPayment' => 'Безопасный Платеж',
     'copyright' => 'Авторские права © 2022, Contentum',
     'allRightsReserved' => 'Все права защищены',
+    'companycode' => "Код предприятия",
+    'vatcode' => "Код НДС",
+    'ac' => "Р/с",
 ];

@@ -4,8 +4,8 @@
             <div class="col-xl-6 col-lg-6 cl-md-6 col-sm-6 col-6">
                 <div class="header-info">
                     <ul>
-                        <li><a href="#">Number</a></li>
-                        <li><a href="#">Address</a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
                     </ul>
                 </div>
             </div>
