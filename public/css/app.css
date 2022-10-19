@@ -11657,6 +11657,10 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   text-align: center;
   color: #222;
 }
+.header .header-body .header-top .container .header-row .header-column .header-row .header-nav-top .dropdown-menu a:active {
+  background: #222;
+  color: #ffa600;
+}
 .header .header-body .header-top .container .header-row .header-column .header-row .header-nav-top .dropdown .dropdown-item {
   font-size: 0.6em;
 }
@@ -11764,7 +11768,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   margin-left: -2px;
   box-shadow: 0 10px 30px 10px rgba(0, 0, 0, 0.05);
   background: #FFF;
-  min-width: 100px;
+  min-width: 110px;
   z-index: 10000;
   margin-right: 20px;
   transition: opacity 0.2s ease-out;
@@ -11775,7 +11779,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   display: block;
   position: absolute;
   top: 0;
-  right: 33px;
+  right: 40px;
   width: 0;
   height: 0;
   border-left: 7px solid transparent;

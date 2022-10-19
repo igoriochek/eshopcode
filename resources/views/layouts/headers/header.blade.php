@@ -104,7 +104,7 @@
                                                id="navbarUserDropdown"
                                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 <img src="{{ asset('images/icons/icon-account.png') }}" height="27" alt="icon-account" class="header-nav-features-img">
-                                                <span style="font-size: .58em">{{ Auth::user()->name }}</span>
+                                                <span class="d-none d-sm-inline-block" style="font-size: .58em">{{ Auth::user()->name }}</span>
                                             </a>
                                             @include('layouts.dropdowns.user_dropdown')
                                             <a href="{{ url('/user/viewcart') }}" class="header-nav-features-toggle">
