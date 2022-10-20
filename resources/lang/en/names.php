@@ -186,6 +186,15 @@ return [
     'starRating' => 'Star Rating',
     'voted' => "Thank you for your vote!",
 
+    //Reviews
+    'customerReviews' => 'Customer Reviews',
+    'reviews' => 'Reviews',
+    'reviewsFound' => 'Reviews Found',
+    'addReview' => 'Add a Review',
+    'writeReview' => 'Write your review',
+    'noReviews' => 'No reviews',
+    'loginToReview' => 'Please login to review this product',
+
     //Returns
     'checkReturn' => 'Check to Return',
     'createReturn' => 'Create Return',

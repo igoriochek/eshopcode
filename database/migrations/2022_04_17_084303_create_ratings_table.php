@@ -19,6 +19,7 @@ class CreateRatingsTable extends Migration
             $table->integer('value');
             $table->unsignedBigInteger('user_id')->unsigned();
             $table->unsignedBigInteger('product_id')->unsigned();
+            $table->string('description')->nullable();
 
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('product_id')->references('id')->on('products');

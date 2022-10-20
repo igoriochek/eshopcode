@@ -181,7 +181,7 @@ class ProductController extends AppBaseController
         $rated = Ratings::query()
         ->where([
             'product_id' => $id,
-            'user_id' => Auth::user()->id
+  //          'user_id' => Auth::user()->id
         ])
         ->get();
         $arrated = [1=>0,2=>0, 3=>0, 4=>0, 5=>0];

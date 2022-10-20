@@ -185,6 +185,15 @@ return [
     'starRating' => 'Įvertinimas Žvaigždutėmis',
     'voted' => "Ačiū už jūsų balsą!",
 
+    //Reviews
+    'customerReviews' => 'Kliento atsiliepimai',
+    'reviews' => 'Atsiliepimai',
+    'reviewsFound' => 'Rasta Atsiliepimų',
+    'addReview' => 'Pridėti Atsiliepimą',
+    'writeReview' => 'Parašykite savo atsiliepimą',
+    'noReviews' => 'Nėra Atsiliepimų',
+    'loginToReview' => 'Prisijunkite, kad galėtumėte pridėti atsiliepimą šiam produktui',
+
     //Returns
     'checkReturn' => 'Pasirinkite kuriuos norite grąžinti',
     'createReturn' => 'Sukurti Grąžinimą',

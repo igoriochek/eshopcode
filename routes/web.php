@@ -45,7 +45,7 @@ Route::get('/home', function () {
         return redirect('user/products');
     else
         return redirect('products');
-});
+})->name("home");
 
 
 Route::group(array('prefix' => 'admin', 'middleware' => 'admin'), function () {
@@ -225,7 +225,7 @@ Route::get('promotion/{id}', [\App\Http\Controllers\PromotionController::class, 
         app()->setLocale($locale);
         session()->put('locale', $locale);
 //    return redirect()->back();
-        return redirect()->route('home');
+        return redirect()->back();
     });
 
 

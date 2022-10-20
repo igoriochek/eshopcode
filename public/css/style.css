@@ -15583,7 +15583,6 @@ span.flatpickr-weekday {
 }
 .comment-item__content {
   flex-grow: 1;
-  padding-left: 20px;
 }
 .comment-item__meta {
   display: flex;
@@ -16761,7 +16760,8 @@ span.flatpickr-weekday {
 }
 .shop-single-product__quantity-meta {
   border-bottom: 1px solid #eee;
-  padding: 0 0 35px;
+  border-top: 1px solid #eee;
+    padding-top: 35px;
   margin: 0 0 25px;
 }
 .shop-single-product__quantity {
@@ -16994,9 +16994,11 @@ span.flatpickr-weekday {
   margin-top: 70px;
 }
 .shop-product-tabs__title {
+    border-bottom: 1px solid #eee;
   font-size: 20px;
   line-height: 1.6;
   margin-bottom: 12px;
+  padding-bottom: 12px;
 }
 .shop-product-tabs__title .count {
   color: #666666;
