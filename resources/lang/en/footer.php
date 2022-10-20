@@ -14,7 +14,7 @@ return [
     'email' => 'Email',
     'menu' => 'Menu',
     'profile' => 'Profile',
-    'copyright' => 'dinobalt.lt © 2022. All Rights Reserved',
+    'copyright' => 'UAB Dinobalt © 2022. All Rights Reserved',
     'companycode' => "Company Code",
     'vatcode' => "VAT",
     'ac' => "A/C",

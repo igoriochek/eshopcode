@@ -14,7 +14,7 @@ return [
     'email' => 'Электронная почта',
     'menu' => 'Меню',
     'profile' => 'Личный кабинет',
-    'copyright' => 'dinobalt.lt © 2022. Все права защищены',
+    'copyright' => 'UAB Dinobalt © 2022. Все права защищены',
     'companycode' => "Код предприятия",
     'vatcode' => "Код НДС",
     'ac' => "Р/с",

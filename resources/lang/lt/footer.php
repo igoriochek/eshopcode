@@ -14,7 +14,7 @@ return [
     'email' => 'El. Paštas',
     'menu' => 'Meniu',
     'profile' => 'Vartotojo paskyra',
-    'copyright' => 'dinobalt.lt © 2022. Visos teisės saugomos',
+    'copyright' => 'UAB Dinobalt © 2022. Visos teisės saugomos',
     'companycode' => "Įmonės kodas",
     'vatcode' => "PVM kodas",
     'ac' => "A. s.",
