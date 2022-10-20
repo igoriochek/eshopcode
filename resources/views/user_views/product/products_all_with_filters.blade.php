@@ -124,7 +124,7 @@
                         <span class="text-muted">{{ __('names.noProducts') }}</span>
                     @endforelse
                     <div class="d-flex justify-content-center">
-                        {{ $products->links() }}
+                        {{ $products->onEachSide(1)->links() }}
                     </div>
                 </div>
             </div>
