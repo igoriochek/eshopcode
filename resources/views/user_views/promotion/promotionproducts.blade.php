@@ -1,6 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
+    @include('layouts.navi.page-banner',[
+     'secondPageLink' => 'promotions',
+    'secondPageName' => __('names.promotions'),
+    'hasThirdPage' => true,
+    'thirdPageName' => $promotion->name
+])
+
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">

@@ -1,6 +1,29 @@
 @extends('layouts.app')
 
 @section('content')
+    @include('layouts.navi.page-banner',[
+     'secondPageLink' => 'promotions',
+    'secondPageName' => __('names.promotions'),
+    'hasThirdPage' => false
+])
+
+    <main class="main-wrapper">
+        <div class="courses-section section-padding-01">
+            <div class="container">
+                <div class="row gy-10 flex-row-reverse">
+                    <div class="col-lg-9">
+                        <div class="tab-content">
+                            <div class="tab-pane fade show active" id="grid">
+                                <div class="row gy-6">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
