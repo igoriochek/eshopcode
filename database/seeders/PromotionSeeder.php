@@ -2,9 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\Promotion;
 use Faker\Factory as Faker;
 use Illuminate\Database\Seeder;
 use DB;
+
 class PromotionSeeder extends Seeder
 {
     /**
@@ -15,13 +17,24 @@ class PromotionSeeder extends Seeder
     public function run()
     {
         $faker = Faker::create();
-        for ($i=0; $i<10; $i++){
-            DB::table('promotions')->insert([
-                'name' => $faker->name,
-                'description' => $faker->text,
+        for ($i = 0; $i < 10; $i++) {
+            $cdata = [
+                'en' => [
+                    'name' => "promotion $faker->name",
+                    'description' => "promotion $faker->text",
+                ],
+                'lt' => [
+                    'name' => "akcija $faker->name",
+                    'description' => "akcija $faker->text",
+                ],
+                'ru' => [
+                    'name' => "скидка $faker->name",
+                    'description' => "скидка $faker->text",
+                ],
                 'start' => $faker->date,
                 'finish' => $faker->date,
-            ]);
+            ];
+            $discount = Promotion::create($cdata);
         }
     }
 }

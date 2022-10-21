@@ -3,7 +3,7 @@
 @section('content')
     @include('layouts.navi.page-banner',[
      'secondPageLink' => 'products',
-    'secondPageName' => __('names.products'),
+    'secondPageName' => __('menu.products'),
     'hasThirdPage' => false
 ])
     <main class="main-wrapper">

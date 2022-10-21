@@ -4,9 +4,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDiscountsTranslationsTable extends Migration
+class CreatePromotionsTranslationsTable extends Migration
 {
-
     /**
      * Run the migrations.
      *
@@ -14,18 +13,18 @@ class CreateDiscountsTranslationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('discounts_translations', function (Blueprint $table) {
+        Schema::create('promotions_translations', function (Blueprint $table) {
             $table->id('id');
-            $table->unsignedBigInteger('discount_id')->unsigned();
+            $table->unsignedBigInteger('promotion_id')->unsigned();
             $table->string('locale')->index();
 
             $table->string('name');
 
             $table->text('description');
 
-            $table->unique(['discount_id','locale']);
+            $table->unique(['promotion_id','locale']);
 
-            $table->foreign('discount_id')->references('id')->on('discounts')->onDelete('cascade');
+            $table->foreign('promotion_id')->references('id')->on('promotions')->onDelete('cascade');
         });
     }
 
@@ -36,6 +35,6 @@ class CreateDiscountsTranslationsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('discounts_translations');
+        Schema::drop('promotions_translations');
     }
 }

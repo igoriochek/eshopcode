@@ -84,6 +84,9 @@ return [
     'discountCouponDetails' => 'Nuolaidų kupono informacija',
     'editDiscountCoupon' => 'Redaguoti Nuolaidos Kuponą',
     'noDiscounts' => 'Nėra Nuolaidų',
+    "noDiscountCoupons" => "Jūs dar neturite nuolaidų kuponų :(",
+    "discountCouponCode" => "Nuolaidų kupono kodas",
+    "discountCouponValue" => "Nuolaidų kupono suma",
 
     //Export Import
     'dataExpImp' => 'Duomenų Eksportas / Importas',
@@ -236,5 +239,9 @@ return [
     "of" => "iš",
     'results' => 'rezultatai',
     'view' => 'Vaizdas',
+    "zeroRecords" => "Įrašų nėra",
+    "entries" => "užrašai",
+    "first" => "Pirmas",
+    "last" => "Paskutinis",
 
 ];

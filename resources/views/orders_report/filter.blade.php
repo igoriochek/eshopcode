@@ -20,12 +20,12 @@
             </select>
         </div>
         <div class="form-group col-sm-3">
-            <label for="date_from"{{__('reports.dateFrom')}}:</label>
-            <input type="datetime-local" name="date_from" class="form-control"/>
+            <label for="date_from">{{__('reports.dateFrom')}}:</label>
+            <input type="datetime-local" name="date_from" class="form-control" value=""/>
         </div>
         <div class="form-group col-sm-3">
             <label for="date_to">{{__('reports.dateTo')}}:</label>
-            <input type="datetime-local" name="date_to" class="form-control"/>
+            <input type="datetime-local" name="date_to" class="form-control" value=""/>
         </div>
     </div>
 </div>

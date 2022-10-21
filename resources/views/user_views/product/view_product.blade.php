@@ -52,10 +52,10 @@
                                 </div>
                                 <div class="shop-single-product__price">
                                     @if ($product->discount)
-                                        <span class="regular-price">{{$product->price}} €</span>
                                         <span class="sale-price discount">{{ $product->price - (round(($product->price * $product->discount->proc / 100), 2)) }} €</span>
+                                        <span class="regular-price">{{ number_format($product->price,2)}} €</span>
                                     @else
-                                        <span class="sale-price">{{$product->price}} €</span>
+                                        <span class="sale-price">{{number_format($product->price,2)}} €</span>
                                     @endif
                                 </div>
                                 <div class="shop-single-product__description">
@@ -189,6 +189,7 @@
         $('#submit-review').click(() => {
             const value = $('input[type=radio][name=rating]:checked').val();
             const desc = $('textarea[name=review-message]').val();
+            console.log(desc);
             $.post("{{ route('addUserRating') }}",
                 {
                     "_token": "{{ csrf_token() }}",

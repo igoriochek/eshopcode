@@ -48,9 +48,9 @@
                                                     <div class="course-info__price">
                                                         @if ($product->discount )
                                                             <span class="sale-price discount">{{ round(($product->price * $product->discount->proc / 100),2) }} €</span>
-                                                            <span class="regular-price">{{$product->price}} €</span>
+                                                            <span class="regular-price">{{number_format($product->price,2)}} €</span>
                                                         @else
-                                                            <span class="sale-price">{{$product->price}} €</span>
+                                                            <span class="sale-price">{{number_format($product->price,2)}} €</span>
                                                         @endif
                                                     </div>
                                                     {!! Form::open(['route' => ['addtocart'], 'method' => 'post']) !!}

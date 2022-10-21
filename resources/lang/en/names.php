@@ -84,6 +84,10 @@ return [
     'discountCouponDetails' => 'Discount Coupon Details',
     'editDiscountCoupon' => 'Edit Discount Coupon',
     'noDiscounts' => 'No discounts available',
+    "noDiscountCoupons" => "You have no discount coupons yet :(",
+    "discountCouponCode" => "Discount coupon code",
+    "discountCouponValue" => "Discount coupon value",
+
 
     //Export Import
     'dataExpImp' => 'Data Export / Import',
@@ -234,6 +238,10 @@ return [
     "of" => "of",
     'results' => 'results',
     'view' => 'View',
+    "zeroRecords" => "No matching records found",
+    "entries" => "entries",
+    "first" => "First",
+    "last" => "Last",
 
 
 ];

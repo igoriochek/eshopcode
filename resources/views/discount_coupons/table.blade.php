@@ -4,6 +4,7 @@
         <tr>
             <th>{{__('table.code')}}</th>
             <th>{{__('table.used')}}</th>
+            <th>{{__('table.user')}}</th>
             <th>{{__('table.value')}}</th>
             <th>{{__('table.action')}}</th>
         </tr>
@@ -13,6 +14,7 @@
             <tr>
                 <td>{{ $discountCoupon->code }}</td>
             <td>{{ $discountCoupon->used }}</td>
+                <td>{{ $discountCoupon->user->name ?? '-' }}</td>
             <td>{{ $discountCoupon->value }}</td>
                 <td width="120">
                     {!! Form::open(['route' => ['discountCoupons.destroy', $discountCoupon->id], 'method' => 'delete']) !!}
