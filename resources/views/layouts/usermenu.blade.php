@@ -2,7 +2,7 @@
     <a href="@if (Auth::user()) /user/products @else /products @endif"><span>{{__('menu.products')}}</span></a>
 </li>
 <li class="nav-item me-4">
-    <a href="@if (Auth::user()) /user/categorytree @else /categorytree @endif"><span>{{__('menu.categories')}}</span></a>
+    <a href="@if (Auth::user()) /user/rootcategories @else /rootcategories @endif"><span>{{__('menu.categories')}}</span></a>
 </li>
 <li class="nav-item me-4">
     <a href="@if (Auth::user()) /user/promotions @else /promotions @endif"><span>{{__('menu.promotions')}}</span></a>

@@ -34,8 +34,14 @@
                                 <div class="filter-bar-wrapper">
                                     <span>{{__('names.view')}}</span>
                                     <ul class="nav">
-                                        <li><button class="active" data-bs-toggle="tab" data-bs-target="#grid"><i class="fas fa-th"></i></button></li>
-                                        <li><button data-bs-toggle="tab" data-bs-target="#list"><i class="fas fa-bars"></i></button></li>
+                                        <li>
+                                            <button class="active" data-bs-toggle="tab" data-bs-target="#grid"><i
+                                                    class="fas fa-th"></i></button>
+                                        </li>
+                                        <li>
+                                            <button data-bs-toggle="tab" data-bs-target="#list"><i
+                                                    class="fas fa-bars"></i></button>
+                                        </li>
                                     </ul>
                                     <div class="filter-select filter-select-icon">
                                         <form method="get" action="{{ route("userproducts") }}" id="orderForm">
@@ -74,7 +80,8 @@
                                     <h4 class="sidebar-widget-wrap__title">{{__('names.search')}}</h4>
                                     <div class="header-serach">
                                         <input type="text" name="filter[namelike]" class="header-serach__input"
-                                               id="filter[namelike]" placeholder="{{ __('names.search').'...' }}" value="{{$filter["namelike"] ?? ""}}">
+                                               id="filter[namelike]" placeholder="{{ __('names.search').'...' }}"
+                                               value="{{$filter["namelike"] ?? ""}}">
                                         <button type="submit" class="header-serach__btn">
                                             <i class="fas fa-search"></i>
                                         </button>
@@ -90,19 +97,24 @@
                                                 <div class="filter-by-price-button-container mb-3">
                                                     <div class="d-flex">
                                                         <span>{{ __('names.price')}} (€):</span>
-                                                        <input type="text" id="filter[pricefrom]" name="filter[pricefrom]"
+                                                        <input type="text" id="filter[pricefrom]"
+                                                               name="filter[pricefrom]"
                                                                readonly
                                                                value="{{ $filter["pricefrom"] ?? '0' }}"
-                                                               class="border-0 text-end filter-by-price-number" style="max-width: 50px; background: none"/>
+                                                               class="border-0 text-end filter-by-price-number"
+                                                               style="max-width: 50px; background: none"/>
                                                         <span class="text-center"> — </span>
-                                                        <input type="text" id="filter[priceto]" name="filter[priceto]" readonly
+                                                        <input type="text" id="filter[priceto]" name="filter[priceto]"
+                                                               readonly
                                                                value="{{ $filter["priceto"] ?? '0' }}"
-                                                               class="border-0 text-start filter-by-price-number" style="max-width: 50px; background: none"/>
+                                                               class="border-0 text-start filter-by-price-number"
+                                                               style="max-width: 50px; background: none"/>
                                                     </div>
                                                 </div>
                                             </fieldset>
                                             <div class="widget-filter__range-btn d-flex justify-content-end">
-                                                <button type="submit" id="filterSubmit" class="btn btn-white btn-hover-primary">{{__('buttons.filter')}}</button>
+                                                <button type="submit" id="filterSubmit"
+                                                        class="btn btn-white btn-hover-primary">{{__('buttons.filter')}}</button>
                                             </div>
                                         </div>
                                     </div>
@@ -116,12 +128,13 @@
                                                 @forelse($categories as $category)
                                                     <li>
                                                         <div class="widget-filter__item">
-                                                            <input type="checkbox"  value="{{ $category->id }}" id="category{{ $category->id }}" onclick="calc();"
+                                                            <input type="checkbox" value="{{ $category->id }}"
+                                                                   id="category{{ $category->id }}" onclick="calc();"
                                                             @if ($filter && array_key_exists('categories.id', $filter))
                                                                 {{ in_array($category->id, $selCategories) ? "checked=\"checked\"" : ""}}
                                                                 @endif>
                                                             <label for="category{{ $category->id }}">
-                                                                {{ $category->name }}
+                                                                {{ $category->name }} ({{ count($category->products) }})
                                                             </label>
                                                         </div>
                                                     </li>
@@ -129,11 +142,13 @@
                                                     <span class="text-muted">{{ __('names.noCategories') }}</span>
                                                 @endforelse
                                                 <input type="text" value="{{ implode(",", $selCategories) }}"
-                                                       name="filter[categories.id]" id="filter[categories.id]" class="d-none">
+                                                       name="filter[categories.id]" id="filter[categories.id]"
+                                                       class="d-none">
                                             </ul>
                                         </div>
                                         <div class="widget-filter__range-btn d-flex justify-content-end pt-4">
-                                            <button type="submit" id="filterSubmit" class="btn btn-white btn-hover-primary">{{__('buttons.filter')}}</button>
+                                            <button type="submit" id="filterSubmit"
+                                                    class="btn btn-white btn-hover-primary">{{__('buttons.filter')}}</button>
                                         </div>
                                     </div>
                                 </div>
@@ -172,6 +187,7 @@
                 $(priceFrom).val($(rangeSlider).slider("values", 0));
                 $(priceTo).val($(rangeSlider).slider("values", 1));
             });
+
             function calc() {
                 var elements = document.querySelectorAll("input[type='checkbox']");
                 // console.log(elements);

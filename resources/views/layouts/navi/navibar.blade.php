@@ -19,6 +19,7 @@
                 </div>
                 <div class="col-xl-3 col-6">
                     <div class="header-inner">
+                        @if (Auth::user())
                         <div class="header-action">
                             <a href="/user/viewcart" class="header-action__btn">
                                 <i class="far fa-shopping-cart fs-3"></i>
@@ -27,6 +28,7 @@
                                 @endif
                             </a>
                         </div>
+                        @endif
                         <!-- Header Mobile Toggle Start -->
                         <div class="header-toggle">
                             <button class="header-toggle__btn d-xl-none" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMobileMenu">

@@ -16361,12 +16361,12 @@ span.flatpickr-weekday {
   margin-bottom: 0;
 }
 .product-list-item__actions {
-  margin-top: 17px;
+  margin-top: 7px;
   display: flex;
   align-items: center;
 }
 .product-list-item__actions > * {
-  margin-right: 10px;
+  margin-right: -10px;
   margin-top: 10px;
 }
 .product-list-item__actions > *:last-child {
@@ -16886,7 +16886,7 @@ span.flatpickr-weekday {
 .product-quantity input {
   padding: 2px 10px 2px;
   width: 80% !important;
-  min-height: 48px;
+  min-height: 40px;
   border: 1px solid #f5f5f5;
   background: #f5f5f5;
   text-align: center;
