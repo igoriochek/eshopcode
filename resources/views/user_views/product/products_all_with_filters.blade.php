@@ -17,9 +17,23 @@
             <div class="col-lg-9 col-md-8 mb-5 order-last order-md-first">
                 <div class="row mb-4 mt-5 mt-md-0 align-items-center">
                     <div class="col-lg-7">
-                        <h2 class="p-0 m-0 mb-2 mb-lg-0 shop-title">
+                        <h2 class="p-0 m-0 mb-1 mb-lg-0 shop-title">
                             {{ __('names.products') }}
                         </h2>
+                        <div class="text-muted mb-2 mb-lg-0">
+                            {{ __('names.showing') }}
+                            @if ($products->currentPage() !== $products->lastPage())
+                                {{ ($products->count() * $products->currentPage() - $products->count() + 1).__('–').($products->count() * $products->currentPage()) }}
+                            @else
+                                @if ($products->total() - $products->count() === 0)
+                                    {{ 1 }}
+                                @else
+                                    {{ ($products->total() - $products->count()).__('–').$products->total() }}
+                                @endif
+                            @endif
+                            {{ __('names.of') }}
+                            {{ $products->total().' '.__('names.entries') }}
+                        </div>
                     </div>
                     <div class="col-lg-5">
                         <div class="d-flex gap-2">

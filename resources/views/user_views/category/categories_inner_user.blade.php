@@ -25,8 +25,24 @@
                 </aside>
             </div>
             <div class="col-lg-9">
-                <div class="d-flex justify-content-between align-items-center mb-4">
-                    <h4 style="font-family: 'Times New Roman', sans-serif">{{ $maincategory->name }}</h4>
+                <div class="d-flex justify-content-between align-items-center mb-4 mt-5 mt-md-0 gap-3">
+                    <div>
+                        <h4 class="mb-1 mb-lg-0" style="font-family: 'Times New Roman', sans-serif">{{ $maincategory->name }}</h4>
+                        <div class="text-muted">
+                            {{ __('names.showing') }}
+                            @if ($products->currentPage() !== $products->lastPage())
+                                {{ ($products->count() * $products->currentPage() - $products->count() + 1).__('–').($products->count() * $products->currentPage()) }}
+                            @else
+                                @if ($products->total() - $products->count() === 0)
+                                    {{ 1 }}
+                                @else
+                                    {{ ($products->total() - $products->count()).__('–').$products->total() }}
+                                @endif
+                            @endif
+                            {{ __('names.of') }}
+                            {{ $products->total().' '.__('names.entries') }}
+                        </div>
+                    </div>
                     <a href="{{ route("rootcategories") }}" class="category-return-button">{{__('buttons.backToMainCategories')}}</a>
                 </div>
                 <div class="row">

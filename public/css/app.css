@@ -11802,6 +11802,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   border: none;
   border-radius: 0;
   text-transform: uppercase;
+  text-align: center;
   font-weight: 600;
   font-size: 0.8rem;
   display: flex;
@@ -12069,6 +12070,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   border: none;
   border-radius: 0;
   text-transform: uppercase;
+  text-align: center;
   font-weight: 600;
   font-size: 0.8rem;
   display: flex;
@@ -12135,6 +12137,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   border: none;
   border-radius: 0;
   text-transform: uppercase;
+  text-align: center;
   font-weight: 600;
   font-size: 0.8rem;
   display: flex;
@@ -12490,6 +12493,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   border: none;
   border-radius: 0;
   text-transform: uppercase;
+  text-align: center;
   font-weight: 600;
   font-size: 0.8rem;
   display: flex;
@@ -12589,6 +12593,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   border: none;
   border-radius: 0;
   text-transform: uppercase;
+  text-align: center;
   font-weight: 600;
   font-size: 0.8rem;
   display: flex;
@@ -12845,6 +12850,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   border: none;
   border-radius: 0;
   text-transform: uppercase;
+  text-align: center;
   font-weight: 600;
   font-size: 0.8rem;
   display: flex;
@@ -12907,6 +12913,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   border: none;
   border-radius: 0;
   text-transform: uppercase;
+  text-align: center;
   font-weight: 600;
   font-size: 0.8rem;
   display: flex;
@@ -12948,6 +12955,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   border: none;
   border-radius: 0;
   text-transform: uppercase;
+  text-align: center;
   font-weight: 600;
   font-size: 0.8rem;
   display: flex;
@@ -13071,6 +13079,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   border: none;
   border-radius: 0;
   text-transform: uppercase;
+  text-align: center;
   font-weight: 600;
   font-size: 0.8rem;
   display: flex;
@@ -13114,6 +13123,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   border: none;
   border-radius: 0;
   text-transform: uppercase;
+  text-align: center;
   font-weight: 600;
   font-size: 0.8rem;
   display: flex;
@@ -13297,6 +13307,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   border: none;
   border-radius: 0;
   text-transform: uppercase;
+  text-align: center;
   font-weight: 600;
   font-size: 0.8rem;
   display: flex;
@@ -13371,6 +13382,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   border: none;
   border-radius: 0;
   text-transform: uppercase;
+  text-align: center;
   font-weight: 600;
   font-size: 0.8rem;
   display: flex;
@@ -13378,10 +13390,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   justify-content: center;
   padding: 10px 20px;
   transition: all 200ms ease;
-  padding: 5px 15px;
-  text-transform: uppercase;
-  font-size: 0.8em;
-  margin-bottom: 10px;
+  padding: 10px 15px;
 }
 .category-return-button:hover, .category-return-button:focus, .category-return-button:active,
 .promotion-more-products-button:hover,
@@ -13392,15 +13401,6 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
 .promotion-return-button:active {
   background: #222;
   color: #ffa600;
-}
-.category-return-button:hover, .category-return-button:focus, .category-return-button:active,
-.promotion-more-products-button:hover,
-.promotion-more-products-button:focus,
-.promotion-more-products-button:active,
-.promotion-return-button:hover,
-.promotion-return-button:focus,
-.promotion-return-button:active {
-  color: #fff;
 }
 
 .nav-tabs {

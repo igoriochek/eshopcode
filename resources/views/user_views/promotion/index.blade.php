@@ -23,8 +23,8 @@
             <div class="col-lg-9">
                 <div class="row">
                     @forelse ($promotions as $promotion)
-                        <div class="d-flex justify-content-between align-items-center mb-4">
-                            <h4 style="font-family: 'Times New Roman', sans-serif">{{ $promotion->name }}</h4>
+                        <div class="d-flex justify-content-between align-items-center mb-4 mt-4 mt-lg-0 gap-3">
+                            <h4 class="mb-1 mb-lg-0" style="font-family: 'Times New Roman', sans-serif">{{ $promotion->name }}</h4>
                             <a href="{{ route("promotion", ["id" => $promotion->id]) }}" class="promotion-more-products-button">
                                 {{ __("names.more_for_promotions") }}
                             </a>
