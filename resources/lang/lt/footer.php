@@ -19,6 +19,6 @@ return [
     'privacyPolicy' => 'Privatumo politika',
     'termsOfService' => 'Paslaugų teikimo sąlygos',
     'contantSupport' => 'Kontaktai / Pagalba',
-    'copyright' => 'Autorių teisės © 2022 OPATRIP. Visos teisės saugomos.'
+    'copyright' => 'MB OPATRIP © 2022. Visos teisės saugomos.'
 
 ];

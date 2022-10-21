@@ -19,6 +19,6 @@ return [
     'privacyPolicy' => 'Privacy Policy',
     'termsOfService' => 'Terms of Service',
     'contantSupport' => 'Contant / Support',
-    'copyright' => 'Copyright © 2022 OPATRIP. All rights reserved.'
+    'copyright' => 'MB OPATRIP © 2022. All rights reserved.'
 
 ];
