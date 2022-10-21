@@ -30,11 +30,6 @@
                                 @endif
                             @else
                                 @auth
-                                    @if (Auth::user()->type==1)
-                                        @include('layouts.dropdown_menus.adminmenu')
-                                        @include('layouts.dropdown_menus.adminreportmenu')
-                                        @include('layouts.dropdown_menus.usermenu')
-                                    @elseif (Auth::user()->type == 2)
                                         <div class="main-menu main-menu-padding-1 main-menu-lh-2 d-none d-lg-block font-heading me-4">
                                             <nav>
                                                 <ul>
@@ -42,8 +37,32 @@
                                                 </ul>
                                             </nav>
                                         </div>
-                                        @include('layouts.dropdown_menus.usermenu')
-                                    @endif
+                                    <div class="header-action-icon-2">
+                                        <a class="mini-cart-icon" href="{{url('/user/viewcart')}}">
+                                            <img alt="cart-icon" src="{{asset('/images/theme/icons/icon-cart.svg')}}"/>
+                                            @if (!empty($cartItemCount))
+                                                <span class="pro-count blue">{{ $cartItemCount }}</span>
+                                            @endif
+                                        </a>
+                                        <a href="{{url('/user/viewcart')}}">
+                                            <span class="label fs-6 ms-2">
+                                                {{ __('names.cart') }}
+                                            </span>
+                                        </a>
+                                    </div>
+                                    <div class="header-action-icon-2">
+                                        <a>
+                                            <img class="svgInject" alt="Nest" src="{{asset('/images/theme/icons/icon-user.svg')}}"/>
+                                            <a href="{{ url('/user/userprofile') }}">
+                                                <span class="label fs-6 ms-2">{{ Auth::user()->name }}</span>
+                                            </a>
+                                        </a>
+                                        <div class="cart-dropdown-wrap cart-dropdown-hm2 account-dropdown">
+                                            <ul>
+                                                @include('layouts.dropdowns.user_dropdown')
+                                            </ul>
+                                        </div>
+                                    </div>
                                 @endauth
                             @endguest
                         </div>
@@ -56,7 +75,7 @@
 
 <script>
     window.addEventListener('scroll', () => {
-        const navbar = document.getElementById('navbar');
+        const navbar = document.getElementById('navbars');
         navbar.classList.toggle('shadow-sm', window.scrollY > 34);
     });
 </script>

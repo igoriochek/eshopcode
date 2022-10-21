@@ -4,15 +4,15 @@
 // Navbar brand
 // Navbar nav
 // Navbar text
-// Responsive navbar
+// Responsive navbars
 // Navbar position
 // Navbar themes
 
 
 // Navbar
 //
-// Provide a static navbar from which we expand to create full-width, fixed, and
-// other navbar variations.
+// Provide a static navbars from which we expand to create full-width, fixed, and
+// other navbars variations.
 
 .navbar {
   position: relative;
@@ -70,11 +70,11 @@
 
 // Navbar nav
 //
-// Custom navbar navigation (doesn't require `.nav`, but does make use of `.nav-link`).
+// Custom navbars navigation (doesn't require `.nav`, but does make use of `.nav-link`).
 
 .navbar-nav {
   display: flex;
-  flex-direction: column; // cannot use `inherit` to get the `.navbar`s value
+  flex-direction: column; // cannot use `inherit` to get the `.navbars`s value
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
@@ -100,14 +100,14 @@
 }
 
 
-// Responsive navbar
+// Responsive navbars
 //
-// Custom styles for responsive collapsing and toggling of navbar contents.
+// Custom styles for responsive collapsing and toggling of navbars contents.
 // Powered by the collapse Bootstrap JavaScript plugin.
 
-// When collapsed, prevent the toggleable navbar contents from appearing in
+// When collapsed, prevent the toggleable navbars contents from appearing in
 // the default flexbox row orientation. Requires the use of `flex-wrap: wrap`
-// on the `.navbar` parent.
+// on the `.navbars` parent.
 .navbar-collapse {
   flex-basis: 100%;
   flex-grow: 1;
@@ -116,7 +116,7 @@
   align-items: center;
 }
 
-// Button for toggling the navbar when in its collapsed state
+// Button for toggling the navbars when in its collapsed state
 .navbar-toggler {
   padding: $navbar-toggler-padding-y $navbar-toggler-padding-x;
   @include font-size($navbar-toggler-font-size);
@@ -154,9 +154,9 @@
   overflow-y: auto;
 }
 
-// scss-docs-start navbar-expand-loop
-// Generate series of `.navbar-expand-*` responsive classes for configuring
-// where your navbar collapses.
+// scss-docs-start navbars-expand-loop
+// Generate series of `.navbars-expand-*` responsive classes for configuring
+// where your navbars collapses.
 .navbar-expand {
   @each $breakpoint in map-keys($grid-breakpoints) {
     $next: breakpoint-next($breakpoint, $grid-breakpoints);
@@ -227,7 +227,7 @@
     }
   }
 }
-// scss-docs-end navbar-expand-loop
+// scss-docs-end navbars-expand-loop
 
 // Navbar themes
 //

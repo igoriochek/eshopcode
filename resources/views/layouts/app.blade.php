@@ -15,13 +15,15 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="images/theme/favicon.svg" />
+    <link rel="shortcut icon" type="image/x-icon" href="images/theme/favicon.svg"/>
 
-    <link rel="stylesheet" href="{{asset('css/plugins/animate.min.css')}}" />
-    <link rel="stylesheet" href="{{asset('css/app.css?v=5.5')}}" />
+    <link rel="stylesheet" href="{{ asset('css/plugins/animate.min.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/app.css?v=5.5') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/custom.css') }}"/>
     <link href="{{ asset('css/jquery-ui.min.css') }}" rel="stylesheet">
     <link href="{{ asset('datatables/media/css/jquery.dataTables.min.css') }}" rel="stylesheet">
     <link href="{{ asset('fontawesome-free/css/all.min.css') }}" rel="stylesheet">
@@ -33,9 +35,19 @@
 </head>
 <body>
 
-<div>
-    @include('layouts.topbar')
-    @include('layouts.navbar')
+<div class="@auth @if (Auth::user()->type == 1) admin-view @endif @endauth">
+    @auth
+        @if (Auth::user()->type == 1)
+            @include('layouts.navbars.admin_navbar')
+        @else
+            @include('layouts.topbar')
+            @include('layouts.navbars.navbar')
+        @endif
+    @endauth
+    @guest
+        @include('layouts.topbar')
+        @include('layouts.navbars.navbar')
+    @endif
     <main>
         @yield('content')
     </main>
@@ -72,10 +84,10 @@
 <script src="{{asset('/js/shop.js?v=5.5')}}"></script>
 <script>
 
-    $(document).ready(function() {
+    $(document).ready(function () {
         $('#categories').DataTable(
             {
-                "language" :
+                "language":
                     {
                         "emptyTable": "No data available in table",
                         "info": "{{__("names.showing")}} _START_ {{__("names.to")}} _END_ {{__("names.of")}} _TOTAL_ {{__("names.entries")}}",
@@ -319,14 +331,13 @@
         );
     });
 
-    $( function() {
-        $( "#start" ).datepicker();
-    } );
+    $(function () {
+        $("#start").datepicker();
+    });
 
-    $( function() {
-        $( "#finish" ).datepicker();
-    } );
-
+    $(function () {
+        $("#finish").datepicker();
+    });
 
 
 </script>

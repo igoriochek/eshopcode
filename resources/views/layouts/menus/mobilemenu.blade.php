@@ -46,45 +46,6 @@
                         </li>
                         <div style="height: 20px"></div>
                         @auth
-                            @if (Auth::user()->type==1)
-                                <li class="menu-item-has-children">
-                                    <a href="{{url('/admin/customers')}}">{{__('menu.adminmenu')}}</a>
-                                    <ul class="dropdown">
-                                        <li><a href="/admin/categories">{{__('menu.categories')}}</a>&nbsp;&nbsp;</li>
-                                        <li><a href="/admin/products">{{__('menu.products')}}</a>&nbsp;&nbsp;</li>
-                                        <li><a href="/admin/carts">{{__('menu.carts')}}</a>&nbsp;&nbsp;</li>
-                                        <li><a href="/admin/cartStatuses">{{__('menu.cartStatuses')}}</a>&nbsp;&nbsp;
-                                        </li>
-                                        <li><a href="/admin/discounts">{{__('menu.discounts')}}</a>&nbsp;&nbsp;</li>
-                                        <li><a href="/admin/discountCoupons">{{__('menu.discountCoupons')}}</a>&nbsp;&nbsp;
-                                        </li>
-                                        <li><a href="/admin/orders">{{__('menu.orders')}}</a>&nbsp;&nbsp;</li>
-                                        <li><a href="/admin/orderStatuses">{{__('menu.orderStatuses')}}</a>&nbsp;&nbsp;
-                                        </li>
-                                        <li><a href="/admin/returns">{{__('menu.returns')}}</a>&nbsp;&nbsp;</li>
-                                        <li><a href="/admin/returnStatuses">{{__('menu.returnStatuses')}}</a>&nbsp;&nbsp;
-                                        </li>
-                                        <li><a href="/admin/promotions">{{__('menu.promotions')}}</a>&nbsp;&nbsp;</li>
-                                        <li><a href="/admin/customers">{{__('menu.users')}}</a>&nbsp;</li>
-                                        <li><a href="/admin/messenger">{{__('menu.messenger')}}</a>&nbsp;</li>
-                                        <li><a href="/admin/cookies">{{__('menu.cookies')}}</a>&nbsp;&nbsp;</li>
-                                        <li><a href="/admin/data_export_import">{{__('menu.importExport')}}</a>&nbsp;&nbsp;
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="menu-item-has-children">
-                                    <a href="{{url('/admin/users_report')}}">{{__('menu.reports')}}</a>
-                                    <ul class="dropdown">
-                                        <li><a href="/admin/orders_report">{{__('menu.ordersReport')}}</a></li>
-                                        <li><a href="/admin/returns_report">{{__('menu.returnsReport')}}</a></li>
-                                        <li><a href="/admin/carts_report">{{__('menu.cartsReport')}}</a></li>
-                                        <li><a href="/admin/users_report">{{__('menu.usersReport')}}</a></li>
-                                        <li>
-                                            <a href="/admin/user_activities_report">{{__('menu.usersActivitiesReport')}}</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            @endif
                             <li class="menu-item">
                                 <a href="{{ url('/user/viewcart') }}">
                                     <img alt="cart-icon" src="{{ asset('/images/theme/icons/icon-cart.svg') }}" width="15" class="me-1" />

@@ -113,9 +113,6 @@
                     <a href="/facebook/auth"><img src="{{asset('/images/theme/icons/icon-facebook-white.svg')}}" alt="/facebook/auth" /></a>
                     <a href="/google/auth"><img src="{{asset('/images/theme/icons/icon-google.svg')}}" alt="/google/auth" /></a>
                     <a href="/twitter/auth"><img src="{{asset('/images/theme/icons/icon-twitter-white.svg')}}" alt="/twitter/auth" /></a>
-{{--                    <a href="#"><img src="{{asset('/images/theme/icons/icon-instagram-white.svg')}}" alt="" /></a>--}}
-{{--                    <a href="#"><img src="{{asset('/images/theme/icons/icon-pinterest-white.svg')}}" alt="" /></a>--}}
-{{--                    <a href="#"><img src="{{asset('/images/theme/icons/icon-youtube-white.svg')}}" alt="" /></a>--}}
                 </div>
             </div>
         </div>

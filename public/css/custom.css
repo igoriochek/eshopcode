@@ -1,0 +1,145 @@
+@media (min-width: 992px) {
+    .admin-view {
+        display: grid;
+        grid-template-columns: 280px auto;
+        grid-template-areas:
+            "header main"
+            "header footer";
+    }
+
+    .admin-view header {
+        grid-area: header;
+    }
+
+    .admin-view main {
+        grid-area: main;
+    }
+
+    .admin-view footer {
+        grid-area: footer;
+    }
+
+    .admin-header {
+        height: 100vh;
+        border-right: 1px solid #EDEDED;
+    }
+}
+
+@media (max-width: 992px) {
+    .admin-view {
+        display: block;
+    }
+
+    .admin-header {
+        max-width: 100%;
+        height: auto;
+        border-bottom: 1px solid #EDEDED;
+    }
+
+    .admin-header .admin-header-container .admin-header-top-container {
+        height: 100%;
+    }
+}
+
+.admin-header {
+    position: -webkit-sticky;
+    position: sticky;
+    z-index: 1030;
+    top: 0;
+    background: #fff;
+    overflow-x: hidden;
+    width: 280px;
+}
+.admin-header .admin-header-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    height: 100%;
+}
+.admin-header .admin-header-container .admin-header-top-container {
+    height: 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.admin-header .admin-header-container .admin-header-center-container {
+    height: 90%;
+    overflow-y: scroll;
+}
+.admin-header .admin-header-container .admin-header-center-container .admin-navbar {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    white-space: nowrap;
+}
+.admin-header .admin-header-container .admin-header-center-container .admin-navbar .admin-navbar-item {
+    font-size: 0.9rem;
+    padding: 7px 0;
+    position: relative;
+}
+.admin-header .admin-header-container .admin-header-center-container .admin-navbar .admin-navbar-item:hover .admin-navbar-link, .admin-header .admin-header-container .admin-header-center-container .admin-navbar .admin-navbar-item:focus .admin-navbar-link {
+    transition: all 200ms ease;
+}
+.admin-header .admin-header-container .admin-header-center-container .admin-navbar .admin-navbar-item .admin-navbar-link {
+    display: block;
+    color: #444;
+}
+.admin-header .admin-header-container .admin-header-center-container .admin-navbar .admin-navbar-item i {
+    font-size: 1.05rem;
+    width: 30px;
+    text-align: center;
+    margin-left: 7px;
+}
+.admin-header .admin-header-container .admin-header-center-container .admin-navbar .admin-navbar-item .admin-navbar-item-dropdown {
+    list-style: none;
+    margin-left: 40px;
+    margin-top: 5px;
+    padding: 0;
+}
+.admin-header .admin-header-container .admin-header-center-container .admin-navbar .admin-navbar-item .admin-navbar-item-dropdown .admin-navbar-subitem {
+    padding: 0;
+}
+.admin-header .admin-header-container .admin-header-center-container .admin-navbar .admin-navbar-item .admin-navbar-item-dropdown .admin-navbar-subitem .admin-navbar-sublink {
+    color: #444;
+    font-size: 0.7rem;
+    transition: all 200ms ease;
+    position: relative;
+}
+.admin-header .admin-header-container .admin-header-center-container .admin-navbar .admin-navbar-link[aria-expanded=true]:after {
+    transform: rotate(90deg);
+}
+.admin-header .admin-header-container .admin-header-bottom-container {
+    height: 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+}
+.admin-header .admin-header-container .admin-header-bottom-container .admin-header-account-dropdown {
+    transition: all 200ms ease;
+    display: flex;
+    align-items: center;
+}
+.admin-header .admin-header-container .admin-header-bottom-container .admin-header-account-dropdown:hover .admin-header-account-icon, .admin-header .admin-header-container .admin-header-bottom-container .admin-header-account-dropdown:focus .admin-header-account-icon {
+    filter: invert(61%) sepia(35%) saturate(639%) hue-rotate(100deg) brightness(91%) contrast(97%);
+}
+.admin-header .admin-header-container .admin-header-bottom-container .admin-header-account-dropdown:hover .admin-header-account-name, .admin-header .admin-header-container .admin-header-bottom-container .admin-header-account-dropdown:focus .admin-header-account-name {
+    color: #3BB77E
+}
+.admin-header .admin-header-container .admin-header-bottom-container .admin-header-account-dropdown .admin-header-account-icon {
+    margin-right: 5px;
+}
+.admin-header .admin-header-container .admin-header-bottom-container .admin-header-account-dropdown .admin-header-account-name {
+    color: #444;
+}
+.admin-header .admin-header-container .admin-header-bottom-container .admin-navbar-language-dropdown {
+    color: #444;
+    transition: all 200ms ease;
+    position: relative;
+}
+.admin-header .admin-header-container .admin-header-bottom-container .admin-navbar-language-dropdown:hover, .admin-header .admin-header-container .admin-header-bottom-container .admin-navbar-language-dropdown:focus {
+    color: #3BB77E
+}
+.admin-header .admin-header-container .hide {
+    display: none;
+}
