@@ -12,6 +12,7 @@ use App\Models\OrderStatus;
 use App\Models\ReturnItem;
 use App\Models\Returns;
 use App\Models\ReturnStatus;
+use App\Models\User;
 use App\Repositories\ReturnItemRepository;
 use App\Repositories\ReturnsRepository;
 use App\Http\Controllers\AppBaseController;
@@ -333,12 +334,13 @@ class ReturnsController extends AppBaseController
             ->first();
 
         if (isset($order)) {
+            $admin = User::where('type', 1)->first();
             $returns = $this->returnsRepository->create([
                 'user_id' => $userId,
-                'admin_id' => 1,
+                'admin_id' => $admin->id,
                 'order_id' => $order->id,
                 'code' => md5(time()),
-                'description' => $input['description'],
+                'description' => "$input[description]",
                 'status_id' => 1,
             ]);
 
