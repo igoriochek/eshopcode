@@ -1,49 +1,32 @@
 @extends('layouts.app')
 
 @section('content')
-<section class="content-header">
-    <div class="container-fluid">
-        <div class="row m-2">
-            <div class="col-sm-6">
-                <h1>[{{__("names.cancelOrder")}}]</h1>
-            </div>
-        </div>
-    </div>
-</section>
+    @include('layouts.navi.page-banner',[
+     'secondPageLink' => 'rootorders',
+    'secondPageName' => __('names.orders'),
+    'hasThirdPage' => true,
+    'thirdPageName' => __('names.cancelOrder').' '.$order->order_id ,
+])
 
-<section>
-
-    <div class="content px-3">
-
-        @include('flash::message')
-
-        <div class="clearfix"></div>
-
-        <div class="card">
-
+    <div class="dashboard-content py-10">
+        <div class="container">
             {!! Form::model($order, ['route' => ['savecancelnorder', $order->id], 'method' => 'post']) !!}
+            <div class="row pt-10 d-flex justify-content-center">
 
-            <div class="card-body">
-                <div class="row">
-                    <!-- Name Field -->
-                    <div class="form-group col-sm-6">
-                        {!! Form::label('description', __('names.desc')) !!}
-                        {!! Form::textarea('description', null, ['class' => 'form-control']) !!}
-                    </div>
+                <div class="form-group col-sm-6">
+                    {!! Form::label('description', __('names.desc')) !!}
+                    {!! Form::textarea('description', null, ['class' => 'form-control']) !!}
                 </div>
-            </div>
+                <div class="col-md-12 d-flex justify-content-center pt-3">
+                    {!! Form::submit(__('buttons.save'), ['class' => 'btn btn-primary btn-hover-secondary']) !!}
+                    <a href="{{ route('rootorders') }}"
+                       class="btn btn-default btn-hover-danger">{{__('buttons.cancel')}}</a>
+                </div>
 
-            <div class="card-footer">
-                {!! Form::submit(__('buttons.save'), ['class' => 'btn btn-primary']) !!}
-                <a href="{{ route('rootorders') }}" class="btn btn-default">{{__('buttons.cancel')}}</a>
             </div>
-
             {!! Form::close() !!}
-
         </div>
-
     </div>
-</section>
 
 @endsection
 

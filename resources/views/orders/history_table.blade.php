@@ -1,5 +1,5 @@
-<div class="table-responsive">
-    <table class="table" id="ordersHistory-table">
+<div class="dashboard-table table-responsive">
+    <table class="table">
         <thead>
         <tr>
             <th>{{__('table.date')}}</th>

@@ -1,46 +1,41 @@
 @extends('layouts.app')
 
 @section('content')
-<section class="content-header">
-    <div class="container-fluid">
-        <div class="row m-2">
-            <div class="col-sm-6">
-                <h1>{{__('names.returns')}}</h1>
-            </div>
-        </div>
-    </div>
-</section>
+    @include('layouts.navi.page-banner',[
+     'secondPageLink' => 'rootoreturns',
+    'secondPageName' => __('names.returns'),
+    'hasThirdPage' => false
+])
 
-<section>
-
-    <div class="content px-3">
-
-        @include('flash::message')
-
-        <div class="clearfix"></div>
-
-        @if($returns)
-            <div class="card">
-                <div class="card-body p-0">
-                    <div class="table table-responsive">
-                        <table class="table" id="categories">
+    <div class="dashboard-content py-10">
+        <div class="container">
+            @if($returns)
+                <div class="dashboard-purchase-history">
+                    <div class="dashboard-table table-responsive">
+                        <table class="table">
                             <thead>
                             <tr>
-                                <th>ID</th>
-                                <th>{{__('table.status')}}</th>
-                                <th> </th>
+                                <th class="id">{{__('names.order')}} ID</th>
+                                <th class="status">{{__('table.status')}}</th>
+                                <th class="action"></th>
                             </tr>
                             </thead>
                             <tbody>
                             @foreach($returns as $item)
                                 <tr>
-                                    <td>{{ $item->id }}</td>
-                                    <td>{{ __("status." . $item->status->name) }}</td>
-                                    <td width="120">
-                                        <div class='btn-group'>
-                                            <a href="{{ route('viewreturn', [$item->id]) }}"
-                                               class='btn btn-default btn-xs'>
-                                                <i class="far fa-eye"></i>
+                                    <td>
+                                        <div class="dashboard-table__mobile-heading">{{__('names.return')}} ID</div>
+                                        <div class="dashboard-table__text">{{ $item->id }}</div>
+                                    </td>
+                                    <td>
+                                        <div class="dashboard-table__mobile-heading">{{__('table.status')}}</div>
+                                        <div
+                                            class="dashboard-table__text">{{ __("status." . $item->status->name) }}</div>
+                                    </td>
+                                    <td>
+                                        <div class="dashboard-table__mobile-heading">{{__('table.action')}}</div>
+                                        <div class="dashboard-table__text">
+                                            <a href="{{ route('viewreturn', [$item->id]) }}"><i class="far fa-eye"></i>
                                             </a>
                                         </div>
                                     </td>
@@ -49,14 +44,12 @@
                             </tbody>
                         </table>
                     </div>
-
                 </div>
-            </div>
-        @else
-            {{__('names.noReturns')}}
-        @endif
+            @else
+                {{__('names.noReturns')}}
+            @endif
+        </div>
     </div>
-</section>
 
 @endsection
 
