@@ -35,8 +35,5 @@ return [
     'showStatistics' => 'Показать статистику',
     'postReview' => 'Опубликовать отзыв',
     'proceedToCheckout' => 'Перейти к оформлению заказа',
-    'continueShopping' => 'Назад в магазин',
-    'applyCoupon' => 'Применить Kупон',
-    'placeOrder' => 'Разместить Заказ',
 
 ];

@@ -20,7 +20,4 @@ trait SocialNamesTrait {
         if (($email !== null ) && !empty(trim($email))) return $email;
         return $this->HashForAll() . $this->email;
     }
-
-
-
 }

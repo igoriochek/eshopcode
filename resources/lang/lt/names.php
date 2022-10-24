@@ -13,7 +13,6 @@ return [
     |
     */
 
-
     //Carts
     'cart' => 'Prekių krepšelis',
     'cartDetails' => 'Krepšelio Informacija',
@@ -136,6 +135,10 @@ return [
     'unreadMsg' => 'neperskaitytas žinutes.',
 
     //Messenger
+    'messages' => 'Pranešimai',
+    'you' => 'Jūs',
+    'contactUsers' => 'Susisiekite su vartotojais',
+    'noUncontactedUsers' => 'Nerasta nesusisiekusių vartotojų',
     'typeMsg' => 'Įveskite savo žinutę...',
 
     //Orders
@@ -231,11 +234,6 @@ return [
     'createCustomer' => 'Sukurti Klientą',
     'editCustomer' => 'Redaguoti Klientą',
     'userLogs' => 'Vartotojų Žurnalai',
-
-
-
-
-
 
     'desc' => 'Aprašymas',
     'name' => 'Pavadinimas',

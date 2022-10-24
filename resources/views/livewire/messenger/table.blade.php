@@ -1,24 +1,30 @@
-<div class="table table-responsive">
-    <table class="table">
-        <thead>
-        <tr>
-            <th>{{__('table.name')}}</th>
-            <th></th>
-        </tr>
-        </thead>
-        <tbody>
-        @forelse ($table_users ?? [] as $user)
-            <tr>
-                <td>{{$user->name}}</td>
-                <td width="60">
-                     <a href="{{ route('livewire.messenger.show', [$user->id]) }}" class='btn btn-primary'>{{__('buttons.addNew')}}</a>
-                </td>
-            </tr>
-        @empty
-            <tr>
-                <td>{{__('table.emptyTable')}}</td>
-            </tr>
-        @endforelse
-        </tbody>
-    </table>
-</div>
+<ul class="list-unstyled">
+    @forelse ($addUsers as $user)
+        <li>
+            <div class="messenger-add-users-user flex-column flex-sm-row">
+                <div class="mb-3 mb-sm-0">
+                    <p class="messenger-add-users-name mb-0">
+                        {{ $user->name }}
+                        <span>
+                            @if ($user->type == 1) ({{ __('admin') }}) @endif
+                        </span>
+                    </p>
+                    <p class="messenger-add-users-email mb-0">{{ $user->email }}</p>
+                </div>
+                <a class="btn btn-primary btn-hover-secondary" href="{{ route('livewire.messenger.show', [$user->id]) }}">
+                    {{ __('buttons.contact') }}
+                </a>
+            </div>
+        </li>
+        <hr class="messenger-users-hr my-0"/>
+    @empty
+        <div>
+            <span class="text-muted">{{ __('names.noUncontactedUsers') }}</span>
+        </div>
+    @endforelse
+    <div class="pt-3 mt-3">
+        @if (count($addUsers)>0)
+            {{ $addUsers->links() }}
+        @endif
+    </div>
+</ul>

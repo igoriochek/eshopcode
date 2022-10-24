@@ -136,6 +136,10 @@ return [
     'unreadMsg' => 'unread messages.',
 
     //Messenger
+    'messages' => 'Messages',
+    'you' => 'You',
+    'contactUsers' => 'Contact Users',
+    'noUncontactedUsers' => 'No uncontacted users found',
     'typeMsg' => 'Type your message here...',
 
     //Orders
@@ -158,7 +162,6 @@ return [
     'noOrders' => 'You have no orders',
     'invoice' => 'Invoice',
     'invoicePreview' => 'Invoice Preview',
-
 
     // Products
     'createProduct' => 'Create Product',
@@ -190,7 +193,6 @@ return [
     'to' => 'To',
     'sum' => 'Sum',
     'total' => 'Total',
-
 
     //Rating
     'alreadyVoted' => "You have already voted for this product",
@@ -233,8 +235,6 @@ return [
     'editCustomer' => 'Edit Customer',
     'userLogs' => 'User Logs',
 
-
-
     'desc' => 'Description',
     'name' => 'Name',
 
@@ -252,6 +252,5 @@ return [
     "entries" => "entries",
     "first" => "First",
     "last" => "Last",
-
 
 ];
