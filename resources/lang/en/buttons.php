@@ -34,4 +34,9 @@ return [
     'showLogs' => 'Show Logs',
     'showStatistics' => 'Show Statistics',
     'postReview' => 'Post Review',
+    'proceedToCheckout' => 'Proceed to Checkout',
+    'contact' => 'Contact',
+    'applyCoupon' => 'Apply Coupon',
+    'placeOrder' => 'Place Order'
+
 ];
