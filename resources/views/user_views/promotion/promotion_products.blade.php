@@ -40,11 +40,11 @@
                                     <div class="product-img product-img-zoom">
                                         @if ($product->image)
                                             <a style="cursor: pointer" href="{{ route('viewproduct', $product->id) }}">
-                                                <img src="{{ $product->image }}" alt="{{ $product->name }}" class="default-img" />
+                                                <img src="{{ $product->image }}" alt="{{ $product->name }}" class="default-img mb-2" />
                                             </a>
                                         @else
                                             <a style="cursor: pointer" href="{{ route('viewproduct', $product->id) }}">
-                                                <img src="{{ asset('images/noimage.jpeg') }}" alt="" class="default-img"/>
+                                                <img src="{{ asset('images/noimage.jpeg') }}" alt="" class="default-img mb-2" />
                                             </a>
                                         @endif
                                     </div>
@@ -87,8 +87,8 @@
                                     </div>
                                     <div class="product-card-bottom">
                                         <div class="add-cart w-100">
-                                            {!! Form::open(['route' => ['addtocart'], 'method' => 'post', 'class' => 'd-flex justify-content-between align-items-center']) !!}
-                                            {!! Form::number('count', "1", ['style' => 'height: 40px', "min" => "1", "max" => "5", "minlength" => "1", "maxlength" => "5", "oninput" => "this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null"]) !!}
+                                            {!! Form::open(['route' => ['addtocart'], 'method' => 'post', 'class' => 'd-flex justify-content-between align-items-center gap-2']) !!}
+                                            {!! Form::number('count', "1", ['style' => 'height: 40px; width: 100px; text-align: center', "min" => "1", "max" => "5", "minlength" => "1", "maxlength" => "5", "oninput" => "this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null"]) !!}
                                             <input type="hidden" name="id" value="{{ $product->id }}">
                                             <input type="submit" value="{{ __('buttons.addToCart') }}" class="ms-3 add">
                                             {!! Form::close() !!}

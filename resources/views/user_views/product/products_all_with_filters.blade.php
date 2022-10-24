@@ -27,6 +27,14 @@
                             {{ $products->total().' '.__('names.resultsOf') }}
                         </p>
                     </div>
+                    <div class="sort-by-product-area">
+                        <div class="sort-by-cover w-100">
+                            <div class="sort-by-product-wrap">
+                                <i class="fi-rs-apps-sort mx-2"></i>
+                                {!! Form::select('order', $order_list, $selectedOrder, ['class' => 'sort-by py-1', 'id' => 'orderSelector']) !!}
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="row product-grid">
                     @forelse($products as $product)
@@ -36,11 +44,11 @@
                                     <div class="product-img product-img-zoom">
                                         @if ($product->image)
                                             <a style="cursor: pointer" href="{{ route('viewproduct', $product->id) }}">
-                                                <img src="{{ $product->image }}" alt="{{ $product->name }}" class="default-img" />
+                                                <img src="{{ $product->image }}" alt="{{ $product->name }}" class="default-img mb-2" />
                                             </a>
                                         @else
                                             <a style="cursor: pointer" href="{{ route('viewproduct', $product->id) }}">
-                                                <img src="{{ asset('images/noimage.jpeg') }}" alt="" class="default-img"/>
+                                                <img src="{{ asset('images/noimage.jpeg') }}" alt="no-image" class="default-img mb-2" />
                                             </a>
                                         @endif
                                     </div>
@@ -51,7 +59,7 @@
                                             <a href="{{ Auth::user() ? url("/user/innercategories/$category->id") : url("/innercategories/$category->id") }}">
                                                 {{ $category->name }}
                                             </a>
-                                            @if (!$loop->first)
+                                            @if ($loop->first)
                                                 @break
                                             @endif
                                         @endforeach
@@ -85,8 +93,8 @@
                                     </div>
                                     <div class="product-card-bottom">
                                         <div class="add-cart w-100">
-                                            {!! Form::open(['route' => ['addtocart'], 'method' => 'post', 'class' => 'd-flex justify-content-between align-items-center']) !!}
-                                                {!! Form::number('count', "1", ['style' => 'height: 40px', "min" => "1", "max" => "5", "minlength" => "1", "maxlength" => "5", "oninput" => "this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null"]) !!}
+                                            {!! Form::open(['route' => ['addtocart'], 'method' => 'post', 'class' => 'd-flex justify-content-between align-items-center gap-2']) !!}
+                                                {!! Form::number('count', "1", ['style' => 'height: 40px; width: 100px; text-align: center', "min" => "1", "max" => "5", "minlength" => "1", "maxlength" => "5", "oninput" => "this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null"]) !!}
                                                 <input type="hidden" name="id" value="{{ $product->id }}">
                                                 <input type="submit" value="{{ __('buttons.addToCart') }}" class="ms-3 add">
                                             {!! Form::close() !!}
@@ -163,6 +171,7 @@
                                            class="d-none">
                                 </div>
                             </div>
+                            <input type="hidden" id="order" name="order" value="{{ $selectedOrder }}">
                             <button type="submit" class="btn btn-primary w-100" id="filterSubmit">
                                 <i class="fi-rs-filter mr-5"></i>
                                 {{ __('buttons.filter') }}
@@ -175,6 +184,13 @@
     </div>
     @push('scripts')
         <script>
+            document.getElementById('orderSelector').onchange = () => {
+                addOrderValueToFilter();
+                document.getElementById('mainForm').submit();
+            }
+
+            const addOrderValueToFilter = () => document.getElementById('order').value = $('#orderSelector').val();
+
             const rangeSlider = document.getElementById('range-slider');
             const priceFrom = document.getElementById('filter[pricefrom]');
             const priceTo = document.getElementById('filter[priceto]');

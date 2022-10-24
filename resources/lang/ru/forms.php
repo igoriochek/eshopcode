@@ -12,8 +12,6 @@ return [
     | you want to customize your views to better match your application.
     |
     */
-
-
     'name' => 'Имя',
     'email' => 'Электронная почта',
     'description' => "Описание",
@@ -38,6 +36,12 @@ return [
 
     'current_password' => "Текущий пароль",
     'new_password' => "Новый пароль",
-    'confirm_password' => 'Подтвердить пароль'
+    'confirm_password' => 'Подтвердить пароль',
+
+    'default' => 'Дефолт',
+    'productNameAsc' => 'Название Продукта — по возрастанию',
+    'productNameDesc' => 'Название Продукта - по убыванию',
+    'priceAsc' => 'Цена - по возрастанию',
+    'priceDesc' => 'Цена - по убыванию'
 
 ];

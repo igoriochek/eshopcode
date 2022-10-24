@@ -16,7 +16,7 @@ return [
     'menu' => 'Меню',
     'profile' => 'Личный кабинет',
     'securedPayment' => 'Безопасный Платеж',
-    'copyright' => 'Авторские права © 2022, Contentum',
+    'copyright' => 'MB Contentum© 2022.',
     'allRightsReserved' => 'Все права защищены',
     'companycode' => "Код предприятия",
     'vatcode' => "Код НДС",

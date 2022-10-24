@@ -16,7 +16,7 @@ return [
     'menu'=>'Menu',
     'profile'=>'Profile',
     'securedPayment' => 'Secured Payment',
-    'copyright' => 'Copyright © 2022, Contentum',
+    'copyright' => 'MB Contentum© 2022.',
     'allRightsReserved' => 'All rights reserved',
     'companycode' => "Company Code",
     'vatcode' => "VAT",

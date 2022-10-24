@@ -202,40 +202,35 @@ Route::get('promotion/{id}', [\App\Http\Controllers\PromotionController::class, 
 Route::get("termsofservice", [\App\Http\Controllers\TermsOfServiceController::class, 'rules'])->name('termsofservice');
 Route::get("policy", [\App\Http\Controllers\TermsOfServiceController::class, 'policy'])->name('policy');
 
-    Auth::routes();
-    Route::get("logout", function () {
-        Auth::logout();
-        return redirect()('products');
-    })->name("getlogout");
+Auth::routes();
+Route::get("logout", function () {
+    Auth::logout();
+    return redirect()('products');
+})->name("getlogout");
 
-    Route::prefix('facebook')->name('facebook.')->group(function () {
-        Route::get('auth', [FaceBookController::class, 'loginUsingFacebook'])->name('login');
-        Route::get('callback', [FaceBookController::class, 'callbackFromFacebook'])->name('callback');
-    });
+Route::prefix('facebook')->name('facebook.')->group(function () {
+    Route::get('auth', [FaceBookController::class, 'loginUsingFacebook'])->name('login');
+    Route::get('callback', [FaceBookController::class, 'callbackFromFacebook'])->name('callback');
+});
 
-    Route::prefix('google')->name('google.')->group(function () {
-        Route::get('auth', [GoogleController::class, 'loginUsingGoogle'])->name('login');
-        Route::get('callback', [GoogleController::class, 'callbackFromGoogle'])->name('callback');
-    });
+Route::prefix('google')->name('google.')->group(function () {
+    Route::get('auth', [GoogleController::class, 'loginUsingGoogle'])->name('login');
+    Route::get('callback', [GoogleController::class, 'callbackFromGoogle'])->name('callback');
+});
 
-    Route::prefix('twitter')->name('twitter.')->group(function () {
-        Route::get('auth', [TwitterController::class, 'loginUsingTwitter'])->name('login');
-        Route::get('callback', [TwitterController::class, 'callbackFromTwitter'])->name('callback');
-    });
+Route::prefix('twitter')->name('twitter.')->group(function () {
+    Route::get('auth', [TwitterController::class, 'loginUsingTwitter'])->name('login');
+    Route::get('callback', [TwitterController::class, 'callbackFromTwitter'])->name('callback');
+});
 
-//    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-    Route::get('lang/{locale}', function ($locale) {
-        app()->setLocale($locale);
-        session()->put('locale', $locale);
-        return redirect()->back();
-    });
-
+Route::get('lang/{locale}', function ($locale) {
+    app()->setLocale($locale);
+    session()->put('locale', $locale);
+    return redirect()->back();
+});
 
 //Route::resource('categories', App\Http\Controllers\CategoryController::class);
-
-
-    Route::resource('messages', App\Http\Controllers\MessageController::class);
-
-
-    Route::resource('ratings', App\Http\Controllers\RatingsController::class);
+//Route::resource('messages', App\Http\Controllers\MessageController::class);
+//Route::resource('ratings', App\Http\Controllers\RatingsController::class);
