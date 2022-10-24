@@ -34,4 +34,8 @@ return [
     'showLogs' => 'Show Logs',
     'showStatistics' => 'Show Statistics',
     'postReview' => 'Post Review',
+    'continueShopping' => 'Back to products',
+    'proceedToCheckout' => 'Proceed to Checkout',
+    'applyCoupon' => 'Apply Coupon',
+    'placeOrder' => 'Place Order',
 ];

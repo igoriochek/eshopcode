@@ -17328,7 +17328,6 @@ span.flatpickr-weekday {
   vertical-align: middle;
   padding: 18px 10px;
   border: 0;
-  white-space: nowrap;
 }
 .cart-table .table tr td.product {
   padding-left: 30px;
@@ -17475,7 +17474,6 @@ span.flatpickr-weekday {
 .cart-collaterals {
   margin-top: 40px;
   padding-top: 45px;
-  border-top: 1px solid #eee;
 }
 .cart-collaterals__title {
   font-size: 18px;

@@ -1,92 +1,86 @@
 @extends('layouts.app')
 
 @section('content')
-<section class="content-header">
-    <div class="container-fluid">
-        <div class="row m-2">
-            <div class="col-sm-6">
-                <h1>{{__('names.checkout')}}</h1>
-            </div>
-        </div>
-    </div>
-</section>
+    @include('layouts.navi.page-banner',[
+     'secondPageLink' => 'viewcart',
+    'secondPageName' => __('names.cart'),
+    'hasThirdPage' => true,
+    'thirdPageName' => __('names.checkout')
+])
 
-<section>
-
-    <div class="content px-3">
-
-        @include('flash::message')
-
-        <div class="clearfix"></div>
-
-        <div class="row">
-            <div class="col-lg-6">
-                <div><strong>{{__('names.cart')}}</strong></div>
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th>{{__('table.name')}}</th>
-                        <th>{{__('table.count')}}</th>
-                        <th>{{__('table.price')}}</th>
-                        <th>{{__('table.description')}}</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    @foreach($cartItems as $item)
-                        <tr>
-                            <td>{{ $item['product']->name }}</td>
-                            <td>{{ $item->count }}</td>
-                            <td>{{ number_format($item['product']->price,2) }} €</td>
-                            <td>{{ $item['product']->description }}</td>
-                        </tr>
-                    @endforeach
-                    </tbody>
-                    <tfoot>
-                    <tr>
-                        <td>{{__('names.sum')}}:</td>
-                        <td colspan="3" style="text-align: right">{{ number_format($cart->sum,2) }} €</td>
-                    </tr>
-                    </tfoot>
-                </table>
-            </div>
-            <div class="col-lg-6">
-                <div><strong>{{__('forms.user')}}</strong></div>
-                <div>Id: {{ $user->id }}</div>
-                <div>{{__('forms.name')}}: {{ $user->name }}</div>
-                <div>{{__('forms.email')}}: {{ $user->email }}</div>
-                <div>{{__('forms.avatar')}}: {{ $user->avatar }}</div>
-                <div>{{__('forms.street')}}: {{ $user->street }}</div>
-                <div>{{__('forms.house_flat')}}: {{ $user->house_flat }}</div>
-                <div>{{__('forms.post_index')}}: {{ $user->post_index }}</div>
-                <div>{{__('forms.city')}}: {{ $user->city }}</div>
-                <div>{{__('forms.phone_number')}}: {{ $user->phone_number }}</div>
-            </div>
-        </div>
-
-        <br>
-        <br>
-        <div>
-
-        </div>
-
-        <div>
-            {!! Form::open(['route' => ['checkout-preview'], 'method' => 'post']) !!}
-                <div>
-                    <div>{{__('names.discount')}}</div>
-                    <select name="discount[]" size="10" multiple>
-                        @forelse($discounts as $item)
-                            <option value="{{ $item->id }}">{{ $item->code }} - {{ $item->value }} EU {{ __('names.off') }}</option>
-                        @empty
-                            <option value="">{{ __('names.noDiscounts') }}</option>
-                        @endforelse
-                    </select>
+    <div class="checkout-section section-padding-01">
+        <div class="container custom-container">
+            <div class="row gy-8">
+                <div class="col-lg-5">
+                    <div class="checkout-order">
+                        <h4 class="checkout-order__title text-center">{{ __('names.yourOrder') }}</h4>
+                        <div class="checkout-order__details table-responsive">
+                            <table class="table">
+                                <tbody>
+                                @foreach($cartItems as $item)
+                                    <tr class="checkout-order__cart-item">
+                                        <td class="checkout-order__info">
+                                            <div class="checkout-order__product">
+                                                <div class="checkout-order__product-thumbnail">
+                                                    <img alt="{{ $item['product']->name }}" width="80" height="80"
+                                                         src="@if ($item['product']->image) {{ $item['product']->image }} @else /images/product/product-1.png @endif">
+                                                </div>
+                                                <div class="checkout-order__product-caption">
+                                                    <h3 class="checkout-order__name">{{ $item['product']->name }}<span
+                                                            class="quantity">x {{ $item->count }}</span></h3>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="checkout-order__total">
+                                            <span class="sale-price">{{ number_format($item->price_current * $item->count,2) }} €</span>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
-                <br><br>
-                <input type="submit" value="{{__('buttons.preview')}}">
-            {!! Form::close() !!}
+                <div class="col-lg-7">
+                    <div class="checkout-order">
+                        <h4 class="checkout-order__title text-center">{{ __('names.overview') }}</h4>
+                        <div class="checkout-form__info text-center">
+                            <p>{{ __('names.wantToApply') }}</p>
+                            {!! Form::open(['route' => ['checkout-preview'],'method' => 'post']) !!}
+                            <div class="d-flex align-items-center flex-column flex-md-row">
+                                <select name="discount[]" class="form-control h-auto border-radius-0 line-height-1">
+                                    <option value="" class="text-muted">{{ __('---') }}</option>
+                                    @foreach($discounts as $item)
+                                        <option value="{{ $item->id }}">{{ $item->code }} - {{ $item->value }}
+                                            EU {{ __('names.off') }}</option>
+                                    @endforeach
+                                </select>
+                                <p><button type="submit" class="info-toggle">{{ __('buttons.applyCoupon') }}</button></p>
+                            </div>
+                            {!! Form::close() !!}
+                        </div>
+                        <div class="checkout-order__details table-responsive pt-5">
+                            <table class="table">
+                                <tfoot>
+                                    <tr class="order-total">
+                                        <th>
+                                            {{__('names.total')}}
+                                        </th>
+                                        <td class="text-end">
+                                            <span class="total-price">{{number_format($cart->sum,2) }} €</span>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                        {!! Form::open(['route' => ['checkout-preview'], 'method' => 'post']) !!}
+                        <button type="submit" class="w-100 btn btn-primary btn-hover-secondary mt-5">{{__('buttons.preview')}}</button>
+                        {!! Form::close() !!}
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</section>
 
 @endsection
 

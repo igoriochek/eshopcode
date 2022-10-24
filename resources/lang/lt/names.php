@@ -31,6 +31,16 @@ return [
     'editCartItem' => 'Redaguoti Krepšelio Prekę',
     'editCartStatus' => 'Redaguoti Krepšelio Statusą',
     'emptyCart' => 'Jūsų prekių krepšelis yra tuščias',
+    'removeItem' => 'Išmesti',
+    'overview' => 'Apžvalga',
+    'yourOrder' => 'Jūsų Užsakymas',
+    'wantToApply' => 'Norite pritaikyti nuolaidą savo krepšeliui?',
+    'selectDiscountCoupon' => 'Pasirinkite Nuolaidos Kuponą',
+    'paymentMethods' => 'Mokėjimo Metodai',
+    'off' => '',
+    'discountCoupon' => 'Nuolaidos Kuponas',
+    'acceptedOrder' => 'Ačiū. Jūsų užsakymas buvo priimtas.',
+    'canceledOrder' => 'Jūsų užsakymas buvo atšauktas.',
 
     //Categories
     'categories' => 'Kategorijos',
