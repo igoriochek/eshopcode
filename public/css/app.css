@@ -11930,7 +11930,7 @@ textarea.form-control-lg {
   color: #f28615;
 }
 .admin-header .admin-header-container .admin-header-center-container .admin-navbar .admin-navbar-item .admin-navbar-item-dropdown .admin-navbar-subitem .subactive {
-  color: #f28615;
+  color: #fff;
 }
 .admin-header .admin-header-container .admin-header-center-container .admin-navbar .active {
   background: #f28615;
@@ -11946,6 +11946,9 @@ textarea.form-control-lg {
 .admin-header .admin-header-container .admin-header-center-container .admin-navbar .active:hover .admin-navbar-link, .admin-header .admin-header-container .admin-header-center-container .admin-navbar .active:focus .admin-navbar-link {
   color: #fff;
 }
+.admin-header .admin-header-container .admin-header-center-container .admin-navbar .active:hover .admin-navbar-item-dropdown .admin-navbar-subitem .admin-navbar-sublink:hover, .admin-header .admin-header-container .admin-header-center-container .admin-navbar .active:hover .admin-navbar-item-dropdown .admin-navbar-subitem .admin-navbar-sublink:focus, .admin-header .admin-header-container .admin-header-center-container .admin-navbar .active:focus .admin-navbar-item-dropdown .admin-navbar-subitem .admin-navbar-sublink:hover, .admin-header .admin-header-container .admin-header-center-container .admin-navbar .active:focus .admin-navbar-item-dropdown .admin-navbar-subitem .admin-navbar-sublink:focus {
+  color: #fff;
+}
 .admin-header .admin-header-container .admin-header-center-container .admin-navbar .admin-navbar-link[aria-expanded=true]:after {
   transform: rotate(90deg);
 }
@@ -11954,6 +11957,10 @@ textarea.form-control-lg {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.admin-header .admin-header-container .admin-header-bottom-container .dropdown-menu {
+  min-width: 5rem;
+  border-radius: 0;
 }
 .admin-header .admin-header-container .admin-header-bottom-container .admin-header-account-dropdown:hover .admin-header-account-icon,
 .admin-header .admin-header-container .admin-header-bottom-container .admin-header-account-dropdown:hover .admin-header-account-name, .admin-header .admin-header-container .admin-header-bottom-container .admin-header-account-dropdown:focus .admin-header-account-icon,
@@ -12341,35 +12348,6 @@ textarea.form-control-lg {
 }
 .product-section .product-add-to-cart-container .product-add-to-cart-button:hover, .product-section .product-add-to-cart-container .product-add-to-cart-button:focus, .product-section .product-add-to-cart-container .product-add-to-cart-button:active {
   background: #ff6600;
-}
-.product-section .nav-tabs {
-  border: 0;
-  margin: 30px 0;
-}
-.product-section .nav-tabs li {
-  margin-bottom: -3px;
-}
-.product-section .nav-tabs li .nav-link {
-  padding: 15px 30px;
-  margin-right: 10px;
-  background: #fafafa;
-  border: 0;
-  border-bottom: 1px solid #eee;
-  border-radius: 5px;
-  color: #373a40;
-  font-size: 14px;
-  font-weight: 400;
-  transition: all 100ms ease;
-}
-.product-section .nav-tabs li .nav-link:hover, .product-section .nav-tabs li .nav-link:focus {
-  color: #f28615;
-}
-.product-section .nav-tabs li .active {
-  background: #f28615;
-  color: #fff;
-}
-.product-section .nav-tabs li .active:hover, .product-section .nav-tabs li .active:focus {
-  color: #fff;
 }
 .product-section .comments {
   list-style: none;
@@ -13232,6 +13210,36 @@ textarea.form-control-lg {
 .promotion-return-button:hover,
 .promotion-return-button:focus,
 .promotion-return-button:active {
+  color: #fff;
+}
+
+.nav-tabs {
+  border: 0;
+  margin: 30px 0;
+}
+.nav-tabs li {
+  margin-bottom: -3px;
+}
+.nav-tabs li .nav-link {
+  padding: 15px 30px;
+  margin-right: 10px;
+  background: #fafafa;
+  border: 0;
+  border-bottom: 1px solid #eee;
+  border-radius: 5px;
+  color: #373a40;
+  font-size: 14px;
+  font-weight: 400;
+  transition: all 100ms ease;
+}
+.nav-tabs li .nav-link:hover, .nav-tabs li .nav-link:focus {
+  color: #f28615;
+}
+.nav-tabs li .nav-link.active {
+  background: #f28615;
+  color: #fff;
+}
+.nav-tabs li .nav-link.active:hover, .nav-tabs li .nav-link.active:focus {
   color: #fff;
 }
 

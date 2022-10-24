@@ -103,7 +103,7 @@
                             }
 
                             .subactive {
-                                color: $primary-color;
+                                color: $white-color;
                             }
                         }
                     }
@@ -124,6 +124,16 @@
                         .admin-navbar-link {
                             color: $white-color;
                         }
+
+                        .admin-navbar-item-dropdown {
+                            .admin-navbar-subitem {
+                                .admin-navbar-sublink {
+                                    &:hover, &:focus {
+                                        color: $white-color;
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
 
@@ -140,6 +150,11 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+
+            .dropdown-menu {
+                min-width: 5rem;
+                border-radius: 0;
+            }
 
             .admin-header-account-dropdown {
                 &:hover, &:focus {

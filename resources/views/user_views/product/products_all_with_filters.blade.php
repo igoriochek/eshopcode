@@ -116,12 +116,12 @@
                     <ul class="nav nav-list flex-column">
                         @forelse($categories as $category)
                             <div class="nav-link">
-                                <input class="form-check-input me-2" type="checkbox" value="{{ $category->id }}"
-                                       id="category" onclick="calc();" name="filter[categories.id]"
-                                       @if ($filter && array_key_exists('categories.id', $filter))
-                                           {{ in_array($category->id, $selCategories) ? "checked=\"checked\"" : ""}}
-                                       @endif>
-                                <label class="form-check-label text-dark" for="categories.id">
+                                <label class="form-check-label text-dark" style="cursor: pointer">
+                                    <input class="form-check-input me-2" type="checkbox" value="{{ $category->id }}"
+                                           id="category" onclick="calc();" name="filter[categories.id]"
+                                    @if ($filter && array_key_exists('categories.id', $filter))
+                                        {{ in_array($category->id, $selCategories) ? "checked=\"checked\"" : ""}}
+                                        @endif>
                                     {{ $category->name }}
                                 </label>
                             </div>

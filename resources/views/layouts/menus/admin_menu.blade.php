@@ -1,24 +1,24 @@
-<li class="admin-navbar-item {{ request()->is('admin/products*') ? 'active' : '' }}">
+<li class="admin-navbar-item {{ request()->is('admin/products') ? 'active' : '' }}">
     <a class="admin-navbar-link" href="/admin/products">
         <i class="fa-solid fa-grip"></i>
         {{ __('menu.products') }}
     </a>
 </li>
-<li class="admin-navbar-item {{ request()->is('admin/categories*') ? 'active' : '' }}">
+<li class="admin-navbar-item {{ request()->is('admin/categories') ? 'active' : '' }}">
     <a class="admin-navbar-link" href="/admin/categories">
         <i class="fa-solid fa-sitemap"></i>
         {{ __('menu.categories') }}
     </a>
 </li>
-<li class="admin-navbar-item {{ request()->is('admin/promotions*') ? 'active' : '' }}">
+<li class="admin-navbar-item {{ request()->is('admin/promotions') ? 'active' : '' }}">
     <a class="admin-navbar-link" href="/admin/promotions">
         <i class="fa-solid fa-star"></i>
         {{ __('menu.promotions') }}
     </a>
 </li>
 <li class="admin-navbar-item {{
-        request()->is('admin/discounts*') ||
-        request()->is('admin/discountCoupons*')
+        request()->is('admin/discounts') ||
+        request()->is('admin/discountCoupons')
         ? 'active' : '' }}">
     <a class="admin-navbar-link dropdown" href="#"
             data-bs-toggle="collapse" data-bs-target="#discounts" aria-expanded="false">
@@ -31,15 +31,15 @@
         </ul>
     </div>
 </li>
-<li class="admin-navbar-item {{ request()->is('admin/customers*') ? 'active' : '' }}">
+<li class="admin-navbar-item {{ request()->is('admin/customers') ? 'active' : '' }}">
     <a class="admin-navbar-link" href="/admin/customers">
         <i class="fa-solid fa-user"></i>
         {{ __('menu.users') }}
     </a>
 </li>
 <li class="admin-navbar-item {{
-            request()->is('admin/carts*') ||
-            request()->is('admin/cartStatuses*')
+            request()->is('admin/carts') ||
+            request()->is('admin/cartStatuses')
             ? 'active' : '' }}">
     <a class="admin-navbar-link dropdown" href="#"
        data-bs-toggle="collapse" data-bs-target="#carts" aria-expanded="false">
@@ -53,8 +53,8 @@
     </div>
 </li>
 <li class="admin-navbar-item {{
-            request()->is('admin/orders*') ||
-            request()->is('admin/orderStatuses*')
+            request()->is('admin/orders') ||
+            request()->is('admin/orderStatuses')
             ? 'active' : '' }}">
     <a class="admin-navbar-link dropdown" href="#"
        data-bs-toggle="collapse" data-bs-target="#orders" aria-expanded="false">
@@ -68,8 +68,8 @@
     </div>
 </li>
 <li class="admin-navbar-item {{
-            request()->is('admin/returns*') ||
-            request()->is('admin/returnStatuses*')
+            request()->is('admin/returns') ||
+            request()->is('admin/returnStatuses')
             ? 'active' : '' }}">
     <a class="admin-navbar-link dropdown" href="#"
        data-bs-toggle="collapse" data-bs-target="#returns" aria-expanded="false">
@@ -82,13 +82,13 @@
         </ul>
     </div>
 </li>
-<li class="admin-navbar-item {{ request()->is('admin/cookies*') ? 'active' : '' }}">
+<li class="admin-navbar-item {{ request()->is('admin/cookies') ? 'active' : '' }}">
     <a class="admin-navbar-link" href="/admin/cookies">
         <i class="fa-solid fa-cookie"></i>
         {{ __('menu.cookies') }}
     </a>
 </li>
-<li class="admin-navbar-item {{ request()->is('admin/data_export_import*') ? 'active' : '' }}">
+<li class="admin-navbar-item {{ request()->is('admin/data_export_import') ? 'active' : '' }}">
     <a class="admin-navbar-link" href="/admin/data_export_import">
         <i class="fa-solid fa-file"></i>
         {{ __('menu.importExport') }}
@@ -112,7 +112,7 @@
         </ul>
     </div>
 </li>
-<li class="admin-navbar-item {{ request()->is('admin/messenger*') ? 'active' : '' }}">
+<li class="admin-navbar-item {{ request()->is('admin/messenger') ? 'active' : '' }}">
     <a class="admin-navbar-link" href="/admin/messenger">
         <i class="fa-solid fa-comment"></i>
         {{ __('menu.messenger') }}
