@@ -18919,10 +18919,9 @@ span.flatpickr-weekday {
   display: flex;
   align-items: flex-start;
   border-radius: 5px;
-  border: 1px solid #ededed;
+  border: 2px solid #ededed;
   background: #FFFFFF;
   padding: 19px 20px;
-  max-width: 924px;
 }
 @media only screen and (max-width: 767px) {
   .dashboard-course-item__link {

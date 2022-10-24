@@ -1,55 +1,34 @@
 @extends('layouts.app')
 
 @section('content')
-    <section class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1>{{__('names.discountCoupons')}}</h1>
-                </div>
-            </div>
-        </div>
-    </section>
+    @include('layouts.navi.page-banner',[
+     'secondPageLink' => 'discountCoupons',
+    'secondPageName' => __('names.discountCoupons'),
+    'hasThirdPage' => false
+])
 
-
-
-            {{--        @include('flash::message')--}}
-
-            <div class="clearfix"></div>
-
-            <div class="card">
-                <div class="card-body p-0">
-                    {{--                @include('products.table')--}}
-
-                    @if(($discountCoupons->count()))
-                        @foreach( $discountCoupons as $prod )
-                            <div class="card-body">
-                                <h4 class="card-title">{{__('names.discountCouponCode')}}: {{$prod->code}}</h4>
-                                <h6 class="card-subtitle mb-2 text-muted">{{__('names.discountCouponValue')}}: {{number_format($prod->value,2)}} €</h6>
+    <div class="container py-10">
+        @if(($discountCoupons->count()))
+            @foreach($discountCoupons as $discount)
+                <div class="row pt-5 ">
+                    <a class="dashboard-course-item__link " href="{{route('viewproduct', $discount->id)}}">
+                        <div class="dashboard-course-item__content">
+                            <h3 class="dashboard-course-item__title">{{__('names.discountCouponCode')}} {{$discount->code}}</h3>
+                            <div class="dashboard-course-item__meta">
+                                <ul class="dashboard-course-item__meta-list">
+                                    <li>
+                                        <span class="meta-label">{{__('names.discountCouponValue')}} </span>
+                                        <span class="meta-value">{{ number_format($discount->value,2)}} €</span>
+                                    </li>
+                                </ul>
                             </div>
-                        @endforeach
-
-                    @else
-                    {{__('names.noDiscountCoupons')}}
-                    @endif
-
-
-
-
-                    <div class="card-footer clearfix">
-                        <div class="float-right">
-                            @if (!empty($discountCoupons->count()))
-                                {{ $discountCoupons->links() }}
-                            @endif
                         </div>
-                    </div>
+                    </a>
                 </div>
-
-            </div>
-        </div>
-
-
-
-
+            @endforeach
+        @else
+            {{__('names.noDiscountCoupons')}}
+        @endif
+    </div>
 
 @endsection
