@@ -16,9 +16,13 @@
                                 <h4 class="mb-2">{{ $promotion->name ?? __('names.promotion') }}</h4>
                             </div>
                             @if (count($promotion->products) > 3)
-                                <a class="btn btn-primary" href="{{ route("promotion", ["id" => $promotion->id]) }}">
-                                    {{ __("names.more_for_promotions") }}
-                                </a>
+                                <div class="sort-by-product-area">
+                                    <div class="sort-by-cover w-100">
+                                        <a class="btn btn-primary w-100" href="{{ route("promotion", ["id" => $promotion->id]) }}">
+                                            {{ __("names.more_for_promotions") }}
+                                        </a>
+                                    </div>
+                                </div>
                             @endif
                         </div>
                         <div class="row product-grid">

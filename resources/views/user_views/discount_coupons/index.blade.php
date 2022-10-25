@@ -11,17 +11,22 @@
             <h4 class="mb-2">{{ __('names.discountCoupons') }}</h4>
             <p>
                 {{ __('names.showing') }}
-                @if ($discountCoupons->currentPage() !== $discountCoupons->lastPage())
-                    {{ ($discountCoupons->count() * $discountCoupons->currentPage() - $discountCoupons->count() + 1).__('–').($discountCoupons->count() * $discountCoupons->currentPage())}}
-                @else
-                    @if ($discountCoupons->total() - $discountCoupons->count() === 0)
-                        {{ 1 }}
+                @if (!empty($discountCoupons->count()))
+                    @if ($discountCoupons->currentPage() !== $discountCoupons->lastPage())
+                        {{ ($discountCoupons->count() * $discountCoupons->currentPage() - $discountCoupons->count() + 1).__('–').($discountCoupons->count() * $discountCoupons->currentPage())}}
                     @else
-                        {{ ($discountCoupons->total() - $discountCoupons->count()).__('–').$discountCoupons->total() }}
+                        @if ($discountCoupons->total() - $discountCoupons->count() === 0)
+                            {{ $discountCoupons->count() }}
+                        @else
+                            {{ ($discountCoupons->total() - $discountCoupons->count()).__('–').$discountCoupons->total() }}
+                        @endif
                     @endif
+                    {{ __('names.of') }}
+                    {{ $discountCoupons->total().' '.__('names.resultsOf') }}
+                @else
+                    {{ '0 '.__('names.of') }}
+                    {{ '0 '.__('names.resultsOf') }}
                 @endif
-                {{ __('names.of') }}
-                {{ $discountCoupons->total().' '.__('names.resultsOf') }}
             </p>
         </div>
         <div class="row">

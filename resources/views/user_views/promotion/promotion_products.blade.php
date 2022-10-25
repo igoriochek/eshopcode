@@ -19,7 +19,7 @@
                                 {{ ($products->count() * $products->currentPage() - $products->count() + 1).__('–').($products->count() * $products->currentPage())}}
                             @else
                                 @if ($products->total() - $products->count() === 0)
-                                    {{ 1 }}
+                                    {{ $products->count() }}
                                 @else
                                     {{ ($products->total() - $products->count()).__('–').$products->total() }}
                                 @endif
@@ -28,9 +28,13 @@
                             {{ $products->total().' '.__('names.resultsOf') }}
                         </p>
                     </div>
-                    <a href="{{ route("promotions") }}" class="btn btn-primary">
-                        {{ __('names.backToAllPromotions') }}
-                    </a>
+                    <div class="sort-by-product-area">
+                        <div class="sort-by-cover w-100">
+                            <a href="{{ route("promotions") }}" class="btn btn-primary w-100">
+                                {{ __('names.backToAllPromotions') }}
+                            </a>
+                        </div>
+                    </div>
                 </div>
                 <div class="row product-grid">
                     @forelse($products as $product)
