@@ -7,7 +7,7 @@
                 <div class="col-xl-4 col-lg-5 col-md-6 col-sm-8">
                     <div id="login">
                         <div class="text-center">
-                        <h1>LOGO</h1>
+                        <h1>VIATORA</h1>
                         </div>
                         <hr>
                         <form method="POST" action="{{ route('login') }}">

@@ -24,21 +24,19 @@
                                 @elseif( Auth::user()->type == 2 )
                                 @endif
                             @endauth
-                                <li>
+
                                 @if (Auth::user()->type == 1)
                                     <li class="dropdown dropdown-mini">
-                                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"  aria-expanded="false">{{__('menu.admin')}}:<a/>
-                                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                                @include('layouts.adminmenu')
-                                            </ul>
-                                        </a>
+                                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"  aria-expanded="false">{{__('menu.admin')}}:</a>
+                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                            @include('layouts.adminmenu')
+                                        </ul>
                                     </li>
                                     <li class="dropdown dropdown-mini">
-                                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"  aria-expanded="false">{{__('menu.reports')}}:<a/>
-                                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                                @include('layouts.adminreportmenu')
-                                            </ul>
-                                        </a>
+                                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"  aria-expanded="false">{{__('menu.reports')}}:</a>
+                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                            @include('layouts.adminreportmenu')
+                                        </ul>
                                     </li>
                                 @endif
                                     <li class="dropdown dropdown-mini">
@@ -60,7 +58,7 @@
                                                 </form>
                                         </ul>
                                     </li>
-                                </li>
+
                         @endguest
                             <li id="social_top" style="opacity: 1">
                                 <a href="{{ route('facebook.login') }}"><i class="icon-facebook"></i></a>
@@ -77,9 +75,9 @@
             <div class="col-3">
                 <div class="logo_home">
                     @guest
-                    <h1 class="m-0"><a href="/products">LOGO</a></h1>
+                    <h1 class="m-0"><a href="/products">VIATORA</a></h1>
                     @else
-                        <h1 class="m-0"><a href="/user/products">LOGO</a></h1>
+                        <h1 class="m-0"><a href="/user/products">VIATORA</a></h1>
                     @endguest
                 </div>
             </div>
