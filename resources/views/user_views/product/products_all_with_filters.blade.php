@@ -38,9 +38,9 @@
                     <div class="col-lg-5">
                         <div class="d-flex gap-2">
                             {!! Form::select('productsPerPage', $paginate_list, $selectedProductsPerPage,
-                                ['class' => 'form-select w-25', 'id' => 'perPageSelector']) !!}
+                                ['class' => 'form-select w-25', 'id' => 'perPageSelector', 'style' => 'cursor: pointer']) !!}
                             {!! Form::select('order', $order_list, $selectedOrder,
-                                ['class' => 'form-select w-75', 'id' => 'orderSelector']) !!}
+                                ['class' => 'form-select w-75', 'id' => 'orderSelector', 'style' => 'cursor: pointer']) !!}
                         </div>
                     </div>
                 </div>
@@ -178,9 +178,9 @@
                         <ul class="nav nav-list flex-column">
                             @forelse($categories as $category)
                                 <div class="nav-link">
-                                    <label class="form-check-label">
+                                    <label class="form-check-label" style="cursor: pointer">
                                         <input class="form-check-input me-2" type="checkbox" value="{{ $category->id }}"
-                                               id="category" onclick="calc();" name="filter[categories.id]"
+                                               id="category" onclick="calc();" name="filter[categories.id]" style="cursor: pointer"
                                         @if ($filter && array_key_exists('categories.id', $filter))
                                             {{ in_array($category->id, $selCategories) ? "checked=\"checked\"" : ""}}
                                             @endif>

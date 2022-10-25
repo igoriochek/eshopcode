@@ -25,7 +25,7 @@
                             </div>
                         </div>
                     @empty
-                        <span class="text-muted">{{ __('names.noDiscountCoupons') }}</span>
+                        <span class="text-muted">{{ __('names.ndDiscountCoupons') }}</span>
                     @endforelse
                 </div>
                 <div class="d-flex justify-content-center mt-4">

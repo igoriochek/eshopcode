@@ -25,7 +25,7 @@
                 </aside>
             </div>
             <div class="col-lg-9">
-                <div class="d-flex justify-content-between align-items-center mb-4 mt-5 mt-md-0 gap-3">
+                <div class="d-flex flex-column flex-md-row justify-content-md-between align-items-md-center mb-4 mt-4 mt-lg-0 gap-3">
                     <div>
                         <h4 class="mb-1 mb-lg-0" style="font-family: 'Times New Roman', sans-serif">{{ $maincategory->name }}</h4>
                         <div class="text-muted">

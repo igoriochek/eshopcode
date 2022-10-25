@@ -49,7 +49,7 @@
                                     @endif
                                 </div>
                                 <div class="review-num">
-                                    <a href="#description" class="text-decoration-none link" data-hash="" data-hash-offset="0" data-hash-offset-lg="75" data-hash-trigger-click=".nav-link-reviews" data-hash-trigger-click-delay="1000">
+                                    <a href="#description" class="text-decoration-none link" data-hash="" data-hash-offset="0" data-hash-offset-lg="75" onclick="setTimeout(() => document.querySelector('.nav-link-reviews').click(), 500)">
                                         <span class="count text-color-inherit" itemprop="ratingCount">
                                             {{ __('names.reviews').' ('.$rateCount.')' }}
                                         </span>

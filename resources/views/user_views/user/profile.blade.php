@@ -17,7 +17,7 @@
         @include('flash::message')
     </div>
     <div class="container">
-            <div class="col bg-white p-0">
+            <div class="col bg-white py-3 px-4">
                 <div id="description" class="tabs tabs-simple tabs-simple-full-width-line tabs-product tabs-dark mb-2">
                     <ul class="nav nav-tabs justify-content-start mb-0" role="tablist">
                         <li class="nav-item" role="presentation">
@@ -34,9 +34,9 @@
                     <div class="tab-content p-0">
                         <div class="tab-pane px-0 active" id="profile" role="tabpanel">
                             <div class="auth-form">
-                                    {!! Form::model($user, ['route' => ['userprofilesave'], 'method' => 'patch', 'class' => 'auth-form-container']) !!}
+                                    {!! Form::model($user, ['route' => ['userprofilesave'], 'method' => 'patch', 'class' => 'auth-form-container px-0']) !!}
                                         <div class="row">
-                                            <div class="form-group col-sm-6">
+                                            <div class="form-group col-md-6 col-sm-12">
                                                 {!! Form::label('code', __('forms.name') )!!}
                                                 {!! Form::text('name', $user->name, ['class' => 'form-control']) !!}
                                                 @error('name')
@@ -45,7 +45,7 @@
                                                     </span>
                                                 @enderror
                                             </div>
-                                            <div class="form-group col-sm-6">
+                                            <div class="form-group col-md-6 col-sm-12">
                                                 {!! Form::label('email', __('forms.email')) !!}
                                                 {!! Form::text('email', $user->email, ['class' => 'form-control']) !!}
                                                 @error('email')
@@ -54,28 +54,28 @@
                                                     </span>
                                                 @enderror
                                             </div>
-                                            <div class="form-group col-sm-6 mb-2">
+                                            <div class="form-group col-md-6 col-sm-12 mb-2">
                                                 {!! Form::label('street', __('forms.street')) !!}
                                                 {!! Form::text('street', $user->street, ['class' => 'form-control']) !!}
                                             </div>
-                                            <div class="form-group col-sm-6 mb-2">
+                                            <div class="form-group col-md-3 col-sm-6 mb-2">
                                                 {!! Form::label('house_flat', __('forms.house_flat')) !!}
                                                 {!! Form::text('house_flat', $user->house_flat, ['class' => 'form-control']) !!}
                                             </div>
-                                            <div class="form-group col-sm-6 mb-2">
+                                            <div class="form-group col-md-3 col-sm-6 mb-2">
                                                 {!! Form::label('post_index', __('forms.post_index')) !!}
                                                 {!! Form::text('post_index', $user->post_index, ['class' => 'form-control']) !!}
                                             </div>
-                                            <div class="form-group col-sm-6 mb-2">
+                                            <div class="form-group col-md-6 col-sm-12 mb-2">
                                                 {!! Form::label('city', __('forms.city')) !!}
                                                 {!! Form::text('city', $user->city, ['class' => 'form-control']) !!}
                                             </div>
-                                            <div class="form-group col-sm-6 mb-2">
+                                            <div class="form-group col-md-6 col-sm-12 mb-2">
                                                 {!! Form::label('phone_number', __('forms.phone_number')) !!}
                                                 {!! Form::text('phone_number', $user->phone_number, ['class' => 'form-control']) !!}
                                             </div>
                                             <div class="d-flex justify-content-center mt-4">
-                                                <button type="submit" class="col-sm-3 col-12 py-2 auth-button" data-loading-text="Loading...">
+                                                <button type="submit" class="col-sm-3 col-md-4 col-sm-12 py-2 auth-button" data-loading-text="Loading...">
                                                     {{ __('buttons.save') }}
                                                 </button>
                                             </div>
@@ -85,9 +85,9 @@
                             </div>
                         <div class="tab-pane px-0" id="password" role="tabpanel">
                             <div class="auth-form">
-                                {!! Form::model($user, ['route' => ['changePassword'], 'method' => 'post', 'class' => 'auth-form-container']) !!}
+                                {!! Form::model($user, ['route' => ['changePassword'], 'method' => 'post', 'class' => 'auth-form-container px-0']) !!}
                                 <div class="row">
-                                    <div class="form-group col-sm-6">
+                                    <div class="form-group col-md-4 col-sm-12">
                                         {!! Form::label('current_password', __('forms.current_password') )!!}
                                         {!! Form::password('current_password', ['class' => 'form-control']) !!}
                                         @error('current_password')
@@ -96,7 +96,7 @@
                                             </span>
                                         @enderror
                                     </div>
-                                    <div class="form-group col-sm-6">
+                                    <div class="form-group col-md-4 col-sm-12">
                                         {!! Form::label('new_password', __('forms.new_password')) !!}
                                         {!! Form::password('new_password', ['class' => 'form-control']) !!}
                                         @error('new_password')
@@ -105,7 +105,7 @@
                                             </span>
                                         @enderror
                                     </div>
-                                    <div class="form-group col-sm-6">
+                                    <div class="form-group col-md-4 col-sm-12">
                                         {!! Form::label('new_password_confirmation', __('forms.confirm_password')) !!}
                                         {!! Form::password('new_password_confirmation', ['class' => 'form-control']) !!}
                                         @error('new_password_confirmation')
@@ -115,7 +115,7 @@
                                         @enderror
                                     </div>
                                     <div class="d-flex justify-content-center mt-4">
-                                        <button type="submit" class="col-sm-3 col-12 py-2 auth-button" data-loading-text="Loading...">
+                                        <button type="submit" class="col-sm-3 col-md-4 col-sm-12 py-2 auth-button" data-loading-text="Loading...">
                                             {{ __('buttons.save') }}
                                         </button>
                                     </div>
