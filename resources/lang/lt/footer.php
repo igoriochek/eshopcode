@@ -24,5 +24,6 @@ return [
     'email'=>'El. Paštas',
     'menu'=>'Meniu',
     'profile'=>'Vartotojo paskyra',
-
+    'companyCode' => "Įmonės kodas",
+    'vatCode' => "PVM kodas",
 ];

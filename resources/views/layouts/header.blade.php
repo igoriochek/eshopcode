@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-6">
                     <i class="icon-phone"></i>
-                    <strong>+37060000000</strong>
+                    <strong>+370 656 88588</strong>
                     <span id ="opening">
                         <i class="icon-clock-1"></i>
                         {{ __('footer.workHours') }}

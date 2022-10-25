@@ -24,4 +24,6 @@ return [
     'email'=>'Email',
     'menu'=>'Menu',
     'profile'=>'Profile',
+    'companyCode' => "Company Code",
+    'vatCode' => "VAT",
 ];

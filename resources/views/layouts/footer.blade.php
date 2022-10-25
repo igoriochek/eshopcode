@@ -8,19 +8,23 @@
                 <ul>
                     <li>
                         <h3>{{__('footer.address')}}</h3>
-                        Konstitucijos pr. 7, Vilnius, Verslo centras „Europa“, 12 aukštas, LT-09308
+                        Lietuvininkų g. 70, LT-99182 Šilutė.
                     </li>
                     <li>
                         <h3>{{__('footer.phone')}}</h3>
-                        <a href="tel://0037060000000">+37060000000 </a>
-                    </li>
-                    <li>
-                        <h3>Viber, Whatsapp</h3>
-                        +370 685 777 77
+                        <a href="tel://0037065688588">+370 656 88588</a>
                     </li>
                     <li>
                         <h3>{{__('footer.email')}}</h3>
-                        <a href="mailto:help@viatora.com">help@viatora.com</a>
+                        <a href="mailto:info@viatora.com">info@viatora.com</a>
+                    </li>
+                    <li>
+                        <h3>{{__('footer.companyCode')}}</h3>
+                        300600012
+                    </li>
+                    <li>
+                        <h3>{{__('footer.vatCode')}}</h3>
+                        LT100003014514
                     </li>
                 </ul>
             </div>
@@ -29,7 +33,7 @@
                     <span>{{__('footer.menu')}}</span>
                 </h5>
                 <ul>
-                    @include('layouts.menus.logedmenu')
+                    @include('layouts.menus.footermenu')
                 </ul>
             </div>
             @auth

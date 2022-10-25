@@ -42,4 +42,7 @@ return [
     'usersReport' => 'Vartotojų Ataskaitos',
     'usersActivitiesReport' => 'Vartotojų Aktyvumo Ataskaitos',
     'profile' => 'Profilis',
+    'termsOfService' => 'Taisyklės',
+    'policy' => 'Privatumo politika',
+
 ];
