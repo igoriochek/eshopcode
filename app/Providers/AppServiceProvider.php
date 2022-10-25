@@ -21,7 +21,9 @@ class AppServiceProvider extends ServiceProvider
 
     public function boot(CartRepository $cartRepository, Request $request)
     {
+
         Schema::defaultStringLength(191);
+        URL::forceScheme('https');
 
         View::composer('*', function($view) use($cartRepository, $request)
         {
