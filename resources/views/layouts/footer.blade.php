@@ -4,20 +4,13 @@
             <div class="row gy-6">
                 <div class="col-lg-4">
                     <div class="footer-widget">
-                        <a href="/home">
-                            <h4 class="footer-widget__title text-uppercase">{{__('footer.contactInfo')}}</h4>
-                        </a>
-                        <div class="footer-widget__info" style="margin-top: 0">
-                            <span class="number"><i class="fas fa-map-marker"></i> {{__('footer.address')}}</span>
-                            <p>ADDRESS</p>
-                        </div>
-                        <div class="footer-widget__info" style="margin-top: 0">
-                            <span class="number"><i class="fas fa-phone"></i> {{__('footer.phone')}}</span>
-                            <p><a href="tel://0037060000000">PHONE</a></p>
-                        </div>
-                        <div class="footer-widget__info" style="margin-top: 0">
-                            <span class="number"><i class="far fa-envelope"></i> {{__('footer.email')}}</span>
-                            <p> <a href="mailto:help@mdproject.com">EMAIL</a></p>
+                        <h4 class="footer-widget__title text-uppercase">{{__('footer.contactInfo')}}</h4>
+                        <div class="footer-widget__info">
+                            <span class="number"><i class="fas fa-map-marker"></i> Address</span>
+                            <span class="number pt-3"><i class="fas fa-phone"></i> Phone</span>
+                            <span class="number pt-3"><i class="far fa-envelope"></i> E-Mail</span>
+                            <span class="number pt-3"><i class="far fa-clipboard"></i> Company Code</span>
+                            <span class="number pt-3"><i class="far fa-book"></i> VAT</span>
                         </div>
                     </div>
                 </div>
@@ -26,10 +19,10 @@
                         <div class="col-sm-4">
                             <div class="footer-widget">
                                 <h4 class="footer-widget__title text-uppercase">
-                                   {{__('footer.menu')}}
+                                    {{__('footer.menu')}}
                                 </h4>
                                 <ul class="footer-widget__link">
-                                    @include('layouts.usermenu')
+                                    @include('layouts.menus.footermenu')
                                 </ul>
                             </div>
                         </div>

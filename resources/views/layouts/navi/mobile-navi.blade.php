@@ -1,16 +1,19 @@
 <main class="main-wrapper">
-    <div class="offcanvas offcanvas-end offcanvas-mobile" id="offcanvasMobileMenu" style="background-image: url(../images/mobile-bg.jpg);">
+    <div class="offcanvas offcanvas-end offcanvas-mobile" id="offcanvasMobileMenu"
+         style="background-image: url(../images/mobile-bg.jpg);">
         <div class="offcanvas-header bg-white">
             <div class="offcanvas-logo">
-                <a href="{{ route('home') }}"><h2 class="about-content-02__main-title" data-aos="fade-up" data-aos-duration="1000">LOGO</h2></a>
+                <a href="{{ route('home') }}"><h2 class="about-content-02__main-title" data-aos="fade-up"
+                                                  data-aos-duration="1000">LOGO</h2></a>
             </div>
-            <button type="button" class="offcanvas-close" data-bs-dismiss="offcanvas"><i class="fal fa-times"></i></button>
+            <button type="button" class="offcanvas-close" data-bs-dismiss="offcanvas"><i class="fal fa-times"></i>
+            </button>
         </div>
 
         <div class="offcanvas-body">
             <nav class="canvas-menu">
                 <ul class="offcanvas-menu">
-                    @include('layouts.usermenu')
+                    @include('layouts.menus.usermenu')
                     <li>
                         <a class="language-toggle" href="#">
                             <span>
@@ -45,13 +48,13 @@
                             <li>
                                 <a href="#">{{__('menu.admin')}}</a>
                                 <ul class="sub-menu">
-                                    @include('layouts.adminmenu')
+                                    @include('layouts.menus.adminmenu')
                                 </ul>
                             </li>
                             <li>
                                 <a href="#">{{__('menu.reports')}}</a>
                                 <ul class="sub-menu">
-                                    @include('layouts.adminreportmenu')
+                                    @include('layouts.menus.adminreportmenu')
                                 </ul>
                             </li>
                         @endif
@@ -82,10 +85,12 @@
         @guest
             <div class="offcanvas-user d-lg-none">
                 <div class="offcanvas-user__button">
-                    <a href="{{ route('login') }}" class="offcanvas-user__login btn btn-secondary btn-hover-secondarys">{{ __('auth.login') }}</a>
+                    <a href="{{ route('login') }}"
+                       class="offcanvas-user__login btn btn-secondary btn-hover-secondarys">{{ __('auth.login') }}</a>
                 </div>
                 <div class="offcanvas-user__button">
-                    <a href="{{ route('register') }}" class="offcanvas-user__signup btn btn-primary btn-hover-primary">{{ __('auth.register') }}</a>
+                    <a href="{{ route('register') }}"
+                       class="offcanvas-user__signup btn btn-primary btn-hover-primary">{{ __('auth.register') }}</a>
                 </div>
             </div>
         @endguest
