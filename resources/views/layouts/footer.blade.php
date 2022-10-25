@@ -32,7 +32,11 @@
                     </li>
                     <li class="pb-4">
                         <i class="fa-regular fa-envelope fs-5 me-3"></i>
-                        info@aurintus.lt
+                        uabaurintus@gmail.com
+                    </li>
+                    <li class="pb-4">
+                        <i class="fa-solid fa-clipboard fs-5 me-3"></i>
+                         304873930
                     </li>
                 </ul>
                 <ul class="social-icons social-icons-clean-with-border social-icons-medium">
