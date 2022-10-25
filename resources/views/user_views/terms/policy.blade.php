@@ -11,20 +11,20 @@
         @if($lang=="lt")
             <h3 class="mb-4">Privatumo politika</h3>
 
-            Privatumo politika (toliau – „Privatumo politika“) paaiškina, kaip UAB Dinobalt (toliau – „Bendrovė“) renka ir tvarko svetainės www.dinobalt.lt (toliau – „Svetainė“) lankytojų informaciją, nurodo kokias teises Svetainės lankytojai turi bei kaip jas gali įgyvendinti. Prieš registruojantis Svetainėje rekomenduojame atidžiai perskaityti šią Privatumo politiką.<br/>
+            Privatumo politika (toliau – „Privatumo politika“) paaiškina, kaip MB Contentum (toliau – „Bendrovė“) renka ir tvarko svetainės www.healthnest.eu (toliau – „Svetainė“) lankytojų informaciją, nurodo kokias teises Svetainės lankytojai turi bei kaip jas gali įgyvendinti. Prieš registruojantis Svetainėje rekomenduojame atidžiai perskaityti šią Privatumo politiką.<br/>
             Bendrovė yra įsipareigojusi savo veikloje atsakingai ir saugiai tvarkyti Jūsų asmens duomenis. Vadovaudamiesi, šiais esminiais principais, mes visada sieksime užtikrinti pakankamą Jūsų duomenų apsaugos lygį bei Jūsų teisių apsaugą. Mes tvarkome Asmens duomenis, pagal šią Privatumo politiką, vadovaudamiesi taikomais teisės aktais, įskaitant Bendrąjį duomenų apsaugos reglamentą (2016/679) (toliau – „BDAR“) bei taikomus Lietuvos nacionalinius asmens duomenų apsaugos teisės aktus.<br/>
             Duomenų valdytojas<br/>
-            UAB Dinobalt<br/>
-            Įmonės kodas yra: 302685495<br/>
-            Adresas: Pakapių k. 5, Pakapių k., LT-88403 Telšių r.<br/>
-            Tel. Nr. +370 64518105<br/>
-            El. pašto adresas: dinobalt.info@gmail.com<br/>
-            Kokią informaciją renkame, naudojame ir saugojame apie Jus? <br/>
+            MB Contentum<br/>
+            Įmonės kodas yra: 302900421<br/>
+            Adresas: Birželio 23-iosios g. 15-41, LT-03206 Vilnius<br/>
+            Tel. Nr. +370 650 99090<br/>
+            El. pašto adresas: info@contentum.lt<br/>
+            Kokią informaciją renkame, naudojame ir saugojame apie Jus?<br/>
             Informacija, kurią pateikia pats Svetainės lankytojas, pildydamas registracijos formą mūsų Svetainėje:<br/>
-            1. Vardas<br/>
-            2. Adresas<br/>
-            3. El. paštas<br/>
-            4. Telefono numeris<br/>
+            1.	Vardas<br/>
+            2.	Adresas<br/>
+            3.	El. paštas<br/>
+            4.	Telefono numeris<br/>
             Informacija reikalinga paslaugos suteikimui (BDAR 6 straipsnio 1 dalies b punktas)<br/>
             Ar naudojame slapukus?<br/>
             Taip, mūsų Svetainėje yra naudojami slapukai.<br/>
@@ -32,8 +32,8 @@
             Pildydami registracijos formą mūsų Svetainėje turėtumėte mums pateikti duomenis, prašomus registracijos formoje.<br/>
             Koks yra teisinis informacijos rinkimo pagrindas?<br/>
             Mes renkame informaciją apie Jus teisėtai, nes:<br/>
-            1. Jūsų informacija yra reikalinga sutarčiai su Jumis sudaryti ir vykdyti;<br/>
-            2. Mes turime teisėtą interesą stebėti Svetainės lankomumo statistiką.<br/>
+            1.	Jūsų informacija yra reikalinga sutarčiai su Jumis sudaryti ir vykdyti;<br/>
+            2.	Mes turime teisėtą interesą stebėti Svetainės lankomumo statistiką.<br/>
             Ar teikiame jūsų informaciją kitiems subjektams (tvarkytojams)?<br/>
             Bendrovė tvarkomų Asmens duomenų neteikia tretiesiems asmenims be išankstinio asmens (duomenų subjekto) sutikimo, išskyrus teisės aktų nustatyta tvarka.<br/>
             Jūsų duomenų tvarkymo principai<br/>
@@ -49,14 +49,14 @@
         @elseif ($lang == "ru")
             <h3 class="mb-4">Политика конфиденциальности</h3>
 
-            Политика конфиденциальности (далее — «Политика конфиденциальности») объясняет, как UAB Dinobalt (далее — «Компания») собирает и обрабатывает информацию о посетителях веб-сайта www.dinobalt.lt (далее — «Сайт»), указывает, что права, которыми обладают посетители Сайта, и способы их реализации. Перед регистрацией на Веб-сайте рекомендуем внимательно ознакомиться с настоящей Политикой конфиденциальности.<br/>
-            Компания обязуется ответственно и безопасно обращаться с вашими личными данными в своей деятельности. Основываясь на этих основных принципах, мы всегда будем стремиться обеспечить достаточный уровень защиты ваших данных и защиту ваших прав. Мы обрабатываем Персональные данные в соответствии с настоящей Политикой конфиденциальности, в соответствии с применимыми правовыми актами, в том числе Общим регламентом защиты данных (2016/679) (далее — «GDPR») и применимым литовским национальным законодательством о защите персональных данных.<br />
+            Политика конфиденциальности (далее — «Политика конфиденциальности») объясняет, как MB Contentum (далее — «Компания») собирает и обрабатывает информацию о посетителях веб-сайта www.healthnest.eu (далее — «Сайт»), указывает, что права, которыми обладают посетители Сайта, и способы их реализации. Перед регистрацией на Сайте рекомендуем внимательно ознакомиться с настоящей Политикой конфиденциальности.<br/>
+            Компания обязуется ответственно и безопасно обращаться с вашими личными данными в своей деятельности. Основываясь на этих основных принципах, мы всегда будем стремиться обеспечить достаточный уровень защиты ваших данных и защиту ваших прав. Мы обрабатываем Персональные данные в соответствии с настоящей Политикой конфиденциальности в соответствии с применимыми правовыми актами, в том числе Общим регламентом защиты данных (2016/679) (далее — «GDPR») и применимыми национальными законами Литвы о защите персональных данных.<br />
             Контроллер данных<br/>
-            ЗАО «Динобалт»<br/>
-            Код компании: 302685495<br/>
-            Адрес: Pakapių k. 5, Pakapių k., LT-88403 Telšių r.<br/>
-            Тел. Нет. +370 64518105<br/>
-            Эл. адрес адрес электронной почты: dinobalt.info@gmail.com<br/>
+            MB «Contentum»<br/>
+            Код компании: 302900421<br/>
+            Адрес: Birželio 23-iosios g. 15-41, LT-03206 Vilnius.<br/>
+            Тел. Нр. +370 650 99090<br/>
+            Адрес электронной почты: info@contentum.lt<br/>
             Какую информацию о вас мы собираем, используем и храним? <br/>
             Информация, предоставленная самим посетителем Сайта при заполнении регистрационной формы на нашем Сайте:<br/>
             1. Имя<br/>
@@ -87,14 +87,14 @@
         @else
             <h3 class="mb-4">Privacy Policy</h3>
 
-            The Privacy Policy (hereinafter - the "Privacy Policy") explains how UAB Dinobalt (hereinafter - the "Company") collects and processes the information of visitors to the website www.dinobalt.lt (hereinafter - the "Site"), indicates what rights the visitors of the Site have and how to exercise them. can implement. Before registering on the Website, we recommend that you carefully read this Privacy Policy.<br/>
+            The Privacy Policy (hereinafter - the "Privacy Policy") explains how MB Contentum  (hereinafter - the "Company") collects and processes the information of visitors to the website www.healthnest.eu (hereinafter - the "Site"), indicates what rights the visitors of the Site have and how to exercise them. can implement. Before registering on the Website, we recommend that you carefully read this Privacy Policy.<br/>
             The company is committed to handling your personal data responsibly and securely in its activities. Based on these essential principles, we will always strive to ensure a sufficient level of protection of your data and the protection of your rights. We process Personal Data, in accordance with this Privacy Policy, in accordance with the applicable legal acts, including the General Data Protection Regulation (2016/679) (hereinafter - "GDPR") and the applicable Lithuanian national personal data protection legislation.<br/>
             Data Controller<br/>
-            UAB Dinobalt<br/>
-            The company code is: 302685495<br/>
-            Address: Pakapių k. 5, Pakapių k., LT-88403 Telšių r.<br/>
-            Phone. No. +370 64518105<br/>
-            Email address: dinobalt.info@gmail.com<br/>
+            MB Contentum<br/>
+            The company code is: 302900421<br/>
+            Address: Birželio 23-iosios g. 15-41, LT-03206 Vilnius.<br/>
+            Phone. No. +370 650 99090<br/>
+            Email address: info@contentum.lt<br/>
             What information do we collect, use and store about you? <br/>
             Information provided by the Website visitor himself when filling out the registration form on our Website:<br/>
             1. Name<br/>
