@@ -102,6 +102,12 @@
                             {{ __('menu.policy') }}
                         </a>
                     </li>
+                    <li class="nav-list">
+                        <a class="{{ request()->is('user/about*') ? 'active' : '' }}" href="{{ url('/about') }}">
+                            <i class="fa-solid fa-angle-right me-2"></i>
+                            {{ __('menu.about') }}
+                        </a>
+                    </li>
                 </ul>
             </div>
             @auth
