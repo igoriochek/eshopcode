@@ -57,7 +57,7 @@
                             <div style="width: 50px">
                                 <i class="fa-sharp fa-solid fa-building"></i>
                             </div>
-                            <span class="contact-travel-paragraph">{{ __('UAB OPATRIP') }}</span>
+                            <span class="contact-travel-paragraph">{{ __('MB OPATRIP') }}</span>
                         </li>
                         <li class="d-flex align-items-center mb-4">
                             <div style="width: 50px">
