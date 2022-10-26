@@ -17,12 +17,15 @@
         @include('flash::message')
     </div>
     <div class="container">
+        <div class="mb-4 mt-5" style="font-family: 'Times New Roman', sans-serif">
+            <h3>{{__('menu.profile')}}</h3>
+        </div>
             <div class="col bg-white py-3 px-4">
                 <div id="description" class="tabs tabs-simple tabs-simple-full-width-line tabs-product tabs-dark mb-2">
                     <ul class="nav nav-tabs justify-content-start mb-0" role="tablist">
                         <li class="nav-item" role="presentation">
                             <a class="nav-link active py-2 px-3" href="#profile" data-bs-toggle="tab" aria-selected="true" role="tab">
-                                {{ __('menu.profile') }}
+                                {{ __('menu.userInfo') }}
                             </a>
                         </li>
                         <li class="nav-item" role="presentation">

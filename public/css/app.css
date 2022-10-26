@@ -11520,6 +11520,21 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   margin-bottom: 10px;
 }
 
+.form-check-label {
+  color: #222;
+}
+
+.form-check-input[type=checkbox] {
+  border-radius: 0;
+  height: 15px;
+  width: 15px;
+}
+
+.form-check-input:checked {
+  background-color: #ffa600;
+  border-color: #ffa600;
+}
+
 .header {
   position: relative;
   z-index: 1030;
@@ -11768,7 +11783,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   margin-left: -2px;
   box-shadow: 0 10px 30px 10px rgba(0, 0, 0, 0.05);
   background: #FFF;
-  min-width: 110px;
+  min-width: 120px;
   z-index: 10000;
   margin-right: 20px;
   transition: opacity 0.2s ease-out;
@@ -11778,8 +11793,8 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   content: "";
   display: block;
   position: absolute;
-  top: 0;
-  right: 40px;
+  top: -1px;
+  right: 45px;
   width: 0;
   height: 0;
   border-left: 7px solid transparent;
@@ -11788,8 +11803,8 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   transform: translate3d(-7px, -6px, 0);
 }
 .header .header-body .header-container .header-row .header-column .header-row div .header-nav-features .header-nav-feature .dropdown-menu a {
-  padding: 3px 9px;
-  text-align: center;
+  padding: 3px 15px;
+  text-align: left;
   color: #222;
 }
 .header .header-body .header-container .header-row .header-column .header-row div .header-nav-features .header-nav-feature .dropdown-menu a:active {
@@ -12153,18 +12168,6 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
 .sidebar .ui-state-default, .sidebar .ui-widget-content .ui-state-default {
   border-radius: 10px;
   transition: background 300ms ease;
-}
-.sidebar .form-check-label {
-  color: #222;
-}
-.sidebar .form-check-input {
-  border-radius: 0;
-  height: 15px;
-  width: 15px;
-}
-.sidebar .form-check-input:checked {
-  background-color: #ffa600;
-  border-color: #ffa600;
 }
 
 .footer {
@@ -13429,4 +13432,57 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
 .nav-tabs li .nav-link.active {
   border-bottom: 3px solid #ffa600;
   color: #ffa600;
+}
+
+.dataTables_filter {
+  margin-bottom: 20px;
+}
+
+.dataTables_length label select {
+  padding: 7.5px;
+  margin-inline: 5px;
+}
+
+.orders-returns-primary-button {
+  background: #ffa600;
+  color: #222;
+  border: none;
+  border-radius: 0;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  transition: all 200ms ease;
+  padding: 15px 20px;
+}
+.orders-returns-primary-button:hover, .orders-returns-primary-button:focus, .orders-returns-primary-button:active {
+  background: #222;
+  color: #ffa600;
+}
+
+.orders-returns-secondary-button {
+  background: #fff;
+  color: #222;
+  border: none;
+  border-radius: 0;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  transition: all 200ms ease;
+  box-shadow: 1px 1px 10px 2px #eaeaea;
+  padding: 15px 20px;
+}
+.orders-returns-secondary-button:hover, .orders-returns-secondary-button:focus, .orders-returns-secondary-button:active {
+  background: #eaeaea;
+  color: #ffa600;
+  box-shadow: 1px 1px 10px 2px #d7d7d7;
 }

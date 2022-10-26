@@ -26,7 +26,7 @@
                                 {{ ($products->count() * $products->currentPage() - $products->count() + 1).__('–').($products->count() * $products->currentPage()) }}
                             @else
                                 @if ($products->total() - $products->count() === 0)
-                                    {{ 1 }}
+                                    {{ $products->count() }}
                                 @else
                                     {{ ($products->total() - $products->count()).__('–').$products->total() }}
                                 @endif

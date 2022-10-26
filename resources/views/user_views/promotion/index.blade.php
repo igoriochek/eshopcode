@@ -27,7 +27,6 @@
                             <div>
                                 <h4 class="mb-1 mb-lg-0" style="font-family: 'Times New Roman', sans-serif">{{ $promotion->name }}</h4>
                                 <div class="text-muted mb-2 mb-lg-0">
-                                    {{ __('names.total') }}
                                     {{ count($promotion->products).' '.__('names.entries') }}
                                 </div>
                             </div>

@@ -1,4 +1,4 @@
-<ul class="dropdown-menu" aria-labelledby="navbarUserDropdown">
+<ul class="dropdown-menu" aria-labelledby="navbarUserDropdown" style="font-size: 1.1em">
     <li>
         <a class="dropdown-item" href="{{ url('/user/userprofile') }}"
            style="color: {{ request()->is('user/userprofile*') ? '#ffa600' : '' }}">

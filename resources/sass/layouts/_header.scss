@@ -284,19 +284,18 @@
                                     margin-left: -2px;
                                     box-shadow: 0 10px 30px 10px rgb(0 0 0 / 5%);
                                     background: #FFF;
-                                    min-width: 110px;
+                                    min-width: 120px;
                                     z-index: 10000;
                                     margin-right: 20px;
                                     transition: opacity .2s ease-out;
                                     border-radius: 0;
 
-
                                     &:before {
                                         content: '';
                                         display: block;
                                         position: absolute;
-                                        top: 0;
-                                        right: 40px;
+                                        top: -1px;
+                                        right: 45px;
                                         width: 0;
                                         height: 0;
                                         border-left: 7px solid transparent;
@@ -306,8 +305,8 @@
                                     }
 
                                     a {
-                                        padding: 3px 9px;
-                                        text-align: center;
+                                        padding: 3px 15px;
+                                        text-align: left;
                                         color: $black-color;
 
                                         &:active {
