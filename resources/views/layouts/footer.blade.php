@@ -63,7 +63,7 @@
                             <div style="width: 50px">
                                 <i class="fa-solid fa-location-dot fs-3 contact-travel-icon"></i>
                             </div>
-                            <span class="contact-travel-paragraph">{{ __('Gyneju st. 14, LT-01109 Vilnius, Lithuania') }}</span>
+                            <span class="contact-travel-paragraph">{{ __('Gyneju g. 14, LT-01109 Vilnius, Lietuva') }}</span>
                         </li>
                         <li class="d-flex align-items-center mb-4">
                             <div style="width: 50px">
