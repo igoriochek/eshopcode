@@ -51,6 +51,11 @@
                                                 <img src="{{ asset('images/noimage.jpeg') }}" alt="no-image" class="default-img mb-2" />
                                             </a>
                                         @endif
+                                            @if ($product->discount)
+                                                <div class="product-badges product-badges-position product-badges-mrg">
+                                                    <span class="hot" style="font-size: 14px">-{{$product->discount->proc}}%</span>
+                                                </div>
+                                            @endif
                                     </div>
                                 </div>
                                 <div class="product-content-wrap">
