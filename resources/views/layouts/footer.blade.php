@@ -3,7 +3,7 @@
         <div class="row py-4 my-5">
             <div class="col-md-6 @auth col-lg-3 @else col-lg-4 @endauth mb-5 mb-lg-0">
                 <a href="{{ url('/home') }}">
-                    <img src="{{ asset("images/logo_footer.png") }}" alt="logo_footer" class="logo_footer" width="180">
+                    <img src="{{ asset("images/aurintus_logo.jpg") }}" alt="logo" class="logo_footer" width="180">
                 </a>
                 <p class="py-5 m-0">
                     {{ __('footer.description') }}.

@@ -1,25 +1,25 @@
 <li class="admin-navbar-item">
-    <a class="admin-navbar-link {{ request()->is('admin/products*') ? 'active' : '' }}" href="/admin/products">
+    <a class="admin-navbar-link {{ request()->is('admin/products') ? 'active' : '' }}" href="/admin/products">
         <i class="fa-solid fa-grip"></i>
         {{ __('menu.products') }}
     </a>
 </li>
 <li class="admin-navbar-item">
-    <a class="admin-navbar-link {{ request()->is('admin/categories*') ? 'active' : '' }}" href="/admin/categories">
+    <a class="admin-navbar-link {{ request()->is('admin/categories') ? 'active' : '' }}" href="/admin/categories">
         <i class="fa-solid fa-sitemap"></i>
         {{ __('menu.categories') }}
     </a>
 </li>
 <li class="admin-navbar-item">
-    <a class="admin-navbar-link {{ request()->is('admin/promotions*') ? 'active' : '' }}" href="/admin/promotions">
+    <a class="admin-navbar-link {{ request()->is('admin/promotions') ? 'active' : '' }}" href="/admin/promotions">
         <i class="fa-solid fa-star"></i>
         {{ __('menu.promotions') }}
     </a>
 </li>
 <li class="admin-navbar-item">
     <a class="admin-navbar-link dropdown {{
-        request()->is('admin/discounts*') ||
-        request()->is('admin/discountCoupons*')
+        request()->is('admin/discounts') ||
+        request()->is('admin/discountCoupons')
         ? 'active' : '' }}" href="#"
             data-bs-toggle="collapse" data-bs-target="#discounts" aria-expanded="false">
         <i class="fa-solid fa-tag"></i>
@@ -32,15 +32,15 @@
     </div>
 </li>
 <li class="admin-navbar-item">
-    <a class="admin-navbar-link {{ request()->is('admin/customers*') ? 'active' : '' }}" href="/admin/customers">
+    <a class="admin-navbar-link {{ request()->is('admin/customers') ? 'active' : '' }}" href="/admin/customers">
         <i class="fa-solid fa-user"></i>
         {{ __('menu.users') }}
     </a>
 </li>
 <li class="admin-navbar-item">
     <a class="admin-navbar-link dropdown {{
-            request()->is('admin/carts*') ||
-            request()->is('admin/cartStatuses*')
+            request()->is('admin/carts') ||
+            request()->is('admin/cartStatuses')
             ? 'active' : '' }}" href="#"
        data-bs-toggle="collapse" data-bs-target="#carts" aria-expanded="false">
         <i class="fa-solid fa-cart-shopping"></i>
@@ -54,8 +54,8 @@
 </li>
 <li class="admin-navbar-item">
     <a class="admin-navbar-link dropdown {{
-            request()->is('admin/orders*') ||
-            request()->is('admin/orderStatuses*')
+            request()->is('admin/orders') ||
+            request()->is('admin/orderStatuses')
             ? 'active' : '' }}" href="#"
        data-bs-toggle="collapse" data-bs-target="#orders" aria-expanded="false">
         <i class="fa-solid fa-folder"></i>
@@ -69,8 +69,8 @@
 </li>
 <li class="admin-navbar-item">
     <a class="admin-navbar-link dropdown {{
-            request()->is('admin/returns*') ||
-            request()->is('admin/returnStatuses*')
+            request()->is('admin/returns') ||
+            request()->is('admin/returnStatuses')
             ? 'active' : '' }}" href="#"
        data-bs-toggle="collapse" data-bs-target="#returns" aria-expanded="false">
         <i class="fa-solid fa-rotate-left"></i>
@@ -83,13 +83,13 @@
     </div>
 </li>
 <li class="admin-navbar-item">
-    <a class="admin-navbar-link {{ request()->is('admin/cookies*') ? 'active' : '' }}" href="/admin/cookies">
+    <a class="admin-navbar-link {{ request()->is('admin/cookies') ? 'active' : '' }}" href="/admin/cookies">
         <i class="fa-solid fa-cookie"></i>
         {{ __('menu.cookies') }}
     </a>
 </li>
 <li class="admin-navbar-item">
-    <a class="admin-navbar-link {{ request()->is('admin/data_export_import*') ? 'active' : '' }}" href="/admin/data_export_import">
+    <a class="admin-navbar-link {{ request()->is('admin/data_export_import') ? 'active' : '' }}" href="/admin/data_export_import">
         <i class="fa-solid fa-file"></i>
         {{ __('menu.importExport') }}
     </a>
@@ -113,7 +113,7 @@
     </div>
 </li>
 <li class="admin-navbar-item">
-    <a class="admin-navbar-link {{ request()->is('admin/messenger*') ? 'active' : '' }}" href="/admin/messenger">
+    <a class="admin-navbar-link {{ request()->is('admin/messenger') ? 'active' : '' }}" href="/admin/messenger">
         <i class="fa-solid fa-comment"></i>
         {{ __('menu.messenger') }}
     </a>

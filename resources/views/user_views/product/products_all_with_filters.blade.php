@@ -144,7 +144,7 @@
             </div>
             <div class="col-lg-3 col-md-4">
                 <aside class="sidebar">
-                    <form method="get" action="{{route("userproducts")}}">
+                    <form method="get" action="{{route("userproducts")}}" id="mainForm">
                         <div class="input-group mb-3 pb-1">
                             <input type="text" name="filter[namelike]" class="form-control product-search-input"
                                    id="filter[namelike]" placeholder="{{ __('names.search').'...' }}"
@@ -211,8 +211,14 @@
 
     @push('scripts')
         <script>
-            document.getElementById('perPageSelector').onchange = () => addPerPageValueToFilter();
-            document.getElementById('orderSelector').onchange = () => addOrderValueToFilter();
+            document.getElementById('perPageSelector').onchange = () => {
+                addPerPageValueToFilter();
+                document.getElementById('mainForm').submit();
+            }
+            document.getElementById('orderSelector').onchange = () => {
+                addOrderValueToFilter();
+                document.getElementById('mainForm').submit();
+            }
 
             const addPerPageValueToFilter = () => document.getElementById('paginate').value = $('#perPageSelector').val();
             const addOrderValueToFilter = () => document.getElementById('order').value = $('#orderSelector').val();

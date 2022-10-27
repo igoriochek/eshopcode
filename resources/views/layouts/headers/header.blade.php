@@ -65,7 +65,7 @@
                     <div class="header-row justify-content-between">
                         <div class="header-logo z-index-2 col-lg-2 px-0" style="width: auto; height: auto">
                             <a href="{{ url('/home') }}">
-                                <img src="{{ asset("images/logo.png") }}" alt="logo" class="logo" width="160">
+                                <img src="{{ asset("images/aurintus_logo.jpg") }}" alt="logo" class="logo" width="160">
                             </a>
                         </div>
                         <div class="d-flex justify-content-end align-items-center">
@@ -91,7 +91,7 @@
                                 </div>
                             </div>
                             <div class="d-flex col-auto pe-0 ps-0 ps-xl-3">
-                                <div class="header-nav-features ps-0 ms-1">
+                                <div class="header-nav-features ps-0 ms-0">
                                     <div class="header-nav-feature d-inline-flex top-2 ms-2">
                                         @guest
                                             <a href="{{ route('login') }}" role="button"
@@ -103,7 +103,7 @@
                                             <a href="#" class="header-nav-features-toggle" role="button"
                                                id="navbarUserDropdown"
                                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <img src="{{ asset('images/icons/icon-account.png') }}" height="27" alt="icon-account" class="header-nav-features-img">
+                                                <img src="{{ asset('images/icons/icon-account.png') }}" height="29" alt="icon-account" class="header-nav-features-img">
                                                 <span class="d-none d-sm-inline-block" style="font-size: .58em">{{ Auth::user()->name }}</span>
                                             </a>
                                             @include('layouts.dropdowns.user_dropdown')
