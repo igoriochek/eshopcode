@@ -4,7 +4,7 @@
     <div class="container product-section">
 
         @if($lang=="lt")
-            <h1>ELEKTRONINĖS PREKYBOS TAISYKLĖS</h1>
+            <h3>ELEKTRONINĖS PREKYBOS TAISYKLĖS</h3>
             <p>1. Bendrosios nuostatos.<br/>
             1.1. Šios prekių / paslaugų pirkimo – pardavimo taisyklės (toliau – Taisyklės) yra Šalims privalomas teisinis dokumentas, kuris nustato Pirkėjo ir Pardavėjo teises, pareigas ir atsakomybę Pirkėjui įsigyjant prekes / paslaugas el. parduotuvėje.<br/>
             1.2. Pardavėjas pasilieka teisę bet kuriuo metu pakeisti, taisyti ar papildyti taisykles, atsižvelgdamas į teisės aktų nustatytus reikalavimus. Pirkėjas informuojamas el. parduotuvės tinklalapyje. Pirkėjui apsiperkant el. parduotuvėje taikomos Taisyklės, galiojančios užsakymo pateikimo metu.<br/>

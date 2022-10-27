@@ -205,7 +205,10 @@ Route::get('promotions', [\App\Http\Controllers\PromotionController::class, 'ind
 Route::get('promotion/{id}', [\App\Http\Controllers\PromotionController::class, 'promotionProducts'])->name('promotion');
 Route::get("termsofservice", [\App\Http\Controllers\TermsOfServiceController::class, 'rules'])->name('termsofservice');
 Route::get("policy", [\App\Http\Controllers\TermsOfServiceController::class, 'policy'])->name('policy');
+Route::view('about', 'user_views.about.index');
+
 Auth::routes();
+
 Route::get("logout", function () {
     Auth::logout();
     return redirect('products');

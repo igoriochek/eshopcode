@@ -107,7 +107,7 @@
                                            id="navbarUserDropdown"
                                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <i class="fa-solid fa-user header-nav-features-icon me-1"></i>
-                                            <span class="header-nav-features-name">{{ Auth::user()->name }}</span>
+                                            <span class="header-nav-features-name d-none d-sm-inline">{{ Auth::user()->name }}</span>
                                         </a>
                                         @include('layouts.dropdowns.user_dropdown')
                                         <a href="{{ url('/user/viewcart') }}" class="header-nav-features-toggle">
@@ -116,13 +116,6 @@
                                                 <span class="shopping-cart-items">{{ $cartItemCount }}</span>
                                             @endif
                                         </a>
-                                        {{--<div class="header-nav-features-dropdown show" id="headerTopCartDropdown">
-                                            <ol class="mini-products-list">
-                                                <li class="item">
-
-                                                </li>
-                                            </ol>
-                                        </div>--}}
                                     @endauth
                                 </div>
                             </div>

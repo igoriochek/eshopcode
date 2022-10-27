@@ -23,3 +23,8 @@
         {{ __('menu.messenger') }}
     </a>
 </li>
+<li class="nav-list">
+    <a class="{{ request()->is('about') ? 'active' : '' }}" href="{{ url('/about') }}">
+        {{ __('menu.about') }}
+    </a>
+</li>

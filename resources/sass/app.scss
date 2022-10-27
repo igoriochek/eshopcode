@@ -13,6 +13,12 @@
 // Media Queries
 @import 'mediaQueries';
 
+// Elements
+@import 'elements/body';
+@import 'elements/a';
+@import 'elements/headers';
+@import 'elements/checkbox';
+
 // Features
 @import 'features/header';
 @import 'features/adminHeader';
@@ -31,8 +37,3 @@
 @import 'features/tree';
 @import 'features/buttons';
 @import 'features/tabs';
-
-// Elements
-@import 'elements/body';
-@import 'elements/a';
-@import 'elements/headers';

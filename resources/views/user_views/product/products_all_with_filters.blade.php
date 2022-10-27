@@ -4,9 +4,15 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-8 mb-5 order-last order-md-first">
-            <div class="d-flex align-items-center gap-2 mb-4">
-                <h4 class="m-0 p-0">{{ __('names.products') }}</h4>
-                <span class="text-muted fs-6">({{ $products->total().' '.__('names.products') }})</span>
+            <div class="d-flex justify-content-between align-items-center gap-2 mb-4">
+                <div class="d-flex align-items-center gap-2">
+                    <h4 class="m-0 p-0">{{ __('names.products') }}</h4>
+                    <span class="text-muted fs-6">({{ $products->total().' '.__('names.products') }})</span>
+                </div>
+                <div class="d-flex align-items-center">
+                    {!! Form::select('order', $order_list, $selectedOrder,
+                        ['class' => 'form-select w-100 py-2 text-muted', 'id' => 'orderSelector', 'style' => 'cursor: pointer; font-size: 1em']) !!}
+                </div>
             </div>
             <div class="row">
                 @forelse ($products as $product)
@@ -84,9 +90,9 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-4 order-first order-md-last mt-0 mt-md-5">
+        <div class="col-lg-4 order-first order-md-last">
             <aside class="sidebar">
-                <form method="get" action="{{route("userproducts")}}">
+                <form method="get" action="{{route("userproducts")}}" id="mainForm">
                     <div class="input-group mb-3 pb-1">
                         <input type="text" name="filter[namelike]" class="form-control product-search-input" id="filter[namelike]" placeholder="{{ __('names.search').'...' }}" value="{{$filter["namelike"] ?? ""}}">
                         <button type="submit" class="btn btn-primary p-2 product-search-button">
@@ -131,6 +137,7 @@
                             </div>
                         @endforelse
                     </ul>
+                    <input type="hidden" id="order" name="order" value="{{ $selectedOrder }}">
                     <div class="d-flex justify-content-center w-100">
                         <button type="submit" class="btn btn-primary product-filter-button">
                             {{ __('buttons.filter') }}
@@ -144,6 +151,13 @@
 
     @push('scripts')
         <script>
+            document.getElementById('orderSelector').onchange = () => {
+                addOrderValueToFilter();
+                document.getElementById('mainForm').submit();
+            }
+
+            const addOrderValueToFilter = () => document.getElementById('order').value = $('#orderSelector').val();
+
             const rangeSlider = document.getElementById('range-slider');
             const priceFrom = document.getElementById('filter[pricefrom]');
             const priceTo = document.getElementById('filter[priceto]');

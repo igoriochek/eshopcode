@@ -1,8 +1,9 @@
 .category-return-button,
 .promotion-more-products-button,
-.promotion-return-button {
+.promotion-return-button,
+.orders-returns-primary-button {
     @include primaryButton;
-    padding: 5px 20px;
+    padding: 10px 20px;
     font-size: 1em;
     font-weight: 400;
     margin-bottom: 10px;

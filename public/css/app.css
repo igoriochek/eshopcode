@@ -11471,6 +11471,41 @@ textarea.form-control-lg {
     padding-left: var(--bs-gutter-x, 1.5rem);
   }
 }
+body {
+  background-color: #fff;
+  color: #999;
+  font-size: 14px;
+  line-height: 30px;
+  margin: 0;
+}
+body a {
+  outline: none !important;
+}
+
+a {
+  text-decoration: none;
+  color: #f28615;
+  transition: color 100ms ease;
+}
+a:hover, a:focus, a:active {
+  color: #ff6600;
+}
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+  color: #373a40;
+  font-weight: 600;
+  letter-spacing: -0.05em;
+  margin-bottom: 10px;
+}
+
+.form-check-input[type=checkbox] {
+  width: 15px;
+  height: 15px;
+}
+.form-check-input[type=checkbox]:checked {
+  background-color: #f28615;
+}
+
 .header {
   position: relative;
   z-index: 1030;
@@ -11798,19 +11833,6 @@ textarea.form-control-lg {
   border-radius: 0;
   position: relative;
 }
-.header .header-body .header-container .header-row .header-column .header-row div .header-nav-features .header-nav-feature .dropdown-menu:before {
-  content: "";
-  display: block;
-  position: absolute;
-  top: 0;
-  right: 50px;
-  width: 0;
-  height: 0;
-  border-left: 7px solid transparent;
-  border-right: 7px solid transparent;
-  border-bottom: 7px solid white;
-  transform: translate3d(-7px, -6px, 0);
-}
 .header .header-body .header-container .header-row .header-column .header-row div .header-nav-features .header-nav-feature .dropdown-menu a {
   color: #373a40;
   padding: 3px 9px;
@@ -12025,7 +12047,7 @@ textarea.form-control-lg {
   transition: color 200ms ease;
 }
 .footer .footer-links li a:hover, .footer .footer-links li a:focus, .footer .footer-links li a:active {
-  color: #373a40;
+  color: #f28615;
 }
 .footer .footer-links li span {
   color: #84888c !important;
@@ -12123,7 +12145,7 @@ textarea.form-control-lg {
 }
 .shop .product .product-information .product-price {
   font-weight: 500 !important;
-  font-size: 1.1em !important;
+  font-size: 1.2em !important;
 }
 .shop .product .product-information .product-price .product-previous-price {
   font-size: 0.8em;
@@ -12212,13 +12234,6 @@ textarea.form-control-lg {
   font-size: 0.9em;
   text-decoration: none;
   line-height: 20px;
-}
-.sidebar ul .nav-link .form-check-input {
-  width: 15px;
-  height: 15px;
-}
-.sidebar ul .nav-link .form-check-input:checked {
-  background-color: #f28615;
 }
 .sidebar .product-filter-button {
   margin-top: 30px;
@@ -13172,14 +13187,15 @@ textarea.form-control-lg {
 
 .category-return-button,
 .promotion-more-products-button,
-.promotion-return-button {
+.promotion-return-button,
+.orders-returns-primary-button {
   background: #f28615;
   color: #fff;
   border: none;
   font-weight: 600;
   font-size: 0.8rem;
   transition: all 200ms ease;
-  padding: 5px 20px;
+  padding: 10px 20px;
   font-size: 1em;
   font-weight: 400;
   margin-bottom: 10px;
@@ -13190,17 +13206,21 @@ textarea.form-control-lg {
 .promotion-more-products-button:hover,
 .promotion-more-products-button:focus,
 .promotion-return-button:hover,
-.promotion-return-button:focus {
+.promotion-return-button:focus,
+.orders-returns-primary-button:hover,
+.orders-returns-primary-button:focus {
   background: #ff6600;
 }
 .category-return-button:active,
 .promotion-more-products-button:active,
-.promotion-return-button:active {
+.promotion-return-button:active,
+.orders-returns-primary-button:active {
   background: #c24e00;
 }
 .category-return-button:disabled,
 .promotion-more-products-button:disabled,
-.promotion-return-button:disabled {
+.promotion-return-button:disabled,
+.orders-returns-primary-button:disabled {
   background: #f28615;
 }
 .category-return-button:hover, .category-return-button:focus, .category-return-button:active,
@@ -13209,7 +13229,10 @@ textarea.form-control-lg {
 .promotion-more-products-button:active,
 .promotion-return-button:hover,
 .promotion-return-button:focus,
-.promotion-return-button:active {
+.promotion-return-button:active,
+.orders-returns-primary-button:hover,
+.orders-returns-primary-button:focus,
+.orders-returns-primary-button:active {
   color: #fff;
 }
 
@@ -13241,31 +13264,4 @@ textarea.form-control-lg {
 }
 .nav-tabs li .nav-link.active:hover, .nav-tabs li .nav-link.active:focus {
   color: #fff;
-}
-
-body {
-  background-color: #fff;
-  color: #999;
-  font-size: 14px;
-  line-height: 30px;
-  margin: 0;
-}
-body a {
-  outline: none !important;
-}
-
-a {
-  text-decoration: none;
-  color: #f28615;
-  transition: color 100ms ease;
-}
-a:hover, a:focus, a:active {
-  color: #ff6600;
-}
-
-h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
-  color: #373a40;
-  font-weight: 600;
-  letter-spacing: -0.05em;
-  margin-bottom: 10px;
 }

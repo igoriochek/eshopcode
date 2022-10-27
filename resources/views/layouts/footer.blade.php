@@ -68,12 +68,7 @@
             <div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
                 <h5 class="text-4 text-color-light mb-3">{{ __('footer.menu') }}</h5>
                 <ul class="list list-unstyled mb-0 footer-links">
-                    @guest
-                        @include('layouts.menus.menu')
-                    @endguest
-                    @auth
-                        @include('layouts.menus.user_menu')
-                    @endauth
+                    @include('layouts.menus.menu')
                 </ul>
             </div>
             @auth

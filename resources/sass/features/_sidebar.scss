@@ -34,15 +34,6 @@
             font-size: 0.9em;
             text-decoration: none;
             line-height: 20px;
-
-            .form-check-input {
-                width: 15px;
-                height: 15px;
-
-                &:checked {
-                    background-color: $primary-color;
-                }
-            }
         }
     }
 

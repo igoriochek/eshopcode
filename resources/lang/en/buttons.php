@@ -38,6 +38,9 @@ return [
     'proceedToCheckout' => 'Proceed to Checkout',
     'contact' => 'Contact',
     'applyCoupon' => 'Apply Coupon',
-    'placeOrder' => 'Place Order'
+    'placeOrder' => 'Place Order',
+    'details' => 'Details',
+    'return' => 'Return',
+    'invoice' => 'Invoice',
 
 ];

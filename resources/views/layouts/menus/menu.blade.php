@@ -23,7 +23,6 @@
         {{ __('menu.messenger') }}
     </a>
 </li>
-
 <li class="nav-list">
     <a class="{{ request()->is('user/termsofservice*') ? 'active' : '' }}" href="{{ url('/termsofservice') }}">
         {{ __('menu.termsofservice') }}
@@ -32,5 +31,10 @@
 <li class="nav-list">
     <a class="{{ request()->is('user/policy*') ? 'active' : '' }}" href="{{ url('/policy') }}">
         {{ __('menu.policy') }}
+    </a>
+</li>
+<li class="nav-list">
+    <a class="{{ request()->is('about') ? 'active' : '' }}" href="{{ url('/about') }}">
+        {{ __('menu.about') }}
     </a>
 </li>
