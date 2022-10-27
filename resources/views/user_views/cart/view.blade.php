@@ -22,11 +22,12 @@
                     </div>
                 </div>
                 <!-- End col-lg-8 -->
+                <hr class="d-md-none my-4 opacity-0" />
                 <div class="col-lg-4">
-                    <div class="border p-md-4 cart-totals ml-30">
+                    <div class="border p-md-4 cart-totals ms-0 ms-lg-4">
                         <div class="table-responsive">
                             <h5 class="fw-bold text-muted text-uppercase mb-3 text-center">{{ __('names.overview') }}</h5>
-                            <table class="table no-border">
+                            <table class="table no-border" style="border: 2px solid white">
                                 <tbody>
                                 <tr class="total">
                                     <td>
@@ -47,8 +48,8 @@
                     <div>
                         <h6 class="text-body">{{__('names.noProductsInCart')}}</h6>
                         <span>
-                                <a href="/user/products" class="card-link">{{__('names.browseProducts')}}</a>
-                            </span>
+                            <a href="/user/products" class="card-link">{{__('names.browseProducts')}}</a>
+                        </span>
                     </div>
                 @endif
             </div>

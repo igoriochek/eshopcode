@@ -1,5 +1,5 @@
 <div class="table-responsive shopping-summery">
-    <table class="table table-wishlist">
+    <table class="table table-wishlist" style="border: 2px solid white">
         <thead>
         <tr class="main-heading">
             <th scope="col" class="start" width="15%"></th>
@@ -22,7 +22,7 @@
                     </div>
                 </td>
                 <td class="product-name">
-                    <h6 class="mb-5">
+                    <h6 class="mt-25">
                         <a class="product-name mb-10 text-heading"
                            href="{{ route('viewproduct', $item['product']->id) }}">
                             {{ $item['product']->name }}
@@ -30,20 +30,20 @@
                     </h6>
                 </td>
                 <td class="product-price">
-                    <h5 class="text-body">{{ number_format($item['product']->price,2) }} €</h5>
+                    <h5 class="text-body mt-25">{{ number_format($item['product']->price,2) }} €</h5>
                 </td>
                 <td class="product-quantity">
-                    <h5 class="text-body text-center"> {{ $item->count }}</h5>
+                    <h5 class="text-body text-center mt-25"> {{ $item->count }}</h5>
                 </td>
                 <td class="product-subtotal">
-                    <h5 class="text-brand text-center">
+                    <h5 class="text-brand text-center mt-25">
                         {{ number_format($item->price_current * $item->count,2) }} €
                     </h5>
                 </td>
-                <td class="action">
+                <td class="action ">
                     {!! Form::open(['route' => ['userCartItemDestroy', $item->id], 'method' => 'delete']) !!}
                     <div class="btn-group">
-                        {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
+                        {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs p-3 mt-25 w-25 text-center', 'onclick' => "return confirm('Are you sure?')"]) !!}
                     </div>
                 </td>
             </tr>
@@ -51,3 +51,11 @@
         </tbody>
     </table>
 </div>
+
+@push('css')
+    <style>
+        .table > :not(:first-child) {
+            border-top: 2px solid white;
+        }
+    </style>
+@endpush

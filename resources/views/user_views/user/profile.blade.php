@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+    @include('page_header', [
+        'secondPageLink' => 'userprofile',
+        'secondPageName' => __('menu.profile'),
+        'hasThirdPage' => false
+    ])
     <div class="container py-5">
         <div class="page-content pt-150 pb-150">
             <div class="container">
@@ -30,7 +35,7 @@
                             <div class="col-md-9">
                                 @include('adminlte-templates::common.errors')
                                 @include('flash::message')
-                                <div class="tab-content account dashboard-content pl-50">
+                                <div class="tab-content account dashboard-content mt-4 mt-md-0 ps-0 ps-md-3">
                                     <div class="tab-pane fade active show" id="account-detail" role="tabpanel" aria-labelledby="account-detail-tab">
                                         <div class="card">
                                             <div class="card-header">
@@ -49,27 +54,27 @@
                                                             {!! Form::label('email', __('forms.email')) !!}
                                                             {!! Form::text('email', $user->email, ['class' => 'form-control']) !!}
                                                         </div>
-                                                        <div class="form-group col-md-12">
+                                                        <div class="form-group col-md-6">
                                                             {!! Form::label('street', __('forms.street')) !!}
                                                             {!! Form::text('street', $user->street, ['class' => 'form-control']) !!}
                                                         </div>
-                                                        <div class="form-group col-md-12">
+                                                        <div class="form-group col-md-3 col-sm-6">
                                                             {!! Form::label('house_flat', __('forms.house_flat')) !!}
                                                             {!! Form::text('house_flat', $user->house_flat, ['class' => 'form-control']) !!}
                                                         </div>
-                                                        <div class="form-group col-md-12">
+                                                        <div class="form-group col-md-3 col-sm-6">
                                                             {!! Form::label('post_index', __('forms.post_index')) !!}
                                                             {!! Form::text('post_index', $user->post_index, ['class' => 'form-control']) !!}
                                                         </div>
-                                                        <div class="form-group col-md-12">
+                                                        <div class="form-group col-md-6">
                                                             {!! Form::label('city', __('forms.city')) !!}
                                                             {!! Form::text('city', $user->city, ['class' => 'form-control']) !!}
                                                         </div>
-                                                        <div class="form-group col-md-12">
+                                                        <div class="form-group col-md-6">
                                                             {!! Form::label('phone_number', __('forms.phone_number')) !!}
                                                             {!! Form::text('phone_number', $user->phone_number, ['class' => 'form-control']) !!}
                                                         </div>
-                                                        <div class="col-md-12">
+                                                        <div class="col-md-12 mt-4">
                                                             {!! Form::submit(__('buttons.save'), ['class' => 'btn btn-primary']) !!}
                                                         </div>
                                                     </div>
@@ -88,7 +93,7 @@
                                                 {!! Form::model($user, ['route' => ['changePassword'], 'method' => 'post']) !!}
                                                 <form method="post" name="enq">
                                                     <div class="row">
-                                                        <div class="form-group col-md-6">
+                                                        <div class="form-group col-md-12">
                                                             <label>{{__('forms.current_password')}}</label>
                                                             {!! Form::password('current_password', ['class' => 'form-control']) !!}
                                                         </div>
@@ -100,7 +105,7 @@
                                                             <label>{{__('forms.confirm_password')}}</label>
                                                             {!! Form::password('new_password_confirmation', ['class' => 'form-control']) !!}
                                                         </div>
-                                                        {!! Form::submit(__('buttons.save'), ['class' => 'btn btn-primary']) !!}
+                                                        {!! Form::submit(__('buttons.save'), ['class' => 'btn btn-primary mt-4']) !!}
                                                     </div>
                                                 </form>
                                                 {!! Form::close() !!}
