@@ -14,13 +14,15 @@
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-lg-3">
-                <aside class="sidebar px-3 pt-1 pb-4">
-                    <h5 class="sidebar-title">{{ __('names.promotions')}}</h5>
-                    @include('user_views.promotion.promotion_tree')
-                </aside>
-            </div>
-            <div class="col-lg-9">
+            @if (count($promotions) === 0)
+                <div class="col-lg-3">
+                    <aside class="sidebar px-3 pt-1 pb-4">
+                        <h5 class="sidebar-title">{{ __('names.promotions')}}</h5>
+                        @include('user_views.promotion.promotion_tree')
+                    </aside>
+                </div>
+            @endif
+            <div class="@if (count($promotions) === 0) col-lg-12 @else col-lg-9 @endif">
                 <div class="row">
                     @forelse ($promotions as $promotion)
                         <div class="d-flex flex-column flex-md-row justify-content-md-between align-items-md-center mb-4 mt-4 mt-lg-0 gap-3">
