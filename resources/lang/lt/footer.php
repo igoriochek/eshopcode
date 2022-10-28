@@ -18,6 +18,7 @@ return [
     'email' => 'El. Paštas',
     'menu' => 'MENIU',
     'profile' => 'Vartotojo paskyra',
-    'copyright' => '© 2022 UAB "Aurintus"',
+    'copyright' => 'Lanosus. Visos Teisės Saugomos',
+    'resources' => 'Ištekliai'
 
 ];

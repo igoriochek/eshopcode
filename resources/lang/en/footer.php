@@ -18,6 +18,7 @@ return [
     'email' => 'Email',
     'menu' => 'MENU',
     'profile' => 'Profile',
-    'copyright' => '© 2022 UAB "Aurintus"',
+    'copyright' => 'Lanosus. All Rights Reserved',
+    'resources' => 'Resources'
 
 ];

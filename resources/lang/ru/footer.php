@@ -18,6 +18,7 @@ return [
     'email' => 'Электронная почта',
     'menu' => 'МЕНЮ',
     'profile' => 'Личный кабинет',
-    'copyright' => '© 2022 UAB "Aurintus"',
+    'copyright' => 'Lanosus. Все Права Защищены',
+    'resources' => 'Ресурсы'
 
 ];
