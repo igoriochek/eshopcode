@@ -71,9 +71,8 @@
         position: relative;
         z-index: 1;
         font-weight: 700;
-        font-size: 1.3rem;
+        font-size: 2rem;
         color: #aaa;
-        font-family: $font-family-times-new-roman;
 
         li {
             i {
@@ -81,7 +80,7 @@
             }
 
             .active {
-                color: $yellow-color;
+                color: #ed1d24;
             }
 
             .done {

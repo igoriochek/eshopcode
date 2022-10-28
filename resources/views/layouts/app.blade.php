@@ -92,7 +92,7 @@
     @guest
         @include('layouts.headers.header')
     @endguest
-    <main class="main shop">
+    <main class="main__content_wrapper">
         @yield('content')
     </main>
     @include('layouts.scroll_top_button')

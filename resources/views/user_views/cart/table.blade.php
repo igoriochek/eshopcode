@@ -1,55 +1,54 @@
-<div class="table-responsive">
-    <table class="shop_table">
+<div class="cart__table">
+    <table class="cart__table--inner">
         <thead>
         <tr class="text-dark">
-            <th class="product-thumbnail" width="15%">
-            </th>
-            <th class="product-name" width="30%">
-                {{ __('names.product') }}
-            </th>
-            <th class="product-price" width="15%">
-                {{ __('names.price') }}
-            </th>
-            <th class="product-quantity" width="20%">
-                {{ __('names.quantity') }}
-            </th>
-            <th class="product-subtotal text-end" width="20%">
-                {{ __('names.subtotal') }}
-            </th>
+            <th class="cart__table--header__list">{{ __('names.product') }}</th>
+            <th class="cart__table--header__list">{{ __('names.price') }}</th>
+            <th class="cart__table--header__list">{{ __('names.quantity') }}</th>
+            <th class="cart__table--header__list">{{ __('names.subtotal') }}</th>
         </tr>
         </thead>
-        <tbody>
+        <tbody class="cart__table--body">
         @forelse($cartItems as $item)
-            <tr class="cart_table_item">
-                <td class="product-thumbnail">
-                    <div class="product-thumbnail-wrapper">
+            <tr class="cart__table--body__items">
+                <td class="cart__table--body__list">
+                    <div class="cart__product d-flex align-items-center">
                         {!! Form::open(['route' => ['userCartItemDestroy', $item->id], 'method' => 'delete']) !!}
-                        <button type="submit" class="product-thumbnail-remove" title="{{ __('names.removeProduct') }}"
+                        <button type="submit" class="cart__remove--btn" title="{{ __('names.removeProduct') }}"
                                 onclick="return confirm('{{ __('messages.areYouSureCart') }}?')">
-                            <i class="fas fa-times"></i>
+                            <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16px"
+                                 height="16px">
+                                <path
+                                    d="M 4.7070312 3.2929688 L 3.2929688 4.7070312 L 10.585938 12 L 3.2929688 19.292969 L 4.7070312 20.707031 L 12 13.414062 L 19.292969 20.707031 L 20.707031 19.292969 L 13.414062 12 L 20.707031 4.7070312 L 19.292969 3.2929688 L 12 10.585938 L 4.7070312 3.2929688 z"/>
+                            </svg>
                         </button>
                         {!! Form::close() !!}
-                        <a href="{{ route('viewproduct', $item['product']->id) }}" title="{{ $item['product']->name }}">
-                            <img alt="{{ $item['product']->name }}" class="product-thumbnail-image"
-                                 src="@if ($item['product']->image) {{ $item['product']->image }} @else /images/noimage.jpeg @endif">
-                        </a>
+                        <div class="cart__thumbnail">
+                            <a href="{{ route('viewproduct', $item['product']->id) }}"
+                               title="{{ $item['product']->name }}">
+                                <img alt="{{ $item['product']->name }}" class="border-radius-5"
+                                     src="@if ($item['product']->image) {{ $item['product']->image }} @else /images/noimage.jpeg @endif">
+                            </a>
+                        </div>
+                        <div class="cart__content">
+                            <h3 class="cart__content--title h4"><a
+                                    href="{{ route('viewproduct', $item['product']->id) }}">
+                                    {{ $item['product']->name }}
+                                </a></h3>
+                        </div>
                     </div>
                 </td>
-                <td class="product-name">
-                    <a href="{{ route('viewproduct', $item['product']->id) }}">
-                        {{ $item['product']->name }}
-                    </a>
+                <td class="cart__table--body__list">
+                    <span class="cart__price">€{{ number_format($item->price_current,2) }}</span>
                 </td>
-                <td class="product-price">
-                    <span class="amount font-weight-medium text-color-grey">€{{ number_format($item->price_current,2) }}</span>
-                </td>
-                <td class="product-quantity">
-                    <div class="quantity d-flex w-50">
-                        <input readonly type="text" class="product-change-cart-number text-start" title="Qty" value="{{ $item->count }}" name="quantity" min="1" max="5" minlength="1" maxlength="5">
+                <td class="cart__table--body__list">
+                    <div class="quantity__box">
+                        <input readonly type="text" class="product-change-cart-number text-start" title="Qty"
+                               value="{{ $item->count }}" name="quantity" min="1" max="5" minlength="1" maxlength="5">
                     </div>
                 </td>
-                <td class="product-subtotal text-end">
-                    <span>€{{ $item->price_current * $item->count }}</span>
+                <td class="cart__table--body__list">
+                    <span class="cart__price end">€{{ $item->price_current * $item->count }}</span>
                 </td>
             </tr>
         @empty

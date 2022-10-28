@@ -12760,15 +12760,14 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   position: relative;
   z-index: 1;
   font-weight: 700;
-  font-size: 1.3rem;
+  font-size: 2rem;
   color: #aaa;
-  font-family: "Times New Roman", sans-serif;
 }
 .cart .breadcrumb li i {
   color: #ccc;
 }
 .cart .breadcrumb li .active {
-  color: #ffa600;
+  color: #ed1d24;
 }
 .cart .breadcrumb li .done {
   color: #222;
@@ -12875,18 +12874,20 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   position: relative;
   z-index: 1;
   font-weight: 700;
-  font-size: 1.3rem;
+  font-size: 2rem;
   color: #aaa;
-  font-family: "Times New Roman", sans-serif;
 }
 .checkout .breadcrumb li i {
   color: #ccc;
 }
 .checkout .breadcrumb li .active {
-  color: #ffa600;
+  color: #ed1d24;
 }
 .checkout .breadcrumb li .done {
   color: #222;
+}
+.checkout .checkout__discount--code {
+  margin-bottom: 0;
 }
 .checkout .open-apply-coupon {
   color: #222;
@@ -12983,15 +12984,14 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   position: relative;
   z-index: 1;
   font-weight: 700;
-  font-size: 1.3rem;
+  font-size: 2rem;
   color: #aaa;
-  font-family: "Times New Roman", sans-serif;
 }
 .order-complete .breadcrumb li i {
   color: #ccc;
 }
 .order-complete .breadcrumb li .active {
-  color: #ffa600;
+  color: #ed1d24;
 }
 .order-complete .breadcrumb li .done {
   color: #222;

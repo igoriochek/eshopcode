@@ -1,6 +1,9 @@
 .checkout {
     @include orderSteps;
 
+    .checkout__discount--code {
+        margin-bottom: 0;
+    }
     .open-apply-coupon {
         color: $black-color;
         font-weight: 600;
