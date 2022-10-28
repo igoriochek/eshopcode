@@ -246,6 +246,7 @@ return [
     'new' => "New",
 
     'orderBy' => 'Order By',
+
     //Discounts coupons
     "ndDiscountCoupons" => "You have no discount coupons yet :(",
     "discountCouponCode" => "Discount coupon code",
@@ -257,5 +258,10 @@ return [
     "of" => "of",
     "first" => "First",
     "last" => "Last",
+
+    //Language
+    'english' => 'English',
+    'lithuanian' => 'Lithuanian',
+    'russian' => 'Russian'
 
 ];

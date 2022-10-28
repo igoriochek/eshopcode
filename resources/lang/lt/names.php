@@ -258,4 +258,10 @@ return [
     "of" => "iš",
     "first" => "Pirmas",
     "last" => "Paskutinis",
+
+    //Language
+    'english' => 'Anglų',
+    'lithuanian' => 'Lietuvių',
+    'russian' => 'Rusų'
+
 ];

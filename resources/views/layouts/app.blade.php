@@ -41,6 +41,46 @@
 </head>
 
 <body>
+<!-- Start preloader -->
+<div id="preloader">
+    <div id="ctn-preloader" class="ctn-preloader">
+        <div class="animation-preloader">
+            <div class="spinner"></div>
+            <div class="txt-loading">
+                    <span data-text-preloader="L" class="letters-loading">
+                        L
+                    </span>
+
+                <span data-text-preloader="O" class="letters-loading">
+                        O
+                    </span>
+
+                <span data-text-preloader="A" class="letters-loading">
+                        A
+                    </span>
+
+                <span data-text-preloader="D" class="letters-loading">
+                        D
+                    </span>
+
+                <span data-text-preloader="I" class="letters-loading">
+                        I
+                    </span>
+
+                <span data-text-preloader="N" class="letters-loading">
+                        N
+                    </span>
+
+                <span data-text-preloader="G" class="letters-loading">
+                        G
+                    </span>
+            </div>
+        </div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+    </div>
+</div>
+<!-- End preloader -->
 <div class="@auth @if (Auth::user()->type == 1) admin-view @endif @endauth">
     @auth
         @if (Auth::user()->type == 1)
@@ -54,10 +94,8 @@
     @endguest
     <main class="main shop">
         @yield('content')
-        <button type="button" class="scroll-to-top-button">
-            <i class="fa-solid fa-angle-up"></i>
-        </button>
     </main>
+    @include('layouts.scroll_top_button')
     @include('layouts.footer')
 </div>
 

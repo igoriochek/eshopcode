@@ -44,7 +44,10 @@ class AppServiceProvider extends ServiceProvider
                 $cart = $cartRepository->getOrSetCart($request);
                 $cartItems = $this->getCartItems($cart);
 
-                $view->with('cartItemCount', $this->setAndGetCartItemCount($cartItems));
+                $view->with([
+                    'cartItemCount' => $this->setAndGetCartItemCount($cartItems),
+                    'cartSum' => $cart->sum
+                ]);
             }
         });
     }

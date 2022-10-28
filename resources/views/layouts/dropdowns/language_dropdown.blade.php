@@ -1,7 +1,9 @@
-<div class="dropdown-menu dropdown-menu-arrow-centered min-width-0" aria-labelledby="dropdownCurrency" style="">
+<ul>
     @foreach (config('translatable.locales') as $locale)
-        <a class="dropdown-item" href="/lang/{{ $locale }}" style="font-size: .8em">
-            {{ strtoupper($locale) }}
-        </a>
+        <li class="language__items">
+            <a class="language__text" href="/lang/{{ $locale }}">
+                {{ strtoupper($locale) }}
+            </a>
+        </li>
     @endforeach
-</div>
+</ul>

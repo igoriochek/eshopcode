@@ -6,44 +6,44 @@
   Version: 1.0.0
 
   ----------------------------
-  [Table of contents CSS] 
+  [Table of contents CSS]
   ----------------------------
 
     1. Base CSS
     2. Header css
     3. Slider css
-    4. Banner css 
-    5. Product card css 
+    4. Banner css
+    5. Product card css
     6. Categories css
     7. Shipping css
     8. Blog css
     9. Testimonial css
     10. Brand logo css
     11. Accordion css
-    12. Footer css 
+    12. Footer css
     13. Quickview css
     14. Small Product css
-    15. Single Product css 
-    16. Product details css 
-    17. Shop page css 
+    15. Single Product css
+    16. Product details css
+    17. Shop page css
     18. Search filter css
     19. Privacy policy css
-    20. Preloader css 
+    20. Preloader css
     21. Portfolio css
-    22. Newsletter css 
+    22. Newsletter css
     23. Newsletter popup css
-    24. My account page css 
+    24. My account page css
     25. Login page css
-    26. Faq page css 
+    26. Faq page css
     27. Counterup css here
     28. Contact page css
-    29. Compare page css 
+    29. Compare page css
     30. Checkout Page Css
     31. Cart page css
-    32. Breadcrumb css 
+    32. Breadcrumb css
     33. Blog details css
     34. About page css
-    35. Error 404 page css 
+    35. Error 404 page css
 
 */
 /*
@@ -1619,8 +1619,8 @@ body.overlay__active::before,
           transform: rotate(-45deg);
 }
 
-/* 
-    offcanvas Menu css 
+/*
+    offcanvas Menu css
   */
 .offcanvas__menu {
   overflow-y: auto;
@@ -1651,8 +1651,8 @@ body.overlay__active::before,
   text-transform: uppercase;
 }
 
-/* 
-    offcanvas Sub Menu 
+/*
+    offcanvas Sub Menu
 */
 .offcanvas__sub_menu {
   display: none;
@@ -1710,7 +1710,8 @@ body.overlay__active::before,
 }
 
 .offcanvas__account--items {
-  padding: 28px 17px 20px;
+  padding-inline: 17px;
+  padding-top: 30px;
 }
 
 .offcanvas__account--items__icon {
@@ -1740,7 +1741,7 @@ body.overlay__active::before,
 
 .offcanvas__account--wrapper {
   gap: 2.5rem;
-  padding: 0 2.5rem;
+  padding: 0 2rem;
 }
 
 .offcanvas__account--currency {
@@ -1881,6 +1882,10 @@ body.overlay__active::before,
 }
 
 @media only screen and (max-width: 991px) {
+  .header__menu.header__sticky--block {
+    display: none !important;
+  }
+
   .header__sticky.sticky .header__menu.header__sticky--block {
     display: none !important;
   }
@@ -1907,7 +1912,7 @@ body.overlay__active::before,
 
 @media only screen and (min-width: 768px) {
   .header__topbar {
-    padding: 10px 0;
+    padding: 5px 0;
   }
 }
 
@@ -2591,7 +2596,7 @@ body.overlay__active::before,
   background: var(--body-background-color);
 }
 
-/*  
+/*
     Categories submenu css here
 */
 .categories__submenu {
@@ -2780,8 +2785,10 @@ body.overlay__active::before,
   padding-left: 30px;
 }
 
-.header__menu.header__sticky--block {
-  display: none !important;
+@media only screen and (min-width: 991px) {
+    .header__menu.header__sticky--block {
+        display: block !important;
+    }
 }
 
 .header__menu--wrapper {
@@ -2805,6 +2812,15 @@ body.overlay__active::before,
 .header__menu--items:hover .header__menu--link {
   color: var(--secondary-color) !important;
   border-color: var(--secondary-color);
+}
+
+
+.header__menu--items:hover .header__menu--link {
+    border-color: var(--secondary-color);
+}
+
+.account:hover .header__menu--link {
+    border-color: transparent;
 }
 
 .header__menu--items:hover .header__sub--menu {
@@ -2852,30 +2868,52 @@ body.overlay__active::before,
     font-size: 1.5rem;
     padding: 0 1.2rem;
   }
+
+    .header__sub--menu {
+        position: absolute;
+        z-index: 9;
+        top: 100%;
+        left: 0;
+        visibility: hidden;
+        width: 220px;
+        margin: 0;
+        margin-top: 25px;
+        padding: 20px;
+        list-style: none;
+        -webkit-transition: var(--transition);
+        transition: var(--transition);
+        opacity: 0;
+        background-color: var(--body-background-color);
+        -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        border-radius: 10px;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .header__sub--menu {
+        position: absolute;
+        z-index: 9;
+        top: 100%;
+        right: 0;
+        visibility: hidden;
+        width: 220px;
+        margin: 0;
+        margin-top: 25px;
+        padding: 20px;
+        list-style: none;
+        -webkit-transition: var(--transition);
+        transition: var(--transition);
+        opacity: 0;
+        background-color: var(--body-background-color);
+        -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        border-radius: 10px;
+    }
 }
 
 .menu__arrowdown--icon {
   margin-left: 3px;
-}
-
-.header__sub--menu {
-  position: absolute;
-  z-index: 9;
-  top: 100%;
-  left: 0;
-  visibility: hidden;
-  width: 220px;
-  margin: 0;
-  margin-top: 25px;
-  padding: 20px;
-  list-style: none;
-  -webkit-transition: var(--transition);
-  transition: var(--transition);
-  opacity: 0;
-  background-color: var(--body-background-color);
-  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-  border-radius: 10px;
 }
 
 .header__sub--menu__link {
@@ -3098,7 +3136,7 @@ body.overlay__active::before,
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  color: var(--text-white-color);
+  color: var(--primary-color);
   font-size: 1.4rem;
   line-height: 3.5rem;
 }
@@ -3125,11 +3163,11 @@ body.overlay__active::before,
 .dropdown__language {
   position: absolute;
   z-index: 9;
-  width: 100px;
+  width: 60px;
   -webkit-box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
           box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
-  top: 100%;
-  right: 0;
+  top: 75%;
+  right: 10px;
   opacity: 0;
   visibility: hidden;
   margin-top: 20px;
@@ -3137,6 +3175,7 @@ body.overlay__active::before,
   transition: var(--transition);
   background: var(--body-background-color);
   border-radius: 5px;
+  text-align: center;
 }
 
 .dropdown__language.active {
@@ -3152,7 +3191,7 @@ body.overlay__active::before,
 .offcanvas__dropdown--language {
   position: absolute;
   z-index: 9;
-  width: 100px;
+  width: 60px;
   -webkit-box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
           box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
   bottom: 100%;
@@ -3162,6 +3201,7 @@ body.overlay__active::before,
   -webkit-transition: var(--transition);
   transition: var(--transition);
   background: var(--body-background-color);
+  text-align: center;
 }
 
 .offcanvas__dropdown--language.active {
@@ -3530,8 +3570,8 @@ input[type=number]::-webkit-outer-spin-button {
   color: var(--secondary-color) !important;
 }
 
-/* 
-    3. Slider css 
+/*
+    3. Slider css
 */
 .hero__slider--items {
   position: relative;
@@ -4541,7 +4581,7 @@ input[type=number]::-webkit-outer-spin-button {
   }
 }
 
-/* 
+/*
     6. Categories css
 */
 .categories__card {
@@ -4984,8 +5024,8 @@ input[type=number]::-webkit-outer-spin-button {
   color: var(--foreground-sub-color);
 }
 
-/* 
-    5. Product card css 
+/*
+    5. Product card css
 */
 .tab__btn--wrapper {
   gap: 1rem;
@@ -5356,8 +5396,8 @@ input[type=number]::-webkit-outer-spin-button {
   font-weight: 600;
 }
 
-/* 
-    14. Small Product css 
+/*
+    14. Small Product css
 */
 .product__sidebar {
   border: 1px solid var(--secondary-color);
@@ -5531,8 +5571,8 @@ input[type=number]::-webkit-outer-spin-button {
   background-size: cover;
 }
 
-/* 
-    15. Single Product css 
+/*
+    15. Single Product css
 */
 .deal__section--bg {
   background: url(../img/banner/deal-section-bg.webp);
@@ -5858,8 +5898,8 @@ input[type=number]::-webkit-outer-spin-button {
   border-color: var(--secondary-color);
 }
 
-/* 
-    4. Banner css 
+/*
+    4. Banner css
 */
 .banner__items {
   border-radius: 5px;
@@ -6798,7 +6838,7 @@ input[type=number]::-webkit-outer-spin-button {
   }
 }
 
-/* 
+/*
     8. Blog css
 */
 .blog__section--inner {
@@ -7000,7 +7040,7 @@ input[type=number]::-webkit-outer-spin-button {
   transition: 0.5s;
 }
 
-/* 
+/*
     9. Testimonial css
 */
 .testimonial__items--content {
@@ -7069,7 +7109,7 @@ input[type=number]::-webkit-outer-spin-button {
   margin-bottom: 1.5rem;
 }
 
-/* 
+/*
     7. Shipping css
 */
 .shipping__inner {
@@ -7180,8 +7220,8 @@ input[type=number]::-webkit-outer-spin-button {
   background: var(--bg-offwhite-color);
 }
 
-/* 
-    22. Newsletter css 
+/*
+    22. Newsletter css
 */
 .newsletter__area {
   padding-bottom: 4.2rem;
@@ -7369,8 +7409,8 @@ input[type=number]::-webkit-outer-spin-button {
   }
 }
 
-/* 
-    12. Footer css 
+/*
+    12. Footer css
 */
 .footer__section {
   padding-top: 5.3rem;
@@ -7672,7 +7712,7 @@ input[type=number]::-webkit-outer-spin-button {
   color: var(--secondary-color);
 }
 
-/* 
+/*
     13. Quickview css
 */
 .modal {
@@ -8024,7 +8064,7 @@ input.quickview__value--number {
   }
 }
 
-/* 
+/*
     18. Search filter css
 */
 .search__filter--area {
@@ -8268,7 +8308,7 @@ input.quickview__value--number {
   background: linear-gradient(to right, #fbd4df, #dee3f9);
 }
 
-/* 
+/*
     11. Accordion css
 */
 .accordion__items.active {
@@ -8359,8 +8399,8 @@ input.quickview__value--number {
   pointer-events: none;
 }
 
-/* 
-    21. Portfolio css 
+/*
+    21. Portfolio css
 */
 .portfolio__items--thumbnail {
   border-radius: 5px;
@@ -8424,7 +8464,7 @@ input.quickview__value--number {
   color: var(--text-white-color);
 }
 
-/* 
+/*
     10. Brand logo css
 */
 .brand__section--inner {
@@ -8486,8 +8526,8 @@ input.quickview__value--number {
   }
 }
 
-/* 
-    32. Breadcrumb css 
+/*
+    32. Breadcrumb css
 */
 .breadcrumb__bg {
   background-color: var(--bg-offwhite-color);
@@ -8574,8 +8614,8 @@ input.quickview__value--number {
           transform: rotate(30deg);
 }
 
-/* 
-    17. Shop page css 
+/*
+    17. Shop page css
 */
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .shop-col-width-lg-4 {
@@ -9362,8 +9402,8 @@ input.quickview__value--number {
   color: var(--text-white-color);
 }
 
-/* 
-    34. About page css 
+/*
+    34. About page css
 */
 @media only screen and (max-width: 991px) {
   .team__section.section--padding {
@@ -9608,7 +9648,7 @@ input.quickview__value--number {
   }
 }
 
-/* 
+/*
     27. Counterup css here
 */
 .counterup__banner__bg2 {
@@ -9670,8 +9710,8 @@ input.quickview__value--number {
   }
 }
 
-/* 
-    16. Product details css 
+/*
+    16. Product details css
 */
 .product__details--section {
   padding-top: 3rem;
@@ -10516,8 +10556,8 @@ span.info__list--item-content {
   top: 0;
 }
 
-/* 
-    33. Blog details css 
+/*
+    33. Blog details css
 */
 .blog__sidebar--widget {
   position: -webkit-sticky;
@@ -10868,8 +10908,8 @@ span.info__list--item-content {
   font-size: 1.5rem;
 }
 
-/* 
-    28. Contact page css 
+/*
+    28. Contact page css
 */
 .contact__section--heading__maintitle {
   font-size: 2.8rem;
@@ -11168,8 +11208,8 @@ span.info__list--item-content {
   }
 }
 
-/* 
-    31. Cart page css 
+/*
+    31. Cart page css
 */
 @media only screen and (max-width: 575px) {
   .cart__title {
@@ -12060,8 +12100,8 @@ details > summary::-webkit-details-marker {
   }
 }
 
-/* 
-    24. My account page css 
+/*
+    24. My account page css
 */
 .my__account--section__inner {
   background: var(--body-background-color);
@@ -12357,8 +12397,8 @@ details > summary::-webkit-details-marker {
   }
 }
 
-/* 
-    35. Error 404 page css 
+/*
+    35. Error 404 page css
 */
 .error__content--img {
   margin: 0 auto 4rem;
@@ -12460,8 +12500,8 @@ details > summary::-webkit-details-marker {
   }
 }
 
-/* 
-    25. Login page css 
+/*
+    25. Login page css
 */
 .account__login {
   background: var(--body-background-color);
@@ -12701,8 +12741,8 @@ details > summary::-webkit-details-marker {
   }
 }
 
-/* 
-    29. Compare page css 
+/*
+    29. Compare page css
 */
 .compare__table {
   border: 1px solid var(--border-color);
@@ -12797,8 +12837,8 @@ details > summary::-webkit-details-marker {
   }
 }
 
-/* 
-    26. Faq page css 
+/*
+    26. Faq page css
 */
 .face__step {
   margin-bottom: 3.5rem;
@@ -12855,8 +12895,8 @@ details > summary::-webkit-details-marker {
   pointer-events: none;
 }
 
-/* 
-    20. Preloader css 
+/*
+    20. Preloader css
 */
 .ctn-preloader {
   -webkit-box-align: center;
@@ -13058,8 +13098,8 @@ details > summary::-webkit-details-marker {
   }
 }
 
-/* 
-    19. Privacy policy css 
+/*
+    19. Privacy policy css
 */
 .privacy__policy--content {
   margin-bottom: 2rem;
@@ -13119,7 +13159,7 @@ details > summary::-webkit-details-marker {
   }
 }
 
-/* 
+/*
     23. Newsletter popup css
 */
 /* ANIMATIONS
