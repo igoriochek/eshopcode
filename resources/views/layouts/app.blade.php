@@ -3,32 +3,43 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="verify-paysera" content="fd75482df21aae351f2d6303486ed9fb">
+
     <!-- Title -->
     <title>{{ config('app.name', 'Laravel') }}</title>
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500&display=swap"
           rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
-    <!-- Styles -->
+
+    <!-- CSS Plugins -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/plugins/swiper-bundle.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/plugins/glightbox.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/jquery-ui.min.css') }}" rel="stylesheet">
     <link href="{{ asset('datatables/media/css/jquery.dataTables.min.css') }}" rel="stylesheet">
     <link href="{{ asset('fontawesome-free/css/all.min.css') }}" rel="stylesheet">
-    <link href="{{asset('css/jquery-ui.css')}}" rel="stylesheet">
+    <link href="{{ asset('css/jquery-ui.css') }}" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.5.1/nouislider.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="{{asset("vendor/cookie-consent/css/cookie-consent.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset("vendor/cookie-consent/css/cookie-consent.css") }}">
+
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+
     @stack('css')
+
     @livewireStyles
 </head>
+
 <body>
 <div class="@auth @if (Auth::user()->type == 1) admin-view @endif @endauth">
     @auth
@@ -49,12 +60,17 @@
     </main>
     @include('layouts.footer')
 </div>
-<script src="{{asset('js/jquery-3.6.0.min.js')}}"></script>
-<script src="{{asset('js/bootstrap.bundle.js')}}"></script>
-<script src="{{asset('js/jquery.dataTables.min.js')}}"></script>
-<script src="{{asset('js/jquery-ui.js')}}"></script>
-{{--<script src="{{ asset('js/app.js') }}"></script>--}}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.5.1/nouislider.min.js"></script>
+
+<!-- JS Plugins -->
+<script src="{{ asset('js/jquery-3.6.0.min.js') }}"></script>
+<script src="{{ asset('js/bootstrap.bundle.js') }}"></script>
+<script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('js/jquery-ui.js') }}"></script>
+<script src="{{ asset('js/plugins/swiper-bundle.min.js') }}"></script>
+<script src="{{ asset('js/plugins/glightbox.min.js') }}"></script>
+
+<!-- Scripts -->
+<script src="{{ asset('js/script.js') }}"></script>
 <script>
     $(document).ready(function () {
         $('#categories').DataTable(
@@ -348,7 +364,9 @@
         });
     });
 </script>
+
 @stack('scripts')
+
 @livewireScripts
 </body>
 </html>
