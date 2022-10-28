@@ -3,12 +3,9 @@
         <div class="row py-4 my-5">
             <div class="col-md-6 @auth col-lg-3 @else col-lg-4 @endauth mb-5 mb-lg-0">
                 <a href="{{ url('/home') }}">
-                    <img src="{{ asset("images/aurintus_logo.jpg") }}" alt="logo" class="logo_footer" width="180">
+                    <img src="{{ asset("images/aurintus_logo.png") }}" alt="logo" class="logo_footer" width="180">
                 </a>
-                <p class="py-5 m-0">
-                    {{ __('footer.description') }}.
-                </p>
-                <div class="d-flex">
+                <div class="d-flex mt-4 mb-4 mb-md-0">
                     <div class="me-3">
                         <i class="fa-regular fa-clock fs-5"></i>
                     </div>
@@ -20,7 +17,7 @@
                 </div>
             </div>
             <div class="col-md-6 @auth col-lg-3 @else col-lg-4 @endauth mb-5 mb-lg-0 ps-1 @auth ps-3 @else ps-5 @endauth">
-                <h5 class="mb-5">{{ __('footer.contactUs') }}</h5>
+                <h5 class="mb-4">{{ __('footer.contactUs') }}</h5>
                 <ul class="list list-unstyled pt-3">
                     <li class="pb-4">
                         <i class="fa-solid fa-location-dot fs-5 me-3"></i>
@@ -58,7 +55,7 @@
                 </ul>
             </div>
             <div class="col-md-6 @auth col-lg-3 @else col-lg-4 @endauth mb-5 mb-lg-0 ps-1 @auth ps-3 @else ps-5 @endauth">
-                <h5 class="mb-5 pb-2">{{ __('footer.menu') }}</h5>
+                <h5 class="mb-4 pb-2">{{ __('footer.menu') }}</h5>
                 <ul class="list list-unstyled mb-0 footer-links">
                     <li class="nav-list">
                         <a class="{{ request()->is('products*') ? 'active' : '' }}" href="{{ url('/products') }}">
@@ -112,7 +109,7 @@
             </div>
             @auth
                 <div class="col-md-6 @auth col-lg-3 @else col-lg-4 @endauth mb-5 mb-lg-0 ps-1 @auth ps-3 @else ps-5 @endauth">
-                    <h5 class="mb-5 pb-2">{{ __('footer.profile') }}</h5>
+                    <h5 class="mb-4 pb-2">{{ __('footer.profile') }}</h5>
                     <ul class="list list-unstyled mb-0 footer-links">
                         <li class="mb-0">
                             <a href="{{ url('/user/viewcart') }}">
