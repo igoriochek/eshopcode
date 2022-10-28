@@ -68,7 +68,7 @@
             </div>
         </div>
     </div>
-    <div class="main__header header__sticky">
+    <div class="main__header header__sticky border-bottom">
         <div class="container">
             <div class="main__header--inner position__relative d-flex justify-content-between align-items-center">
                 <div class="offcanvas__header--menu__open ">
@@ -109,27 +109,29 @@
                                 @include('layouts.dropdowns.user_dropdown')
                             </li>
                         @endif
-                        <li class="header__account--items header__minicart--items">
-                            <a class="header__account--btn minicart__open--btn" href="{{ url('/user/viewcart') }}" data-offcanvas="">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="22.706" height="22.534" viewBox="0 0 14.706 13.534">
-                                    <g transform="translate(0 0)">
-                                        <g>
-                                            <path data-name="Path 16787" d="M4.738,472.271h7.814a.434.434,0,0,0,.414-.328l1.723-6.316a.466.466,0,0,0-.071-.4.424.424,0,0,0-.344-.179H3.745L3.437,463.6a.435.435,0,0,0-.421-.353H.431a.451.451,0,0,0,0,.9h2.24c.054.257,1.474,6.946,1.555,7.33a1.36,1.36,0,0,0-.779,1.242,1.326,1.326,0,0,0,1.293,1.354h7.812a.452.452,0,0,0,0-.9H4.74a.451.451,0,0,1,0-.9Zm8.966-6.317-1.477,5.414H5.085l-1.149-5.414Z" transform="translate(0 -463.248)" fill="currentColor"></path>
-                                            <path data-name="Path 16788" d="M5.5,478.8a1.294,1.294,0,1,0,1.293-1.353A1.325,1.325,0,0,0,5.5,478.8Zm1.293-.451a.452.452,0,1,1-.431.451A.442.442,0,0,1,6.793,478.352Z" transform="translate(-1.191 -466.622)" fill="currentColor"></path>
-                                            <path data-name="Path 16789" d="M13.273,478.8a1.294,1.294,0,1,0,1.293-1.353A1.325,1.325,0,0,0,13.273,478.8Zm1.293-.451a.452.452,0,1,1-.431.451A.442.442,0,0,1,14.566,478.352Z" transform="translate(-2.875 -466.622)" fill="currentColor"></path>
+                        @auth
+                            <li class="header__account--items header__minicart--items">
+                                <a class="header__account--btn minicart__open--btn" href="{{ url('/user/viewcart') }}" data-offcanvas="">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="22.706" height="22.534" viewBox="0 0 14.706 13.534">
+                                        <g transform="translate(0 0)">
+                                            <g>
+                                                <path data-name="Path 16787" d="M4.738,472.271h7.814a.434.434,0,0,0,.414-.328l1.723-6.316a.466.466,0,0,0-.071-.4.424.424,0,0,0-.344-.179H3.745L3.437,463.6a.435.435,0,0,0-.421-.353H.431a.451.451,0,0,0,0,.9h2.24c.054.257,1.474,6.946,1.555,7.33a1.36,1.36,0,0,0-.779,1.242,1.326,1.326,0,0,0,1.293,1.354h7.812a.452.452,0,0,0,0-.9H4.74a.451.451,0,0,1,0-.9Zm8.966-6.317-1.477,5.414H5.085l-1.149-5.414Z" transform="translate(0 -463.248)" fill="currentColor"></path>
+                                                <path data-name="Path 16788" d="M5.5,478.8a1.294,1.294,0,1,0,1.293-1.353A1.325,1.325,0,0,0,5.5,478.8Zm1.293-.451a.452.452,0,1,1-.431.451A.442.442,0,0,1,6.793,478.352Z" transform="translate(-1.191 -466.622)" fill="currentColor"></path>
+                                                <path data-name="Path 16789" d="M13.273,478.8a1.294,1.294,0,1,0,1.293-1.353A1.325,1.325,0,0,0,13.273,478.8Zm1.293-.451a.452.452,0,1,1-.431.451A.442.442,0,0,1,14.566,478.352Z" transform="translate(-2.875 -466.622)" fill="currentColor"></path>
+                                            </g>
                                         </g>
-                                    </g>
-                                </svg>
-                                @if (!empty($cartItemCount))
-                                    <span class="items__count">{{ $cartItemCount }}</span>
-                                @endif
-                                <span class="minicart__btn--text">
-                                    {{ __('menu.cart') }}
-                                    <br>
-                                    <span class="minicart__btn--text__price">€{{ $cartSum ?? '0.00' }}</span>
-                                </span>
-                            </a>
-                        </li>
+                                    </svg>
+                                    @if (!empty($cartItemCount))
+                                        <span class="items__count">{{ $cartItemCount }}</span>
+                                    @endif
+                                    <span class="minicart__btn--text">
+                                        {{ __('menu.cart') }}
+                                        <br>
+                                        <span class="minicart__btn--text__price">€{{ $cartSum ?? '0.00' }}</span>
+                                    </span>
+                                </a>
+                            </li>
+                        @endauth
                     </ul>
                 </div>
                 <div class="header__account header__sticky--block">
@@ -151,27 +153,29 @@
                                 @include('layouts.dropdowns.user_dropdown')
                             </li>
                         @endif
-                        <li class="header__account--items header__minicart--items">
-                            <a class="header__account--btn minicart__open--btn" href="{{ url('/user/viewcart') }}" data-offcanvas="">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="22.706" height="22.534" viewBox="0 0 14.706 13.534">
-                                    <g transform="translate(0 0)">
-                                        <g>
-                                            <path data-name="Path 16787" d="M4.738,472.271h7.814a.434.434,0,0,0,.414-.328l1.723-6.316a.466.466,0,0,0-.071-.4.424.424,0,0,0-.344-.179H3.745L3.437,463.6a.435.435,0,0,0-.421-.353H.431a.451.451,0,0,0,0,.9h2.24c.054.257,1.474,6.946,1.555,7.33a1.36,1.36,0,0,0-.779,1.242,1.326,1.326,0,0,0,1.293,1.354h7.812a.452.452,0,0,0,0-.9H4.74a.451.451,0,0,1,0-.9Zm8.966-6.317-1.477,5.414H5.085l-1.149-5.414Z" transform="translate(0 -463.248)" fill="currentColor"></path>
-                                            <path data-name="Path 16788" d="M5.5,478.8a1.294,1.294,0,1,0,1.293-1.353A1.325,1.325,0,0,0,5.5,478.8Zm1.293-.451a.452.452,0,1,1-.431.451A.442.442,0,0,1,6.793,478.352Z" transform="translate(-1.191 -466.622)" fill="currentColor"></path>
-                                            <path data-name="Path 16789" d="M13.273,478.8a1.294,1.294,0,1,0,1.293-1.353A1.325,1.325,0,0,0,13.273,478.8Zm1.293-.451a.452.452,0,1,1-.431.451A.442.442,0,0,1,14.566,478.352Z" transform="translate(-2.875 -466.622)" fill="currentColor"></path>
+                        @auth
+                            <li class="header__account--items header__minicart--items">
+                                <a class="header__account--btn minicart__open--btn" href="{{ url('/user/viewcart') }}" data-offcanvas="">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="22.706" height="22.534" viewBox="0 0 14.706 13.534">
+                                        <g transform="translate(0 0)">
+                                            <g>
+                                                <path data-name="Path 16787" d="M4.738,472.271h7.814a.434.434,0,0,0,.414-.328l1.723-6.316a.466.466,0,0,0-.071-.4.424.424,0,0,0-.344-.179H3.745L3.437,463.6a.435.435,0,0,0-.421-.353H.431a.451.451,0,0,0,0,.9h2.24c.054.257,1.474,6.946,1.555,7.33a1.36,1.36,0,0,0-.779,1.242,1.326,1.326,0,0,0,1.293,1.354h7.812a.452.452,0,0,0,0-.9H4.74a.451.451,0,0,1,0-.9Zm8.966-6.317-1.477,5.414H5.085l-1.149-5.414Z" transform="translate(0 -463.248)" fill="currentColor"></path>
+                                                <path data-name="Path 16788" d="M5.5,478.8a1.294,1.294,0,1,0,1.293-1.353A1.325,1.325,0,0,0,5.5,478.8Zm1.293-.451a.452.452,0,1,1-.431.451A.442.442,0,0,1,6.793,478.352Z" transform="translate(-1.191 -466.622)" fill="currentColor"></path>
+                                                <path data-name="Path 16789" d="M13.273,478.8a1.294,1.294,0,1,0,1.293-1.353A1.325,1.325,0,0,0,13.273,478.8Zm1.293-.451a.452.452,0,1,1-.431.451A.442.442,0,0,1,14.566,478.352Z" transform="translate(-2.875 -466.622)" fill="currentColor"></path>
+                                            </g>
                                         </g>
-                                    </g>
-                                </svg>
-                                @if (!empty($cartItemCount))
-                                    <span class="items__count">{{ $cartItemCount }}</span>
-                                @endif
-                                <span class="minicart__btn--text">
-                                    {{ __('menu.cart') }}
-                                    <br>
-                                    <span class="minicart__btn--text__price">€{{ $cartSum ?? '0.00' }}</span>
-                                </span>
-                            </a>
-                        </li>
+                                    </svg>
+                                    @if (!empty($cartItemCount))
+                                        <span class="items__count">{{ $cartItemCount }}</span>
+                                    @endif
+                                    <span class="minicart__btn--text">
+                                        {{ __('menu.cart') }}
+                                        <br>
+                                        <span class="minicart__btn--text__price">€{{ $cartSum ?? '0.00' }}</span>
+                                    </span>
+                                </a>
+                            </li>
+                        @endauth
                     </ul>
                 </div>
             </div>
@@ -190,7 +194,7 @@
             </div>
             <nav class="offcanvas__menu">
                 @include('layouts.menus.mobile_menu')
-                @auth
+                @guest
                     <div class="offcanvas__account--items">
                         <a class="offcanvas__account--items__btn d-flex align-items-center" href="{{ route('login') }}">
                                 <span class="offcanvas__account--items__icon">
@@ -199,7 +203,7 @@
                             <span class="offcanvas__account--items__label">{{ __('buttons.login') }}</span>
                         </a>
                     </div>
-                @endauth
+                @endguest
                 <div class="offcanvas__account--wrapper d-flex mt-5">
                     <div class="language__currency--list">
                         <a class="offcanvas__language--switcher" href="javascript:void(0)">
