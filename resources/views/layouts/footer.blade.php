@@ -14,7 +14,7 @@
                             <li>
                                 <img src="{{asset('/images/theme/icons/icon-location.svg')}}" alt="" />
                                 <strong>{{__('footer.address')}}: </strong>
-                                <span>Birželio 23-iosios g. 15-41, LT-03206 Vilnius</span>
+                                <span>Giedros g. 35, LT-10234 Vilnius</span>
                             </li>
                             <li>
                                 <img src="{{asset('/images/theme/icons/icon-3.svg')}}" alt="" />
