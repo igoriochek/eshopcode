@@ -1,0 +1,22 @@
+.product-search-input {
+    border-color: #e1e1e1;
+    border-radius: 5px 0 0 5px;
+    font-size: 1.3rem !important;
+    padding: 13px 10px;
+
+    &::placeholder {
+        color: #ccc;
+    }
+}
+
+.product-search-button {
+    font-size: 1.4rem !important;
+    border-radius: 0 5px 5px 0;
+    border: none;
+    background: var(--secondary-color);
+    width: 50px;
+
+    &:hover, &:focus {
+        background: var(--primary-color);
+    }
+}

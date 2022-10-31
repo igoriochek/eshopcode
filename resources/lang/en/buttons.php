@@ -42,5 +42,6 @@ return [
     'details' => 'Details',
     'return' => 'Return',
     'invoice' => 'Invoice',
+    'close' => 'Close'
 
 ];

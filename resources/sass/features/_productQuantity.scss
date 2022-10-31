@@ -1,8 +1,8 @@
 .minus, .plus,
 .product-add-to-cart-number,
 .product-change-cart-number {
-    border: 1px solid $gray-color;
-    width: 45px;
+    border: 1px solid #d3d3d3;
+    width: 38px;
     aspect-ratio: 1;
     text-align: center;
     background: transparent;
@@ -10,18 +10,27 @@
 }
 
 .minus, .plus {
-    transition: all 100ms ease;
+    color: #212121;
+    transition: all 200ms ease;
 
     &:hover, &:focus, &:active {
-        background: $black-color;
-        color: $yellow-color;
-        border-color: $black-color;
+        background: #ED1D24;
+        color: #fff;
+        border-color: #d3d3d3;
     }
+}
+
+.minus {
+    border-radius: 5px 0 0 5px;
+}
+
+.plus {
+    border-radius: 0 5px 5px 0;
 }
 
 .product-add-to-cart-number,
 .product-change-cart-number {
-    width: 40px;
+    width: 38px;
     -moz-appearance: textfield;
 
     &::-webkit-outer-spin-button,

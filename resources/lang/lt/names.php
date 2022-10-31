@@ -245,6 +245,7 @@ return [
     'old' => "Senos",
     'new' => "Naujos",
 
+    'perPage' => 'Per Puslapį',
     'orderBy' => 'Rūšiuoti pagal',
 
     //Discounts coupons

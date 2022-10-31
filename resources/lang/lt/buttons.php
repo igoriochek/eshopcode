@@ -44,5 +44,6 @@ return [
     'details' => 'Detaliai',
     'return' => 'Grąžinti',
     'invoice' => 'Sąskaita faktūra',
+    'close' => 'Uždaryti'
 
 ];

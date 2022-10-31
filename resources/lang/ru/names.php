@@ -245,6 +245,7 @@ return [
     'old' => "Старый",
     'new' => "Новый",
 
+    'perPage' => 'На cтранице',
     'orderBy' => 'Сортировать по',
 
     //Discounts coupons

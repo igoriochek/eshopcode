@@ -5081,6 +5081,12 @@ input[type=number]::-webkit-outer-spin-button {
 .product__card {
   border: 1px solid var(--border-color);
   border-radius: 5px;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.product__card:hover {
+    padding-bottom: 54px;
 }
 
 .product__card:hover .product__card--thumbnail__img {
@@ -5115,14 +5121,14 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .product__card:hover .product__card--price {
-  opacity: 0;
-  visibility: hidden;
+  opacity: 1;
+  visibility: visible;
 }
 
 .product__card:hover .product__card--footer {
   opacity: 1;
   visibility: visible;
-  bottom: -15px;
+  bottom: -55px;
 }
 
 .product__card--thumbnail {
@@ -9027,57 +9033,24 @@ input.quickview__value--number {
 }
 
 .widget__form--check__input {
-  position: absolute;
-  right: 1rem;
-  top: 50%;
-  -webkit-transform: translatey(-50%);
-          transform: translatey(-50%);
-  opacity: 0;
-  cursor: pointer;
-  z-index: 999;
+    height: 1.8rem;
+    width: 1.8rem;
+    border: 1px solid var(--secondary-color);
+    border-radius: 50%;
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    -webkit-transform: translatey(-50%);
+    transform: translatey(-50%);
+    background: var(--body-background-color);
+    -webkit-transition: var(--transition);
+    transition: var(--transition);
 }
 
-.widget__form--check__input:checked ~ .widget__form--checkmark {
-  background-color: var(--secondary-color);
+.widget__form--check__input:checked {
+  background: var(--secondary-color);
   border: 1px solid var(--secondary-color);
-}
-
-.widget__form--check__input:checked ~ .widget__form--checkmark::before {
-  display: block;
-}
-
-.widget__form--checkmark {
-  height: 1.8rem;
-  width: 1.8rem;
-  border: 1px solid var(--secondary-color);
-  border-radius: 50%;
-  display: block;
-  position: absolute;
-  top: 50%;
-  right: 1rem;
-  -webkit-transform: translatey(-50%);
-          transform: translatey(-50%);
-  background: var(--body-background-color);
-  -webkit-transition: var(--transition);
-  transition: var(--transition);
-}
-
-.widget__form--checkmark::before {
-  right: 0.5rem;
-  top: 0.3rem;
-  width: 0.5rem;
-  height: 0.8rem;
-  border: solid white;
-  border-top-width: medium;
-  border-right-width: medium;
-  border-bottom-width: medium;
-  border-left-width: medium;
-  border-width: 0 2px 2px 0;
-  -webkit-transform: rotate(45deg);
-  transform: rotate(45deg);
-  content: "";
-  position: absolute;
-  display: none;
 }
 
 .price__filter--group {
@@ -9296,7 +9269,12 @@ input.quickview__value--number {
 }
 
 .product__card--content__desc {
-  line-height: 2.6rem;
+    line-height: 2.6rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
 }
 
 @media only screen and (min-width: 1200px) {

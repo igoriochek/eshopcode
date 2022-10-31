@@ -245,6 +245,7 @@ return [
     'old' => "Old",
     'new' => "New",
 
+    'perPage' => 'Per Page',
     'orderBy' => 'Order By',
 
     //Discounts coupons

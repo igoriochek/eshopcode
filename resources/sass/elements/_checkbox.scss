@@ -1,14 +1,22 @@
-.form-check-label {
-    color: $black-color;
-}
-
 .form-check-input[type='checkbox'] {
-    border-radius: 0;
-    height: 15px;
-    width: 15px;
+    height: 1.8rem;
+    width: 1.8rem;
+    border: 1px solid var(--secondary-color);
+    border-radius: 50%;
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    -webkit-transform: translatey(-50%);
+    transform: translatey(-50%);
+    background: var(--body-background-color);
+    -webkit-transition: var(--transition);
+    transition: var(--transition);
 }
 
-.form-check-input:checked {
-    background-color: $yellow-color;
-    border-color: $yellow-color;
+.form-check-input {
+    &:checked {
+        background: var(--secondary-color);
+        border: 1px solid var(--secondary-color);
+    }
 }

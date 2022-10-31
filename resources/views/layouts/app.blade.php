@@ -41,46 +41,15 @@
 </head>
 
 <body>
-<!-- Start preloader -->
-<div id="preloader">
-    <div id="ctn-preloader" class="ctn-preloader">
-        <div class="animation-preloader">
-            <div class="spinner"></div>
-            <div class="txt-loading">
-                    <span data-text-preloader="L" class="letters-loading">
-                        L
-                    </span>
 
-                <span data-text-preloader="O" class="letters-loading">
-                        O
-                    </span>
+@include('layouts.preloader')
 
-                <span data-text-preloader="A" class="letters-loading">
-                        A
-                    </span>
+@if (request()->is('products') || request()->is('user/products'))
+    <form method="get" action="{{ route("userproducts") }}" id="mainForm">
+        @include('user_views.product.mobile_sidebar')
+    </form>
+@endif
 
-                <span data-text-preloader="D" class="letters-loading">
-                        D
-                    </span>
-
-                <span data-text-preloader="I" class="letters-loading">
-                        I
-                    </span>
-
-                <span data-text-preloader="N" class="letters-loading">
-                        N
-                    </span>
-
-                <span data-text-preloader="G" class="letters-loading">
-                        G
-                    </span>
-            </div>
-        </div>
-        <div class="loader-section section-left"></div>
-        <div class="loader-section section-right"></div>
-    </div>
-</div>
-<!-- End preloader -->
 <div class="@auth @if (Auth::user()->type == 1) admin-view @endif @endauth">
     @auth
         @if (Auth::user()->type == 1)
@@ -365,17 +334,7 @@
         $("#finish").datepicker();
     });
 
-    const scrollToTopButton = document.querySelector('.scroll-to-top-button');
     const topbarHeight = 42;
-
-    scrollToTopButton.addEventListener('click', () => window.scrollTo(0, 0));
-
-    window.addEventListener('scroll', () => {
-        scrollToTopButton.classList.toggle('show', window.scrollY > topbarHeight);
-
-        if (document.body.scrollTop > topbarHeight || document.documentElement.scrollTop > topbarHeight)
-            scrollToTopButton.classList.add('fade-in');
-    });
 
     const minuses = document.querySelectorAll('.minus');
     const pluses = document.querySelectorAll('.plus');
