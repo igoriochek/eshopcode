@@ -66,11 +66,6 @@
                                         @endif
                                     </div>
                                 </div>
-                                <div class="short-desc mb-30">
-                                    <p class="font-lg">
-                                        {{ $product->description }}
-                                    </p>
-                                </div>
                                 <div class="detail-extralink mb-50">
                                     {!! Form::open(['route' => ['addtocart'], 'method' => 'post', 'class' => 'd-flex align-items-center']) !!}
                                         <div class="d-flex me-4">

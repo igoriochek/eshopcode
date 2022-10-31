@@ -28,6 +28,9 @@ return [
     'passwordEnter' => 'Slaptažodis',
     'passwordEnterConfirm' => 'Patvirtinti slaptažodį',
 
+    //Reset Password
+    'resetPassword' => 'Atkurti slaptažodį',
+
     //Verify
     'checkEmailForVerify' => 'Prieš tęsdami patikrinkite el. paštą, ar nėra patvirtinimo nuorodos.',
     'emailNotReceived' => 'Jei negavote laiško',

@@ -19,7 +19,6 @@
                                             <thead>
                                                 <tr>
                                                     <th>{{__('names.return')}} ID</th>
-                                                    <th>{{__('table.user')}}</th>
                                                     <th>{{__('table.status')}}</th>
                                                     <th></th>
                                                 </tr>
@@ -28,7 +27,6 @@
                                             @foreach($returns as $item)
                                                 <tr>
                                                     <td>{{ $item->id }}</td>
-                                                    <td>{{ $item->user->name }}</td>
                                                     <td>{{ __("status." . $item->status->name) }}</td>
                                                     <td width="120">
                                                         <div class='btn-group'>
