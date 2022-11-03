@@ -26,7 +26,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <div class="shop__sidebar--widget widget__area d-none d-lg-block">
+                    <div class="shop__sidebar--widget widget__area d-block">
                         <div class="single__widget widget__bg">
                             <h2 class="widget__title h2">
                                 {{ __('names.categories') }}
