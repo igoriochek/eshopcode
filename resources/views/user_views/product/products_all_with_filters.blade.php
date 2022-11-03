@@ -22,15 +22,11 @@
         </div>
     </section>
     <!-- End breadcrumb section -->
-
     <div class="shop__section section--padding">
         <div class="container">
             <div class="row">
                 <div class="col-xl-9 col-lg-8 shop-col-width-lg-8">
                     <div class="shop__right--sidebar">
-                        <!-- Start categories section -->
-
-                        <!-- End categories section -->
                         <div class="shop__product--wrapper">
                             <div class="shop__header d-flex align-items-center justify-content-between mb-30">
                                 <div class="product__view--mode d-flex align-items-center">
