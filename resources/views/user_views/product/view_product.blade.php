@@ -7,7 +7,7 @@
             <div class="row row-cols-1">
                 <div class="col">
                     <div class="breadcrumb__content text-center">
-                        <h1 class="breadcrumb__content--title">{{ __('menu.products') }}</h1>
+                        <h1 class="breadcrumb__content--title">{{ $product->name ?? '' }}</h1>
                         <ul class="breadcrumb__content--menu d-flex justify-content-center">
                             <li class="breadcrumb__content--menu__items">
                                 <a href="{{ url('/') }}">
@@ -15,8 +15,14 @@
                                 </a>
                             </li>
                             <li class="breadcrumb__content--menu__items">
-                                <a href="{{ Auth::user() ? url("/user/products") : url("/products") }}">
-                                    {{ __('menu.products') ?? '' }}
+                                <a href="{{ url()->previous() }}">
+                                    @if (Str::contains(str_replace(url('/'), '', url()->previous()) ,'/products'))
+                                        {{ __('menu.products') ?? '' }}
+                                    @elseif (Str::contains(str_replace(url('/'), '', url()->previous()) ,'/innercategories'))
+                                        {{ __('menu.categories') ?? '' }}
+                                    @elseif (Str::contains(str_replace(url('/'), '', url()->previous()) ,'/promotions'))
+                                        {{ __('menu.promotions') ?? '' }}
+                                    @endif
                                 </a>
                             </li>
                             <li class="breadcrumb__content--menu__items">
