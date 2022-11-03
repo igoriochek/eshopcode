@@ -13430,29 +13430,23 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
 .nav-tabs {
   border: 0;
   margin-bottom: 10px;
-  border-bottom: 3px solid #eeeeee;
 }
 .nav-tabs li {
   margin-bottom: -3px;
 }
-.nav-tabs li .nav-link {
-  padding: 15px 30px;
-  background: none;
-  border: 0;
-  border-bottom: 2.5px solid #eee;
-  border-radius: 0;
-  color: #222;
-  font-size: 14px;
-  font-weight: 600;
-  transition: all 200ms ease;
+.nav-tabs li .active {
+  color: var(--secondary-color);
 }
-.nav-tabs li .nav-link:hover, .nav-tabs li .nav-link:focus, .nav-tabs li .nav-link:active {
-  border-bottom: 3px solid #ffa600;
-  color: #ffa600;
-}
-.nav-tabs li .nav-link.active {
-  border-bottom: 3px solid #ffa600;
-  color: #ffa600;
+.nav-tabs li .active:before {
+  position: absolute;
+  content: "";
+  height: 1px;
+  background: var(--secondary-color);
+  width: 100%;
+  left: 0;
+  right: 0;
+  transition: var(--transition);
+  bottom: 0;
 }
 
 .dataTables_filter {
