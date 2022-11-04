@@ -1,12 +1,24 @@
-<ul class="promotion-tree nav nav-list flex-column">
+<ul class="widget__categories--menu">
     @foreach($promotions as $promotion)
-        <li class="nav-item">
-            <a href="{{ route("promotion", ["id" => $promotion->id] ) }}"
-               class="nav-link {{ substr(url()->current(), -1) == "$promotion->id" ? 'active' : '' }}">
-                <i class="fa-solid fa-angle-right"></i>
-                {{ $promotion->name }}
-                ({{ count($promotion->products) }})
+        <li class="widget__categories--menu__list p-2 my-4">
+            <a class="widget__categories--sub__menu--link d-flex align-items-center justify-content-between pe-2
+                {{ substr(url()->current(), -1) == "$promotion->id" ? 'active' : '' }}"
+                href="{{ route("promotion", ["id" => $promotion->id] ) }}">
+                <span class="widget__categories--sub__menu--text">
+                    {{ $promotion->name }}
+                </span>
+                <span class="widget__categories--sub__menu--text">
+                    ({{ count($promotion->products) }})
+                </span>
             </a>
         </li>
     @endforeach
 </ul>
+
+@push('css')
+    <style>
+        .widget__categories--sub__menu--link .active {
+            color: var(--secondary-color);
+        }
+    </style>
+@endpush

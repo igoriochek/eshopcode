@@ -33,7 +33,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-xl-3 col-lg-4 shop-col-width-lg-4">
-                    <div class="shop__sidebar--widget widget__area d-none d-lg-block">
+                    <div class="shop__sidebar--widget widget__area d-none d-lg-block"  style="top: 100px">
                         <div class="single__widget widget__bg">
                             <h2 class="widget__title h3">
                                 {{ __('names.categories') }}
