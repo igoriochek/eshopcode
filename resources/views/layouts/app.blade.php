@@ -52,6 +52,8 @@
 
 @if (Str::contains(url()->current() ,'/innercategories'))
     @include('user_views.category.mobile_sidebar')
+@elseif (Str::contains(url()->current() ,'/promotion'))
+    @include('user_views.promotion.mobile_sidebar')
 @endif
 
 <div class="@auth @if (Auth::user()->type == 1) admin-view @endif @endauth">

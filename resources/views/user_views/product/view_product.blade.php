@@ -41,9 +41,10 @@
                 <div class="col">
                     <div class="product__details--media">
                         <div class="single__product--preview swiper mb-25 swiper-initialized swiper-horizontal swiper-pointer-events">
-                            <div class="swiper-wrapper" id="swiper-wrapper-9d199e277a792227" aria-live="polite" style="transform: translate3d(-600px, 0px, 0px); transition-duration: 0ms;"><div class="swiper-slide swiper-slide-duplicate swiper-slide-prev" data-swiper-slide-index="4" role="group" aria-label="5 / 5" style="width: 590px; margin-right: 10px;"></div>
+                            <div class="swiper-wrapper" id="swiper-wrapper-9d199e277a792227" aria-live="polite" style="transform: translate3d(-600px, 0px, 0px); transition-duration: 0ms;">
+                                <div class="swiper-slide swiper-slide-duplicate swiper-slide-prev" data-swiper-slide-index="4" role="group" aria-label="5 / 5" style="width: 590px; margin-right: 10px;"></div>
                                 <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="0" role="group" aria-label="1 / 5" style="width: 590px; margin-right: 10px;">
-                                    <div class="product__media--preview__items">
+                                    <div class="product__media--preview__items" >
                                         @if ($product->image)
                                             <img src="{{ $product->image }}" alt="{{ $product->name }}"
                                                  class="product__media--preview__items--img"/>
