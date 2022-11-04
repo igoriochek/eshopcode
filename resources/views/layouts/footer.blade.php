@@ -16,25 +16,25 @@
                             <li class="footer__widget--menu__list">
                                 <i class="fa-solid fa-location-dot fs-4 me-3 text-danger"></i>
                                 <span class="footer__widget--menu__text">
-                                    Address
+                                    {{ __('footer.address') }}
                                 </span>
                             </li>
                             <li class="footer__widget--menu__list">
                                 <i class="fa-solid fa-phone fs-4 me-3 text-danger"></i>
                                 <span class="footer__widget--menu__text">
-                                    Phone Number
+                                    {{ __('footer.phone') }}
                                 </span>
                             </li>
                             <li class="footer__widget--menu__list">
                                 <i class="fa-regular fa-envelope fs-4 me-3 text-danger"></i>
                                 <span class="footer__widget--menu__text">
-                                    Email Address
+                                    {{ __('footer.email') }}
                                 </span>
                             </li>
                             <li class="footer__widget--menu__list">
                                 <i class="fa-solid fa-clipboard fs-4 me-3 text-danger"></i>
                                 <span class="footer__widget--menu__text">
-                                    Company Code
+                                    {{ __('footer.companyCode') }}
                                 </span>
                             </li>
                             <ul class="social__share footer__social d-flex mt-5">

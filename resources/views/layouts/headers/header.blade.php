@@ -6,19 +6,19 @@
                     <li class="header__info--list">
                         <a class="header__info--link fs-5" href="#">
                             <i class="fa-solid fa-envelope me-1 text-danger"></i>
-                            Email Address
+                            {{ __('footer.email') }}
                         </a>
                     </li>
                     <li class="header__info--list">
                         <a class="header__info--link fs-5" href="#">
                             <i class="fa-solid fa-phone me-1 text-danger"></i>
-                            Phone Number
+                            {{ __('footer.phone') }}
                         </a>
                     </li>
                     <li class="header__info--list">
                         <a class="header__info--link fs-5" href="#">
                             <i class="fa-solid fa-location-dot me-1 text-danger"></i>
-                            Address
+                            {{ __('footer.address') }}
                         </a>
                     </li>
                 </ul>

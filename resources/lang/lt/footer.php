@@ -16,7 +16,8 @@ return [
     'address' => 'Adresas',
     'phone' => 'Telefonas',
     'email' => 'El. Paštas',
-    'menu' => 'MENIU',
+    'companyCode' => 'Įmonės kodas',
+    'menu' => 'Meniu',
     'profile' => 'Vartotojo paskyra',
     'copyright' => 'Lanosus. Visos Teisės Saugomos',
     'resources' => 'Ištekliai'

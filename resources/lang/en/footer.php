@@ -16,7 +16,8 @@ return [
     'address' => 'Address',
     'phone' => 'Phone',
     'email' => 'Email',
-    'menu' => 'MENU',
+    'companyCode' => 'Company code',
+    'menu' => 'Menu',
     'profile' => 'Profile',
     'copyright' => 'Lanosus. All Rights Reserved',
     'resources' => 'Resources'

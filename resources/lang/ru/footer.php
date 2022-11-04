@@ -16,7 +16,8 @@ return [
     'address' => 'Адрес',
     'phone' => 'Телефон',
     'email' => 'Электронная почта',
-    'menu' => 'МЕНЮ',
+    'companyCode' => 'Код компании',
+    'menu' => 'Меню',
     'profile' => 'Личный кабинет',
     'copyright' => 'Lanosus. Все Права Защищены',
     'resources' => 'Ресурсы'
