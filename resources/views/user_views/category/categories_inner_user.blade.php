@@ -54,7 +54,7 @@
                                             <circle cx="176" cy="256" r="28" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="28"></circle>
                                             <circle cx="336" cy="384" r="28" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="28"></circle>
                                         </svg>
-                                        <span class="widget__filter--btn__text">{{ __('buttons.filter') }}</span>
+                                        <span class="widget__filter--btn__text">{{ __('menu.categories') }}</span>
                                     </button>
                                     <div class="product__view--mode__list product__short--by align-items-center d-flex ">
 

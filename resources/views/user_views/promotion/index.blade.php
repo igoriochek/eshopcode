@@ -25,17 +25,19 @@
     <div class="shop__section section--padding">
         <div class="container">
             <div class="row">
-                <div class="col-xl-3 col-lg-4 shop-col-width-lg-4">
-                    <div class="shop__sidebar--widget widget__area d-block mb-5 mb-lg-0" style="top: 100px">
-                        <div class="single__widget widget__bg">
-                            <h2 class="widget__title h3">
-                                {{ __('menu.promotions') }}
-                            </h2>
-                            @include('user_views.promotion.promotion_tree')
+                @if (count($promotions) > 0)
+                    <div class="col-xl-3 col-lg-4 shop-col-width-lg-4">
+                        <div class="shop__sidebar--widget widget__area d-block mb-5 mb-lg-0" style="top: 100px">
+                            <div class="single__widget widget__bg">
+                                <h2 class="widget__title h3">
+                                    {{ __('menu.promotions') }}
+                                </h2>
+                                @include('user_views.promotion.promotion_tree')
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-xl-9 col-lg-8 shop-col-width-lg-8">
+                @endif
+                <div class="@if (count($promotions) > 0) col-xl-9 col-lg-8 shop-col-width-lg-8 @else col-12 @endif">
                     @forelse ($promotions as $promotion)
                         <div class="shop__right--sidebar">
                             <div class="shop__product--wrapper">
