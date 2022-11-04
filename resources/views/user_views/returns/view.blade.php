@@ -1,66 +1,96 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="page-navigation">
+
+    <!-- Start breadcrumb section -->
+    <section class="breadcrumb__section breadcrumb__bg">
         <div class="container">
-            <a href="{{ url('/') }}">
-                {{ __('menu.home') }}
-            </a>
-            <i class="fa-solid fa-angle-right"></i>
-            <a href="{{ url("/user/rootoreturns") }}">
-                {{ __('menu.returns') }}
-            </a>
-            <i class="fa-solid fa-angle-right"></i>
-            <span>
-                {{ $return->id ?? '' }}
-            </span>
-        </div>
-    </div>
-    <div class="container">
-        @include('flash::message')
-        <div class="row">
-            <div class="col-lg-12 d-flex flex-column gap-4">
-                <div class="row">
-                    <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-md-between">
-                        <div class="mb-2 mb-md-0">
-                            <h3 class="mt-3 mb-1" style="font-family: 'Times New Roman', sans-serif">
-                                {{__('names.return')}}: {{ $return->id }}
-                            </h3>
-                            <span class="text-muted">
-                                {{__('names.returnStatus')}}: {{ __("status." .$return->status->name) }}
-                            </span>
-                        </div>
+            <div class="row row-cols-1">
+                <div class="col">
+                    <div class="breadcrumb__content text-center">
+                        <h1 class="breadcrumb__content--title">{{__('names.return')}} {{ $return->id }}</h1>
+                        <ul class="breadcrumb__content--menu d-flex justify-content-center">
+                            <li class="breadcrumb__content--menu__items">
+                                <a href="{{ url('/') }}">{{ __('menu.home') }}</a>
+                            </li>
+                            <li class="breadcrumb__content--menu__items">
+                                <a href="{{ url('/user/rootoreturns') }}">{{__('menu.returns')}}
+                                </a>
+                            </li>
+                            <li class="breadcrumb__content--menu__items">
+                                <span>{{__('names.return')}} {{ $return->id }}</span>
+                            </li>
+                        </ul>
                     </div>
-                </div>
-                <div class="row bg-white mx-md-0 p-3">
-                    <h5 class="my-2">{{ __('names.products') }}</h5>
-                    <div class="table table-responsive">
-                        <table class="table table-striped table-bordered my-3">
-                            <thead style="background: #e7e7e7;">
-                                <tr>
-                                    <th class="px-3">{{__('table.productName')}}</th>
-                                    <th class="px-3">{{__('table.price')}}</th>
-                                    <th class="px-3">{{__('table.count')}}</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach($returnItems as $item)
-                                    <tr>
-                                        <td class="px-3">{{ $item->product->name }}</td>
-                                        <td class="px-3">{{ number_format($item->price_current,2) }} €</td>
-                                        <td class="px-3">{{ $item->count }}</td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div class="row bg-white mx-md-0 p-3">
-                    <h5 class="my-2">{{ __('names.orderHistory') }}</h5>
-                    @include('orders.history_table')
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+    <!-- End breadcrumb section -->
+
+    <section class="my__account--section section--padding">
+        <div class="container">
+            @include('flash::message')
+            <div class="my__account--section__inner border-radius-10 d-flex justify-content-center">
+                <div class="account__wrapper">
+                    <div class="account__content ">
+                        <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-md-between mb-30">
+                            <div class="mb-2 mb-md-0">
+                                <h2 class="account__content--title h3">{{__('names.return')}} {{ $return->id }}</h2>
+                                <span class="text-muted">
+                                        {{__('names.returnStatus')}}: {{ __("status." . $return->status->name) }}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="account__table--area mb-40">
+                            <h3 class="account__content--title h3 mb-10">{{ __('names.products') }}</h3>
+                            <table class="account__table">
+                                <thead class="account__table--header">
+                                <tr class="account__table--header__child">
+                                    <th class="account__table--header__child--items">{{__('table.productName')}}</th>
+                                    <th class="account__table--header__child--items">{{__('table.price')}}</th>
+                                    <th class="account__table--header__child--items">{{__('table.count')}}</th>
+                                </tr>
+                                </thead>
+                                <tbody class="account__table--body mobile__none">
+                                @foreach($returnItems as $item)
+                                    <tr class="account__table--body__child">
+                                        <td class="account__table--body__child--items">{{ $item->product->name }}</td>
+                                        <td class="account__table--body__child--items">{{ number_format($item->price_current,2) }}
+                                            €
+                                        </td>
+                                        <td class="account__table--body__child--items">{{ $item->count }}</td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                                <tbody class="account__table--body mobile__block">
+                                @foreach($returnItems as $item)
+                                    <tr class="account__table--body__child">
+                                        <td class="account__table--body__child--items">
+                                            <strong>{{__('table.productName')}}</strong>
+                                            <span>{{ $item->product->name }}</span>
+                                        </td>
+                                        <td class="account__table--body__child--items">
+                                            <strong>{{__('table.price')}}</strong>
+                                            <span>{{ number_format($item->price_current,2) }} €</span>
+                                        </td>
+                                        <td class="account__table--body__child--items">
+                                            <strong>{{__('table.count')}}</strong>
+                                            <span>{{ $item->count }}</span>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                        <h3 class="account__content--title h3 mb-10">{{ __('names.orderHistory') }}</h3>
+                        @include('orders.history_table')
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
 @endsection
 
