@@ -8,7 +8,7 @@
                 wire:model="message_text"
                 required
             >
-            <button type="submit" class="messenger-form-button">
+            <button type="submit" class="primary__btn messenger-form-button">
                 {{__('messages.send')}}
             </button>
         </div>

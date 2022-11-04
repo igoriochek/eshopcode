@@ -13171,12 +13171,23 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   width: 100%;
   border-radius: 0;
   padding-left: 15px;
-  transition: all 200ms ease;
+  transition: 0.4s;
   position: relative;
 }
-.messenger-users .messenger-user-container .messenger-user:hover, .messenger-users .messenger-user-container .messenger-user:focus {
-  color: inherit;
-  background: #eeeeee;
+.messenger-users .messenger-user-container .messenger-user:hover .messenger-information-container .messenger-user-name, .messenger-users .messenger-user-container .messenger-user:focus .messenger-information-container .messenger-user-name {
+  color: var(--secondary-color);
+}
+.messenger-users .messenger-user-container .messenger-user:hover .messenger-information-container .messenger-user-last-message-container span, .messenger-users .messenger-user-container .messenger-user:focus .messenger-information-container .messenger-user-last-message-container span {
+  color: var(--secondary-color);
+}
+.messenger-users .messenger-user-container .messenger-user:hover .messenger-information-container .messenger-user-last-message-container .messenger-user-last-message p, .messenger-users .messenger-user-container .messenger-user:focus .messenger-information-container .messenger-user-last-message-container .messenger-user-last-message p {
+  color: var(--secondary-color);
+}
+.messenger-users .messenger-user-container .messenger-user:hover .messenger-information-container .messenger-user-last-message-container .messenger-user-last-message span, .messenger-users .messenger-user-container .messenger-user:focus .messenger-information-container .messenger-user-last-message-container .messenger-user-last-message span {
+  color: var(--secondary-color);
+}
+.messenger-users .messenger-user-container .messenger-user:hover .messenger-information-container .messenger-user-last-message-container .messenger-user-last-message-date, .messenger-users .messenger-user-container .messenger-user:focus .messenger-information-container .messenger-user-last-message-container .messenger-user-last-message-date {
+  color: var(--secondary-color);
 }
 .messenger-users .messenger-user-container .messenger-user .messenger-user-unread-container {
   width: 19px;
@@ -13185,7 +13196,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
 .messenger-users .messenger-user-container .messenger-user .messenger-user-unread-container .messenger-user-unread {
   width: 19px;
   height: 19px;
-  background-color: #ffa600;
+  background-color: var(--secondary-color);
   border-radius: 10px;
   color: #fff;
   display: flex;
@@ -13203,6 +13214,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
 .messenger-users .messenger-user-container .messenger-user .messenger-information-container .messenger-user-name {
   color: #222;
   font-weight: 500;
+  transition: 0.4s;
 }
 .messenger-users .messenger-user-container .messenger-user .messenger-information-container .messenger-user-last-message-container {
   display: flex;
@@ -13210,6 +13222,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
 }
 .messenger-users .messenger-user-container .messenger-user .messenger-information-container .messenger-user-last-message-container span {
   color: #989898;
+  transition: 0.4s;
 }
 .messenger-users .messenger-user-container .messenger-user .messenger-information-container .messenger-user-last-message-container .messenger-user-last-message {
   padding: 0;
@@ -13221,6 +13234,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   overflow: hidden;
 }
 .messenger-users .messenger-user-container .messenger-user .messenger-information-container .messenger-user-last-message-container .messenger-user-last-message p {
+  transition: 0.4s;
   color: #989898;
   width: auto;
   display: -webkit-box;
@@ -13230,10 +13244,12 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   margin-right: 5px;
 }
 .messenger-users .messenger-user-container .messenger-user .messenger-information-container .messenger-user-last-message-container .messenger-user-last-message span {
+  transition: 0.4s;
   color: #989898;
   width: 150px;
 }
 .messenger-users .messenger-user-container .messenger-user .messenger-information-container .messenger-user-last-message-container .messenger-user-last-message-date {
+  transition: 0.4s;
   color: #989898;
   font-size: 0.9em;
   padding: 0;
@@ -13246,11 +13262,13 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
 
 .messenger-room {
   background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 20px;
 }
 .messenger-room .messenger-chat-user-name {
   color: #222;
   padding-bottom: 10px;
-  text-transform: uppercase;
 }
 .messenger-room .messenger-message-box {
   display: flex-column;
@@ -13259,8 +13277,8 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   height: 60vh;
   margin: 15px 0;
   scroll-behavior: smooth;
-  border-radius: 0;
-  background-color: #f1f1f1;
+  border-radius: 5px;
+  background: #f6f6f6;
 }
 .messenger-room .messenger-message-box .messenger-message-from-container,
 .messenger-room .messenger-message-box .messenger-message-to-container {
@@ -13276,6 +13294,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
 .messenger-room .messenger-message-box .messenger-message-from-container .messenger-message-from {
   background-color: #fff;
   border-radius: 0 10px 10px 10px;
+  box-shadow: -1px 1px 10px #e3e3e3;
 }
 .messenger-room .messenger-message-box .messenger-message-from-date-container,
 .messenger-room .messenger-message-box .messenger-message-to-date-container {
@@ -13288,9 +13307,10 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   justify-content: flex-start;
 }
 .messenger-room .messenger-message-box .messenger-message-to-container .messenger-message-to {
-  background-color: #ff9c00;
+  background-color: #ec585d;
   color: #fff;
   border-radius: 10px 0 10px 10px;
+  box-shadow: -1px 1px 10px #e3e3e3;
 }
 .messenger-room .messenger-message-box .messenger-message-to-date-container {
   flex-direction: row-reverse;
@@ -13305,14 +13325,14 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   display: flex;
   justify-content: start;
   align-content: center;
-  height: 45px;
+  height: 55px;
   width: 100%;
 }
 .messenger-room .messenger-form-container .messenger-form-input {
   width: 100%;
   height: 100%;
-  border: 1px solid #eeeeee;
-  border-radius: 0;
+  border: 1px solid #ddd;
+  border-radius: 5px 0 0 5px;
   padding: 0 20px;
   font-size: 0.9em;
 }
@@ -13326,24 +13346,9 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   color: #bbb;
 }
 .messenger-room .messenger-form-container .messenger-form-button {
-  background: #ffa600;
-  color: #222;
-  border: none;
-  border-radius: 0;
-  text-transform: uppercase;
-  text-align: center;
-  font-weight: 600;
-  font-size: 0.8rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 20px;
-  transition: all 200ms ease;
-  width: 100px;
-}
-.messenger-room .messenger-form-container .messenger-form-button:hover, .messenger-room .messenger-form-container .messenger-form-button:focus, .messenger-room .messenger-form-container .messenger-form-button:active {
-  background: #222;
-  color: #ffa600;
+  border-radius: 0 5px 5px 0;
+  height: 55px;
+  border: 1px solid var(--secondary-color);
 }
 
 .sidebar .category-tree-widget-content li {

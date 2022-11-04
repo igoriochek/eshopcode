@@ -1,30 +1,27 @@
-<ul class="list-unstyled">
+<ul class="widget__categories--menu">
     @forelse ($addUsers as $user)
-        <li>
-            <div class="messenger-add-users-user flex-column flex-sm-row">
-                <div class="mb-3 mb-sm-0">
-                    <p class="messenger-add-users-name mb-0">
-                        {{ $user->name }}
-                        <span class="text-muted">
-                            @if ($user->type == 1) ({{ __('admin') }}) @else ({{ __('user') }}) @endif
-                        </span>
-                    </p>
-                    <p class="messenger-add-users-email mb-0">{{ $user->email }}</p>
-                </div>
-                <a class="messenger-add-users-button" href="{{ route('livewire.messenger.show', [$user->id]) }}">
-                    {{ __('buttons.contact') }}
-                </a>
+        <li class="widget__categories--menu__list p-3 my-4 d-flex justify-content-between align-items-center">
+            <div class="d-flex flex-column">
+                <span class="widget__categories--sub__menu--text fw-bold">
+                    {{ $user->name }}
+                    @if ($user->type == 1) ({{ __('admin') }}) @endif
+                </span>
+                    <span class="widget__categories--sub__menu--text product-count">
+                    {{ $user->email }}
+                </span>
             </div>
+            <a class="primary__btn" href="{{ route('livewire.messenger.show', [$user->id]) }}">
+                {{ __('buttons.contact') }}
+            </a>
         </li>
-        <hr class="messenger-users-hr my-0"/>
     @empty
-        <div>
+        <li>
             <span class="text-muted">{{ __('names.noUncontactedUsers') }}</span>
-        </div>
+        </li>
     @endforelse
-    @if (count($addUsers) > 5)
-        <div class="pt-3 mt-3">
-            {{ $addUsers->links() }}
-        </div>
-    @endif
+    <div class="pagination__area">
+        <nav class="pagination justify-content-center">
+            {{ $addUsers->onEachSide(1)->links() }}
+        </nav>
+    </div>
 </ul>

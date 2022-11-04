@@ -1,15 +1,14 @@
 <div wire:poll.1s>
-    <ul class="messenger-users">
-        <hr class="messenger-users-hr"/>
+    <ul class="messenger-users widget__categories--menu">
         @forelse ($users ?? [] as $user)
-            <li class="messenger-user-container">
-                <a class="messenger-user" href="{{ route('livewire.messenger.show', [$user->id]) }}">
+            <li class="messenger-user-container widget__categories--menu__list p-2">
+                <a class="messenger-user widget__categories--sub__menu--link" href="{{ route('livewire.messenger.show', [$user->id]) }}">
                     <div class="messenger-information-container">
                         <div class="my-2">
                             <div>
-                                <p class="messenger-user-name mb-0">{{ $user->name }}</p>
+                                <p class="messenger-user-name mb-0 py-2">{{ $user->name }}</p>
                             </div>
-                            <div class="messenger-user-last-message-container">
+                            <div class="messenger-user-last-message-container py-2">
                                 @if ($user->last_message->user_from == auth()->user()->id)
                                     <span class="me-1">{{ __('names.you') }}:</span>
                                 @endif
@@ -31,9 +30,8 @@
             </li>
         @empty
             <div>
-                <span>{{__('table.noUsersFound')}}</span>
+                <span class="text-muted">{{__('table.noUsersFound')}}</span>
             </div>
         @endforelse
-        <hr class="messenger-users-hr"/>
     </ul>
 </div>

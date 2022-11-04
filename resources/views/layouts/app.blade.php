@@ -42,7 +42,9 @@
 
 <body>
 
-@include('layouts.preloader')
+@if (!Str::contains(url()->current(), '/messenger/'.request('id')))
+    @include('layouts.preloader')
+@endif
 
 @if (request()->is('products') || request()->is('user/products'))
     <form method="get" action="{{ route("userproducts") }}" id="mainForm">

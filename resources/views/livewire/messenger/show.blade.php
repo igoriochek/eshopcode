@@ -1,46 +1,51 @@
 <div>
-    <div class="page-navigation">
+    <!-- Start breadcrumb section -->
+    <section class="breadcrumb__section breadcrumb__bg">
         <div class="container">
-            <a href="{{ url('/') }}">
-                {{ __('menu.home') }}
-            </a>
-            <i class="fa-solid fa-angle-right"></i>
-            <a href="{{ Auth::user() ? url("/user/messenger") : url("/messenger") }}">
-                {{ __('menu.messenger') ?? '' }}
-            </a>
-            <i class="fa-solid fa-angle-right"></i>
-            <span>
-                {{ $user->name }}
-            </span>
-        </div>
-    </div>
-    <section class="pt-2">
-        <div class="container">
-            <div class="row mb-5">
-                <div class="col-lg-4 mt-4 mt-md-5 mt-lg-0">
-                    <div class="sidebar">
-                        <div class="widget">
-                            <div class="widget-title-container d-flex justify-content-between align-items-center mb-2">
-                                <h6 class="widget-title m-0 text-uppercase">
-                                    {{ __('names.messages') }}
-                                </h6>
-                                <a class="btn btn-primary messenger-users-contact" href="{{ route('livewire.messenger.add') }}">
-                                    <i class="fa-solid fa-plus me-2"></i>
-                                    {{ __('buttons.contact') }}
-                                </a>
-                            </div>
-                            <div class="category-tree-widget-content">
-                                @include('livewire.messenger.users')
-                            </div>
-                        </div>
+            <div class="row row-cols-1">
+                <div class="col">
+                    <div class="breadcrumb__content text-center">
+                        <h1 class="breadcrumb__content--title">{{ $user->name }}</h1>
+                        <ul class="breadcrumb__content--menu d-flex justify-content-center">
+                            <li class="breadcrumb__content--menu__items">
+                                <a href="{{ url('/') }}">{{ __('menu.home') }}</a>
+                            </li>
+                            <li class="breadcrumb__content--menu__items">
+                                <a href="{{ url('/user/messenger') }}">{{ __('menu.messenger') }}</a>
+                            </li>
+                            <li class="breadcrumb__content--menu__items">
+                                <span>{{ $user->name }}</span>
+                            </li>
+                        </ul>
                     </div>
-                </div>
-                <div class="col-lg-8">
-                    @include('livewire.messenger.room')
                 </div>
             </div>
         </div>
     </section>
+    <!-- End breadcrumb section -->
+    <div class="shop__section section--padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 shop-col-width-lg-4">
+                    <div class="shop__sidebar--widget widget__area d-block mb-5 mb-lg-0" style="top: 100px">
+                        <div class="single__widget widget__bg">
+                            <h2 class="widget__title h3 d-flex align-items-center justify-content-between">
+                                {{ __('names.messages') }}
+                                <a class="primary__btn product__card--btn " href="{{ route('livewire.messenger.add') }}">
+                                    <i class="fa-solid fa-plus me-2"></i>
+                                    {{ __('buttons.contact') }}
+                                </a>
+                            </h2>
+                            @include('livewire.messenger.users')
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8 shop-col-width-lg-8">
+                    @include('livewire.messenger.room')
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 @push('scripts')
