@@ -1,23 +1,33 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="page-navigation">
+    <!-- Start breadcrumb section -->
+    <section class="breadcrumb__section breadcrumb__bg">
         <div class="container">
-            <a href="{{ url('/') }}">
-                {{ __('menu.home') }}
-            </a>
-            <i class="fa-solid fa-angle-right"></i>
-            <span>
-                {{ __('menu.termsofservice') ?? '' }}
-            </span>
+            <div class="row row-cols-1">
+                <div class="col">
+                    <div class="breadcrumb__content text-center">
+                        <h1 class="breadcrumb__content--title">{{ __('menu.termsofservice') }}</h1>
+                        <ul class="breadcrumb__content--menu d-flex justify-content-center">
+                            <li class="breadcrumb__content--menu__items">
+                                <a href="{{ url('/') }}">{{ __('menu.home') }}</a>
+                            </li>
+                            <li class="breadcrumb__content--menu__items">
+                                <span>{{ __('menu.termsofservice') }}</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
+    <!-- End breadcrumb section -->
     <div class="container">
-        <div class="product-section p-4">
+        <div class="p-5 my-5" style="border: 1px solid #ddd; border-radius: 5px">
 
             @if($lang=="lt")
 
-                <h4 class="mb-4">ELEKTRONINĖS PREKYBOS TAISYKLĖS</h4>
+                <h2 class="mb-4">ELEKTRONINĖS PREKYBOS TAISYKLĖS</h2>
 
                 <p>1. Bendrosios nuostatos.<br/>
                     1.1. Šios prekių / paslaugų pirkimo – pardavimo taisyklės (toliau – Taisyklės) yra Šalims privalomas teisinis dokumentas, kuris nustato Pirkėjo ir Pardavėjo teises, pareigas ir atsakomybę Pirkėjui įsigyjant prekes / paslaugas el. parduotuvėje.<br/>
@@ -70,7 +80,7 @@
 
             @elseif ($lang == "ru")
 
-                <h4 class="mb-4">Правила</h4>
+                <h2 class="mb-4">Правила</h2>
 
                 1. Общие положения.<br/>
                 1.1. Настоящие правила купли-продажи товаров/услуг (далее – Правила) являются обязательным для Сторон юридическим документом, определяющим права, обязанности и ответственность Покупателя и Продавца при приобретении Покупателем товаров/услуг в электронной форме. почта. в магазине.<br/>
@@ -106,7 +116,7 @@
                 6.1. Каждое электронное письмо информация о товарах/услугах, продаваемых в магазине, обычно указывается в описании каждого товара/услуги.<br/>
 
             @else
-                <h4 class="mb-4">Rules</h4>
+                <h2 class="mb-4">Rules</h2>
 
                 1. General provisions.<br/>
                 1.1. These rules for the purchase and sale of goods / services (hereinafter - the Rules) are a legal document binding on the Parties, which determine the rights, duties and responsibilities of the Buyer and the Seller when the Buyer purchases goods / services by e-mail. in the store.<br/>

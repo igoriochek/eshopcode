@@ -248,6 +248,8 @@ return [
     'perPage' => 'Per Page',
     'orderBy' => 'Order By',
 
+    'empty' => 'Empty',
+
     //Discounts coupons
     "ndDiscountCoupons" => "You have no discount coupons yet :(",
     "discountCouponCode" => "Discount coupon code",

@@ -248,6 +248,8 @@ return [
     'perPage' => 'Per Puslapį',
     'orderBy' => 'Rūšiuoti pagal',
 
+    'empty' => 'Tuščia',
+
     //Discounts coupons
     "ndDiscountCoupons" => "Jūs dar neturite nuolaidų kuponų :(",
     "discountCouponCode" => "Nuolaidų kupono kodas",

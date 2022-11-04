@@ -248,6 +248,8 @@ return [
     'perPage' => 'На cтранице',
     'orderBy' => 'Сортировать по',
 
+    'empty' => 'Пусто',
+
     //Discounts coupons
     "ndDiscountCoupons" => "У вас еще нет купонов на скидку :(",
     "discountCouponCode" => "Код купона на скидку",
