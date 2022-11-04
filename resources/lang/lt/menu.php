@@ -21,7 +21,7 @@ return [
     'discounts' => 'Nuolaidos',
     'discountCoupons' => 'Nuolaidų Kuponai',
     'importExport' => 'Importas/Eksportas',
-    'login' => 'Prisijungti',
+    'login' => 'Prisijungimas',
     'logout'=> 'Atsijungti',
     'messenger' => 'Susisiekite',
     'orders' => 'Užsakymai',
@@ -29,7 +29,7 @@ return [
     'orderStatuses' => 'Užsakymų Būsenos',
     'products' => 'Produktai',
     'promotions' => 'Akcijos',
-    'register' => 'Registruotis',
+    'register' => 'Registracija',
     'reports' => 'Ataskaitos',
     'returns' => 'Grąžinimai',
     'returnsReport' => 'Grąžinimų Ataskaitos',
@@ -42,5 +42,6 @@ return [
     'termsofservice' => 'Taisyklės',
     'policy' => 'Privatumo politika',
     'about' => 'Apie',
+    'passwordReset' => 'Slaptažodžio atkūrimas',
 
 ];

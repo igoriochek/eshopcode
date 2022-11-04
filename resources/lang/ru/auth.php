@@ -20,7 +20,7 @@ return [
     'passwordConfirmToContinue' => 'Пожалуйста, подтвердите свой пароль, прежде чем продолжить.',
     'resetPassword' => 'Сбросить пароль',
     'sendResetPasswordLink' => 'Отправить ссылку для сброса пароля.',
-    'resetPasswordParagraph' => 'Забыли пароль?',
+    'resetPasswordParagraph' => 'Вспомнили пароль?',
 
     //Login
     'login'=> 'Войти',

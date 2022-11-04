@@ -21,7 +21,7 @@ return [
     'passwordConfirmToContinue' => 'Prieš tęsdami patvirtinkite slaptažodį.',
     'resetPassword' => 'Atstatyti slaptažodį',
     'sendResetPasswordLink' => 'Siųsti slaptažodžio nustatymą',
-    'resetPasswordParagraph' => 'Prisiminė savo slaptažodį?',
+    'resetPasswordParagraph' => 'Prisiminėt savo slaptažodį?',
 
     //Login
     'login' => 'Prisijungti',
@@ -31,7 +31,7 @@ return [
     'registerParagraph' => "Neturi paskyros?",
 
     //Register
-    'register' => 'Registruoti',
+    'register' => 'Registruotis',
     'name' => 'Vardas',
     'email' => 'El. Paštas',
     'passwordEnter' => 'Slaptažodis',
