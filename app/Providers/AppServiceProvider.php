@@ -17,12 +17,21 @@ class AppServiceProvider extends ServiceProvider
 
     public function register()
     {
+        //Change public path to public_html
+        //$this->app->bind('path.public', function() {
+        //   return base_path('public_html');
+        //});
     }
 
     public function boot(CartRepository $cartRepository, Request $request)
     {
+        //Force app to use https
+        //URL::forceScheme('https');
+
+        //Schema default string error fix
         Schema::defaultStringLength(191);
 
+        //Cart item number
         View::composer('*', function($view) use($cartRepository, $request)
         {
             if (Auth::check()) {
