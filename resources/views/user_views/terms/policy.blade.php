@@ -8,7 +8,6 @@
                 <h2 style="font-family: 'Times New Roman', sans-serif; font-weight: 500" class="mb-4 mt-3">
                     Privatumo Politika
                 </h2>
-                <hr>
                 Privatumo politika (toliau – „Privatumo politika“) paaiškina, kaip MB Opatrip.com (toliau – „Bendrovė“) renka ir tvarko svetainės www.bonatrip.com (toliau – „Svetainė“) lankytojų informaciją, nurodo kokias teises Svetainės lankytojai turi bei kaip jas gali įgyvendinti. Prieš registruojantis Svetainėje rekomenduojame atidžiai perskaityti šią Privatumo politiką.<br/>
                 Bendrovė yra įsipareigojusi savo veikloje atsakingai ir saugiai tvarkyti Jūsų asmens duomenis. Vadovaudamiesi, šiais esminiais principais, mes visada sieksime užtikrinti pakankamą Jūsų duomenų apsaugos lygį bei Jūsų teisių apsaugą. Mes tvarkome Asmens duomenis, pagal šią Privatumo politiką, vadovaudamiesi taikomais teisės aktais, įskaitant Bendrąjį duomenų apsaugos reglamentą (2016/679) (toliau – „BDAR“) bei taikomus Lietuvos nacionalinius asmens duomenų apsaugos teisės aktus.<br/>
                 <h5 class="mt-4 mb-2">Duomenų valdytojas</h5>

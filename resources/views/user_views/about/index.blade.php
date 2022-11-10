@@ -4,6 +4,9 @@
     @include('header', ['url' => route("userproducts") ,'title' => __('menu.aboutUs')])
     <div class="container">
         <div class="product-section p-4 mb-4" style="line-height: 35px; font-size: 1.1rem">
+            <h2 style="font-family: 'Times New Roman', sans-serif; font-weight: 500" class="mb-4 mt-3">
+                {{ __('menu.aboutUs') }}
+            </h2>
             <div class="d-flex pb-5">
                 <img src="{{ asset('images/ESFIVP-I-1.jpeg') }}" alt="esfivp" width="550" />
             </div>

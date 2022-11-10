@@ -20,7 +20,6 @@
                                 </form>
                             </div>
                         </div>
-                        <hr class="hr mb-4"/>
                         <div class="row">
                             @forelse ($products as $product)
                                 <div class="col-lg-6 mt-4 mt-md-5 mt-lg-0 mb-5">

@@ -18,11 +18,10 @@
                     </div>
                 </div>
                 <div class="col-lg-8 mb-5">
-                    <div class="d-flex justify-content-center gap-2 flex-column col-12">
+                    <div class="d-flex justify-content-center gap-2 flex-column col-12 mb-4">
                         <h3 class="column-title mb-0">{{ $maincategory->name }}</h3>
                         <span class="text-muted">{{ __('names.results').': '.$products->total() }}</span>
                     </div>
-                    <hr class="hr mb-4"/>
                     <div class="row">
                         @forelse ($products as $product)
                             <div class="col-lg-6 mt-4 mt-lg-0 mb-5">

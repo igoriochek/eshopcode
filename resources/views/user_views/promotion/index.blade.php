@@ -32,7 +32,6 @@
                                         </a>
                                     </div>
                                 </div>
-                                <hr class="hr mb-4"/>
                                 <div class="row">
                                     @forelse ($promotion->products as $product)
                                         <div class="col-lg-6 mt-4 mt-lg-0 mb-5">
