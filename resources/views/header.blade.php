@@ -12,9 +12,11 @@
                                     {{ __( $title ) }}
                                 </a>
                             </li>
-                            <li class="header-subtitle-route">
-                                {{ $paragraph ?? '' }}
-                            </li>
+                            @if ($paragraph ?? false)
+                                <li class="header-subtitle-route">
+                                    {{ $paragraph }}
+                                </li>
+                            @endif
                         </ul>
                     </div>
                 </div>

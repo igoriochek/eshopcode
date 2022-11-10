@@ -19,6 +19,8 @@ return [
     'privacyPolicy' => 'Privatumo politika',
     'termsOfService' => 'Paslaugų teikimo sąlygos',
     'contantSupport' => 'Kontaktai / Pagalba',
+    'companyCode' => 'Įmonės kodas',
+    'vatCode' => 'PVM kodas',
     'copyright' => 'MB OPATRIP © 2022. Visos teisės saugomos.'
 
 ];

@@ -183,7 +183,7 @@ return [
     'invoice' => 'Invoice',
     'invoicePreview' => 'Invoice Preview',
 
-    // Products
+    //Products
     'createProduct' => 'Create Product',
     'editProduct' => 'Edit Product',
     'products' => 'Products',

@@ -1,5 +1,5 @@
 <div>
-    @include('header', ['title' => __('messages.messenger')])
+    @include('header', ['title' => __('messages.messenger'), 'paragraph' => $user->name])
     <section class="pt-5">
         <div class="container">
             <div class="row mb-5">
@@ -28,3 +28,25 @@
         </div>
     </section>
 </div>
+
+@push('scripts')
+    <script>
+        /*
+         * Scroll to previous Y position after sending your message
+         */
+        const setCookie = (cName, cValue, expDays) => {
+            let date = new Date();
+            date.setTime(date.getTime() + (expDays * 24 * 60 * 60 * 1000));
+            const expires = `expires=${date.toUTCString()}`;
+            document.cookie = `${cName}=${cValue};${expires}; path=/`;
+        }
+
+        const messengerWindowHeightValue = document.cookie
+            .split('; ')
+            .find((row) => row.startsWith('messengerWindowHeight='))
+            ?.split('=')[1];
+
+        window.onload = () => window.scrollTo(0, messengerWindowHeightValue);
+        window.onscroll = () => setCookie('messengerWindowHeight', window.scrollY, 30);
+    </script>
+@endpush

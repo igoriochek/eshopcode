@@ -19,6 +19,8 @@ return [
     'privacyPolicy' => 'Privacy Policy',
     'termsOfService' => 'Terms of Service',
     'contantSupport' => 'Contant / Support',
-    'copyright' => 'MB OPATRIP © 2022. All rights reserved.'
+    'companyCode' => 'Company code',
+    'vatCode' => 'VAT code',
+    'copyright' => 'MB OPATRIP © 2022. All rights reserved.',
 
 ];

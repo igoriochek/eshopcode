@@ -7,19 +7,20 @@
                 <div class="row">
                     <div class="col-lg-8 mb-5 order-last order-lg-first">
                         <div class="row mb-4 align-items-center">
-                            <div class="col-lg-8">
-                                <p class="p-0 m-0 mb-2 mb-lg-0 showing-all-results">
-                                    {{ __('names.results').': '.$products->count() }}
-                                </p>
+                            <div class="d-flex justify-content-center gap-2 flex-column col-lg-5">
+                                <h3 class="column-title mb-0">{{ __('names.products') }}</h3>
+                                <span class="text-muted">{{ __('names.results').': '.$products->total() }}</span>
                             </div>
-                            <div class="col-lg-4">
-                                <form method="get" action="{{ route("userproducts") }}" id="orderForm">
+                            <div class="col-lg-7 d-flex align-items-center gap-3 mt-3 mt-lg-0">
+                                <span style="white-space: nowrap;">{{ __('names.orderBy') }}:</span>
+                                <form method="get" action="{{ route("userproducts") }}" id="orderForm" class="w-100">
                                     <input type="hidden" id="orderBy" value="">
-                                    {!! Form::select('order', $order_list, $selectedProduct, ['class' => 'form-select selector', 'id' => 'orderSelector']) !!}
+                                    {!! Form::select('order', $order_list, $selectedOrder,
+                                    ['class' => 'form-select selector w-100', 'id' => 'orderSelector', 'style' => 'cursor: pointer']) !!}
                                 </form>
                             </div>
                         </div>
-                        <hr class="hr mb-5"/>
+                        <hr class="hr mb-4"/>
                         <div class="row">
                             @forelse ($products as $product)
                                 <div class="col-lg-6 mt-4 mt-md-5 mt-lg-0 mb-5">
@@ -91,7 +92,7 @@
                     </div>
                     <div class="col-lg-4 mt-4 mt-md-5 mt-lg-0 order-first order-lg-last">
                         <div class="sidebar">
-                            <form method="get" action="{{route("userproducts")}}">
+                            <form method="get" action="{{route("userproducts")}}" id="mainForm">
                                 <div class="widget">
                                     <div class="widget-title-container">
                                         <h4 class="widget-title">
@@ -135,16 +136,16 @@
                                             </div>
                                         </fieldset>
                                     </div>
-                                    <div class="categories-widget-content">
+                                    <hr>
+                                    <div class="categories-widget-content mt-4">
                                         @forelse($categories as $category)
                                             <div class="form-check mb-3">
-                                                <input class="form-check-input me-3" type="checkbox"
-                                                       value="{{ $category->id }}" id="category" onclick="calc();"
-                                                @if ($filter && array_key_exists('categories.id', $filter))
-                                                    {{ in_array($category->id, $selCategories) ? "checked=\"checked\"" : ""}}
-                                                    @endif
-                                                >
-                                                <label class="form-check-label" for="categories.id">
+                                                <label class="form-check-label" style="cursor: pointer">
+                                                    <input class="form-check-input me-2" type="checkbox" value="{{ $category->id }}"
+                                                           id="category" onclick="calc();" name="filter[categories.id]" style="cursor: pointer"
+                                                    @if ($filter && array_key_exists('categories.id', $filter))
+                                                        {{ in_array($category->id, $selCategories) ? "checked=\"checked\"" : ""}}
+                                                        @endif>
                                                     {{ $category->name }}
                                                 </label>
                                             </div>
@@ -155,6 +156,7 @@
                                         @endforelse
                                         <input type="text" value="{{ implode(",", $selCategories) }}"
                                                name="filter[categories.id]" id="filter[categories.id]" class="d-none">
+                                        <input type="hidden" id="order" name="order" value="{{ $selectedOrder }}">
                                     </div>
                                 </div>
                             </form>
@@ -166,10 +168,12 @@
 
     @push('scripts')
         <script>
-            const orderForm = document.getElementById('orderForm');
-            const orderSelector = document.getElementById('orderSelector');
+            document.getElementById('orderSelector').onchange = () => {
+                addOrderValueToFilter();
+                document.getElementById('mainForm').submit();
+            }
 
-            orderSelector.onchange = () => orderForm.submit();
+            const addOrderValueToFilter = () => document.getElementById('order').value = $('#orderSelector').val();
 
             const rangeSlider = document.getElementById('range-slider');
             const priceFrom = document.getElementById('filter[pricefrom]');

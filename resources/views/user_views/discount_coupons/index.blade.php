@@ -6,16 +6,31 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 mb-5">
-                    <div class="row">
+                    <div class="d-flex justify-content-center gap-2 flex-column col-12">
+                        <h3 class="column-title mb-0">{{ __('menu.discountCoupons') }}</h3>
+                        <span class="text-muted">{{ __('names.results').': '.$discountCoupons->total() }}</span>
+                    </div>
+                    <hr class="hr mb-4"/>
+                    <div class="row mx-0">
                         @if(($discountCoupons->count()))
                             @foreach($discountCoupons as $discountCoupon)
                                 <div class="discount-coupon p-4 mb-4 mb-sm-5">
-                                    <h4>
-                                        <a class="discount-coupon-title" href="{{ route('viewproduct', $discountCoupon->id) }}">
-                                            {{__('names.discountCouponCode')}}: {{ $discountCoupon->code }}
-                                        </a>
-                                    </h4>
-                                    <p class="discount-coupon-description">{{__('names.discountCouponValue')}}: {{ number_format($discountCoupon->value,2) }} €</p>
+                                    <div class="d-flex align-items-center gap-2">
+                                        <h5 class="discount-coupon-title fw-normal">
+                                            {{ __('names.discountCouponCode') }}:
+                                        </h5>
+                                        <h4 class="discount-coupon-title">
+                                            {{ $discountCoupon->code }}
+                                        </h4>
+                                    </div>
+                                    <div class="d-flex align-items-center gap-2">
+                                        <h5 class="discount-coupon-title fw-normal">
+                                            {{ __('names.discountCouponValue') }}:
+                                        </h5>
+                                        <h4 class="discount-coupon-title">
+                                            {{ number_format($discountCoupon->value, 2) }} €
+                                        </h4>
+                                    </div>
                                 </div>
                             @endforeach
                         @else

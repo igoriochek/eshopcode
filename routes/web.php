@@ -18,6 +18,9 @@ use App\Http\Controllers\UsersReportController;
 use App\Http\Controllers\UserActivitiesReportController;
 use App\Http\Controllers\ChartController;
 use App\Http\Controllers\DataExportImportController;
+use App\Http\Controllers\PromotionController;
+use App\Http\Controllers\TermsOfServiceController;
+use App\Http\Controllers\AboutUsController;
 use App\Http\Livewire\MessengerIndex;
 use App\Http\Livewire\MessengerAdd;
 use App\Http\Livewire\MessengerShow;
@@ -193,10 +196,11 @@ Route::get("categorytree", [CategoryController::class, 'userCategoryTree'])->nam
 Route::get("viewcategory", [CategoryController::class, 'userViewCategory'])->name('viewcategory');
 Route::get("viewproduct/{id}", [ProductController::class, 'userViewProduct'])->where('id', '[0-9]+')->name('viewproduct');
 Route::get('products', [ProductController::class, 'userProductIndex'])->name('userproducts');
-Route::get('promotions', [\App\Http\Controllers\PromotionController::class, 'indexPromotions'])->name('promotions');
-Route::get('promotion/{id}', [\App\Http\Controllers\PromotionController::class, 'promotionProducts'])->name('promotion');
-Route::get("termsofservice", [\App\Http\Controllers\TermsOfServiceController::class, 'rules'])->name('termsofservice');
-Route::get("policy", [\App\Http\Controllers\TermsOfServiceController::class, 'policy'])->name('policy');
+Route::get('promotions', [PromotionController::class, 'indexPromotions'])->name('promotions');
+Route::get('promotion/{id}', [PromotionController::class, 'promotionProducts'])->name('promotion');
+Route::get("termsofservice", [TermsOfServiceController::class, 'rules'])->name('termsofservice');
+Route::get("policy", [TermsOfServiceController::class, 'policy'])->name('policy');
+Route::get('about',[AboutUsController::class, 'index'])->name('about');
 
 Auth::routes();
 Route::get("logout", function () {

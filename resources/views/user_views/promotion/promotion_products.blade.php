@@ -18,10 +18,11 @@
                     </div>
                 </div>
                 <div class="col-lg-8 mb-5">
-                    <div>
-                        <h3 class="column-title">{{ $promotion->name }}</h3>
+                    <div class="d-flex justify-content-center gap-2 flex-column col-12">
+                        <h3 class="column-title mb-0">{{ $promotion->name }}</h3>
+                        <span class="text-muted">{{ __('names.results').': '.$products->total() }}</span>
                     </div>
-                    <hr class="hr"/>
+                    <hr class="hr mb-4"/>
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="row">

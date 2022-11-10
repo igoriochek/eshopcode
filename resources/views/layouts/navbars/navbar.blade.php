@@ -37,7 +37,7 @@
                     @include('layouts.dropdowns.account_dropdown')
                 </li>
             @endauth
-            <a href="#" class="hamburger-menu-button">
+            <a href="javascript:void(0)" class="hamburger-menu-button">
                 <i class="fa-solid fa-bars fs-4"></i>
             </a>
         </div>

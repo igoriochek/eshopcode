@@ -35,13 +35,13 @@
                                     <li class="nav-item dropdown">
                                         <a id="navbarDropdown" class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"  aria-expanded="false">
                                             @if (app()->getLocale() == 'lt')
-                                                <img src="/images/lt-flag.png" alt="lt-flag" style="width: 17px; height: 17px; margin-right: 5px; border-radius: 10px">
+                                                <img src="/images/lt-flag.png" alt="lt-flag" width=18 height=13 class="me-1">
                                                 {{ __('LT') }}
                                             @elseif (app()->getLocale() == 'en')
-                                                <img src="/images/en-flag.png" alt="en-flag" style="width: 17px; height: 17px; margin-right: 5px; border-radius: 10px">
+                                                <img src="/images/en-flag.png" alt="en-flag" width=18 height=13 class="me-1">
                                                 {{ __('EN') }}
                                             @elseif (app()->getLocale() == 'ru')
-                                                <img src="/images/ru-flag.svg" alt="en-flag" style="width: 17px; height: 17px; margin-right: 5px; border-radius: 10px">
+                                                <img src="/images/ru-flag.svg" alt="en-flag" width=17 class="me-1">
                                                 {{ __('RU') }}
                                             @endif
                                         </a>

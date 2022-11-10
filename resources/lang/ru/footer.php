@@ -15,6 +15,8 @@ return [
     'browse' => 'Обзор',
     'menu' => 'МЕНЮ',
     'personal' => 'Личный',
+    'companyCode' => 'Код компании',
+    'vatCode' => 'Код НДС',
     'copyright' => 'MB OPATRIP © 2022. Все права защищены',
     'information' => 'Информация',
     'contactUs' => 'Свяжитесь с нами',

@@ -21,16 +21,18 @@
                     <div class="row">
                         @forelse ($promotions as $promotion)
                             <div class="col-lg-12 mb-5">
-                                <div class="col-sm-12 d-flex justify-content-between align-items-center flex-column flex-md-row mb-4">
-                                    <div>
-                                        <h3 class="column-title">{{ $promotion->name }}</h3>
+                                <div class="col-sm-12 d-flex justify-content-between align-items-center flex-column flex-lg-row mb-4">
+                                    <div class="d-flex justify-content-center gap-2 flex-column pe-0 pe-lg-3 col-lg-7 col-12">
+                                        <h3 class="column-title mb-0">{{ $promotion->name }}</h3>
+                                        <span class="text-muted">{{ __('names.results').': '.$promotion->products->count() }}</span>
                                     </div>
-                                    <div class="d-flex align-items-center mt-4 mt-md-0">
+                                    <div class="d-flex align-items-center pt-4 pt-lg-0 col-lg-5 col-12">
                                         <a href="{{ route("promotion", ["id" => $promotion->id]) }}" class="more-products-button">
                                             {{ __("names.more_for_promotions") }}
                                         </a>
                                     </div>
                                 </div>
+                                <hr class="hr mb-4"/>
                                 <div class="row">
                                     @forelse ($promotion->products as $product)
                                         <div class="col-lg-6 mt-4 mt-lg-0 mb-5">

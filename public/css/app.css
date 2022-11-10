@@ -5000,6 +5000,12 @@ textarea.form-control-lg {
   color: #101214;
 }
 
+@-webkit-keyframes progress-bar-stripes {
+  0% {
+    background-position-x: 1rem;
+  }
+}
+
 @keyframes progress-bar-stripes {
   0% {
     background-position-x: 1rem;
@@ -5037,11 +5043,13 @@ textarea.form-control-lg {
 }
 
 .progress-bar-animated {
-  animation: 1s linear infinite progress-bar-stripes;
+  -webkit-animation: 1s linear infinite progress-bar-stripes;
+          animation: 1s linear infinite progress-bar-stripes;
 }
 @media (prefers-reduced-motion: reduce) {
   .progress-bar-animated {
-    animation: none;
+    -webkit-animation: none;
+            animation: none;
   }
 }
 
@@ -5432,6 +5440,7 @@ textarea.form-control-lg {
 }
 
 .toast-container {
+  width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
   max-width: 100%;
@@ -6181,6 +6190,12 @@ textarea.form-control-lg {
   color: #000;
 }
 
+@-webkit-keyframes spinner-border {
+  to {
+    transform: rotate(360deg) /* rtl:ignore */;
+  }
+}
+
 @keyframes spinner-border {
   to {
     transform: rotate(360deg) /* rtl:ignore */;
@@ -6194,13 +6209,24 @@ textarea.form-control-lg {
   border: 0.25em solid currentColor;
   border-right-color: transparent;
   border-radius: 50%;
-  animation: 0.75s linear infinite spinner-border;
+  -webkit-animation: 0.75s linear infinite spinner-border;
+          animation: 0.75s linear infinite spinner-border;
 }
 
 .spinner-border-sm {
   width: 1rem;
   height: 1rem;
   border-width: 0.2em;
+}
+
+@-webkit-keyframes spinner-grow {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 @keyframes spinner-grow {
@@ -6220,7 +6246,8 @@ textarea.form-control-lg {
   background-color: currentColor;
   border-radius: 50%;
   opacity: 0;
-  animation: 0.75s linear infinite spinner-grow;
+  -webkit-animation: 0.75s linear infinite spinner-grow;
+          animation: 0.75s linear infinite spinner-grow;
 }
 
 .spinner-grow-sm {
@@ -6231,7 +6258,8 @@ textarea.form-control-lg {
 @media (prefers-reduced-motion: reduce) {
   .spinner-border,
 .spinner-grow {
-    animation-duration: 1.5s;
+    -webkit-animation-duration: 1.5s;
+            animation-duration: 1.5s;
   }
 }
 .offcanvas {
@@ -6358,7 +6386,14 @@ textarea.form-control-lg {
 }
 
 .placeholder-glow .placeholder {
-  animation: placeholder-glow 2s ease-in-out infinite;
+  -webkit-animation: placeholder-glow 2s ease-in-out infinite;
+          animation: placeholder-glow 2s ease-in-out infinite;
+}
+
+@-webkit-keyframes placeholder-glow {
+  50% {
+    opacity: 0.2;
+  }
 }
 
 @keyframes placeholder-glow {
@@ -6371,7 +6406,15 @@ textarea.form-control-lg {
           mask-image: linear-gradient(130deg, #000 55%, rgba(0, 0, 0, 0.8) 75%, #000 95%);
   -webkit-mask-size: 200% 100%;
           mask-size: 200% 100%;
-  animation: placeholder-wave 2s linear infinite;
+  -webkit-animation: placeholder-wave 2s linear infinite;
+          animation: placeholder-wave 2s linear infinite;
+}
+
+@-webkit-keyframes placeholder-wave {
+  100% {
+    -webkit-mask-position: -200% 0%;
+            mask-position: -200% 0%;
+  }
 }
 
 @keyframes placeholder-wave {
@@ -6492,6 +6535,7 @@ textarea.form-control-lg {
 }
 
 .sticky-top {
+  position: -webkit-sticky;
   position: sticky;
   top: 0;
   z-index: 1020;
@@ -6499,6 +6543,7 @@ textarea.form-control-lg {
 
 @media (min-width: 576px) {
   .sticky-sm-top {
+    position: -webkit-sticky;
     position: sticky;
     top: 0;
     z-index: 1020;
@@ -6506,6 +6551,7 @@ textarea.form-control-lg {
 }
 @media (min-width: 768px) {
   .sticky-md-top {
+    position: -webkit-sticky;
     position: sticky;
     top: 0;
     z-index: 1020;
@@ -6513,6 +6559,7 @@ textarea.form-control-lg {
 }
 @media (min-width: 992px) {
   .sticky-lg-top {
+    position: -webkit-sticky;
     position: sticky;
     top: 0;
     z-index: 1020;
@@ -6520,6 +6567,7 @@ textarea.form-control-lg {
 }
 @media (min-width: 1200px) {
   .sticky-xl-top {
+    position: -webkit-sticky;
     position: sticky;
     top: 0;
     z-index: 1020;
@@ -6527,6 +6575,7 @@ textarea.form-control-lg {
 }
 @media (min-width: 1400px) {
   .sticky-xxl-top {
+    position: -webkit-sticky;
     position: sticky;
     top: 0;
     z-index: 1020;
@@ -6729,6 +6778,7 @@ textarea.form-control-lg {
 }
 
 .position-sticky {
+  position: -webkit-sticky !important;
   position: sticky !important;
 }
 
@@ -11288,7 +11338,16 @@ textarea.form-control-lg {
   opacity: 1;
 }
 * body .main .fade-in {
-  animation: FadeIn 300ms linear;
+  -webkit-animation: FadeIn 300ms linear;
+          animation: FadeIn 300ms linear;
+}
+@-webkit-keyframes FadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 @keyframes FadeIn {
   from {
@@ -12117,7 +12176,6 @@ textarea.form-control-lg {
 .more-products-button,
 .return-to-all-promotions {
   width: 100%;
-  height: 50px;
   border: none;
   border-radius: 5px;
   background-color: #cb34c2;
@@ -12125,10 +12183,11 @@ textarea.form-control-lg {
   transition: all 300ms ease;
   font-size: 1em;
   text-decoration: none;
+  text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 20px;
+  padding: 15px 20px;
 }
 .more-products-button:hover, .more-products-button:focus,
 .return-to-all-promotions:hover,
@@ -12143,7 +12202,6 @@ textarea.form-control-lg {
   padding: 0 20px;
 }
 .discount-coupon .discount-coupon-title {
-  margin-bottom: 20px;
   font-weight: bold;
   line-height: 36px;
   color: #102636;
@@ -12528,6 +12586,7 @@ textarea.form-control-lg {
   }
 }
 .admin-header {
+  position: -webkit-sticky;
   position: sticky;
   z-index: 1030;
   top: 0;
@@ -12819,6 +12878,7 @@ footer .slogan-paragraph {
   font-size: 1.2em !important;
 }
 .cart .pin-wrapper {
+  position: -webkit-sticky;
   position: sticky;
   top: 15%;
 }

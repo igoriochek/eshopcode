@@ -1,5 +1,5 @@
 <div>
-    @include('header', ['title' => __('messages.messenger')])
+    @include('header', ['title' => __('messages.messenger'), 'paragraph' => __('names.contactUsers')])
     <section class="pt-5">
         <div class="container">
             <div class="row mb-5">
