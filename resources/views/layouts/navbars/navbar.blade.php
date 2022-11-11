@@ -6,7 +6,7 @@
         <a class="navbar-brand fw-bold d-block d-sm-none" href="{{ url('/') }}">
             <img src="/opatrip-logo-favicon.png" alt="bonatrip-logo" width="50px">
         </a>
-        <div class="d-flex justify-content-center">
+        <div class="d-flex justify-content-center menu-container">
             <ul class="nav navbar-nav menu" style="@guest gap: 50px @endguest @auth gap: 30px @endauth">
                 @guest
                     @include('layouts.menus.menu')
@@ -48,7 +48,10 @@
     const hamburgerMenuButton = document.querySelector('.hamburger-menu-button');
     const menu = document.querySelector('.menu');
 
-    hamburgerMenuButton.addEventListener('click', () => menu.classList.toggle('active'));
+    hamburgerMenuButton.addEventListener('click', () => {
+        menu.classList.toggle('active');
+        menu.classList.toggle('shadow-sm')
+    });
 
     const navbar = document.querySelector('.navbar');
     const topbarHeight = 45;

@@ -61,7 +61,6 @@
                 <h2 style="font-family: 'Times New Roman', sans-serif; font-weight: 500" class="mb-4 mt-3">
                     Правила Электронной Kоммерции
                 </h2>
-                <hr>
                 1. Общие положения.<br/>
                 1.1. Настоящие правила купли-продажи товаров/услуг (далее – Правила) являются обязательным для Сторон юридическим документом, определяющим права, обязанности и ответственность Покупателя и Продавца при приобретении Покупателем товаров/услуг в электронной форме. почта. в магазине.<br/>
                 1.2. Продавец оставляет за собой право изменять, исправлять или дополнять правила в любое время с учетом требований, установленных правовыми актами. Покупатель информируется по электронной почте. на сайте магазина. Когда покупатель делает покупки по электронной почте магазин применяет Правила, действующие на момент оформления заказа.<br/>
@@ -99,7 +98,6 @@
                 <h2 style="font-family: 'Times New Roman', sans-serif; font-weight: 500" class="mb-4 mt-3">
                     Electronic Commerce Rules
                 </h2>
-                <hr>
                 1. General provisions.<br/>
                 1.1. These rules for the purchase and sale of goods / services (hereinafter - the Rules) are a legal document binding on the Parties, which determine the rights, duties and responsibilities of the Buyer and the Seller when the Buyer purchases goods / services by e-mail. in the store.<br/>
                 1.2. The seller reserves the right to change, correct or add to the rules at any time, taking into account the requirements set by legal acts. The buyer is informed by e-mail. on the store's website. When the buyer is shopping by e-mail the store applies the Rules valid at the time of placing the order.<br/>

@@ -24,14 +24,13 @@
 </li>
 <li class="mb-4">
     <i class="fa-solid fa-envelope"></i>
-    <a class="footer-link"href="{{ url('/user/messenger') }}">
+    <a class="footer-link" href="{{ url('/user/messenger') }}">
         {{ __('menu.messenger') }}
     </a>
 </li>
-
-{{--                        <li class="mb-4">--}}
-{{--                            <a class="footer-link" href="{{ url('/') }}">--}}
-{{--                                <i class="fa-solid fa-address-card fs-5 me-1"></i>--}}
-{{--                                <span>{{ __('footer.aboutUsTeam') }}</span>--}}
-{{--                            </a>--}}
-{{--                        </li>--}}
+<li class="mb-4">
+    <i class="fa-solid fa-envelope"></i>
+    <a class="footer-link" href="{{ url('/about') }}">
+        {{ __('menu.aboutUs') }}
+    </a>
+</li>

@@ -1,4 +1,3 @@
-
 @guest
     <li class="nav-item">
         <a href="/products" style="color: {{ request()->is('user/products*') ? '#c736c0' : '' }}">
@@ -25,8 +24,7 @@
             {{__('menu.messenger')}}
         </a>
     </li>
-@endguest
-@auth
+@else
     <li class="nav-item">
         <a href="/user/products" style="color: {{ request()->is('user/products*') ? '#c736c0' : '' }}">
             {{__('menu.products')}}
@@ -52,17 +50,25 @@
             {{__('menu.messenger')}}
         </a>
     </li>
-@endauth
+@endguest
+<li class="nav-item">
+    <a href="/about" style="color: {{ request()->is('user/messenger*') ? '#c736c0' : '' }}">
+        {{__('menu.aboutUs')}}
+    </a>
+</li>
 <li class="language">
     <div class="d-flex align-items-center">
         <ul class="m-0 p-0" style="list-style: none">
             <li class="nav-item dropdown">
                 <a id="navbarDropdown" class="nav-link dropdown-toggle d-flex align-items-center justify-content-center" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"  aria-expanded="false">
                     @if (app()->getLocale() == 'lt')
-                        <img src="/images/lt-flag.png" alt="lt-flag" style="width: 17px; height: 17px; margin-right: 5px; border-radius: 10px">
+                        <img src="/images/lt-flag.png" alt="lt-flag" width=18 height=13 class="me-1">
                         {{ __('LT') }}
+                    @elseif (app()->getLocale() == 'ru')
+                        <img src="/images/ru-flag.png" alt="ru-flag" width=18 height=13 class="me-1">
+                        {{ __('RU') }}
                     @else
-                        <img src="/images/en-flag.png" alt="en-flag" style="width: 17px; height: 17px; margin-right: 5px; border-radius: 10px">
+                        <img src="/images/en-flag.png" alt="en-flag" width=18 height=13 class="me-1">
                         {{ __('EN') }}
                     @endif
                 </a>

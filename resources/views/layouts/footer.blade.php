@@ -113,11 +113,6 @@
                     <ul class="mb-0 p-0 d-flex justify-content-center justify-content-lg-start align-items-center list-unstyled text-center"
                         style="gap: 25px">
                         <li>
-                            <a class="footer-link" href="{{ url('/about') }}">
-                                {{ __('menu.aboutUs') }}
-                            </a>
-                        </li>
-                        <li>
                             <a class="footer-link" href="{{ url('/termsofservice') }}">
                                 {{ __('menu.termsofservice') }}
                             </a>

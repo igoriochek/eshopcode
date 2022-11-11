@@ -70,6 +70,18 @@
         .language {
             display: none;
         }
+
+        .dropdown-menu {
+            border: none;
+            text-align: center;
+            transition: 300ms;
+        }
+
+        .dropdown-item {
+            &:hover {
+                background: none;
+            }
+        }
     }
 
     @media only screen and (max-width: 1199px) {
@@ -99,7 +111,7 @@
             background-color: $white-color;
             width: 100%;
             padding: 20px 30px;
-            transition: 600ms ease-in-out;
+            transition: 400ms ease-in-out;
             text-align: center;
 
             .nav-item {
