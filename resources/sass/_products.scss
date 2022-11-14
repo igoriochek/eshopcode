@@ -165,15 +165,5 @@
         margin-top: 20px;
         color: $light-gray-color;
         font-size: 1.1em;
-
-        .form-check {
-            display: flex;
-            align-items: flex-start;
-        }
-
-        .form-check-input:checked {
-            background-color: $pink-color;
-            border-color: $pink-color;
-        }
     }
 }

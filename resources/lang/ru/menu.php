@@ -39,6 +39,6 @@ return [
     'profile' => 'Профиль',
     'termsofservice' => 'Правила',
     'policy' => 'Политика конфиденциальности',
-    'aboutUs' => 'О Hас'
+    'aboutUs' => 'Проекты ЕС'
 
 ];

@@ -274,5 +274,6 @@ return [
     "of" => "of",
     "first" => "First",
     "last" => "Last",
+    'userInfo' => 'User Information'
 
 ];

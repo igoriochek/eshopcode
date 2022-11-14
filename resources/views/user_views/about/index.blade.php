@@ -8,7 +8,11 @@
                 {{ __('menu.aboutUs') }}
             </h2>
             <div class="d-flex pb-5">
-                <img src="{{ asset('images/ESFIVP-I-1.jpeg') }}" alt="esfivp" width="550" />
+                @if ($lang === 'lt')
+                    <img src="{{ asset('images/es_projektai.jpeg') }}" alt="es_projektai" width="500" />
+                @else
+                    <img src="{{ asset('images/es_projektai_en_ru.jpeg') }}" alt="es_projektai_en_ru" width="500" class="my-3" />
+                @endif
             </div>
             @if ($lang == 'lt')
                 <p class="mb-4">

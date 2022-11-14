@@ -1,0 +1,40 @@
+.dataTables_filter {
+    margin-bottom: 20px;
+}
+
+.dataTables_length {
+    label {
+        select {
+            padding: 7.5px;
+            margin-inline: 5px;
+        }
+    }
+}
+
+.orders-returns-primary-button,
+.orders-returns-secondary-button {
+    border: none;
+    transition: background 200ms ease;
+    font-size: 1rem;
+    font-weight: 400;
+    border-radius: 5px;
+    padding: 10px 20px;
+}
+
+.orders-returns-primary-button {
+    background: $pink-color;
+    color: $white-color;
+
+    &:hover, &:focus, &:active {
+        background: $button-hover-focus-background;
+    }
+}
+
+.orders-returns-secondary-button {
+    background: #eee;
+    color: $gray-color;
+
+    &:hover, &:focus, &:active {
+        background: $light-gray-color;
+    }
+}

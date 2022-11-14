@@ -39,6 +39,6 @@ return [
     'usersActivitiesReport' => 'Users Activities Report',
     'termsofservice' => 'Rules',
     'policy' => 'Privacy Policy',
-    'aboutUs' => 'About Us'
+    'aboutUs' => 'EU Projects'
 
 ];

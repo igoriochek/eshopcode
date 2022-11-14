@@ -266,12 +266,13 @@ return [
 
     'results' => 'Rezultatai',
 
-       "zeroRecords" => "Įrašų nėra",
+    "zeroRecords" => "Įrašų nėra",
     "showing" => "Rodomi",
     "entries" => "užrašai",
     "to" => "iki",
     "of" => "iš",
     "first" => "Pirmas",
     "last" => "Paskutinis",
+    'userInfo' => 'Vartotojo informacija'
 
 ];

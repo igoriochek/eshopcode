@@ -2,57 +2,51 @@
 
 @section('content')
     @include('header', ['title' => __('names.returns')])
-    <div class="auth-form container py-5">
-    <section class="pt-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 mb-5 order-sm-last order-lg-first">
-                    <div class="row">
-                        @include('flash::message')
-                        <div class="clearfix"></div>
-                        @if($returns)
-                            <div class="card">
-                                <div class="card-body p-0">
-                                    <div class="table table-responsive">
-                                        <table class="table" id="categories">
-                                            <thead>
-                                            <tr>
-                                                <th>{{__("names.return")}} ID</th>
-{{--                                                <th>{{__('table.user')}}</th>--}}
-                                                <th>{{__('table.status')}}</th>
-                                                <th></th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            @foreach($returns as $item)
-                                                <tr>
-                                                    <td>{{ $item->id }}</td>
-{{--                                                    <td>{{ $item->user->name }}</td>--}}
-                                                    <td>{{ __("status." . $item->status->name) }}</td>
-                                                    <td width="120">
-                                                        <div class='btn-group'>
-                                                            <a href="{{ route('viewreturn', [$item->id]) }}"
-                                                               class='btn btn-default btn-xs'>
-                                                                <i class="far fa-eye"></i>
-                                                            </a>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            @endforeach
-                                            </tbody>
-                                        </table>
-                                    </div>
-
-                                </div>
-                            </div>
-                        @else
-                            {{__('names.noReturns')}}
-                        @endif
+    <div class="container mt-3 mb-5">
+        @include('flash::message')
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="mb-4 mt-3">
+                    <h3 style="font-family: 'Times New Roman', sans-serif">{{__('names.returns')}}</h3>
+                </div>
+                <div class="row bg-white mx-md-0 px-0 py-3">
+                    <div class="table table-responsive">
+                        <table class="table table-striped table-bordered mb-3" id="categories" style="border-inline: 1px solid #e3e3e3; border-bottom: none">
+                            <thead style="background: #e3e3e3">
+                            <tr>
+                                <th>{{__("names.return")}} ID</th>
+                                <th>{{__('table.date')}}</th>
+                                <th>{{__('table.status')}}</th>
+                                <th> </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @forelse($returns as $item)
+                                <tr>
+                                    <td class="ps-3 text-start align">{{ $item->id }}</td>
+                                    <td class="ps-3 text-start">{{ $item->created_at->format('Y-m-d H:m') }}</td>
+                                    <td class="ps-3 text-start">{{ __("status." . $item->status->name) }}</td>
+                                    <td class="text-start" width="140">
+                                        <div class='btn-group w-100 d-flex justify-content-center align-items-center'>
+                                            <a href="{{ route('viewreturn', [$item->id]) }}"
+                                               class='btn btn-primary orders-returns-primary-button'>
+                                                <i class="far fa-eye me-1"></i>
+                                                {{ __('buttons.details') }}
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            @empty
+                                <tr>
+                                    <td colspan="5" class="ps-3">{{__('names.noReturns')}}</td>
+                                </tr>
+                            @endforelse
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
     </div>
 @endsection
 

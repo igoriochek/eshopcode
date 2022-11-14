@@ -11791,14 +11791,6 @@ textarea.form-control-lg {
   color: #818181;
   font-size: 1.1em;
 }
-.sidebar .categories-widget-content .form-check {
-  display: flex;
-  align-items: flex-start;
-}
-.sidebar .categories-widget-content .form-check-input:checked {
-  background-color: #cb34c2;
-  border-color: #cb34c2;
-}
 
 .product-section {
   padding-top: 100px;
@@ -12942,4 +12934,76 @@ footer .slogan-paragraph {
 }
 .checkout .preview-button:hover, .checkout .preview-button:focus, .checkout .preview-button:active {
   background: #ee3ee2;
+}
+
+.nav-tabs {
+  border: 0;
+  margin-bottom: 10px;
+  border-bottom: 3px solid #eee;
+}
+.nav-tabs li {
+  margin-bottom: -3px;
+}
+.nav-tabs li .nav-link {
+  background: none;
+  border: 0;
+  border-bottom: 3px solid #eee;
+  border-radius: 0;
+  color: #3f3f3f;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 200ms ease;
+}
+.nav-tabs li .nav-link:hover, .nav-tabs li .nav-link:focus, .nav-tabs li .nav-link:active {
+  border-bottom: 3px solid #eee;
+  color: #cb34c2;
+}
+.nav-tabs li .nav-link.active {
+  border-bottom: 3px solid #eee;
+  color: #cb34c2;
+}
+
+.dataTables_filter {
+  margin-bottom: 20px;
+}
+
+.dataTables_length label select {
+  padding: 7.5px;
+  margin-inline: 5px;
+}
+
+.orders-returns-primary-button,
+.orders-returns-secondary-button {
+  border: none;
+  transition: background 200ms ease;
+  font-size: 1rem;
+  font-weight: 400;
+  border-radius: 5px;
+  padding: 10px 20px;
+}
+
+.orders-returns-primary-button {
+  background: #cb34c2;
+  color: #FFFFFF;
+}
+.orders-returns-primary-button:hover, .orders-returns-primary-button:focus, .orders-returns-primary-button:active {
+  background: #a12c9b;
+}
+
+.orders-returns-secondary-button {
+  background: #eee;
+  color: #3f3f3f;
+}
+.orders-returns-secondary-button:hover, .orders-returns-secondary-button:focus, .orders-returns-secondary-button:active {
+  background: #818181;
+}
+
+.form-check {
+  display: flex;
+  align-items: flex-start;
+}
+
+.form-check-input:checked {
+  background-color: #cb34c2;
+  border-color: #cb34c2;
 }

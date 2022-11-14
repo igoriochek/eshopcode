@@ -2,59 +2,53 @@
 
 @section('content')
     @include('header', ['title' => __('names.orders')])
-    <div class="auth-form container py-5">
-    <section class="pt-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 mb-5 order-sm-last order-lg-first">
-                    <div class="row">
-                        @include('flash::message')
-                        <div class="clearfix"></div>
-                        @if($orders)
-                            <div class="card">
-                                <div class="card-body p-0">
-                                    <div class="table table-responsive">
-                                        <table class="table" id="categories">
-                                            <thead>
-                                            <tr>
-                                                <th>{{__("names.order")}} ID</th>
-{{--                                                <th>{{__('table.user')}}</th>--}}
-                                                <th>{{__('table.status')}}</th>
-                                                <th>{{__('table.sum')}}</th>
-                                                <th></th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            @foreach($orders as $item)
-                                                <tr>
-                                                    <td>{{ $item->id }}</td>
-{{--                                                    <td>{{ $item->user->name }}</td>--}}
-                                                    <td>{{ __("status." . $item->status->name) }}</td>
-                                                    <td>{{ number_format($item->sum,2) }} €</td>
-                                                    <td width="120">
-                                                        <div class='btn-group'>
-                                                            <a href="{{ route('vieworder', [$item->id]) }}"
-                                                               class='btn btn-default btn-xs'>
-                                                                <i class="far fa-eye"></i>
-                                                            </a>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            @endforeach
-                                            </tbody>
-                                        </table>
-                                    </div>
-
-                                </div>
-                            </div>
-                        @else
-                            {{__('names.noOrders')}}
-                        @endif
+    <div class="container mt-3 mb-5">
+        @include('flash::message')
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="mb-4 mt-3" style="font-family: 'Times New Roman', sans-serif">
+                    <h3>{{__('names.orders')}}</h3>
+                </div>
+                <div class="row bg-white mx-md-0 py-3 px-0">
+                    <div class="table table-responsive">
+                        <table class="table table-striped table-bordered mb-3" id="categories">
+                            <thead style="background: #e7e7e7;">
+                            <tr>
+                                <th>{{__("names.order")}} ID</th>
+                                <th>{{__('table.date')}}</th>
+                                <th>{{__('table.status')}}</th>
+                                <th>{{__('table.sum')}}</th>
+                                <th> </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @forelse($orders as $item)
+                                <tr>
+                                    <td class="ps-3 text-start align">{{ $item->id }}</td>
+                                    <td class="ps-3 text-start">{{ $item->created_at->format('Y-m-d H:m') }}</td>
+                                    <td class="ps-3 text-start">{{ __("status." . $item->status->name) }}</td>
+                                    <td class="ps-3 text-start">{{ number_format($item->sum,2) }} €</td>
+                                    <td class="text-start" width="140">
+                                        <div class='btn-group w-100 d-flex justify-content-center align-items-center'>
+                                            <a href="{{ route('vieworder', [$item->id]) }}"
+                                               class='btn btn-primary orders-returns-primary-button'>
+                                                <i class="far fa-eye me-1"></i>
+                                                {{ __('buttons.details') }}
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            @empty
+                                <tr>
+                                    <td colspan="5" class="ps-3">>{{__('names.noOrders')}}</td>
+                                </tr>
+                            @endforelse
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
     </div>
 @endsection
 

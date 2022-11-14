@@ -39,6 +39,9 @@ return [
     'proceedToCheckout' => 'Перейти к оформлению заказа',
     'contact' => 'Контакт',
     'applyCoupon' => 'Применить Kупон',
-    'placeOrder' => 'Разместить Заказ'
+    'placeOrder' => 'Разместить Заказ',
+    'details' => 'Подробности',
+    'return' => 'Возврат',
+    'invoice' => 'Счет'
 
 ];

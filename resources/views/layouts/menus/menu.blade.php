@@ -1,59 +1,63 @@
 @guest
-    <li class="nav-item">
+    <li class="nav-item d-flex align-items-center justify-content-center">
         <a href="/products" style="color: {{ request()->is('user/products*') ? '#c736c0' : '' }}">
             {{__('menu.products')}}
         </a>
     </li>
-    <li class="nav-item">
+    <li class="nav-item d-flex align-items-center justify-content-center">
         <a href="/rootcategories" style="color: {{ request()->is('user/rootcategories*') ? '#c736c0' : '' }}">
             {{__('menu.categories')}}
         </a>
     </li>
-    <li class="nav-item">
+    <li class="nav-item d-flex align-items-center justify-content-center">
         <a href="/promotions" style="color: {{ request()->is('user/promotions*') ? '#c736c0' : '' }}">
             {{__('menu.promotions')}}
         </a>
     </li>
-    <li class="nav-item">
+    <li class="nav-item d-flex align-items-center justify-content-center">
         <a href="/user/discountCoupons" style="color: {{ request()->is('user/discountCoupons*') ? '#c736c0' : '' }}">
             {{__('menu.discountCoupons')}}
         </a>
     </li>
-    <li class="nav-item">
+    <li class="nav-item d-flex align-items-center justify-content-center">
         <a href="/user/messenger" style="color: {{ request()->is('user/messenger*') ? '#c736c0' : '' }}">
             {{__('menu.messenger')}}
         </a>
     </li>
 @else
-    <li class="nav-item">
+    <li class="nav-item d-flex align-items-center justify-content-center">
         <a href="/user/products" style="color: {{ request()->is('user/products*') ? '#c736c0' : '' }}">
             {{__('menu.products')}}
         </a>
     </li>
-    <li class="nav-item">
+    <li class="nav-item d-flex align-items-center justify-content-center">
         <a href="/user/rootcategories" style="color: {{ request()->is('user/rootcategories*') ? '#c736c0' : '' }}">
             {{__('menu.categories')}}
         </a>
     </li>
-    <li class="nav-item">
+    <li class="nav-item d-flex align-items-center justify-content-center">
         <a href="/user/promotions" style="color: {{ request()->is('user/promotions*') ? '#c736c0' : '' }}">
             {{__('menu.promotions')}}
         </a>
     </li>
-    <li class="nav-item">
+    <li class="nav-item d-flex align-items-center justify-content-center">
         <a href="/user/discountCoupons" style="color: {{ request()->is('user/discountCoupons*') ? '#c736c0' : '' }}">
             {{__('menu.discountCoupons')}}
         </a>
     </li>
-    <li class="nav-item">
+    <li class="nav-item d-flex align-items-center justify-content-center">
         <a href="/user/messenger" style="color: {{ request()->is('user/messenger*') ? '#c736c0' : '' }}">
             {{__('menu.messenger')}}
         </a>
     </li>
 @endguest
-<li class="nav-item">
-    <a href="/about" style="color: {{ request()->is('user/messenger*') ? '#c736c0' : '' }}">
-        {{__('menu.aboutUs')}}
+<li class="nav-item d-flex align-items-center justify-content-center">
+    <a href="/about" style="color: {{ request()->is('about') ? '#c736c0' : '' }}">
+        @if (app()->getLocale() === 'lt')
+            <img src="{{ asset('images/es_projektai.jpeg') }}" alt="es_projektai" width="130" />
+        @else
+            <img src="{{ asset('images/es_projektai_en_ru.jpeg') }}" alt="es_projektai_en_ru" width="130" />
+        @endif
     </a>
 </li>
 <li class="language">

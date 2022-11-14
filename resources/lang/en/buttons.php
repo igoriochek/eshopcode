@@ -41,5 +41,8 @@ return [
     'applyCoupon' => 'Apply Coupon',
     'placeOrder' => 'Place Order',
     'proceedToCheckout' => 'Proceed to Checkout',
+    'details' => 'Details',
+    'return' => 'Return',
+    'invoice' => 'Invoice'
 
 ];

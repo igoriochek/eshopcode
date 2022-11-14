@@ -40,5 +40,8 @@ return [
     'applyCoupon' => 'Taikyti Kuponą',
     'placeOrder' => 'Pateikite Užsakymą',
     'proceedToCheckout' => 'Pereiti prie apmokėjimo ',
+    'details' => 'Detaliai',
+    'return' => 'Grąžinti',
+    'invoice' => 'Sąskaita Faktūra'
 
 ];

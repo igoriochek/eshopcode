@@ -1,0 +1,32 @@
+
+
+.nav-tabs {
+    border: 0;
+    margin-bottom: 10px;
+    border-bottom: 3px solid #eee;
+
+    li {
+        margin-bottom: -3px;
+
+        .nav-link {
+            background: none;
+            border: 0;
+            border-bottom: 3px solid #eee;
+            border-radius: 0;
+            color: $gray-color;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 200ms ease;
+
+            &:hover, &:focus, &:active {
+                border-bottom: 3px solid #eee;
+                color: $pink-color;
+            }
+
+            &.active {
+                border-bottom: 3px solid #eee;
+                color: $pink-color;
+            }
+        }
+    }
+}

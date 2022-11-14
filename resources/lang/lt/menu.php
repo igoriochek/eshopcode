@@ -41,6 +41,6 @@ return [
     'usersActivitiesReport' => 'Vartotojų Aktyvumo Ataskaitos',
     'termsofservice' => 'Taisyklės',
     'policy' => 'Privatumo politika',
-    'aboutUs' => 'Apie Mus'
+    'aboutUs' => 'ES Projektai'
 
 ];
