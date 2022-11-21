@@ -14,7 +14,7 @@
                     <img src="{{ asset('images/es_projektai_en_ru.jpeg') }}" alt="es_projektai_en_ru" width="500" class="my-3" />
                 @endif
             </div>
-            @if ($lang == 'lt')
+            {{--@if ($lang == 'lt')--}}
                 <p class="mb-4">
                     <span class="me-5"></span>
                     MB „Opatrip.com“ įgyvendina ES struktūrinėmis lėšomis finansuojamą projektą Nr.
@@ -73,7 +73,7 @@
                     <span class="me-5"></span>
                     Projekto įgyvendinimo laikotarpis nuo 2022 m. vasario mėn. iki 2023 m. vasario mėn.
                 </p>
-            @elseif ($lang == 'ru')
+            {{--@elseif ($lang == 'ru')
                 <p class="mb-4">
                     <span class="me-5"></span>
                     MB "Opatrip.com" реализует проект №.
@@ -191,7 +191,7 @@
                     <span class="me-5"></span>
                     The project implementation period is from 2022. February. until 2023 February.
                 </p>
-            @endif
+            @endif--}}
         </div>
     </div>
 @endsection

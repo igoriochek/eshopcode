@@ -28,10 +28,10 @@
         {{ __('menu.messenger') }}
     </a>
 </li>
-<li class="mb-4">
-    <a class="footer-link" href="{{ url('/about') }}">
-        <i class="fa-solid fa-circle-info me-2"></i>
-        {{ __('menu.aboutUs') }}
-    </a>
-</li>
+{{--<li class="mb-4">--}}
+{{--    <a class="footer-link" href="{{ url('/about') }}">--}}
+{{--        <i class="fa-solid fa-circle-info me-2"></i>--}}
+{{--        {{ __('menu.aboutUs') }}--}}
+{{--    </a>--}}
+{{--</li>--}}
 
