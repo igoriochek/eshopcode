@@ -7,17 +7,17 @@
                         <div class="header-row">
                             <p class="mb-0 d-none d-md-block">
                                 <i class="fa-solid fa-envelope me-1"></i>
-                                info@aurintus.lt
+                                EMAIL
                             </p>
                             <span class="mx-3"></span>
                             <p class="mb-0 d-none d-md-block">
                                 <i class="fa-solid fa-phone me-1"></i>
-                                +370 689 96899
+                                PHONE NUMBER
                             </p>
                             <span class="mx-3"></span>
                             <p class="mb-0 d-none d-md-block">
                                 <i class="fa-solid fa-location-dot me-1"></i>
-                                Karaliaučiaus g. 3-17, LT-06281 Vilnius
+                                ADDRESS
                             </p>
                         </div>
                     </div>
@@ -65,7 +65,10 @@
                     <div class="header-row justify-content-between">
                         <div class="header-logo z-index-2 col-lg-2 px-0" style="width: auto; height: auto">
                             <a href="{{ url('/home') }}">
-                                <img src="{{ asset("images/aurintus_logo.png") }}" alt="logo" class="logo" width="160">
+                                <h3 class="mb-0 pb-0 text-uppercase" style="font-family: 'Times New Roman', sans-serif">
+                                    {{ __('Karuseles') }}
+                                </h3>
+{{--                                <img src="{{ asset("") }}" alt="logo" class="logo" width="160">--}}
                             </a>
                         </div>
                         <div class="d-flex justify-content-end align-items-center">

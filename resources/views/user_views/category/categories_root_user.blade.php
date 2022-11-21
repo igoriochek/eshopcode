@@ -16,7 +16,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <aside class="sidebar pb-4 px-4">
-                    <h2 class="sidebar-title fs-5">{{ __('names.categories')}}</h2>
+                    <h2 class="sidebar-title fs-4 pb-2">{{ __('names.categories')}}</h2>
                     @include('user_views.category.categoryTree')
                 </aside>
             </div>

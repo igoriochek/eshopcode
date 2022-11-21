@@ -3,7 +3,10 @@
         <div class="row py-4 my-5">
             <div class="col-md-6 @auth col-lg-3 @else col-lg-4 @endauth mb-5 mb-lg-0">
                 <a href="{{ url('/home') }}">
-                    <img src="{{ asset("images/aurintus_logo.png") }}" alt="logo" class="logo_footer" width="180">
+                    <h2 class="mb-0 pb-0 text-uppercase" style="color: #ffa600; font-family: 'Times New Roman', sans-serif">
+                        {{ __('Karuseles') }}
+                    </h2>
+{{--                    <img src="{{ asset("") }}" alt="logo" class="logo_footer" width="180">--}}
                 </a>
                 <div class="d-flex mt-4 mb-4 mb-md-0">
                     <div class="me-3">
@@ -11,8 +14,8 @@
                     </div>
                     <div class="w-100 d-flex flex-column">
                         <span>{{ __('footer.timeDesc') }}:</span>
-                        <span>{{ __('footer.timeOne') }}: 10:00 - 18:00</span>
-                        <span>{{ __('footer.timeTwo') }}: 10:00 - 17:00</span>
+{{--                        <span>{{ __('footer.timeOne') }}: 10:00 - 18:00</span>--}}
+{{--                        <span>{{ __('footer.timeTwo') }}: 10:00 - 17:00</span>--}}
                     </div>
                 </div>
             </div>
@@ -21,19 +24,19 @@
                 <ul class="list list-unstyled pt-3">
                     <li class="pb-4">
                         <i class="fa-solid fa-location-dot fs-5 me-3"></i>
-                        Karaliaučiaus g. 3-17, LT-06281 Vilnius
+                        ADDRESS
                     </li>
                     <li class="pb-4">
-                        <i class="fa-solid fa-phone fs-5 me-3"></i>
-                        +370 689 96899
+                        <i class="fa-solid fa-phone fs-5 me-2 pe-1"></i>
+                        PHONE NUMBER
                     </li>
                     <li class="pb-4">
-                        <i class="fa-regular fa-envelope fs-5 me-3"></i>
-                        uabaurintus@gmail.com
+                        <i class="fa-regular fa-envelope fs-5 me-2 pe-1"></i>
+                        EMAIL
                     </li>
                     <li class="pb-4">
                         <i class="fa-solid fa-clipboard fs-5 me-3"></i>
-                         304873930
+                         COMPANY CODE
                     </li>
                 </ul>
                 <ul class="social-icons social-icons-clean-with-border social-icons-medium">

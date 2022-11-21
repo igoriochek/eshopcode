@@ -17,7 +17,7 @@
 
             @if($lang=="lt")
 
-                <h4 class="mb-4">ELEKTRONINĖS PREKYBOS TAISYKLĖS</h4>
+                <h3 class="mb-4">Taisyklės</h3>
 
                 <p>1. Bendrosios nuostatos.<br/>
                     1.1. Šios prekių / paslaugų pirkimo – pardavimo taisyklės (toliau – Taisyklės) yra Šalims privalomas teisinis dokumentas, kuris nustato Pirkėjo ir Pardavėjo teises, pareigas ir atsakomybę Pirkėjui įsigyjant prekes / paslaugas el. parduotuvėje.<br/>
@@ -70,7 +70,7 @@
 
             @elseif ($lang == "ru")
 
-                <h4 class="mb-4">Правила</h4>
+                <h3 class="mb-4">Правила</h3>
 
                 1. Общие положения.<br/>
                 1.1. Настоящие правила купли-продажи товаров/услуг (далее – Правила) являются обязательным для Сторон юридическим документом, определяющим права, обязанности и ответственность Покупателя и Продавца при приобретении Покупателем товаров/услуг в электронной форме. почта. в магазине.<br/>
@@ -106,7 +106,7 @@
                 6.1. Каждое электронное письмо информация о товарах/услугах, продаваемых в магазине, обычно указывается в описании каждого товара/услуги.<br/>
 
             @else
-                <h4 class="mb-4">Rules</h4>
+                <h3 class="mb-4">Rules</h3>
 
                 1. General provisions.<br/>
                 1.1. These rules for the purchase and sale of goods / services (hereinafter - the Rules) are a legal document binding on the Parties, which determine the rights, duties and responsibilities of the Buyer and the Seller when the Buyer purchases goods / services by e-mail. in the store.<br/>

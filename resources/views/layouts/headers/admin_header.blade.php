@@ -2,7 +2,10 @@
     <div class="admin-header-container">
         <div class="admin-header-top-container">
             <a href="{{ url('/home') }}" class="admin-header-logo">
-                <img src="{{ asset("images/aurintus_logo.png") }}" alt="logo" class="logo" width="160">
+                <h3 class="mb-0 pb-0 text-uppercase" style="color: #ffa600; font-family: 'Times New Roman', sans-serif">
+                    {{ __('Karuseles') }}
+                </h3>
+{{--                <img src="{{ asset("") }}" alt="logo" class="logo" width="160">--}}
             </a>
             <button class="admin-header-toggle-button" onclick="onClickOpenMenu()">
                 <i class="fa-sharp fa-solid fa-bars text-white"></i>

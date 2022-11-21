@@ -14,7 +14,7 @@
     </div>
     <div class="container">
         <div class="row">
-            @if (count($promotions) === 0)
+            @if (count($promotions) > 0)
                 <div class="col-lg-3">
                     <aside class="sidebar px-3 pt-1 pb-4">
                         <h5 class="sidebar-title">{{ __('names.promotions')}}</h5>
