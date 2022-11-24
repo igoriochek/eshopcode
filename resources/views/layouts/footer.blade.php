@@ -14,27 +14,27 @@
                         </h2>
                         <ul class="footer__widget--menu footer__widget--inner">
                             <li class="footer__widget--menu__list">
-                                <i class="fa-solid fa-location-dot fs-4 me-3 text-danger"></i>
+                                <i class="fa-solid fa-location-dot fs-4 me-3 pe-1 text-danger"></i>
                                 <span class="footer__widget--menu__text">
-                                    {{ __('footer.address') }}
+                                    Tilžės g. 156, Šiauliai
                                 </span>
                             </li>
                             <li class="footer__widget--menu__list">
                                 <i class="fa-solid fa-phone fs-4 me-3 text-danger"></i>
                                 <span class="footer__widget--menu__text">
-                                    {{ __('footer.phone') }}
+                                    +370 603 02602
                                 </span>
                             </li>
                             <li class="footer__widget--menu__list">
-                                <i class="fa-regular fa-envelope fs-4 me-3 text-danger"></i>
+                                <i class="fa-regular fa-envelope fs-4 me-3 pe-1 text-danger"></i>
                                 <span class="footer__widget--menu__text">
-                                    {{ __('footer.email') }}
+                                    sales@lanosus.com
                                 </span>
                             </li>
                             <li class="footer__widget--menu__list">
-                                <i class="fa-solid fa-clipboard fs-4 me-3 text-danger"></i>
+                                <i class="fa-solid fa-clipboard fs-4 me-3 pe-2 text-danger"></i>
                                 <span class="footer__widget--menu__text">
-                                    {{ __('footer.companyCode') }}
+                                    304887410
                                 </span>
                             </li>
                             <ul class="social__share footer__social d-flex mt-5">
@@ -189,9 +189,8 @@
         <div class="container">
             <div class="footer__bottom--inenr d-flex justify-content-between align-items-center">
                 <div class="footer__logo">
-                    <a class="footer__logo--link" href="index.html">
-                        {{--<img src="{{ asset('') }}" alt="logo">--}}
-                        <h1 class="text-danger" style="font-size: 3rem">LANOSUS</h1>
+                    <a class="footer__logo--link bg-white p-2 rounded-1" href="index.html">
+                        <img class="main__logo--img" src="{{ asset('images/Pilnas.jpg') }}" alt="full_logo" width="250">
                     </a>
                 </div>
                 <p class="copyright__content pt-3">

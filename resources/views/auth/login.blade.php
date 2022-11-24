@@ -14,7 +14,7 @@
                                 <a href="{{ url('/') }}">{{ __('menu.home') }}</a>
                             </li>
                             <li class="breadcrumb__content--menu__items">
-                                <span>{{ __('menu.login') }}</span>
+                                <span>{{ __('auth.login') }}</span>
                             </li>
                         </ul>
                     </div>

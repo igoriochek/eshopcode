@@ -30,10 +30,10 @@
                 Bendrovė yra įsipareigojusi savo veikloje atsakingai ir saugiai tvarkyti Jūsų asmens duomenis. Vadovaudamiesi, šiais esminiais principais, mes visada sieksime užtikrinti pakankamą Jūsų duomenų apsaugos lygį bei Jūsų teisių apsaugą. Mes tvarkome Asmens duomenis, pagal šią Privatumo politiką, vadovaudamiesi taikomais teisės aktais, įskaitant Bendrąjį duomenų apsaugos reglamentą (2016/679) (toliau – „BDAR“) bei taikomus Lietuvos nacionalinius asmens duomenų apsaugos teisės aktus.<br/>
                 <h6 class="mt-3 mb-2 h3">Duomenų valdytojas</h6>
                 Lanosus<br/>
-                Įmonės kodas yra: -<br/>
-                Adresas: -<br/>
-                Tel. Nr. -<br/>
-                El. pašto adresas: -<br/>
+                Įmonės kodas yra: 304887410<br/>
+                Adresas: Tilžės g. 156, Šiauliai<br/>
+                Tel. Nr. +370 603 02602<br/>
+                El. pašto adresas: sales@lanosus.com<br/>
                 <h6 class="mt-3 mb-2 h3">Kokią informaciją renkame, naudojame ir saugojame apie Jus?</h6>
                 Informacija, kurią pateikia pats Svetainės lankytojas, pildydamas registracijos formą mūsų Svetainėje:<br/>
                 <span class="ms-3"></span>1.	Vardas<br/>
@@ -67,10 +67,10 @@
                 Компания обязуется ответственно и безопасно обращаться с вашими личными данными в своей деятельности. Основываясь на этих основных принципах, мы всегда будем стремиться обеспечить достаточный уровень защиты ваших данных и защиту ваших прав. Мы обрабатываем Персональные данные в соответствии с настоящей Политикой конфиденциальности в соответствии с применимыми правовыми актами, в том числе Общим регламентом защиты данных (2016/679) (далее — «GDPR») и применимыми национальными законами Литвы о защите персональных данных.<br />
                 <h6 class="mt-3 mb-2 h3">Контроллер данных</h6>
                 Lanosus<br/>
-                Код компании: -<br/>
-                Адрес: -<br/>
-                Тел. Нр. -<br/>
-                Адрес электронной почты: -<br/>
+                Код компании: 304887410<br/>
+                Адрес: Tilžės g. 156, Šiauliai<br/>
+                Тел. Нр. +370 603 02602<br/>
+                Адрес электронной почты: sales@lanosus.com<br/>
                 <h6 class="mt-3 mb-2 h3">Какую информацию о вас мы собираем, используем и храним?</h6>
                 Информация, предоставленная самим посетителем Сайта при заполнении регистрационной формы на нашем Сайте:<br/>
                 <span class="ms-3"></span>1. Имя<br/>
@@ -104,10 +104,10 @@
                 The company is committed to handling your personal data responsibly and securely in its activities. Based on these essential principles, we will always strive to ensure a sufficient level of protection of your data and the protection of your rights. We process Personal Data, in accordance with this Privacy Policy, in accordance with the applicable legal acts, including the General Data Protection Regulation (2016/679) (hereinafter - "GDPR") and the applicable Lithuanian national personal data protection legislation.<br/>
                 <h6 class="mt-3 mb-2 h3">Data Controller</h6>
                 Lanosus<br/>
-                The company code is: -<br/>
-                Address: -<br/>
-                Phone. No. -<br/>
-                Email address: -<br/>
+                The company code is: 304887410<br/>
+                Address: Tilžės g. 156, Šiauliai<br/>
+                Phone. No. +370 603 02602<br/>
+                Email address: sales@lanosus.com<br/>
                 <h6 class="mt-3 mb-2 h3">What information do we collect, use and store about you?</h6>
                 Information provided by the Website visitor himself when filling out the registration form on our Website:<br/>
                 <span class="ms-3"></span>1. Name<br/>

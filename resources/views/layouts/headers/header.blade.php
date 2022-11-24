@@ -6,19 +6,19 @@
                     <li class="header__info--list">
                         <a class="header__info--link fs-5" href="#">
                             <i class="fa-solid fa-envelope me-1 text-danger"></i>
-                            {{ __('footer.email') }}
+                            sales@lanosus.com
                         </a>
                     </li>
                     <li class="header__info--list">
                         <a class="header__info--link fs-5" href="#">
                             <i class="fa-solid fa-phone me-1 text-danger"></i>
-                            {{ __('footer.phone') }}
+                            +370 603 02602
                         </a>
                     </li>
                     <li class="header__info--list">
                         <a class="header__info--link fs-5" href="#">
                             <i class="fa-solid fa-location-dot me-1 text-danger"></i>
-                            {{ __('footer.address') }}
+                            Tilžės g. 156, Šiauliai
                         </a>
                     </li>
                 </ul>
@@ -79,8 +79,7 @@
                 </div>
                 <div class="main__logo">
                     <a class="main__logo--link" href="{{ url('/') }}">
-                        {{--<img class="main__logo--img" src="{{ asset('') }}" alt="logo-img">--}}
-                        <h1 class="text-danger" style="font-size: 3rem">LANOSUS</h1>
+                        <img class="main__logo--img my-3" src="{{ asset('images/Logo.jpg') }}" alt="logo" width="150">
                     </a>
                 </div>
                 <div class="header__menu d-none d-lg-block header__sticky--block">
@@ -187,8 +186,7 @@
         <div class="offcanvas__inner">
             <div class="offcanvas__logo">
                 <a class="offcanvas__logo_link" href="{{ url('/') }}">
-                    {{--<img src="{{ asset('') }}" alt="logo" width="158" height="36">--}}
-                    <h1 class="text-danger" style="font-size: 3rem">LANOSUS</h1>
+                    <img class="main__logo--img" src="{{ asset('images/Logo.jpg') }}" alt="logo" width="150">
                 </a>
                 <button class="offcanvas__close--btn" data-offcanvas="">close</button>
             </div>

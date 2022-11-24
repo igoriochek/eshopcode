@@ -54,9 +54,9 @@
                                         <span class="current__price">
                                             €{{ $product->price - (round(($product->price * $product->discount->proc / 100), 2)) }}
                                         </span>
-                                        <span class="old__price">
+                                        <strike class="old__price">
                                             €{{ number_format($product->price, 2) }}
-                                        </span>
+                                        </strike>
                                     @else
                                         <span>
                                             €{{ number_format($product->price, 2) }}
