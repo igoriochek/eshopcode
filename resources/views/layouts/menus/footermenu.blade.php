@@ -20,4 +20,7 @@
     <li class="nav-item me-4">
         <a href="{{ url('/policy') }}">{{ __('menu.policy') }}</a>
     </li>
+    <li class="nav-item me-4">
+        <a href="{{ url('/about') }}">{{ __('menu.aboutUs') }}</a>
+    </li>
 </ul>

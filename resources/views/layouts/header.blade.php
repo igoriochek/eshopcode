@@ -1,8 +1,8 @@
-<header class="py-1">
+<header class="py-lg-2 py-3">
     <div id="top_line">
-        <div class="container">
+        <div class="container pb-2 pb-md-0">
             <div class="row">
-                <div class="col-6">
+                <div class="col-7">
                     <i class="icon-phone"></i>
                     <strong>+370 656 88588</strong>
                     <span id ="opening">
@@ -10,7 +10,7 @@
                         {{ __('footer.workHours') }}
                     </span>
                 </div>
-                <div class="col-6">
+                <div class="col-5">
                     <ul id="top_links" class="mb-2">
                         @guest
                             @if (Route::has('login'))
@@ -73,9 +73,9 @@
     <div class="container">
         <div class="row">
             <div class="col-3">
-                <div class="logo_home">
+                <div class="logo_home mt-lg-2 mt-0 mb-1 mb-lg-0">
                     @guest
-                    <h1 class="m-0"><a href="/products">VIATORA</a></h1>
+                        <h1 class="m-0"><a href="/products">VIATORA</a></h1>
                     @else
                         <h1 class="m-0"><a href="/user/products">VIATORA</a></h1>
                     @endguest
@@ -92,10 +92,10 @@
                     @include('layouts.menus.logedmenu')
                 </div>
                 <!-- End main-menu -->
-                <ul id="top_tools" class="mt-1 mt-lg-0">
-                    <li class="p-0 pe-3">
+                <ul id="top_tools" class="me-5 me-lg-0 pe-3 pe-lg-0 mt-0 mt-lg-2">
+                    <li class="p-0">
                         <a href="/user/viewcart" class="cart_bt">
-                            <i class="icon_bag_alt fs-4"></i>
+                            <i class="icon_bag_alt fs-3"></i>
                             @if (!empty($cartItemCount))
                                 <strong class="shopping-cart-items">{{ $cartItemCount }}</strong>
                             @endif

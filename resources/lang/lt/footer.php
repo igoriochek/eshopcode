@@ -9,7 +9,7 @@ return [
     */
 
     'help'=> 'Reikia pagalbos ?',
-    'about' => 'Apie mus ',
+    'about' => 'Apie',
     'careers' => 'Karjera',
     'faq' => 'DUK',
     'termsAndPrivacy' => 'Privatumas ir salygos',

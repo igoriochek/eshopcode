@@ -20,6 +20,7 @@ use App\Http\Controllers\UsersReportController;
 use App\Http\Controllers\UserActivitiesReportController;
 use App\Http\Controllers\ChartController;
 use App\Http\Controllers\DataExportImportController;
+use App\Http\Controllers\AboutUsController;
 use App\Http\Livewire\MessengerIndex;
 use App\Http\Livewire\MessengerAdd;
 use App\Http\Livewire\MessengerShow;
@@ -199,6 +200,7 @@ Route::get('promotions', [\App\Http\Controllers\PromotionController::class, 'ind
 Route::get('promotion/{id}', [\App\Http\Controllers\PromotionController::class, 'promotionProducts'])->name('promotion');
 Route::get("termsofservice", [\App\Http\Controllers\TermsOfServiceController::class, 'rules'])->name('termsofservice');
 Route::get("policy", [\App\Http\Controllers\TermsOfServiceController::class, 'policy'])->name('policy');
+Route::get('about',[AboutUsController::class, 'index'])->name('about');
 
 Auth::routes();
 Route::get("logout", function () {

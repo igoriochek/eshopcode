@@ -9,7 +9,7 @@ return [
     */
 
     'help'=> 'Need help ?',
-    'about' => 'About Us ',
+    'about' => 'About',
     'careers' => 'Careers',
     'faq' => 'FAQ',
     'termsAndPrivacy' => 'User Terms & Privacy',
