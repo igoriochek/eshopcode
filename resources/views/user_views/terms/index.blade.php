@@ -58,7 +58,7 @@
                     5.2. Sutartis pradeda galioti nuo to momento, kai Pirkėjas paspaudžia mygtuką „Patvirtinti užsakymą.<br/>
                     5.3. Prekių / Paslaugų kainos el. parduotuvėje ir suformuotame užsakyme nurodomos eurais, įskaitant PVM.<br/>
                     5.4. Pirkėjas atsiskaito už prekes / paslaugas naudojantis internetinės bankininkystės sistema (Paysera).<br/>
-                    5.5. Tik gavus apmokėjimą už prekes / paslaugas pradedamas formuoti užsakymas ir pradedamas skaičiuoti prekių pristatymo / paslaugų suteikimo terminas.<br/>
+                    5.5. Pristatymo terminai. Pristatymo terminas 5 dienos. Dėl didelio užsakymo skaičiaus gali vėluoti pristatymo terminas iki 14 dienų.<br/>
                     6. Prekių / Paslaugų kokybės, garantijos.<br/>
                     6.1. Kiekvienos el. parduotuvėje parduodamos prekės / paslaugos duomenys bendrai nurodomi prie kiekvienos prekės / paslaugos esančiame prekės aprašyme.<br/>
                     6.2. Pardavėjas tam tikroms prekių / paslaugų rūšims suteikia tam tikrą laiką galiojančią kokybės garantiją, kurios konkretus terminas ir kitos sąlygos nurodomos tokių prekių / paslaugų aprašymuose.<br/>
@@ -111,7 +111,7 @@
                 5.2. Договор вступает в силу с момента нажатия Покупателем кнопки «Подтвердить заказ.<br/>».
                 5.3. Цены на товары/услуги по электронной почте в магазине и в сформированном заказе указаны в евро с учетом НДС.<br/>
                 5.4. Покупатель оплачивает товары/услуги с помощью системы онлайн-банкинга (Paysera).<br/>
-                5.5. Только после получения оплаты за товары/услуги начинает формироваться заказ и начинает рассчитываться срок поставки товаров/услуг.<br/>
+                5.5. Условия доставки. Срок поставки 5 дней. Из-за большого количества заказов время доставки может быть отложено до 14 дней.<br/>
                 6. Гарантии качества товаров/услуг.<br/>
                 6.1. Каждое электронное письмо информация о товарах/услугах, продаваемых в магазине, обычно указывается в описании каждого товара/услуги.<br/>
 
@@ -147,7 +147,7 @@
                 5.2. The contract comes into force from the moment the Buyer clicks the "Confirm order.<br/>" button
                 5.3. Prices of goods/services by e-mail in the store and in the formed order are indicated in euros, including VAT.<br/>
                 5.4. The buyer pays for the goods/services using the online banking system (Paysera).<br/>
-                5.5. Only after receiving the payment for the goods/services, the order begins to be formed and the deadline for the delivery of the goods/services begins to be calculated.<br/>
+                5.5. Delivery terms. Delivery time 5 days. Due to high order quantity, the delivery time may be delayed by up to 14 days.<br/>
                 6. Guarantees of the quality of goods/services.<br/>
                 6.1. Each e-mail the details of the goods/services sold in the store are generally indicated in the description of each good/service.<br/>
 
