@@ -31,7 +31,7 @@ class MessengerAdd extends Component
 
     private function ConvertAddUsersCollectionToQuery(object $addUsers)
     {
-        if ( count($addUsers) == 0) return $addUsers;
+        if (count($addUsers) == 0) return $addUsers;
         return $addUsers->toQuery()->paginate(5);
     }
 

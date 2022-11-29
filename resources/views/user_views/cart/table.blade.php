@@ -19,10 +19,10 @@
                     <strong>{{ $item->count }}</strong>
                 </td>
                 <td>
-                    <strong>{{ number_format($item['product']->price,2) }} €</strong>
+                    <strong>{{ number_format($item->price_current, 2) }} €</strong>
                 </td>
                 <td>
-                    <strong>{{ number_format($item['product']->price  * $item->count,2) }} €</strong>
+                    <strong>{{ number_format($item->price_current  * $item->count, 2) }} €</strong>
                 </td>
 
                 <td class="options">

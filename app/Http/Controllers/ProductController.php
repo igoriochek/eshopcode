@@ -57,20 +57,32 @@ class ProductController extends AppBaseController
         $selCategories = $filter && array_key_exists('categories.id', $filter)
             ? $filter['categories.id']
             : array();
-        $selectedProduct = $request->order != null ? $request->order : 0;
-
-//        $categories = $this->categoryRepository->allQuery(array("parent_id"=>$request->category_id))->get();
         $categories = $this->categoryRepository->allQuery()->get();
+
+        $selectedOrder = $request->order != null ? $request->order : 0;
         $orderBy = "";
-        switch ($selectedProduct){
+        $orderByDirection = "";
+
+        switch ($selectedOrder){
             case "0":
                 $orderBy = "products.id";
+                $orderByDirection = "asc";
                 break;
             case "1":
                 $orderBy = "products_translations.name";
+                $orderByDirection = "asc";
                 break;
             case "2":
+                $orderBy = "products_translations.name";
+                $orderByDirection = "desc";
+                break;
+            case "3":
                 $orderBy = "products.price";
+                $orderByDirection = "asc";
+                break;
+            case "4":
+                $orderBy = "products.price";
+                $orderByDirection = "desc";
                 break;
         }
 
@@ -86,8 +98,8 @@ class ProductController extends AppBaseController
                 AllowedFilter::scope('priceto'),
             ])
             ->allowedIncludes('categories')
-            ->orderBy($orderBy)
-            ->paginate(9)
+            ->orderBy($orderBy, $orderByDirection)
+            ->paginate(12)
             ->appends(request()->query());
 
         foreach ($products as $product) {
@@ -104,8 +116,8 @@ class ProductController extends AppBaseController
                 'categories' => $categories,
                 'filter' => $filter ? $filter : array(),
                 'selCategories' => $selCategories ? explode(",",$selCategories) : array(),
-                'order_list' => $this->productOrder(),
-                'selectedProduct' => $selectedProduct,
+                'order_list' => $this->productsOrderSelector(),
+                'selectedOrder' => $selectedOrder,
 //                'pricefrom' => $request->query('filter[pricefrom]') == null ? "" : $request->query('filter[pricefrom]'),
 //                'priceto' => $request->query('filter[priceto]') == null ? "" : $request->query('filter[priceto]'),
             ]);

@@ -17,16 +17,16 @@ class AppServiceProvider extends ServiceProvider
 
     public function register()
     {
-        $this->app->bind('path.public', function() {
-           return base_path('htdocs');
-        });
+        //$this->app->bind('path.public', function() {
+        //   return base_path('htdocs');
+        //});
     }
 
     public function boot(CartRepository $cartRepository, Request $request)
     {
         Schema::defaultStringLength(191);
 
-        URL::forceScheme('https');
+        //URL::forceScheme('https');
 
         View::composer('*', function($view) use($cartRepository, $request)
         {

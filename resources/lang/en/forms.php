@@ -38,5 +38,12 @@ return [
 
     'current_password' => "Current password",
     'new_password' => "New password",
-    'confirm_password' => 'Confirm Password'
+    'confirm_password' => 'Confirm Password',
+
+    'default' => 'Default',
+    'productNameAsc' => 'Product Name - Ascending',
+    'productNameDesc' => 'Product Name - Descending',
+    'priceAsc' => 'Price - Ascending',
+    'priceDesc' => 'Price - Descending'
+
 ];

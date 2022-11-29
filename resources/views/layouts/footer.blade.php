@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
                 <h6 class="mb-4 text-white fw-bold text-uppercase">
-                    {{__('footer.contactInfo')}}
+                    <span>{{__('footer.contactInfo')}}</span>
                 </h6>
                 <ul>
                     <li class="mb-3">
@@ -30,7 +30,7 @@
             </div>
             <div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
                 <h6 class="mb-4 text-white fw-bold text-uppercase">
-                    {{__('footer.menu')}}
+                    <span>{{__('footer.menu')}}</span>
                 </h6>
                 <ul>
                     @include('layouts.menus.footermenu')
@@ -39,7 +39,7 @@
             @auth
                 <div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
                     <h6 class="mb-4 text-white fw-bold text-uppercase">
-                        {{__('footer.profile')}}
+                        <span>{{__('footer.profile')}}</span>
                     </h6>
                     <ul>
                         <li>
@@ -76,7 +76,7 @@
             @endauth
             <div class="col-md-2">
                 <h6 class="mb-4 text-white fw-bold text-uppercase">
-                    {{__('footer.language')}}
+                    <span>{{__('footer.language')}}</span>
                 </h6>
                 <div class="dropdown dropdown-mini" style="text-align: center; border-radius: 3px; background: #444; width: 120px">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle text-start" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"  aria-expanded="false" style="color: #999; font-weight: 400">
@@ -88,12 +88,18 @@
                             {{ __('Pусский') }}
                         @endif
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <ul class="dropdown-menu mt-1" aria-labelledby="navbarDropdown">
                         @foreach (config('translatable.locales') as $locale)
-                            <li class="text-center">
+                            <li>
                                 <a class="dropdown-item" href="/lang/{{ $locale }}"
                                    class="@if (app()->getLocale() == $locale)  @endif inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium leading-5 focus:outline-none transition duration-150 ease-in-out">
-                                    {{ strtoupper($locale) }}
+                                    @if ($locale == 'en')
+                                        {{ __('English') }}
+                                    @elseif ($locale == 'lt')
+                                        {{ __('Lietuviskai') }}
+                                    @elseif ($locale == 'ru')
+                                        {{ __('Pусский') }}
+                                    @endif
                                 </a>
                             </li>
                         @endforeach

@@ -8,7 +8,7 @@
                 <div class="shop-section">
                     <div class="items-sorting">
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-12 col-md-6">
                                 <div class="results_shop">
                                     {{ __('names.showing') }}
                                     @if ($products->currentPage() !== $products->lastPage())
@@ -24,11 +24,10 @@
                                     {{ $products->total().' '.__('names.results') }}
                                 </div>
                             </div>
-                            <div class="col-6">
-                                <div class="form-group" style="min-width: 150px">
-                                    <form method="get" action="{{ route("userproducts") }}" id="orderForm">
-                                        {!! Form::select('order', $order_list, $selectedProduct, ['class' => 'ps-3', 'id' => 'orderSelector']) !!}
-                                    </form>
+                            <div class="col-12 col-md-6 d-flex justify-content-start justify-content-md-end mb-3 mt-2 mt-md-0">
+                                <div class="col-12 col-md-10 col-lg-9">
+                                    {!! Form::select('order', $order_list, $selectedOrder,
+                                        ['class' => 'ps-3', 'id' => 'orderSelector', 'style' => 'cursor: pointer']) !!}
                                 </div>
                             </div>
                         </div>
@@ -110,7 +109,7 @@
             <!--Sidebar-->
             <div class="col-lg-3">
                 <aside class="sidebar">
-                    <form method="get" action="{{ route("userproducts") }}">
+                    <form method="get" action="{{ route("userproducts") }}" id="mainForm">
                         <div class="widget p-0">
                             <div class="input-group">
                                 <input type="text" name="filter[namelike]" class="form-control" id="filter[namelike]"
@@ -165,6 +164,7 @@
                         </div>
                         <!-- End widget -->
                         <hr>
+                        <input type="hidden" id="order" name="order" value="{{ $selectedOrder }}">
                         <button type="submit" class="filter-button" data-text-original="{{ __('buttons.filter') }}">
                             {{ __('buttons.filter') }}
                         </button>
@@ -208,10 +208,12 @@
     </div>
     @push('scripts')
         <script>
-            const orderForm = document.getElementById('orderForm');
-            const orderSelector = document.getElementById('orderSelector');
+            document.getElementById('orderSelector').onchange = () => {
+                addOrderValueToFilter();
+                document.getElementById('mainForm').submit();
+            }
 
-            orderSelector.onchange = () => orderForm.submit();
+            const addOrderValueToFilter = () => document.getElementById('order').value = $('#orderSelector').val();
 
             const rangeSlider = document.getElementById('range-slider');
             const priceFrom = document.getElementById('filter[pricefrom]');

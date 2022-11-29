@@ -38,6 +38,12 @@ return [
 
     'current_password' => "Dabartinis slaptažodis",
     'new_password' => "Naujas slaptažodis",
-    'confirm_password' => 'Patvirtinti slaptažodį'
+    'confirm_password' => 'Patvirtinti slaptažodį',
+
+    'default' => 'Numatytasis',
+    'productNameAsc' => 'Produkto Pavadinimas – Didėjančia',
+    'productNameDesc' => 'Produkto Pavadinimas – Mažėjančia',
+    'priceAsc' => 'Kaina - Didėjančia',
+    'priceDesc' => 'Kaina - Mažėjančia'
 
 ];

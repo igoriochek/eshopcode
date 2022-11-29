@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-    <section id = "hero" class="login">
+    <section id="hero" class="login">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-xl-4 col-lg-5 col-md-6 col-sm-8">
                     <div id="login">
                         <div class="text-center">
-                        <h1>VIATORA</h1>
+                            <h1>{{ __('auth.login') }}</h1>
                         </div>
                         <hr>
                         <form method="POST" action="{{ route('login') }}">
@@ -49,7 +49,7 @@
                                 @endif
                             </p>
                             <div class="form-group">
-                                <div class="col-md-6 offset-md-4">
+                                <div class="col-md-6">
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
@@ -59,7 +59,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit" class="btn_full">
+                            <button type="submit" class="btn_full mt-4">
                                 {{ __('buttons.login') }}
                             </button>
                             <a href="{{ route('register') }}" class="btn_full_outline">{{ __('buttons.register') }}</a>

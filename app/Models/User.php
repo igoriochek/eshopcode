@@ -27,16 +27,6 @@ class User extends Authenticatable
 
     public $table = 'users';
 
-    public function scopeDateFrom(Builder $query, $date_from): Builder
-    {
-        return $query->where('created_at', '>=', Carbon::parse($date_from));
-    }
-
-    public function scopeDateTo(Builder $query, $date_to): Builder
-    {
-        return $query->where('created_at', '<=', Carbon::parse($date_to));
-    }
-
     protected $fillable = [
         'name',
         'email',
@@ -119,5 +109,15 @@ class User extends Authenticatable
     public function adminOrders()
     {
         return $this->hasMany(Order::class, 'admin_id', 'id');
+    }
+
+    public function scopeDateFrom(Builder $query, $date_from): Builder
+    {
+        return $query->where('created_at', '>=', Carbon::parse($date_from));
+    }
+
+    public function scopeDateTo(Builder $query, $date_to): Builder
+    {
+        return $query->where('created_at', '<=', Carbon::parse($date_to));
     }
 }

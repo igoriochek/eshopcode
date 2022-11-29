@@ -6,7 +6,9 @@
             <div class="row justify-content-center">
                 <div class="col-xl-4 col-lg-5 col-md-6 col-sm-8">
                     <div id="login">
-                        <div class="text-center"><h1>LOGO</h1></div>
+                        <div class="text-center">
+                            <h1>{{ __('auth.register') }}</h1>
+                        </div>
                         <hr>
                         <form method="POST" action="{{ route('register') }}">
                             @csrf
@@ -50,7 +52,8 @@
                                 </div>
                             </div>
                             <div id="pass-info" class="clearfix"></div>
-                            <button type="submit" class="btn_full">{{ __('buttons.register') }}</button>
+                            <button type="submit" class="btn_full mt-4">{{ __('buttons.register') }}</button>
+                            <a href="{{ route('login') }}" class="btn_full_outline">{{ __('buttons.back') }}</a>
                         </form>
                     </div>
                 </div>

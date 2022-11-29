@@ -208,22 +208,23 @@ class CartController extends AppBaseController
                 ->first();
 
             if (null === $cartItem) {
-                $cartItem = new CartItem([
+                $cartItem = CartItem::create([
                     'cart_id' => $cart->id,
                     'product_id' => $product->id,
-                    'price_current' => $product->price,
+                    'price_current' => $product->discount ?
+                        $product->price - (round(($product->price * $product->discount->proc / 100), 2)) :
+                        $product->price,
                     'count' => $validated['count'],
                 ]);
                 $cartItem->save();
-            }
-            else {
+            } else {
                 $cartItem->increment('count', $validated['count']);
                 $cartItem->save();
             }
 
             $this->cartRepository->cartSum($cart);
 
-            Flash::success('ok');
+            Flash::success("Added {$product->name} to shopping cart");
         } else {
             Flash::error('Product not found');
         }

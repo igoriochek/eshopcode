@@ -2,15 +2,15 @@
     <div id="top_line">
         <div class="container pb-2 pb-md-0">
             <div class="row">
-                <div class="col-7">
+                <div class="col-5">
                     <i class="icon-phone"></i>
-                    <strong>+370 656 88588</strong>
-                    <span id ="opening">
+                    <strong class="me-3">+370 656 88588</strong>
+                    <span class="ms-0 ps-0" id="opening">
                         <i class="icon-clock-1"></i>
                         {{ __('footer.workHours') }}
                     </span>
                 </div>
-                <div class="col-5">
+                <div class="col-7">
                     <ul id="top_links" class="mb-2">
                         @guest
                             @if (Route::has('login'))

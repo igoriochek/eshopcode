@@ -5166,7 +5166,7 @@ footer .gallery-image img {
 
  .dropdown-mini .dropdown-menu:before {
 	bottom: 100%;
-	right: 10%;
+	left: 15%;
 	border: solid transparent;
 	content: " ";
 	height: 0;
