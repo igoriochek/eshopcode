@@ -256,7 +256,7 @@ return [
     "discountCouponValue" => "Стоимость купона на скидку",
     "zeroRecords" => "Нет данных",
     "showing" => "Показаны",
-    "entries" => "записи",
+    "entries" => "записей",
     "to" => "до",
     "of" => "из",
     "first" => "Первый",
