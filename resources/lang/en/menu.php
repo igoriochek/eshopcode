@@ -39,7 +39,7 @@ return [
     'profile' => 'Profile',
     'termsofservice' => 'Rules',
     'policy' => 'Privacy Policy',
-    'about' => 'About Us',
+    'about' => 'EU Projects',
     'passwordReset' => 'Password recovery',
 
 ];

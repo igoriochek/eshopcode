@@ -11,7 +11,7 @@
 </div>
 <div class="single__widget price__filter widget__bg">
     <h2 class="widget__title h3">{{ __('names.filterByPrice') }}</h2>
-    <div id="range-slider" class="slider mb-3 mt-1 mx-1" wire:ignore></div>
+    <div id="range-slider" class="slider mb-3 mt-1 mx-1"></div>
     <div class="price__filter--form__inner mb-15 d-flex align-items-center">
         <div class="price__filter--group">
             <label class="price__filter--label" for="Filter-Price-GTE2">{{ __('names.from') }}</label>

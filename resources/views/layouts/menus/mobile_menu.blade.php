@@ -29,4 +29,14 @@
             {{ __('menu.messenger') }}
         </a>
     </li>
+    <li class="offcanvas__menu_li">
+        <a class="offcanvas__menu_item {{ request()->is('about') ? 'active' : '' }}"
+           href="{{ url('/about') }}">
+            @if (app()->getLocale() == 'lt')
+                <img src="{{ asset('images/es_projektai.jpeg') }}" alt="es_projekts" width="85">
+            @else
+                <img src="{{ asset('images/eu_projects.jpeg') }}" alt="eu_projects" width="120">
+            @endif
+        </a>
+    </li>
 </ul>

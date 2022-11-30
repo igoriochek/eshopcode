@@ -1,5 +1,5 @@
 <!-- Start offcanvas filter sidebar -->
-<div class="offcanvas__filter--sidebar widget__area">
+<div class="offcanvas__filter--sidebar widget__area" id="mobileMainForm">
     <button type="button" class="offcanvas__filter--close ms-4" data-offcanvas>
         <svg class="minicart__close--icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
             <path fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M368 368L144 144M368 144L144 368"></path>
@@ -11,9 +11,9 @@
             <h2 class="widget__title h3">{{ __('names.search') }}</h2>
             <div class="input-group mb-3 pb-1">
                 <input type="text" name="filter[namelike]" class="form-control product-search-input"
-                       id="filter[namelike]" placeholder="{{ __('names.search').'...' }}"
+                       id="mfilter[namelike]" placeholder="{{ __('names.search').'...' }}"
                        value="{{$filter["namelike"] ?? ""}}">
-                <button type="submit" class="btn btn-primary p-2 product-search-button">
+                <button type="button" class="btn btn-primary p-2 product-search-button" onclick="submitMobileMainForm();">
                     <i class="fas fa-search m-2"></i>
                 </button>
             </div>
@@ -25,7 +25,7 @@
                     <label class="price__filter--label" for="Filter-Price-GTE2">{{ __('names.from') }}</label>
                     <div class="price__filter--input border-radius-5 d-flex align-items-center">
                         <span class="price__filter--currency">€</span>
-                        <input type="number" id="filter[pricefrom]" name="filter[pricefrom]"
+                        <input type="number" id="mfilter[pricefrom]" name="filter[pricefrom]"
                                value="{{ $filter["pricefrom"] ?? '0' }}"
                                class="price__filter--input__field border-0 w-100"/>
                     </div>
@@ -37,13 +37,13 @@
                     <label class="price__filter--label" for="Filter-Price-LTE2">{{ __('names.to') }}</label>
                     <div class="price__filter--input border-radius-5 d-flex align-items-center">
                         <span class="price__filter--currency">€</span>
-                        <input type="number" id="filter[priceto]" name="filter[priceto]"
+                        <input type="number" id="mfilter[priceto]" name="filter[priceto]"
                                value="{{ $filter["priceto"] ?? '0' }}"
                                class="price__filter--input__field border-0 w-100"/>
                     </div>
                 </div>
             </div>
-            <button type="submit" class="primary__btn price__filter--btn w-100 mt-4">
+            <button type="button" class="primary__btn price__filter--btn w-100 mt-4" onclick="submitMobileMainForm();">
                 {{ __('buttons.filter') }}
             </button>
         </div>
@@ -55,7 +55,7 @@
                         <label class="widget__form--check__label">
                             {{ $category->name }}
                             <input class="form-check-input my-0" type="checkbox" value="{{ $category->id }}"
-                                   id="category" onclick="calc();" name="filter[categories.id]" style="cursor: pointer"
+                                   id="mcategory" onclick="calc();" name="filter[categories.id]" style="cursor: pointer"
                             @if ($filter && array_key_exists('categories.id', $filter))
                                 {{ in_array($category->id, $selCategories) ? "checked=\"checked\"" : ""}}
                                 @endif>
@@ -67,12 +67,28 @@
                     </li>
                 @endforelse
                 <input type="text" value="{{ implode(",", $selCategories) }}"
-                       name="filter[categories.id]" id="filter[categories.id]" class="d-none">
-                <input type="hidden" id="order" name="order" value="{{ $selectedOrder }}">
-                <input type="hidden" id="paginate" name="productsPerPage" value="{{ $selectedProductsPerPage }}">
+                       name="filter[categories.id]" id="mfilter[categories.id]" class="d-none">
             </ul>
         </div>
 
     </div>
 </div>
 <!-- End offcanvas filter sidebar -->
+
+@push('scripts')
+    <script>
+        const mainForm = document.getElementById('mainForm');
+
+        const submitMobileMainForm = () => {
+            addFilterValuesToMainForm();
+            mainForm.submit();
+        }
+
+        const addFilterValuesToMainForm = () => {
+            document.getElementById("filter[namelike]").value = document.getElementById("mfilter[namelike]").value
+            document.getElementById('filter[pricefrom]').value = document.getElementById("mfilter[pricefrom]").value
+            document.getElementById('filter[priceto]').value = document.getElementById("mfilter[priceto]").value
+            document.getElementById('category').value = document.getElementById("mcategory").value
+        }
+    </script>
+@endpush

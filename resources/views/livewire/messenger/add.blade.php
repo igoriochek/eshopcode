@@ -5,7 +5,7 @@
             <div class="row row-cols-1">
                 <div class="col">
                     <div class="breadcrumb__content text-center">
-                        <h1 class="breadcrumb__content--title">{{ __('names.contactUsers') }}</h1>
+                        <h1 class="breadcrumb__content--title">{{ __('menu.messenger') }}</h1>
                         <ul class="breadcrumb__content--menu d-flex justify-content-center">
                             <li class="breadcrumb__content--menu__items">
                                 <a href="{{ url('/') }}">{{ __('menu.home') }}</a>
@@ -14,7 +14,7 @@
                                 <a href="{{ url('/user/messenger') }}">{{ __('menu.messenger') }}</a>
                             </li>
                             <li class="breadcrumb__content--menu__items">
-                                <span>{{ __('names.contactUsers') }}</span>
+                                <span>{{ __('names.new') }}</span>
                             </li>
                         </ul>
                     </div>
@@ -42,22 +42,26 @@
                             <div class="shop__header d-flex align-items-center justify-content-between">
                                 <div class="product__view--mode d-flex align-items-center">
                                     <div class="product__view--mode__list product__short--by justify-content-center d-flex flex-column">
-                                        <h2 class="h2">{{ __('names.contactUsers') }}</h2>
+                                        <h2 class="h2">{{ __('menu.messenger') }}</h2>
                                     </div>
                                 </div>
                                 <p class="product__showing--count">
                                     {{ __('names.showing') }}
-                                    @if ($addUsers->currentPage() !== $addUsers->lastPage())
-                                        {{ ($addUsers->count() * $addUsers->currentPage() - $addUsers->count() + 1).__('–').($addUsers->count() * $addUsers->currentPage()) }}
-                                    @else
-                                        @if ($addUsers->total() - $addUsers->count() === 0)
-                                            {{ $addUsers->count() }}
+                                    @if (count($addUsers) > 0)
+                                        @if ($addUsers->currentPage() !== $addUsers->lastPage())
+                                            {{ ($addUsers->count() * $addUsers->currentPage() - $addUsers->count() + 1).__('–').($addUsers->count() * $addUsers->currentPage()) }}
                                         @else
-                                            {{ ($addUsers->total() - $addUsers->count()).__('–').$addUsers->total() }}
+                                            @if ($addUsers->total() - $addUsers->count() === 0)
+                                                {{ $addUsers->count() }}
+                                            @else
+                                                {{ ($addUsers->total() - $addUsers->count()).__('–').$addUsers->total() }}
+                                            @endif
                                         @endif
+                                        {{ __('names.of') }}
+                                        {{ $addUsers->total().' '.__('names.entries') }}
+                                    @else
+                                        {{ '0 '.__('names.entries') }}
                                     @endif
-                                    {{ __('names.of') }}
-                                    {{ $addUsers->total().' '.__('names.entries') }}
                                 </p>
                             </div>
                             <div class="tab_content mb-5 mt-5">

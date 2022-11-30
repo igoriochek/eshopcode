@@ -30,7 +30,7 @@
                 <div class="account__left--sidebar">
                     <h2 class="account__content--title mb-20">{{__('menu.profile')}}</h2>
                     <ul class="account__menu nav nav-tabs justify-content-start" role="tablist">
-                        <li class="account__menu--list nav-item mb-3 me-4 me-lg-0" role="presentation">
+                        <li class="account__menu--list nav-item mb-3 me-4 me-lg-3" role="presentation">
                             <a class="active" href="#profile" data-bs-toggle="tab" aria-selected="true" role="tab">
                                 {{ __('menu.userInfo') }}
                             </a>

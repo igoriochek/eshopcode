@@ -67,12 +67,12 @@
                     position: relative;
 
                     &:hover, &:focus, &:active {
-                        color: $yellow-color;
+                        color: var(--secondary-color);
                     }
                 }
 
                 .active {
-                    color: $yellow-color;
+                    color: var(--secondary-color);
                 }
             }
         }
@@ -97,6 +97,7 @@
         max-width: 100%;
         height: auto;
         border-bottom: 1px solid #EDEDED;
+        display: none;
 
         .admin-header-container {
             .admin-header-top-container {
@@ -155,15 +156,15 @@
                 transition: all 200ms ease;
 
                 &:hover, &:focus, &:active {
-                    background: $black-color;
+                    background: var(--primary-color);
 
                     a {
-                        color: $yellow-color;
+                        color: var(--secondary-color);
                     }
                 }
 
                 a {
-                    color: $black-color;
+                    color: var(--primary-color);
                     border-radius: 0 !important;
                     text-transform: uppercase;
                     font-weight: 700;

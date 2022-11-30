@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'aurintus'),
+    'name' => env('APP_NAME', 'lanosus'),
 
     /*
     |--------------------------------------------------------------------------
@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'https://cncstakles.lt'),
 
     'asset_url' => env('ASSET_URL', null),
 

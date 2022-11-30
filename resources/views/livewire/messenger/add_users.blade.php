@@ -16,12 +16,14 @@
         </li>
     @empty
         <li>
-            <span class="text-muted">{{ __('names.noUncontactedUsers') }}</span>
+            <span class="text-muted ms-4">{{ __('names.noUncontactedUsers') }}</span>
         </li>
     @endforelse
-    <div class="pagination__area">
-        <nav class="pagination justify-content-center">
-            {{ $addUsers->onEachSide(1)->links() }}
-        </nav>
-    </div>
+    @if (count($addUsers) > 0)
+        <div class="pagination__area">
+            <nav class="pagination justify-content-center">
+                {{ $addUsers->onEachSide(1)->links() }}
+            </nav>
+        </div>
+    @endif
 </ul>

@@ -46,15 +46,9 @@
     @include('layouts.preloader')
 @endif
 
-@if (request()->is('products') || request()->is('user/products'))
-    <form method="get" action="{{ route("userproducts") }}" id="mainForm">
-        @include('user_views.product.mobile_sidebar')
-    </form>
-@endif
-
-@if (Str::contains(url()->current() ,'/innercategories'))
+@if (request()->is('user/innercategories*') || request()->is('innercategories*'))
     @include('user_views.category.mobile_sidebar')
-@elseif (Str::contains(url()->current() ,'/promotion'))
+@elseif (request()->is('user/promotions') || request()->is('user/promotion*') || request()->is('promotions') || request()->is('promotion*'))
     @include('user_views.promotion.mobile_sidebar')
 @endif
 
@@ -65,16 +59,19 @@
         @else
             @include('layouts.headers.header')
         @endif
-    @endauth
-    @guest
+    @else
         @include('layouts.headers.header')
-    @endguest
+    @endauth
     <main class="main__content_wrapper">
         @yield('content')
     </main>
     @include('layouts.scroll_top_button')
     @include('layouts.footer')
 </div>
+
+@if (request()->is('products') || request()->is('user/products'))
+    @include('user_views.product.mobile_sidebar')
+@endif
 
 <!-- JS Plugins -->
 <script src="{{ asset('js/jquery-3.6.0.min.js') }}"></script>

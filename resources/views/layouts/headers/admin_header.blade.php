@@ -16,27 +16,43 @@
         </div>
         <hr class="admin-header-hr">
         <div class="admin-header-bottom-container">
-            <a href="#" class="admin-header-account-dropdown" role="button"
-               id="navbarUserDropdown"
-               data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img src="{{ asset('images/icons/icon-account.png') }}" height="25" alt="icon-account" class="admin-header-account-icon">
-                <span class="admin-header-account-name">{{ Auth::user()->name }}</span>
-            </a>
-            @include('layouts.dropdowns.admin_dropdown')
-            <ul class="nav nav-pills">
-                <li class="nav-item dropdown nav-item-border">
-                    <a class="nav-link text-uppercase admin-navbar-language-dropdown"
-                       href="#" role="button" id="dropdownLanguage" data-bs-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false">
-                        {{ app()->getLocale() }}
-                        <i class="fas fa-angle-down"></i>
+            <div class="header__account header__sticky--none">
+                <ul class="header__account--wrapper d-flex align-items-center">
+                    <li class="header__menu--items account">
+                        <a class="header__menu--link text-dark px-0 fs-5" href="javascript:void(0)">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class=" -user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                            <span class="d-none d-lg-inline fw-normal">{{ strtok(Auth::user()->name, ' ') }}</span>
+                        </a>
+                        @include('layouts.dropdowns.user_dropdown')
+                    </li>
+                </ul>
+            </div>
+            <ul class="header__top--link d-flex align-items-center">
+                <li class="language__currency--list">
+                    <a class="language__switcher fs-5" href="javascript:void(0)">
+                        <span>
+                            @if (app()->getLocale() == 'lt')
+                                {{ __('names.lithuanian') }}
+                            @elseif (app()->getLocale() == 'ru')
+                                {{ __('names.russian') }}
+                            @else
+                                {{ __('names.english') }}
+                            @endif
+                        </span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="9.797" height="6.05" viewBox="0 0 9.797 6.05">
+                            <path d="M14.646,8.59,10.9,12.329,7.151,8.59,6,9.741l4.9,4.9,4.9-4.9Z" transform="translate(-6 -8.59)" fill="currentColor" opacity="0.7"></path>
+                        </svg>
                     </a>
-                    @include('layouts.dropdowns.language_dropdown')
+                    <div class="dropdown__language admin__dropdown__language">
+                        @include('layouts.dropdowns.language_dropdown')
+                    </div>
                 </li>
             </ul>
         </div>
     </div>
 </header>
+
+@include('layouts.headers.mobile_admin_header')
 
 @push('scripts')
     <script>

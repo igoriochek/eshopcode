@@ -60,6 +60,67 @@
                         </ul>
                     </div>
                 </div>
+                <div class="col-lg-3 col-md-4">
+                    <div class="footer__widget">
+                        <h2 class="footer__widget--title ">
+                            {{ __('footer.menu') }}
+                            <button class="footer__widget--button" aria-label="footer widget button"></button>
+                            <svg class="footer__widget--title__arrowdown--icon" xmlns="http://www.w3.org/2000/svg" width="12.355" height="8.394" viewBox="0 0 10.355 6.394">
+                                <path  d="M15.138,8.59l-3.961,3.952L7.217,8.59,6,9.807l5.178,5.178,5.178-5.178Z" transform="translate(-6 -8.59)" fill="currentColor"></path>
+                            </svg>
+                        </h2>
+                        <ul class="footer__widget--menu footer__widget--inner">
+                            <li class="footer__widget--menu__list">
+                                <a class="footer__widget--menu__text" href="{{ url('/products') }}"
+                                    style="color: {{ request()->is('products*') ? '#ED1D24' : '' }}">
+                                    {{ __('menu.products') }}
+                                </a>
+                            </li>
+                            <li class="footer__widget--menu__list">
+                                <a class="footer__widget--menu__text" href="{{ url('/rootcategories') }}"
+                                   style="color: {{ request()->is('rootcategories*') ? '#ED1D24' : '' }}">
+                                    {{ __('menu.categories') }}
+                                </a>
+                            </li>
+                            <li class="footer__widget--menu__list">
+                                <a class="footer__widget--menu__text" href="{{ url('/promotions') }}"
+                                   style="color: {{ request()->is('promotions*') ? '#ED1D24' : '' }}">
+                                    {{ __('menu.promotions') }}
+                                </a>
+                            </li>
+                            <li class="footer__widget--menu__list">
+                                <a class="footer__widget--menu__text" href="{{ url('/user/discountCoupons') }}"
+                                   style="color: {{ request()->is('/user/discountCoupons*') ? '#ED1D24' : '' }}">
+                                    {{ __('menu.discountCoupons') }}
+                                </a>
+                            </li>
+                            <li class="footer__widget--menu__list">
+                                <a class="footer__widget--menu__text" href="{{ url('/user/messenger') }}"
+                                   style="color: {{ request()->is('user/messenger*') ? '#ED1D24' : '' }}">
+                                    {{ __('menu.messenger') }}
+                                </a>
+                            </li>
+                            <li class="footer__widget--menu__list">
+                                <a class="footer__widget--menu__text" href="{{ url('/termsofservice') }}"
+                                   style="color: {{ request()->is('termsofservice') ? '#ED1D24' : '' }}">
+                                    {{ __('menu.termsofservice') }}
+                                </a>
+                            </li>
+                            <li class="footer__widget--menu__list">
+                                <a class="footer__widget--menu__text" href="{{ url('/policy') }}"
+                                   style="color: {{ request()->is('policy') ? '#ED1D24' : '' }}">
+                                    {{ __('menu.policy') }}
+                                </a>
+                            </li>
+                            <li class="footer__widget--menu__list">
+                                <a class="footer__widget--menu__text" href="{{ url('/about') }}"
+                                   style="color: {{ request()->is('about') ? '#ED1D24' : '' }}">
+                                    {{ __('menu.about') }}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
                 @auth
                     <div class="col-lg-3 col-md-4">
                         <div class="footer__widget">
@@ -108,80 +169,6 @@
                         </div>
                     </div>
                 @endauth
-                <div class="col-lg-3 col-md-4">
-                    <div class="footer__widget">
-                        <h2 class="footer__widget--title ">
-                            {{ __('footer.menu') }}
-                            <button class="footer__widget--button" aria-label="footer widget button"></button>
-                            <svg class="footer__widget--title__arrowdown--icon" xmlns="http://www.w3.org/2000/svg" width="12.355" height="8.394" viewBox="0 0 10.355 6.394">
-                                <path  d="M15.138,8.59l-3.961,3.952L7.217,8.59,6,9.807l5.178,5.178,5.178-5.178Z" transform="translate(-6 -8.59)" fill="currentColor"></path>
-                            </svg>
-                        </h2>
-                        <ul class="footer__widget--menu footer__widget--inner">
-                            <li class="footer__widget--menu__list">
-                                <a class="footer__widget--menu__text" href="{{ url('/products') }}"
-                                    style="color: {{ request()->is('products*') ? '#ED1D24' : '' }}">
-                                    {{ __('menu.products') }}
-                                </a>
-                            </li>
-                            <li class="footer__widget--menu__list">
-                                <a class="footer__widget--menu__text" href="{{ url('/rootcategories') }}"
-                                   style="color: {{ request()->is('rootcategories*') ? '#ED1D24' : '' }}">
-                                    {{ __('menu.categories') }}
-                                </a>
-                            </li>
-                            <li class="footer__widget--menu__list">
-                                <a class="footer__widget--menu__text" href="{{ url('/promotions') }}"
-                                   style="color: {{ request()->is('promotions*') ? '#ED1D24' : '' }}">
-                                    {{ __('menu.promotions') }}
-                                </a>
-                            </li>
-                            <li class="footer__widget--menu__list">
-                                <a class="footer__widget--menu__text" href="{{ url('/user/discountCoupons') }}"
-                                   style="color: {{ request()->is('/user/discountCoupons*') ? '#ED1D24' : '' }}">
-                                    {{ __('menu.discountCoupons') }}
-                                </a>
-                            </li>
-                            <li class="footer__widget--menu__list">
-                                <a class="footer__widget--menu__text" href="{{ url('/user/messenger') }}"
-                                   style="color: {{ request()->is('user/messenger*') ? '#ED1D24' : '' }}">
-                                    {{ __('menu.messenger') }}
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4">
-                    <div class="footer__widget">
-                        <h2 class="footer__widget--title ">
-                            {{ __('footer.resources') }}
-                            <button class="footer__widget--button" aria-label="footer widget button"></button>
-                            <svg class="footer__widget--title__arrowdown--icon" xmlns="http://www.w3.org/2000/svg" width="12.355" height="8.394" viewBox="0 0 10.355 6.394">
-                                <path  d="M15.138,8.59l-3.961,3.952L7.217,8.59,6,9.807l5.178,5.178,5.178-5.178Z" transform="translate(-6 -8.59)" fill="currentColor"></path>
-                            </svg>
-                        </h2>
-                        <ul class="footer__widget--menu footer__widget--inner">
-                            <li class="footer__widget--menu__list">
-                                <a class="footer__widget--menu__text" href="{{ url('/termsofservice') }}"
-                                   style="color: {{ request()->is('termsofservice') ? '#ED1D24' : '' }}">
-                                    {{ __('menu.termsofservice') }}
-                                </a>
-                            </li>
-                            <li class="footer__widget--menu__list">
-                                <a class="footer__widget--menu__text" href="{{ url('/policy') }}"
-                                   style="color: {{ request()->is('policy') ? '#ED1D24' : '' }}">
-                                    {{ __('menu.policy') }}
-                                </a>
-                            </li>
-                            <li class="footer__widget--menu__list">
-                                <a class="footer__widget--menu__text" href="{{ url('/about') }}"
-                                   style="color: {{ request()->is('about') ? '#ED1D24' : '' }}">
-                                    {{ __('menu.about') }}
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
             </div>
         </div>
     </div>

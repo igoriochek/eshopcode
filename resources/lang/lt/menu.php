@@ -41,7 +41,7 @@ return [
     'profile' => 'Profilis',
     'termsofservice' => 'Taisyklės',
     'policy' => 'Privatumo politika',
-    'about' => 'Apie',
+    'about' => 'Es Projektai',
     'passwordReset' => 'Slaptažodžio atkūrimas',
 
 ];

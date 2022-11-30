@@ -34,7 +34,7 @@ return [
     'register' => 'Зарегистрироваться',
     'save' => 'Сохранить',
     'showLogs' => 'Показать журналы',
-    'showStatistics' => 'Показать статистику',
+    'showStatistics' => 'Показать Cтатистику',
     'postReview' => 'Опубликовать отзыв',
     'proceedToCheckout' => 'Перейти к оформлению заказа',
     'contact' => 'Контакт',

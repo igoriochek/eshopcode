@@ -112,7 +112,7 @@
                 </div>
                 <div class="col-xl-3 col-lg-4 shop-col-width-lg-4">
                     <form method="get" action="{{ route("userproducts") }}" id="mainForm"
-                          class="shop__sidebar--widget widget__area d-none d-lg-block" style="top: 100px">
+                          class="shop__sidebar--widget widget__area d-none d-lg-block regular-sidebar" style="top: 100px">
                         @include('user_views.product.sidebar')
                     </form>
                 </div>
@@ -142,8 +142,8 @@
                 $(rangeSlider).slider({
                     range: true,
                     min: 0,
-                    max: 1000,
-                    values: [{{ $filter["pricefrom"] ?? 0 }}, {{ $filter["priceto"] ?? 1000 }}],
+                    max: {{ $maxPrice }},
+                    values: [{{ $filter["pricefrom"] ?? 0 }}, {{ $filter["priceto"] ?? $maxPrice }}],
                     slide: (event, ui) => {
                         $(priceFrom).val(ui.values[0]);
                         $(priceTo).val(ui.values[1]);
