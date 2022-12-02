@@ -1,5 +1,5 @@
 <div>
-    @include('user_views.section', ['title' => __('menu.messenger')])
+    @include('user_views.section', ['title' => __('menu.messenger'), 'paragraph' => __('names.new')])
     <div id="position">
         <div class="container">
             <ul>
@@ -7,7 +7,7 @@
                     <a href="{{ url('/user/messenger') }}">{{ __('menu.messenger') }}</a>
                 </li>
                 <li>
-                    {{ __('names.contactUsers') }}
+                    {{ __('names.new') }}
                 </li>
             </ul>
         </div>
@@ -32,7 +32,7 @@
                 <div class="col-lg-8 mb-5">
                     <div class="messenger-add-users p-4 mb-4 mb-sm-5">
                         <h6 class="messenger-add-users-title m-0 text-uppercase">
-                            {{ __('names.contactUsers') }}
+                            {{ __('menu.messenger') }}
                         </h6>
                         @include('livewire.messenger.add_users')
                     </div>

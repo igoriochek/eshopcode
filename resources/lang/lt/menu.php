@@ -44,6 +44,7 @@ return [
     'profile' => 'Profilis',
     'termsOfService' => 'Taisyklės',
     'policy' => 'Privatumo politika',
-    'aboutUs' => 'ES Projektai'
+    'aboutUs' => 'ES Projektai',
+    'statistics' => 'Statistika'
 
 ];

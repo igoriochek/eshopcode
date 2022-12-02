@@ -18,8 +18,6 @@ return [
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
 
     'passwordConfirmToContinue' => 'Please confirm your password before continuing.',
-    'resetPassword' => 'Reset Password',
-    'sendResetPasswordLink' => 'Send Reset Password Link',
 
     //Login
     'login'=> 'Login',
@@ -34,6 +32,10 @@ return [
     'email' => 'Email Address',
     'passwordEnter' => 'Password',
     'passwordEnterConfirm' => 'Confirm Password',
+
+    //Reset Password
+    'resetPassword' => 'Reset Password',
+    'sendResetPasswordLink' => 'Send Reset Password Link',
 
     //Verify
     'checkEmailForVerify' => 'Before proceeding, please check your email for a verification link.',

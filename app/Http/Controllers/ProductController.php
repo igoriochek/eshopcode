@@ -118,6 +118,7 @@ class ProductController extends AppBaseController
                 'selCategories' => $selCategories ? explode(",",$selCategories) : array(),
                 'order_list' => $this->productsOrderSelector(),
                 'selectedOrder' => $selectedOrder,
+                'maxPrice' => $products->max('price')
 //                'pricefrom' => $request->query('filter[pricefrom]') == null ? "" : $request->query('filter[pricefrom]'),
 //                'priceto' => $request->query('filter[priceto]') == null ? "" : $request->query('filter[priceto]'),
             ]);

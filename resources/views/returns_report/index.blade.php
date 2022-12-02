@@ -2,7 +2,7 @@
 
 @section('content')
 
-    @include('user_views.section', ['title' => __('reports.returnReport') ])
+    @include('user_views.section', ['title' => __('reports.returnsReport') ])
 
     <section class="content-header">
         <div class="container-fluid">

@@ -42,6 +42,7 @@ return [
     'profile' => 'Profile',
     'termsOfService' => 'Rules',
     'policy' => 'Privacy Policy',
-    'aboutUs' => 'EU Projects'
+    'aboutUs' => 'EU Projects',
+    'statistics' => 'Statistics'
 
 ];

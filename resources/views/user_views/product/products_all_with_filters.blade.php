@@ -129,11 +129,13 @@
                                 <div id="range-slider" class="slider mx-2 mt-5 mb-2" wire:ignore>
                                     <div class="ui-slider-handle position-relative" style="transform: translate(7px, 1px)">
                                         <input type="text" id="filter[pricefrom]" name="filter[pricefrom]" readonly
-                                               value="{{ $filter["pricefrom"] ?? '0' }}" style="position: absolute; top: -150%; left: -650%; border: none; width: 40px; background: #e04f67; text-align: center; border-radius: 4px; color: #fff"/>
+                                               value="{{ $filter["pricefrom"] ?? '0' }}" style="position: absolute; top: -150%; left: -650%; border: none; width: 45px; background: #e04f67; text-align: center; border-radius: 4px; color: #fff; padding-left: 8px"/>
+                                        <span class="slider-euro">€</span>
                                     </div>
                                     <div class="ui-slider-handle position-relative" style="transform: translate(7px, -15px)">
                                         <input type="text" id="filter[priceto]" name="filter[priceto]" readonly
-                                               value="{{ $filter["priceto"] ?? '0' }}" style="position: absolute; top: -150%; left: -650%; border: none; width: 40px; background: #e04f67; text-align: center; border-radius: 4px; color: #fff"/>
+                                               value="{{ $filter["priceto"] ?? '0' }}" style="position: absolute; top: -150%; left: -650%; border: none; width: 45px; background: #e04f67; text-align: center; border-radius: 4px; color: #fff; padding-left: 8px; padding-top: 1px"/>
+                                        <span class="slider-euro">€</span>
                                     </div>
                                 </div>
                             </fieldset>
@@ -206,6 +208,18 @@
             <!--Sidebar-->
         </div>
     </div>
+
+    @push('css')
+        <style>
+            .slider-euro {
+                position: relative;
+                top: -24px;
+                left: -14px;
+                color: white;
+            }
+        </style>
+    @endpush
+
     @push('scripts')
         <script>
             document.getElementById('orderSelector').onchange = () => {
@@ -223,8 +237,8 @@
                 $(rangeSlider).slider({
                     range: true,
                     min: 0,
-                    max: 1000,
-                    values: [{{ $filter["pricefrom"] ?? 0 }}, {{ $filter["priceto"] ?? 1000 }}],
+                    max: {{ $maxPrice }},
+                    values: [{{ $filter["pricefrom"] ?? 0 }}, {{ $filter["priceto"] ?? $maxPrice }}],
                     slide: (event, ui) => {
                         $(priceFrom).val(ui.values[0]);
                         $(priceTo).val(ui.values[1]);

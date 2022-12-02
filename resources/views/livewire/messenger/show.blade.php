@@ -1,5 +1,5 @@
 <div>
-    @include('user_views.section', ['title' => __('menu.messenger')])
+    @include('user_views.section', ['title' => __('menu.messenger'), 'paragraph' => $user->name])
     <div id="position">
         <div class="container">
             <ul>
