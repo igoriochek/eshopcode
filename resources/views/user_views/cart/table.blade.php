@@ -13,7 +13,7 @@
             <tr class="cart__table--body__items">
                 <td class="cart__table--body__list">
                     <div class="cart__product d-flex align-items-center">
-                        {!! Form::open(['route' => ['userCartItemDestroy', $item->id], 'method' => 'delete']) !!}
+                        {!! Form::open(['route' => ['userCartItemDestroy', [$role, $item->id]], 'method' => 'delete']) !!}
                         <button type="submit" class="cart__remove--btn" title="{{ __('names.removeProduct') }}"
                                 onclick="return confirm('{{ __('messages.areYouSureCart') }}?')">
                             <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16px"

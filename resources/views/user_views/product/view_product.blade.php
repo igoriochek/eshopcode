@@ -97,7 +97,7 @@
                         </p>
                         <div class="product__variant">
                             <div class="product__variant--list quantity d-flex align-items-center mb-30 mt-4 mt-md-0">
-                                {!! Form::open(['route' => ['addtocart'], 'method' => 'post', 'class' => 'd-flex']) !!}
+                                {!! Form::open(['route' => ['addtocart', $role], 'method' => 'post', 'class' => 'd-flex']) !!}
                                     <input type="button" class="minus text-color-hover-light bg-color-hover-primary border-color-hover-primary" value="-">
                                     {!! Form::number('count', "1", ['class' => 'product-add-to-cart-number', "min" => "1", "max" => "5", "minlength" => "1", "maxlength" => "5", "oninput" => "this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null"]) !!}
                                     <input type="button" class="plus text-color-hover-light bg-color-hover-primary border-color-hover-primary" value="+">
@@ -250,7 +250,7 @@
         $('.post-review-button').click(function () {
             const value = $('input[type=radio][name=rating]:checked').val();
             const desc = $('textarea#comment').val();
-            $.post("{{route('addUserRating')}}",
+            $.post("{{ route('addUserRating', $role) }}",
                 {
                     "_token": "{{ csrf_token() }}",
                     rating: value,

@@ -49,7 +49,7 @@
                                         <td class="account__table--body__child--items">{{ __("status." . $item->status->name) }}</td>
                                         <td class="account__table--body__child--items">{{ number_format($item->sum,2) }} €</td>
                                         <td class="account__table--body__child--items w-5 d-flex justify-content-center">
-                                                <a href="{{ route('vieworder', [$item->id]) }}">
+                                                <a href="{{ route('vieworder', [$role, $item->id]) }}">
                                                     <i class="far fa-eye me-1" title="{{ __('buttons.details') }}"></i>
                                                 </a>
                                         </td>
@@ -81,9 +81,11 @@
                                         </td>
                                         <td class="account__table--body__child--items">
                                             <strong>{{__('table.action')}}</strong>
-                                            <span><a href="{{ route('vieworder', [$item->id]) }}">
+                                            <span>
+                                                <a href="{{ route('vieworder', [$role, $item->id]) }}">
                                                     <i class="far fa-eye me-1" title="{{ __('buttons.details') }}"></i>
-                                                </a></span>
+                                                </a>
+                                            </span>
                                         </td>
                                     </tr>
                                 @empty

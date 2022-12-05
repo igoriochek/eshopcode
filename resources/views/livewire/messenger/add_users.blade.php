@@ -10,7 +10,7 @@
                     {{ $user->email }}
                 </span>
             </div>
-            <a class="primary__btn" href="{{ route('livewire.messenger.show', [$user->id]) }}">
+            <a class="primary__btn" href="{{ route('livewire.messenger.show', [$role, $user->id]) }}">
                 {{ __('buttons.contact') }}
             </a>
         </li>

@@ -251,7 +251,7 @@ return [
     'empty' => 'Tuščia',
 
     //Discounts coupons
-    "ndDiscountCoupons" => "Jūs dar neturite nuolaidų kuponų :(",
+    "ndDiscountCoupons" => "Nuolaidų kuponų nerasta",
     "discountCouponCode" => "Nuolaidų kupono kodas",
     "discountCouponValue" => "Nuolaidų kupono suma",
     "zeroRecords" => "Įrašų nėra",

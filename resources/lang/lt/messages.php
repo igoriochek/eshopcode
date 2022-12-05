@@ -39,6 +39,9 @@ return [
     'textMsg' => 'Žinutės tekstas',
     'typeYourMsgHere' => 'Įveskite savo žinutę čia...',
     'updatedAt' => 'Atnaujinta',
-    'areYouSureCart' => 'Ar tikrai norite pašalinti šį produktą iš savo krepšelio'
+    'areYouSureCart' => 'Ar tikrai norite pašalinti šį produktą iš savo krepšelio',
+    'errorAuthCheck' => 'Jūs nesate prisijungęs',
+    'successAuthLogin' => 'Dabar esate sėkmingai prisijungę',
+    'errorUnauthAccess' => 'Neteisėta prieiga'
 
 ];

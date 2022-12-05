@@ -36,6 +36,7 @@
                                 </div>
                                 <p class="product__showing--count">
                                     {{ __('names.showing') }}
+                                    @if (count($discountCoupons) > 0)
                                     @if ($discountCoupons->currentPage() !== $discountCoupons->lastPage())
                                         {{ ($discountCoupons->count() * $discountCoupons->currentPage() - $discountCoupons->count() + 1).__('–').($discountCoupons->count() * $discountCoupons->currentPage()) }}
                                     @else
@@ -47,6 +48,9 @@
                                     @endif
                                     {{ __('names.of') }}
                                     {{ $discountCoupons->total().' '.__('names.entries') }}
+                                    @else
+                                        {{ '0 '.__('names.entries') }}
+                                    @endif
                                 </p>
                             </div>
                             <div class="tab_content">

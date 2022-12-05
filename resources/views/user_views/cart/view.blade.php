@@ -47,7 +47,7 @@
                             </div>
                             <div class="cart__summary--footer d-flex justify-content-end">
                                 @if (count($cartItems) > 0)
-                                    <a href="{{ url('user/checkout') }}"
+                                    <a href="{{ url("/{$role}/checkout") }}"
                                        class="cart__summary--footer__btn primary__btn checkout">
                                         {{ __('buttons.proceedToCheckout') }}
                                     </a>

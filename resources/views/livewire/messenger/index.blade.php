@@ -28,7 +28,7 @@
                         <div class="single__widget widget__bg">
                             <h2 class="widget__title h3 d-flex align-items-center justify-content-between">
                                 {{ __('names.messages') }}
-                                <a class="primary__btn product__card--btn " href="{{ route('livewire.messenger.add') }}">
+                                <a class="primary__btn product__card--btn " href="{{ route('livewire.messenger.add', $role) }}">
                                     <i class="fa-solid fa-plus me-2"></i>
                                     {{ __('buttons.contact') }}
                                 </a>

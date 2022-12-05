@@ -3,7 +3,7 @@
         <div class="row row-cols-1 mb--n30">
             @forelse ($products as $product)
                 <div class="col mb-30">
-                    {!! Form::open(['route' => ['addtocart'], 'method' => 'post']) !!}
+                    {!! Form::open(['route' => ['addtocart', $role], 'method' => 'post']) !!}
                         <div class="product__card product__list d-flex align-items-center">
                             <div class="product__card--thumbnail product__list--thumbnail">
                                 @if ($product->image)

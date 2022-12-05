@@ -7,7 +7,7 @@
                 <div class="col">
                     <ul class="breadcrumb font-weight-bold text-6 justify-content-center my-5">
                         <li class="text-transform-none me-3">
-                            <a href="{{ url('user/viewcart') }}" class="done">{{ __('names.cart') }}</a>
+                            <a href="{{ url("/{$role}/viewcart") }}" class="done">{{ __('names.cart') }}</a>
                         </li>
                         <li class="text-transform-none text-color-grey-lighten me-3">
                             <i class="fa-solid fa-angle-right me-2"></i>
@@ -55,17 +55,17 @@
                         </div>
                         <div class="checkout__discount--code text-center">
                             <p>{{ __('names.wantToApply') }}</p>
-                            {!! Form::open(['route' => ['checkout-preview'],'method' => 'post']) !!}
-                            <div class="d-flex align-items-center flex-column flex-md-row">
-                            <select name="discount[]" class="checkout__input--select__field border-radius-5">
-                                <option value="" class="text-muted">{{ __('---') }}</option>
-                                @foreach($discounts as $item)
-                                    <option value="{{ $item->id }}">{{ $item->code }} - {{ $item->value }}
-                                        EU {{ __('names.off') }}</option>
-                                @endforeach
-                            </select>
-                                <button class="checkout__discount--code__btn primary__btn border-radius-5" type="submit">{{ __('buttons.applyCoupon') }}</button>
-                            </div>
+                            {!! Form::open(['route' => ['checkout-preview', $role],'method' => 'post']) !!}
+                                <div class="d-flex align-items-center flex-column flex-md-row">
+                                <select name="discount[]" class="checkout__input--select__field border-radius-5">
+                                    <option value="" class="text-muted">{{ __('---') }}</option>
+                                    @foreach($discounts as $item)
+                                        <option value="{{ $item->id }}">{{ $item->code }} - {{ $item->value }}
+                                            EU {{ __('names.off') }}</option>
+                                    @endforeach
+                                </select>
+                                    <button class="checkout__discount--code__btn primary__btn border-radius-5" type="submit">{{ __('buttons.applyCoupon') }}</button>
+                                </div>
                             {!! Form::close() !!}
                         </div>
                         <div class="checkout__total pb-5" style="border: none">
@@ -78,7 +78,7 @@
                                 </tfoot>
                             </table>
                         </div>
-                        {!! Form::open(['route' => ['checkout-preview'], 'method' => 'post']) !!}
+                        {!! Form::open(['route' => ['checkout-preview', $role], 'method' => 'post']) !!}
                         <button class="checkout__now--btn primary__btn" type="submit">{{ __('buttons.preview') }}</button>
                         {!! Form::close() !!}
                     </aside>

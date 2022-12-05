@@ -89,13 +89,13 @@
                                 </a>
                             </li>
                             <li class="footer__widget--menu__list">
-                                <a class="footer__widget--menu__text" href="{{ url('/user/discountCoupons') }}"
+                                <a class="footer__widget--menu__text" href="{{ url("/{$role}/discountCoupons") }}"
                                    style="color: {{ request()->is('/user/discountCoupons*') ? '#ED1D24' : '' }}">
                                     {{ __('menu.discountCoupons') }}
                                 </a>
                             </li>
                             <li class="footer__widget--menu__list">
-                                <a class="footer__widget--menu__text" href="{{ url('/user/messenger') }}"
+                                <a class="footer__widget--menu__text" href="{{ url("/{$role}/messenger") }}"
                                    style="color: {{ request()->is('user/messenger*') ? '#ED1D24' : '' }}">
                                     {{ __('menu.messenger') }}
                                 </a>
@@ -133,25 +133,25 @@
                             </h2>
                             <ul class="footer__widget--menu footer__widget--inner">
                                 <li class="footer__widget--menu__list">
-                                    <a class="footer__widget--menu__text" href="{{ url('/user/viewcart') }}"
+                                    <a class="footer__widget--menu__text" href="{{ url("/{$role}/viewcart") }}"
                                        style="color: {{ request()->is('user/viewcart') ? '#ED1D24' : '' }}">
                                         {{__('menu.cart')}}
                                     </a>
                                 </li>
                                 <li class="footer__widget--menu__list">
-                                    <a class="footer__widget--menu__text" href="{{ url('/user/rootorders') }}"
+                                    <a class="footer__widget--menu__text" href="{{ url("/{$role}/rootorders") }}"
                                        style="color: {{ request()->is('user/rootorders') ? '#ED1D24' : '' }}">
                                         {{__('menu.orders')}}
                                     </a>
                                 </li>
                                 <li class="footer__widget--menu__list">
-                                    <a class="footer__widget--menu__text" href="{{ url('/user/rootoreturns') }}"
+                                    <a class="footer__widget--menu__text" href="{{ url("/{$role}/rootoreturns") }}"
                                        style="color: {{ request()->is('user/rootoreturns') ? '#ED1D24' : '' }}">
                                         {{__('menu.returns')}}
                                     </a>
                                 </li>
                                 <li class="footer__widget--menu__list">
-                                    <a class="footer__widget--menu__text" href="{{ url('/user/userprofile') }}"
+                                    <a class="footer__widget--menu__text" href="{{ url("/{$role}/userprofile") }}"
                                        style="color: {{ request()->is('user/userprofile') ? '#ED1D24' : '' }}">
                                         {{__('menu.profile')}}
                                     </a>
@@ -176,7 +176,7 @@
         <div class="container">
             <div class="footer__bottom--inenr d-flex justify-content-between align-items-center">
                 <div class="footer__logo">
-                    <a class="footer__logo--link bg-white p-2 rounded-1" href="index.html">
+                    <a class="footer__logo--link bg-white p-2 rounded-1" href="{{ url('/products') }}">
                         <img class="main__logo--img" src="{{ asset('images/Pilnas.jpg') }}" alt="full_logo" width="250">
                     </a>
                 </div>

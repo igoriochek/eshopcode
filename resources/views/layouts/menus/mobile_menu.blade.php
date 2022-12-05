@@ -18,14 +18,14 @@
         </a>
     </li>
     <li class="offcanvas__menu_li">
-        <a class="offcanvas__menu_item {{ request()->is('user/discountCoupons*') ? 'active' : '' }}"
-           href="{{ url('/user/discountCoupons') }}">
+        <a class="offcanvas__menu_item {{ request()->is('discountCoupons*') ? 'active' : '' }}"
+           href="{{ url("/{$role}/discountCoupons") }}">
             {{ __('menu.discountCoupons') }}
         </a>
     </li>
     <li class="offcanvas__menu_li">
-        <a class="offcanvas__menu_item {{ request()->is('user/messenger*') ? 'active' : '' }}"
-           href="{{ url('/user/messenger') }}">
+        <a class="offcanvas__menu_item {{ request()->is('messenger*') ? 'active' : '' }}"
+           href="{{ url("/{$role}/messenger") }}">
             {{ __('menu.messenger') }}
         </a>
     </li>

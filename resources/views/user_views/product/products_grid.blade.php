@@ -3,12 +3,12 @@
         <div class="row mb--n30">
             @forelse ($products as $product)
                 <div class="col-lg-4 col-md-4 col-sm-6 col-6 custom-col mb-30">
-                    {!! Form::open(['route' => ['addtocart'], 'method' => 'post']) !!}
+                    {!! Form::open(['route' => ['addtocart', $role], 'method' => 'post']) !!}
                         <article class="product__card">
                             <div class="product__card--thumbnail">
                                 @if ($product->image)
                                     <a class="product__card--thumbnail__link display-block"
-                                       href="{{ route('viewproduct', $product->id) }}">
+                                       href="{{ route('viewproduct', [$product->id]) }}">
                                         <img src="{{ $product->image }}" alt="{{ $product->name }}"
                                              class="product__card--thumbnail__img product__primary--img"/>
                                         <img src="{{ $product->image }}" alt="{{ $product->name }}"

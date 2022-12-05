@@ -17,14 +17,14 @@
     </a>
 </li>
 <li class="header__menu--items">
-    <a class="header__menu--link text-center {{ request()->is('user/discountCoupons*') ? 'active' : '' }}"
-       href="{{ url('/user/discountCoupons') }}">
+    <a class="header__menu--link text-center {{ request()->is('discountCoupons*') ? 'active' : '' }}"
+       href="{{ url("/{$role}/discountCoupons") }}">
         {{ __('menu.discountCoupons') }}
     </a>
 </li>
 <li class="header__menu--items">
-    <a class="header__menu--link text-center {{ request()->is('user/messenger*') ? 'active' : '' }}"
-       href="{{ url('/user/messenger') }}">
+    <a class="header__menu--link text-center {{ request()->is('messenger*') ? 'active' : '' }}"
+       href="{{ url("/{$role}/messenger") }}">
         {{ __('menu.messenger') }}
     </a>
 </li>

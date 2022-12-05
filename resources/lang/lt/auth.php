@@ -19,6 +19,7 @@ return [
     'throttle' => 'Bandėte prisijungti per daug kartų. Bandykite dar kartą po :seconds sekundžių.',
 
     'passwordConfirmToContinue' => 'Prieš tęsdami patvirtinkite slaptažodį.',
+    'passwordEnterConfirm' => 'Patvirtinti slaptažodį',
     'resetPassword' => 'Atstatyti slaptažodį',
     'sendResetPasswordLink' => 'Siųsti slaptažodžio nustatymą',
     'resetPasswordParagraph' => 'Prisiminėt savo slaptažodį?',

@@ -251,7 +251,7 @@ return [
     'empty' => 'Пусто',
 
     //Discounts coupons
-    "ndDiscountCoupons" => "У вас еще нет купонов на скидку :(",
+    "ndDiscountCoupons" => "Скидочные Купоны не найдены",
     "discountCouponCode" => "Код купона на скидку",
     "discountCouponValue" => "Стоимость купона на скидку",
     "zeroRecords" => "Нет данных",

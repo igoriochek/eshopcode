@@ -14,10 +14,10 @@
                                 <a href="{{ url('/') }}">{{ __('menu.home') }}</a>
                             </li>
                             <li class="breadcrumb__content--menu__items">
-                                <a href="{{ url('/user/rootorders') }}">{{__('menu.orders')}}</a>
+                                <a href="{{ url("/{$role}/rootorders") }}">{{__('menu.orders')}}</a>
                             </li>
                             <li class="breadcrumb__content--menu__items">
-                                <a href="{{ route('vieworder', [$order->id]) }}">{{__('names.order')}} {{ $order->order_id }}</a>
+                                <a href="{{ route('vieworder', [$role, $order->id]) }}">{{__('names.order')}} {{ $order->order_id }}</a>
                             </li>
                             <li class="breadcrumb__content--menu__items">
                                 <span>{{ __('names.return') }} {{__('names.order')}} {{ __($order->id) }}</span>
@@ -41,7 +41,7 @@
                                 <h2 class="account__content--title h3">{{__("names.return")}} {{ $order->id }}</h2>
                             </div>
                         </div>
-                        {!! Form::model($order, ['route' => ['savereturnorder', $order->id], 'method' => 'post']) !!}
+                        {!! Form::model($order, ['route' => ['savereturnorder', [$role, $order->id]], 'method' => 'post']) !!}
                         <div class="account__table--area mb-40">
                             <h3 class="account__content--title h3 mb-10">{{ __('names.products') }}</h3>
                             <table class="account__table">
@@ -99,7 +99,7 @@
                         </div>
                         <div class="form-group col-sm-12 d-flex flex-column flex-md-row justify-content-md-center align-items-sm-center gap-3 my-4">
                             {!! Form::submit(__('buttons.save'), ['class' => 'primary__btn']) !!}
-                            <a href="{{ route('rootorders') }}" class="primary__btn text-center">
+                            <a href="{{ route('rootorders', $role) }}" class="primary__btn text-center">
                                 {{__('buttons.cancel')}}
                             </a>
                         </div>

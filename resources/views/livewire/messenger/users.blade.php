@@ -2,7 +2,7 @@
     <ul class="messenger-users widget__categories--menu">
         @forelse ($users ?? [] as $user)
             <li class="messenger-user-container widget__categories--menu__list p-2">
-                <a class="messenger-user widget__categories--sub__menu--link" href="{{ route('livewire.messenger.show', [$user->id]) }}">
+                <a class="messenger-user widget__categories--sub__menu--link" href="{{ route('livewire.messenger.show', [$role, $user->id]) }}">
                     <div class="messenger-information-container">
                         <div class="my-2">
                             <div>

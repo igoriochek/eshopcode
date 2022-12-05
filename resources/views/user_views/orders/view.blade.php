@@ -14,7 +14,7 @@
                                 <a href="{{ url('/') }}">{{ __('menu.home') }}</a>
                             </li>
                             <li class="breadcrumb__content--menu__items">
-                                <a href="{{ url('/user/rootorders') }}">{{__('menu.orders')}}
+                                <a href="{{ url("/{$role}/rootorders") }}">{{__('menu.orders')}}
                                 </a>
                             </li>
                             <li class="breadcrumb__content--menu__items">
@@ -44,14 +44,14 @@
                             <div class="d-flex flex-column flex-md-row gap-3">
                                 @if($order->status->name !== "Returned" && $order->status->name !== "Canceled")
                                     <div class="btn-group" style="float: right">
-                                        <a href="{{ route('returnorder', [$order->id]) }}"
+                                        <a href="{{ route('returnorder', [$role, $order->id]) }}"
                                            class="widget__tagcloud--link d-flex align-items-center">
                                             <i class="far fa-arrow-alt-circle-right me-2"></i>
                                             {{ __('buttons.return') }}
                                         </a>
                                     </div>
                                     <div class="btn-group" style="float: right">
-                                        <a href="{{ route('cancelnorder', [$order->id]) }}"
+                                        <a href="{{ route('cancelnorder', [$role, $order->id]) }}"
                                            class='widget__tagcloud--link d-flex align-items-center'>
                                             <i class="far fa-trash-alt me-2"></i>
                                             {{ __('buttons.cancel') }}
@@ -59,7 +59,7 @@
                                     </div>
                                     @if($order->status->name == 'Completed')
                                         <div class="btn-group" style="float: right">
-                                            <a href="{{ route('download_invoice', [$order->id]) }}"
+                                            <a href="{{ route('download_invoice', [$role, $order->id]) }}"
                                                class='widget__tagcloud--link d-flex align-items-center'>
                                                 <i class="fa-solid fa-file-invoice me-2"></i>
                                                 {{__('buttons.invoice')}}

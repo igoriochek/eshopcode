@@ -18,6 +18,7 @@ return [
     'throttle' => 'Слишком много попыток входа. Повторите попытку через :seconds секунд.',
 
     'passwordConfirmToContinue' => 'Пожалуйста, подтвердите свой пароль, прежде чем продолжить.',
+    'passwordEnterConfirm' => 'Подтвердить пароль',
     'resetPassword' => 'Сбросить пароль',
     'sendResetPasswordLink' => 'Отправить ссылку для сброса пароля.',
     'resetPasswordParagraph' => 'Вспомнили пароль?',

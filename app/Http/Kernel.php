@@ -77,5 +77,6 @@ class Kernel extends HttpKernel
         //custom middleware
         'admin' => \App\Http\Middleware\IsAdmin::class,
         'cors' => \App\Http\Middleware\Cors::class,
+        'role' => \App\Http\Middleware\Role::class
     ];
 }

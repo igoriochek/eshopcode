@@ -14,3 +14,18 @@
         </div>
     </form>
 </div>
+
+@push('scripts')
+    <script>
+        const msgInput = document.querySelector('.messenger-form-input');
+
+        msgInput.addEventListener("keypress", event => {
+            setTimeout(() => {
+                if (event.key === "Enter") {
+                    msgInput.value = '';
+                    event.preventDefault();
+                }
+            }, 200);
+        });
+    </script>
+@endpush

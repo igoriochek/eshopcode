@@ -11,7 +11,7 @@
                                 <a href="{{ url('/') }}">{{ __('menu.home') }}</a>
                             </li>
                             <li class="breadcrumb__content--menu__items">
-                                <a href="{{ url('/user/messenger') }}">{{ __('menu.messenger') }}</a>
+                                <a href="{{ url("/{$role}/messenger") }}">{{ __('menu.messenger') }}</a>
                             </li>
                             <li class="breadcrumb__content--menu__items">
                                 <span>{{ __('names.new') }}</span>

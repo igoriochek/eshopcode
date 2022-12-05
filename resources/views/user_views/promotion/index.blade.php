@@ -64,7 +64,7 @@
                                             <div class="row mb--n30">
                                                 @forelse ($promotion->products as $product)
                                                     <div class="col-lg-4 col-md-4 col-sm-6 col-6 custom-col mb-30">
-                                                        {!! Form::open(['route' => ['addtocart'], 'method' => 'post']) !!}
+                                                        {!! Form::open(['route' => ['addtocart', $role], 'method' => 'post']) !!}
                                                         <article class="product__card">
                                                             <div class="product__card--thumbnail">
                                                                 @if ($product->image)

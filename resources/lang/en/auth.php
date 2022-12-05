@@ -18,6 +18,7 @@ return [
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
 
     'passwordConfirmToContinue' => 'Please confirm your password before continuing.',
+    'passwordEnterConfirm' => 'Confirm Password',
     'resetPassword' => 'Reset Password',
     'sendResetPasswordLink' => 'Send Reset Password Link',
     'resetPasswordParagraph' => 'Remembered your password?',

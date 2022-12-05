@@ -2,12 +2,11 @@
 
 namespace App\Http\Middleware;
 
-use App\Models\User;
 use Closure;
 use Illuminate\Http\Request;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 
-class IsAdmin
+class Role
 {
     /**
      * Handle an incoming request.
@@ -16,15 +15,17 @@ class IsAdmin
      * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
-//    public function handle(Request $request, Closure $next)
-//    {
-//        return $next($request);
-//    }
-
-    public function handle($request, Closure $next)
+    public function handle(Request $request, Closure $next, ...$roles)
     {
-        if (Auth::user() && Auth::user()->type == User::TYPE_ADMIN)
+        if (!Auth::check())
+            return redirect('login')->with('error', __('messages.errorAuthCheck'));
+
+        $user = Auth::user();
+
+        if (array_key_exists($user->type - 1, $roles)) {
+            $request->role = $roles[$user->type - 1];
             return $next($request);
+        }
 
         return back()->with('error', __('messages.errorUnauthAccess'));
     }

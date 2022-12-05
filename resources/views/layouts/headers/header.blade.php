@@ -78,7 +78,7 @@
                     </a>
                 </div>
                 <div class="main__logo">
-                    <a class="main__logo--link" href="{{ url('/') }}">
+                    <a class="main__logo--link" href="{{ url('/products') }}">
                         <img class="main__logo--img my-3" src="{{ asset('images/Logo.jpg') }}" alt="logo" width="150">
                     </a>
                 </div>
@@ -101,7 +101,7 @@
                             </li>
                         @else
                             <li class="header__menu--items account">
-                                <a class="header__menu--link text-dark" href="{{ url('/user/userprofile') }}">
+                                <a class="header__menu--link text-dark" href="{{ url("/{$role}/userprofile") }}">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class=" -user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
                                     <span class="d-none d-lg-inline fw-normal">{{ strtok(Auth::user()->name, ' ') }}</span>
                                 </a>
@@ -110,7 +110,7 @@
                         @endif
                         @auth
                             <li class="header__account--items header__minicart--items">
-                                <a class="header__account--btn minicart__open--btn" href="{{ url('/user/viewcart') }}" data-offcanvas="">
+                                <a class="header__account--btn minicart__open--btn" href="{{ url("/{$role}/viewcart") }}" data-offcanvas="">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="22.706" height="22.534" viewBox="0 0 14.706 13.534">
                                         <g transform="translate(0 0)">
                                             <g>
@@ -145,7 +145,7 @@
                             </li>
                         @else
                             <li class="header__menu--items account">
-                                <a class="header__menu--link text-dark" href="{{ url('/user/userprofile') }}">
+                                <a class="header__menu--link text-dark" href="{{ url("/{$role}/userprofile") }}">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class=" -user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
                                     <span class="d-none d-lg-inline fw-normal">{{ strtok(Auth::user()->name, ' ') }}</span>
                                 </a>
@@ -154,7 +154,7 @@
                         @endif
                         @auth
                             <li class="header__account--items header__minicart--items">
-                                <a class="header__account--btn minicart__open--btn" href="{{ url('/user/viewcart') }}" data-offcanvas="">
+                                <a class="header__account--btn minicart__open--btn" href="{{ url("/{$role}/viewcart") }}" data-offcanvas="">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="22.706" height="22.534" viewBox="0 0 14.706 13.534">
                                         <g transform="translate(0 0)">
                                             <g>
@@ -185,7 +185,7 @@
     <div class="offcanvas__header">
         <div class="offcanvas__inner">
             <div class="offcanvas__logo">
-                <a class="offcanvas__logo_link" href="{{ url('/') }}">
+                <a class="offcanvas__logo_link" href="{{ url('/products') }}">
                     <img class="main__logo--img" src="{{ asset('images/Logo.jpg') }}" alt="logo" width="150">
                 </a>
                 <button class="offcanvas__close--btn" data-offcanvas="">close</button>

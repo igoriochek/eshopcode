@@ -14,7 +14,7 @@
                                 <a href="{{ url('/') }}">{{ __('menu.home') }}</a>
                             </li>
                             <li class="breadcrumb__content--menu__items">
-                                <a href="{{ url('/user/rootoreturns') }}">{{__('menu.returns')}}
+                                <a href="{{ url("/{$role}rootoreturns") }}">{{__('menu.returns')}}
                                 </a>
                             </li>
                             <li class="breadcrumb__content--menu__items">
@@ -37,9 +37,14 @@
                         <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-md-between mb-30">
                             <div class="mb-2 mb-md-0">
                                 <h2 class="account__content--title h3">{{__('names.return')}} {{ $return->id }}</h2>
-                                <span class="text-muted">
+                                <div class="d-flex flex-column mt-3">
+                                    <span class="text-muted">
                                         {{__('names.returnStatus')}}: {{ __("status." . $return->status->name) }}
-                                </span>
+                                    </span>
+                                    <span class="text-muted">
+                                        {{ __('names.description') }}: {{ $return->description ?? '-' }}
+                                    </span>
+                                </div>
                             </div>
                         </div>
                         <div class="account__table--area mb-40">

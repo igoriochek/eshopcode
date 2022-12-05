@@ -47,7 +47,7 @@
                         <div class="tab-content p-0">
                             <div class="tab-pane px-0 active" id="profile" role="tabpanel">
                                 <div class="auth-form">
-                                    {!! Form::model($user, ['route' => ['userprofilesave'], 'method' => 'patch', 'class' => 'auth-form-container px-0']) !!}
+                                    {!! Form::model($user, ['route' => ['userprofilesave', $role], 'method' => 'patch', 'class' => 'auth-form-container px-0']) !!}
                                     <div class="row">
                                         <div class="col-md-6 col-12 mb-20">
                                             {!! Form::label('code', __('forms.name'), ['class' => 'checkout__input--label'] )!!}
@@ -98,7 +98,7 @@
                             </div>
                             <div class="tab-pane px-0" id="password" role="tabpanel">
                                 <div class="auth-form">
-                                    {!! Form::model($user, ['route' => ['changePassword'], 'method' => 'post', 'class' => 'auth-form-container px-0']) !!}
+                                    {!! Form::model($user, ['route' => ['changePassword', $role], 'method' => 'post', 'class' => 'auth-form-container px-0']) !!}
                                     <div class="row">
                                         <div class="col-md-4 col-12 mb-20">
                                             {!! Form::label('current_password', __('forms.current_password'), ['class' => 'checkout__input--label'] ) !!}

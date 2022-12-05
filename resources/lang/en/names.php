@@ -251,7 +251,7 @@ return [
     'empty' => 'Empty',
 
     //Discounts coupons
-    "ndDiscountCoupons" => "You have no discount coupons yet :(",
+    "ndDiscountCoupons" => "No discount coupons found",
     "discountCouponCode" => "Discount coupon code",
     "discountCouponValue" => "Discount coupon value",
     "zeroRecords" => "No matching records found",

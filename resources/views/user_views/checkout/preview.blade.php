@@ -8,11 +8,11 @@
                 <div class="col">
                     <ul class="breadcrumb font-weight-bold text-6 justify-content-center my-5">
                         <li class="text-transform-none me-3">
-                            <a href="{{ url('user/viewcart') }}" class="done">{{ __('names.cart') }}</a>
+                            <a href="{{ url("/{$role}/viewcart") }}" class="done">{{ __('names.cart') }}</a>
                         </li>
                         <li class="text-transform-none text-color-grey-lighten me-3">
                             <i class="fa-solid fa-angle-right me-2"></i>
-                            <a href="{{ url('user/checkout') }}" class="done">{{ __('names.checkout') }}</a>
+                            <a href="{{ url("/{$role}/checkout") }}" class="done">{{ __('names.checkout') }}</a>
                         </li>
                         <li class="text-transform-none text-color-grey-lighten me-3">
                             <i class="fa-solid fa-angle-right me-2"></i>
@@ -83,7 +83,7 @@
                                 </tfoot>
                             </table>
                         </div>
-                        {!! Form::open(['route' => ['pay'], 'method' => 'post']) !!}
+                        {!! Form::open(['route' => ['pay', $role], 'method' => 'post']) !!}
                         <button class="checkout__now--btn primary__btn" type="submit">{{ __('buttons.placeOrder') }}</button>
                         {!! Form::close() !!}
                     </aside>

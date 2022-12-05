@@ -48,7 +48,7 @@
                                         <td class="account__table--body__child--items">{{ $item->created_at->format('Y-m-d H:m') }}</td>
                                         <td class="account__table--body__child--items">{{ __("status." . $item->status->name) }}</td>
                                         <td class="account__table--body__child--items w-5 d-flex justify-content-center">
-                                            <a href="{{ route('viewreturn', [$item->id]) }}">
+                                            <a href="{{ route('viewreturn', [$role, $item->id]) }}">
                                                 <i class="far fa-eye me-1" title="{{ __('buttons.details') }}"></i>
                                             </a>
                                         </td>
@@ -76,7 +76,7 @@
                                         </td>
                                         <td class="account__table--body__child--items">
                                             <strong>{{__('table.action')}}</strong>
-                                            <span><a href="{{ route('viewreturn', [$item->id]) }}">
+                                            <span><a href="{{ route('viewreturn', [$role, $item->id]) }}">
                                                     <i class="far fa-eye me-1" title="{{ __('buttons.details') }}"></i>
                                                 </a>
                                             </span>
