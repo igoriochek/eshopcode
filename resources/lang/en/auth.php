@@ -43,9 +43,10 @@ return [
     'createHere' => 'Create here',
 
     'haveAccount' => 'Already have an account?',
+    'rememberedPassword' => 'Remembered your password?',
     'loginHere' => ' Login',
 
-    'continueFacebook' => 'Continue with Facebook',
-    'continueGoogle' => 'Continue with Google',
-    'continueTwitter' => 'Continue with Twitter'
+    'continueFacebook' => 'Login with Facebook',
+    'continueGoogle' => 'Login with Google',
+    'continueTwitter' => 'Login with Twitter'
 ];

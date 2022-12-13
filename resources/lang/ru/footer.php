@@ -14,7 +14,7 @@ return [
     'email' => 'Электронная почта',
     'hours' => 'Время',
     'menu' => 'Меню',
-    'profile' => 'Личный кабинет',
+    'profile' => 'Профиль',
     'securedPayment' => 'Безопасный Платеж',
     'copyright' => 'MB Contentum© 2022.',
     'allRightsReserved' => 'Все права защищены',

@@ -39,6 +39,7 @@ return [
     'verifyEmail' => 'Patvirtinkite savo elektroninį paštą',
 
     'noAccount' => "Neturite paskyros? ",
+    'rememberedPassword' => 'Prisimeni savo slaptažodį?',
     'createHere' => 'Susikurkite čia',
 
     'sendResetPasswordLink' => 'Siųsti slaptažodžio nustatymo iš naujo nuorodą',
@@ -46,8 +47,8 @@ return [
     'haveAccount' => 'Jau turite paskyrą?',
     'loginHere' => ' Prisijunkite',
 
-    'continueFacebook' => 'Tęskite su Facebook',
-    'continueGoogle' => 'Tęskite su Google',
-    'continueTwitter' => 'Tęskite su Twitter'
+    'continueFacebook' => 'Prisijungti su Facebook',
+    'continueGoogle' => 'Prisijungti su Google',
+    'continueTwitter' => 'Prisijungti su Twitter'
 
 ];

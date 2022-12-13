@@ -16,14 +16,14 @@
                 </a>
             </div>
         </li>
-        <hr class="messenger-users-hr my-0"/>
     @empty
         <div>
             <span class="text-muted">{{ __('names.noUncontactedUsers') }}</span>
         </div>
     @endforelse
+    <hr class="messenger-users-hr my-0"/>
     <div class="pt-3 mt-3">
-        @if (count($addUsers)>0)
+        @if (count($addUsers) > 0)
             {{ $addUsers->links() }}
         @endif
     </div>

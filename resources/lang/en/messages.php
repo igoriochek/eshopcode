@@ -39,6 +39,7 @@ return [
     'textMsg' => 'Message Text',
     'typeYourMsgHere' => 'Type your Message here...',
     'updatedAt' => 'Updated At',
-
+    'areYouSureCart' => 'Are you sure you want to remove this product from your cart?',
+    'addToCart' => 'Successfully added product to your cart'
 
 ];

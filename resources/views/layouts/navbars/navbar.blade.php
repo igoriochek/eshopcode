@@ -1,4 +1,4 @@
-<nav class="pt-10 pb-10 border-bottom bg-white" id="navbar" style="position: sticky; top: 0; z-index: 1000000;">
+<nav class="pt-10 pb-10 border-bottom bg-white " id="navbar" style="position: sticky; top: 0; z-index: 1000000;">
     <div class="header-bottom header-bottom-bg-color">
         <div class="container">
             <div class="header-wrap">
@@ -16,7 +16,7 @@
                             @guest
                                 <div class="main-menu main-menu-padding-1 main-menu-lh-2 d-none d-lg-block font-heading me-4">
                                     <nav>
-                                        <ul>
+                                        <ul class="d-flex">
                                             @include('layouts.menus.guest_user_menu_top')
                                         </ul>
                                     </nav>
@@ -30,13 +30,13 @@
                                 @endif
                             @else
                                 @auth
-                                        <div class="main-menu main-menu-padding-1 main-menu-lh-2 d-none d-lg-block font-heading me-4">
-                                            <nav>
-                                                <ul>
-                                                    @include('layouts.menus.guest_user_menu_top')
-                                                </ul>
-                                            </nav>
-                                        </div>
+                                    <div class="main-menu main-menu-padding-1 main-menu-lh-2 d-none d-lg-block font-heading me-4">
+                                        <nav>
+                                            <ul class="d-flex">
+                                                @include('layouts.menus.guest_user_menu_top')
+                                            </ul>
+                                        </nav>
+                                    </div>
                                     <div class="header-action-icon-2">
                                         <a class="mini-cart-icon" href="{{url('/user/viewcart')}}">
                                             <img alt="cart-icon" src="{{asset('/images/theme/icons/icon-cart.svg')}}"/>

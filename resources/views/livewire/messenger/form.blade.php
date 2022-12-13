@@ -3,7 +3,7 @@
         <div class="d-flex">
             <input
                 type="text"
-                class="me-3"
+                class="me-3 w-100"
                 placeholder="{{__('messages.typeYourMsgHere')}}"
                 wire:model="message_text"
                 required

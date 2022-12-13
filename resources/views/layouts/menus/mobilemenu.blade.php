@@ -30,21 +30,24 @@
                 <nav>
                     <ul class="mobile-menu font-heading">
                         <li class="menu-item">
-                            <a href="@if(Auth::user()) /user/products @else /products @endif">{{__('menu.products')}}</a>&nbsp;&nbsp;
+                            <a href="/products" style="color: {{ request()->is('products*') || request()->is('viewproduct*') ? '#3BB77E' : '' }}">{{__('menu.products')}}</a>&nbsp;&nbsp;
                         </li>
                         <li class="menu-item">
-                            <a href="@if(Auth::user()) /user/rootcategories @else /rootcategories @endif">{{__('menu.categories')}}</a>&nbsp;&nbsp;
+                            <a href="/rootcategories" style="color: {{ request()->is('rootcategories*') || request()->is('innercategories*') ? '#3BB77E' : '' }}">{{__('menu.categories')}}</a>&nbsp;&nbsp;
                         </li>
                         <li class="menu-item">
-                            <a href="@if(Auth::user()) /user/promotions @else /promotions @endif">{{__('menu.promotions')}}</a>&nbsp;&nbsp;
+                            <a href="/promotions" style="color: {{ request()->is('promotions*') || request()->is('promotion*') ? '#3BB77E' : '' }}">{{__('menu.promotions')}}</a>&nbsp;&nbsp;
                         </li>
                         <li class="menu-item">
-                            <a href="/user/discountCoupons">{{__('menu.discountCoupons')}}</a>&nbsp;&nbsp;
+                            <a href="/user/discountCoupons" style="color: {{ request()->is('discountCoupons') ? '#3BB77E' : '' }}">{{__('menu.discountCoupons')}}</a>&nbsp;&nbsp;
                         </li>
                         <li class="menu-item">
-                            <a href="/user/messenger">{{__('menu.messenger')}}</a>&nbsp;&nbsp;
+                            <a href="/user/messenger" style="color: {{ request()->is('messenger*') ? '#3BB77E' : '' }}">{{__('menu.messenger')}}</a>&nbsp;&nbsp;
                         </li>
-                        <div style="height: 20px"></div>
+                        <li class="menu-item">
+                            <a href="/eu_projects" style="color: {{ request()->is('eu_projects') ? '#3BB77E' : '' }}">{{ __('menu.euProjects') }}</a>&nbsp;&nbsp;
+                        </li>
+                        <div style="height: 30px"></div>
                         @auth
                             <li class="menu-item">
                                 <a href="{{ url('/user/viewcart') }}">
@@ -85,18 +88,34 @@
                                     </a>
                                 </form>
                             </li>
+                        @else
+                            @if (Route::has('login'))
+                                <li class="menu-item">
+                                    <a href="{{ route('login') }}" style="color: {{ request()->is('login*') ? '#3BB77E' : '' }}">
+                                        <i class="fi fi-rs-sign-in text-muted"></i>
+                                        {{ __('auth.login') }}
+                                    </a>
+                                </li>
+                            @endif
                         @endauth
+                        <div style="height: 10px"></div>
                     </ul>
                 </nav>
                 <!-- mobile menu end -->
             </div>
             <div class="mobile-social-icon mb-50 mt-40">
                 <h6 class="mb-15">{{__('names.followUs')}}</h6>
-                <a href="#"><img src="{{asset('/images/theme/icons/icon-facebook-white.svg')}}" alt="facebook"/></a>
-                <a href="#"><img src="{{asset('/images/theme/icons/icon-twitter-white.svg')}}" alt="twitter"/></a>
-                <a href="#"><img src="{{asset('/images/theme/icons/icon-instagram-white.svg')}}" alt="instagram"/></a>
-                <a href="#"><img src="{{asset('/images/theme/icons/icon-pinterest-white.svg')}}" alt="pinterest"/></a>
-                <a href="#"><img src="{{asset('/images/theme/icons/icon-youtube-white.svg')}}" alt="youtube"/></a>
+                <div class="d-flex">
+                    <a href="{{ route('facebook.login') }}">
+                        <img src="{{ asset('/images/theme/icons/icon-facebook-white.svg') }}" alt="facebook"/>
+                    </a>
+                    <a href="{{ route('google.login') }}" class="d-flex justify-content-center align-items-center">
+                        <i class="fa-brands fa-google text-white" style="font-size: .8em"></i>
+                    </a>
+                    <a href="{{ route('twitter.login') }}">
+                        <img src="{{ asset('/images/theme/icons/icon-twitter-white.svg') }}" alt="twitter"/>
+                    </a>
+                </div>
             </div>
         </div>
     </div>

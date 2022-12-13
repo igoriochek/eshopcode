@@ -5168,7 +5168,7 @@
             var cloneWindow = iframe.contentWindow;
             var documentClone = cloneWindow.document;
             /* Chrome doesn't detect relative background-images assigned in inline <style> sheets when fetched through getComputedStyle
-             if window url is about:blank, we can assign the url to current by writing onto the document
+             if window url is eu_projects:blank, we can assign the url to current by writing onto the document
              */
             var iframeLoad = iframeLoader(iframe).then(function () { return __awaiter(_this, void 0, void 0, function () {
                 var onclone, referenceElement;
@@ -5575,7 +5575,7 @@
         CacheStorage.getOrigin = function (url) {
             var link = CacheStorage._link;
             if (!link) {
-                return 'about:blank';
+                return 'eu_projects:blank';
             }
             link.href = url;
             link.href = link.href; // IE9, LOL! - http://jsfiddle.net/niklasvh/2e48b/
@@ -5588,7 +5588,7 @@
             CacheStorage._link = window.document.createElement('a');
             CacheStorage._origin = CacheStorage.getOrigin(window.location.href);
         };
-        CacheStorage._origin = 'about:blank';
+        CacheStorage._origin = 'eu_projects:blank';
         return CacheStorage;
     }());
     var Cache = /** @class */ (function () {

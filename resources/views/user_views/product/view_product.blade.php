@@ -114,7 +114,7 @@
                             <div class="tab-content shop_info_tab entry-main-content">
                                 <div class="tab-pane fade" id="Description">
                                     <div>
-                                        <p>{{ $product->description }}</p>
+                                        <p style="line-height: 33px">{{ $product->description }}</p>
                                     </div>
                                 </div>
                                 <div class="tab-pane fade active show" id="Reviews">

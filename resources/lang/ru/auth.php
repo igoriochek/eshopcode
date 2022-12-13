@@ -17,6 +17,9 @@ return [
     'password' => 'Указан неверный пароль.',
     'throttle' => 'Слишком много попыток входа. Повторите попытку через :seconds секунд.',
 
+    'passwordConfirmToContinue' => 'Пожалуйста, подтвердите свой пароль, прежде чем продолжить.',
+    'sendResetPasswordLink' => 'Отправить ссылку для сброса пароля',
+
     //Login
     'login'=> 'Войти',
     'rememberMe' => 'Запомнить меня',
@@ -35,5 +38,16 @@ return [
     'email' => 'Адрес электронной почты',
     'passwordEnter' => 'Пароль',
     'passwordEnterConfirm' => 'Подтвердить пароль',
+
+    'noAccount' => "У вас нет аккаунта?",
+    'createHere' => 'Создать здесь',
+
+    'haveAccount' => 'Уже есть аккаунт?',
+    'rememberedPassword' => 'Вспомнили пароль?',
+    'loginHere' => 'Войти',
+
+    'continueFacebook' => 'Войти через Facebook',
+    'continueGoogle' => 'Войти через Google',
+    'continueTwitter' => 'Войти через Twitter'
 
 ];

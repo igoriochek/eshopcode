@@ -1,7 +1,7 @@
 <div class="header-top header-top-ptb-1 d-lg-block">
     <div class="container py-1">
         <div class="row align-items-center">
-            <div class="col-xl-6 col-lg-6 cl-md-6 col-sm-6 col-6">
+            <div class="col-xl-6 col-lg-6 cl-md-4 col-8">
                 <div class="header-info">
                     <ul>
                         <li class="d-flex gap-1">
@@ -17,7 +17,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+            <div class="col-xl-6 col-lg-6 col-md-4 col-4">
                 <div class="header-info header-info-right">
                     <ul>
                         <li>

@@ -140,12 +140,14 @@
                                     <div id="range-slider" class="slider mb-3 mt-1 mx-1" wire:ignore></div>
                                     <div class="d-flex justify-content-between">
                                         <div class="caption">{{ __('names.from') }}:
+                                            <span class="fs-6" style="color: #3BB77E">€</span>
                                             <input type="text" id="filter[pricefrom]" name="filter[pricefrom]"
                                                    readonly
                                                    value="{{ $filter["pricefrom"] ?? '0' }}"
                                                    class="border-0 text-start text-brand p-0 fw-bold" style="max-width: 40px"/>
                                         </div>
                                         <div class="caption">{{ __('names.to') }}:
+                                            <span class="fs-6" style="color: #3BB77E">€</span>
                                             <input type="text" id="filter[priceto]" name="filter[priceto]" readonly
                                                    value="{{ $filter["priceto"] ?? '0' }}"
                                                    class="border-0 text-start text-brand p-0 fw-bold" style="max-width: 40px"/>
@@ -204,8 +206,8 @@
                 $(rangeSlider).slider({
                     range: true,
                     min: 0,
-                    max: 1000,
-                    values: [{{ $filter["pricefrom"] ?? 0 }}, {{ $filter["priceto"] ?? 1000 }}],
+                    max: {{ $maxPrice }},
+                    values: [{{ $filter["pricefrom"] ?? 0 }}, {{ $filter["priceto"] ?? $maxPrice }}],
                     slide: (event, ui) => {
                         $(priceFrom).val(ui.values[0]);
                         $(priceTo).val(ui.values[1]);

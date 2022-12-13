@@ -117,7 +117,8 @@ class ProductController extends AppBaseController
                 'filter' => $filter ? $filter : array(),
                 'selCategories' => $selCategories ? explode(",",$selCategories) : array(),
                 'order_list' => $this->productsOrderSelector(),
-                'selectedOrder' => $selectedOrder
+                'selectedOrder' => $selectedOrder,
+                'maxPrice' => round($products->max('price'))
             ]);
     }
 

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="page-content pt-20 pb-150">
+    <div class="page-content pt-40 pb-150">
         <div class="container">
             <div class="col-xl-8 col-lg-10 col-md-12 m-auto">
                 <div class="col-lg-6 col-md-8 m-auto">
@@ -70,6 +70,7 @@
                                 </div>
                                 <div class="form-group">
                                     <input
+                                        class="form-control"
                                         id="password-confirm"
                                         required
                                         type="password"

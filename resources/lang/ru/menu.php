@@ -44,4 +44,5 @@ return [
     'profile' => 'Профиль',
     'termsofservice' => 'Правила',
     'policy' => 'Политика конфиденциальности',
+    'euProjects' => 'ЕС Проекты',
 ];

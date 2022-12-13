@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="page-content pt-20 pb-150">
+    <div class="page-content pt-40 pb-150">
         <div class="container">
             <div class="col-xl-8 col-lg-10 col-md-12 m-auto">
                 <div class="col-lg-6 col-md-8 m-auto">
@@ -65,15 +65,15 @@
                             </form>
                             <hr class="my-5">
                             <div class="card-login mt-40 p-0 ml-0 border-0">
-                                <a href="{{ route('facebook.login') }}" class="social-login facebook-login fs-6">
+                                <a href="{{ route('facebook.login') }}" class="social-login facebook-login d-flex justify-content-center fs-6">
                                     <img src="{{asset('/images/theme/icons/logo-facebook.svg')}}" alt=""/>
                                     <span>{{__('auth.continueFacebook')}}</span>
                                 </a>
-                                <a href="{{ route('google.login') }}" class="social-login google-login fs-6">
-                                    <img src="{{asset('/images/theme/icons/logo-google.svg')}}" alt=""/>
+                                <a href="{{ route('google.login') }}" class="social-login google-login d-flex justify-content-center fs-6 text-white">
+                                    <i class="fa-brands fa-google me-3 fs-4"></i>
                                     <span>{{__('auth.continueGoogle')}}</span>
                                 </a>
-                                <a href="{{ route('twitter.login') }}" class="social-login apple-login fs-6">
+                                <a href="{{ route('twitter.login') }}" class="social-login apple-login d-flex justify-content-center fs-6">
                                     <img src="{{asset('/images/theme/icons/icon-twitter-white.svg')}}" alt=""/>
                                     <span>{{__('auth.continueTwitter')}}</span>
                                 </a>

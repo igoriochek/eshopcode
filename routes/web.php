@@ -193,7 +193,7 @@ Route::group(array('prefix' => 'admin', 'middleware' => 'admin'), function () {
 //Route::get("home", [App\Http\Controllers\HomeController::class, 'index'])->name('userhomepage');
 Route::get("rootcategories", [CategoryController::class, 'userRootCategories'])->name('rootcategories');
 Route::get("innercategories/{category_id}", [CategoryController::class, 'userInnerCategories'])->name('innercategories');
-Route::get("categorytree", [CategoryController::class, 'userCategoryTree'])->name('categorytree');
+//Route::get("categorytree", [CategoryController::class, 'userCategoryTree'])->name('categorytree');
 Route::get("viewcategory", [CategoryController::class, 'userViewCategory'])->name('viewcategory');
 Route::get("viewproduct/{id}", [ProductController::class, 'userViewProduct'])->where('id', '[0-9]+')->name('viewproduct');
 Route::get('products', [ProductController::class, 'userProductIndex'])->name('userproducts');
@@ -201,6 +201,7 @@ Route::get('promotions', [\App\Http\Controllers\PromotionController::class, 'ind
 Route::get('promotion/{id}', [\App\Http\Controllers\PromotionController::class, 'promotionProducts'])->name('promotion');
 Route::get("termsofservice", [\App\Http\Controllers\TermsOfServiceController::class, 'rules'])->name('termsofservice');
 Route::get("policy", [\App\Http\Controllers\TermsOfServiceController::class, 'policy'])->name('policy');
+Route::view('eu_projects', 'user_views.eu_projects.index')->name('euProjects');
 
 Auth::routes();
 Route::get("logout", function () {

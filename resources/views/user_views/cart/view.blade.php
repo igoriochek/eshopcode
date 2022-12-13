@@ -1,7 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-
+    @include('page_header', [
+        'secondPageLink' => 'viewcart',
+        'secondPageName' => __('menu.cart'),
+        'hasThirdPage' => false
+    ])
     <div class="container py-5">
         <div class="container mb-80 mt-50">
             <div class="row">

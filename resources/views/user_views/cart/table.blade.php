@@ -43,7 +43,7 @@
                 <td class="action ">
                     {!! Form::open(['route' => ['userCartItemDestroy', $item->id], 'method' => 'delete']) !!}
                     <div class="btn-group">
-                        {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs p-3 mt-25 w-25 text-center', 'onclick' => "return confirm('Are you sure?')"]) !!}
+                        {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs p-3 mt-25 w-25 text-center', 'onclick' => "return confirm(__('messages.areYouSureCart'))"]) !!}
                     </div>
                 </td>
             </tr>

@@ -7,7 +7,7 @@
         'hasThirdPage' => false
     ])
     <div class="container py-5">
-        <div class="page-content pt-150 pb-150">
+        <div class="page-content pt-20 pb-20">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-10 m-auto">

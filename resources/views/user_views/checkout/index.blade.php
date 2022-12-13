@@ -1,9 +1,26 @@
 @extends('layouts.app')
 
 @section('content')
-
+    <div class="page-header breadcrumb-wrap">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="{{ url('/') }}" rel="nofollow">
+                    <i class="fi-rs-home mr-5"></i>
+                    {{ __('menu.home') }}
+                </a>
+                <span></span>
+                <a href="{{ url("/user/viewcart") }}">
+                    {{ __('menu.cart') }}
+                </a>
+                <span></span>
+                <a href="{{ url("/user/checkout") }}">
+                    {{ __('names.checkout') }}
+                </a>
+            </div>
+        </div>
+    </div>
     <div class="container py-5">
-        <div class="container mb-80 mt-50">
+        <div class="container mb-10 mt-20">
             <div class="row">
                 <div class="col-lg-8 mb-40">
                     <h1 class="heading-2 mb-10">{{__('names.checkout')}}</h1>
@@ -12,7 +29,7 @@
             </div>
             <!-- End row -->
             <div class="row justify-content-center">
-                <div class="col-lg-5">
+                <div class="col-lg-5 mb-50">
                     <div class="border p-40 cart-totals ml-30 mb-50">
                         <div class="table-responsive order_table checkout">
                             <h5 class="fw-bold text-muted text-uppercase mb-3 text-center">{{ __('names.yourOrder') }}</h5>
@@ -77,8 +94,8 @@
                             </div>
                             {!! Form::close() !!}
                         </div>
-                        <div class="table-responsive mt-20">
-                            <table class="table no-border">
+                        <div class="table-responsive mt-20 mb-10">
+                            <table class="table no-border" style="border: 2px solid white">
                                 <tbody>
                                 <tr class="total">
                                     <td>

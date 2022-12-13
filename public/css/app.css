@@ -2575,13 +2575,12 @@ input.qty-val {
 }
 
 .card-login .social-login.google-login {
-  background-color: #fff;
+  background-color: #DB4437;
   color: #7E7E7E;
-  border: 1px solid #F2F3F4;
 }
 
 .card-login .social-login.apple-login {
-  background-color: #000000;
+  background-color: #1DA1F2;
   color: #fff;
   margin-bottom: 0;
 }

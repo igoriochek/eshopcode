@@ -72,7 +72,7 @@
 </li>
 <li class="menu-item-has-children admin-navbar-item">
     <a class="admin-navbar-link" style="{{ request()->is('admin/cookies') ? 'color: #3BB77E' : '' }}" href="/admin/cookies">
-        <i class="fa-solid fa-cookie"></i>
+        <i class="fa-solid fa-cookie-bite"></i>
         {{ __('menu.cookies') }}
     </a>
 </li>
