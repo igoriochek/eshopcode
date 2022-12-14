@@ -135,6 +135,7 @@ class ProductController extends AppBaseController
                 'order_list' => $this->productsOrderSelector(),
                 'selectedProductsPerPage' => $selectedProductsPerPage,
                 'selectedOrder' => $selectedOrder,
+                'maxPrice' => $products->max('price')
 //                'pricefrom' => $request->query('filter[pricefrom]') == null ? "" : $request->query('filter[pricefrom]'),
 //                'priceto' => $request->query('filter[priceto]') == null ? "" : $request->query('filter[priceto]'),
             ]);

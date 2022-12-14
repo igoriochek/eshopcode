@@ -41,6 +41,6 @@ return [
     'profile' => 'Profilis',
     'termsofservice' => 'Taisyklės',
     'policy' => 'Privatumo politika',
-    'about' => 'Apie',
+    'euProjects' => 'ES Projektai',
 
 ];

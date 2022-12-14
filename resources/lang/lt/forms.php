@@ -33,7 +33,7 @@ return [
     'new_password' => "Naujas slaptažodis",
     'confirm_password' => 'Patvirtinti slaptažodį',
 
-    'default' => 'Numatytas',
+    'default' => 'Numatytasis',
     'productNameAsc' => 'Produkto Pavadinimas – Didėjančia',
     'productNameDesc' => 'Produkto Pavadinimas – Mažėjančia',
     'priceAsc' => 'Kaina - Didėjančia',

@@ -39,6 +39,6 @@ return [
     'profile' => 'Профиль',
     'termsofservice' => 'Правила',
     'policy' => 'Политика конфиденциальности',
-    'about' => 'О Нас',
+    'euProjects' => 'ЕС Проекты',
 
 ];

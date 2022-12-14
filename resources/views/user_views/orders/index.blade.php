@@ -50,7 +50,7 @@
                                     </tr>
                                 @empty
                                     <tr>
-                                        <td colspan="5" class="ps-3">>{{__('names.noOrders')}}</td>
+                                        <td colspan="5" class="ps-3">{{__('names.noOrders')}}</td>
                                     </tr>
                                 @endforelse
                             </tbody>

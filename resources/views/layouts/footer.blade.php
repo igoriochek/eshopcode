@@ -91,21 +91,21 @@
                         </a>
                     </li>
                     <li class="nav-list">
-                        <a class="{{ request()->is('user/termsofservice*') ? 'active' : '' }}" href="{{ url('/termsofservice') }}">
+                        <a class="{{ request()->is('termsofservice') ? 'active' : '' }}" href="{{ url('/termsofservice') }}">
                             <i class="fa-solid fa-angle-right me-2"></i>
                             {{ __('menu.termsofservice') }}
                         </a>
                     </li>
                     <li class="nav-list">
-                        <a class="{{ request()->is('user/policy*') ? 'active' : '' }}" href="{{ url('/policy') }}">
+                        <a class="{{ request()->is('policy') ? 'active' : '' }}" href="{{ url('/policy') }}">
                             <i class="fa-solid fa-angle-right me-2"></i>
                             {{ __('menu.policy') }}
                         </a>
                     </li>
                     <li class="nav-list">
-                        <a class="{{ request()->is('user/about*') ? 'active' : '' }}" href="{{ url('/about') }}">
+                        <a class="{{ request()->is('eu_projects') ? 'active' : '' }}" href="{{ url('/eu_projects') }}">
                             <i class="fa-solid fa-angle-right me-2"></i>
-                            {{ __('menu.about') }}
+                            {{ __('menu.euProjects') }}
                         </a>
                     </li>
                 </ul>

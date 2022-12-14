@@ -78,12 +78,7 @@
                                     class="header-nav-main header-nav-main-square header-nav-main-dropdown-no-borders header-nav-main-effect-3 header-nav-main-sub-effect-1 w-100">
                                     <nav class="collapse w-100" id="nav">
                                         <ul class="nav nav-pills w-100" id="mainNav">
-                                            @guest
-                                                @include('layouts.menus.menu')
-                                            @endguest
-                                            @auth
-                                                @include('layouts.menus.user_menu')
-                                            @endauth
+                                            @include('layouts.menus.menu')
                                         </ul>
                                     </nav>
                                 </div>
