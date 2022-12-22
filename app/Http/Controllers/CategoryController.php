@@ -125,7 +125,9 @@ class CategoryController extends AppBaseController
     {
         $input = $request->all();
         $input = $this->prepare($input, ["name", "description"]);
-        $input['parent_id'] = null;
+
+        empty($input['parent_id']) && $input['parent_id'] = null;
+
         $category = Category::create($input);
 
         Flash::success('Category saved successfully.');
@@ -195,6 +197,9 @@ class CategoryController extends AppBaseController
             return redirect(route('categories.index'));
         }
         $input = $this->prepare($request->all(), ["name", "description"]);
+
+        empty($input['parent_id']) && $input['parent_id'] = null;
+
         $category->update($input);
         Flash::success('Category updated successfully.');
 

@@ -156,8 +156,9 @@ class ProductController extends AppBaseController
             $input['image'] = "/images/upload/" .$imageName;
         }
         $input = $this->prepare($input, ["name", "description"]);
-        $input['promotion_id'] = null;
-        $input['discount_id'] = null;
+
+        empty($input['promotion_id']) && $input['promotion_id'] = null;
+        empty($input['discount_id']) && $input['discount_id'] = null;
 
 //        $product = $this->productRepository->create($input);
         $product = Product::create($input);
@@ -282,6 +283,9 @@ class ProductController extends AppBaseController
         }
 
         $input = $this->prepare($input, ["name", "description"]);
+
+        empty($input['promotion_id']) && $input['promotion_id'] = null;
+        empty($input['discount_id']) && $input['discount_id'] = null;
 
         $product->update($input);
 
