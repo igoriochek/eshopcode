@@ -66,14 +66,14 @@
 <!-- Promotion Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('promotion_id', __('table.promotionId').':') !!}
-    {!! Form::select('promotion_id', $promotions, null, ['class' => 'form-control custom-select']) !!}
+    {!! Form::select('promotion_id', $promotions, null, ['class' => 'form-control custom-select', 'placeholder' => '---']) !!}
 </div>
 
 
 <!-- Discount Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('discount_id', __('table.discountId').':') !!}
-    {!! Form::select('discount_id', $discounts, null, ['class' => 'form-control custom-select']) !!}
+    {!! Form::select('discount_id', $discounts, null, ['class' => 'form-control custom-select', 'placeholder' => '---']) !!}
 </div>
 
 
