@@ -156,6 +156,8 @@ class ProductController extends AppBaseController
             $input['image'] = "/images/upload/" .$imageName;
         }
         $input = $this->prepare($input, ["name", "description"]);
+        $input['promotion_id'] = null;
+        $input['discount_id'] = null;
 
 //        $product = $this->productRepository->create($input);
         $product = Product::create($input);

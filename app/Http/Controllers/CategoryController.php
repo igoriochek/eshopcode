@@ -125,7 +125,7 @@ class CategoryController extends AppBaseController
     {
         $input = $request->all();
         $input = $this->prepare($input, ["name", "description"]);
-//        dd($input);
+        $input['parent_id'] = null;
         $category = Category::create($input);
 
         Flash::success('Category saved successfully.');
