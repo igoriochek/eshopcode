@@ -1,11 +1,24 @@
 @extends('layouts.app')
 
 @section('content')
-
+    <div class="page-header breadcrumb-wrap">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="{{ url('/') }}" rel="nofollow">
+                    <i class="fi-rs-home mr-5"></i>
+                    {{ __('menu.home') }}
+                </a>
+                <span></span>
+                <a href="{{ url("/user/rootoreturns") }}">
+                    {{ __('menu.returns') }}
+                </a>
+            </div>
+        </div>
+    </div>
     <div class="container py-5">
         <div class="col-lg-10 m-auto">
             <div class="row justify-content-center">
-                <div class="col-md-9">
+                <div class="col-12">
                     <div class="tab-pane account" id="orders">
                         @if($returns)
                             <div class="card">

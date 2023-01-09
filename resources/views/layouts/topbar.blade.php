@@ -5,14 +5,14 @@
                 <div class="header-info">
                     <ul>
                         <li class="d-flex gap-1">
-                            <img src="{{ asset('/images/theme/icons/icon-contact.svg') }}" alt="" class="me-1" />
+                            <i class="fa-solid fa-phone me-1 text-danger"></i>
                             <strong>{{__('footer.phone')}}: </strong>
-                            <span>+ 370 650 99090</span>
+                            <span>+370 620 90867</span>
                         </li>
-                        <li class="d-none d-lg-flex gap-1">
-                            <img src="{{ asset('/images/theme/icons/icon-email-2.svg') }}" alt="" class="me-1" />
+                        <li class="d-none d-md-flex gap-1">
+                            <i class="fa-solid fa-envelope me-1 text-danger"></i>
                             <strong>{{__('footer.email')}}: </strong>
-                            <span>info@contentum.lt </span>
+                            <span>vilmavenckute3@gmail.com</span>
                         </li>
                     </ul>
                 </div>

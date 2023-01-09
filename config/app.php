@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'contentum'),
+    'name' => env('APP_NAME', 'Krims Kebabai'),
 
     /*
     |--------------------------------------------------------------------------
@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'https://www.healthnest.eu'),
+    'url' => env('APP_URL', 'https://www.krims.lt'),
 
     'asset_url' => env('ASSET_URL', null),
 
@@ -67,7 +67,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Europe/Vilnius',
 
     /*
     |--------------------------------------------------------------------------

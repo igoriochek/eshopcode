@@ -8,7 +8,8 @@
                 wire:model="message_text"
                 required
             >
-            <button type="submit" class="btn btn-primary">
+            <button type="submit" class="btn btn-primary p-3" style="width: 150px">
+                <i class="fa-solid fa-paper-plane me-1"></i>
                 {{__('messages.send')}}
             </button>
         </div>

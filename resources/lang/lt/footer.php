@@ -17,7 +17,7 @@ return [
     'menu' => 'Meniu',
     'profile' => 'Vartotojo paskyra',
     'securedPayment' => 'Saugus Mokėjimas',
-    'copyright' => 'MB Contentum© 2022.',
+    'copyright' => '© UAB „Vadeiva“ 2022.',
     'allRightsReserved' => 'Visos teisės saugomos',
     'companycode' => "Įmonės kodas",
     'vatcode' => "PVM kodas",

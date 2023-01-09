@@ -14,6 +14,7 @@
                         <h5 class="section-title style-1 mb-30 d-flex justify-content-between align-items-center w-100">
                             {{ __('names.messages') }}
                             <a class="btn btn-primary" href="{{ route('livewire.messenger.add') }}">
+                                <i class="fa-solid fa-address-book me-1"></i>
                                 {{ __('buttons.contact') }}
                             </a>
                         </h5>

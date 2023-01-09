@@ -1,5 +1,5 @@
 <ul>
-    @foreach($categoryTree as $category)
+    @forelse($categoryTree as $category)
         <li>
             <a href="{{ route("innercategories", ["category_id" => $category->id ]) }}" class="w-100">
                 {{ $category->name }}
@@ -11,5 +11,7 @@
         @if(count($category->innerCategories))
             @include('user_views.category.manageChild', ['childs' => $category->innerCategories])
         @endif
-    @endforeach
+    @empty
+        <span class="text-muted">{{ __('names.noCategories') }}</span>
+    @endforelse
 </ul>

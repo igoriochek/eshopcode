@@ -182,7 +182,7 @@ return [
     'productName' => 'Product Name',
     'productOrders' => 'Product Orders',
     'noProducts' => 'No Products',
-    'saleOff' => 'Sale Off',
+    'saleOff' => 'Sale',
     'searchForItems' => 'Search For Items',
     'search' => 'Search',
 

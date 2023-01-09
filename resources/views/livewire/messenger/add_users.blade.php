@@ -12,6 +12,7 @@
                     <p class="mb-0">{{ $user->email }}</p>
                 </div>
                 <a class="btn btn-primary px-4" href="{{ route('livewire.messenger.show', [$user->id]) }}">
+                    <i class="fa-solid fa-message me-1"></i>
                     {{ __('buttons.contact') }}
                 </a>
             </div>
@@ -24,7 +25,7 @@
     <hr class="messenger-users-hr my-0"/>
     <div class="pt-3 mt-3">
         @if (count($addUsers) > 0)
-            {{ $addUsers->links() }}
+            {{ $addUsers->onEachSide(1)->links() }}
         @endif
     </div>
 </ul>

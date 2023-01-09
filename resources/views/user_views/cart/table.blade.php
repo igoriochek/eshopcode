@@ -42,9 +42,10 @@
                 </td>
                 <td class="action ">
                     {!! Form::open(['route' => ['userCartItemDestroy', $item->id], 'method' => 'delete']) !!}
-                    <div class="btn-group">
-                        {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs p-3 mt-25 w-25 text-center', 'onclick' => "return confirm(__('messages.areYouSureCart'))"]) !!}
-                    </div>
+                        <div class="btn-group">
+                            {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs mt-25 w-25 text-center', 'onclick' => "return confirm()", 'style' => 'border-radius: 30px; padding: 21px 15px;']) !!}
+                        </div>
+                    {!! Form::close() !!}
                 </td>
             </tr>
         @endforeach

@@ -20,32 +20,32 @@
         </div>
     </div>
     <div class="container py-5">
-        <div class="container mb-10 mt-20">
+        <div class="container mb-10 mt-20 px-0">
             <div class="row">
-                <div class="col-lg-8 mb-40">
+                <div class="col-12 mb-40">
                     <h1 class="heading-2 mb-10">{{__('names.checkout')}}</h1>
                 </div>
                 <!-- End col-lg-8 mb-40-->
             </div>
             <!-- End row -->
             <div class="row justify-content-center">
-                <div class="col-lg-5 mb-50">
-                    <div class="border p-40 cart-totals ml-30 mb-50">
+                <div class="col-lg-7 mb-50 px-0">
+                    <div class="border p-40 cart-totals mb-50">
                         <div class="table-responsive order_table checkout">
-                            <h5 class="fw-bold text-muted text-uppercase mb-3 text-center">{{ __('names.yourOrder') }}</h5>
-                            <table class="table no-border">
+                            <h5 class="fw-bold text-black text-uppercase mb-3 text-center">{{ __('names.yourOrder') }}</h5>
+                            <table class="table no-border ">
                                 <tbody>
                                 <tr>
                                     <th scope="col" ></th>
-                                    <th scope="col" class="text-muted">{{__('table.product')}}</th>
-                                    <th scope="col" class="text-muted pl-20 pr-20">{{__('table.count')}}</th>
-                                    <th scope="col" class="text-muted pl-20 pr-20">{{__('table.price')}}</th>
+                                    <th scope="col" class="text-dark">{{__('table.product')}}</th>
+                                    <th scope="col" class="text-dark pl-20 pr-20">{{__('table.count')}}</th>
+                                    <th scope="col" class="text-dark pl-20 pr-20">{{__('table.price')}}</th>
                                 </tr>
                                 @foreach($cartItems as $item)
                                     <tr>
                                         <td class="image product-thumbnail">
-                                                <a href="{{ route('viewproduct', $item['product']->id) }}" title="{{ $item['product']->name }}">
-                                                    <img alt="{{ $item['product']->name }}" class="product-thumbnail-image"
+                                                <a href="{{ route('viewproduct', $item['product']->id) }}" title="{{ $item['product']->name }}" >
+                                                    <img alt="{{ $item['product']->name }}" class="product-thumbnail-image" style="border: 2px solid white"
                                                          src="@if ($item['product']->image) {{ $item['product']->image }} @else /images/noimage.jpeg @endif">
                                                 </a>
                                         </td>
@@ -71,20 +71,17 @@
                             </table>
                         </div>
                     </div>
-                    <div class="cart-action d-flex justify-content-between ml-30">
-                        <a class="btn " href="{{ url('/user/viewcart') }}"><i class="fas fa-arrow-left ms-2"></i> {{__('buttons.back')}}</a>
-                    </div>
                 </div>
                 <!-- End col-lg-5 -->
-                <div class="col-lg-6">
+                <div class="col-lg-5 px-0">
                     <div class="border p-md-4 cart-totals ml-30">
-                        <h5 class="fw-bold text-muted text-uppercase mb-3 text-center">{{ __('names.overview') }}</h5>
+                        <h5 class="fw-bold text-black text-uppercase mb-3 text-center">{{ __('names.overview') }}</h5>
                         <div class="divider-2 mb-30"></div>
                         <div class="col text-center">
-                            <p>{{ __('names.wantToApply') }}</p>
+                            <p class="mb-3">{{ __('names.wantToApply') }}</p>
                             {!! Form::open(['route' => ['checkout-preview'], 'method' => 'post']) !!}
                             <div class="d-flex align-items-center flex-column flex-md-row">
-                                <select name="discount[]" class="form-control h-auto border-radius-0 line-height-1">
+                                <select name="discount[]" class="form-control h-auto border-radius-0">
                                     <option value="" class="text-muted">{{ __('---') }}</option>
                                     @foreach($discounts as $item)
                                         <option value="{{ $item->id }}">{{ $item->code }} - {{ $item->value }} EU {{ __('names.off') }}</option>
@@ -94,7 +91,7 @@
                             </div>
                             {!! Form::close() !!}
                         </div>
-                        <div class="table-responsive mt-20 mb-10">
+                        <div class="table-responsive mt-30 mb-10">
                             <table class="table no-border" style="border: 2px solid white">
                                 <tbody>
                                 <tr class="total">
@@ -109,7 +106,7 @@
                             </table>
                         </div>
                         {!! Form::open(['route' => ['checkout-preview'], 'method' => 'post']) !!}
-                        <button type="submit" class="btn  mr-20 w-100 font-weight-500">{{__('buttons.preview')}}<i class="fas fa-arrow-right ms-2"></i></button>
+                            <button type="submit" class="btn mr-10 w-100 font-weight-500">{{__('buttons.preview')}}<i class="fas fa-arrow-right ms-2"></i></button>
                         {!! Form::close() !!}
                     </div>
                 </div>

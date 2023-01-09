@@ -9,7 +9,7 @@
     ])
     <div class="container mb-30 mt-30">
         <div class="row">
-            <div class="col-xl-10 col-lg-12 m-auto">
+            <div class="col-lg-12 m-auto">
                 <div class="product-detail accordion-detail">
                     <div class="row mb-50 mt-30">
                         <div class="col-md-6 col-sm-12 col-xs-12 mb-md-0 mb-sm-5">
@@ -17,7 +17,7 @@
                                 <!-- MAIN SLIDES -->
                                 <div class="product-image-slider slick-initialized slick-slider">
                                     @if($product->image)
-                                        <img src="{{ $product->image }}" alt="{{$product->name}}"/>
+                                        <img src="{{ $product->image }}" alt="{{$product->name}}" class="w-100"/>
                                     @else
                                         <img src="{{ asset('images/noimage.jpeg') }}" alt="no-product-image" class="w-100"/>
                                     @endif
@@ -42,26 +42,26 @@
                                                 @endfor
                                             </div>
                                         </div>
-                                        <span class="font-small ms-4 text-muted">({{ $rateCount.' '.__('names.reviews') }})</span>
+                                        <span class="font-small ms-4">({{ $rateCount.' '.__('names.reviews') }})</span>
                                     </div>
                                 </div>
-                                <div class="clearfix product-price-cover">
+                                <div class="clearfix product-price-cover my-1">
                                     <div class="product-price primary-color float-left">
                                         @if ($product->discount)
                                             <span class="current-price text-brand">
-                                                {{ $product->price - (round(($product->price * $product->discount->proc / 100), 2)) }} €
+                                                {{ sprintf("%.2f", $product->price - (round(($product->price * $product->discount->proc / 100), 2))) }} €
                                             </span>
                                             <span>
                                                 <span class="save-price font-md color3 ml-15">
                                                     {{ $product->discount->proc.'% '.__('names.off') }}
                                                 </span>
                                                 <span class="old-price font-md ml-15">
-                                                    {{ number_format($product->price,2) }} €
+                                                    {{ sprintf("%.2f", $product->price) }} €
                                                 </span>
                                             </span>
                                         @else
                                             <span class="current-price text-brand">
-                                                {{ number_format($product->price,2) }} €
+                                                {{ sprintf("%.2f", $product->price) }} €
                                             </span>
                                         @endif
                                     </div>
@@ -69,12 +69,12 @@
                                 <div class="detail-extralink mb-50">
                                     {!! Form::open(['route' => ['addtocart'], 'method' => 'post', 'class' => 'd-flex align-items-center']) !!}
                                         <div class="d-flex me-4">
-                                            {!! Form::number('count', "1", ['style' => 'width: 80px; height: 51px; padding-right: 10px', "min" => "1", "max" => "5", "minlength" => "1", "maxlength" => "5", "oninput" => "this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null"]) !!}
+                                            {!! Form::number('count', "1", ['style' => 'width: 80px; height: 51px; padding-right: 10px; border-radius: 5px', "min" => "1", "max" => "5", "minlength" => "1", "maxlength" => "5", "oninput" => "this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null"]) !!}
                                         </div>
                                         <input type="hidden" name="id" value="{{ $product->id }}">
                                         <div class="product-extra-link2">
-                                            <button type="submit" class="button button-add-to-cart">
-                                                <i class="fi-rs-shopping-cart"></i>
+                                            <button type="submit" class="button button-add-to-cart" style="padding-inline: 30px">
+                                                <i class="fa-solid fa-bag-shopping me-1"></i>
                                                 {{__('buttons.addToCart')}}
                                             </button>
                                         </div>
@@ -82,11 +82,11 @@
                                 </div>
                                 <div class="font-xs">
                                     <ul class="mr-50 float-start">
-                                        <li class="mb-5 fs-6">{{ __('names.categories') }}:
+                                        <li class="mb-5 fs-6 fw-bold text-dark">{{ __('names.categories') }}:
                                             @forelse ($product->categories as $category)
-                                                <span class="text-brand">
+                                                <span class="text-brand ms-2">
                                                     <a href="{{ url("/user/innercategories/$category->id") }}" class="w-100">
-                                                        {{ $category->name }}
+                                                        {{ $category->name }}@if (!$loop->last),@endif
                                                     </a>
                                                 </span>
                                             @empty
@@ -103,21 +103,21 @@
                         <div class="tab-style3">
                             <ul class="nav nav-tabs text-uppercase">
                                 <li class="nav-item">
-                                    <a class="nav-link" id="Description-tab" data-bs-toggle="tab" href="#Description">{{ __('names.description') }}</a>
+                                    <a class="nav-link active" id="Description-tab" data-bs-toggle="tab" href="#Description">{{ __('names.description') }}</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link active" id="Reviews-tab" data-bs-toggle="tab" href="#Reviews">
+                                    <a class="nav-link" id="Reviews-tab" data-bs-toggle="tab" href="#Reviews">
                                         {{ __('names.reviews').' ('.$rateCount.')' }}
                                     </a>
                                 </li>
                             </ul>
                             <div class="tab-content shop_info_tab entry-main-content">
-                                <div class="tab-pane fade" id="Description">
+                                <div class="tab-pane fade active show" id="Description">
                                     <div>
                                         <p style="line-height: 33px">{{ $product->description }}</p>
                                     </div>
                                 </div>
-                                <div class="tab-pane fade active show" id="Reviews">
+                                <div class="tab-pane fade" id="Reviews">
                                     <!--Comments-->
                                     <div class="comments-area">
                                         <div class="row">
@@ -214,7 +214,7 @@
                                     <!--comment form-->
                                     <div class="comment-form">
                                         <h4 class="mb-15">{{ __('names.addAReview') }}</h4>
-                                        <div class="product-rate d-inline-block mb-30"></div>
+                                        <div class="product-rate d-inline-block "></div>
                                         <div class="row">
                                             <div class="col-lg-8 col-md-12">
                                                 @if (!$voted)

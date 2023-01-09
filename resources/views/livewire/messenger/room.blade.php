@@ -15,7 +15,7 @@
                 </div>
             @else
                 <div style="display: flex; flex-direction: row-reverse; justify-content: flex-start; align-items: center; gap: 20px;">
-                    <span class="text-light" style="background-color: #2bcc70; color: #eeeeee; border-radius: 15px 0 15px 15px; padding: 10px 20px; max-width: 500px; font-size: 1rem">
+                    <span class="text-light" style="background-color: #ef5454; color: #eeeeee; border-radius: 15px 0 15px 15px; padding: 10px 20px; max-width: 500px; font-size: 1rem">
                         {{ $message->message_text }}
                     </span>
                 </div>

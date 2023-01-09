@@ -10,23 +10,25 @@
         <div class="page-content pt-20 pb-20">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-10 m-auto">
+                    <div class="col-12 m-auto">
                         <div class="row">
-                            <div class="col-md-3">
+                            <div class="col-md-3 pe-md-2 pe-0">
                                 <div class="dashboard-menu">
                                     <ul class="nav flex-column" role="tablist">
                                         <li class="nav-item">
-                                            <a class="nav-link active" id="account-detail-tab" data-bs-toggle="tab"
+                                            <a class="nav-link d-flex active" id="account-detail-tab" data-bs-toggle="tab"
                                                href="#account-detail" role="tab" aria-controls="account-detail"
                                                aria-selected="true">
-                                                <i class="fi-rs-user mr-10"></i>{{__('forms.profileSettings')}}
+                                                <i class="fi-rs-user mr-10"></i>
+                                                {{__('forms.profileSettings')}}
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" id="password-settings-tab" data-bs-toggle="tab"
+                                            <a class="nav-link d-flex" id="password-settings-tab" data-bs-toggle="tab"
                                                href="#password-settings" role="tab" aria-controls="password-settings"
                                                aria-selected="false">
-                                                <i class="fi-rs-settings-sliders mr-10"></i>{{__('forms.passwordSettings')}}
+                                                <i class="fi-rs-settings-sliders mr-10"></i>
+                                                {{__('forms.passwordSettings')}}
                                             </a>
                                         </li>
                                     </ul>
@@ -74,8 +76,8 @@
                                                             {!! Form::label('phone_number', __('forms.phone_number')) !!}
                                                             {!! Form::text('phone_number', $user->phone_number, ['class' => 'form-control']) !!}
                                                         </div>
-                                                        <div class="col-md-12 mt-4">
-                                                            {!! Form::submit(__('buttons.save'), ['class' => 'btn btn-primary']) !!}
+                                                        <div class="d-flex justify-content-center w-100">
+                                                            {!! Form::submit(__('buttons.save'), ['class' => 'btn btn-primary mt-3 col-xl-4 col-lg-5 col-md-6 col-12 ']) !!}
                                                         </div>
                                                     </div>
                                                 </form>
@@ -105,7 +107,9 @@
                                                             <label>{{__('forms.confirm_password')}}</label>
                                                             {!! Form::password('new_password_confirmation', ['class' => 'form-control']) !!}
                                                         </div>
-                                                        {!! Form::submit(__('buttons.save'), ['class' => 'btn btn-primary mt-4']) !!}
+                                                        <div class="d-flex justify-content-center w-100">
+                                                            {!! Form::submit(__('buttons.save'), ['class' => 'btn btn-primary mt-3 col-xl-4 col-lg-5 col-md-6 col-12 ']) !!}
+                                                        </div>
                                                     </div>
                                                 </form>
                                                 {!! Form::close() !!}

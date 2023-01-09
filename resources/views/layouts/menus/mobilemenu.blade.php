@@ -13,12 +13,14 @@
     <div class="mobile-header-wrapper-inner">
         <div class="mobile-header-top">
             <div class="mobile-header-logo">
-                <a href="{{ route('home') }}" class="fs-3 fw-bolder py-2">
-                    CONTENTUM
+                <a href="{{ route('home') }}">
+                    <div style="height: 70px; width: 120px; overflow: hidden;">
+                        <img src="{{ asset('/images/logo.jpeg') }}" alt="logo" style="width: 100%; height: 100%; object-fit: cover">
+                    </div>
                 </a>
             </div>
             <div class="mobile-menu-close close-style-wrap close-style-position-inherit">
-                <button class="close-style search-close">
+                <button class="close-style search-clos text-white">
                     <i class="icon-top"></i>
                     <i class="icon-bottom"></i>
                 </button>
@@ -30,22 +32,22 @@
                 <nav>
                     <ul class="mobile-menu font-heading">
                         <li class="menu-item">
-                            <a href="/products" style="color: {{ request()->is('products*') || request()->is('viewproduct*') ? '#3BB77E' : '' }}">{{__('menu.products')}}</a>&nbsp;&nbsp;
+                            <a href="/products" style="color: {{ request()->is('products*') || request()->is('viewproduct*') ? '#e10000' : '' }}">{{__('menu.products')}}</a>&nbsp;&nbsp;
                         </li>
                         <li class="menu-item">
-                            <a href="/rootcategories" style="color: {{ request()->is('rootcategories*') || request()->is('innercategories*') ? '#3BB77E' : '' }}">{{__('menu.categories')}}</a>&nbsp;&nbsp;
+                            <a href="/rootcategories" style="color: {{ request()->is('rootcategories*') || request()->is('innercategories*') ? '#e10000' : '' }}">{{__('menu.categories')}}</a>&nbsp;&nbsp;
                         </li>
                         <li class="menu-item">
-                            <a href="/promotions" style="color: {{ request()->is('promotions*') || request()->is('promotion*') ? '#3BB77E' : '' }}">{{__('menu.promotions')}}</a>&nbsp;&nbsp;
+                            <a href="/promotions" style="color: {{ request()->is('promotions*') || request()->is('promotion*') ? '#e10000' : '' }}">{{__('menu.promotions')}}</a>&nbsp;&nbsp;
                         </li>
                         <li class="menu-item">
-                            <a href="/user/discountCoupons" style="color: {{ request()->is('discountCoupons') ? '#3BB77E' : '' }}">{{__('menu.discountCoupons')}}</a>&nbsp;&nbsp;
+                            <a href="/user/discountCoupons" style="color: {{ request()->is('discountCoupons') ? '#e10000' : '' }}">{{__('menu.discountCoupons')}}</a>&nbsp;&nbsp;
                         </li>
                         <li class="menu-item">
-                            <a href="/user/messenger" style="color: {{ request()->is('messenger*') ? '#3BB77E' : '' }}">{{__('menu.messenger')}}</a>&nbsp;&nbsp;
+                            <a href="/user/messenger" style="color: {{ request()->is('messenger*') ? '#e10000' : '' }}">{{__('menu.messenger')}}</a>&nbsp;&nbsp;
                         </li>
                         <li class="menu-item">
-                            <a href="/eu_projects" style="color: {{ request()->is('eu_projects') ? '#3BB77E' : '' }}">{{ __('menu.euProjects') }}</a>&nbsp;&nbsp;
+                            <a href="/eu_projects" style="color: {{ request()->is('eu_projects') ? '#e10000' : '' }}">{{ __('menu.euProjects') }}</a>&nbsp;&nbsp;
                         </li>
                         <div style="height: 30px"></div>
                         @auth
@@ -67,13 +69,13 @@
                                 <ul class="dropdown">
                                     <li>
                                         <a href="{{ url('/user/rootorders') }}"
-                                           style="color: {{ request()->is('user/rootorders*') ? '#3BB77E' : '' }}">
+                                           style="color: {{ request()->is('user/rootorders*') ? '#e10000' : '' }}">
                                             <i class="fi fi-rs-check mr-10"></i>{{__('menu.orders')}}
                                         </a>
                                     </li>
                                     <li>
                                         <a href="{{ url('/user/rootoreturns') }}"
-                                           style="color: {{ request()->is('user/rootoreturnsç*') ? '#3BB77E' : '' }}">
+                                           style="color: {{ request()->is('user/rootoreturnsç*') ? '#e10000' : '' }}">
                                             <i class="fi fi-rs-arrow-left mr-10"></i>{{__('menu.returns')}}
                                         </a>
                                     </li>
@@ -91,7 +93,7 @@
                         @else
                             @if (Route::has('login'))
                                 <li class="menu-item">
-                                    <a href="{{ route('login') }}" style="color: {{ request()->is('login*') ? '#3BB77E' : '' }}">
+                                    <a href="{{ route('login') }}" style="color: {{ request()->is('login*') ? '#e10000' : '' }}">
                                         <i class="fi fi-rs-sign-in text-muted"></i>
                                         {{ __('auth.login') }}
                                     </a>

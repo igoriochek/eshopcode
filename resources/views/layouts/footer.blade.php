@@ -10,31 +10,31 @@
                         <div class="logo mb-30">
                             <h4 class="widget-title text-uppercase text-brand">{{__('footer.contactInfo')}}</h4>
                         </div>
-                        <ul class="contact-infor">
+                        <ul class="contact-infor d-flex flex-column gap-2">
                             <li>
-                                <img src="{{asset('/images/theme/icons/icon-location.svg')}}" alt="" />
+                                <i class="fa-solid fa-location-dot text-danger me-2 fs-5"></i>
                                 <strong>{{__('footer.address')}}: </strong>
-                                <span>Giedros g. 35, LT-10234 Vilnius</span>
+                                <span>Savanorių pr. 253, Vilnius</span>
                             </li>
                             <li>
-                                <img src="{{asset('/images/theme/icons/icon-3.svg')}}" alt="" />
+                                <i class="fa-solid fa-building text-danger me-2 fs-5"></i>
                                 <strong>{{__('footer.companycode')}}: </strong>
-                                <span>302900421</span>
+                                <span>300570003</span>
                             </li>
                             <li>
-                                <img src="{{asset('/images/theme/icons/icon-1.svg')}}" alt="" />
+                                <i class="fa-solid fa-building-columns text-danger me-2 fs-5"></i>
                                 <strong>{{__('footer.vatcode')}}: </strong>
-                                <span>LT100007714016</span>
+                                <span>LT100004862117</span>
                             </li>
                             <li>
-                                <img src="{{asset('/images/theme/icons/icon-contact.svg')}}" alt="" />
+                                <i class="fa-solid fa-phone text-danger me-2 fs-5"></i>
                                 <strong>{{__('footer.phone')}}: </strong>
-                                <span>+ 370 650 99090</span>
+                                <span>+370 620 90867</span>
                             </li>
                             <li>
-                                <img src="{{asset('/images/theme/icons/icon-email-2.svg')}}" alt="" />
+                                <i class="fa-solid fa-envelope text-danger me-2 fs-5"></i>
                                 <strong>{{__('footer.email')}}: </strong>
-                                <span>info@contentum.lt </span>
+                                <span>vilmavenckute3@gmail.com</span>
                             </li>
 {{--                            <li>--}}
 {{--                                <img src="{{asset('/images/theme/icons/icon-clock.svg')}}" alt="" />--}}
@@ -89,7 +89,7 @@
 
                 <div class="footer-link-widget widget-install-app col">
                     <h4 class="widget-title text-uppercase text-brand">{{__('footer.securedPayment')}}</h4>
-                    <img class="wow fadeIn animated" src="{{asset('/images/theme/320px-Paysera_logo.png')}}" style="width: 200px" alt="" />
+                    <img class="wow fadeIn animated" src="{{asset('/images/theme/320px-Paysera_logo.png')}}" style="width: 150px" alt="" />
                 </div>
             </div>
         </div>
@@ -101,8 +101,7 @@
             </div>
             <div class="col-xl-4 col-lg-6 col-md-6">
                 <p class="font-sm mb-0">
-                    <strong class="text-brand">{{__('footer.copyright')}}</strong>
-                    <br />
+                    <strong class="text-brand me-1">{{__('footer.copyright')}}</strong>
                     {{__('footer.allRightsReserved')}}
                 </p>
             </div>
@@ -111,7 +110,9 @@
             <div class="col-xl-4 col-lg-6 col-md-6 text-end d-none d-md-block">
                 <div class="mobile-social-icon">
                     <a href="/facebook/auth"><img src="{{asset('/images/theme/icons/icon-facebook-white.svg')}}" alt="/facebook/auth" /></a>
-                    <a href="/google/auth"><img src="{{asset('/images/theme/icons/icon-google.svg')}}" alt="/google/auth" /></a>
+                    <a href="/google/auth">
+                        <i class="fa-brands fa-google text-white" style="font-size: 11px; margin-top: 10px"></i>
+                    </a>
                     <a href="/twitter/auth"><img src="{{asset('/images/theme/icons/icon-twitter-white.svg')}}" alt="/twitter/auth" /></a>
                 </div>
             </div>

@@ -7,7 +7,7 @@
         'hasThirdPage' => false
     ])
     <div class="container py-5">
-        <div class="container mb-80 mt-50">
+        <div class="container mb-80 mt-50 px-1">
             <div class="row">
                 <div class="col-lg-8 mb-40">
                     @if(count($cartItems)>0)
@@ -30,7 +30,7 @@
                 <div class="col-lg-4">
                     <div class="border p-md-4 cart-totals ms-0 ms-lg-4">
                         <div class="table-responsive">
-                            <h5 class="fw-bold text-muted text-uppercase mb-3 text-center">{{ __('names.overview') }}</h5>
+                            <h5 class="fw-bold text-uppercase mb-3 text-center text-dark">{{ __('names.overview') }}</h5>
                             <table class="table no-border" style="border: 2px solid white">
                                 <tbody>
                                 <tr class="total">
@@ -49,7 +49,7 @@
                 </div>
                 <!-- End col-lg-4 -->
                 @else
-                    <div>
+                    <div class="d-flex justify-content-center pt-50 flex-column gap-2">
                         <h6 class="text-body">{{__('names.noProductsInCart')}}</h6>
                         <span>
                             <a href="/user/products" class="card-link">{{__('names.browseProducts')}}</a>

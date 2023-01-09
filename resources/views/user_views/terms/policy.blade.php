@@ -9,14 +9,14 @@
     <div class="container product-section my-4">
         @if($lang=="lt")
             <h3 class="mb-4">Privatumo politika</h3>
-            Privatumo politika (toliau – „Privatumo politika“) paaiškina, kaip MB Contentum (toliau – „Bendrovė“) renka ir tvarko svetainės www.healthnest.eu (toliau – „Svetainė“) lankytojų informaciją, nurodo kokias teises Svetainės lankytojai turi bei kaip jas gali įgyvendinti. Prieš registruojantis Svetainėje rekomenduojame atidžiai perskaityti šią Privatumo politiką.<br/>
+            Privatumo politika (toliau – „Privatumo politika“) paaiškina, kaip UAB "Vadeiva" (toliau – „Bendrovė“) renka ir tvarko svetainės www.krims.lt (toliau – „Svetainė“) lankytojų informaciją, nurodo kokias teises Svetainės lankytojai turi bei kaip jas gali įgyvendinti. Prieš registruojantis Svetainėje rekomenduojame atidžiai perskaityti šią Privatumo politiką.<br/>
             Bendrovė yra įsipareigojusi savo veikloje atsakingai ir saugiai tvarkyti Jūsų asmens duomenis. Vadovaudamiesi, šiais esminiais principais, mes visada sieksime užtikrinti pakankamą Jūsų duomenų apsaugos lygį bei Jūsų teisių apsaugą. Mes tvarkome Asmens duomenis, pagal šią Privatumo politiką, vadovaudamiesi taikomais teisės aktais, įskaitant Bendrąjį duomenų apsaugos reglamentą (2016/679) (toliau – „BDAR“) bei taikomus Lietuvos nacionalinius asmens duomenų apsaugos teisės aktus.<br/>
             <h6 class="mt-3 mb-2">Duomenų valdytojas</h6>
-            MB Contentum<br/>
-            Įmonės kodas yra: 302900421<br/>
-            Adresas: Giedros g. 35, LT-10234 Vilnius<br/>
-            Tel. Nr. +370 650 99090<br/>
-            El. pašto adresas: info@contentum.lt<br/>
+            UAB "Vadeiva"<br/>
+            Įmonės kodas yra: 300570003<br/>
+            Adresas: Savanorių pr. 253, Vilnius <br/>
+            Tel. Nr. +370 620 90867<br/>
+            El. pašto adresas: vilmavenckute3@gmail.com<br/>
             <h6 class="mt-3 mb-2">Kokią informaciją renkame, naudojame ir saugojame apie Jus?</h6>
             Informacija, kurią pateikia pats Svetainės lankytojas, pildydamas registracijos formą mūsų Svetainėje:<br/>
             <span class="ms-3"></span>1.	Vardas<br/>
@@ -46,14 +46,14 @@
 
         @elseif ($lang == "ru")
             <h3 class="mb-4">Политика конфиденциальности</h3>
-            Политика конфиденциальности (далее — «Политика конфиденциальности») объясняет, как MB Contentum (далее — «Компания») собирает и обрабатывает информацию о посетителях веб-сайта www.healthnest.eu (далее — «Сайт»), указывает, что права, которыми обладают посетители Сайта, и способы их реализации. Перед регистрацией на Сайте рекомендуем внимательно ознакомиться с настоящей Политикой конфиденциальности.<br/>
+            Политика конфиденциальности (далее — «Политика конфиденциальности») объясняет, как UAB "Vadeiva" (далее — «Компания») собирает и обрабатывает информацию о посетителях веб-сайта www.krims.lt (далее — «Сайт»), указывает, что права, которыми обладают посетители Сайта, и способы их реализации. Перед регистрацией на Сайте рекомендуем внимательно ознакомиться с настоящей Политикой конфиденциальности.<br/>
             Компания обязуется ответственно и безопасно обращаться с вашими личными данными в своей деятельности. Основываясь на этих основных принципах, мы всегда будем стремиться обеспечить достаточный уровень защиты ваших данных и защиту ваших прав. Мы обрабатываем Персональные данные в соответствии с настоящей Политикой конфиденциальности в соответствии с применимыми правовыми актами, в том числе Общим регламентом защиты данных (2016/679) (далее — «GDPR») и применимыми национальными законами Литвы о защите персональных данных.<br />
             <h6 class="mt-3 mb-2">Контроллер данных</h6>
-            MB «Contentum»<br/>
-            Код компании: 302900421<br/>
-            Адрес: Giedros g. 35, LT-10234 Vilnius<br/>
-            Тел. Нр. +370 650 99090<br/>
-            Адрес электронной почты: info@contentum.lt<br/>
+            UAB "Vadeiva"<br/>
+            Код компании: 300570003<br/>
+            Адрес: Savanorių pr. 253, Vilnius<br/>
+            Тел. Нр. +370 620 90867<br/>
+            Адрес электронной почты: vilmavenckute3@gmail.com<br/>
             <h6 class="mt-3 mb-2">Какую информацию о вас мы собираем, используем и храним?</h6>
             Информация, предоставленная самим посетителем Сайта при заполнении регистрационной формы на нашем Сайте:<br/>
             <span class="ms-3"></span>1. Имя<br/>
@@ -83,14 +83,14 @@
 
         @else
             <h3 class="mb-4">Privacy Policy</h3>
-            The Privacy Policy (hereinafter - the "Privacy Policy") explains how MB Contentum  (hereinafter - the "Company") collects and processes the information of visitors to the website www.healthnest.eu (hereinafter - the "Site"), indicates what rights the visitors of the Site have and how to exercise them. can implement. Before registering on the Website, we recommend that you carefully read this Privacy Policy.<br/>
+            The Privacy Policy (hereinafter - the "Privacy Policy") explains how UAB „Vadeiva“ (hereinafter - the "Company") collects and processes the information of visitors to the website www.krims.lt (hereinafter - the "Site"), indicates what rights the visitors of the Site have and how to exercise them. can implement. Before registering on the Website, we recommend that you carefully read this Privacy Policy.<br/>
             The company is committed to handling your personal data responsibly and securely in its activities. Based on these essential principles, we will always strive to ensure a sufficient level of protection of your data and the protection of your rights. We process Personal Data, in accordance with this Privacy Policy, in accordance with the applicable legal acts, including the General Data Protection Regulation (2016/679) (hereinafter - "GDPR") and the applicable Lithuanian national personal data protection legislation.<br/>
             <h6 class="mt-3 mb-2">Data Controller</h6>
-            MB Contentum<br/>
-            The company code is: 302900421<br/>
-            Address: Giedros g. 35, LT-10234 Vilnius<br/>
-            Phone. No. +370 650 99090<br/>
-            Email address: info@contentum.lt<br/>
+            UAB „Vadeiva“<br/>
+            The company code is: 300570003<br/>
+            Address: Savanorių pr. 253, Vilnius<br/>
+            Phone. No. +370 620 90867<br/>
+            Email address: vilmavenckute3@gmail.com<br/>
             <h6 class="mt-3 mb-2">What information do we collect, use and store about you?</h6>
             Information provided by the Website visitor himself when filling out the registration form on our Website:<br/>
             <span class="ms-3"></span>1. Name<br/>

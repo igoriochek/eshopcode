@@ -16,7 +16,7 @@ return [
     'menu' => 'Меню',
     'profile' => 'Профиль',
     'securedPayment' => 'Безопасный Платеж',
-    'copyright' => 'MB Contentum© 2022.',
+    'copyright' => '© UAB "Vadeiva" 2022.',
     'allRightsReserved' => 'Все права защищены',
     'companycode' => "Код предприятия",
     'vatcode' => "Код НДС",

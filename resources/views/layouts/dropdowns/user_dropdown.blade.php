@@ -1,18 +1,18 @@
 <li>
     <a href="{{ url('/user/userprofile') }}"
-       style="{{ request()->is('user/userprofile') ? 'color: #3BB77E' : '' }}">
+       style="{{ request()->is('user/userprofile') ? 'color: #e10000' : '' }}">
         <i class="fi fi-rs-user mr-10"></i>{{__('menu.profile')}}
     </a>
 </li>
 <li>
     <a href="{{ url('/user/rootorders') }}"
-       style="{{ request()->is('user/rootorders') ? 'color: #3BB77E' : '' }}">
+       style="{{ request()->is('user/rootorders') || request()->is('user/vieworder*') ? 'color: #e10000' : '' }}">
         <i class="fi fi-rs-check mr-10"></i>{{__('menu.orders')}}
     </a>
 </li>
 <li>
     <a href="{{ url('/user/rootoreturns') }}"
-       style="{{ request()->is('user/rootoreturnsç*') ? 'color: #3BB77E' : '' }}">
+       style="{{ request()->is('user/rootoreturns*') || request()->is('user/viewreturn*') ? 'color: #e10000' : '' }}">
         <i class="fi fi-rs-arrow-left mr-10"></i>{{__('menu.returns')}}
     </a>
 </li>

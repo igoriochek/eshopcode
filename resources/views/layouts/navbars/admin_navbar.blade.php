@@ -2,9 +2,11 @@
     <div class="header-bottom header-bottom-bg-color">
         <div class="container">
             <div class="header-wrap">
-                <div class="logo logo-width-1">
-                    <a href="{{ route('home') }}" class="fs-3 fw-bolder">
-                        CONTENTUM
+                <div class="logo">
+                    <a href="{{ route('home') }}">
+                        <div style="height: 70px; width: 120px; overflow: hidden;">
+                            <img src="{{ asset('/images/logo.jpeg') }}" alt="logo" style="width: 100%; height: 100%; object-fit: cover">
+                        </div>
                     </a>
                 </div>
                 <div class="container d-flex justify-content-end">
@@ -27,8 +29,10 @@
         <div class="mobile-header-wrapper-inner admin-header-container pb-2">
             <div class="mobile-header-top admin-header-top-container">
                 <div class="mobile-header-logo">
-                    <a href="{{ route('home') }}" class="fs-3 fw-bolder py-2">
-                        CONTENTUM
+                    <a href="{{ route('home') }}">
+                        <div style="height: 70px; width: 120px; overflow: hidden;">
+                            <img src="{{ asset('/images/logo.jpeg') }}" alt="logo" style="width: 100%; height: 100%; object-fit: cover">
+                        </div>
                     </a>
                 </div>
                 <div class="mobile-menu-close close-style-wrap close-style-position-inherit d-block d-lg-none">

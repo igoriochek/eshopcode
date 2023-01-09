@@ -2,9 +2,11 @@
     <div class="header-bottom header-bottom-bg-color">
         <div class="container">
             <div class="header-wrap">
-                <div class="logo logo-width-1">
-                    <a href="{{ route('home') }}" class="fs-3 fw-bolder">
-                        CONTENTUM
+                <div class="logo">
+                    <a href="{{ route('home') }}">
+                        <div style="height: 70px; width: 120px; overflow: hidden;">
+                            <img src="{{ asset('/images/logo.jpeg') }}" alt="logo" style="width: 100%; height: 100%; object-fit: cover">
+                        </div>
                     </a>
                 </div>
                 <div class="header-right">
@@ -22,10 +24,11 @@
                                     </nav>
                                 </div>
                                 @if (Route::has('login'))
-                                    <div class="header-action mr-20 fs-5">
-                                        <i class="fi fi-rs-sign-in mr-10"></i><a
-                                            style="color: {{ request()->is('login*') ? '#3BB77E' : '' }}"
-                                            href="{{route('login')}}">{{__('auth.login')}}</a>
+                                    <div class="header-action mr-20 fs-6">
+                                        <a style="color: {{ request()->is('login*') ? '#e10000' : '' }}" class="login-button" href="{{ route('login') }}">
+                                            <i class="fi fi-rs-sign-in me-1"></i>
+                                            {{ __('auth.login') }}
+                                        </a>
                                     </div>
                                 @endif
                             @else
@@ -72,6 +75,22 @@
         </div>
     </div>
 </nav>
+
+<style>
+    .login-button {
+        background-color: #e10000;
+        padding: 10px 25px;
+        border-radius: 7px;
+        color: white;
+        transition: background-color 1s;
+    }
+
+    .login-button:hover,
+    .login-button:focus {
+        background-color: #a52929;
+        color: white;
+    }
+</style>
 
 <script>
     window.addEventListener('scroll', () => {

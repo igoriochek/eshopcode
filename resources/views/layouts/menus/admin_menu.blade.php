@@ -1,17 +1,17 @@
 <li class="menu-item-has-children admin-navbar-item">
-    <a class="admin-navbar-link" style="{{ request()->is('admin/products') ? 'color: #3BB77E' : '' }}" href="/admin/products">
+    <a class="admin-navbar-link" style="{{ request()->is('admin/products') ? 'color: #e10000' : '' }}" href="/admin/products">
         <i class="fa-solid fa-grip"></i>
         {{ __('menu.products') }}
     </a>
 </li>
 <li class="menu-item-has-children admin-navbar-item">
-    <a class="admin-navbar-link" style="{{ request()->is('admin/categories') ? 'color: #3BB77E' : '' }}" href="/admin/categories">
+    <a class="admin-navbar-link" style="{{ request()->is('admin/categories') ? 'color: #e10000' : '' }}" href="/admin/categories">
         <i class="fa-solid fa-sitemap"></i>
         {{ __('menu.categories') }}
     </a>
 </li>
 <li class="menu-item-has-children admin-navbar-item">
-    <a class="admin-navbar-link" style="{{ request()->is('admin/promotions') ? 'color: #3BB77E' : '' }}" href="/admin/promotions">
+    <a class="admin-navbar-link" style="{{ request()->is('admin/promotions') ? 'color: #e10000' : '' }}" href="/admin/promotions">
         <i class="fa-solid fa-star"></i>
         {{ __('menu.promotions') }}
     </a>
@@ -20,7 +20,7 @@
     <a class="admin-navbar-link" style="{{
         request()->is('admin/discounts') ||
         request()->is('admin/discountCoupons')
-        ? 'color: #3BB77E' : '' }}" href="#">
+        ? 'color: #e10000' : '' }}" href="#">
         <i class="fa-solid fa-tag"></i>
         {{ __('menu.discounts') }}
     </a>
@@ -29,7 +29,7 @@
     </ul>
 </li>
 <li class="menu-item-has-children admin-navbar-item">
-    <a class="admin-navbar-link" style="{{ request()->is('admin/customers') ? 'color: #3BB77E' : '' }}" href="/admin/customers">
+    <a class="admin-navbar-link" style="{{ request()->is('admin/customers') ? 'color: #e10000' : '' }}" href="/admin/customers">
         <i class="fa-solid fa-user"></i>
         {{ __('menu.users') }}
     </a>
@@ -38,7 +38,7 @@
     <a class="admin-navbar-link" style="{{
             request()->is('admin/carts') ||
             request()->is('admin/cartStatuses')
-            ? 'color: #3BB77E' : '' }}" href="#">
+            ? 'color: #e10000' : '' }}" href="#">
         <i class="fa-solid fa-cart-shopping"></i>
         {{ __('menu.carts') }}
     </a>
@@ -50,7 +50,7 @@
     <a class="admin-navbar-link" style="{{
             request()->is('admin/orders') ||
             request()->is('admin/orderStatuses')
-            ? 'color: #3BB77E' : '' }}" href="#">
+            ? 'color: #e10000' : '' }}" href="#">
         <i class="fa-solid fa-folder"></i>
         {{ __('menu.orders') }}
     </a>
@@ -62,7 +62,7 @@
     <a class="admin-navbar-link" style="{{
             request()->is('admin/returns') ||
             request()->is('admin/returnStatuses')
-            ? 'color: #3BB77E' : '' }}" href="#">
+            ? 'color: #e10000' : '' }}" href="#">
         <i class="fa-solid fa-rotate-left"></i>
         {{ __('menu.returns') }}
     </a>
@@ -71,13 +71,13 @@
     </ul>
 </li>
 <li class="menu-item-has-children admin-navbar-item">
-    <a class="admin-navbar-link" style="{{ request()->is('admin/cookies') ? 'color: #3BB77E' : '' }}" href="/admin/cookies">
+    <a class="admin-navbar-link" style="{{ request()->is('admin/cookies') ? 'color: #e10000' : '' }}" href="/admin/cookies">
         <i class="fa-solid fa-cookie-bite"></i>
         {{ __('menu.cookies') }}
     </a>
 </li>
 <li class="menu-item-has-children admin-navbar-item">
-    <a class="admin-navbar-link" style="{{ request()->is('admin/data_export_import') ? 'color: #3BB77E' : '' }}" href="/admin/data_export_import">
+    <a class="admin-navbar-link" style="{{ request()->is('admin/data_export_import') ? 'color: #e10000' : '' }}" href="/admin/data_export_import">
         <i class="fa-solid fa-file"></i>
         {{ __('menu.importExport') }}
     </a>
@@ -89,7 +89,7 @@
         request()->is('admin/carts_report') ||
         request()->is('admin/users_report') ||
         request()->is('admin/user_activities_report') ?
-        'color: #3BB77E' : '' }}" href="#">
+        'color: #e10000' : '' }}" href="#">
         <i class="fa-solid fa-id-card-clip"></i>
         {{ __('menu.reports') }}
     </a>
@@ -98,7 +98,7 @@
     </ul>
 </li>
 <li class="menu-item-has-children admin-navbar-item">
-    <a class="admin-navbar-link" style="{{ request()->is('admin/messenger*') ? 'color: #3BB77E' : '' }}" href="/admin/messenger">
+    <a class="admin-navbar-link" style="{{ request()->is('admin/messenger*') ? 'color: #e10000' : '' }}" href="/admin/messenger">
         <i class="fa-solid fa-comment"></i>
         {{ __('menu.messenger') }}
     </a>
@@ -106,7 +106,7 @@
 <li class="menu-item" style="height: 50px"></li>
 <li class="menu-item-has-children admin-navbar-item d-lg-none">
     <a href="#"
-       style="{{ request()->is('user/userprofile*') ? 'color: #3BB77E' : '' }}">
+       style="{{ request()->is('user/userprofile*') ? 'color: #e10000' : '' }}">
         <i class="fi fi-rs-user mr-10"></i>{{__('menu.profile')}}
     </a>
     <ul class="admin-navbar-item-dropdown dropdown">

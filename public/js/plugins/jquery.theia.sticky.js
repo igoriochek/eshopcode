@@ -13,7 +13,7 @@
         var defaults = {
             'containerSelector': '',
             'additionalMarginTop': 100,
-            'additionalMarginBottom': 0,
+            'additionalMarginBottom': -800,
             'updateSidebarHeight': true,
             'minWidth': 0,
             'disableOnResponsiveLayouts': true,

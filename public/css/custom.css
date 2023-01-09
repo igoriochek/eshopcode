@@ -121,10 +121,10 @@
     align-items: center;
 }
 .admin-header .admin-header-container .admin-header-bottom-container .admin-header-account-dropdown:hover .admin-header-account-icon, .admin-header .admin-header-container .admin-header-bottom-container .admin-header-account-dropdown:focus .admin-header-account-icon {
-    filter: invert(61%) sepia(35%) saturate(639%) hue-rotate(100deg) brightness(91%) contrast(97%);
+    filter: invert(10%) sepia(96%) saturate(6879%) hue-rotate(1deg) brightness(120%) contrast(112%);
 }
 .admin-header .admin-header-container .admin-header-bottom-container .admin-header-account-dropdown:hover .admin-header-account-name, .admin-header .admin-header-container .admin-header-bottom-container .admin-header-account-dropdown:focus .admin-header-account-name {
-    color: #3BB77E
+    color: #e10000;
 }
 .admin-header .admin-header-container .admin-header-bottom-container .admin-header-account-dropdown .admin-header-account-icon {
     margin-right: 5px;
@@ -138,7 +138,7 @@
     position: relative;
 }
 .admin-header .admin-header-container .admin-header-bottom-container .admin-navbar-language-dropdown:hover, .admin-header .admin-header-container .admin-header-bottom-container .admin-navbar-language-dropdown:focus {
-    color: #3BB77E
+    color: #e10000;
 }
 .admin-header .admin-header-container .hide {
     display: none;
