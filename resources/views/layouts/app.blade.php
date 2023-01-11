@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta name="verify-paysera" content="fd75482df21aae351f2d6303486ed9fb">
+    <meta name="verify-paysera" content="904a0a9764282772a34a62dc3ce21bb4">
     <!-- Title -->
     <title>{{ config('app.name', 'Laravel') }}</title>
     <!-- Fonts -->
