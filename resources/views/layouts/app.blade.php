@@ -7,7 +7,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="verify-paysera" content="904a0a9764282772a34a62dc3ce21bb4">
     <!-- Title -->
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Karuseles.com</title>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">

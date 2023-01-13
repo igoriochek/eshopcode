@@ -51,9 +51,9 @@ class PayController extends AppBaseController
             'amount' => $amount,
             'currency' => 'EUR',
             'country' => 'LT',
-            'accepturl' => $appUrl. '/user/pay/accept/' . $cartId,
-            'cancelurl' => $appUrl. '/user/pay/cancel/' . $cartId,
-            'callbackurl' => $appUrl. '/user/pay/callback/' . $cartId,
+            'accepturl' => $appUrl. 'user/pay/accept/' . $cartId,
+            'cancelurl' => $appUrl. 'user/pay/cancel/' . $cartId,
+            'callbackurl' => $appUrl. 'user/pay/callback/' . $cartId,
         ];
 
         if (true !== env('WEBTOPAY_PROD')) {

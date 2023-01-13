@@ -8,16 +8,18 @@ return [
     |--------------------------------------------------------------------------
     */
 
-    'description' => 'A company providing construction organization services',
+    'description' => 'Sale of carousels',
     'timeDesc' => 'Working hours',
     'timeOne' => 'Mon.-Thu.',
     'timeTwo' => 'Friday',
-    'contactUs' => 'Contact Us',
+    'contactUs' => 'Contact information',
     'address' => 'Address',
     'phone' => 'Phone',
     'email' => 'Email',
+    'reg_code' => 'Registration code',
+    'vat_code' => 'VAT',
     'menu' => 'MENU',
-    'profile' => 'Profile',
-    'copyright' => '© 2022 "Karuseles"',
+    'profile' => 'USer account',
+    'safe_payment' => 'Safe payment',
 
 ];

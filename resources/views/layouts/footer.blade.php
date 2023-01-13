@@ -1,42 +1,30 @@
 <footer class="footer">
     <div class="container pb-4">
         <div class="row py-4 my-5">
-            <div class="col-md-6 @auth col-lg-3 @else col-lg-4 @endauth mb-5 mb-lg-0">
-                <a href="{{ url('/home') }}">
-                    <h2 class="mb-0 pb-0 text-uppercase" style="color: #ffa600; font-family: 'Times New Roman', sans-serif">
-                        {{ __('Karuseles') }}
-                    </h2>
-{{--                    <img src="{{ asset("") }}" alt="logo" class="logo_footer" width="180">--}}
-                </a>
-                <div class="d-flex mt-4 mb-4 mb-md-0">
-                    <div class="me-3">
-                        <i class="fa-regular fa-clock fs-5"></i>
-                    </div>
-                    <div class="w-100 d-flex flex-column">
-                        <span>{{ __('footer.timeDesc') }}:</span>
-{{--                        <span>{{ __('footer.timeOne') }}: 10:00 - 18:00</span>--}}
-{{--                        <span>{{ __('footer.timeTwo') }}: 10:00 - 17:00</span>--}}
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 @auth col-lg-3 @else col-lg-4 @endauth mb-5 mb-lg-0 ps-1 @auth ps-3 @else ps-5 @endauth">
-                <h5 class="mb-4">{{ __('footer.contactUs') }}</h5>
+            <div class="col-md-6 @auth col-lg-4 @else col-lg-4 @endauth mb-5 mb-lg-0 ps-1 @auth ps-3 @else ps-5 @endauth">
+                <h3 class="text-uppercase" style="color: #ffa600; font-family: 'Times New Roman', sans-serif">
+                    {{ __('footer.contactUs') }}
+                </h3>
                 <ul class="list list-unstyled pt-3">
                     <li class="pb-4">
                         <i class="fa-solid fa-location-dot fs-5 me-3"></i>
-                        ADDRESS
+                        <b>{{ __('footer.address') }}:</b>&nbsp;Vaduvos g. 7, LT-02304 Vilnius
                     </li>
                     <li class="pb-4">
                         <i class="fa-solid fa-phone fs-5 me-2 pe-1"></i>
-                        PHONE NUMBER
+                        <b>{{ __('footer.phone') }}:</b>&nbsp;+370 659 39993
                     </li>
                     <li class="pb-4">
                         <i class="fa-regular fa-envelope fs-5 me-2 pe-1"></i>
-                        EMAIL
+                        <b>{{ __('footer.email') }}:</b>&nbsp;info@biliardas.com
                     </li>
                     <li class="pb-4">
                         <i class="fa-solid fa-clipboard fs-5 me-3"></i>
-                         COMPANY CODE
+                        <b>{{ __('footer.reg_code') }}:</b>&nbsp;123369025
+                    </li>
+                    <li class="pb-4">
+                        <i class="fa-solid fa-file-invoice fs-5 me-3"></i>
+                        <b>{{ __('footer.vat_code') }}:</b>&nbsp;LT233690219
                     </li>
                 </ul>
                 <ul class="social-icons social-icons-clean-with-border social-icons-medium">
@@ -57,8 +45,10 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-md-6 @auth col-lg-3 @else col-lg-4 @endauth mb-5 mb-lg-0 ps-1 @auth ps-3 @else ps-5 @endauth">
-                <h5 class="mb-4 pb-2">{{ __('footer.menu') }}</h5>
+            <div class="col-md-6 @auth col-lg-2 @else col-lg-4 @endauth mb-5 mb-lg-0 ps-1 @auth ps-3 @else ps-5 @endauth">
+                <h3 class="text-uppercase" style="color: #ffa600; font-family: 'Times New Roman', sans-serif">
+                    {{ __('footer.menu') }}
+                </h3>
                 <ul class="list list-unstyled mb-0 footer-links">
                     <li class="nav-list">
                         <a class="{{ request()->is('products*') ? 'active' : '' }}" href="{{ url('/products') }}">
@@ -112,7 +102,9 @@
             </div>
             @auth
                 <div class="col-md-6 @auth col-lg-3 @else col-lg-4 @endauth mb-5 mb-lg-0 ps-1 @auth ps-3 @else ps-5 @endauth">
-                    <h5 class="mb-4 pb-2">{{ __('footer.profile') }}</h5>
+                    <h3 class="text-uppercase" style="color: #ffa600; font-family: 'Times New Roman', sans-serif">
+                        {{ __('footer.profile') }}
+                    </h3>
                     <ul class="list list-unstyled mb-0 footer-links">
                         <li class="mb-0">
                             <a href="{{ url('/user/viewcart') }}">
@@ -151,6 +143,14 @@
                     </ul>
                 </div>
             @endauth
+            <div class="col-md-6 @auth col-lg-3 @else col-lg-4 @endauth mb-5 mb-lg-0">
+                <h3 class="text-uppercase" style="color: #ffa600; font-family: 'Times New Roman', sans-serif">
+                    {{ __('footer.safe_payment') }}
+                </h3>
+                <div class="d-flex mt-4 mb-4 mb-md-0">
+                    <img src="{{ asset('images/320px-Paysera_logo.png') }}" alt="Paysera" class="logo_footer" width="180">
+                </div>
+            </div>
         </div>
     </div>
     <div class="bottom-footer">
@@ -158,7 +158,7 @@
             <div class="footer-copyright py-4">
                 <div class="row align-items-center justify-content-md-between">
                     <div class="col-12 col-md-auto text-center text-md-start">
-                        <p class="mb-0">{{ __('footer.copyright') }}</p>
+                        <p class="mb-0">© 2023 IĮ "E. Mikucko firma"</p>
                     </div>
                     <div class="col-12 col-md-auto">
                         <div class="d-flex justify-content-center justify-content-md-end">

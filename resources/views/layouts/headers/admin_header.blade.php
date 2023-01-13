@@ -2,8 +2,8 @@
     <div class="admin-header-container">
         <div class="admin-header-top-container">
             <a href="{{ url('/home') }}" class="admin-header-logo">
-                <h3 class="mb-0 pb-0 text-uppercase" style="color: #ffa600; font-family: 'Times New Roman', sans-serif">
-                    {{ __('Karuseles') }}
+                <h3 class="mb-0 pb-0" style="color: #ffa600; font-family: 'Times New Roman', sans-serif">
+                    {{ __('Karuseles.com') }}
                 </h3>
 {{--                <img src="{{ asset("") }}" alt="logo" class="logo" width="160">--}}
             </a>

@@ -8,16 +8,17 @@ return [
     |--------------------------------------------------------------------------
     */
 
-    'description' => 'Statybų organizavimo paslaugas teikianti įmonė',
+    'description' => 'Karuselių pardavimas',
     'timeDesc' => 'Darbo laikas',
     'timeOne' => 'Pir.-Ket.',
     'timeTwo' => 'Penkt.',
-    'contactUs' => 'Susisiekite su mumis',
+    'contactUs' => 'Kontaktinė informacija',
     'address' => 'Adresas',
     'phone' => 'Telefonas',
-    'email' => 'El. Paštas',
+    'email' => 'El. paštas',
+    'reg_code' => 'Įmonės kodas',
+    'vat_code' => 'PVM kodas',
     'menu' => 'MENIU',
-    'profile' => 'Vartotojo paskyra',
-    'copyright' => '© 2022 "Karuseles"',
-
+    'profile' => 'Naudotojo paskyra',
+    'safe_payment' => 'Saugus mokėjimas',
 ];

@@ -7,17 +7,17 @@
                         <div class="header-row">
                             <p class="mb-0 d-none d-md-block">
                                 <i class="fa-solid fa-envelope me-1"></i>
-                                EMAIL
+                                <b>{{ __('footer.email') }}:</b>&nbsp;info@biliardas.com
                             </p>
                             <span class="mx-3"></span>
                             <p class="mb-0 d-none d-md-block">
                                 <i class="fa-solid fa-phone me-1"></i>
-                                PHONE NUMBER
+                                <b>{{ __('footer.phone') }}:</b>&nbsp;+370 659 39993
                             </p>
                             <span class="mx-3"></span>
                             <p class="mb-0 d-none d-md-block">
                                 <i class="fa-solid fa-location-dot me-1"></i>
-                                ADDRESS
+                                <b>{{ __('footer.address') }}:</b>&nbsp;Vaduvos g. 7, LT-02304 Vilnius
                             </p>
                         </div>
                     </div>
@@ -65,8 +65,8 @@
                     <div class="header-row justify-content-between">
                         <div class="header-logo z-index-2 col-lg-2 px-0" style="width: auto; height: auto">
                             <a href="{{ url('/home') }}">
-                                <h3 class="mb-0 pb-0 text-uppercase" style="font-family: 'Times New Roman', sans-serif">
-                                    {{ __('Karuseles') }}
+                                <h3 class="mb-0 pb-0" style="font-family: 'Times New Roman', sans-serif">
+                                    {{ __('Karuseles.com') }}
                                 </h3>
 {{--                                <img src="{{ asset("") }}" alt="logo" class="logo" width="160">--}}
                             </a>

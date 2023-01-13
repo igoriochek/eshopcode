@@ -13,18 +13,18 @@ return [
     |
     */
 
-    'userupdated' => 'Vartotojo informacija sėkmingai išsaugota.',
+    'userupdated' => 'NAudotojo informacija sėkmingai išsaugota.',
 
     'changedpassword' => 'Slaptažodis sėkmingai pakeistas.',
     'incorrectpassword' => 'Neteisingas dabartinis slaptažodis.',
 
-    "nocategories" => "Nėra Kategorijų",
-    "noinnercategories" => "Vidinių kategorijų nėra",
-    "subcategories" => "Vidinės kategorijos",
-    "novideo" => "Nėra video",
-    "passwordmismatch" => "Slaptažodis tuščias arba nesutampa",
-    "makereturn" => "Atlikti grąžinimą",
-    "chooselang" => "Kalba",
+    'nocategories' => 'Nėra kategorijų',
+    'noinnercategories' => 'Vidinių kategorijų nėra',
+    'subcategories' => 'Vidinės kategorijos',
+    'novideo' => 'Nėra video',
+    'passwordmismatch' => 'Slaptažodis tuščias arba nesutampa',
+    'makereturn' => 'Atlikti grąžinimą',
+    'chooselang' => 'Kalba',
 
     'detailsMsg' => 'Žinutės Detalės',
     'created_at' => 'Sukurta',
@@ -32,8 +32,8 @@ return [
     'editMsg' => 'Redaguoti žinutę',
     'emptyChat' => 'Pokalbis tuščias',
     'messages' => 'Žinutės',
-    'messenger' => 'Messengeris',
-    'openChat' => 'Spustelkite ant bet kokio vartotojo, jog sukurtumėte pokalbių kambarį',
+    'messenger' => 'Mesendžeris',
+    'openChat' => 'Spustelkite ant bet kokio naudotojo, jog sukurtumėte pokalbių kambarį',
     'send' => 'Siųsti',
     'subject' => 'Tema',
     'textMsg' => 'Žinutės tekstas',
