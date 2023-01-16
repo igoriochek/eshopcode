@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'userupdated' => 'NAudotojo informacija sėkmingai išsaugota.',
+    'userupdated' => 'Naudotojo informacija sėkmingai išsaugota.',
 
     'changedpassword' => 'Slaptažodis sėkmingai pakeistas.',
     'incorrectpassword' => 'Neteisingas dabartinis slaptažodis.',

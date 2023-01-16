@@ -46,7 +46,7 @@ return [
     'shipping' => 'Siuntimas',
     'start' => 'Pradžia',
     'status'=> 'Statusas',
-    'statusId' => 'Statuso ID',
+    'statusId' => 'Būsenos ID',
     'subTotal' => 'Tarpinė suma',
     'sum' => 'Suma',
     'userType' => 'Naudotojo tipas',

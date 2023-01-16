@@ -31,10 +31,10 @@ return [
     'registerParagraph' => 'Neturi paskyros?',
 
     //Register
-    'register' => 'Registruoti',
+    'register' => 'Registruotis',
     'name' => 'Vardas',
     'email' => 'El. paštas',
     'passwordEnter' => 'Slaptažodis',
     'confirmPasswordEnter' => 'Patvirtinti slaptažodį',
-    'loginParagraph' => "Jau turite paskyrą?",
+    'loginParagraph' => 'Jau turite paskyrą?',
 ];
