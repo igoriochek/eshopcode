@@ -15,10 +15,10 @@ return [
     'hours' => 'Время',
     'menu' => 'Меню',
     'profile' => 'Профиль',
-    'securedPayment' => 'Безопасный Платеж',
-    'copyright' => '© UAB "Vadeiva" 2022.',
+    'securedPayment' => 'Безопасный платеж',
+    'copyright' => '© UAB "Vadeiva" 2023.',
     'allRightsReserved' => 'Все права защищены',
     'companycode' => "Код предприятия",
-    'vatcode' => "Код НДС",
+    'vatcode' => "НДС код",
     'ac' => "Р/с",
 ];
