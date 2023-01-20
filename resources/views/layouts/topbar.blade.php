@@ -12,7 +12,7 @@
                         <li class="d-none d-md-flex gap-1">
                             <i class="fa-solid fa-envelope me-1 text-danger"></i>
                             <strong>{{__('footer.email')}}: </strong>
-                            <span>vilmavenckute3@gmail.com</span>
+                            <span><a href="mailto:info@krims.lt">info@krims.lt</a></span>
                         </li>
                     </ul>
                 </div>

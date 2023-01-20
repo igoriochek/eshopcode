@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'userupdated' => 'NAudotojo informacija sėkmingai išsaugota.',
+    'userupdated' => 'Naudotojo informacija sėkmingai išsaugota.',
 
     'changedpassword' => 'Slaptažodis sėkmingai pakeistas.',
     'incorrectpassword' => 'Neteisingas dabartinis slaptažodis.',
@@ -32,7 +32,7 @@ return [
     'editMsg' => 'Redaguoti žinutę',
     'emptyChat' => 'Pokalbis tuščias',
     'messages' => 'Žinutės',
-    'messenger' => 'Messengeris',
+    'messenger' => 'Mesendžeris',
     'openChat' => 'Spustelkite ant bet kokio naudotojo, jog sukurtumėte pokalbių kambarį',
     'send' => 'Siųsti',
     'subject' => 'Tema',

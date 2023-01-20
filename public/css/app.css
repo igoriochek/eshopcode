@@ -6973,7 +6973,6 @@ h6.post-title {
 }
 
 .header-info > ul > li a {
-  color: #7E7E7E;
   font-weight: 500;
 }
 
@@ -8026,7 +8025,6 @@ h6.post-title {
 .mobile-header-wrapper-style .mobile-header-wrapper-inner .mobile-header-content-area .mobile-menu-wrap nav .mobile-menu li a {
   font-size: 14px;
   line-height: 1;
-  text-transform: capitalize;
   font-weight: 700;
   position: relative;
   display: inline-block;

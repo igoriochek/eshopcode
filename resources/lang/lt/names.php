@@ -22,7 +22,7 @@ return [
     'carts' => 'Prekių krepšeliai',
     'checkout' => 'Atsiskaitymas',
     'checkoutPreview' => 'Atsiskaitymo peržiūra',
-    'createCart' => 'Sukurti Krepšelį',
+    'createCart' => 'Sukurti krepšelį',
     'createCartItem' => 'Sukurti prepšelio prekę',
     'createCartStatus' => 'Sukurti krepšelio būseną',
     'cartStatuses' => 'Krepšelių būsenos',
@@ -45,8 +45,8 @@ return [
     'categories' => 'Kategorijos',
     'categoryDetails' => 'Kategorijos informacija',
     'categoryList' => 'Kategorijų sąrašas',
-    'createCategory' => 'Sukurti Kategorija',
-    'editCategory' => 'Redaguoti kategorija',
+    'createCategory' => 'Sukurti kategoriją',
+    'editCategory' => 'Redaguoti kategoriją',
     'noCategories' => 'Nėra kategorijų',
     'categoryTree' => 'Kategorijų medis',
     'subcategories' => 'Subkategorijos',
@@ -54,7 +54,7 @@ return [
     'noSubcategories' => 'Nėra subkategorijų',
     'filterByPrice' => 'Filtruoti pagal kainą',
     'filterByCategory' => 'Filtruoti pagal kategoriją',
-    'showing' => 'Rodama',
+    'showing' => 'Rodoma',
     'of' => 'iš',
     'resultsOf' => 'rezultatų',
 
@@ -245,10 +245,10 @@ return [
     'noReturns' => 'Jūs neatlikote jokių grąžinimų',
 
     //User
-    'customers' => 'Klientai',
-    'customerDetails' => 'Kliento informacija',
-    'createCustomer' => 'Sukurti klientą',
-    'editCustomer' => 'Redaguoti klientą',
+    'customers' => 'Naudotojai',
+    'customerDetails' => 'Naudotojo informacija',
+    'createCustomer' => 'Sukurti naudotoją',
+    'editCustomer' => 'Redaguoti naudotoją',
     'userLogs' => 'Naudotojų žurnalai',
 
     'desc' => 'Aprašymas',

@@ -34,7 +34,7 @@
                             <li>
                                 <i class="fa-solid fa-envelope text-danger me-2 fs-5"></i>
                                 <strong>{{__('footer.email')}}: </strong>
-                                <span>vilmavenckute3@gmail.com</span>
+                                <span><a href="mailto:info@krims.lt">info@krims.lt</a></span>
                             </li>
 {{--                            <li>--}}
 {{--                                <img src="{{asset('/images/theme/icons/icon-clock.svg')}}" alt="" />--}}

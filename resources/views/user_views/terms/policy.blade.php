@@ -16,7 +16,7 @@
             Įmonės kodas yra: 300570003<br/>
             Adresas: Savanorių pr. 253, Vilnius <br/>
             Tel. Nr. +370 620 90867<br/>
-            El. pašto adresas: vilmavenckute3@gmail.com<br/>
+            El. pašto adresas: info@krims.lt<br/>
             <h6 class="mt-3 mb-2">Kokią informaciją renkame, naudojame ir saugojame apie Jus?</h6>
             Informacija, kurią pateikia pats Svetainės lankytojas, pildydamas registracijos formą mūsų Svetainėje:<br/>
             <span class="ms-3"></span>1.	Vardas<br/>
@@ -53,7 +53,7 @@
             Код компании: 300570003<br/>
             Адрес: Savanorių pr. 253, Vilnius<br/>
             Тел. Нр. +370 620 90867<br/>
-            Адрес электронной почты: vilmavenckute3@gmail.com<br/>
+            Адрес электронной почты: info@krims.lt<br/>
             <h6 class="mt-3 mb-2">Какую информацию о вас мы собираем, используем и храним?</h6>
             Информация, предоставленная самим посетителем Сайта при заполнении регистрационной формы на нашем Сайте:<br/>
             <span class="ms-3"></span>1. Имя<br/>
@@ -90,7 +90,7 @@
             The company code is: 300570003<br/>
             Address: Savanorių pr. 253, Vilnius<br/>
             Phone. No. +370 620 90867<br/>
-            Email address: vilmavenckute3@gmail.com<br/>
+            Email address: info@krims.lt<br/>
             <h6 class="mt-3 mb-2">What information do we collect, use and store about you?</h6>
             Information provided by the Website visitor himself when filling out the registration form on our Website:<br/>
             <span class="ms-3"></span>1. Name<br/>
