@@ -6,7 +6,7 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta name="verify-paysera" content="4e65a95b838cbbe5d01d63bbd4df0860">
+    <meta name="verify-paysera" content="23d6a9a8614d0a9e15268433818dd962">
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Fonts -->

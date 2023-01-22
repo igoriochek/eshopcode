@@ -427,7 +427,7 @@ class OrderController extends AppBaseController
         if ($user->id != $order->user_id) $user = User::query()->where(['id' => $order->user_id])->first();
 
 
-        return view('user_views.orders.invoice')->with([
+        return view('orders.view_invoice')->with([
             'order' => $order,
             'orderItems' => $orderItems
         ]);
