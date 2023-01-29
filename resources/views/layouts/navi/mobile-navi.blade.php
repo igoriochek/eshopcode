@@ -1,10 +1,10 @@
 <main class="main-wrapper">
-    <div class="offcanvas offcanvas-end offcanvas-mobile" id="offcanvasMobileMenu"
-         style="background-image: url(../images/mobile-bg.jpg);">
+    <div class="offcanvas offcanvas-end offcanvas-mobile" id="offcanvasMobileMenu" style="background-image: url(../images/mobile-bg.jpg);">
         <div class="offcanvas-header bg-white">
             <div class="offcanvas-logo">
-                <a href="{{ route('home') }}"><h2 class="about-content-02__main-title" data-aos="fade-up"
-                                                  data-aos-duration="1000">LOGO</h2></a>
+                <a href="{{ route('home') }}">
+                    <h2 class="about-content-02__main-title" data-aos="fade-up" data-aos-duration="1000">LOGO</h2>
+                </a>
             </div>
             <button type="button" class="offcanvas-close" data-bs-dismiss="offcanvas"><i class="fal fa-times"></i>
             </button>

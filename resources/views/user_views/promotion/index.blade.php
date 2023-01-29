@@ -18,9 +18,8 @@
                                     @forelse ($promotions as $promotion)
                                         <div class="d-flex justify-content-between align-items-center mb-4">
                                             <h5>{{ $promotion->name }}</h5>
-                                            <a href="{{ route("promotion", ["id" => $promotion->id]) }}"
-                                               class="btn btn-primary btn-hover-secondary">
-                                                {{ __("names.more_for_promotions") }}   <i class="fa-solid fa-angle-right"></i>
+                                            <a href="{{ route("promotion", ["id" => $promotion->id]) }}" class="btn btn-primary btn-hover-secondary">
+                                                {{ __("names.more_for_promotions") }} <i class="fa-solid fa-angle-right"></i>
                                             </a>
                                         </div>
                                         <hr class="mb-5" style="background: #ccc">
@@ -30,32 +29,26 @@
                                                     <div class="course-header">
                                                         <div class="course-header__thumbnail ">
                                                             @if ($product->image)
-                                                                <a style="cursor: pointer"
-                                                                   href="{{ route('viewproduct', $product->id) }}">
-                                                                    <img src="{{ $product->image }}"
-                                                                         alt="{{ $product->name }}" width="330"
-                                                                         height="221">
+                                                                <a style="cursor: pointer" href="{{ route('viewproduct', $product->id) }}">
+                                                                    <img src="{{ $product->image }}" alt="{{ $product->name }}" width="330" height="221">
                                                                 </a>
                                                             @else
-                                                                <a style="cursor: pointer"
-                                                                   href="{{ route('viewproduct', $product->id) }}">
-                                                                    <img src="/images/courses/courses-1.jpg"
-                                                                         alt="{{ $product->name }}" width="330"
-                                                                         height="221">
+                                                                <a style="cursor: pointer" href="{{ route('viewproduct', $product->id) }}">
+                                                                    <img src="/images/courses/courses-1.jpg" alt="{{ $product->name }}" width="330" height="221">
                                                                 </a>
                                                             @endif
                                                         </div>
                                                     </div>
                                                     <div class="course-info">
-                                                        <h3 class="course-info__title"><a
-                                                                href="{{ route('viewproduct', $product->id) }}">{{ $product->name }}</a>
+                                                        <h3 class="course-info__title">
+                                                            <a href="{{ route('viewproduct', $product->id) }}">{{ $product->name }}</a>
                                                         </h3>
                                                         <div class="course-info__price">
                                                             @if ($product->discount )
-                                                                <span class="sale-price discount">{{ round(($product->price * $product->discount->proc / 100),2) }} €</span>
-                                                                <span class="regular-price">{{number_format($product->price,2)}} €</span>
+                                                                <span class="sale-price discount">{{ $product->price - (round(($product->price * $product->discount->proc / 100), 2)) }} €</span>
+                                                                <span class="regular-price">{{ number_format($product->price,2) }} €</span>
                                                             @else
-                                                                <span class="sale-price">{{number_format($product->price,2)}} €</span>
+                                                                <span class="sale-price">{{ number_format($product->price,2) }} €</span>
                                                             @endif
                                                         </div>
                                                         {!! Form::open(['route' => ['addtocart'], 'method' => 'post']) !!}

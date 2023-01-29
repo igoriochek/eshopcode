@@ -19,38 +19,31 @@
                                 <div class="row gy-6">
                                     @forelse ($products as $product)
                                         <div class="col-lg-4 col-sm-6">
-
                                             <!-- Course Start -->
                                             <div class="course-item" data-aos="fade-up" data-aos-duration="1000">
                                                 <div class="course-header">
                                                     <div class="course-header__thumbnail ">
                                                         @if ($product->image)
-                                                            <a style="cursor: pointer"
-                                                               href="{{ route('viewproduct', $product->id) }}">
-                                                                <img src="{{ $product->image }}"
-                                                                     alt="{{ $product->name }}" width="330"
-                                                                     height="221">
+                                                            <a style="cursor: pointer" href="{{ route('viewproduct', $product->id) }}">
+                                                                <img src="{{ $product->image }}" alt="{{ $product->name }}" width="330" height="221">
                                                             </a>
                                                         @else
-                                                            <a style="cursor: pointer"
-                                                               href="{{ route('viewproduct', $product->id) }}">
-                                                                <img src="/images/courses/courses-1.jpg"
-                                                                     alt="{{ $product->name }}" width="330"
-                                                                     height="221">
+                                                            <a style="cursor: pointer" href="{{ route('viewproduct', $product->id) }}">
+                                                                <img src="/images/courses/courses-1.jpg" alt="{{ $product->name }}" width="330" height="221">
                                                             </a>
                                                         @endif
                                                     </div>
                                                 </div>
                                                 <div class="course-info">
-                                                    <h3 class="course-info__title"><a
-                                                            href="{{ route('viewproduct', $product->id) }}">{{ $product->name }}</a>
+                                                    <h3 class="course-info__title">
+                                                        <a href="{{ route('viewproduct', $product->id) }}">{{ $product->name }}</a>
                                                     </h3>
                                                     <div class="course-info__price">
                                                         @if ($product->discount )
-                                                            <span class="sale-price discount">{{ round(($product->price * $product->discount->proc / 100),2) }} €</span>
-                                                            <span class="regular-price">{{number_format($product->price,2)}} €</span>
+                                                            <span class="sale-price discount">{{ $product->price - (round(($product->price * $product->discount->proc / 100), 2)) }} €</span>
+                                                            <span class="regular-price">{{ number_format($product->price,2) }} €</span>
                                                         @else
-                                                            <span class="sale-price">{{number_format($product->price,2)}} €</span>
+                                                            <span class="sale-price">{{ number_format($product->price,2) }} €</span>
                                                         @endif
                                                     </div>
                                                     {!! Form::open(['route' => ['addtocart'], 'method' => 'post']) !!}
@@ -61,8 +54,7 @@
                                                         </div>
                                                         <input type="hidden" name="id" value="{{ $product->id }}">
 
-                                                        <button type="submit"
-                                                                class="product-list-item__btn btn btn-primary btn-hover-secondary d-flex justify-content-center">
+                                                        <button type="submit" class="product-list-item__btn btn btn-primary btn-hover-secondary d-flex justify-content-center">
                                                             <span>{{ __('buttons.addToCart') }}</span>
                                                         </button>
                                                     </div>

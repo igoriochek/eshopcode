@@ -53,13 +53,13 @@
                                 <div class="shop-single-product__price">
                                     @if ($product->discount)
                                         <span class="sale-price discount">{{ $product->price - (round(($product->price * $product->discount->proc / 100), 2)) }} €</span>
-                                        <span class="regular-price">{{ number_format($product->price,2)}} €</span>
+                                        <span class="regular-price">{{ number_format($product->price,2) }} €</span>
                                     @else
-                                        <span class="sale-price">{{number_format($product->price,2)}} €</span>
+                                        <span class="sale-price">{{ number_format($product->price,2) }} €</span>
                                     @endif
                                 </div>
                                 <div class="shop-single-product__description">
-                                    <p>{{ $product->description }}</p>
+                                    {!! $product->description !!}</p>
                                 </div>
                                 <div class="shop-single-product__variations">
                                     <div class="shop-single-product__quantity-meta">
@@ -71,8 +71,7 @@
 
                                             <div class="shop-single-product__meta">
                                                 <input type="hidden" name="id" value="{{ $product->id }}">
-                                                <input type="submit" value="{{__('buttons.addToCart')}}"
-                                                       class="btn btn-primary btn-hover-secondary w-100">
+                                                <input type="submit" value="{{__('buttons.addToCart')}}" class="btn btn-primary btn-hover-secondary w-100">
                                             </div>
                                         </div>
                                         {!! Form::close() !!}
@@ -89,8 +88,7 @@
                                                             {{ $category->name }}
                                                         </a>
                                                     @empty
-                                                        <span
-                                                            class="fw-bold text-dark">{{ __('names.noCategories') ?? '-' }}</span>
+                                                        <span class="fw-bold text-dark">{{ __('names.noCategories') ?? '-' }}</span>
                                                     @endforelse
                                                 </li>
                                             </ul>

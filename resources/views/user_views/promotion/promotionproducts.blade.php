@@ -25,44 +25,35 @@
                                                     <div class="course-header">
                                                         <div class="course-header__thumbnail ">
                                                             @if ($product->image)
-                                                                <a style="cursor: pointer"
-                                                                   href="{{ route('viewproduct', $product->id) }}">
-                                                                    <img src="{{ $product->image }}"
-                                                                         alt="{{ $product->name }}" width="330"
-                                                                         height="221">
+                                                                <a style="cursor: pointer" href="{{ route('viewproduct', $product->id) }}">
+                                                                    <img src="{{ $product->image }}" alt="{{ $product->name }}" width="330" height="221">
                                                                 </a>
                                                             @else
-                                                                <a style="cursor: pointer"
-                                                                   href="{{ route('viewproduct', $product->id) }}">
-                                                                    <img src="/images/courses/courses-1.jpg"
-                                                                         alt="{{ $product->name }}" width="330"
-                                                                         height="221">
+                                                                <a style="cursor: pointer" href="{{ route('viewproduct', $product->id) }}">
+                                                                    <img src="/images/courses/courses-1.jpg" alt="{{ $product->name }}" width="330" height="221">
                                                                 </a>
                                                             @endif
                                                         </div>
                                                     </div>
                                                     <div class="course-info">
-                                                        <h3 class="course-info__title"><a
-                                                                href="{{ route('viewproduct', $product->id) }}">{{ $product->name }}</a>
+                                                        <h3 class="course-info__title">
+                                                            <a href="{{ route('viewproduct', $product->id) }}">{{ $product->name }}</a>
                                                         </h3>
                                                         <div class="course-info__price">
                                                             @if ($product->discount )
-                                                                <span class="sale-price discount">{{ round(($product->price * $product->discount->proc / 100),2) }} €</span>
-                                                                <span class="regular-price">{{number_format($product->price,2)}} €</span>
+                                                                <span class="sale-price discount">{{ $product->price - (round(($product->price * $product->discount->proc / 100), 2)) }} €</span>
+                                                                <span class="regular-price">{{ number_format($product->price,2) }} €</span>
                                                             @else
-                                                                <span class="sale-price">{{number_format($product->price,2)}} €</span>
+                                                                <span class="sale-price">{{ number_format($product->price,2) }} €</span>
                                                             @endif
                                                         </div>
                                                         {!! Form::open(['route' => ['addtocart'], 'method' => 'post']) !!}
-                                                        <div
-                                                            class="product-list-item__actions d-flex justify-content-center">
+                                                        <div class="product-list-item__actions d-flex justify-content-center">
                                                             <div class="product-quantity ">
                                                                 {!! Form::number('count', "1", ['class' => 'product-add-to-cart-number', "min" => "1", "max" => "5", "minlength" => "1", "maxlength" => "5", "oninput" => "this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null"]) !!}
                                                             </div>
                                                             <input type="hidden" name="id" value="{{ $product->id }}">
-
-                                                            <button type="submit"
-                                                                    class="product-list-item__btn btn btn-primary btn-hover-secondary d-flex justify-content-center">
+                                                            <button type="submit" class="product-list-item__btn btn btn-primary btn-hover-secondary d-flex justify-content-center">
                                                                 <span>{{ __('buttons.addToCart') }}</span>
                                                             </button>
                                                         </div>
@@ -86,7 +77,7 @@
                             <div class="sidebar-widget-wrap bg-color-10">
                                 <h4 class="sidebar-widget-wrap__title">{{__('names.promotions')}}</h4>
                                 <div class="widget-filter">
-                                    <div class="widget-filter__wrapper pl-0" style="white-space: nowrap;">
+                                    <div class="widget-filter__wrapper pl-0">
                                         @include('user_views.promotion.promotionTree')
                                     </div>
                                 </div>

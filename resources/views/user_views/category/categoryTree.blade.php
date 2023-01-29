@@ -43,7 +43,7 @@
         }
         .category-menu > li:hover > a span::before {
             width: 100%;
-            background-color: #0071dc;
+            background-color: #4486bd;
             left: 0;
             right: auto;
         }

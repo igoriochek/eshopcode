@@ -8,11 +8,13 @@ return [
     |--------------------------------------------------------------------------
     */
 
-    'copyright' => '© 2022 MDPROJECTS. Visos teisės saugomos.',
-    'contactInfo'=>'Kontaktinė informacija',
-    'address'=>'Adresas',
-    'phone'=>'Telefonas',
-    'email'=>'El. Paštas',
-    'menu'=>'Meniu',
-    'profile'=>'Vartotojo paskyra',
+    'copyright' => '© 2023 UAB "MD Projects". Visos teisės saugomos.',
+    'contactInfo' => 'Kontaktinė informacija',
+    'address' => 'Adresas',
+    'phone' => 'Telefonas',
+    'email'=>'El. paštas',
+    'reg_code' => 'Įmonės kodas',
+    'vat_code' => 'PVM kodas',
+    'menu' => 'Meniu',
+    'profile' => 'Naudotojo paskyra',
 ];

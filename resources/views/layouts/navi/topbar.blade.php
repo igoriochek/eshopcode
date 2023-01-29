@@ -7,9 +7,11 @@
 
                 <div class="header-top-bar-wrap__info">
                     <ul class="header-top-bar-wrap__info-list header-top-bar-wrap__info-list-02">
-                        <li><a href="tel:+8819906886"><i class="fas fa-phone"></i> <span class="info-text">PHONE</span></a>
+                        <li>
+                            <a href="#"><i class="fas fa-phone"></i></a> <span class="info-text">+370 5 2077928</span>
                         </li>
-                        <li><a href="mailto:agency@example.com"><i class="far fa-envelope"></i> <span class="info-text">EMAIL</span></a>
+                        <li>
+                            <a href="mailto:info@mdprojects.lt"><i class="far fa-envelope"></i> <span class="info-text">info@mdprojects.lt</span></a>
                         </li>
                     </ul>
                 </div>
@@ -49,12 +51,13 @@
                     @guest
                         <ul class="header-top-bar-wrap__info-list header-top-bar-wrap__info-list-03 d-none d-lg-flex">
                             @if (Route::has('login'))
-                                <li class="nav-item"><a class="nav-link"
-                                                        href="{{ route('login') }}">{{ __('auth.login') }}</a></li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('login') }}">{{ __('auth.login') }}</a>
+                                </li>
                             @endif
                             @if (Route::has('register'))
-                                <li class="nav-item"><a class="nav-link"
-                                                        href="{{ route('register') }}">{{ __('auth.register') }}</a>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('auth.register') }}</a>
                                 </li>
                             @endif
                         </ul>
@@ -84,10 +87,9 @@
                                 @endif
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST">
                                     @csrf
-                                    <li><a href="{{ route('logout') }}"
-                                           onclick="event.preventDefault();
-                                   document.getElementById('logout-form').submit();">{{ __('menu.logout') }}
-                                        </a></li>
+                                    <li>
+                                        <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('menu.logout') }}</a>
+                                    </li>
                                 </form>
                             </ul>
                         </div>

@@ -1,12 +1,13 @@
 <main class="main-wrapper">
     <div class="header-section header-sticky">
         <div class="header-main-06">
-            <div class="container custom-container position-relative">
+            <div class="container">
                 <div class="row align-items-center">
                     <div class="col-xl-3 col-6">
                         <div class="header-logo">
-                            <a href="{{ route('home') }}"><h2 class="about-content-02__main-title" data-aos="fade-up"
-                                                              data-aos-duration="1000">LOGO</h2></a>
+                            <a href="{{ route('home') }}">
+                                <img src="../images/md_projects.png" alt="MD Projects">
+                            </a>
                         </div>
                     </div>
                     <div class="col-xl-6 d-none d-xl-block">

@@ -6,11 +6,11 @@
                     <div class="footer-widget">
                         <h4 class="footer-widget__title text-uppercase">{{__('footer.contactInfo')}}</h4>
                         <div class="footer-widget__info">
-                            <span class="number"><i class="fas fa-map-marker"></i> Address</span>
-                            <span class="number pt-3"><i class="fas fa-phone"></i> Phone</span>
-                            <span class="number pt-3"><i class="far fa-envelope"></i> E-Mail</span>
-                            <span class="number pt-3"><i class="far fa-clipboard"></i> Company Code</span>
-                            <span class="number pt-3"><i class="far fa-book"></i> VAT</span>
+                            <p><span class="number"><i class="fas fa-map-marker"></i></span><b>{{ __('footer.address') }}:</b>&nbsp Literatų g. 8-2, LT-01125 Vilnius</p>
+                            <p><span class="number pt-3"><i class="fas fa-phone"></i></span><b>{{ __('footer.phone') }}:</b> +370 5 2077928</p>
+                            <p><span class="number pt-3"><i class="far fa-envelope"></i></span><b>{{ __('footer.email') }}:</b> info@mdprojects.lt</p>
+                            <p><span class="number pt-3"><i class="far fa-clipboard"></i></span><b>{{ __('footer.reg_code') }}:</b> 302305765</p>
+                            <p><span class="number pt-3"><i class="far fa-book"></i></span><b>{{ __('footer.vat_code') }}:</b> LT100004564518</p>
                         </div>
                     </div>
                 </div>

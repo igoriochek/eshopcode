@@ -196,6 +196,7 @@ return [
     'sum' => 'Сумма',
     'total' => 'Всего',
     'filterByPrice' => 'Фильтровать по цене',
+    'filterByCategory' => 'Фильтр по категориям',
 
     //Rating
     'alreadyVoted' => "Вы уже голосовали за этот товар",

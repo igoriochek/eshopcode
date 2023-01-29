@@ -160,7 +160,7 @@ a:focus {
 
 a:hover {
   text-decoration: none;
-  color: #0071dc;
+  color: #4486bd;
 }
 
 button, input[type=submit] {
@@ -255,7 +255,7 @@ hr {
 }
 
 .bg-color-primary {
-  background-color: #0071dc;
+  background-color: #4486bd;
 }
 
 .section-padding-01 {
@@ -300,7 +300,7 @@ hr {
   text-transform: uppercase;
   line-height: 1.74;
   letter-spacing: 2px;
-  color: #0071dc;
+  color: #4486bd;
   margin-bottom: 16px;
 }
 @media only screen and (max-width: 767px) {
@@ -362,7 +362,7 @@ hr {
   mask-image: url(../images/headline-curve.svg);
 }
 .section-title__title span {
-  color: #0071dc;
+  color: #4486bd;
 }
 .section-title__title-02 {
   font-size: 32px;
@@ -410,7 +410,7 @@ hr {
   mask-image: url(../images/headline-curve.svg);
 }
 .section-title__title-02 span {
-  color: #0071dc;
+  color: #4486bd;
 }
 .section-title__title-03 {
   font-size: 40px;
@@ -458,7 +458,7 @@ hr {
   mask-image: url(../images/headline-curve.svg);
 }
 .section-title__title-03 span {
-  color: #0071dc;
+  color: #4486bd;
 }
 .section-title p {
   margin-top: 25px;
@@ -527,7 +527,7 @@ hr {
 }
 .swiper-button-style .swiper-button-next:hover, .swiper-button-style .swiper-button-prev:hover {
   color: #FFFFFF;
-  background-color: #0071dc;
+  background-color: #4486bd;
 }
 .swiper-button-style .swiper-button-next::after, .swiper-button-style .swiper-button-prev::after {
   display: none;
@@ -731,7 +731,7 @@ hr {
   transform: translate(-50%, -50%);
   border-top: 9px solid transparent;
   border-bottom: 9px solid transparent;
-  border-left: 14px solid #0071dc;
+  border-left: 14px solid #4486bd;
 }
 .video-play__text {
   font-size: 16px;
@@ -838,8 +838,8 @@ hr {
   height: 26px;
 }
 .filter-bar-wrapper .nav li button.active {
-  border-color: #0071dc;
-  color: #0071dc;
+  border-color: #4486bd;
+  color: #4486bd;
 }
 .filter-bar-wrapper .btn {
   position: relative;
@@ -884,7 +884,7 @@ hr {
 .filter-select .edumall-nice-select-wrap.focused .edumall-nice-select-current {
   color: #252525;
   background: #FFFFFF;
-  border-color: #0071dc;
+  border-color: #4486bd;
 }
 .filter-select .edumall-nice-select-wrap.focused .edumall-nice-select {
   visibility: visible;
@@ -919,7 +919,7 @@ hr {
 .filter-select .edumall-nice-select-current:hover {
   color: #252525;
   background: #FFFFFF;
-  border-color: #0071dc;
+  border-color: #4486bd;
 }
 .filter-select .edumall-nice-select-current:hover .label, .filter-select .edumall-nice-select-current:hover .value {
   color: #252525;
@@ -973,11 +973,11 @@ hr {
   font-size: 12px;
   font-weight: 900;
   font-family: Font Awesome\ 5 Pro;
-  color: #0071dc;
+  color: #4486bd;
   transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 .filter-select .edumall-nice-select li:hover {
-  background-color: #0071dc;
+  background-color: #4486bd;
   color: #FFFFFF;
 }
 .filter-select .edumall-nice-select li:hover.selected:before {
@@ -1009,10 +1009,10 @@ hr {
   text-transform: uppercase;
 }
 .page-pagination .pagination li a:hover {
-  color: #0071dc;
+  color: #4486bd;
 }
 .page-pagination .pagination li a.active {
-  background-color: #0071dc;
+  background-color: #4486bd;
   color: #FFFFFF;
 }
 
@@ -1036,28 +1036,28 @@ hr {
 }
 
 .tooltip-inner {
-  background-color: #0071dc;
+  background-color: #4486bd;
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .bs-tooltip-top .tooltip-arrow::before,
 .bs-tooltip-auto[data-popper-placement^=top] .tooltip-arrow::before {
-  border-top-color: #0071dc;
+  border-top-color: #4486bd;
 }
 
 .bs-tooltip-end .tooltip-arrow::before,
 .bs-tooltip-auto[data-popper-placement^=right] .tooltip-arrow::before {
-  border-right-color: #0071dc;
+  border-right-color: #4486bd;
 }
 
 .bs-tooltip-bottom .tooltip-arrow::before,
 .bs-tooltip-auto[data-popper-placement^=bottom] .tooltip-arrow::before {
-  border-bottom-color: #0071dc;
+  border-bottom-color: #4486bd;
 }
 
 .bs-tooltip-start .tooltip-arrow::before,
 .bs-tooltip-auto[data-popper-placement^=left] .tooltip-arrow::before {
-  border-left-color: #0071dc;
+  border-left-color: #4486bd;
 }
 
 /* tab Content */
@@ -1086,7 +1086,7 @@ hr {
   padding: 1em 2em;
   list-style: none outside;
   word-wrap: break-word;
-  background-color: #0071dc;
+  background-color: #4486bd;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1192,13 +1192,13 @@ hr {
 }
 
 .btn-primary {
-  background-color: #0071dc;
-  border-color: #0071dc;
+  background-color: #4486bd;
+  border-color: #4486bd;
   color: #FFFFFF;
 }
 .btn-primary:focus, .btn-primary:active, .btn-primary:hover {
-  background-color: #0071dc;
-  border-color: #0071dc;
+  background-color: #4486bd;
+  border-color: #4486bd;
   color: #FFFFFF;
 }
 
@@ -1271,12 +1271,12 @@ hr {
 .btn-light {
   background-color: #F5F5F5;
   border-color: #F5F5F5;
-  color: #0071dc;
+  color: #4486bd;
 }
 .btn-light:focus, .btn-light:active, .btn-light:hover {
   background-color: #F5F5F5;
   border-color: #F5F5F5;
-  color: #0071dc;
+  color: #4486bd;
 }
 
 .btn-dark {
@@ -1293,19 +1293,19 @@ hr {
 .btn-white {
   background-color: #FFFFFF;
   border-color: #FFFFFF;
-  color: #0071dc;
+  color: #4486bd;
   box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
 }
 .btn-white:focus, .btn-white:active, .btn-white:hover {
   background-color: #FFFFFF;
   border-color: #FFFFFF;
-  color: #0071dc;
+  color: #4486bd;
   box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
 }
 
 .btn-hover-primary:hover {
-  background-color: #0071dc;
-  border-color: #0071dc;
+  background-color: #4486bd;
+  border-color: #4486bd;
   color: #FFFFFF;
 }
 
@@ -1363,7 +1363,7 @@ hr {
 .btn-hover-white:hover {
   background-color: #FFFFFF;
   border-color: #FFFFFF;
-  color: #0071dc;
+  color: #4486bd;
   box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
 }
 
@@ -1414,7 +1414,7 @@ hr {
 }
 .form-select:focus,
 .form-control:focus {
-  border-color: #0071dc;
+  border-color: #4486bd;
   background-color: #FFFFFF;
   box-shadow: none;
 }
@@ -1506,14 +1506,14 @@ textarea.form-control {
   color: #666666;
 }
 .form-check input[type=checkbox]:checked + label::before {
-  background-color: #0071dc;
-  border-color: #0071dc;
+  background-color: #4486bd;
+  border-color: #4486bd;
 }
 .form-check input[type=checkbox]:checked + label::after {
   transform: scale(1);
 }
 .form-check input[type=checkbox]:hover + label::before {
-  border-color: #0071dc;
+  border-color: #4486bd;
 }
 .form-check input[type=radio] {
   display: none;
@@ -1549,7 +1549,7 @@ textarea.form-control {
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  background-color: #0071dc;
+  background-color: #4486bd;
   transform: scale(0);
   transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
@@ -1612,12 +1612,12 @@ textarea.form-control {
   transform: translateY(-50%);
 }
 .select2-container.select2-container--open .select2-selection--single {
-  border-color: #0071dc;
+  border-color: #4486bd;
   background-color: #FFFFFF;
 }
 .select2-container.select2-container--open .select2-results__option[aria-selected=true], .select2-container.select2-container--open .select2-results__option[data-selected=true] {
   color: #FFFFFF;
-  background: #0071dc;
+  background: #4486bd;
 }
 .select2-container .select2-search--dropdown {
   position: relative;
@@ -1634,7 +1634,7 @@ textarea.form-control {
   transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 .select2-container .select2-search--dropdown .select2-search__field:focus {
-  border-color: #0071dc;
+  border-color: #4486bd;
 }
 .select2-container .select2-results {
   padding: 0;
@@ -1646,11 +1646,11 @@ textarea.form-control {
 }
 .select2-container .select2-results__option--selected, .select2-container .select2-results__option--highlighted[aria-selected] {
   color: #FFFFFF;
-  background: #0071dc;
+  background: #4486bd;
 }
 
 .select2-dropdown {
-  border-color: #0071dc;
+  border-color: #4486bd;
 }
 
 .flatpickr-calendar {
@@ -1711,7 +1711,7 @@ textarea.form-control {
   background: transparent;
 }
 .flatpickr-current-month .flatpickr-monthDropdown-months:focus {
-  border-color: #0071dc;
+  border-color: #4486bd;
   background-color: #FFFFFF;
 }
 .flatpickr-current-month .numInputWrapper:hover {
@@ -1726,7 +1726,7 @@ textarea.form-control {
   border-radius: 5px;
 }
 .flatpickr-current-month .numInputWrapper input:focus {
-  border-color: #0071dc;
+  border-color: #4486bd;
   background-color: #FFFFFF;
 }
 
@@ -1745,26 +1745,26 @@ span.flatpickr-weekday {
 .flatpickr-day:hover {
   border-color: transparent;
   background: rgba(0, 113, 220, 0.12);
-  color: #0071dc;
+  color: #4486bd;
 }
 .flatpickr-day.today {
   border-color: transparent;
   background: rgba(0, 113, 220, 0.12);
-  color: #0071dc;
+  color: #4486bd;
 }
 .flatpickr-day.today:hover {
-  border-color: #0071dc;
-  background: #0071dc;
+  border-color: #4486bd;
+  background: #4486bd;
   color: #FFFFFF;
 }
 .flatpickr-day.selected {
-  border-color: #0071dc;
-  background: #0071dc;
+  border-color: #4486bd;
+  background: #4486bd;
   color: #FFFFFF;
 }
 .flatpickr-day.selected:hover {
-  border-color: #0071dc;
-  background: #0071dc;
+  border-color: #4486bd;
+  background: #4486bd;
   color: #FFFFFF;
 }
 
@@ -1834,7 +1834,7 @@ span.flatpickr-weekday {
 }
 
 .header-main-03 {
-  background-color: #0071dc;
+  background-color: #4486bd;
   padding: 0;
 }
 
@@ -2070,10 +2070,10 @@ span.flatpickr-weekday {
   color: #333;
 }
 .header-top-bar-wrap__info-list-02 li a i, .header-top-bar-wrap__info-list-02 li button i {
-  color: #0071dc;
+  color: #4486bd;
 }
 .header-top-bar-wrap__info-list-02 li:hover a, .header-top-bar-wrap__info-list-02 li:hover button {
-  color: #0071dc;
+  color: #4486bd;
 }
 .header-top-bar-wrap__info-list-03 li::before {
   content: "/";
@@ -2088,10 +2088,10 @@ span.flatpickr-weekday {
   color: #333;
 }
 .header-top-bar-wrap__info-list-03 li a i, .header-top-bar-wrap__info-list-03 li button i {
-  color: #0071dc;
+  color: #4486bd;
 }
 .header-top-bar-wrap__info-list-03 li:hover a, .header-top-bar-wrap__info-list-03 li:hover button {
-  color: #0071dc;
+  color: #4486bd;
 }
 .header-top-bar-wrap__info-list-04 li::before {
   background-color: rgba(255, 255, 255, 0.35);
@@ -2136,7 +2136,7 @@ span.flatpickr-weekday {
   color: #252525;
 }
 .header-top-bar-wrap__info-social-02 li:hover a {
-  color: #0071dc;
+  color: #4486bd;
 }
 .header-top-bar-wrap__language {
   position: relative;
@@ -2233,7 +2233,7 @@ span.flatpickr-weekday {
   text-align: left;
 }
 .header-top-bar-wrap__language .language-dropdown li:hover > a {
-  color: #0071dc;
+  color: #4486bd;
 }
 .header-top-bar-wrap__language:hover .language-dropdown {
   transform: translateY(0px);
@@ -2263,10 +2263,10 @@ span.flatpickr-weekday {
   color: #333;
 }
 .header-top-bar-wrap__language-02 .language-toggle:hover {
-  color: #0071dc;
+  color: #4486bd;
 }
 .header-top-bar-wrap__language-02 .language-toggle:hover::after {
-  color: #0071dc;
+  color: #4486bd;
 }
 
 .header-main-wrapper {
@@ -2288,7 +2288,7 @@ span.flatpickr-weekday {
 .header-contact__icon {
   font-size: 34px;
   line-height: 1;
-  color: #0071dc;
+  color: #4486bd;
 }
 @media only screen and (max-width: 767px) {
   .header-contact__icon {
@@ -2369,13 +2369,13 @@ span.flatpickr-weekday {
   transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 .header-category-toggle:hover {
-  color: #0071dc;
+  color: #4486bd;
 }
 .header-category-toggle:hover .header-category-toggle__icon {
   margin-right: 15px;
 }
 .header-category-toggle:hover .header-category-toggle__icon svg {
-  fill: #0071dc;
+  fill: #4486bd;
 }
 
 .header-category-dropdown-wrap {
@@ -2449,7 +2449,7 @@ span.flatpickr-weekday {
   font-weight: 400;
 }
 .header-category-dropdown li:hover > a {
-  color: #0071dc;
+  color: #4486bd;
   background: #f5f7fd;
 }
 .header-category-dropdown li:hover > .children {
@@ -2577,7 +2577,7 @@ span.flatpickr-weekday {
   transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 .header-serach__input:focus {
-  border-color: #0071dc;
+  border-color: #4486bd;
   background-color: #FFFFFF;
 }
 .header-serach__input::-webkit-input-placeholder {
@@ -2604,7 +2604,7 @@ span.flatpickr-weekday {
   height: 60px;
   border: 0;
   background-color: transparent;
-  color: #0071dc;
+  color: #4486bd;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
   font-size: 20px;
@@ -2615,7 +2615,7 @@ span.flatpickr-weekday {
   }
 }
 .header-serach__btn:hover {
-  background-color: #0071dc;
+  background-color: #4486bd;
   color: #FFFFFF;
 }
 
@@ -2670,11 +2670,11 @@ span.flatpickr-weekday {
   transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 .menu-primary__container > li > a.active {
-  color: #0071dc;
+  color: #4486bd;
 }
 .menu-primary__container > li > a.active span::before {
   width: 100%;
-  background-color: #0071dc;
+  background-color: #4486bd;
   left: 0;
   right: auto;
 }
@@ -2713,7 +2713,7 @@ span.flatpickr-weekday {
   margin-left: 8px;
 }
 .menu-primary__container > li:hover > a {
-  color: #0071dc;
+  color: #4486bd;
 }
 .menu-primary__container > li:hover > a::before {
   opacity: 1;
@@ -2722,7 +2722,7 @@ span.flatpickr-weekday {
 }
 .menu-primary__container > li:hover > a span::before {
   width: 100%;
-  background-color: #0071dc;
+  background-color: #4486bd;
   left: 0;
   right: auto;
 }
@@ -2819,7 +2819,7 @@ span.flatpickr-weekday {
   display: block;
 }
 .menu-primary .sub-menu li a.active {
-  color: #0071dc;
+  color: #4486bd;
 }
 .menu-primary .sub-menu li.menu-item-has-children > a span::after {
   content: "\f054";
@@ -2831,7 +2831,7 @@ span.flatpickr-weekday {
   margin-top: 2px;
 }
 .menu-primary .sub-menu li:hover > a {
-  color: #0071dc;
+  color: #4486bd;
 }
 .menu-primary .sub-menu li:hover > .sub-menu {
   transform: none;
@@ -2955,7 +2955,7 @@ span.flatpickr-weekday {
   line-height: 20px;
   border-radius: 20px;
   color: #FFFFFF;
-  background: #0071dc;
+  background: #4486bd;
   font-weight: 700;
   font-size: 12px;
   text-align: center;
@@ -3030,7 +3030,7 @@ span.flatpickr-weekday {
 }
 .header-mini-cart__icon {
   font-size: 70px;
-  color: #0071dc;
+  color: #4486bd;
 }
 .header-mini-cart__text {
   font-size: 14px;
@@ -3181,7 +3181,7 @@ span.flatpickr-weekday {
   transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 .header-user__login:hover {
-  color: #0071dc;
+  color: #4486bd;
 }
 .header-user__login:hover::before {
   width: 100%;
@@ -3194,7 +3194,7 @@ span.flatpickr-weekday {
   line-height: 48px;
   font-weight: 500;
   background-color: rgba(0, 113, 220, 0.1);
-  color: #0071dc;
+  color: #4486bd;
 }
 .header-user__login-02 {
   font-size: 14px;
@@ -3236,7 +3236,7 @@ span.flatpickr-weekday {
 .header-user-02__icon {
   font-size: 34px;
   line-height: 1;
-  color: #0071dc;
+  color: #4486bd;
 }
 .header-user-02__info {
   padding-left: 12px;
@@ -3305,19 +3305,19 @@ span.flatpickr-weekday {
   color: #111;
 }
 .sticky .menu-primary__container-03 > li > a span::before {
-  background: #0071dc;
+  background: #4486bd;
 }
 .sticky .menu-primary__container-03 > li > a.active {
-  color: #0071dc;
+  color: #4486bd;
 }
 .sticky .menu-primary__container-03 > li > a.active span::before {
-  background: #0071dc;
+  background: #4486bd;
 }
 .sticky .menu-primary__container-03 > li:hover > a {
-  color: #0071dc;
+  color: #4486bd;
 }
 .sticky .menu-primary__container-03 > li:hover > a span::before {
-  background: #0071dc;
+  background: #4486bd;
 }
 .sticky .header-action__btn-02 {
   position: relative;
@@ -3330,7 +3330,7 @@ span.flatpickr-weekday {
   color: #333;
 }
 .sticky .header-user__login-02::before {
-  background-color: #0071dc;
+  background-color: #4486bd;
 }
 .sticky .header-toggle__btn-02 .line {
   background-color: #031f42;
@@ -3505,7 +3505,7 @@ span.flatpickr-weekday {
 .dashboard-header__toggle-menu {
   flex-shrink: 0;
   cursor: pointer;
-  color: #0071dc;
+  color: #4486bd;
   height: 30px;
   line-height: 30px;
 }
@@ -3681,7 +3681,7 @@ span.flatpickr-weekday {
   border-color: #eee;
 }
 .dashboard-header__btn [class*=btn-outline-]:hover {
-  border-color: #0071dc;
+  border-color: #4486bd;
 }
 .dashboard-header__toggle .btn-toggle {
   flex-shrink: 0;
@@ -3807,14 +3807,14 @@ span.flatpickr-weekday {
   font-size: 20px;
   min-width: 30px;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
-  color: #0071dc;
+  color: #4486bd;
   transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 .dashboard-nav__menu-list li a:hover {
   background-color: #edf0f9;
 }
 .dashboard-nav__menu-list li.active a {
-  background-color: #0071dc;
+  background-color: #4486bd;
   color: #FFFFFF;
 }
 .dashboard-nav__menu-list li.active a i {
@@ -3850,7 +3850,7 @@ span.flatpickr-weekday {
 }
 .navScroll.ps--active-y > .ps__rail-y:hover .ps__thumb-y, .navScroll.ps--active-y > .ps__rail-y:focus .ps__thumb-y {
   width: 6px;
-  background-color: #0071dc;
+  background-color: #4486bd;
 }
 
 /*--
@@ -3982,7 +3982,7 @@ span.flatpickr-weekday {
   }
 }
 .dashboard-menu__menu-link > li:hover > a {
-  color: #0071dc;
+  color: #4486bd;
 }
 .dashboard-menu__search {
   position: relative;
@@ -4009,7 +4009,7 @@ span.flatpickr-weekday {
   border: 0;
   border-radius: 0 5px 5px 0;
   background: none;
-  color: #0071dc;
+  color: #4486bd;
 }
 
 /*--
@@ -4039,7 +4039,7 @@ span.flatpickr-weekday {
   line-height: 60px;
   cursor: pointer;
   overflow: hidden;
-  background-color: #0071dc;
+  background-color: #4486bd;
   border: 0;
   display: none;
 }
@@ -4100,13 +4100,13 @@ span.flatpickr-weekday {
   white-space: nowrap;
 }
 .footer-widget__link li:hover a {
-  color: #0071dc;
+  color: #4486bd;
 }
 .footer-widget__link-02 li a {
   color: #333;
 }
 .footer-widget__link-02 li:hover a {
-  color: #0071dc;
+  color: #4486bd;
 }
 .footer-widget__logo img {
   width: 148px;
@@ -4122,7 +4122,7 @@ span.flatpickr-weekday {
 .footer-widget__info .title-02 {
   font-size: 14px;
   line-height: 1.4;
-  color: #0071dc;
+  color: #4486bd;
   margin-bottom: 14px;
 }
 .footer-widget__info .number {
@@ -4130,7 +4130,7 @@ span.flatpickr-weekday {
   font-size: 16px;
   font-weight: 700;
   line-height: 1.4;
-  color: #0071dc;
+  color: #4486bd;
 }
 .footer-widget__info p {
   font-weight: 500;
@@ -4149,7 +4149,7 @@ span.flatpickr-weekday {
   line-height: 1;
 }
 .footer-widget__social a:hover {
-  color: #0071dc;
+  color: #4486bd;
 }
 .footer-widget__social-02 {
   display: flex;
@@ -4336,7 +4336,7 @@ span.flatpickr-weekday {
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  background-color: #0071dc;
+  background-color: #4486bd;
   transform: scale(0);
   transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
@@ -4398,8 +4398,8 @@ span.flatpickr-weekday {
   color: #666666;
 }
 .widget-filter__item input[type=checkbox]:checked + label::before {
-  background-color: #0071dc;
-  border-color: #0071dc;
+  background-color: #4486bd;
+  border-color: #4486bd;
 }
 .widget-filter__item input[type=checkbox]:checked + label::after {
   transform: scale(1);
@@ -4442,7 +4442,7 @@ span.flatpickr-weekday {
   margin: 0;
   border: 0;
   outline: none;
-  background: linear-gradient(#0071dc, #0071dc) no-repeat center;
+  background: linear-gradient(#4486bd, #4486bd) no-repeat center;
   background-size: 100% 6px;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -4472,7 +4472,7 @@ span.flatpickr-weekday {
   width: 16px;
   margin: 5px 0;
   border-radius: 50%;
-  background-color: #0071dc;
+  background-color: #4486bd;
   box-shadow: 0 1px 4px 0.5px rgba(0, 0, 0, 0.3);
   -moz-appearance: none;
   appearance: none;
@@ -4484,7 +4484,7 @@ span.flatpickr-weekday {
   width: 17px;
   margin: 5px 0;
   border-radius: 50%;
-  background-color: #0071dc;
+  background-color: #4486bd;
   box-shadow: 0 1px 4px 0.5px rgba(0, 0, 0, 0.3);
   -webkit-appearance: none;
   appearance: none;
@@ -4536,7 +4536,7 @@ span.flatpickr-weekday {
 }
 .widget-filter__search-field:focus {
   color: #252525;
-  border-color: #0071dc;
+  border-color: #4486bd;
 }
 .widget-filter__search-submit {
   position: absolute;
@@ -4551,12 +4551,12 @@ span.flatpickr-weekday {
   box-shadow: none;
   transform: none;
   background: transparent;
-  color: #0071dc;
+  color: #4486bd;
   transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
   border-radius: 5px;
 }
 .widget-filter__search-submit:hover {
-  background-color: #0071dc;
+  background-color: #4486bd;
   color: #FFFFFF;
 }
 .widget-filter__product-list {
@@ -4631,7 +4631,7 @@ span.flatpickr-weekday {
 }
 .widget-filter .ps__thumb-y {
   right: 0;
-  background-color: #0071dc;
+  background-color: #4486bd;
   opacity: 1 !important;
 }
 
@@ -4676,7 +4676,7 @@ span.flatpickr-weekday {
   color: #333;
 }
 .sidebar-widget__link li a:hover {
-  color: #0071dc;
+  color: #4486bd;
 }
 .sidebar-widget__course-item {
   display: flex;
@@ -4736,7 +4736,7 @@ span.flatpickr-weekday {
   background: #d31819;
 }
 .sidebar-widget__course-badge .onsale {
-  background: #0071dc;
+  background: #4486bd;
 }
 .sidebar-widget__course-content {
   padding-left: 12px;
@@ -4810,7 +4810,7 @@ span.flatpickr-weekday {
   display: block;
 }
 .sidebar-widget-02__link li a:hover {
-  color: #0071dc;
+  color: #4486bd;
 }
 .sidebar-widget-02__tags {
   list-style-type: none;
@@ -4842,7 +4842,7 @@ span.flatpickr-weekday {
   display: block;
 }
 .sidebar-widget-02__tags li a:hover {
-  background-color: #0071dc;
+  background-color: #4486bd;
   color: #FFFFFF;
 }
 .sidebar-widget-02__psot {
@@ -5007,7 +5007,7 @@ span.flatpickr-weekday {
 .sidebar-widget-02-search__field:focus {
   color: #252525;
   background-color: #FFFFFF;
-  border-color: #0071dc;
+  border-color: #4486bd;
 }
 .sidebar-widget-02-search__submit {
   position: absolute;
@@ -5022,7 +5022,7 @@ span.flatpickr-weekday {
   box-shadow: none;
   transform: none;
   background: transparent;
-  color: #0071dc;
+  color: #4486bd;
 }
 
 /*--
@@ -5553,7 +5553,7 @@ span.flatpickr-weekday {
   text-transform: uppercase;
   line-height: 1.4;
   letter-spacing: 2px;
-  color: #0071dc;
+  color: #4486bd;
 }
 @media only screen and (min-width: 768px) and (max-width: 991px), only screen and (max-width: 575px) {
   .slider-caption__sub-title {
@@ -5587,7 +5587,7 @@ span.flatpickr-weekday {
 }
 .slider-caption__main-title mark {
   position: relative;
-  color: #0071dc;
+  color: #4486bd;
   padding: 0 0 10px 0;
   background-color: transparent;
   display: inline-block;
@@ -5629,7 +5629,7 @@ span.flatpickr-weekday {
 .slider-caption-02__sub-title {
   font-size: 18px;
   line-height: 1.74;
-  color: #0071dc;
+  color: #4486bd;
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px), only screen and (min-width: 768px) and (max-width: 991px) {
   .slider-caption-02__sub-title {
@@ -5767,7 +5767,7 @@ span.flatpickr-weekday {
 }
 .slider-caption-03__main-title mark {
   position: relative;
-  color: #0071dc;
+  color: #4486bd;
   padding: 0 0 10px 0;
   background-color: transparent;
   display: inline-block;
@@ -6289,7 +6289,7 @@ span.flatpickr-weekday {
   padding-right: 60px;
 }
 .slider-search__field:focus {
-  border-color: #0071dc;
+  border-color: #4486bd;
   background-color: #FFFFFF;
 }
 .slider-search__submit {
@@ -6302,7 +6302,7 @@ span.flatpickr-weekday {
   width: 60px;
   text-align: center;
   background: transparent;
-  color: #0071dc;
+  color: #4486bd;
   font-size: 20px;
 }
 
@@ -6324,7 +6324,7 @@ span.flatpickr-weekday {
   width: 108px;
   height: 108px;
   border-radius: 50%;
-  background-color: #0071dc;
+  background-color: #4486bd;
   position: absolute;
   top: auto !important;
   left: auto !important;
@@ -6548,7 +6548,7 @@ span.flatpickr-weekday {
 }
 .slider-widget-box-item__icon {
   font-size: 34px;
-  color: #0071dc;
+  color: #4486bd;
   line-height: 1;
 }
 .slider-widget-box-item__icon svg {
@@ -6599,7 +6599,7 @@ span.flatpickr-weekday {
   }
 }
 .slider-register__title span {
-  color: #0071dc;
+  color: #4486bd;
 }
 .slider-register__form {
   padding-top: 17px;
@@ -6669,7 +6669,7 @@ span.flatpickr-weekday {
 .feature-image__shape-01 {
   width: 24px;
   height: 24px;
-  background-color: #0071dc;
+  background-color: #4486bd;
   position: absolute;
   left: -60px;
   bottom: 190px;
@@ -6706,7 +6706,7 @@ span.flatpickr-weekday {
 }
 .features-item-02__icon.color-01 i {
   background-color: #F5F7FD;
-  color: #0071dc;
+  color: #4486bd;
 }
 .features-item-02__icon.color-01 i::before {
   opacity: 0.4;
@@ -6765,7 +6765,7 @@ span.flatpickr-weekday {
   transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 .categories-item__icon svg .primary-fill-color {
-  fill: #0071dc;
+  fill: #4486bd;
   transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 .categories-item__info {
@@ -6793,7 +6793,7 @@ span.flatpickr-weekday {
   line-height: 1;
 }
 .categories-item:hover .categories-item__link {
-  background-color: #0071dc;
+  background-color: #4486bd;
 }
 .categories-item:hover .categories-item__name {
   color: #FFFFFF;
@@ -6802,7 +6802,7 @@ span.flatpickr-weekday {
   transform: translateY(-50%) scale(1);
 }
 .categories-item:hover .categories-item__icon svg .text-lighten-fill-color {
-  fill: #0071dc;
+  fill: #4486bd;
 }
 .categories-item:hover .categories-item__icon svg .text-fill-color {
   fill: #FFFFFF;
@@ -6825,7 +6825,7 @@ span.flatpickr-weekday {
   min-width: 58px;
   font-size: 48px;
   flex-shrink: 0;
-  color: #0071dc;
+  color: #4486bd;
   line-height: 0;
 }
 .categories-item-02__icon svg {
@@ -6851,7 +6851,7 @@ span.flatpickr-weekday {
   right: -15px;
   top: 50%;
   transform: translateY(-50%) scale(0);
-  color: #0071dc;
+  color: #4486bd;
   font-size: 16px;
   font-family: "Font Awesome 5 Pro";
   transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -6865,7 +6865,7 @@ span.flatpickr-weekday {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
 }
 .categories-item-02:hover .categories-item-02__name {
-  color: #0071dc;
+  color: #4486bd;
 }
 .categories-item-02:hover .categories-item-02__name::before {
   transform: translateY(-50%) scale(1);
@@ -6933,12 +6933,12 @@ span.flatpickr-weekday {
   }
 }
 .courses-tab-menu .nav li button.active {
-  color: #0071dc;
+  color: #4486bd;
   background: #FFFFFF;
   box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
 }
 .courses-tab-menu .nav li:hover button {
-  color: #0071dc;
+  color: #4486bd;
   background: #FFFFFF;
   box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
 }
@@ -6947,12 +6947,12 @@ span.flatpickr-weekday {
   background-color: #f5f5f5;
 }
 .courses-tab-menu-02 .nav li button.active {
-  color: #0071dc;
+  color: #4486bd;
   background: #FFFFFF;
   box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
 }
 .courses-tab-menu-02 .nav li:hover button {
-  color: #0071dc;
+  color: #4486bd;
   background: #FFFFFF;
   box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
 }
@@ -7086,7 +7086,7 @@ span.flatpickr-weekday {
   background: #d31819;
 }
 .course-header__badge .onsale {
-  background: #0071dc;
+  background: #4486bd;
 }
 
 .course-info {
@@ -7109,7 +7109,7 @@ span.flatpickr-weekday {
 }
 .course-info__badge-text.badge-beginner {
   background: rgba(0, 113, 220, 0.15);
-  color: #0071dc;
+  color: #4486bd;
 }
 .course-info__badge-text.badge-intermediate {
   background: rgba(255, 194, 33, 0.15);
@@ -7144,7 +7144,7 @@ span.flatpickr-weekday {
 .course-info__instructor {
   font-size: 13px;
   margin: 2px 0 0;
-  color: #0071dc;
+  color: #4486bd;
 }
 .course-info__instructor:hover {
   color: #ffc221;
@@ -7300,14 +7300,14 @@ span.flatpickr-weekday {
 }
 .course-info-02__badge-text.badge-beginner {
   background: rgba(0, 113, 220, 0.15);
-  color: #0071dc;
+  color: #4486bd;
 }
 .course-info-02__badge-text.badge-intermediate {
   background: rgba(255, 194, 33, 0.15);
   color: #ffb900;
 }
 .course-info-02__category a {
-  color: #0071dc;
+  color: #4486bd;
 }
 .course-info-02__category a:hover {
   color: #ffc221;
@@ -7374,7 +7374,7 @@ span.flatpickr-weekday {
 .course-info-02__rating .rating-count {
   display: flex;
   align-items: flex-end;
-  color: #0071dc;
+  color: #4486bd;
 }
 .course-info-02__rating .rating-count__average {
   font-size: 16px;
@@ -7485,7 +7485,7 @@ span.flatpickr-weekday {
   background: #d31819;
 }
 .course-header-03__badge .onsale {
-  background: #0071dc;
+  background: #4486bd;
 }
 
 .course-info-03 {
@@ -7564,7 +7564,7 @@ span.flatpickr-weekday {
 .course-info-03__instructor {
   font-size: 13px;
   margin: 2px 0 0;
-  color: #0071dc;
+  color: #4486bd;
 }
 .course-info-03__instructor:hover {
   color: #ffc221;
@@ -7593,7 +7593,7 @@ span.flatpickr-weekday {
 .course-info-03__rating .rating-count {
   display: flex;
   align-items: flex-end;
-  color: #0071dc;
+  color: #4486bd;
 }
 .course-info-03__rating .rating-count__average {
   font-size: 16px;
@@ -7708,7 +7708,7 @@ span.flatpickr-weekday {
   background: #d31819;
 }
 .course-list-header__badge .onsale {
-  background: #0071dc;
+  background: #4486bd;
 }
 
 .course-list-info {
@@ -7874,7 +7874,7 @@ span.flatpickr-weekday {
 }
 .course-list-info__rating .rating-average {
   display: flex;
-  color: #0071dc;
+  color: #4486bd;
   align-items: flex-end;
 }
 .course-list-info__rating .rating-average__average {
@@ -7913,7 +7913,7 @@ span.flatpickr-weekday {
   }
 }
 .popular-topic-link:hover {
-  background-color: #0071dc;
+  background-color: #4486bd;
   color: #FFFFFF;
 }
 
@@ -7948,7 +7948,7 @@ span.flatpickr-weekday {
 }
 .course-item-hover__category a {
   font-weight: 400;
-  color: #0071dc;
+  color: #4486bd;
   margin: 0 0 1px;
 }
 .course-item-hover__category a:hover {
@@ -8083,7 +8083,7 @@ span.flatpickr-weekday {
 }
 .course-item-hover__btn .btn-link {
   line-height: 22px;
-  color: #0071dc;
+  color: #4486bd;
   font-size: 15px;
   font-weight: 400;
   padding: 5px 0;
@@ -8160,7 +8160,7 @@ span.flatpickr-weekday {
   text-align: center;
   font-size: 24px;
   color: #FFFFFF;
-  background-color: #0071dc;
+  background-color: #4486bd;
   border-radius: 50%;
   position: absolute;
   top: -32px;
@@ -8392,7 +8392,7 @@ span.flatpickr-weekday {
 .call-to-action__sub-title {
   font-size: 14px;
   line-height: 1.8;
-  color: #0071dc;
+  color: #4486bd;
 }
 .call-to-action__main-title {
   font-size: 18px;
@@ -8400,7 +8400,7 @@ span.flatpickr-weekday {
   margin-top: 6px;
 }
 .call-to-action__wrapper-02 {
-  background-color: #0071dc;
+  background-color: #4486bd;
   padding: 45px 210px;
   border-radius: 8px;
   position: relative;
@@ -8520,7 +8520,7 @@ span.flatpickr-weekday {
   font-size: 16px;
   line-height: 1.8;
   margin-bottom: 10px;
-  color: #0071dc;
+  color: #4486bd;
 }
 .call-to-action__main-title-04 {
   font-size: 23px;
@@ -8737,7 +8737,7 @@ span.flatpickr-weekday {
   font-size: 18px;
   line-height: 1.67;
   margin: 0 0 11px;
-  color: #0071dc;
+  color: #4486bd;
 }
 .testimonial-caption p {
   font-size: 16px;
@@ -8801,7 +8801,7 @@ span.flatpickr-weekday {
   font-size: 18px;
   line-height: 1.67;
   margin: 0 0 11px;
-  color: #0071dc;
+  color: #4486bd;
 }
 .testimonial-caption-02 p {
   font-size: 16px;
@@ -8815,7 +8815,7 @@ span.flatpickr-weekday {
 }
 .testimonial-caption-02 p mark {
   background: none;
-  color: #0071dc;
+  color: #4486bd;
 }
 
 .testimonial-info-02 {
@@ -8852,7 +8852,7 @@ span.flatpickr-weekday {
 }
 
 .testimonial-items-wrapper [class*=col-]:nth-child(4n+1) .testimonial-item-03 {
-  background-color: #0071dc;
+  background-color: #4486bd;
   margin-left: 40px;
 }
 @media only screen and (min-width: 768px) and (max-width: 991px), only screen and (max-width: 767px) {
@@ -9139,7 +9139,7 @@ span.flatpickr-weekday {
 .banner-caption-02__sub-title {
   font-size: 14px;
   line-height: 1.2;
-  color: #0071dc;
+  color: #4486bd;
   margin-bottom: 2px;
 }
 .banner-caption-02__title {
@@ -9265,7 +9265,7 @@ span.flatpickr-weekday {
   color: #252525;
 }
 .client-title__title span {
-  color: #0071dc;
+  color: #4486bd;
 }
 
 .client-logo-section {
@@ -9346,7 +9346,7 @@ span.flatpickr-weekday {
 /*  04.10 - Edumall Box
 /*----------------------------------------*/
 .edumall-box-section__title {
-  color: #0071dc;
+  color: #4486bd;
   font-size: 16px;
 }
 
@@ -9475,7 +9475,7 @@ span.flatpickr-weekday {
   line-height: 40px;
   padding: 0 16px;
   font-size: 14px;
-  color: #0071dc;
+  color: #4486bd;
 }
 .edumall-box-item-04:hover {
   box-shadow: 0px 10px 50px 0px rgba(0, 0, 0, 0.08);
@@ -9727,7 +9727,7 @@ span.flatpickr-weekday {
   font-size: 34px;
   line-height: 1.2;
   font-weight: 500;
-  color: #0071dc;
+  color: #4486bd;
   display: block;
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -9809,7 +9809,7 @@ span.flatpickr-weekday {
   font-size: 34px;
   line-height: 1.2;
   font-weight: 500;
-  color: #0071dc;
+  color: #4486bd;
   display: block;
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -9872,7 +9872,7 @@ span.flatpickr-weekday {
   font-size: 34px;
   line-height: 1.2;
   font-weight: 500;
-  color: #0071dc;
+  color: #4486bd;
   display: block;
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -9988,7 +9988,7 @@ span.flatpickr-weekday {
   letter-spacing: 0.5px;
   color: #FFFFFF;
   border-radius: 3px;
-  background-color: #0071dc;
+  background-color: #4486bd;
   padding: 0 10px;
 }
 .event-item-02__content {
@@ -10345,7 +10345,7 @@ span.flatpickr-weekday {
   background: #252525;
 }
 .blog-item__categories a:hover {
-  background-color: #0071dc;
+  background-color: #4486bd;
 }
 .blog-item__content {
   padding: 15px 0 0;
@@ -10450,7 +10450,7 @@ span.flatpickr-weekday {
   background: #252525;
 }
 .blog-item-02__categories a:hover {
-  background-color: #0071dc;
+  background-color: #4486bd;
 }
 .blog-item-02__content {
   padding: 15px 30px 30px;
@@ -10634,11 +10634,11 @@ span.flatpickr-weekday {
   font-size: 14px;
   font-weight: 500;
   line-height: 1.6;
-  color: #0071dc;
+  color: #4486bd;
   margin: 0 0 2px;
 }
 .blog-post-02__categories a {
-  color: #0071dc;
+  color: #4486bd;
 }
 .blog-post-02__categories a:hover {
   color: #ffc221;
@@ -10664,7 +10664,7 @@ span.flatpickr-weekday {
   display: inline-block;
   line-height: 1;
   padding: 3px 0;
-  color: #0071dc;
+  color: #4486bd;
   font-weight: 700;
 }
 .blog-post-more a strong::before {
@@ -10676,7 +10676,7 @@ span.flatpickr-weekday {
   right: 0;
   bottom: 0;
   transition: width 0.6s cubic-bezier(0.25, 0.8, 0.25, 1) 0s;
-  background: #0071dc;
+  background: #4486bd;
 }
 .blog-post-more a:hover strong::before {
   width: 100%;
@@ -10727,7 +10727,7 @@ span.flatpickr-weekday {
   background: #252525;
 }
 .blog-list-item__categories a:hover {
-  background-color: #0071dc;
+  background-color: #4486bd;
 }
 .blog-list-item__content {
   padding-top: 24px;
@@ -10850,7 +10850,7 @@ span.flatpickr-weekday {
   text-align: center;
   cursor: pointer;
   border: 2px solid #ededed;
-  color: #0071dc;
+  color: #4486bd;
 }
 .blog-list-item__share-social {
   list-style-type: none;
@@ -10985,7 +10985,7 @@ span.flatpickr-weekday {
   background: #252525;
 }
 .blog-list-item-02__categories a:hover {
-  background-color: #0071dc;
+  background-color: #4486bd;
 }
 .blog-list-item-02__content {
   flex-grow: 1;
@@ -11047,7 +11047,7 @@ span.flatpickr-weekday {
 }
 .blog-list-item-02__more {
   margin-top: 14px;
-  color: #0071dc;
+  color: #4486bd;
 }
 .blog-list-item-02__more:hover {
   color: #ffc221;
@@ -11094,7 +11094,7 @@ span.flatpickr-weekday {
   background: #252525;
 }
 .related-post-item__categories a:hover {
-  background-color: #0071dc;
+  background-color: #4486bd;
 }
 .related-post-item__meta {
   margin-bottom: 8px;
@@ -11206,7 +11206,7 @@ span.flatpickr-weekday {
   font-size: 30px;
   font-weight: 700;
   line-height: 1.6;
-  color: #0071dc;
+  color: #4486bd;
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .newsletter__title {
@@ -11341,7 +11341,7 @@ span.flatpickr-weekday {
   width: 184px;
   height: 184px;
   border-radius: 50%;
-  background-color: #0071dc;
+  background-color: #4486bd;
   position: absolute;
   z-index: -1;
   top: auto !important;
@@ -11630,7 +11630,7 @@ span.flatpickr-weekday {
   }
 }
 .about-description__title span {
-  color: #0071dc;
+  color: #4486bd;
 }
 .about-description p {
   margin-top: 34px;
@@ -11737,7 +11737,7 @@ span.flatpickr-weekday {
 .about-content-02__sub-title {
   font-size: 20px;
   line-height: 1.6em;
-  color: #0071dc;
+  color: #4486bd;
   margin-bottom: 23px;
 }
 @media only screen and (max-width: 575px) {
@@ -11851,7 +11851,7 @@ span.flatpickr-weekday {
   text-transform: uppercase;
   line-height: 1.8;
   letter-spacing: 2px;
-  color: #0071dc;
+  color: #4486bd;
   margin-bottom: 20px;
 }
 @media only screen and (max-width: 767px) {
@@ -12185,14 +12185,14 @@ span.flatpickr-weekday {
   right: -15px;
   top: 50%;
   transform: translateY(-50%) scale(0);
-  color: #0071dc;
+  color: #4486bd;
   transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 .campus-widget-item:hover .campus-widget-item__icon {
-  color: #0071dc;
+  color: #4486bd;
 }
 .campus-widget-item:hover .campus-widget-item__title {
-  color: #0071dc;
+  color: #4486bd;
 }
 .campus-widget-item:hover .campus-widget-item__title a::after {
   transform: translateY(-50%) scale(1);
@@ -12446,7 +12446,7 @@ span.flatpickr-weekday {
 .why-choose-title__title {
   font-size: 40px;
   line-height: 1.2;
-  color: #0071dc;
+  color: #4486bd;
   margin-bottom: 12px;
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px), only screen and (max-width: 767px) {
@@ -12501,7 +12501,7 @@ span.flatpickr-weekday {
   box-shadow: 0 10px 50px rgba(0, 0, 0, 0.08);
 }
 .choose-box-item:hover .choose-box-item__title {
-  color: #0071dc;
+  color: #4486bd;
 }
 
 /*--
@@ -12573,7 +12573,7 @@ span.flatpickr-weekday {
   background-color: transparent;
   display: inline-block;
   text-transform: uppercase;
-  color: #0071dc;
+  color: #4486bd;
 }
 .countdown-title__title mark::after {
   content: "";
@@ -12624,7 +12624,7 @@ span.flatpickr-weekday {
   font-size: 34px;
   line-height: 1;
   font-weight: 700;
-  color: #0071dc;
+  color: #4486bd;
   display: block;
 }
 @media only screen and (max-width: 575px) {
@@ -12830,7 +12830,7 @@ span.flatpickr-weekday {
   font-size: 15px;
   font-weight: 700;
   line-height: 1.7;
-  color: #0071dc;
+  color: #4486bd;
 }
 .download-content-02__btn {
   display: flex;
@@ -12919,8 +12919,8 @@ span.flatpickr-weekday {
 }
 .faq-accordion .accordion-button:not(.collapsed) {
   box-shadow: none;
-  background-color: #0071dc;
-  border-color: #0071dc;
+  background-color: #4486bd;
+  border-color: #4486bd;
   color: #FFFFFF;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
@@ -12988,7 +12988,7 @@ span.flatpickr-weekday {
   text-align: center;
 }
 .team-item__social a:hover {
-  color: #0071dc;
+  color: #4486bd;
 }
 .team-item__content {
   text-align: center;
@@ -13146,7 +13146,7 @@ span.flatpickr-weekday {
   font-weight: 500;
   line-height: 1.3;
   margin-top: -8px;
-  color: #0071dc;
+  color: #4486bd;
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px), only screen and (max-width: 767px) {
   .page-banner__main-title-02 {
@@ -13192,7 +13192,7 @@ span.flatpickr-weekday {
   transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 .page-banner__field:focus {
-  border-color: #0071dc;
+  border-color: #4486bd;
   background-color: #FFFFFF;
 }
 .page-banner__submit {
@@ -13205,7 +13205,7 @@ span.flatpickr-weekday {
   width: 60px;
   text-align: center;
   background: transparent;
-  color: #0071dc;
+  color: #4486bd;
   font-size: 20px;
 }
 
@@ -13319,7 +13319,7 @@ span.flatpickr-weekday {
   box-shadow: 0 10px 50px rgba(0, 0, 0, 0.08);
 }
 .instructor-item:hover .instructor-item__name {
-  color: #0071dc;
+  color: #4486bd;
 }
 
 .instructor-item-02 {
@@ -13433,7 +13433,7 @@ span.flatpickr-weekday {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 .instructor-item-02:hover .instructor-item-02__name {
-  color: #0071dc;
+  color: #4486bd;
 }
 
 .instructor-active {
@@ -13580,7 +13580,7 @@ span.flatpickr-weekday {
   }
 }
 .become-an-instructor__tabs .nav li button.active {
-  border-color: #0071dc;
+  border-color: #4486bd;
   color: #252525;
 }
 .become-an-instructor__tabs .nav li button:hover {
@@ -13676,7 +13676,7 @@ span.flatpickr-weekday {
   font-size: 40px;
   line-height: 1.3;
   margin-top: -8px;
-  color: #0071dc;
+  color: #4486bd;
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px), only screen and (max-width: 767px) {
   .instructor-action__main-title {
@@ -13739,8 +13739,8 @@ span.flatpickr-weekday {
 }
 .membership-plans-tabs .nav li button.active {
   color: #FFFFFF;
-  background: #0071dc;
-  border-color: #0071dc;
+  background: #4486bd;
+  border-color: #4486bd;
   z-index: 1;
 }
 .membership-plans-tabs .tab-content {
@@ -13815,7 +13815,7 @@ span.flatpickr-weekday {
 .pricing-plan__price {
   font-size: 56px;
   line-height: 0.8;
-  color: #0071dc;
+  color: #4486bd;
 }
 .pricing-plan__period {
   align-self: flex-end;
@@ -13838,7 +13838,7 @@ span.flatpickr-weekday {
   padding-top: 42px;
 }
 .plan-active {
-  background-color: #0071dc;
+  background-color: #4486bd;
   border: 0;
 }
 .plan-active .pricing-plan__title {
@@ -14017,10 +14017,10 @@ span.flatpickr-weekday {
   background: #d31819;
 }
 .tutor-course-top-info__badges .onsale {
-  background: #0071dc;
+  background: #4486bd;
 }
 .tutor-course-top-info__badges .badges-category {
-  color: #0071dc;
+  color: #4486bd;
 }
 .tutor-course-top-info__badges .badges-category:hover {
   color: #ffc221;
@@ -14196,7 +14196,7 @@ span.flatpickr-weekday {
   font-weight: 700;
   height: 52px;
   line-height: 52px;
-  color: #0071dc;
+  color: #4486bd;
   display: inline-flex;
   align-items: center;
 }
@@ -14350,7 +14350,7 @@ span.flatpickr-weekday {
   content: "\f00c";
   position: absolute;
   left: 0;
-  color: #0071dc;
+  color: #4486bd;
   font-family: "Font Awesome 5 Pro";
   font-weight: 700;
 }
@@ -14440,7 +14440,7 @@ span.flatpickr-weekday {
 .tutor-course-segment__reviews-average .count {
   font-size: 40px;
   font-weight: 500;
-  color: #0071dc;
+  color: #4486bd;
   line-height: 1.2;
   margin: 0 0 8px;
 }
@@ -14550,7 +14550,7 @@ span.flatpickr-weekday {
 .tutor-course-segment__reviews-metar .rating-metar-line {
   height: 100%;
   border-radius: inherit;
-  background: #0071dc;
+  background: #4486bd;
 }
 .tutor-course-segment__review-commnet {
   padding-top: 4px;
@@ -14627,7 +14627,7 @@ span.flatpickr-weekday {
   padding: 17px 30px;
   font-size: 15px;
   line-height: 26px;
-  color: #0071dc;
+  color: #4486bd;
   font-weight: 500;
   box-shadow: none;
 }
@@ -14791,7 +14791,7 @@ span.flatpickr-weekday {
   font-size: 14px;
 }
 .tutor-instructor__link {
-  color: #0071dc;
+  color: #4486bd;
   margin-top: 16px;
 }
 .tutor-instructor__link:hover {
@@ -14897,7 +14897,7 @@ span.flatpickr-weekday {
   color: #9aa5b3;
 }
 .tutor-course-price-preview__social a:hover {
-  color: #0071dc;
+  color: #4486bd;
 }
 
 .tutor-course-price {
@@ -14956,7 +14956,7 @@ span.flatpickr-weekday {
   padding: 0 10px;
   text-align: center;
   min-width: 84px;
-  color: #0071dc;
+  color: #4486bd;
 }
 
 .tutor-course-meta-list {
@@ -15003,8 +15003,8 @@ span.flatpickr-weekday {
   transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 .tutor-course-tabs .nav li button.active {
-  border-color: #0071dc;
-  color: #0071dc;
+  border-color: #4486bd;
+  color: #4486bd;
 }
 
 .tutor-course-tabs-02 {
@@ -15023,12 +15023,12 @@ span.flatpickr-weekday {
   border-radius: 3px;
 }
 .tutor-course-tabs-02 .nav li button.active {
-  color: #0071dc;
+  color: #4486bd;
   background: #FFFFFF;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 .tutor-course-tabs-02 .nav li button:hover {
-  color: #0071dc;
+  color: #4486bd;
   background: #FFFFFF;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
@@ -15080,7 +15080,7 @@ span.flatpickr-weekday {
   background: #252525;
 }
 .blog-details__categories a:hover {
-  background-color: #0071dc;
+  background-color: #4486bd;
 }
 .blog-details__categories-02 {
   margin-bottom: 30px;
@@ -15098,7 +15098,7 @@ span.flatpickr-weekday {
   background: #f5f5f5;
 }
 .blog-details__categories-02 a:hover {
-  background-color: #0071dc;
+  background-color: #4486bd;
   color: #FFFFFF;
 }
 .blog-details__content {
@@ -15143,7 +15143,7 @@ span.flatpickr-weekday {
   margin-right: 6px;
 }
 .blog-details__meta a.meta-action:hover {
-  color: #0071dc;
+  color: #4486bd;
 }
 .blog-details__title {
   font-size: 28px;
@@ -15244,7 +15244,7 @@ span.flatpickr-weekday {
   text-align: center;
   cursor: pointer;
   border: 2px solid #ededed;
-  color: #0071dc;
+  color: #4486bd;
 }
 .blog-details__share-social {
   list-style-type: none;
@@ -15395,7 +15395,7 @@ span.flatpickr-weekday {
   font-size: 24px;
   font-family: Font Awesome\ 5 Pro;
   font-weight: 300;
-  color: #0071dc;
+  color: #4486bd;
   transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 .blog-details__nav-link:hover .text {
@@ -15439,7 +15439,7 @@ span.flatpickr-weekday {
   font-weight: 500;
   line-height: 1.78;
   border: 0;
-  border-left: 4px solid #0071dc;
+  border-left: 4px solid #4486bd;
   max-width: 660px;
   color: #252525;
 }
@@ -15536,7 +15536,7 @@ span.flatpickr-weekday {
 .comment-help__link {
   font-size: 20px;
   line-height: 32px;
-  color: #0071dc;
+  color: #4486bd;
 }
 .comment-help__link a {
   position: relative;
@@ -15781,7 +15781,7 @@ span.flatpickr-weekday {
   margin-right: 6px;
 }
 .event-details__meta a.meta-action:hover {
-  color: #0071dc;
+  color: #4486bd;
 }
 .event-details__thumbnail img {
   border-radius: 5px;
@@ -15908,7 +15908,7 @@ span.flatpickr-weekday {
 .event-details__location-info .location-info-link {
   margin-top: 8px;
   line-height: 26px;
-  color: #0071dc;
+  color: #4486bd;
 }
 .event-details__location-info .location-info {
   margin-top: 24px;
@@ -16062,7 +16062,7 @@ span.flatpickr-weekday {
   background: #d31819;
 }
 .product-item__badge .onsale {
-  background: #0071dc;
+  background: #4486bd;
 }
 .product-item__actions {
   position: absolute;
@@ -16092,7 +16092,7 @@ span.flatpickr-weekday {
   border: 0;
 }
 .product-item__action:hover {
-  background-color: #0071dc;
+  background-color: #4486bd;
   color: #FFFFFF;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.07);
 }
@@ -16265,7 +16265,7 @@ span.flatpickr-weekday {
   background: #d31819;
 }
 .product-list-item__badge .onsale {
-  background: #0071dc;
+  background: #4486bd;
 }
 .product-list-item__info {
   padding-bottom: 15px;
@@ -16473,7 +16473,7 @@ span.flatpickr-weekday {
   background: #d31819;
 }
 .shop-single-product__badge .onsale {
-  background: #0071dc;
+  background: #4486bd;
 }
 .shop-single-product__image-thumbs {
   margin-top: 20px;
@@ -16486,7 +16486,7 @@ span.flatpickr-weekday {
   transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 .shop-single-product__image-thumbs .product-image-thumb.swiper-slide-thumb-active img, .shop-single-product__image-thumbs .product-image-thumb:hover img {
-  border-color: #0071dc;
+  border-color: #4486bd;
 }
 .shop-single-product__title {
   font-size: 34px;
@@ -16533,7 +16533,7 @@ span.flatpickr-weekday {
   line-height: 1.86;
 }
 .shop-single-product__attribute .value {
-  color: #0071dc;
+  color: #4486bd;
 }
 .shop-single-product__rating {
   display: inline-flex;
@@ -16670,8 +16670,8 @@ span.flatpickr-weekday {
   transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 .shop-single-product__swatch .swatch-item.active, .shop-single-product__swatch .swatch-item:hover {
-  border-color: #0071dc;
-  color: #0071dc;
+  border-color: #4486bd;
+  color: #4486bd;
 }
 .shop-single-product__reset-variations {
   position: relative;
@@ -16814,7 +16814,7 @@ span.flatpickr-weekday {
   padding: 0;
 }
 .shop-single-product__meta-action:hover {
-  color: #0071dc;
+  color: #4486bd;
 }
 .shop-single-product__meta-item {
   display: flex;
@@ -16896,7 +16896,7 @@ span.flatpickr-weekday {
   border-radius: 5px;
 }
 .product-quantity input:focus {
-  border-color: #0071dc;
+  border-color: #4486bd;
   background-color: #FFFFFF;
 }
 .product-quantity button {
@@ -16924,7 +16924,7 @@ span.flatpickr-weekday {
   border-bottom: 5px solid #696969;
 }
 .product-quantity .add:hover::before {
-  border-bottom-color: #0071dc;
+  border-bottom-color: #4486bd;
 }
 .product-quantity .sub {
   bottom: 0;
@@ -16934,7 +16934,7 @@ span.flatpickr-weekday {
   border-top: 5px solid #696969;
 }
 .product-quantity .sub:hover::before {
-  border-top-color: #0071dc;
+  border-top-color: #4486bd;
 }
 
 .shop-product-tabs .nav {
@@ -16988,7 +16988,7 @@ span.flatpickr-weekday {
 }
 .shop-product-tabs .nav li button.active {
   color: #252525;
-  border-color: #0071dc;
+  border-color: #4486bd;
 }
 .shop-product-tabs__item {
   margin-top: 70px;
@@ -17097,8 +17097,8 @@ span.flatpickr-weekday {
   text-align: left;
 }
 .my-account-menu .nav li a.active, .my-account-menu .nav li a:hover, .my-account-menu .nav li button.active, .my-account-menu .nav li button:hover {
-  background-color: #0071dc;
-  border-color: #0071dc;
+  background-color: #4486bd;
+  border-color: #4486bd;
   color: #FFFFFF;
 }
 
@@ -17599,7 +17599,7 @@ span.flatpickr-weekday {
   margin: 0;
   background: none;
   border: 0;
-  color: #0071dc;
+  color: #4486bd;
   font-weight: 500;
   position: relative;
 }
@@ -17616,7 +17616,7 @@ span.flatpickr-weekday {
   transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) 0.3s;
 }
 .checkout-form__info p .info-toggle::after {
-  background-color: #0071dc;
+  background-color: #4486bd;
   transform-origin: left;
   transform: scaleX(0) translateZ(0);
   transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -17646,7 +17646,7 @@ span.flatpickr-weekday {
   width: 52px;
   height: 52px;
   line-height: 52px;
-  color: #0071dc;
+  color: #4486bd;
   font-size: 22px;
 }
 .checkout-form__details {
@@ -17689,7 +17689,7 @@ span.flatpickr-weekday {
   border-color: #f1f3f8;
 }
 .checkout-form__payment-method input[type=radio]:checked + .checkout-form__payment-title .payment-icon, .checkout-form__payment-method input[type=radio]:checked + .checkout-form__payment-title .payment-name {
-  color: #0071dc;
+  color: #4486bd;
 }
 .checkout-form__payment-method .payment-details {
   margin-top: 20px;
@@ -17734,10 +17734,10 @@ span.flatpickr-weekday {
   transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 .checkout-form__payment-title:hover {
-  border-color: #0071dc;
+  border-color: #4486bd;
 }
 .checkout-form__payment-title:hover .payment-icon, .checkout-form__payment-title:hover .payment-name {
-  color: #0071dc;
+  color: #4486bd;
 }
 .checkout-form__payment-card {
   display: none;
@@ -17978,7 +17978,7 @@ span.flatpickr-weekday {
   line-height: 30px;
   font-weight: 700;
   letter-spacing: 1px;
-  color: #0071dc;
+  color: #4486bd;
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px), only screen and (max-width: 575px) {
   .zoom-meetings-item__id .value {
@@ -18019,7 +18019,7 @@ span.flatpickr-weekday {
   font-size: 14px;
   font-weight: 500;
   line-height: 26px;
-  color: #0071dc;
+  color: #4486bd;
   text-transform: uppercase;
   letter-spacing: 0.58px;
   margin: 0 0 10px;
@@ -18183,7 +18183,7 @@ span.flatpickr-weekday {
 }
 .contact-info__icon i {
   font-size: 32px;
-  color: #0071dc;
+  color: #4486bd;
 }
 .contact-info__content {
   flex-grow: 1;
@@ -18274,7 +18274,7 @@ span.flatpickr-weekday {
 }
 .faqs-tab-menu .nav li button.active {
   color: #252525;
-  border-bottom-color: #0071dc;
+  border-bottom-color: #4486bd;
 }
 
 .faqs-category__name a {
@@ -18305,7 +18305,7 @@ span.flatpickr-weekday {
   transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 .faqs-category__name:hover a {
-  background: #0071dc;
+  background: #4486bd;
   color: #FFFFFF;
 }
 .faqs-category__name:hover a::before {
@@ -18443,13 +18443,13 @@ span.flatpickr-weekday {
   transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) 0.3s;
 }
 .modal-description a::after, .modal-description button::after {
-  background-color: #0071dc;
+  background-color: #4486bd;
   transform-origin: left;
   transform: scaleX(0) translateZ(0);
   transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 .modal-description a:hover, .modal-description button:hover {
-  color: #0071dc;
+  color: #4486bd;
 }
 .modal-description a:hover::before, .modal-description button:hover::before {
   transform: scaleX(0) translateZ(0);
@@ -18653,13 +18653,13 @@ span.flatpickr-weekday {
   flex-shrink: 0;
   line-height: 1.8;
   margin-right: 5px;
-  color: #0071dc;
+  color: #4486bd;
 }
 .dashboard-content-box__content p {
   flex-grow: 1;
 }
 .dashboard-content-box__content p a {
-  color: #0071dc;
+  color: #4486bd;
   position: relative;
 }
 .dashboard-content-box__content p a::after, .dashboard-content-box__content p a::before {
@@ -18678,7 +18678,7 @@ span.flatpickr-weekday {
   transform: scaleX(0) translateZ(0);
   transform-origin: left;
   transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-  background-color: #0071dc;
+  background-color: #4486bd;
 }
 .dashboard-content-box__content p a:hover::after {
   transform: scaleX(1) translateZ(0);
@@ -18740,7 +18740,7 @@ span.flatpickr-weekday {
   left: 0;
   width: 100%;
   height: 3px;
-  background: #0071dc;
+  background: #4486bd;
   opacity: 0;
   visibility: hidden;
 }
@@ -18773,7 +18773,7 @@ span.flatpickr-weekday {
   }
 }
 .dashboard-info__card-box:hover .dashboard-info__card-heading {
-  color: #0071dc;
+  color: #4486bd;
 }
 .dashboard-info__card-icon {
   position: relative;
@@ -18930,7 +18930,7 @@ span.flatpickr-weekday {
   transform: scale(1.1);
 }
 .dashboard-course-item__link:hover .dashboard-course-item__title {
-  color: #0071dc;
+  color: #4486bd;
 }
 .dashboard-course-item__thumbnail {
   flex: 0 0 260px;
@@ -19060,7 +19060,7 @@ span.flatpickr-weekday {
   top: 0;
   left: 0;
   height: 100%;
-  background-color: #0071dc;
+  background-color: #4486bd;
   border-radius: 5px;
 }
 .dashboard-course-item__progress-bar-line::before {
@@ -19069,7 +19069,7 @@ span.flatpickr-weekday {
   height: 18px;
   width: 18px;
   border-radius: 50%;
-  background: #0071dc;
+  background: #4486bd;
   transform: translateY(-50%);
   top: 50%;
   right: 0;
@@ -19140,7 +19140,7 @@ span.flatpickr-weekday {
   margin-bottom: 5px;
 }
 .dashboard-review-item__review-links a {
-  color: #0071dc;
+  color: #4486bd;
 }
 .dashboard-review-item__review-links a i {
   margin-right: 6px;
@@ -19405,7 +19405,7 @@ span.flatpickr-weekday {
   line-height: 1;
   background: none;
   border: 0;
-  color: #0071dc;
+  color: #4486bd;
 }
 .dashboard-table__text .action {
   display: inline-block;
@@ -19421,8 +19421,8 @@ span.flatpickr-weekday {
   margin-right: 3px;
 }
 .dashboard-table__text .action:hover {
-  background-color: #0071dc;
-  border-color: #0071dc;
+  background-color: #4486bd;
+  border-color: #4486bd;
   color: #FFFFFF;
 }
 .dashboard-table__text .action.delete:hover {
@@ -19435,13 +19435,13 @@ span.flatpickr-weekday {
   height: 38px;
   border-radius: 5px;
   background: #f5f5f5;
-  color: #0071dc;
+  color: #4486bd;
   text-align: center;
   line-height: 38px;
   font-size: 15px;
 }
 .dashboard-table__text .assignment-link:hover {
-  background: #0071dc;
+  background: #4486bd;
   color: #FFFFFF;
 }
 .dashboard-table__result {
@@ -19470,7 +19470,7 @@ span.flatpickr-weekday {
   border-color: #f8cfd5;
 }
 .dashboard-table__link {
-  color: #0071dc;
+  color: #4486bd;
   position: relative;
 }
 .dashboard-table__link::before {
@@ -19486,7 +19486,7 @@ span.flatpickr-weekday {
 }
 .dashboard-table__link:hover::before {
   width: 100%;
-  background-color: #0071dc;
+  background-color: #4486bd;
   left: 0;
   right: auto;
 }
@@ -19521,7 +19521,7 @@ span.flatpickr-weekday {
   margin-right: 0;
 }
 .dashboard-table__list li .btn {
-  color: #0071dc;
+  color: #4486bd;
   border: 2px solid #eee;
   line-height: 48px;
   font-weight: 700;
@@ -19533,8 +19533,8 @@ span.flatpickr-weekday {
   }
 }
 .dashboard-table__list li .btn:hover {
-  background-color: #0071dc;
-  border-color: #0071dc;
+  background-color: #4486bd;
+  border-color: #4486bd;
   color: #FFFFFF;
 }
 .dashboard-table__list li.dropdown .dropdown-btn {
@@ -19762,7 +19762,7 @@ span.flatpickr-weekday {
   background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.6));
 }
 .dashboard-settings-profile__cover .cover-uploader {
-  background: #0071dc;
+  background: #4486bd;
   color: #FFFFFF;
   border: none;
   cursor: pointer;
@@ -20127,8 +20127,8 @@ span.flatpickr-weekday {
   margin-right: 5px;
 }
 .dashboard-courses__action .action:hover {
-  background-color: #0071dc;
-  border-color: #0071dc;
+  background-color: #4486bd;
+  border-color: #4486bd;
   color: #FFFFFF;
 }
 .dashboard-courses__action .action.delete:hover {
@@ -20188,7 +20188,7 @@ span.flatpickr-weekday {
   border-radius: 100%;
   background: #f1f3f8;
   text-align: center;
-  color: #0071dc;
+  color: #4486bd;
   display: flex;
   align-items: center;
   justify-content: center;
