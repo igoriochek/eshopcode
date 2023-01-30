@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'mdprojects'),
+    'name' => env('APP_NAME', 'MD Projects mokymai'),
 
     /*
     |--------------------------------------------------------------------------
@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'https://makropodas.serveriai.lt'),
+    'url' => env('APP_URL', 'https://mokymai.mdprojects.lt/'),
 
     'asset_url' => env('ASSET_URL', null),
 

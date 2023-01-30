@@ -63,7 +63,7 @@ class CategoryController extends AppBaseController
 
         $category = $this->categoryRepository->find($request->category_id);
         $treeCategories = Category::where('parent_id', '=', null)->get();
-        $products = $category->products()->paginate(12);
+        $products = $category->products()->paginate(9);
 
         $user = Auth::user();
 

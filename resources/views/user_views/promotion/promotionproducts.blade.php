@@ -69,7 +69,7 @@
                             </div>
                         </div>
                         <div class="page-pagination d-flex justify-content-center">
-                            {{ $products -> links() }}
+                            {{ $products->onEachSide(1)->links() }}
                         </div>
                     </div>
                     <div class="col-lg-3">

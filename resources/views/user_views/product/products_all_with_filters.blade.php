@@ -11,7 +11,7 @@
             <div class="container">
                 <div class="row gy-10">
 
-                    <div class="shop-main-content">
+                    <div class="shop-main-content order-1 order-md-0">
 
                         <div class="archive-filter-bars">
                             <div class="archive-filter-bar">
@@ -21,7 +21,7 @@
                                         {{ ($products->count() * $products->currentPage() - $products->count() + 1).__('–').($products->count() * $products->currentPage())}}
                                     @else
                                         @if ($products->total() - $products->count() === 0)
-                                            {{ 1 }}
+                                            {{ $products->count() }}
                                         @else
                                             {{ ($products->total() - $products->count()).__('–').$products->total() }}
                                         @endif
@@ -35,18 +35,25 @@
                                     <span>{{__('names.view')}}</span>
                                     <ul class="nav">
                                         <li>
-                                            <button class="active" data-bs-toggle="tab" data-bs-target="#grid"><i
-                                                    class="fas fa-th"></i></button>
+                                            <button class="active" data-bs-toggle="tab" data-bs-target="#grid">
+                                                <i class="fas fa-th"></i>
+                                            </button>
                                         </li>
                                         <li>
-                                            <button data-bs-toggle="tab" data-bs-target="#list"><i
-                                                    class="fas fa-bars"></i></button>
+                                            <button data-bs-toggle="tab" data-bs-target="#list">
+                                                <i class="fas fa-bars"></i>
+                                            </button>
                                         </li>
                                     </ul>
-                                    <div class="filter-select filter-select-icon">
+                                    <div class="filter-select filter-select-icon mt-3 mt-sm-0">
                                         <form method="get" action="{{ route("userproducts") }}" id="orderForm">
                                             <input type="hidden" id="orderBy" value="">
-                                            {!! Form::select('order', $order_list, $selectedProduct, ['class' => 'edumall-nice-select','data-select' => '{&quot;fieldLabel&quot;:&quot;Sort by:&quot;}', 'id' => 'orderSelector']) !!}
+                                            {!! Form::select('order', $order_list, $selectedOrder, [
+                                                'class' => 'edumall-nice-select',
+                                                'data-select' => '{&quot;fieldLabel&quot;:&quot;Sort by:&quot;}',
+                                                'id' => 'orderSelector',
+                                                'style' => 'cursor: pointer'
+                                            ]) !!}
                                         </form>
                                     </div>
                                 </div>
@@ -65,16 +72,16 @@
                         </div>
 
                         <div class="page-pagination d-flex justify-content-center">
-                            {{ $products -> links() }}
+                            {{ $products->onEachSide(1)->links() }}
                         </div>
 
                     </div>
 
-                    <div class="shop-main-sidebar">
+                    <div class="shop-main-sidebar order-0 order-md-1">
 
                         <div class="sidebar-widget-wrapper">
 
-                            <form method="get" action="{{route("userproducts")}}">
+                            <form method="get" action="{{route("userproducts")}}" id="mainForm">
 
                                 <div class="sidebar-widget-wrap bg-color-10">
                                     <h4 class="sidebar-widget-wrap__title">{{__('names.search')}}</h4>
@@ -141,6 +148,7 @@
                                                 @empty
                                                     <span class="text-muted">{{ __('names.noCategories') }}</span>
                                                 @endforelse
+                                                <input type="hidden" id="order" name="order" value="{{ $selectedOrder }}">
                                                 <input type="text" value="{{ implode(",", $selCategories) }}"
                                                        name="filter[categories.id]" id="filter[categories.id]"
                                                        class="d-none">
@@ -167,18 +175,23 @@
 
     @push('scripts')
         <script>
-            const orderForm = document.getElementById('orderForm');
-            const orderSelector = document.getElementById('orderSelector');
-            orderSelector.onchange = () => orderForm.submit();
+            const addOrderValueToFilter = () => document.getElementById('order').value = $('#orderSelector').val();
+
+            document.getElementById('orderSelector').onchange = () => {
+                addOrderValueToFilter();
+                document.getElementById('mainForm').submit();
+            }
+
             const rangeSlider = document.getElementById('range-slider');
             const priceFrom = document.getElementById('filter[pricefrom]');
             const priceTo = document.getElementById('filter[priceto]');
+
             $(() => {
                 $(rangeSlider).slider({
                     range: true,
                     min: 0,
-                    max: 1000,
-                    values: [{{ $filter["pricefrom"] ?? 0 }}, {{ $filter["priceto"] ?? 1000 }}],
+                    max: {{ $maxPrice }},
+                    values: [{{ $filter["pricefrom"] ?? 0 }}, {{ $filter["priceto"] ?? $maxPrice }}],
                     slide: (event, ui) => {
                         $(priceFrom).val(ui.values[0]);
                         $(priceTo).val(ui.values[1]);

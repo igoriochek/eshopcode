@@ -3,9 +3,9 @@
         <li class="promotion-nav-item">
             <a href="{{ route("promotion", ["id" => $promotion->id] ) }}"
                class="nav-link {{ substr(url()->current(), -1) == "$promotion->id" ? 'active' : '' }}">
-                <span>
-                {{ $promotion->name }}
-                ({{ count($promotion->products) }})
+                <span style="white-space: normal;">
+                    {{ $promotion->name }}
+                    ({{ count($promotion->products) }})
                 </span>
             </a>
         </li>
@@ -21,7 +21,7 @@
         }
 
         .promotion-menu > li > a {
-            padding: 20px;
+            padding: 20px 10px;
             font-size: 14px;
             font-weight: 500;
             line-height: 1.6;

@@ -73,7 +73,7 @@
                         </div>
 
                         <div class="page-pagination d-flex justify-content-center">
-                            {{ $products -> links() }}
+                            {{ $products->onEachSide(1)->links() }}
                         </div>
 
                     </div>
@@ -95,12 +95,3 @@
     </main>
 
 @endsection
-
-@push('css')
-    <style>
-
-        .category-menu {
-            padding: 0;
-        }
-    </style>
-@endpush

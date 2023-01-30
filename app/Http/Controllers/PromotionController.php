@@ -40,7 +40,7 @@ class PromotionController extends AppBaseController
 
     private function getPromotions(): object
     {
-        return Promotion::translatedIn(app()->getLocale())->paginate(10);
+        return Promotion::translatedIn(app()->getLocale())->paginate(3);
     }
 
     public function indexPromotions(Request $request)
@@ -53,7 +53,7 @@ class PromotionController extends AppBaseController
     public function promotionProducts(Request $request)
     {
         $promotion = $this->promotionRepository->allQuery(['id' => $request->id])->first();
-        $products = Product::query()->where(['promotion_id' => $request->id])->paginate(12);
+        $products = Product::query()->where(['promotion_id' => $request->id])->paginate(9);
 
 
         return view('user_views.promotion.promotionproducts')

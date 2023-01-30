@@ -3,11 +3,11 @@
         <div class="product-list-item__header">
             <div class="product-list-item__thumbnail">
                 @if ($product->image)
-                    <a style="cursor: pointer" href="{{ route('viewproduct', $product->id) }}">
+                    <a style="cursor: pointer" href="{{ route('viewproduct', $product->product_id) }}">
                         <img src="{{ $product->image }}" alt="{{ $product->name }}" width="251" height="290">
                     </a>
                 @else
-                    <a style="cursor: pointer" href="{{ route('viewproduct', $product->id) }}">
+                    <a style="cursor: pointer" href="{{ route('viewproduct', $product->product_id) }}">
                         <img src="/images/product/product-1.png" alt="Product" width="251" height="290">
                     </a>
                 @endif
@@ -15,7 +15,7 @@
         </div>
         <div class="product-list-item__info">
             <h2 class="product-list-item__title">
-                <a href="{{ route('viewproduct', $product->id) }}">{{ $product->name }}</a>
+                <a href="{{ route('viewproduct', $product->product_id) }}">{{ $product->name }}</a>
             </h2>
             <div class="product-list-item__price">
                 @if ($product->discount )
@@ -31,7 +31,7 @@
                 <div class="product-quantity ">
                     {!! Form::number('count', "1", ['class' => 'product-add-to-cart-number', "min" => "1", "max" => "5", "minlength" => "1", "maxlength" => "5", "oninput" => "this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null"]) !!}
                 </div>
-                <input type="hidden" name="id" value="{{ $product->id }}">
+                <input type="hidden" name="id" value="{{ $product->product_id }}">
                 <button type="submit" class="product-list-item__btn btn btn-primary btn-hover-secondary d-flex justify-content-center">
                     <span>{{ __('buttons.addToCart') }}</span>
                 </button>

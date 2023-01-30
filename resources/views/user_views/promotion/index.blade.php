@@ -16,7 +16,7 @@
                             <div class="tab-pane fade show active" id="grid">
                                 <div class="row gy-6">
                                     @forelse ($promotions as $promotion)
-                                        <div class="d-flex justify-content-between align-items-center mb-4">
+                                        <div class="d-flex flex-column flex-sm-row justify-content-sm-between align-items-sm-center mb-4 gap-3 gap-sm-0">
                                             <h5>{{ $promotion->name }}</h5>
                                             <a href="{{ route("promotion", ["id" => $promotion->id]) }}" class="btn btn-primary btn-hover-secondary">
                                                 {{ __("names.more_for_promotions") }} <i class="fa-solid fa-angle-right"></i>
@@ -83,7 +83,7 @@
                             </div>
                         </div>
                         <div class="page-pagination d-flex justify-content-center">
-                            {{ $promotions -> links() }}
+                            {{ $promotions->onEachSide(1)->links() }}
                         </div>
                     </div>
                     <div class="col-lg-3">
