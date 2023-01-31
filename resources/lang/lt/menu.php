@@ -30,7 +30,7 @@ return [
     'orders' => 'Užsakymai',
     'ordersReport' => 'Užsakymų ataskaitos',
     'orderStatuses' => 'Užsakymų būsenos',
-    'products' => 'Produktai',
+    'products' => 'Kursai',
     'promotions' => 'Akcijos',
     'register' => 'Registruotis',
     'reports' => 'Ataskaitos',
@@ -43,4 +43,5 @@ return [
     'usersActivitiesReport' => 'Naudotojų aktyvumo ataskaitos',
     'termsOfService' => 'Taisyklės',
     'policy' => 'Privatumo politika',
+    'euProjects' => 'ES projektai',
 ];

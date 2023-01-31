@@ -29,7 +29,7 @@ return [
     'orders' => 'Orders',
     'orderStatuses' => 'Order Statuses',
     'ordersReport' => 'Orders Report',
-    'products' => 'Products',
+    'products' => 'Courses',
     'promotions'=> 'Promotions',
     'reports' => 'Reports',
     'returns' => 'Returns',
@@ -41,5 +41,5 @@ return [
     'usersActivitiesReport' => 'Users Activities Report',
     'termsOfService' => 'Rules',
     'policy' => 'Privacy Policy',
-
+    'euProjects' => 'EU projects',
 ];

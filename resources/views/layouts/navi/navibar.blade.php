@@ -33,8 +33,7 @@
                             @endif
                             <!-- Header Mobile Toggle Start -->
                             <div class="header-toggle">
-                                <button class="header-toggle__btn d-xl-none" data-bs-toggle="offcanvas"
-                                        data-bs-target="#offcanvasMobileMenu">
+                                <button class="header-toggle__btn d-xl-none" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMobileMenu">
                                     <span class="line"></span>
                                     <span class="line"></span>
                                     <span class="line"></span>

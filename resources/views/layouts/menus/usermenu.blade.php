@@ -13,3 +13,8 @@
 <li class="nav-item me-4">
     <a href="/user/messenger"><span>{{__('menu.messenger')}}</span></a>
 </li>
+<li class="nav-item me-4">
+    <a href="/eu_projects" style="padding: 21px 0 0 10px;">
+        <img src="../images/es_projektai_small.jpeg" alt="ES projektai" style="width: 100px !important; max-width: none;">
+    </a>
+</li>

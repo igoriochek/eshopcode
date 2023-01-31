@@ -3,7 +3,7 @@
         'secondPageLink' => 'messenger',
         'secondPageName' => __('menu.messenger'),
         'hasThirdPage' => true,
-        'thirdPageName' => __('names.contantUsers'),
+        'thirdPageName' => __('names.contactUsers'),
     ])
     <section class="pt-5">
         <div class="container">

@@ -30,9 +30,9 @@ return [
     'editCartItem' => 'Redaguoti krepšelio prekę',
     'editCartStatus' => 'Redaguoti krepšelio būseną',
     'emptyCart' => 'Jūsų prekių krepšelis yra tuščias',
-    'removeItem' => 'Išmesti',
+    'removeItem' => 'Išmesti prekę',
     'overview' => 'Apžvalga',
-    'yourOrder' => 'Jūsų Užsakymas',
+    'yourOrder' => 'Jūsų užsakymas',
     'wantToApply' => 'Norite pritaikyti nuolaidą savo krepšeliui?',
     'selectDiscountCoupon' => 'Pasirinkite Nuolaidos Kuponą',
     'paymentMethods' => 'Mokėjimo Metodai',
@@ -68,7 +68,7 @@ return [
     'ordersPerMonth' => 'Užsakymai per mėnesį',
     'paid' => 'Apmokėti',
     'perMonth' => 'Per mėnesį',
-    'productOrderCount' => 'Produktų užsakymų skaičius',
+    'productOrderCount' => 'Kurso užsakymų skaičius',
     'registrations' => 'Registracijos',
     'unpaid' => 'Neapmokėti',
 
@@ -108,7 +108,7 @@ return [
 
     //Homepage
     'addedAt' => 'Pridėta',
-    'browseProducts'=> 'Naršyti produktus',
+    'browseProducts'=> 'Naršyti kursus',
     'code' => 'Kodas',
     'createdAt' => 'Sukurta',
     'dashboard' => 'Valdyklė',
@@ -122,14 +122,14 @@ return [
     'myOrders'=> 'Mano užsakymai',
     'myReturns' => 'Mano grąžinimai',
     'openMsg' => 'Atidaryti pranešėją',
-    'noProductsInCart' => 'Jūsų krepšelyje nėra jokių produktų!',
-    'pricePerItem' => 'Kaina už prekę',
+    'noProductsInCart' => 'Jūsų krepšelyje nėra jokių kursų!',
+    'pricePerItem' => 'Prekės vieneto kaina',
     'quantity' => 'Kiekis',
     'viewAllOrders' => 'Peržiūrėti užsakymus',
     'viewAllReturns' => 'Peržiūrėti grąžinimus',
     'viewCart' => 'Peržiūrėti krepšelį',
     'viewOrder' => 'Peržiūrėti užsakymą',
-    'viewProduct' => 'Peržiūrėti produktą',
+    'viewProduct' => 'Peržiūrėti kursą',
     'viewReturn' => 'Peržiūrėti grąžinimą',
     'youHave' => 'Jūs turite',
     'unreadMsg' => 'neperskaitytas žinutes.',
@@ -163,14 +163,14 @@ return [
     'invoicePreview' => 'Peržiūrėti Sąskaitą Faktūrą',
 
     //Products
-    'createProduct' => 'Sukurti produktą',
-    'editProduct' => 'Redaguoti produktą',
-    'products' => 'Produktai',
-    'productCount' => 'Produktų skaičius',
-    'productDetails' => 'Produkto informacija',
-    'productName' => 'Produkto pavadinimas',
-    'productOrders' => 'Produktų užsakymai',
-    'noProducts' => 'Nėra produktų',
+    'createProduct' => 'Sukurti kursą',
+    'editProduct' => 'Redaguoti kursą',
+    'products' => 'Kursai',
+    'productCount' => 'Kursų skaičius',
+    'productDetails' => 'Kurso informacija',
+    'productName' => 'Kurso pavadinimas',
+    'productOrders' => 'Kursų užsakymai',
+    'noProducts' => 'Nėra kursų',
     'search' => 'Ieškoti',
     'filterByPrice' => 'Filtruoti pagal kainą',
     'filterByCategory' => 'Filtruoti pagal kategoriją',
@@ -178,7 +178,7 @@ return [
     //Promotions
     'createPromotion' => 'Sukurti akciją',
     'editPromotion' => 'Redaguoti akciją',
-    'more_for_promotions' => 'Daugiau produktų šiai akcijai',
+    'more_for_promotions' => 'Daugiau kursų šiai akcijai',
     'noPromotions' => 'Nėra akcijų',
     'promotion' => 'Akcija',
     'promotions' => 'Akcijos',
@@ -190,16 +190,16 @@ return [
     'discountCouponsForYou' => 'Nuolaidų kuponai Jums',
     'price' => 'Kaina',
     'from' => 'Nuo',
-    'to' => 'Iki',
+    'to' => 'iki',
     'sum' => 'Suma',
     'total' => 'Galutinė suma',
 
     //Rating
-    'alreadyVoted' => "Jūs jau prabalsavote už šį produktą!",
+    'alreadyVoted' => "Jūs jau prabalsavote už šį kursą!",
     'rating' => 'Įvertinimas',
     'ratingOrRatings' => 'Įvertinimas(ai)',
     'starRating' => 'Įvertinimas Žvaigždutėmis',
-    'voted' => "Ačiū už jūsų balsą!",
+    'voted' => 'Ačiū už jūsų balsą!',
 
     //Reviews
     'customerReviews' => 'Kliento atsiliepimai',
@@ -208,7 +208,7 @@ return [
     'addReview' => 'Pridėti atsiliepimą',
     'writeReview' => 'Parašykite savo atsiliepimą',
     'noReviews' => 'Nėra atsiliepimų',
-    'loginToReview' => 'Prisijunkite, kad galėtumėte pridėti atsiliepimą šiam produktui',
+    'loginToReview' => 'Prisijunkite, kad galėtumėte pridėti atsiliepimą apie šį kursą',
 
     //Returns
     'checkReturn' => 'Pasirinkite kuriuos norite grąžinti',
@@ -242,7 +242,6 @@ return [
     'new' => 'Naujos',
 
     'orderBy' => 'Rūšiuoti pagal',
-
     'showing' => 'Rodomi',
     'of' => 'iš',
     'results' => 'rezultatai',

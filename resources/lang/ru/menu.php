@@ -26,7 +26,7 @@ return [
     'orders' => 'Заказы',
     'orderStatuses' => 'Статусы заказов',
     'ordersReport' => 'Отчет по заказам',
-    'products' => 'Продукты',
+    'products' => 'Курсы',
     'promotions'=> 'Акции',
     'reports' => 'Отчеты',
     'returns' => 'Возврат',
@@ -39,5 +39,5 @@ return [
     'profile' => 'Профиль',
     'termsOfService' => 'Правила',
     'policy' => 'Политика конфиденциальности',
-
+    'euProjects' => 'Проекты ЕС',
 ];

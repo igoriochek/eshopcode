@@ -50,7 +50,7 @@
                                             <input type="hidden" id="orderBy" value="">
                                             {!! Form::select('order', $order_list, $selectedOrder, [
                                                 'class' => 'edumall-nice-select',
-                                                'data-select' => '{&quot;fieldLabel&quot;:&quot;Sort by:&quot;}',
+                                                'data-select' => '{&quot;fieldLabel&quot;:&quot;&nbsp;&quot;}',
                                                 'id' => 'orderSelector',
                                                 'style' => 'cursor: pointer'
                                             ]) !!}
