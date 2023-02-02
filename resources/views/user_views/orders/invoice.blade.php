@@ -1,11 +1,3 @@
-<!DOCTYPE html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-</head>
-<body class="d-block w-100 h-100">
 <div class="card">
     <div class="card-body">
         <div class="container mb-5 mt-3">
@@ -13,7 +5,7 @@
                 <div class="col-md-12">
                     <div class="text-center">
                         <i class="far fa-building fa-4x ms-0" style="color:#8f8061 ;"></i>
-                        <p class="pt-2">BUHALTERĖS.LT</p>
+                        <p class="pt-2">ESHOPBILAN.EUA</p>
                     </div>
                 </div>
                 <div class="row">
@@ -107,5 +99,3 @@
         </div>
     </div>
 </div>
-</body>
-</html>

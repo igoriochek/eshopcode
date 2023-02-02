@@ -9,25 +9,25 @@
                             class="d-block font-weight-normal line-height-1 text-color-light">
                             {{ __('footer.address') }}
                         </span>
-                        Konstitucijos pr. 7, Vilnius, Verslo centras „Europa“, 12 aukštas, LT-09308
+                        Latvių g. 19A-7, LT-08113 Vilnius
                     </li>
                     <li class="pb-1 mb-2">
                         <span class="d-block font-weight-normal line-height-1 text-color-light">
                             {{ __('footer.phone') }}
                         </span>
-                        <a href="tel:+1234567890">+370 653 333 30</a>
+                        <a href="tel:+1234567890">+37052310857</a>
                     </li>
                     <li class="pb-1 mb-2">
                         <span class="d-block font-weight-normal line-height-1 text-color-light">
-                            {{ __('Viber, Whatsapp') }}
+                            {{ __('footer.mobilePhone') }}
                         </span>
-                        +370 685 777 77
+                        <a href="tel:+1234567890">+37068789142</a>
                     </li>
                     <li class="pb-1 mb-2">
                         <span class="d-block font-weight-normal line-height-1 text-color-light">
                             {{ __('footer.email') }}
                         </span>
-                        <a href="mailto:mail@example.com">info@buhalteres.lt</a>
+                        <a href="mailto:mail@example.com">info@eshopbilan.eu</a>
                     </li>
 
                     <li class="pb-1 mb-2">
@@ -35,22 +35,22 @@
                             class="d-block font-weight-normal line-height-1 text-color-light">
                             {{ __('footer.companycode') }}
                         </span>
-                        302546905
+                        125690535
                     </li>
                     <li class="pb-1 mb-2">
                         <span
                             class="d-block font-weight-normal line-height-1 text-color-light">
                             {{ __('footer.vatcode') }}
                         </span>
-                        LT100005776419
+                        LT256905314
                     </li>
-                    <li class="pb-1 mb-2">
-                        <span
-                            class="d-block font-weight-normal line-height-1 text-color-light">
-                            {{ __('footer.ac') }}
-                        </span>
-                        LT53 3500 0100 0156 4853
-                    </li>
+{{--                    <li class="pb-1 mb-2">--}}
+{{--                        <span--}}
+{{--                            class="d-block font-weight-normal line-height-1 text-color-light">--}}
+{{--                            {{ __('footer.ac') }}--}}
+{{--                        </span>--}}
+{{--                        LT53 3500 0100 0156 4853--}}
+{{--                    </li>--}}
                 </ul>
                 <ul class="social-icons social-icons-clean-with-border social-icons-medium">
                     <li class="social-icons-facebook">
@@ -79,6 +79,26 @@
                     @auth
                         @include('layouts.menus.user_menu')
                     @endauth
+                        <li class="nav-list">
+                            <a class="{{ request()->is('about_us') ? 'active' : '' }}" href="{{ url('/about_us') }}">
+                                {{ __('menu.aboutUs') }}
+                            </a>
+                        </li>
+                        <li class="nav-list">
+                            <a class="{{ request()->is('termsofservice') ? 'active' : '' }}" href="{{ url('/termsofservice') }}">
+                                {{ __('menu.termsofservice') }}
+                            </a>
+                        </li>
+                        <li class="nav-list">
+                            <a class="{{ request()->is('termsofservice') ? 'active' : '' }}" href="{{ url('/policy') }}">
+                                {{ __('menu.policy') }}
+                            </a>
+                        </li>
+                        <li class="nav-list">
+                            <a class="{{ request()->is('eu_projects') ? 'active' : '' }}" href="{{ url('/eu_projects') }}">
+                                {{ __('menu.euProjects') }}
+                            </a>
+                        </li>
                 </ul>
             </div>
             @auth

@@ -205,6 +205,8 @@ Route::get('promotions', [\App\Http\Controllers\PromotionController::class, 'ind
 Route::get('promotion/{id}', [\App\Http\Controllers\PromotionController::class, 'promotionProducts'])->name('promotion');
 Route::get("termsofservice", [\App\Http\Controllers\TermsOfServiceController::class, 'index'])->name('termsofservice');
 Route::get("policy", [\App\Http\Controllers\TermsOfServiceController::class, 'policy'])->name('policy');
+Route::view('about_us', 'user_views.about_us.index')->name('aboutUs');
+Route::view('eu_projects', 'user_views.eu_projects.index')->name('euProjects');
 
 Auth::routes();
 Route::get("logout", function () {

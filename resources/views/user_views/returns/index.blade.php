@@ -22,7 +22,7 @@
                     <div class="clearfix"></div>
 
                     @if($returns)
-                        <div class="card">
+                        <div class="card border-0">
                             <div class="card-body p-0">
                                 <div class="table table-responsive">
                                     <table class="table" id="categories">

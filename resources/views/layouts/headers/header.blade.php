@@ -7,19 +7,19 @@
                         <div class="header-row">
                             <p class="font-weight-semibold mb-0 d-none d-sm-block d-md-none me-3">
                                 <i class="fa-solid fa-phone"></i>
-                                +370 653 333 30
+                                +37052310857
                             </p>
                             <p class="font-weight-semibold mb-0 d-none d-sm-block d-md-none me-3">
                                 <i class="fa-solid fa-envelope"></i>
-                                info@buhalteres.lt
+                                info@eshopbilan.eu
                             </p>
                             <p class="font-weight-semibold mb-0 d-none d-md-block me-3">
                                 <i class="fa-solid fa-phone"></i>
-                                +370 653 333 30
+                                +37052310857
                             </p>
                             <p class="font-weight-semibold mb-0 d-none d-md-block me-3">
                                 <i class="fa-solid fa-envelope"></i>
-                                info@buhalteres.lt
+                                info@eshopbilan.eu
                             </p>
                         </div>
                     </div>
@@ -61,12 +61,13 @@
             </div>
         </div>
         <div class="header-container container">
-            <div class="header-row py-2">
+            <div class="header-row pt-1">
                 <div class="header-column w-100">
                     <div class="header-row justify-content-between">
                         <div class="header-logo z-index-2 col-lg-2 px-0" style="width: auto; height: auto">
                             <a href="{{ url('/home') }}">
-                                <img src="{{asset("images/buhalteres-logo-web.svg")}}" alt="buhalterės.lt logotipas" class="logo" width="260.86px" height="45px">
+                                <h1 class="me-2">Bilan</h1>
+{{--                                <img src="{{asset("images/buhalteres-logo-web.svg")}}" alt="buhalterės.lt logotipas" class="logo" width="260.86px" height="45px">--}}
                             </a>
                         </div>
                         <div
@@ -85,10 +86,23 @@
                                         {{--                                        </li>--}}
                                         @guest
                                             @include('layouts.menus.menutop')
-                                        @endguest
-                                        @auth
+                                        @else
                                             @include('layouts.menus.user_menu')
                                         @endauth
+                                        <div class="d-none d-md-inline-block ms-4">
+                                            <a href="/eu_projects" style="color: {{ request()->is('about') ? '#c736c0' : '' }}">
+                                                @if (app()->getLocale() === 'lt')
+                                                    <img src="{{ asset('images/es_projektai.jpeg') }}" alt="es_projektai" width="125" height="55" />
+                                                @else
+                                                    <img src="{{ asset('images/eu_projects.jpeg') }}" alt="es_projektai_en_ru" width="130" />
+                                                @endif
+                                            </a>
+                                        </div>
+                                        <li class="nav-list d-inline-block d-md-none">
+                                            <a class="{{ request()->is('eu_projects') ? 'active' : '' }}" href="{{ url('/eu_projects') }}">
+                                                {{ __('menu.euProjects') }}
+                                            </a>
+                                        </li>
                                     </ul>
                                 </nav>
                             </div>

@@ -11,6 +11,7 @@ return [
     'contactInfo' => 'Kontaktinė informacija',
     'address' => 'Adresas',
     'phone' => 'Telefonas',
+    'mobilePhone' => 'Mobilusis telefonas',
     'email' => 'El. Paštas',
     'menu' => 'MENIU',
     'profile' => 'Vartotojo paskyra',

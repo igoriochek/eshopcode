@@ -4,12 +4,12 @@
 <div class="auth-form container">
     <div class="row justify-content-center">
         <div class="col-md-6 col-lg-5">
-            <h5 class="font-weight-bold text-5 mb-0">{{ __('auth.resetPassword') }}</h5>
             @if (session('status'))
                 <div class="alert alert-success" role="alert">
                     {{ session('status') }}
                 </div>
             @endif
+            <h5 class="font-weight-bold text-5 mb-0">{{ __('auth.resetPassword') }}</h5>
             <form method="POST" action="{{ route('password.email') }}">
                 @csrf
                 <div class="row mb-5">

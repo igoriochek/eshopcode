@@ -144,4 +144,22 @@ trait forSelector
 
     }
 
+    public function productsOrderSelector(): array
+    {
+        $c = array();
+
+        $titles = [
+            __('forms.default'),
+            __('forms.productNameAsc'),
+            __('forms.productNameDesc'),
+            __('forms.priceAsc'),
+            __('forms.priceDesc')
+        ];
+
+        for($i = 0; $i < count($titles); $i++){
+            $c[$i] = $titles[$i];
+        }
+
+        return $c;
+    }
 }

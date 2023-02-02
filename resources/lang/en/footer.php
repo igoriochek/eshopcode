@@ -11,6 +11,7 @@ return [
     'contactInfo' => 'Contact Info',
     'address' => 'Address',
     'phone' => 'Phone',
+    'mobilePhone' => 'Mobile Phone',
     'email' => 'Email',
     'menu' => 'MENU',
     'profile' => 'Profile',

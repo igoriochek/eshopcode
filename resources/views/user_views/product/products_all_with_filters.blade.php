@@ -4,6 +4,33 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-9 col-md-8 mb-5 order-last order-md-first">
+            <div class="row mb-4 mt-5 mt-md-0 align-items-center">
+                <div class="col-lg-7">
+                    <h5 class="p-0 m-0 mb-1 mb-lg-0 shop-title text-uppercase">
+                        {{ __('names.products') }}
+                    </h5>
+                    <div class="text-muted mb-2 mb-lg-0">
+                        {{ __('names.showing') }}
+                        @if ($products->currentPage() !== $products->lastPage())
+                            {{ ($products->count() * $products->currentPage() - $products->count() + 1).__('–').($products->count() * $products->currentPage()) }}
+                        @else
+                            @if ($products->total() - $products->count() === 0)
+                                {{ $products->count() }}
+                            @else
+                                {{ ($products->total() - $products->count()).__('–').$products->total() }}
+                            @endif
+                        @endif
+                        {{ __('names.of') }}
+                        {{ $products->total().' '.__('names.entries') }}
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="d-flex">
+                        {!! Form::select('order', $order_list, $selectedOrder,
+                            ['class' => 'form-select w-100', 'id' => 'orderSelector', 'style' => 'cursor: pointer; border-radius: 0; border-color: #dfdfdf; font-size: .8rem; padding: 12px 15px']) !!}
+                    </div>
+                </div>
+            </div>
             <div class="row">
                 @forelse ($products as $product)
                     <div class="col-lg-4 col-md-6 mt-4 mt-md-0 mt-lg-0 mb-5">
@@ -85,7 +112,7 @@
         </div>
         <div class="col-lg-3 col-md-4">
             <aside class="sidebar">
-                <form method="get" action="{{route("userproducts")}}">
+                <form method="get" action="{{ route("userproducts") }}" id="mainForm">
                     <div class="input-group mb-3 pb-1">
                         <input type="text" name="filter[namelike]" class="form-control product-search-input" id="filter[namelike]" placeholder="{{ __('names.search').'...' }}" value="{{$filter["namelike"] ?? ""}}">
                         <button type="submit" class="btn btn-primary p-2 product-search-button">
@@ -130,6 +157,7 @@
                             </div>
                         @endforelse
                     </ul>
+                    <input type="hidden" id="order" name="order" value="{{ $selectedOrder }}">
                     <div class="d-flex justify-content-center w-100">
                         <button type="submit" class="btn btn-primary product-filter-button">
                             {{ __('buttons.filter') }}
@@ -143,6 +171,13 @@
 
     @push('scripts')
         <script>
+            document.getElementById('orderSelector').onchange = () => {
+                addOrderValueToFilter();
+                document.getElementById('mainForm').submit();
+            }
+
+            const addOrderValueToFilter = () => document.getElementById('order').value = $('#orderSelector').val();
+
             const rangeSlider = document.getElementById('range-slider');
             const priceFrom = document.getElementById('filter[pricefrom]');
             const priceTo = document.getElementById('filter[priceto]');
@@ -151,8 +186,8 @@
                 $(rangeSlider).slider({
                     range: true,
                     min: 0,
-                    max: 1000,
-                    values: [{{ $filter["pricefrom"] ?? 0 }}, {{ $filter["priceto"] ?? 1000 }}],
+                    max: {{ $maxPrice }},
+                    values: [{{ $filter["pricefrom"] ?? 0 }}, {{ $filter["priceto"] ?? $maxPrice }}],
                     slide: (event, ui) => {
                         $(priceFrom).val(ui.values[0]);
                         $(priceTo).val(ui.values[1]);
