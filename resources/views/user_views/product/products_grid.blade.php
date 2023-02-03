@@ -5,17 +5,17 @@
             <div class="product-item__header">
                 <div class="product-item__thumbnail">
                     @if ($product->image)
-                        <a style="cursor: pointer" href="{{ route('viewproduct', $product->product_id) }}">
+                        <a style="cursor: pointer" href="{{ route('viewproduct', $product->id) }}">
                             <img src="{{ $product->image }}" alt="{{ $product->name }}" width="251" height="290">
                         </a>
                     @else
-                        <a style="cursor: pointer" href="{{ route('viewproduct', $product->product_id) }}">
+                        <a style="cursor: pointer" href="{{ route('viewproduct', $product->id) }}">
                             <img src="/images/product/product-1.png" alt="Product" width="251" height="290">
                         </a>
                     @endif
                 </div>
                 <div class="product-item__actions">
-                    <input type="hidden" name="id" value="{{ $product->product_id }}">
+                    <input type="hidden" name="id" value="{{ $product->id }}">
                     <button type="submit" class="product-item__action" data-bs-tooltip="tooltip" data-bs-placement="top" title="{{__('buttons.addToCart')}}">
                         <i class="fal fa-shopping-cart"></i>
                     </button>
@@ -23,7 +23,7 @@
             </div>
             <div class="product-item__info text-center pt-3">
                 <h2 class="product-item__title">
-                    <a href="{{ route('viewproduct', $product->product_id) }}">{{ $product->name }}</a>
+                    <a href="{{ route('viewproduct', $product->id) }}">{{ $product->name }}</a>
                 </h2>
                 <div class="product-item__price">
                     @if ($product->discount )
