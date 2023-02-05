@@ -15,7 +15,7 @@ return [
     'email' => 'Email',
     'menu' => 'MENU',
     'profile' => 'Profile',
-    'copyright' => 'Buhalteres.lt © 2022. All Rights Reserved',
+    'copyright' => 'UAB "Bilan" © 2023. All Rights Reserved',
     'companycode' => "Company Code",
     'vatcode' => "VAT",
     'ac' => "A/C",

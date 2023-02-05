@@ -15,7 +15,7 @@ return [
     'email' => 'Электронная почта',
     'menu' => 'МЕНЮ',
     'profile' => 'Личный кабинет',
-    'copyright' => 'Buhalteres.lt © 2022. Все права защищены',
+    'copyright' => 'UAB "Bilan" © 2023. Все права защищены',
     'companycode' => "Код предприятия",
     'vatcode' => "Код НДС",
     'ac' => "Р/с",

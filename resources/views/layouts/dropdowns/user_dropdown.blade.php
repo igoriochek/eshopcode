@@ -4,19 +4,19 @@
     </li>
     <li>
         <a class="dropdown-item" href="{{ url('/user/userprofile') }}"
-           style="color: {{ request()->is('user/userprofile*') ? '#0088CC' : '' }}">
+           style="color: {{ request()->is('user/userprofile*') ? '#0e9f6e' : '' }}">
             {{__('menu.profile')}}
         </a>
     </li>
     <li>
         <a class="dropdown-item" href="{{ url('/user/rootorders') }}"
-           style="color: {{ request()->is('user/rootorders*') ? '#0088CC' : '' }}">
+           style="color: {{ request()->is('user/rootorders*') ? '#0e9f6e' : '' }}">
             {{__('menu.orders')}}
         </a>
     </li>
     <li>
         <a class="dropdown-item" href="{{ url('/user/rootoreturns') }}"
-           style="color: {{ request()->is('user/rootoreturns*') ? '#0088CC' : '' }}">
+           style="color: {{ request()->is('user/rootoreturns*') ? '#0e9f6e' : '' }}">
             {{__('menu.returns')}}
         </a>
     </li>

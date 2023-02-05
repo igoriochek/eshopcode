@@ -12357,7 +12357,7 @@ body.page-transition-active {
 	opacity: 0 !important;
 }
 
-/* 
+/*
 Image 360º Viewer
 Credits: Codyhouse (https://codyhouse.co/gem/360-degrees-product-viewer)
 */
@@ -13001,7 +13001,7 @@ Credits: Codyhouse (https://codyhouse.co/gem/360-degrees-product-viewer)
 }
 
 .particle.particle-repeating-lines {
-	background: repeating-linear-gradient(-55deg, rgba(255, 255, 255, 0) 0.8px, #0088cc 1.6px, #0088cc 3px, rgba(255, 255, 255, 0) 3.8px, rgba(255, 255, 255, 0) 10px);
+	background: repeating-linear-gradient(-55deg, rgba(255, 255, 255, 0) 0.8px, #0e9f6e 1.6px, #0e9f6e 3px, rgba(255, 255, 255, 0) 3.8px, rgba(255, 255, 255, 0) 10px);
 }
 
 .particle.particle-repeating-lines.bg-light {

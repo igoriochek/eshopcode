@@ -169,7 +169,7 @@ return [
     'product' => 'Товар',
     'createProduct' => 'Создать продукт',
     'editProduct' => 'Редактировать товар',
-    'продукты' => 'Продукты',
+    'products' => 'Продукты',
     'productCount' => 'Количество товаров',
     'productDetails' => 'Сведения о продукте',
     'productName' => 'Название продукта',

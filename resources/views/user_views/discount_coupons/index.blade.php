@@ -8,7 +8,7 @@
                 <div class="row">
                     @forelse( $discountCoupons as $prod )
                         <div class="col-lg-6 col-md-12">
-                            <div class="my-3 mb-4 p-4" style="border-left: 7.5px solid #0088CC">
+                            <div class="my-3 mb-4 p-4" style="border-left: 7.5px solid #0e9f6e">
                                 <h5>{{__('names.discountCouponCode')}}: {{$prod->code}}</h5>
                                 <h6>{{__('names.discountCouponValue')}}: {{number_format($prod->value,2)}} EU</h6>
                             </div>

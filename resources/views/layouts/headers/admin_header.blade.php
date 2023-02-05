@@ -3,7 +3,7 @@
         <div class="admin-header-top-container">
             <a href="{{ url('/home') }}" class="admin-header-logo">
                 <h1 class="me-2">Bilan</h1>
-{{--                <img src="{{asset("images/buhalteres-logo-web.svg")}}" alt="buhalterės.lt logotipas" class="logo" width="170">--}}
+                {{--<img src="{{asset("images/.jpg")}}" alt="" class="logo" width="170">--}}
             </a>
             <button class="admin-header-toggle-button" onclick="onClickOpenMenu()">
                 <i class="fa-sharp fa-solid fa-bars text-white"></i>
