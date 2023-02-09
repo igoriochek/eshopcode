@@ -15,14 +15,14 @@
             UAB "Vadeiva"<br/>
             Įmonės kodas yra: 300570003<br/>
             Adresas: Savanorių pr. 253, Vilnius <br/>
-            Tel. Nr. +370 620 90867<br/>
+            Tel. Nr. +370 653 63927<br/>
             El. pašto adresas: info@krims.lt<br/>
             <h6 class="mt-3 mb-2">Kokią informaciją renkame, naudojame ir saugojame apie Jus?</h6>
             Informacija, kurią pateikia pats Svetainės lankytojas, pildydamas registracijos formą mūsų Svetainėje:<br/>
-            <span class="ms-3"></span>1.	Vardas<br/>
-            <span class="ms-3"></span>2.	Adresas<br/>
-            <span class="ms-3"></span>3.	El. paštas<br/>
-            <span class="ms-3"></span>4.	Telefono numeris<br/>
+            <span class="ms-3"></span>1. Vardas<br/>
+            <span class="ms-3"></span>2. Adresas<br/>
+            <span class="ms-3"></span>3. El. paštas<br/>
+            <span class="ms-3"></span>4. Telefono numeris<br/>
             Informacija reikalinga paslaugos suteikimui (BDAR 6 straipsnio 1 dalies b punktas)<br/>
             <h6 class="mt-3 mb-2">Ar naudojame slapukus?</h6>
             Taip, mūsų Svetainėje yra naudojami slapukai.<br/>
@@ -52,7 +52,7 @@
             UAB "Vadeiva"<br/>
             Код компании: 300570003<br/>
             Адрес: Savanorių pr. 253, Vilnius<br/>
-            Тел. Нр. +370 620 90867<br/>
+            Тел. Нр. +370 653 63927<br/>
             Адрес электронной почты: info@krims.lt<br/>
             <h6 class="mt-3 mb-2">Какую информацию о вас мы собираем, используем и храним?</h6>
             Информация, предоставленная самим посетителем Сайта при заполнении регистрационной формы на нашем Сайте:<br/>
@@ -89,7 +89,7 @@
             UAB „Vadeiva“<br/>
             The company code is: 300570003<br/>
             Address: Savanorių pr. 253, Vilnius<br/>
-            Phone. No. +370 620 90867<br/>
+            Phone. No. +370 653 63927<br/>
             Email address: info@krims.lt<br/>
             <h6 class="mt-3 mb-2">What information do we collect, use and store about you?</h6>
             Information provided by the Website visitor himself when filling out the registration form on our Website:<br/>

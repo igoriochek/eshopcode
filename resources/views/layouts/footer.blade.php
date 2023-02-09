@@ -29,7 +29,7 @@
                             <li>
                                 <i class="fa-solid fa-phone text-danger me-2 fs-5"></i>
                                 <strong>{{__('footer.phone')}}: </strong>
-                                <span>+370 620 90867</span>
+                                <span>+370 653 63927</span>
                             </li>
                             <li>
                                 <i class="fa-solid fa-envelope text-danger me-2 fs-5"></i>
