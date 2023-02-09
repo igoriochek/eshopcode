@@ -233,10 +233,10 @@ return [
     'noReturns' => 'Jūs neatlikote jokių grąžinimų',
 
     //User
-    'customers' => 'Klientai',
-    'customerDetails' => 'Kliento informacija',
-    'createCustomer' => 'Sukurti klientą',
-    'editCustomer' => 'Redaguoti klientą',
+    'customers' => 'Naudotojai',
+    'customerDetails' => 'Naudotojo informacija',
+    'createCustomer' => 'Sukurti naudotoją',
+    'editCustomer' => 'Redaguoti naudotoją',
     'userLogs' => 'Naudotojų žurnalai',
 
     'desc' => 'Aprašymas',

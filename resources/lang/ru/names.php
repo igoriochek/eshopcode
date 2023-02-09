@@ -233,29 +233,29 @@ return [
     'noReturns' => 'У вас нет возвратов',
 
     //User
-    'customers' => 'Клиенты',
-    'customerDetails' => 'Сведения о клиенте',
-    'createCustomer' => 'Создать клиента',
-    'editCustomer' => 'Редактировать клиента',
+    'customers' => 'Пользователи',
+    'customerDetails' => 'Сведения о пользователе',
+    'createCustomer' => 'Создать пользователя',
+    'editCustomer' => 'Редактировать пользователя',
     'userLogs' => 'Журналы пользователей',
 
     'desc' => 'Описание',
     'name' => 'Имя',
 
-    'old' => "Старый",
-    'new' => "Новый",
+    'old' => 'Старый',
+    'new' => 'Новый',
 
     'orderBy' => 'Сортировать по',
 
     //Discounts coupons
-    "ndDiscountCoupons" => "У вас еще нет купонов на скидку :(",
-    "discountCouponCode" => "Код купона на скидку",
-    "discountCouponValue" => "Стоимость купона на скидку",
-    "zeroRecords" => "Нет данных",
-    "showing" => "Показаны",
-    "entries" => "записи",
-    "to" => "до",
-    "of" => "из",
-    "first" => "Первый",
-    "last" => "Последний",
+    'ndDiscountCoupons' => 'У вас еще нет купонов на скидку :(',
+    'discountCouponCode' => 'Код купона на скидку',
+    'discountCouponValue' => 'Стоимость купона на скидку',
+    'zeroRecords' => 'Нет данных',
+    'showing' => 'Показаны',
+    'entries' => 'записи',
+    'to' => 'до',
+    'of' => 'из',
+    'first' => 'Первый',
+    'last' => 'Последний',
 ];

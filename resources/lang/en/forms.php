@@ -18,6 +18,8 @@ return [
     'email' => 'Email',
     'description' => 'Description',
     'street' => 'Street',
+    'buyer' => 'Buyer',
+    'address' => 'Address',
     'post_index' => 'Post index',
     'house_flat' => 'House/Flat',
     'city' => 'City',

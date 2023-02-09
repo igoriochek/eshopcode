@@ -233,10 +233,10 @@ return [
     'noReturns' => 'You have no returns',
 
     //User
-    'customers' => 'Customers',
-    'customerDetails' => 'Customer Details',
-    'createCustomer' => 'Create Customer',
-    'editCustomer' => 'Edit Customer',
+    'customers' => 'Users',
+    'customerDetails' => 'User Details',
+    'createCustomer' => 'Create User',
+    'editCustomer' => 'Edit User',
     'userLogs' => 'User Logs',
 
     'desc' => 'Description',

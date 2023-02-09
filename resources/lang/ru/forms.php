@@ -18,6 +18,8 @@ return [
     'email' => 'Электронная почта',
     'description' => 'Описание',
     'street' => 'Улица',
+    'buyer' => 'Покупатель',
+    'address' => 'Адрес',
     'post_index' => 'Индекс',
     'house_flat' => 'Дом/Квартира',
     'city' => 'Город',

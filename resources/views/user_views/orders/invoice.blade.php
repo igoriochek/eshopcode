@@ -5,31 +5,28 @@
                 <div class="col-md-12">
                     <div class="text-center">
                         <i class="far fa-building fa-4x ms-0" style="color:#8f8061 ;"></i>
-                        <p class="pt-2">ESHOPBILAN.EUA</p>
+                        <p class="pt-2">UAB "Bilan"</p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-xl-8">
                         <ul class="list-unstyled">
-                            <li class="text-muted"><b>{{__('forms.to')}}:</b> <span
-                                    style="color:#8f8061 ;">{{$order->user->name}}</span></li>
-                            <li class="text-muted"><b>{{__('forms.street')}}, {{__('forms.city')}} :</b> {{$order->user->street}}
-                                , {{$order->user->city}}</li>
-                            <li class="text-muted"><b>{{__('forms.house_flat')}}:</b> {{$order->user->house_flat}}</li>
-                            <li class="text-muted"><i class="fas fa-phone"></i> {{$order->user->phone_number}}</li>
+                            <li class="text-muted"><b>{{ __('forms.buyer') }}:</b> <span style="color:#8f8061 ;">{{ $order->user->name }}</span></li>
+                            <li class="text-muted"><b>{{ __('forms.address') }}:</b> {{ $order->user->street }} {{ $order->user->house_flat }}, {{ $order->user->city }}</li>
+                            <li class="text-muted"><b>{{ __('forms.phone_number') }}:</b> {{ $order->user->phone_number }}</li>
                         </ul>
                     </div>
                     <div class="col-xl-4 ">
                         <p class="text-muted">{{__('names.invoice')}}</p>
                         <ul class="list-unstyled">
-                            <li class="text-muted"><i class="fas fa-circle" style="color:#8f8061 ;"></i> <span
-                                    class="fw-bold">{{__('table.orderId')}}:</span> {{ $order->id }}
+                            <li class="text-muted">
+                                <i class="fas fa-circle" style="color:#8f8061 ;"></i> <span class="fw-bold">{{__('table.orderId')}}:</span> {{ $order->id }}
                             </li>
-                            <li class="text-muted"><i class="fas fa-circle" style="color:#8f8061 ;"></i> <span
-                                    class="fw-bold">{{__('table.created_at')}}: </span> {{$order->created_at}}
+                            <li class="text-muted">
+                                <i class="fas fa-circle" style="color:#8f8061 ;"></i> <span class="fw-bold">{{__('table.created_at')}}: </span> {{$order->created_at}}
                             </li>
-                            <li class="text-muted"><i class="fas fa-circle" style="color:#8f8061;"></i> <span
-                                    class="me-1 fw-bold">{{__('table.status')}}:</span>
+                            <li class="text-muted">
+                                <i class="fas fa-circle" style="color:#8f8061;"></i> <span class="me-1 fw-bold">{{__('table.status')}}:</span>
                                 @if($order->status->name == 'New' || $order->status->name == "Waiting")
                                     <span class="badge bg-warning text-black fw-bold">{{$order->status->name}}</span>
                                 @elseif($order->status->name == "Canceled" || $order->status->name == "Returned")
@@ -65,14 +62,12 @@
                         <div class="col-md-7 mb-4 mb-md-0">
                             <p class="fw-bold">{{ $orderItem->product->name}}</p>
                             <p class="mb-1">
-                                    <span
-                                        class="text-muted me-2">{{__('table.description')}}: </span><span>{{$orderItem->product->description}}</span>
+                                <span class="text-muted me-2">{{__('table.description')}}: </span><span>{{$orderItem->product->description}}</span>
                             </p>
                         </div>
                         <div class="col-md-3 mb-4 mb-md-0 my-md-4 align-items-md-center justify-content-md-center">
                             <h5 class="mb-2">
-                                <span
-                                    class="align-middle"><b>{{__('table.price')}}:</b> {{ number_format($orderItem->price_current,2)}} € x {{$orderItem->count}}</span>
+                                <span class="align-middle"><b>{{__('table.price')}}:</b> {{ number_format($orderItem->price_current,2)}} € x {{$orderItem->count}}</span>
                             </h5>
                         </div>
                     </div>
@@ -91,8 +86,10 @@
 {{--                            </li>--}}
 {{--                        </ul>--}}
 {{--                        {{ number_format((float)$order->sum, 2, '.', '') }}--}}
-                        <p class="text-black float-start"><span class="text-black me-3"> {{__('table.sum')}}</span><span
-                                style="font-size: 25px;"> {{ number_format($order->sum,2) }} €</span></p>
+                        <p class="text-black float-start">
+                            <span class="text-black me-3"> {{__('table.sum')}}</span>
+                            <span style="font-size: 25px;"> {{ number_format($order->sum,2) }} €</span>
+                        </p>
                     </div>
                 </div>
             </div>

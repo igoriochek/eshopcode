@@ -18,6 +18,8 @@ return [
     'email' => 'El. paštas',
     'description' => 'Aprašymas',
     'street' => 'Gatvė',
+    'buyer' => 'Pirkėjas',
+    'address' => 'Adresas',
     'post_index' => 'Pašto kodas',
     'house_flat' => 'Namas/Butas',
     'city' => 'Miestas',
