@@ -15,17 +15,13 @@
                 <td class="product">
                     <div class="cart-product">
                         <div class="cart-product__thumbnail">
-                            <a href="{{ route('viewproduct', $item['product']->id) }}"
-                               title="{{ $item['product']->name }}">
-                                <img alt="{{ $item['product']->name }}" width="70" height="81"
-                                     src="@if ($item['product']->image) {{ $item['product']->image }} @else /images/product/product-1.png @endif">
+                            <a href="{{ route('viewproduct', $item['product']->id) }}" title="{{ $item['product']->name }}">
+                                <img alt="{{ $item['product']->name }}" width="70" height="81" src="@if ($item['product']->image) {{ $item['product']->image }} @else /images/product/product-1.png @endif">
                             </a>
                         </div>
                         <div class="cart-product__content">
                             <h3 class="cart-product__name">
-                                <a href="{{ route('viewproduct', $item['product']->id) }}">
-                                    {{ $item['product']->name }}
-                                </a>
+                                <a href="{{ route('viewproduct', $item['product']->id) }}">{{ $item['product']->name }}</a>
                             </h3>
                         </div>
                     </div>
@@ -38,24 +34,19 @@
                 <td class="quantity">
                     <div class="cart-product d-flex justify-content-center">
                         <div class="product-quantity text-center">
-                            <input type="text" value="{{$item->count}}" readonly
-                                   style="background: none; border: none;">
+                            <input type="text" value="{{$item->count}}" readonly style="background: none; border: none;">
                         </div>
                     </div>
-
                 </td>
                 <td class="subtotal">
                     <div class="cart-product__total-price text-center">
-                        <span
-                            class="sale-price discount">{{ number_format($item->price_current * $item->count,2) }} € </span>
+                        <span class="sale-price discount">{{ number_format($item->price_current * $item->count,2) }} € </span>
                     </div>
                 </td>
-
                 <td class="action">
                     <div class="cart-product__remove text-center">
                         {!! Form::open(['route' => ['userCartItemDestroy', $item->id], 'method' => 'delete']) !!}
-                        <a type="submit" class="button remove"
-                           onclick="return confirm('Are you sure?'),this.parentNode.submit();">{{__('names.removeItem')}}</a>
+                        <a type="submit" class="button remove" onclick="return confirm('Are you sure?'),this.parentNode.submit();">{{__('names.removeItem')}}</a>
                         {!! Form::close() !!}
                     </div>
                 </td>

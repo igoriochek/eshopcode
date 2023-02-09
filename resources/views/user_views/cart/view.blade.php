@@ -27,8 +27,7 @@
                                         </tbody>
                                     </table>
                                     <div class="cart-collaterals__btn">
-                                        <a class="btn btn-primary btn-hover-secondary w-100"
-                                           href="{{route('checkout')}}">{{__('buttons.proceedToCheckout')}}</a>
+                                        <a class="btn btn-primary btn-hover-secondary w-100" href="{{route('checkout')}}">{{__('buttons.proceedToCheckout')}}</a>
                                     </div>
                                 </div>
                             </div>
@@ -103,8 +102,7 @@
                         </svg>
                     </div>
                     <h2 class="cart-empty__title">{{__('names.noProductsInCart')}}</h2>
-                    <a href="/user/products"
-                       class="cart-empty__btn btn btn-primary btn-hover-secondary">{{__('names.browseProducts')}}</a>
+                    <a href="/user/products" class="cart-empty__btn btn btn-primary btn-hover-secondary">{{__('names.browseProducts')}}</a>
                 </div>
             @endif
         </div>
