@@ -25,7 +25,7 @@
                                 </div>
                                 @if (Route::has('login'))
                                     <div class="header-action mr-20 fs-6">
-                                        <a style="color: {{ request()->is('login*') ? '#e10000' : '' }}" class="login-button" href="{{ route('login') }}">
+                                        <a class="login-button" href="{{ route('login') }}">
                                             <i class="fi fi-rs-sign-in me-1"></i>
                                             {{ __('auth.login') }}
                                         </a>
