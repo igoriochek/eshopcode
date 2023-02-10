@@ -38,6 +38,7 @@ return [
     'discountCoupon' => 'Discount Coupon',
     'acceptedOrder' => 'Thank you. Your order has been accepted.',
     'canceledOrder' => 'Your order has been cancelled.',
+    'selectCollectTime' => 'Select time when you are going to collect your order',
 
     'adminUserCount' => 'Admin User Count',
     'canceled' => 'Canceled',

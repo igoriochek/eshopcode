@@ -33,7 +33,7 @@
                     <div class="border p-40 cart-totals mb-50">
                         <div class="table-responsive order_table checkout">
                             <h5 class="fw-bold text-black text-uppercase mb-3 text-center">{{ __('names.yourOrder') }}</h5>
-                            <table class="table no-border ">
+                            <table class="table no-border table-responsive overflow-scroll">
                                 <tbody>
                                 <tr>
                                     <th scope="col" ></th>
@@ -80,32 +80,42 @@
                         <div class="col text-center">
                             <p class="mb-3">{{ __('names.wantToApply') }}</p>
                             {!! Form::open(['route' => ['checkout-preview'], 'method' => 'post']) !!}
-                            <div class="d-flex align-items-center flex-column flex-md-row">
-                                <select name="discount[]" class="form-control h-auto border-radius-0">
+                            <div class="d-flex align-items-center gap-3">
+                                <input type="hidden" name="hours" id="hoursHidden">
+                                <input type="hidden" name="minutes" id="minutesHidden">
+                                <select name="discount[]" class="form-control border-radius-0">
                                     <option value="" class="text-muted">{{ __('---') }}</option>
                                     @foreach($discounts as $item)
                                         <option value="{{ $item->id }}">{{ $item->code }} - {{ $item->value }} EU {{ __('names.off') }}</option>
                                     @endforeach
                                 </select>
-                                <button type="submit" class="ml-5 btn btn-heading btn-block-hover-up btn-sm w-50" name="login">{{ __('buttons.applyCoupon') }}</button>
+                                <button type="submit" class="btn btn-heading btn-block-hover-up btn-md col-xl-5 col-lg-6 col-md-4 col-6" name="login">{{ __('buttons.applyCoupon') }}</button>
                             </div>
                             {!! Form::close() !!}
                         </div>
-                        <div class="table-responsive mt-30 mb-10">
-                            <table class="table no-border" style="border: 2px solid white">
-                                <tbody>
-                                <tr class="total">
-                                    <td>
-                                        <h6 class="text-heading">{{__('names.total')}}</h6>
-                                    </td>
-                                    <td class="text-end">
-                                        <h5 class="text-brand text-end">{{number_format($cart->sum,2) }} €</h5>
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
                         {!! Form::open(['route' => ['checkout-preview'], 'method' => 'post']) !!}
+                            <div class="d-flex flex-column justify-content-center align-items-center mt-30 mb-10 gap-2">
+                                <p class="mb-2">{{ __('names.selectCollectTime') }}.</p>
+                                <div class="d-flex align-items-center gap-2">
+                                    {!! Form::select('hours', $hoursList, null, ['id' => 'hoursSelector', 'class' => 'form-control custom-select', 'style' => 'width: 50px']) !!}
+                                    <span class="fw-bold fs-6">:</span>
+                                    {!! Form::select('minutes', $minutesList, null, ['id' => 'minutesSelector', 'class' => 'form-control custom-select', 'style' => 'width: 50px']) !!}
+                                </div>
+                            </div>
+                            <div class="table-responsive mt-30 mb-10">
+                                <table class="table no-border" style="border: 2px solid white">
+                                    <tbody>
+                                    <tr class="total">
+                                        <td>
+                                            <h6 class="text-heading">{{__('names.total')}}</h6>
+                                        </td>
+                                        <td class="text-end">
+                                            <h5 class="text-brand text-end">{{number_format($cart->sum,2) }} €</h5>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                             <button type="submit" class="btn mr-10 w-100 font-weight-500">{{__('buttons.preview')}}<i class="fas fa-arrow-right ms-2"></i></button>
                         {!! Form::close() !!}
                     </div>
@@ -119,4 +129,69 @@
     <!-- End container py-5 -->
 
 @endsection
+
+@push('scripts')
+    <script>
+        const hoursSelector = document.getElementById('hoursSelector');
+        const minutesSelector = document.getElementById('minutesSelector');
+
+        const setCollectTimeAutomatically = () => {
+            const currentDate = new Date();
+            const currentHours = currentDate.getHours();
+            let currentMinutes = currentDate.getMinutes();
+
+            hoursSelector.value = currentHours + 2;
+
+            for (let i = 0; i <= 45; i += 15) {
+                if (i === currentMinutes) {
+                    minutesSelector.value = i.toString();
+                }
+                if (currentMinutes > i && currentMinutes < i + 15) {
+                    const minutesToString = (i + 15).toString();
+
+                    if (minutesToString === '60') {
+                        hoursSelector.value = currentHours + 3;
+                        minutesSelector.value = '00';
+                        return;
+                    }
+
+                    minutesSelector.value = minutesToString;
+                }
+            }
+        }
+
+        hoursSelector.addEventListener('change', () => {
+            disableMinutesForTwoHours();
+            setDiscountHours();
+        });
+
+        minutesSelector.addEventListener('change', () => {
+            setDiscountMinutes();
+        });
+
+        const disableMinutesForTwoHours = () => {
+            if (hoursSelector.value === '02') {
+                minutesSelector.value = '00';
+                minutesSelector.disabled = true;
+            }
+            else {
+                minutesSelector.disabled = false;
+            }
+        }
+
+        const setDiscountHours = () => {
+            const hoursHidden = document.getElementById('hoursHidden');
+            hoursHidden.value = hoursSelector.value;
+        }
+
+        const setDiscountMinutes = () => {
+            const minutesHidden = document.getElementById('minutesHidden');
+            minutesHidden.value = minutesSelector.value;
+        }
+
+        setDiscountHours();
+        setDiscountMinutes();
+        setCollectTimeAutomatically();
+    </script>
+@endpush
 

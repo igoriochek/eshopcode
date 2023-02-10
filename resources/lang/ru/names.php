@@ -41,6 +41,7 @@ return [
     'discountCoupon' => 'Скидочный купон',
     'acceptedOrder' => 'Спасибо. Ваш заказ принят.',
     'canceledOrder' => 'Ваш заказ отменен.',
+    'selectCollectTime' => 'Выберите время, когда вы собираетесь забрать свой заказ',
 
     //Categories
     'category' => 'Категория',

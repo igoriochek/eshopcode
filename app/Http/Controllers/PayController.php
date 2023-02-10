@@ -112,6 +112,7 @@ class PayController extends AppBaseController
                 $newOrder->user_id = $cart->user_id;
                 $newOrder->admin_id = $this->getAdminId();
                 $newOrder->status_id = 2;
+                $newOrder->collect_time = $cart->collect_time;
                 $newOrder->sum = $params['amount'] / 100;
 
                 if ($newOrder->save()) {

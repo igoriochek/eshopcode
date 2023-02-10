@@ -19,7 +19,7 @@
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="images/theme/favicon.svg"/>
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/logo.jpeg') }}"/>
 
     <link rel="stylesheet" href="{{ asset('css/plugins/animate.min.css') }}"/>
     <link rel="stylesheet" href="{{ asset('css/app.css?v=5.5') }}"/>

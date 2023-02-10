@@ -10,6 +10,7 @@ use App\Models\OrderItem;
 use App\Repositories\CartRepository;
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
+use Faker\Factory as Faker;
 
 class OrderSeeder extends Seeder
 {
@@ -46,12 +47,15 @@ class OrderSeeder extends Seeder
 //                'used' => 1
 //            ]);
 
+            $faker = Faker::create();
+
             $newOrder = new Order();
             $newOrder->cart_id = $cart->id;
             $newOrder->order_id = $orderID;
             $newOrder->user_id = $cart->user_id;
             $newOrder->admin_id = 1;
             $newOrder->status_id = rand(1,7);
+            $newOrder->collect_time = rand(7, 24).':00';
             $newOrder->sum = $cart->sum;
             $newOrder->created_at = Carbon::today()->subDays(rand(0, 365));
 

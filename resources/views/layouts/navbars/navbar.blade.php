@@ -91,10 +91,3 @@
         color: white;
     }
 </style>
-
-<script>
-    window.addEventListener('scroll', () => {
-        const navbar = document.getElementById('navbars');
-        navbar.classList.toggle('shadow-sm', window.scrollY > 34);
-    });
-</script>

@@ -40,6 +40,7 @@ class Cart extends Model
     public $fillable = [
         'user_id',
         'code',
+        'collect_time',
         'sum',
         'status_id',
         'admin_id',
@@ -55,6 +56,7 @@ class Cart extends Model
     protected $casts = [
         'user_id' => 'integer',
         'code' => 'string',
+        'collect_time' => 'string',
         'sum' => 'double',
         'status_id' => 'integer',
         'admin_id' => 'integer',

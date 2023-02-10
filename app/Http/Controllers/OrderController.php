@@ -292,7 +292,9 @@ class OrderController extends AppBaseController
     public function checkout(Request $request)
     {
         $user = Auth::user();
+
         $cart = $this->cartRepository->getOrSetCart($request);
+
         $cartItems = CartItem::query()
             ->with('product')
             ->where([
@@ -313,6 +315,8 @@ class OrderController extends AppBaseController
                 'cart' => $cart,
                 'cartItems' => $cartItems,
                 'discounts' => $discounts,
+                'hoursList' => $this->orderHoursSelector(),
+                'minutesList' => $this->orderMinutesSelector(),
             ]);
     }
 
@@ -356,6 +360,9 @@ class OrderController extends AppBaseController
                 }
             }
         }
+
+        $minutes = $request->minutes ?? '00';
+        $this->cartRepository->setCartCollectTime($cart, $request->hours.':'.$minutes);
 
         $request->session()->put('appPayCartId', $cart->id);
         $request->session()->put('appPayAmount', $amount);

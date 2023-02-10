@@ -2,14 +2,18 @@
     <table class="table" id="orders-table">
         <thead>
         <tr>
+            <th>{{__('table.orderId')}}</th>
             <th>{{__('table.user')}}</th>
             <th>{{__('table.status')}}</th>
-            <th colspan="3">{{__('table.action')}}</th>
+            <th>{{__('table.collectTime')}}</th>
+            <th>{{__('table.sum')}}</th>
+            <th>{{__('table.action')}}</th>
         </tr>
         </thead>
         <tbody>
         @foreach($orders as $order)
             <tr>
+                <td>{{ $order->id }}</td>
                 <td>
                     @if ($order->user)
                         {{ $order->user->name }}
@@ -24,6 +28,8 @@
                         {{ $order->status_id }}
                     @endif
                 </td>
+                <td>{{ $order->collect_time }}</td>
+                <td>{{ number_format($order->sum, 2) }} €</td>
                 <td width="120">
                     {!! Form::open(['route' => ['orders.destroy', $order->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>

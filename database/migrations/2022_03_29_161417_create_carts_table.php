@@ -15,9 +15,10 @@ class CreateCartsTable extends Migration
     public function up()
     {
         Schema::create('carts', function (Blueprint $table) {
-            $table->id('id');
+            $table->id();
             $table->unsignedBigInteger('user_id')->unsigned();
             $table->string('code');
+            $table->time('collect_time')->nullable();
             $table->double('sum')->nullable();
             $table->unsignedBigInteger('status_id')->unsigned();
             $table->unsignedBigInteger('admin_id')->unsigned();//->nullable(true);

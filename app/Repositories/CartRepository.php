@@ -107,4 +107,10 @@ class CartRepository extends BaseRepository
 
         return $sum;
     }
+
+    public function setCartCollectTime(object $cart, string $collectionTime): void
+    {
+        $cart->collect_time = $collectionTime;
+        $cart->save();
+    }
 }

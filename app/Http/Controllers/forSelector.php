@@ -152,4 +152,42 @@ trait forSelector
 
         return $c;
     }
+
+    public function orderHoursSelector(): array
+    {
+        $c = [];
+
+        $hours = range(7, 23);
+        $hoursAfterMidnight = ['00', '01', '02'];
+
+        for ($i = 0; $i < count($hours); $i++) {
+            $hourChars = str_split($hours[$i]);
+
+            if (count($hourChars) === 1) {
+                $hours[$i] = '0'.join("", $hourChars);
+                $c[$hours[$i]] = $hours[$i];
+            }
+
+            $c[$hours[$i]]  = (string)$hours[$i];
+        }
+
+        for ($i = 0; $i < count($hoursAfterMidnight); $i++) {
+            $c[] = $hoursAfterMidnight[$i];
+        }
+
+        return $c;
+    }
+
+    public function orderMinutesSelector(): array
+    {
+        $c = array();
+
+        $minutes = ['00', '15', '30', '45'];
+
+        for($i = 0; $i < count($minutes); $i++){
+            $c[$minutes[$i]] = $minutes[$i];
+        }
+
+        return $c;
+    }
 }

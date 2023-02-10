@@ -18,6 +18,7 @@ use Carbon\Carbon;
  * @property integer $user_id
  * @property integer $admin_id
  * @property integer $status_id
+ * @property string $withdrawal_time
  * @property integer $sum
  */
 class Order extends Model
@@ -42,6 +43,7 @@ class Order extends Model
         'user_id',
         'admin_id',
         'status_id',
+        'collect_time',
         'sum',
         'created_at',
         'updated_at'
@@ -58,6 +60,7 @@ class Order extends Model
         'user_id' => 'integer',
         'admin_id' => 'integer',
         'status_id' => 'integer',
+        'collect_time' => 'string',
         'sum' => 'double',
         'created_at' => 'datetime',
         'updated_at' => 'datetime'

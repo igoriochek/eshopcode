@@ -21,6 +21,7 @@ class CreateOrdersTable extends Migration
             $table->unsignedBigInteger('user_id')->unsigned();
             $table->unsignedBigInteger('admin_id')->unsigned();
             $table->unsignedBigInteger('status_id')->unsigned();
+            $table->time('collect_time');
             $table->double('sum')->nullable();
             $table->timestamps();
             $table->foreign('cart_id')->references('id')->on('carts');

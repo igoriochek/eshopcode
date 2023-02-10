@@ -78,10 +78,13 @@
                 <div class="col-lg-5 px-0">
                     <div class="border p-md-4 cart-totals ml-30">
                         <h5 class="fw-bold text-black text-uppercase mb-3 text-center">{{ __('names.overview') }}</h5>
-                        <div class="divider-2 mb-30"></div>
+                        <div class="divider-2 mb-20"></div>
                         <div class="table-responsive mt-20 mb-10">
                             <table class="table no-border" style="border: 2px solid white">
                                 <tbody>
+                                <p class="d-flex justify-content-center gap-2 mb-10">
+                                    {{ __('table.collectTime') }}: <strong>{{ $cart->collect_time }}</strong>
+                                </p>
                                 @if ($discounts)
                                     <tr class="cart-subtotal border-bottom">
                                         <td>
@@ -119,10 +122,9 @@
                                 </tr>
                                 </tbody>
                             </table>
-
                         </div>
                         {!! Form::open(['route' => ['pay'], 'method' => 'post']) !!}
-                        <button type="submit" class="btn  mr-20 w-100">{{ __('buttons.placeOrder') }}<i class="fas fa-arrow-right ms-2"></i></button>
+                            <button type="submit" class="btn  mr-20 w-100">{{ __('buttons.placeOrder') }}<i class="fas fa-arrow-right ms-2"></i></button>
                         {!! Form::close() !!}
                 </div>
                 <!-- End col-lg-6 -->

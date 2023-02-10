@@ -60,4 +60,6 @@ return [
     'value' => 'Vertė',
     'video' => 'Vaizdo įrašas',
     'visible' => 'Matomumas',
+    'collectTime' => 'Atsiemimo laikas'
+
 ];

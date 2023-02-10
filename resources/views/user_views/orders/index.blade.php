@@ -33,6 +33,7 @@
                                                 <tr>
                                                     <th>{{__('names.order')}} ID</th>
                                                     <th>{{__('table.status')}}</th>
+                                                    <th>{{__('table.collectTime')}}</th>
                                                     <th>{{__('table.sum')}}</th>
                                                     <th></th>
                                                 </tr>
@@ -42,6 +43,7 @@
                                                 <tr>
                                                     <td>{{ $item->id }}</td>
                                                     <td>{{ __("status." . $item->status->name) }}</td>
+                                                    <td>{{ $item->collect_time }}</td>
                                                     <td>{{ number_format($item->sum,2) }} €</td>
                                                     <td width="120">
                                                         <div class='btn-group'>

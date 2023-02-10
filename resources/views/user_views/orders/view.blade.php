@@ -30,7 +30,15 @@
                             <div class="card-header d-flex flex-column flex-md-row justify-content-md-between align-items-md-center gap-3">
                                 <div class="d-flex flex-column gap-2">
                                     <h3 class="mb-0">{{__('names.order')}}: {{ $order->order_id }}</h3>
-                                    <div>{{__('names.orderStatus')}}: {{ __("status." . $order->status->name) }}</div>
+                                    <div>
+                                        {{ __('names.orderStatus')}}: {{ __("status." . $order->status->name) }}
+                                    </div>
+                                    <div>
+                                        {{ __('table.collectTime') }}: {{ $order->collect_time }}
+                                    </div>
+                                    <div>
+                                        {{ __('names.total') }}: {{ number_format($order->sum, 2) }} €
+                                    </div>
                                 </div>
                                 <div class="d-flex flex-column flex-md-row gap-md-0 gap-3 mb-md-0 mb-4">
                                     @if($order->status->name !== "Returned" && $order->status->name !== "Canceled")

@@ -40,6 +40,7 @@ return [
     'discountCoupon' => 'Nuolaidos kuponas',
     'acceptedOrder' => 'Ačiū. Jūsų užsakymas buvo priimtas.',
     'canceledOrder' => 'Jūsų užsakymas buvo atšauktas.',
+    'selectCollectTime' => 'Pasirinkite laiką, kada atsiimsite savo užsakymą',
 
     //Categories
     'categories' => 'Kategorijos',
