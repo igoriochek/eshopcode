@@ -40,7 +40,8 @@ return [
     'textMsg' => 'Текст сообщения',
     'typeYourMsgHere' => 'Введите ваше сообщение здесь...',
     'updatedAt' => 'Обновлено в',
-    'areYouSureCart' => 'Вы уверены, что хотите удалить этот товар из корзины?',
-    'addToCart' => 'Товар успешно добавлен в вашу корзину'
+
+    'orderCreatedSubject' => 'Создан Новый Заказ',
+    'orderCreatedMarkdown' => 'emails.order_created_ru',
 
 ];

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\OrderCreated;
 use App\Http\Requests\PayRequest;
 use App\Models\Cart;
 use App\Models\CartItem;
@@ -112,7 +113,6 @@ class PayController extends AppBaseController
                 $newOrder->user_id = $cart->user_id;
                 $newOrder->admin_id = $this->getAdminId();
                 $newOrder->status_id = 2;
-                $newOrder->collect_time = $cart->collect_time;
                 $newOrder->sum = $params['amount'] / 100;
 
                 if ($newOrder->save()) {
@@ -130,6 +130,9 @@ class PayController extends AppBaseController
                     if($user){
                         $user->log("Created new Order ID:{$newOrder->id}");
                     }
+
+                    event(new OrderCreated($newOrder->id, $newOrder->sum, $user->name, $cartItems));
+
                     return 'OK';
                 }
             }

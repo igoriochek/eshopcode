@@ -32,14 +32,15 @@ return [
     'editMsg' => 'Redaguoti žinutę',
     'emptyChat' => 'Pokalbis tuščias',
     'messages' => 'Žinutės',
-    'messenger' => 'Mesendžeris',
-    'openChat' => 'Spustelkite ant bet kokio naudotojo, jog sukurtumėte pokalbių kambarį',
+    'messenger' => 'Messengeris',
+    'openChat' => 'Spustelkite ant bet kokio naudotojo, kad sukurtumėte pokalbių kambarį',
     'send' => 'Siųsti',
     'subject' => 'Tema',
     'textMsg' => 'Žinutės tekstas',
     'typeYourMsgHere' => 'Įveskite savo žinutę čia...',
     'updatedAt' => 'Atnaujinta',
-    'areYouSureCart' => 'Ar tikrai norite pašalinti šį produktą iš savo krepšelio?',
-    'addToCart' => 'Produktas sėkmingai įdėtas į krepšelį'
+
+    'orderCreatedSubject' => 'Sukurtas Naujas Užsakymas',
+    'orderCreatedMarkdown' => 'emails.order_created_lt',
 
 ];
