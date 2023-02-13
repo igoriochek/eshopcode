@@ -39,6 +39,8 @@ return [
     'textMsg' => 'Message Text',
     'typeYourMsgHere' => 'Type your Message here...',
     'updatedAt' => 'Updated At',
-    'areYouSureCart' => 'Are you sure you want to remove this product from your cart'
+
+    'orderCreatedSubject' => 'New Order Created',
+    'orderCreatedMarkdown' => 'emails.order_created_en',
 
 ];
