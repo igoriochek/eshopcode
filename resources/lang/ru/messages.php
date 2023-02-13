@@ -41,5 +41,7 @@ return [
     'typeYourMsgHere' => 'Введите ваше сообщение здесь...',
     'updatedAt' => 'Обновлено в',
 
+    'orderCreatedSubject' => 'Создан Новый Заказ',
+    'orderCreatedMarkdown' => 'emails.order_created_ru',
 
 ];
