@@ -19,6 +19,8 @@ return [
     'incorrectpassword' => 'Neteisingas dabartinis slaptažodis.',
 
     'nocategories' => 'Nėra kategorijų',
+    'noinnercategories' => 'Vidinių kategorijų nėra',
+    'subcategories' => 'Vidinės kategorijos',
     'novideo' => 'Nėra video',
     'passwordmismatch' => 'Slaptažodis tuščias arba nesutampa',
     'makereturn' => 'Atlikti grąžinimą',
@@ -31,11 +33,14 @@ return [
     'emptyChat' => 'Pokalbis tuščias',
     'messages' => 'Žinutės',
     'messenger' => 'Messengeris',
-    'openChat' => 'Spustelkite ant bet kokio naudotojo, jog sukurtumėte pokalbių kambarį',
+    'openChat' => 'Spustelkite ant bet kokio naudotojo, kad sukurtumėte pokalbių kambarį',
     'send' => 'Siųsti',
     'subject' => 'Tema',
     'textMsg' => 'Žinutės tekstas',
     'typeYourMsgHere' => 'Įveskite savo žinutę čia...',
     'updatedAt' => 'Atnaujinta',
+
+    'orderCreatedSubject' => 'Sukurtas Naujas Užsakymas',
+    'orderCreatedMarkdown' => 'emails.order_created_lt',
 
 ];

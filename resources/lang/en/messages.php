@@ -19,6 +19,8 @@ return [
     'incorrectpassword' => 'Incorrect current password.',
 
     "nocategories" => "No Categories",
+    "noinnercategories" => "No subcategories",
+    "subcategories" => "Subcategories",
     "novideo" => "No video",
     "passwordmismatch" => "Password empty or mismatch",
     "makereturn" => "Make a return",
@@ -37,6 +39,9 @@ return [
     'textMsg' => 'Message Text',
     'typeYourMsgHere' => 'Type your Message here...',
     'updatedAt' => 'Updated At',
-
+    'areYouSureCart' => 'Are you sure you want to remove this product from your cart',
+    'errorAuthCheck' => 'You are not logged in',
+    'successAuthLogin' => 'You are now successfully logged in',
+    'errorUnauthAccess' => 'Unauthorized access',
 
 ];

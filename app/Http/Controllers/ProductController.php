@@ -131,11 +131,11 @@ class ProductController extends AppBaseController
     public function create()
     {
         return view('products.create',
-        [ 'visible_list' => $this->visible_list,
-          'categories' => $this->categoriesForSelector(),
-          'promotions' => $this->promotionForSelector(),
-          'discounts' => $this->discountForSelector(),
-        ]
+            [ 'visible_list' => $this->visible_list,
+              'categories' => $this->categoriesForSelector(),
+              'promotions' => $this->promotionForSelector(),
+              'discounts' => $this->discountForSelector(),
+            ]
         );
     }
 
@@ -318,7 +318,6 @@ class ProductController extends AppBaseController
 
         return redirect(route('products.index'));
     }
-
 
     public function saveCategories( $cats, $prod_id)  {
         foreach ($cats as $cat ){
