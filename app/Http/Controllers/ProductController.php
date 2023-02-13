@@ -51,6 +51,23 @@ class ProductController extends AppBaseController
             ->with('products', $products);
     }
 
+    private function getProductsWithCorrectIds(object $products, int $paginateNumber): object
+    {
+        $products = $products->paginate($paginateNumber)->appends(request()->query());
+
+        foreach ($products as $product)
+        {
+            $product->id = $product->product_id;
+
+            $sumAndCount = $this->calculateRatingSumAndCount($this->getProductRatings($product->id));
+            $product->sum = $sumAndCount['sum'];
+            $product->count = $sumAndCount['count'];
+            $product->average = $this->calculateAverageRating($product->sum, $product->count);
+        }
+
+        return $products;
+    }
+
     public function userProductIndex(Request $request)
     {
         $filter = $request->query('filter');
@@ -113,21 +130,12 @@ class ProductController extends AppBaseController
                 AllowedFilter::scope('priceto'),
             ])
             ->allowedIncludes('categories')
-            ->orderBy($orderBy, $orderByDirection)
-            ->paginate($paginateNumber)
-            ->appends(request()->query());
-
-        foreach ($products as $product) {
-            $product->id = $product->product_id;
-
-            $sumAndCount = $this->calculateRatingSumAndCount($this->getProductRatings($product->id));
-            $product->sum = $sumAndCount['sum'];
-            $product->count = $sumAndCount['count'];
-            $product->average = $this->calculateAverageRating($product->sum, $product->count);
-        }
+            ->orderBy($orderBy, $orderByDirection);
 
         return view('user_views.product.products_all_with_filters')
-            ->with(['products'=> $products,
+            ->with([
+                'maxPrice' => $products->max('price'),
+                'products' => $this->getProductsWithCorrectIds($products, $paginateNumber),
                 'categories' => $categories,
                 'filter' => $filter ? $filter : array(),
                 'selCategories' => $selCategories ? explode(",",$selCategories) : array(),
@@ -135,7 +143,6 @@ class ProductController extends AppBaseController
                 'order_list' => $this->productsOrderSelector(),
                 'selectedProductsPerPage' => $selectedProductsPerPage,
                 'selectedOrder' => $selectedOrder,
-                'maxPrice' => $products->max('price')
 //                'pricefrom' => $request->query('filter[pricefrom]') == null ? "" : $request->query('filter[pricefrom]'),
 //                'priceto' => $request->query('filter[priceto]') == null ? "" : $request->query('filter[priceto]'),
             ]);

@@ -13,35 +13,34 @@ return [
     |
     */
 
-    'userupdated' => 'Vartotojo informacija sėkmingai išsaugota.',
+    'userupdated' => 'Naudotojo informacija sėkmingai išsaugota.',
 
     'changedpassword' => 'Slaptažodis sėkmingai pakeistas.',
     'incorrectpassword' => 'Neteisingas dabartinis slaptažodis.',
 
-    "nocategories" => "Nėra Kategorijų",
-    "noinnercategories" => "Vidinių kategorijų nėra",
-    "subcategories" => "Vidinės kategorijos",
-    "novideo" => "Nėra video",
-    "passwordmismatch" => "Slaptažodis tuščias arba nesutampa",
-    "makereturn" => "Atlikti grąžinimą",
-    "chooselang" => "Kalba",
+    'nocategories' => 'Nėra kategorijų',
+    'noinnercategories' => 'Vidinių kategorijų nėra',
+    'subcategories' => 'Vidinės kategorijos',
+    'novideo' => 'Nėra video',
+    'passwordmismatch' => 'Slaptažodis tuščias arba nesutampa',
+    'makereturn' => 'Atlikti grąžinimą',
+    'chooselang' => 'Kalba',
 
-    'detailsMsg' => 'Žinutės Detalės',
+    'detailsMsg' => 'Žinutės detalės',
     'created_at' => 'Sukurta',
     'createMsg' => 'Sukurti žinutę',
     'editMsg' => 'Redaguoti žinutę',
     'emptyChat' => 'Pokalbis tuščias',
     'messages' => 'Žinutės',
     'messenger' => 'Messengeris',
-    'openChat' => 'Spustelkite ant bet kokio vartotojo, jog sukurtumėte pokalbių kambarį',
+    'openChat' => 'Spustelkite ant bet kokio naudotojo, kad sukurtumėte pokalbių kambarį',
     'send' => 'Siųsti',
     'subject' => 'Tema',
     'textMsg' => 'Žinutės tekstas',
     'typeYourMsgHere' => 'Įveskite savo žinutę čia...',
     'updatedAt' => 'Atnaujinta',
-    'areYouSureCart' => 'Ar tikrai norite pašalinti šį produktą iš savo krepšelio',
-    'errorAuthCheck' => 'Jūs nesate prisijungęs',
-    'successAuthLogin' => 'Dabar esate sėkmingai prisijungę',
-    'errorUnauthAccess' => 'Neteisėta prieiga'
+
+    'orderCreatedSubject' => 'Sukurtas Naujas Užsakymas',
+    'orderCreatedMarkdown' => 'emails.order_created_lt',
 
 ];

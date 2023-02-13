@@ -40,9 +40,8 @@ return [
     'textMsg' => 'Текст сообщения',
     'typeYourMsgHere' => 'Введите ваше сообщение здесь...',
     'updatedAt' => 'Обновлено в',
-    'areYouSureCart' => 'Вы уверены, что хотите удалить этот товар из корзины',
-    'errorAuthCheck' => 'Вы не вошли в свой аккаунт',
-    'successAuthLogin' => 'Вы успешно вошли в свой аккаунт',
-    'errorUnauthAccess' => 'Несанкционированный доступ'
+
+    'orderCreatedSubject' => 'Создан Новый Заказ',
+    'orderCreatedMarkdown' => 'emails.order_created_ru',
 
 ];
