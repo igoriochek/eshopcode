@@ -22,14 +22,14 @@
                     <div class="clearfix"></div>
 
                     @if($returns)
-                        <div class="card">
+                        <div class="card border-0">
                             <div class="card-body p-0">
                                 <div class="table table-responsive">
                                     <table class="table" id="categories">
                                         <thead>
                                         <tr>
                                             <th>ID</th>
-{{--                                            <th>{{__('table.user')}}</th>--}}
+                                            {{--                                            <th>{{__('table.user')}}</th>--}}
                                             <th>{{__('table.status')}}</th>
                                             <th> </th>
                                         </tr>
@@ -38,7 +38,7 @@
                                         @foreach($returns as $item)
                                             <tr>
                                                 <td>{{ $item->id }}</td>
-{{--                                                <td>{{ $item->user->name }}</td>--}}
+                                                {{--                                                <td>{{ $item->user->name }}</td>--}}
                                                 <td>{{ __("status." . $item->status->name) }}</td>
                                                 <td width="120">
                                                     <div class='btn-group'>
@@ -64,4 +64,3 @@
         </div>
     </div>
 @endsection
-

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\OrderCreated;
 use App\Http\Requests\PayRequest;
 use App\Models\Cart;
 use App\Models\CartItem;
@@ -137,6 +138,9 @@ class PayController extends AppBaseController
 //                        $user->log("Created new Order ID:{$params['orderid']}");
                         $user->log("Created new Order ID:{$newOrder->id}");
                     }
+
+                    event(new OrderCreated($newOrder->id, $newOrder->sum, $user->name, $cartItems));
+
                     return 'OK';
                 }
             }

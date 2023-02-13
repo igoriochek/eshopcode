@@ -22,14 +22,14 @@
                     <div class="clearfix"></div>
 
                     @if($orders)
-                        <div class="card">
+                        <div class="card border-0">
                             <div class="card-body p-0">
                                 <div class="table table-responsive">
                                     <table class="table" id="categories">
                                         <thead>
                                         <tr>
                                             <th>{{__("names.order")}} ID</th>
-{{--                                            <th>{{__('table.user')}}</th>--}}
+                                            {{--                                            <th>{{__('table.user')}}</th>--}}
                                             <th>{{__('table.status')}}</th>
                                             <th>{{__('table.sum')}}</th>
                                             <th> </th>
@@ -39,7 +39,7 @@
                                         @foreach($orders as $item)
                                             <tr>
                                                 <td>{{ $item->id }}</td>
-{{--                                                <td>{{ $item->user->name }}</td>--}}
+                                                {{--                                                <td>{{ $item->user->name }}</td>--}}
                                                 <td>{{ __("status." . $item->status->name) }}</td>
                                                 <td>{{ number_format($item->sum,2) }} EU</td>
                                                 <td width="120">
@@ -66,4 +66,3 @@
         </div>
     </div>
 @endsection
-

@@ -40,5 +40,7 @@ return [
     'typeYourMsgHere' => 'Type your Message here...',
     'updatedAt' => 'Updated At',
 
+    'orderCreatedSubject' => 'New Order Created',
+    'orderCreatedMarkdown' => 'emails.order_created_en',
 
 ];
