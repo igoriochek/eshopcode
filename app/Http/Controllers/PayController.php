@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\OrderCreated;
 use App\Http\Requests\PayRequest;
 use App\Models\Cart;
 use App\Models\CartItem;
@@ -30,11 +31,18 @@ class PayController extends AppBaseController
     {
         $cartId = $request->session()->get('appPayCartId');
         $amount = $request->session()->get('appPayAmount');
+//        $amount = str_replace(".", "", $amount);
+//        $amount = $amount * 10;
 
-        if(strpos($amount, ".") == strlen($amount)-2)  $amount = $amount . "0";
-        elseif (strpos($amount, ".") === false ) $amount = $amount . "00";
+//        if (!preg_match("/\./", $amount)) {
+            if(strpos($amount, ".") == strlen($amount)-2)  $amount = $amount . "0";
+            elseif (strpos($amount, ".") === false ) $amount = $amount . "00";
+//            elseif(strpos($amount, ".") == strlen($amount)-3)  $amount = $amount . "00";
+//        }
 
+//        $amount = str_replace(".", "", $amount);
         $amount = preg_replace("/\D/", "", $amount);
+
 
         $appUrl = env('APP_URL');
         $payment = [
@@ -127,8 +135,12 @@ class PayController extends AppBaseController
                     $user = Auth::user();
 
                     if($user){
+//                        $user->log("Created new Order ID:{$params['orderid']}");
                         $user->log("Created new Order ID:{$newOrder->id}");
                     }
+
+                    event(new OrderCreated($newOrder->id, $newOrder->sum, $user->name, $cartItems));
+
                     return 'OK';
                 }
             }

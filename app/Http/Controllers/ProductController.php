@@ -88,7 +88,7 @@ class ProductController extends AppBaseController
 
         $products = QueryBuilder::for(Product::class)
             ->join('products_translations', function ($join) {
-                $join->on('products.id', '=', 'products_translations.product_id')
+                $join->on('products_translations.product_id', '=', 'products.id')
                     ->where('products_translations.locale', '=', app()->getLocale());
             })
             ->allowedFilters([
@@ -98,9 +98,7 @@ class ProductController extends AppBaseController
                 AllowedFilter::scope('priceto'),
             ])
             ->allowedIncludes('categories')
-            ->orderBy($orderBy, $orderByDirection)
-            ->paginate(12)
-            ->appends(request()->query());
+            ->orderBy($orderBy, $orderByDirection);
 
         foreach ($products as $product) {
             $product->id = $product->product_id;
@@ -112,13 +110,14 @@ class ProductController extends AppBaseController
         }
 
         return view('user_views.product.products_all_with_filters')
-            ->with(['products'=> $products,
+            ->with([
+                'maxPrice' => $products->max('price'),
+                'products' => $products->paginate(9)->appends(request()->query()),
                 'categories' => $categories,
                 'filter' => $filter ? $filter : array(),
                 'selCategories' => $selCategories ? explode(",",$selCategories) : array(),
                 'order_list' => $this->productsOrderSelector(),
                 'selectedOrder' => $selectedOrder,
-                'maxPrice' => round($products->max('price'))
             ]);
     }
 
