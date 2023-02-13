@@ -40,4 +40,7 @@ return [
     'typeYourMsgHere' => 'Įveskite savo žinutę čia...',
     'updatedAt' => 'Atnaujinta',
 
+    'orderCreatedSubject' => 'Sukurtas Naujas Užsakymas',
+    'orderCreatedMarkdown' => 'emails.order_created_lt',
+
 ];
