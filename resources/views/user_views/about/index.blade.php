@@ -17,57 +17,35 @@
             {{--@if ($lang == 'lt')--}}
                 <p class="mb-4">
                     <span class="me-5"></span>
-                    MB „Opatrip.com“ įgyvendina ES struktūrinėmis lėšomis finansuojamą projektą Nr.
-                    13.1.1-LVPA-K-860-01-0726 „E. komercijos modelio diegimas MB „Opatrip.com““. Bendra
-                    projekto vertė – <b>62 330,00</b> Eur, iš kurių <b>46 747,50</b> Eur sudaro Europos regioninės plėtros fondo
-                    lėšos.
+                    MB „Du prieš du“ įgyvendina ES struktūrinėmis lėšomis finansuojamą projektą Nr. 13.1.1-LVPA-K-860-01-0450 „E. komercijos modelio diegimas MB „Du prieš du“. Bendra projekto vertė – <b>59 930,00</b> Eur, iš kurių <b>44 947,50</b> Eur sudaro Europos regioninės plėtros fondo lėšos.
                 </p>
                 <p class="mb-4">
                     <span class="me-5"></span>
-                    Parama projekto įgyvendinimui suteikta pagal 2014–2020 metų Europos Sąjungos fondų
-                    investicijų veiksmų programos 13 prioriteto „Veiksmų, skirtų COVID-19 pandemijos sukeltai
-                    krizei įveikti, skatinimas ir pasirengimas aplinką tausojančiam, skaitmeniniam ir tvariam
-                    ekonomikos atsigavimui“ Nr. 13.1.1-LVPA-K-860 „E. komercijos modelis COVID-19“.
-                    Projektas yra finansuojamas Europos regioninės plėtros fondo lėšomis. Finansuojama kaip
-                    Europos Sąjungos atsako į COVID-19 pandemiją priemonė.
+                    Parama projekto įgyvendinimui suteikta pagal 2014–2020 metų Europos Sąjungos fondų investicijų veiksmų programos 13 prioriteto „Veiksmų, skirtų COVID-19 pandemijos sukeltai krizei įveikti, skatinimas ir pasirengimas aplinką tausojančiam, skaitmeniniam ir tvariam ekonomikos atsigavimui“ Nr. 13.1.1-LVPA-K-860 „E. komercijos modelis COVID-19“. Projektas yra finansuojamas Europos regioninės plėtros fondo lėšomis. Finansuojama kaip Europos Sąjungos atsako į COVID-19 pandemiją priemonė.
                 </p>
                 <p class="mb-4">
                     <span class="me-5"></span>
-                    MB “Opatrip.com” – nuo 2005 m. teikia pramogų turizmo paslaugas - organizuoja
-                    temines ir pažintines ekskursijas, degustacijas, baidarių ir pelkių žygius, komandos formavimo ir
-                    orientacinius žaidimus tiek vietiniams turistams, tiek atvykstantiems iš užsienio šalių.
+                    MB „Du prieš du“ –  įmonė, teikianti sporto stovyklų organizavimo paslaugas užsienio šalių krepšinio klubams ir vykdanti sporto turizmo veiklą.
                 </p>
                 <p class="mb-4">
                     <span class="me-5"></span>
-                    Įmonė siekia teikti aukščiausios kokybės paslaugas, bei pasiūlyti sprendimus apimančius
-                    įvairaus dydžio projektus. Vienos labiausiai besiplečiančių įmonės paslaugų - tai teminių
-                    kelionių organizavimas pagal klientų poreikius tiek Lietuvoje, tiek užsienyje, teminių ekskursijų
-                    orgnizavimas su vietiniais gidais.
+                    Įmonė siekia teikti aukščiausios kokybės paslaugas bei pasiūlyti sprendimus apimančius įvairius klientų poreikius. Vienos labiausiai besiplečiančių įmonės paslaugų – tai sporto reabilitacijos programų pardavimas.
                 </p>
                 <p class="mb-4">
                     <span class="me-5"></span>
-                    Iki šiol įmonė pardavinėjant savo paslaugas naudoja web svetainę, bet ji netenkina
-                    Pareiškėjo ir neatitinka naujausių technologijų reikalavimų bei klientų poreikių, nes naudojama
-                    sena platforma, nėra daug reikalingų modulių ir funkcijų. Tokiu būdu ribojamas potencialių
-                    klientų ratas ir įmonės pajamų augimas.
+                    Iki šiol įmonė savo produktus pardavinėjo tik tiesioginiu būdu, tačiau neturėdama galimybės valdyti verslo sandorių el. būdu (t.y. vykdyti produktų užsakymus elektroninėse prekybos platformoje), ribojo potencialių klientų ratą ir tuo pačiu įmonės pajamų augimą.
                 </p>
                 <p class="mb-4">
                     <span class="me-5"></span>
-                    Įmonė, siekdama padidinti konkurencingumą, pritraukti daugiau klientų ir efektyviau juos
-                    aptarnauti, labiau išplėsti pardavimus, nusprendė skaitmenizuoti pardavimo procesus diegdama
-                    naują inovatyvų e.komercijos sprendimą ir pardavinėti savo produktus per jį.
+                    Įmonė, siekdama padidinti konkurencingumą, pritraukti daugiau klientų ir efektyviau juos aptarnauti, labiau išplėsti pardavimus, nusprendė skaitmenizuoti pardavimo procesus ir pardavinėti savo produktus naudojantis elektroninės komercijos sprendimais.
                 </p>
                 <p class="mb-4">
                     <span class="me-5"></span>
-                    Šis projektas inovatyvus tuo, kad bus kuriama elektroninės prekybos platforma,
-                    panaudojant pažangiausias informacines technologijas, suteikiančias naujas galimybes
-                    inovatyviam produktų pardavimui.
+                    Šis projektas inovatyvus tuo, kad bus kuriama elektroninės prekybos platforma, panaudojant pažangiausias informacines technologijas, suteikiančias naujas galimybes inovatyviam produktų pardavimui.
                 </p>
                 <p class="mb-4">
                     <span class="me-5"></span>
-                    Įgyvendintas projektas leis įmonei efektyviau pardavinėti savo produktus, užtikrins
-                    greitesnį ir kokybiškesnį klientų aptarnavimą, sutrumpėjęs produktų pardavimo laikas leis
-                    aptarnauti daugiau klientų, tai užtikrins įmonės pajamų augimą.
+                    Įgyvendintas projektas leis įmonei efektyviau pardavinėti savo paslaugas, užtikrins greitesnį ir kokybiškesnį klientų aptarnavimą, sutrumpėjęs produktų pardavimo laikas leis aptarnauti daugiau klientų, kas užtikrins įmonės pajamų augimą.
                 </p>
                 <p class="mb-4">
                     <span class="me-5"></span>
