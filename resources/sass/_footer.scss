@@ -40,7 +40,7 @@ footer {
                 height: 100%;
                 border: none;
                 border-radius: 0 5px 5px 0;
-                background-color: $pink-color;
+                background-color: $dark-blue-color;
                 color: $white-color;
                 transition: all 300ms ease-in-out;
                 box-shadow: inset 0 0 0 0 $button-hover-focus-background;
@@ -56,26 +56,27 @@ footer {
 
     .footer-link {
         text-decoration: none;
-        color: $gray-color;
+        color: $white-color;
         @include link-hover-focus;
     }
 
     .footer-bar-title {
+        color: #eee;
         font-family: $font-family-playfair-display;
     }
 
     .contact-travel-paragraph {
-        color: $light-gray-color;
+        color: $white-color;
         font-size: 1.1em;
     }
 
     .contact-travel-icon {
-        color: $pink-color;
+        color: $red-color;
     }
 
     .copyright-paragraph,
     .slogan-paragraph, {
         font-size: 1em;
-        color: $light-gray-color;
+        color: #eee;
     }
 }

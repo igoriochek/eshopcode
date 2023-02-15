@@ -9,25 +9,32 @@
                 <div class="row">
                     <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-md-between">
                         <div class="mb-2 mb-md-0">
-                            <h3 class="mt-3 mb-1" style="font-family: 'Times New Roman', sans-serif">
+                            <h3 class="mt-3 mb-2" style="font-family: 'Times New Roman', sans-serif">
                                 {{__('names.order')}}: {{ $order->order_id }}
                             </h3>
-                            <span class="text-muted">
-                                {{__('names.orderStatus')}}: {{ __("status." . $order->status->name) }}
-                            </span>
+                            <div class="d-flex flex-column gap-2">
+                                <span class="text-muted">
+                                    {{__('names.orderStatus')}}:
+                                    <strong>{{ __("status." . $order->status->name) }}</strong>
+                                </span>
+                                <span class="text-muted">
+                                    {{__('names.sum')}}:
+                                    <strong>€{{ number_format($order->sum, 2) }}</strong>
+                                </span>
+                            </div>
                         </div>
                         <div class="d-flex flex-column flex-md-row gap-3">
                             @if($order->status->name !== "Returned" && $order->status->name !== "Canceled")
                                 <div class="btn-group" style="float: right">
                                     <a href="{{ route('returnorder', [$order->id]) }}"
-                                       class='btn btn-primary orders-returns-primary-button'>
+                                       class='orders-returns-primary-button col-12'>
                                         <i class="far fa-arrow-alt-circle-right me-1 fs-6"></i>
                                         {{ __('buttons.return') }}
                                     </a>
                                 </div>
                                 <div class="btn-group" style="float: right">
                                     <a href="{{ route('cancelnorder', [$order->id]) }}"
-                                       class='btn btn-primary orders-returns-primary-button'>
+                                       class='orders-returns-primary-button col-12'>
                                         <i class="far fa-trash-alt me-1 fs-6"></i>
                                         {{ __('buttons.cancel') }}
                                     </a>
@@ -35,7 +42,7 @@
                                 @if($order->status->name == 'Completed')
                                     <div class="btn-group" style="float: right">
                                         <a href="{{ route('download_invoice', [$order->id]) }}"
-                                           class='btn btn-primary orders-returns-primary-button'>
+                                           class='orders-returns-primary-button col-12'>
                                             <i class="fa-solid fa-file-invoice me-1 fs-6"></i>
                                             {{__('buttons.invoice')}}
                                         </a>
@@ -45,7 +52,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row bg-white mx-md-0 px-0 py-3">
+                <div class="row bg-white mx-md-0 p-2 shadow-sm">
                     <h4 class="my-2" style="font-family: 'Times New Roman', sans-serif">{{ __('names.products') }}</h4>
                     <div class="table table-responsive">
                         <table class="table table-striped table-bordered my-3">
@@ -70,7 +77,7 @@
                                         </td>
                                     @endif
                                     <td class="px-3">{{ $item->product->name }}</td>
-                                    <td class="px-3">{{ number_format($item->price_current,2) }} €</td>
+                                    <td class="px-3">€{{ number_format($item->price_current,2) }}</td>
                                     <td class="px-3">{{ $item->count }}</td>
                                 </tr>
                             @endforeach
@@ -78,7 +85,7 @@
                         </table>
                     </div>
                 </div>
-                <div class="row bg-white mx-md-0 px-0 py-3">
+                <div class="row bg-white mx-md-0 p-2 shadow-sm">
                     <h4 class="my-2" style="font-family: 'Times New Roman', sans-serif">{{ __('names.orderHistory') }}</h4>
                     @include('orders.history_table')
                 </div>

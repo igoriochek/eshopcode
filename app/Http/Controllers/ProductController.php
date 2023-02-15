@@ -98,9 +98,7 @@ class ProductController extends AppBaseController
                 AllowedFilter::scope('priceto'),
             ])
             ->allowedIncludes('categories')
-            ->orderBy($orderBy, $orderByDirection)
-            ->paginate(10)
-            ->appends(request()->query());
+            ->orderBy($orderBy, $orderByDirection);
 
         foreach ($products as $product) {
             $product->id = $product->product_id;
@@ -112,14 +110,14 @@ class ProductController extends AppBaseController
         }
 
         return view('user_views.product.products_all_with_filters')
-            ->with(['products'=> $products,
-                'categories' => $categories,
-                'filter' => $filter ? $filter : array(),
-                'selCategories' => $selCategories ? explode(",",$selCategories) : array(),
-                'order_list' => $this->productsOrderSelector(),
-                'selectedOrder' => $selectedOrder,
-//                'pricefrom' => $request->query('filter[pricefrom]') == null ? "" : $request->query('filter[pricefrom]'),
-//                'priceto' => $request->query('filter[priceto]') == null ? "" : $request->query('filter[priceto]'),
+            ->with([
+                    'maxPrice' => $products->max('price'),
+                    'products'=> $products->paginate(10)->appends(request()->query()),
+                    'categories' => $categories,
+                    'filter' => $filter ? $filter : array(),
+                    'selCategories' => $selCategories ? explode(",",$selCategories) : array(),
+                    'order_list' => $this->productsOrderSelector(),
+                    'selectedOrder' => $selectedOrder
                 ]);
     }
 

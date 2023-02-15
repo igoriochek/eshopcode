@@ -1,31 +1,27 @@
-
-
 .nav-tabs {
     border: 0;
-    margin-bottom: 10px;
-    border-bottom: 3px solid #eee;
+    border-bottom: 3px solid $dark-blue-color;
 
     li {
-        margin-bottom: -3px;
+        margin-bottom: 15px;
 
         .nav-link {
             background: none;
             border: 0;
-            border-bottom: 3px solid #eee;
             border-radius: 0;
             color: $gray-color;
             font-size: 14px;
             font-weight: 600;
-            transition: all 200ms ease;
+            transition: all 50ms ease;
+            margin-right: 10px;
 
             &:hover, &:focus, &:active {
-                border-bottom: 3px solid #eee;
-                color: $pink-color;
+                color: $red-color
             }
 
             &.active {
-                border-bottom: 3px solid #eee;
-                color: $pink-color;
+                border: 1.5px solid $red-color;
+                color: $dark-blue-color;
             }
         }
     }

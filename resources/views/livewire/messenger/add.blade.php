@@ -25,7 +25,6 @@
                         <p class="p-0 m-0 showing-all-results">
                             {{ __('names.results').': '.$addUsers->count() }}
                         </p>
-                        <hr class="hr"/>
                         @include('livewire.messenger.add_users')
                     </div>
                 </div>

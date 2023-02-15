@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'opatrip'),
+    'name' => env('APP_NAME', 'Du prieš du'),
 
     /*
     |--------------------------------------------------------------------------
@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'https://www.bonatrip.com'),
+    'url' => env('APP_URL', 'https://www.recovcenter.com'),
 
     'asset_url' => env('ASSET_URL', null),
 

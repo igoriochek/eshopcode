@@ -10,17 +10,19 @@ return [
 
     'information' => 'Informacija',
     'contactUs' => 'Susisiekite su mumis',
-    'slogan' => 'Suteikite sau atsakomybės galią. Priminkite sau, kad vienintelis dalykas, kuris jus stabdo, esate jūs pats.',
+    'slogan' => 'Šūkis',
     'aboutUsTeam' => 'Apie mus / Komanda',
     'career' => 'Karjera',
     'allLocations' => 'Lokacijos',
-    'menu' => 'MENIU',
+    'menu' => 'Meniu',
     'faq' => 'D.U.K.',
-    'privacyPolicy' => 'Privatumo politika',
-    'termsOfService' => 'Paslaugų teikimo sąlygos',
+    'privacyPolicy' => 'Privatumo Politika',
+    'termsOfService' => 'Paslaugų Teikimo Sąlygos',
     'contantSupport' => 'Kontaktai / Pagalba',
+    'address' => 'Adresas',
+    'phoneNumber' => 'Telefono numeris',
     'companyCode' => 'Įmonės kodas',
     'vatCode' => 'PVM kodas',
-    'copyright' => 'MB OPATRIP © 2022. Visos teisės saugomos.'
+    'copyright' => '© 2022 Du prieš du. Visos teisės saugomos.'
 
 ];

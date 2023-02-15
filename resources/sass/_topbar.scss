@@ -1,11 +1,11 @@
 .topbar {
     font-size: 0.8em;
-    background-color: #281e28;
+    background-color: $dark-blue-color;
     min-height: 45px;
     z-index: 1001;
 
     .topbar_icon {
-        color: #c028b9;
+        color: $red-color;
         @include link-hover-focus;
     }
 

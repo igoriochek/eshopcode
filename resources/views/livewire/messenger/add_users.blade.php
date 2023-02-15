@@ -1,4 +1,4 @@
-<ul class="list-unstyled">
+<ul class="list-unstyled mt-4">
     @forelse ($addUsers as $user)
         <li>
             <div class="messenger-add-users-user flex-column flex-sm-row">
@@ -7,6 +7,7 @@
                     <p class="messenger-add-users-email">{{ $user->email }}</p>
                 </div>
                 <a class="messenger-add-users-button" href="{{ route('livewire.messenger.show', [$user->id]) }}">
+                    <i class="fa-solid fa-comment me-1"></i>
                     {{ __('buttons.contact') }}
                 </a>
             </div>

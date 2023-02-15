@@ -189,7 +189,7 @@ class CartController extends AppBaseController
      * Add to cart
      *
      * @param AddToCartRequest $request
-     * @return void
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function addToCart(AddToCartRequest $request)
     {
@@ -211,15 +211,16 @@ class CartController extends AppBaseController
                 ->first();
 
             if (null === $cartItem) {
-                $cartItem = new CartItem([
+                $cartItem = CartItem::create([
                     'cart_id' => $cart->id,
                     'product_id' => $product->id,
-                    'price_current' => $product->price,
+                    'price_current' => $product->discount ?
+                        $product->price - (round(($product->price * $product->discount->proc / 100), 2)) :
+                        $product->price,
                     'count' => $validated['count'],
                 ]);
                 $cartItem->save();
-            }
-            else {
+            } else {
                 $cartItem->increment('count', $validated['count']);
                 $cartItem->save();
             }

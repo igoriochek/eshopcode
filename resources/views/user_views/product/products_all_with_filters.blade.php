@@ -70,14 +70,17 @@
                                             </div>
                                             <hr class="product-hr"/>
                                             <div class="product-button-container">
-                                                {!! Form::open(['route' => ['addtocart'], 'method' => 'post', 'class' => 'product-add-to-cart-container justify-content-center justify-content-md-between']) !!}
+                                                {!! Form::open(['route' => ['addtocart'], 'method' => 'post', 'class' => 'product-add-to-cart-container justify-content-center justify-content-md-between gap-4 gap-md-0']) !!}
                                                     <div class="d-flex">
                                                         <input type="button" class="minus text-color-hover-light bg-color-hover-primary border-color-hover-primary" value="-">
                                                         {!! Form::number('count', "1", ['class' => 'product-add-to-cart-number', "min" => "1", "max" => "5", "minlength" => "1", "maxlength" => "5", "oninput" => "this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null"]) !!}
                                                         <input type="button" class="plus text-color-hover-light bg-color-hover-primary border-color-hover-primary" value="+">
                                                     </div>
                                                     <input type="hidden" name="id" value="{{ $product->id }}">
-                                                    <input type="submit" value="{{__('buttons.addToCart')}}" class="product-add-to-cart-button">
+                                                    <button type="submit" class="product-add-to-cart">
+                                                        <i class="fa-sharp fa-solid fa-cart-plus me-1"></i>
+                                                        {{__('buttons.addToCart')}}
+                                                    </button>
                                                 {!! Form::close() !!}
                                             </div>
                                         </div>
@@ -141,7 +144,7 @@
                                             <div class="form-check mb-3">
                                                 <label class="form-check-label" style="cursor: pointer">
                                                     <input class="form-check-input me-2" type="checkbox" value="{{ $category->id }}"
-                                                           id="category" onclick="calc();" name="filter[categories.id]" style="cursor: pointer"
+                                                           id="category" onclick="calc();" name="filter[categories.id]" style="cursor: pointer; border-radius: 0"
                                                     @if ($filter && array_key_exists('categories.id', $filter))
                                                         {{ in_array($category->id, $selCategories) ? "checked=\"checked\"" : ""}}
                                                         @endif>
@@ -182,8 +185,8 @@
                 $(rangeSlider).slider({
                     range: true,
                     min: 0,
-                    max: 1000,
-                    values: [{{ $filter["pricefrom"] ?? 0 }}, {{ $filter["priceto"] ?? 1000 }}],
+                    max: {{ $maxPrice }},
+                    values: [{{ $filter["pricefrom"] ?? 0 }}, {{ $filter["priceto"] ?? $maxPrice }}],
                     slide: (event, ui) => {
                         $(priceFrom).val(ui.values[0]);
                         $(priceTo).val(ui.values[1]);

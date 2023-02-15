@@ -1,5 +1,5 @@
 * {
-    font-family: $font-family-montserrat;
+    font-family: $font-family-inter;
     scroll-behavior: smooth;
 
     &::after,
@@ -38,7 +38,7 @@
                 border: none;
                 font-size: 20px;
                 color: #ffffff;
-                background-color: $pink-color;
+                background-color: $red-color;
                 border-radius: 6px;
                 text-align: center;
                 width: 50px;
@@ -100,15 +100,15 @@
                 .page-item {
                     .page-link {
                         border-color: #cec7ce;
-                        color: $pink-color;
+                        color: $red-color;
                     }
                 }
 
                 .page-item.active .page-link {
                     z-index: 3;
-                    background-color: $pink-color;
+                    background-color: $red-color;
                     color: $white-color;
-                    border-color: $pink-color;
+                    border-color: $red-color;
                 }
             }
         }

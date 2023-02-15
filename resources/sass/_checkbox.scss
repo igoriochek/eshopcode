@@ -3,7 +3,9 @@
     align-items: flex-start;
 }
 
-.form-check-input:checked {
-    background-color: $pink-color;
-    border-color: $pink-color;
+.form-check-input {
+    &:checked {
+        background-color: $red-color;
+        border-color: $red-color;
+    }
 }

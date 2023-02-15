@@ -19,7 +19,7 @@
                     </div>
                     <div class="form-group col-sm-12 d-flex flex-column flex-md-row justify-content-md-center align-items-sm-center gap-3 mt-4">
                         {!! Form::submit(__('buttons.save'), ['class' => 'btn btn-primary orders-returns-primary-button col-lg-3 col-md-4 col-sm-12']) !!}
-                        <a href="{{ route('rootorders') }}" class="btn btn-secondary orders-returns-secondary-button col-lg-3 col-md-4 col-sm-12">
+                        <a href="{{ url()->previous() }}" class="btn btn-secondary orders-returns-secondary-button col-lg-3 col-md-4 col-sm-12">
                             {{__('buttons.cancel')}}
                         </a>
                     </div>

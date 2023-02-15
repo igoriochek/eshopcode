@@ -23,7 +23,7 @@
                 border-radius: 3px;
                 width: 40px;
                 height: 40px;
-                background: $pink-color;
+                background: $red-color;
                 transition: background 200ms ease;
 
                 &:hover, &:focus, &:active {
@@ -49,8 +49,8 @@
 
                     &:hover, &:focus {
                         .admin-navbar-link {
-                            color: $pink-color;
-                            transition: all 200ms ease;
+                            color: $red-color;
+                            transition: all 100ms ease;
                         }
                     }
 
@@ -74,7 +74,7 @@
                     }
 
                     .active {
-                        color: $pink-color;
+                        color: $red-color;
                     }
 
                     i {
@@ -101,12 +101,12 @@
                                 font-weight: 500;
 
                                 &:hover, &:focus {
-                                    color: $pink-color;
+                                    color: $red-color;
                                 }
                             }
 
                             .subactive {
-                                color: $pink-color;
+                                color: $red-color;
                             }
                         }
                     }
@@ -136,7 +136,7 @@
                 &:hover, &:focus {
                     .admin-header-account-icon,
                     .admin-header-account-name {
-                        color: $pink-color;
+                        color: $red-color;
                     }
                 }
 
@@ -160,7 +160,7 @@
                 justify-content: center;
 
                 &:hover, &:focus {
-                    color: $pink-color;
+                    color: $red-color;
                 }
             }
         }

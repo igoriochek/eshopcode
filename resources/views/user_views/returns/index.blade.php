@@ -6,11 +6,11 @@
         @include('flash::message')
         <div class="row">
             <div class="col-lg-12">
-                <div class="mb-4 mt-3">
-                    <h3 style="font-family: 'Times New Roman', sans-serif">{{__('names.returns')}}</h3>
-                </div>
                 <div class="row bg-white mx-md-0 px-0 py-3">
-                    <div class="table table-responsive">
+                    <h3 class="my-3" style="font-family: 'Times New Roman', sans-serif">
+                        {{ __('names.returns') }}
+                    </h3>
+                    <div class="table table-responsive mt-1">
                         <table class="table table-striped table-bordered mb-3" id="categories" style="border-inline: 1px solid #e3e3e3; border-bottom: none">
                             <thead style="background: #e3e3e3">
                             <tr>

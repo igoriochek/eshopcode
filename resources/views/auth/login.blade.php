@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    @include('header', ['url' => route("userproducts") ,'title' => __('names.products'), 'paragraph'=> __('auth.login')])
+    @include('header', ['url' => route("userproducts") ,'title' => __('auth.login')])
     <div class="auth-form container py-5">
         <div class="row justify-content-center">
             <div class="col-lg-4 mb-5 mb-lg-0">
@@ -42,8 +42,8 @@
                     <div class="row justify-content-between align-items-center my-3">
                         <div class="form-group col-md-auto">
                             <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="rememberme">
-                                <label class="form-label custom-control-label cur-pointer text-2" for="rememberme" style="margin-top: 10px">
+                                <input type="checkbox" id="rememberme" style="cursor: pointer; border-radius: 0;">
+                                <label class="form-label custom-control-label cur-pointer text-2" for="rememberme" style="margin-top: 10px; cursor: pointer">
                                     {{ __('auth.rememberMe') }}
                                 </label>
                             </div>

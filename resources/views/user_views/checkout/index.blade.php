@@ -34,7 +34,7 @@
                 </p>
             </div>
         </div>
-        <div class="row justify-content-center coupon-form-wrapper mb-5 collapse show">
+        <div class="row justify-content-center coupon-form-wrapper mb-5 collapse">
             <div class="col-12 col-md-8">
                 <div class="card">
                     <div class="card-body">

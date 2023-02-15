@@ -37,16 +37,10 @@ use App\Http\Livewire\MessengerShow;
 */
 
 Route::get('/', function () {
-    if (Auth::user())
-        return redirect('user/products');
-    else
-        return redirect('products');
+    return redirect('products');
 });
 Route::get('/home', function () {
-    if (Auth::user())
-        return redirect('user/products');
-    else
-        return redirect('products');
+    return redirect('products');
 })->name("home");
 
 Route::group(array('prefix' => 'admin', 'middleware' => 'admin'), function () {
@@ -200,7 +194,7 @@ Route::get('promotions', [PromotionController::class, 'indexPromotions'])->name(
 Route::get('promotion/{id}', [PromotionController::class, 'promotionProducts'])->name('promotion');
 Route::get("termsofservice", [TermsOfServiceController::class, 'rules'])->name('termsofservice');
 Route::get("policy", [TermsOfServiceController::class, 'policy'])->name('policy');
-Route::get('about',[AboutUsController::class, 'index'])->name('about');
+Route::get('eu_projects',[AboutUsController::class, 'index'])->name('about');
 
 Auth::routes();
 Route::get("logout", function () {

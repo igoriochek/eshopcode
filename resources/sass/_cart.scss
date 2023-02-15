@@ -62,7 +62,7 @@
                 text-decoration: none;
 
                 &:hover, &:focus, &:active {
-                    color: #ee3ee2;
+                    color: $red-color;
                 }
             }
         }
@@ -100,11 +100,11 @@
                 padding: .95rem 1.5rem;
                 transition: all 200ms ease;
                 color: #fff;
-                background: #222;
+                background: $red-color;
                 text-transform: uppercase;
 
                 &:hover, &:focus, &:active {
-                    background: #ee3ee2;
+                    background: $button-hover-focus-background;
                 }
             }
         }

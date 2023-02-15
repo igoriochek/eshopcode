@@ -2,6 +2,7 @@
 $body-bg: #f8fafc;
 
 // Typography
+$font-family-inter: 'Inter', sans-serif;
 $font-family-montserrat: 'Montserrat', sans-serif;
 $font-family-playfair-display: 'Playfair Display', serif;
 $font-size-base: 0.9rem;
@@ -9,12 +10,13 @@ $line-height-base: 1.6;
 
 // Colors
 $white-color: #FFFFFF;
-$pink-color: #cb34c2;
+$dark-blue-color: #1a3253;
+$red-color: #d3162e;
 $gray-color: #3f3f3f;
 $light-gray-color: #818181;
 $yellow-color: #ffb40a;
 
 // Hover and focus
-$link-hover-focus-color: #c736c0;
-$secondary-link-hover-focus-color: #42113f;
-$button-hover-focus-background: #a12c9b;
+$link-hover-focus-color: #d3162e;
+$secondary-link-hover-focus-color: #a21123;
+$button-hover-focus-background: #af1226;

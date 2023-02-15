@@ -9,7 +9,7 @@
     @endauth
     <li>
         <a class="dropdown-item" href="{{ url('/user/userprofile') }}"
-           style="color: {{ request()->is('user/userprofile*') ? '#c736c0' : '' }}">
+           style="color: {{ request()->is('user/userprofile*') ? '#d3162e' : '' }}">
             {{__('menu.profile')}}
         </a>
     </li>
@@ -17,13 +17,13 @@
             @if (Auth::user()->type == 2)
                 <li>
                     <a class="dropdown-item" href="{{ url('/user/rootorders') }}"
-                       style="color: {{ request()->is('user/rootorders*') ? '#c736c0' : '' }}">
+                       style="color: {{ request()->is('user/rootorders*') || request()->is('user/vieworder*') ? '#d3162e' : '' }}">
                         {{__('menu.orders')}}
                     </a>
                 </li>
                 <li>
                     <a class="dropdown-item" href="{{ url('/user/rootoreturns') }}"
-                       style="color: {{ request()->is('user/rootoreturnsç*') ? '#c736c0' : '' }}">
+                       style="color: {{ request()->is('user/rootoreturns*') || request()->is('user/viewreturn*') ? '#d3162e' : '' }}">
                         {{__('menu.returns')}}
                     </a>
                 </li>

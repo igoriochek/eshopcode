@@ -1,4 +1,5 @@
 .discount-coupon {
+    border-left: 10px solid $red-color;
     border-radius: 6px;
     box-shadow: 0 7px 16px 0 rgb(9 28 58 / 7%);
     padding: 0 20px;
@@ -29,7 +30,7 @@
 
     .discount-coupon-link {
         text-decoration: none;
-        color: $pink-color;
+        color: $dark-blue-color;
         font-size: 1em;
         font-weight: 500;
         transition: color 400ms ease;

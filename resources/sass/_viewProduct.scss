@@ -42,7 +42,7 @@
             }
 
             b {
-                color: $pink-color;
+                color: $dark-blue-color;
             }
 
             span {
@@ -62,7 +62,7 @@
     .product-link,
     .category-link {
         text-decoration: none;
-        margin-right: 10px;
+        margin-right: 4px;
     }
 
     .product-link {
@@ -72,7 +72,7 @@
     }
 
     .category-link {
-        color: $pink-color;
+        color: $dark-blue-color;
         font-size: 1em;
         font-weight: 500;
         transition: color 400ms ease;
@@ -183,14 +183,13 @@
             }
 
             .product-reviews-add-review-submit {
-                width: 120px;
-                height: 45px;
+                width: 130px;
+                height: 50px;
                 border: none;
-                border-radius: 5px;
-                background-color: $pink-color;
+                background-color: $red-color;
                 color: $white-color;
                 transition: background-color 300ms ease;
-                font-size: 0.9em;
+                font-size: 1em;
                 margin-top: 20px;
 
                 &:hover,

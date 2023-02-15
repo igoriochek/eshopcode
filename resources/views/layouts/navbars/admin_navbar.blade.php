@@ -1,8 +1,8 @@
 <header class="admin-header">
     <div class="admin-header-container">
         <div class="admin-header-top-container">
-            <a href="{{ url('/home') }}" class="admin-header-logo">
-                <img src="/images/bonatrip.png" alt="bonatrip-logo" width="200px" class="logo" width="170">
+            <a href="{{ url('/') }}" class="admin-header-logo">
+                <img src="{{ asset('images/logo.jpeg') }}" alt="logo" width="190px" class="logo">
             </a>
             <button class="admin-header-toggle-button" onclick="onClickOpenMenu()">
                 <i class="fa-sharp fa-solid fa-bars text-white fs-6"></i>
@@ -28,16 +28,16 @@
                        href="#" role="button" id="dropdownLanguage" data-bs-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">
                         @if (app()->getLocale() == 'lt')
-                            <img src="/images/lt-flag.png" alt="lt-flag" style="width: 17px; height: 17px; margin-right: 5px; border-radius: 10px">
+                            <img src="/images/lt-flag.png" alt="lt-flag" style="width: 24px; height: 17px; margin-right: 5px">
                         @elseif (app()->getLocale() == 'en')
-                            <img src="/images/en-flag.png" alt="en-flag" style="width: 17px; height: 17px; margin-right: 5px; border-radius: 10px">
+                            <img src="/images/en-flag.png" alt="en-flag" style="width: 24px; height: 17px; margin-right: 5px">
                         @elseif (app()->getLocale() == 'ru')
-                            <img src="/images/ru-flag.svg" alt="en-flag" style="width: 17px; height: 17px; margin-right: 5px; border-radius: 10px">
+                            <img src="/images/ru-flag.svg" alt="en-flag" style="width: 24px; height: 17px; margin-right: 5px;">
                         @endif
                         {{ app()->getLocale() }}
                         <i class="fas fa-angle-down ms-1"></i>
                     </a>
-                    <div class="dropdown-menu dropdown-menu-arrow-centered min-width-0" aria-labelledby="dropdownCurrency" style="">
+                    <div class="dropdown-menu dropdown-menu-arrow-centered min-width-0" aria-labelledby="dropdownCurrency" style="min-width: 3rem;">
                         @foreach (config('translatable.locales') as $locale)
                             <a class="dropdown-item" href="/lang/{{ $locale }}" style="font-size: .9rem;">
                                 {{ strtoupper($locale) }}

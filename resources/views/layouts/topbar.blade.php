@@ -8,13 +8,13 @@
                             <div class="d-flex align-items-center">
                                 <a class="text-light" href="#">
                                     <i class="fa-solid fa-phone topbar_icon me-1"></i>
-                                    <span>+370 679 22249</span>
+                                    <span>+370 686 10246</span>
                                 </a>
                             </div>
                             <div class="d-flex align-items-center">
                                 <a class="text-light" href="#">
                                     <i class="fa-solid fa-location-dot topbar_icon me-1"></i>
-                                    <span>Gynėjų g. 14, LT-01109 Vilnius, Lithuania</span>
+                                    <span>Perkūnkiemio g. 13-91, LT-12114 Vilnius </span>
                                 </a>
                             </div>
                         </div>

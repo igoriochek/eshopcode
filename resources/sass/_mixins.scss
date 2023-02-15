@@ -1,5 +1,5 @@
 @mixin link-hover-focus {
-    transition: color 400ms ease;
+    transition: all 300ms ease;
 
     &:hover,
     &:focus {
@@ -10,6 +10,7 @@
 @mixin loginButton($bg-color, $hover-bg-color) {
     background: $bg-color;
     border: none;
+    border-radius: 0;
     font-weight: 600;
     font-size: .9rem;
     transition: all 200ms ease;
@@ -23,17 +24,17 @@
 @mixin header($background-image-url) {
     height: auto;
     width: 100%;
-    background: #888888 url($background-image-url) no-repeat center center;
+    background: #888888 url($background-image-url) no-repeat center bottom;
     background-size: cover;
     background-blend-mode: multiply;
 
     .header-inner-title {
-        margin: 180px 0;
+        margin: 150px 0;
 
         .header-span {
             width: 3px;
             height: 20px;
-            background-color: $pink-color;
+            background-color: $dark-blue-color;
         }
 
         .header-subtitle-home,
@@ -42,26 +43,29 @@
         }
 
         .header-subtitle-home {
+            font-family: $font-family-playfair-display;
             text-transform: uppercase;
             color: $white-color;
-            font-size: 1.1em;
+            font-size: 2em;
             @include link-hover-focus;
         }
 
         .header-subtitle-route {
-            color: #ee3ee2;
-            font-size: 1em;
+            font-family: $font-family-playfair-display;
+            color: $white-color;
+            font-size: 1.5em;
 
             &::before {
                 content: '/';
-                margin: 0 7px 0 10px;
+                font-weight: 800;
+                margin-left: 10px;
                 color: $white-color;
             }
         }
 
         .header-title {
             color: $white-color;
-            font-family: "Playfair Display", serif;
+            font-family: $font-family-playfair-display;
             font-weight: 700;
             font-size: 3em;
             text-align: left;
@@ -69,16 +73,16 @@
         }
     }
 
-    .header-bottom {
-        width: 100%;
-        height: 44px;
-        z-index: 1;
-        background: url('/images/header-bottom.png') repeat-x center center;
-        position: relative;
-        top: 0;
-        left: 0;
-        box-shadow: 5px 5px $white-color;
-    }
+    //.header-bottom {
+    //    width: 100%;
+    //    height: 44px;
+    //    z-index: 1;
+    //    background: url('/images/header-bottom.png') repeat-x center center;
+    //    position: relative;
+    //    top: 0;
+    //    left: 0;
+    //    box-shadow: 5px 5px $white-color;
+    //}
 }
 
 @mixin orderSteps {
@@ -98,11 +102,11 @@
             }
 
             .active {
-                color: #ee3ee2;
+                color: $red-color;
             }
 
             .done {
-                color: #222;
+                color: $dark-blue-color;
                 text-decoration: none;
             }
         }

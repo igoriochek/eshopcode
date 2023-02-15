@@ -104,14 +104,17 @@
                                     <input type="button" class="plus text-color-hover-light bg-color-hover-primary border-color-hover-primary" value="+">
                                 </div>
                                 <input type="hidden" name="id" value="{{ $product->id }}">
-                                <input type="submit" value="{{__('buttons.addToCart')}}" class="product-add-to-cart-button">
+                                <button type="submit" class="product-add-to-cart-button">
+                                    <i class="fa-sharp fa-solid fa-cart-plus me-1"></i>
+                                    {{__('buttons.addToCart')}}
+                                </button>
                             {!! Form::close() !!}
                             <hr class="hr-dark my-4">
                             <div class="product-detail-container">
                                 <span class="me-2">{{ __('names.categories') }}:</span>
                                 @forelse ($product->categories as $category)
                                     <a href="{{ url("/user/innercategories/$category->id") }}" class="category-link">
-                                        {{ $category->name }}
+                                        {{ $category->name }}@if (!$loop->last),@endif
                                     </a>
                                 @empty
                                     <span>{{ __('names.noCategories') ?? '-' }}</span>
@@ -175,15 +178,8 @@
                                         @endguest--}}
                                         @guest
                                             <p class="product-reviews-add-review-description">{{ __('names.loginToReview') }}</p>
-                                        @endguest
-                                        @auth
-                                            <div class="col-sm-12">
-                                                <label class="form-label">{{ __('names.yourReview') }}*</label>
-                                                <div class="mb-3">
-                                                    <textarea class="form-control" rows="5" id="comment" name="comment"></textarea>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-12">
+                                        @else
+                                            <div class="col-sm-12 mb-4">
                                                 <div class="rating" style="gap: 5px">
                                                     <input type="radio" name="rating" value="5" id="5"><label for="5">
                                                         <i class="fa-regular fa-star"></i>
@@ -203,11 +199,18 @@
                                                 </div>
                                             </div>
                                             <div class="col-sm-12">
+                                                <label class="form-label">{{ __('names.yourReview') }}*</label>
+                                                <div class="mb-3">
+                                                    <textarea class="form-control" rows="5" id="comment" name="comment"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12">
                                                 <button type="button" class="product-reviews-add-review-submit">
+                                                    <i class="fa-solid fa-star me-1"></i>
                                                     {{ __('buttons.submit') }}
                                                 </button>
                                             </div>
-                                        @endauth
+                                        @endguest
                                     @else
                                         <p class="product-reviews-add-review-description">{{ __('names.alreadyReviewed') }}</p>
                                     @endif

@@ -38,10 +38,10 @@
 
                 &:hover,
                 &:focus {
-                    color: $pink-color;
+                    color: $red-color;
 
                     i {
-                        color: $pink-color;
+                        color: $red-color;
                     }
                 }
 
@@ -52,7 +52,7 @@
             }
 
             .active {
-                color: $pink-color;
+                color: $red-color;
             }
         }
 

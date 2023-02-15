@@ -5,19 +5,19 @@
     <div class="container">
         @include('adminlte-templates::common.errors')
         @include('flash::message')
-        <div class="mb-3 mt-5">
-            <h2 style="font-family: 'Times New Roman', sans-serif">{{ __('menu.profile') }}</h2>
-        </div>
         <div class="col bg-white py-3 auth-form mb-5">
+            <h3 class="my-3" style="font-family: 'Times New Roman', sans-serif">
+                {{ __('menu.profile') }}
+            </h3>
             <div id="description" class="tabs tabs-simple tabs-simple-full-width-line tabs-product tabs-dark mb-2">
-                <ul class="nav nav-tabs justify-content-start mb-0" role="tablist">
+                <ul class="nav nav-tabs justify-content-start my-4" role="tablist">
                     <li class="nav-item" role="presentation">
-                        <a class="nav-link active py-3 ps-0 pe-3" href="#profile" data-bs-toggle="tab" aria-selected="true" role="tab">
+                        <a class="nav-link active" href="#profile" data-bs-toggle="tab" aria-selected="true" role="tab">
                             {{ __('names.userInfo') }}
                         </a>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <a class="nav-link nav-link-reviews py-3 ps-3 pe-0" href="#password" data-bs-toggle="tab" aria-selected="false" tabindex="-1" role="tab">
+                        <a class="nav-link nav-link-reviews" href="#password" data-bs-toggle="tab" aria-selected="false" tabindex="-1" role="tab">
                             {{ __('auth.passwordEnter') }}
                         </a>
                     </li>

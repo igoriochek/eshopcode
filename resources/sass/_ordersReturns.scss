@@ -14,27 +14,30 @@
 .orders-returns-primary-button,
 .orders-returns-secondary-button {
     border: none;
-    transition: background 200ms ease;
+    transition: all 200ms ease;
     font-size: 1rem;
     font-weight: 400;
-    border-radius: 5px;
-    padding: 10px 20px;
+    padding: 12.5px 25px;
+    text-decoration: none;
+    text-align: center;
 }
 
 .orders-returns-primary-button {
-    background: $pink-color;
+    background: $red-color;
     color: $white-color;
 
     &:hover, &:focus, &:active {
+        color: $white-color;
         background: $button-hover-focus-background;
     }
 }
 
 .orders-returns-secondary-button {
     background: #eee;
-    color: $gray-color;
+    color: $light-gray-color;
 
     &:hover, &:focus, &:active {
-        background: $light-gray-color;
+        color: $white-color;
+        background: $red-color;
     }
 }

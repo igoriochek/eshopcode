@@ -11,7 +11,7 @@
                                     {{ __('names.messages') }}
                                 </h4>
                                 <a class="messenger-users-add" href="{{ route('livewire.messenger.add') }}">
-                                    <i class="fa-solid fa-plus"></i>
+                                    <i class="fa-solid fa-comment"></i>
                                     {{__('buttons.contact')}}
                                 </a>
                             </div>

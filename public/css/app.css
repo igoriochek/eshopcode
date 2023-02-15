@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap);
 @charset "UTF-8";
@@ -11234,7 +11235,7 @@ textarea.form-control-lg {
   }
 }
 * {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Inter", sans-serif;
   scroll-behavior: smooth;
 }
 *::after, *::before {
@@ -11268,7 +11269,7 @@ textarea.form-control-lg {
   border: none;
   font-size: 20px;
   color: #ffffff;
-  background-color: #cb34c2;
+  background-color: #d3162e;
   border-radius: 6px;
   text-align: center;
   width: 50px;
@@ -11282,7 +11283,7 @@ textarea.form-control-lg {
   opacity: 0;
 }
 * body .main .scroll-to-top-button:hover, * body .main .scroll-to-top-button:focus {
-  background-color: #a12c9b;
+  background-color: #af1226;
 }
 * body .main .scroll-to-top-button.show {
   opacity: 1;
@@ -11317,50 +11318,50 @@ textarea.form-control-lg {
 }
 * body .main .pagination .page-item .page-link {
   border-color: #cec7ce;
-  color: #cb34c2;
+  color: #d3162e;
 }
 * body .main .pagination .page-item.active .page-link {
   z-index: 3;
-  background-color: #cb34c2;
+  background-color: #d3162e;
   color: #FFFFFF;
-  border-color: #cb34c2;
+  border-color: #d3162e;
 }
 
 .topbar {
   font-size: 0.8em;
-  background-color: #281e28;
+  background-color: #1a3253;
   min-height: 45px;
   z-index: 1001;
 }
 .topbar .topbar_icon {
-  color: #c028b9;
-  transition: color 400ms ease;
+  color: #d3162e;
+  transition: all 300ms ease;
 }
 .topbar .topbar_icon:hover, .topbar .topbar_icon:focus {
-  color: #c736c0;
+  color: #d3162e;
 }
 .topbar .topbar_icon_link {
   color: #FFFFFF;
-  transition: color 400ms ease;
+  transition: all 300ms ease;
 }
 .topbar .topbar_icon_link:hover, .topbar .topbar_icon_link:focus {
-  color: #c736c0;
+  color: #d3162e;
 }
 .topbar a {
   text-decoration: none;
 }
 .topbar a span {
-  transition: color 400ms ease;
+  transition: all 300ms ease;
 }
 .topbar a span:hover, .topbar a span:focus {
-  color: #c736c0;
+  color: #d3162e;
 }
 .topbar div ul li #navbarDropdown {
   color: #FFFFFF;
-  transition: color 400ms ease;
+  transition: all 300ms ease;
 }
 .topbar div ul li #navbarDropdown:hover, .topbar div ul li #navbarDropdown:focus {
-  color: #c736c0;
+  color: #d3162e;
 }
 .topbar .dropdown-menu {
   min-width: 3rem;
@@ -11377,35 +11378,37 @@ textarea.form-control-lg {
   text-decoration: none;
   font-weight: 500;
   color: #3f3f3f;
-  transition: color 400ms ease;
+  padding: 7.5px 15px;
+  transition: all 50ms ease;
 }
 .navbar .nav .nav-item a:hover, .navbar .nav .nav-item a:focus {
-  color: #c736c0;
+  color: #d3162e;
+}
+.navbar .nav .nav-item .active {
+  border: 1.5px solid #d3162e;
 }
 .navbar .navbar-login-button {
   width: 110px;
   text-decoration: none;
   text-align: center;
-  border: 2px solid #cb34c2;
-  border-radius: 5px;
-  background-color: transparent;
-  color: #cb34c2;
+  background: #d3162e;
+  color: #FFFFFF;
   transition: all 300ms ease;
   font-weight: 600;
-  padding: 11px;
+  padding: 10px;
   margin-right: 10px;
 }
 .navbar .navbar-login-button:hover, .navbar .navbar-login-button:focus {
-  background: #cb34c2;
+  background: #af1226;
   color: #FFFFFF;
 }
 .navbar .navbar-icon {
   text-decoration: none;
   color: #3f3f3f;
-  transition: color 400ms ease;
+  transition: all 300ms ease;
 }
 .navbar .navbar-icon:hover, .navbar .navbar-icon:focus {
-  color: #c736c0;
+  color: #d3162e;
 }
 .navbar .navbar-icon:first-child {
   position: relative;
@@ -11416,7 +11419,7 @@ textarea.form-control-lg {
   left: 21px;
   width: 17px;
   height: 17px;
-  background-color: #cb34c2;
+  background-color: #d3162e;
   border-radius: 10px;
   color: #FFFFFF;
   font-size: 0.7em;
@@ -11441,18 +11444,17 @@ textarea.form-control-lg {
 @media only screen and (max-width: 1199px) {
   .navbar .hamburger-menu-button {
     border: none;
-    border-radius: 5px;
-    background-color: #cb34c2;
+    background-color: #d3162e;
     color: #FFFFFF;
-    width: 50px;
-    height: 50px;
+    width: 48px;
+    height: 48px;
     display: flex;
     justify-content: center;
     align-items: center;
     transition: background-color 300ms ease;
   }
   .navbar .hamburger-menu-button:hover, .navbar .hamburger-menu-button:focus {
-    background-color: #a12c9b;
+    background-color: #af1226;
   }
   .navbar .menu {
     display: block;
@@ -11518,7 +11520,7 @@ textarea.form-control-lg {
           height: 100%;
           border: none;
           border-radius: 0 5px 5px 0;
-          background-color: $pink-color;
+          background-color: $dark-blue-color;
           color: $white-color;
           transition: all 300ms ease-in-out;
           box-shadow: inset 0 0 0 0 $button-hover-focus-background;
@@ -11584,12 +11586,12 @@ textarea.form-control-lg {
 .sidebar .category-tree-widget-content li a:hover, .sidebar .category-tree-widget-content li a:focus,
 .sidebar .promotion-tree-widget-content li a:hover,
 .sidebar .promotion-tree-widget-content li a:focus {
-  color: #cb34c2;
+  color: #d3162e;
 }
 .sidebar .category-tree-widget-content li a:hover i, .sidebar .category-tree-widget-content li a:focus i,
 .sidebar .promotion-tree-widget-content li a:hover i,
 .sidebar .promotion-tree-widget-content li a:focus i {
-  color: #cb34c2;
+  color: #d3162e;
 }
 .sidebar .category-tree-widget-content li a i,
 .sidebar .promotion-tree-widget-content li a i {
@@ -11598,7 +11600,7 @@ textarea.form-control-lg {
 }
 .sidebar .category-tree-widget-content li .active,
 .sidebar .promotion-tree-widget-content li .active {
-  color: #cb34c2;
+  color: #d3162e;
 }
 .sidebar .category-tree-widget-content hr,
 .sidebar .promotion-tree-widget-content hr {
@@ -11608,38 +11610,41 @@ textarea.form-control-lg {
 .products-header-banner {
   height: auto;
   width: 100%;
-  background: #888888 url("/images/products-header.jpeg") no-repeat center center;
+  background: #888888 url("/images/header.jpg") no-repeat center bottom;
   background-size: cover;
   background-blend-mode: multiply;
 }
 .products-header-banner .header-inner-title {
-  margin: 180px 0;
+  margin: 150px 0;
 }
 .products-header-banner .header-inner-title .header-span {
   width: 3px;
   height: 20px;
-  background-color: #cb34c2;
+  background-color: #1a3253;
 }
 .products-header-banner .header-inner-title .header-subtitle-home,
 .products-header-banner .header-inner-title .header-subtitle-products {
   text-decoration: none;
 }
 .products-header-banner .header-inner-title .header-subtitle-home {
+  font-family: "Playfair Display", serif;
   text-transform: uppercase;
   color: #FFFFFF;
-  font-size: 1.1em;
-  transition: color 400ms ease;
+  font-size: 2em;
+  transition: all 300ms ease;
 }
 .products-header-banner .header-inner-title .header-subtitle-home:hover, .products-header-banner .header-inner-title .header-subtitle-home:focus {
-  color: #c736c0;
+  color: #d3162e;
 }
 .products-header-banner .header-inner-title .header-subtitle-route {
-  color: #ee3ee2;
-  font-size: 1em;
+  font-family: "Playfair Display", serif;
+  color: #FFFFFF;
+  font-size: 1.5em;
 }
 .products-header-banner .header-inner-title .header-subtitle-route::before {
   content: "/";
-  margin: 0 7px 0 10px;
+  font-weight: 800;
+  margin-left: 10px;
   color: #FFFFFF;
 }
 .products-header-banner .header-inner-title .header-title {
@@ -11649,16 +11654,6 @@ textarea.form-control-lg {
   font-size: 3em;
   text-align: left;
   margin: 15px 0;
-}
-.products-header-banner .header-bottom {
-  width: 100%;
-  height: 44px;
-  z-index: 1;
-  background: url("/images/header-bottom.png") repeat-x center center;
-  position: relative;
-  top: 0;
-  left: 0;
-  box-shadow: 5px 5px #FFFFFF;
 }
 
 .product {
@@ -11682,10 +11677,10 @@ textarea.form-control-lg {
   font-weight: bold;
   font-size: 1.4em;
   color: #3f3f3f;
-  transition: color 400ms ease;
+  transition: all 300ms ease;
 }
 .product .product-information .product-title-container .product-title:hover, .product .product-information .product-title-container .product-title:focus {
-  color: #c736c0;
+  color: #d3162e;
 }
 .product .product-information .product-hr {
   height: 2px;
@@ -11708,7 +11703,7 @@ textarea.form-control-lg {
   text-decoration: line-through;
 }
 .product .product-information .product-price .product-discounted-price {
-  color: #cb34c2;
+  color: #d3162e;
   font-weight: bolder;
 }
 .product .product-information .product-price .product-no-discount-price {
@@ -11718,33 +11713,33 @@ textarea.form-control-lg {
   margin-bottom: 20px;
 }
 .product .product-information .product-button-container .product-add-to-cart {
-  width: 150px;
+  max-width: 200px;
   height: 50px;
   border: none;
-  border-radius: 5px;
-  background-color: #cb34c2;
+  background: #d3162e;
   color: #FFFFFF;
   transition: background-color 300ms ease;
   font-size: 1em;
+  padding-inline: 15px;
 }
 .product .product-information .product-button-container .product-add-to-cart:hover, .product .product-information .product-button-container .product-add-to-cart:focus {
-  background-color: #a12c9b;
+  background-color: #af1226;
 }
 
 .sidebar .filter-by-price-widget-content .ui-widget-header {
-  background: #cb34c2;
+  background: #d3162e;
 }
 .sidebar .filter-by-price-widget-content .ui-state-default, .sidebar .filter-by-price-widget-content .ui-widget-content .ui-state-default {
   border-radius: 10px;
   transition: background 300ms ease;
-  border: 5px solid #cb34c2;
+  border: 5px solid #d3162e;
   background: #FFFFFF;
 }
 .sidebar .filter-by-price-widget-content .ui-state-default:hover, .sidebar .filter-by-price-widget-content .ui-state-default:active, .sidebar .filter-by-price-widget-content .ui-widget-content .ui-state-default:hover, .sidebar .filter-by-price-widget-content .ui-widget-content .ui-state-default:active {
-  background: #cb34c2;
+  background: #d3162e;
 }
 .sidebar .filter-by-price-widget-content .ui-state-default:active, .sidebar .filter-by-price-widget-content .ui-widget-content .ui-state-default:active {
-  border: 1px solid #cb34c2;
+  border: 1px solid #af1226;
 }
 .sidebar .filter-by-price-widget-content .filter-by-price-button-container {
   display: flex;
@@ -11759,13 +11754,13 @@ textarea.form-control-lg {
   border: none;
   border-radius: 5px;
   background: transparent;
-  color: #cb34c2;
+  color: #d3162e;
   transition: color 300ms ease;
   font-size: 1em;
   padding: 0;
 }
 .sidebar .filter-by-price-widget-content .filter-by-price-button-container .filter-by-price-button:hover, .sidebar .filter-by-price-widget-content .filter-by-price-button-container .filter-by-price-button:focus {
-  color: #a12c9b;
+  color: #af1226;
 }
 .sidebar .search-widget-content {
   display: flex;
@@ -11778,13 +11773,13 @@ textarea.form-control-lg {
   height: 50px;
   border: none;
   border-radius: 0 5px 5px 0;
-  background-color: #cb34c2;
+  background-color: #d3162e;
   color: #FFFFFF;
   transition: background-color 300ms ease;
   font-size: 1em;
 }
 .sidebar .search-widget-content .search-widget-button:hover, .sidebar .search-widget-content .search-widget-button:focus {
-  background-color: #a12c9b;
+  background-color: #af1226;
 }
 .sidebar .categories-widget-content {
   margin-top: 20px;
@@ -11827,7 +11822,7 @@ textarea.form-control-lg {
   color: #3f3f3f;
 }
 .product-section .product-rating-price-container .product-price b {
-  color: #cb34c2;
+  color: #1a3253;
 }
 .product-section .product-rating-price-container .product-price span {
   font-weight: 600;
@@ -11842,24 +11837,24 @@ textarea.form-control-lg {
 .product-section .product-link,
 .product-section .category-link {
   text-decoration: none;
-  margin-right: 10px;
+  margin-right: 4px;
 }
 .product-section .product-link {
   color: #3f3f3f;
   font-size: 0.9em;
-  transition: color 400ms ease;
+  transition: all 300ms ease;
 }
 .product-section .product-link:hover, .product-section .product-link:focus {
-  color: #c736c0;
+  color: #d3162e;
 }
 .product-section .category-link {
-  color: #cb34c2;
+  color: #1a3253;
   font-size: 1em;
   font-weight: 500;
   transition: color 400ms ease;
 }
 .product-section .category-link:hover, .product-section .category-link:focus {
-  color: #a12c9b;
+  color: #af1226;
 }
 .product-section .product-detail-container {
   margin-bottom: 20px;
@@ -11945,18 +11940,17 @@ textarea.form-control-lg {
   opacity: 0.4;
 }
 .product-section .product-reviews-container .product-review-add-review-form .product-reviews-add-review-submit {
-  width: 120px;
-  height: 45px;
+  width: 130px;
+  height: 50px;
   border: none;
-  border-radius: 5px;
-  background-color: #cb34c2;
+  background-color: #d3162e;
   color: #FFFFFF;
   transition: background-color 300ms ease;
-  font-size: 0.9em;
+  font-size: 1em;
   margin-top: 20px;
 }
 .product-section .product-reviews-container .product-review-add-review-form .product-reviews-add-review-submit:hover, .product-section .product-reviews-container .product-review-add-review-form .product-reviews-add-review-submit:focus {
-  background-color: #a12c9b;
+  background-color: #af1226;
 }
 
 .product-add-to-cart-container {
@@ -11979,15 +11973,9 @@ textarea.form-control-lg {
   transition: all 100ms ease;
 }
 .product-add-to-cart-container .minus:hover, .product-add-to-cart-container .minus:focus, .product-add-to-cart-container .plus:hover, .product-add-to-cart-container .plus:focus {
-  background: #cb34c2;
+  background: #d3162e;
   color: #FFFFFF;
-  border-color: #cb34c2;
-}
-.product-add-to-cart-container .minus {
-  border-radius: 5px 0 0 5px;
-}
-.product-add-to-cart-container .plus {
-  border-radius: 0 5px 5px 0;
+  border-color: #d3162e;
 }
 .product-add-to-cart-container .product-add-to-cart-number {
   width: 40px;
@@ -12001,15 +11989,14 @@ textarea.form-control-lg {
   width: 160px;
   height: 50px;
   border: none;
-  border-radius: 5px;
-  background-color: #cb34c2;
+  background-color: #d3162e;
   color: #FFFFFF;
   transition: background-color 300ms ease;
   font-size: 0.9em;
   margin-left: 20px;
 }
 .product-add-to-cart-container .product-add-to-cart-button:hover, .product-add-to-cart-container .product-add-to-cart-button:focus {
-  background-color: #a12c9b;
+  background-color: #af1226;
 }
 
 .category {
@@ -12028,7 +12015,7 @@ textarea.form-control-lg {
   transition: color 400ms ease;
 }
 .category .category-title:hover, .category .category-title:focus {
-  color: #a12c9b;
+  color: #af1226;
 }
 .category .category-product-count {
   margin: 20px 0;
@@ -12048,22 +12035,21 @@ textarea.form-control-lg {
 }
 .category .subcategory-link {
   text-decoration: none;
-  color: #cb34c2;
+  color: #d3162e;
   font-size: 1em;
   font-weight: 500;
   transition: color 400ms ease;
   margin-right: 15px;
 }
 .category .subcategory-link:hover, .category .subcategory-link:focus {
-  color: #a12c9b;
+  color: #af1226;
 }
 
 .category-return-button {
   width: 100%;
   height: 50px;
   border: none;
-  border-radius: 5px;
-  background-color: #cb34c2;
+  background-color: #d3162e;
   color: #FFFFFF;
   transition: all 300ms ease;
   font-size: 1em;
@@ -12075,7 +12061,7 @@ textarea.form-control-lg {
 }
 .category-return-button:hover, .category-return-button:focus {
   color: #FFFFFF;
-  background-color: #a12c9b;
+  background-color: #af1226;
 }
 
 .promotion {
@@ -12094,7 +12080,7 @@ textarea.form-control-lg {
   transition: color 400ms ease;
 }
 .promotion .promotion-title:hover, .promotion .promotion-title:focus {
-  color: #a12c9b;
+  color: #af1226;
 }
 .promotion .promotion-description,
 .promotion .promotions-empty {
@@ -12106,20 +12092,19 @@ textarea.form-control-lg {
 
 .promotion-link {
   text-decoration: none;
-  color: #cb34c2;
+  color: #d3162e;
   font-size: 1em;
   transition: color 400ms ease;
 }
 .promotion-link:hover, .promotion-link:focus {
-  color: #a12c9b;
+  color: #af1226;
 }
 
 .more-products-button,
 .return-to-all-promotions {
   width: 100%;
   border: none;
-  border-radius: 5px;
-  background-color: #cb34c2;
+  background-color: #d3162e;
   color: #FFFFFF;
   transition: all 300ms ease;
   font-size: 1em;
@@ -12134,10 +12119,11 @@ textarea.form-control-lg {
 .return-to-all-promotions:hover,
 .return-to-all-promotions:focus {
   color: #FFFFFF;
-  background-color: #a12c9b;
+  background-color: #af1226;
 }
 
 .discount-coupon {
+  border-left: 10px solid #d3162e;
   border-radius: 6px;
   box-shadow: 0 7px 16px 0 rgba(9, 28, 58, 0.07);
   padding: 0 20px;
@@ -12152,7 +12138,7 @@ textarea.form-control-lg {
   transition: color 400ms ease;
 }
 .discount-coupon .discount-coupon-title:hover, .discount-coupon .discount-coupon-title:focus {
-  color: #a12c9b;
+  color: #af1226;
 }
 .discount-coupon .discount-coupon-description,
 .discount-coupon .discount-coupons-empty {
@@ -12163,26 +12149,25 @@ textarea.form-control-lg {
 }
 .discount-coupon .discount-coupon-link {
   text-decoration: none;
-  color: #cb34c2;
+  color: #1a3253;
   font-size: 1em;
   font-weight: 500;
   transition: color 400ms ease;
   margin-right: 15px;
 }
 .discount-coupon .discount-coupon-link:hover, .discount-coupon .discount-coupon-link:focus {
-  color: #a12c9b;
+  color: #af1226;
 }
 
 .messenger-users-add {
   text-decoration: none;
-  background: #cb34c2;
+  background: #d3162e;
   padding: 10px 20px;
   color: #FFFFFF;
-  border-radius: 4px;
   transition: all 300ms ease;
 }
 .messenger-users-add:hover, .messenger-users-add:focus {
-  background: #a12c9b;
+  background: #af1226;
   color: #FFFFFF;
 }
 
@@ -12214,8 +12199,7 @@ textarea.form-control-lg {
   width: 140px;
   height: 50px;
   border: none;
-  border-radius: 5px;
-  background-color: #cb34c2;
+  background-color: #d3162e;
   color: #FFFFFF;
   transition: background-color 300ms ease;
   font-size: 1em;
@@ -12225,7 +12209,7 @@ textarea.form-control-lg {
   align-items: center;
 }
 .messenger-add-users .messenger-add-users-user .messenger-add-users-button:hover, .messenger-add-users .messenger-add-users-user .messenger-add-users-button:focus {
-  background-color: #a12c9b;
+  background-color: #af1226;
 }
 
 .messenger-users {
@@ -12251,7 +12235,7 @@ textarea.form-control-lg {
 .messenger-users .messenger-user-container .messenger-user .messenger-user-unread-container .messenger-user-unread {
   width: 19px;
   height: 19px;
-  background-color: #cb34c2;
+  background-color: #d3162e;
   border-radius: 10px;
   color: #FFFFFF;
   text-align: center;
@@ -12350,7 +12334,7 @@ textarea.form-control-lg {
   justify-content: flex-start;
 }
 .messenger-room .messenger-message-box .messenger-message-to-container .messenger-message-to {
-  background-color: #d368ce;
+  background-color: #1A3253FF;
   color: #FFFFFF;
   border-radius: 15px 0 15px 15px;
 }
@@ -12373,20 +12357,19 @@ textarea.form-control-lg {
   width: 100%;
   height: 100%;
   border: 1px solid lightgray;
-  border-radius: 5px 0 0 5px;
+  border-radius: 0;
   padding: 0 20px;
 }
 .messenger-room .messenger-form-container .messenger-form-button {
   width: 150px;
   height: 100%;
   border: none;
-  border-radius: 0 5px 5px 0;
-  background-color: #cb34c2;
+  background-color: #d3162e;
   color: #FFFFFF;
   transition: background-color 300ms ease;
 }
 .messenger-room .messenger-form-container .messenger-form-button:hover, .messenger-room .messenger-form-container .messenger-form-button:focus {
-  background-color: #a12c9b;
+  background-color: #af1226;
 }
 
 .auth-form h5, .auth-form .h5 {
@@ -12408,7 +12391,7 @@ textarea.form-control-lg {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  border-radius: 0.375rem;
+  border-radius: 0;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 .auth-form .divider {
@@ -12434,22 +12417,23 @@ textarea.form-control-lg {
   text-decoration: none;
 }
 .auth-form .login-link:hover, .auth-form .login-link:focus, .auth-form .login-link:active {
-  color: #cb34c2;
+  color: #d3162e;
 }
 .auth-form .auth-button {
   border: none;
+  border-radius: 0;
   transition: background 200ms ease;
   font-size: 1rem;
   font-weight: 600;
-  border-radius: 5px;
-  background: #cb34c2;
+  background: #d3162e;
 }
 .auth-form .auth-button:hover, .auth-form .auth-button:focus, .auth-form .auth-button:active {
-  background: #a12c9b;
+  background: #af1226;
 }
 .auth-form .auth-button:nth-child(3) {
   background: #4267B2;
   border: none;
+  border-radius: 0;
   font-weight: 600;
   font-size: 0.9rem;
   transition: all 200ms ease;
@@ -12461,6 +12445,7 @@ textarea.form-control-lg {
 .auth-form .auth-button:nth-child(4) {
   background: #db4a39;
   border: none;
+  border-radius: 0;
   font-weight: 600;
   font-size: 0.9rem;
   transition: all 200ms ease;
@@ -12472,6 +12457,7 @@ textarea.form-control-lg {
 .auth-form .auth-button:nth-child(5) {
   background: #1DA1F2;
   border: none;
+  border-radius: 0;
   font-weight: 600;
   font-size: 0.9rem;
   transition: all 200ms ease;
@@ -12551,11 +12537,11 @@ textarea.form-control-lg {
   border-radius: 3px;
   width: 40px;
   height: 40px;
-  background: #cb34c2;
+  background: #d3162e;
   transition: background 200ms ease;
 }
 .admin-header .admin-header-container .admin-header-top-container .admin-header-toggle-button:hover, .admin-header .admin-header-container .admin-header-top-container .admin-header-toggle-button:focus, .admin-header .admin-header-container .admin-header-top-container .admin-header-toggle-button:active {
-  background: #a12c9b;
+  background: #af1226;
 }
 .admin-header .admin-header-container .admin-header-center-container {
   height: 90%;
@@ -12573,8 +12559,8 @@ textarea.form-control-lg {
   padding: 10px 0;
 }
 .admin-header .admin-header-container .admin-header-center-container .admin-navbar .admin-navbar-item:hover .admin-navbar-link, .admin-header .admin-header-container .admin-header-center-container .admin-navbar .admin-navbar-item:focus .admin-navbar-link {
-  color: #cb34c2;
-  transition: all 200ms ease;
+  color: #d3162e;
+  transition: all 100ms ease;
 }
 .admin-header .admin-header-container .admin-header-center-container .admin-navbar .admin-navbar-item .admin-navbar-link {
   display: block;
@@ -12592,7 +12578,7 @@ textarea.form-control-lg {
   transition: all 100ms ease;
 }
 .admin-header .admin-header-container .admin-header-center-container .admin-navbar .admin-navbar-item .active {
-  color: #cb34c2;
+  color: #d3162e;
 }
 .admin-header .admin-header-container .admin-header-center-container .admin-navbar .admin-navbar-item i {
   font-size: 1.05rem;
@@ -12617,10 +12603,10 @@ textarea.form-control-lg {
   font-weight: 500;
 }
 .admin-header .admin-header-container .admin-header-center-container .admin-navbar .admin-navbar-item .admin-navbar-item-dropdown .admin-navbar-subitem .admin-navbar-sublink:hover, .admin-header .admin-header-container .admin-header-center-container .admin-navbar .admin-navbar-item .admin-navbar-item-dropdown .admin-navbar-subitem .admin-navbar-sublink:focus {
-  color: #cb34c2;
+  color: #d3162e;
 }
 .admin-header .admin-header-container .admin-header-center-container .admin-navbar .admin-navbar-item .admin-navbar-item-dropdown .admin-navbar-subitem .subactive {
-  color: #cb34c2;
+  color: #d3162e;
 }
 .admin-header .admin-header-container .admin-header-center-container .admin-navbar .admin-navbar-link[aria-expanded=true]:after {
   transform: rotate(90deg);
@@ -12640,7 +12626,7 @@ textarea.form-control-lg {
 .admin-header .admin-header-container .admin-header-bottom-container .admin-header-account-dropdown:hover .admin-header-account-icon,
 .admin-header .admin-header-container .admin-header-bottom-container .admin-header-account-dropdown:hover .admin-header-account-name, .admin-header .admin-header-container .admin-header-bottom-container .admin-header-account-dropdown:focus .admin-header-account-icon,
 .admin-header .admin-header-container .admin-header-bottom-container .admin-header-account-dropdown:focus .admin-header-account-name {
-  color: #cb34c2;
+  color: #d3162e;
 }
 .admin-header .admin-header-container .admin-header-bottom-container .admin-header-account-dropdown .admin-header-account-icon,
 .admin-header .admin-header-container .admin-header-bottom-container .admin-header-account-dropdown .admin-header-account-name {
@@ -12659,7 +12645,7 @@ textarea.form-control-lg {
   justify-content: center;
 }
 .admin-header .admin-header-container .admin-header-bottom-container .admin-navbar-language-dropdown:hover, .admin-header .admin-header-container .admin-header-bottom-container .admin-navbar-language-dropdown:focus {
-  color: #cb34c2;
+  color: #d3162e;
 }
 .admin-header .admin-header-container .hide {
   display: none;
@@ -12703,37 +12689,38 @@ footer .newsletter-container .newsletter-form-container .newsletter-button {
   height: 100%;
   border: none;
   border-radius: 0 5px 5px 0;
-  background-color: #cb34c2;
+  background-color: #1a3253;
   color: #FFFFFF;
   transition: all 300ms ease-in-out;
-  box-shadow: inset 0 0 0 0 #a12c9b;
+  box-shadow: inset 0 0 0 0 #af1226;
   font-size: 0.9em;
 }
 footer .newsletter-container .newsletter-form-container .newsletter-button:hover, footer .newsletter-container .newsletter-form-container .newsletter-button:focus {
-  box-shadow: inset 170px 0 0 0 #a12c9b;
+  box-shadow: inset 170px 0 0 0 #af1226;
 }
 footer .footer-link {
   text-decoration: none;
-  color: #3f3f3f;
-  transition: color 400ms ease;
+  color: #FFFFFF;
+  transition: all 300ms ease;
 }
 footer .footer-link:hover, footer .footer-link:focus {
-  color: #c736c0;
+  color: #d3162e;
 }
 footer .footer-bar-title {
+  color: #eee;
   font-family: "Playfair Display", serif;
 }
 footer .contact-travel-paragraph {
-  color: #818181;
+  color: #FFFFFF;
   font-size: 1.1em;
 }
 footer .contact-travel-icon {
-  color: #cb34c2;
+  color: #d3162e;
 }
 footer .copyright-paragraph,
 footer .slogan-paragraph {
   font-size: 1em;
-  color: #818181;
+  color: #eee;
 }
 
 .cart .breadcrumb {
@@ -12750,10 +12737,10 @@ footer .slogan-paragraph {
   color: #ccc;
 }
 .cart .breadcrumb li .active {
-  color: #ee3ee2;
+  color: #d3162e;
 }
 .cart .breadcrumb li .done {
-  color: #222;
+  color: #1a3253;
   text-decoration: none;
 }
 .cart .shop_table {
@@ -12810,7 +12797,7 @@ footer .slogan-paragraph {
   text-decoration: none;
 }
 .cart .shop_table .product-name a:hover, .cart .shop_table .product-name a:focus, .cart .shop_table .product-name a:active {
-  color: #ee3ee2;
+  color: #d3162e;
 }
 .cart .shop_table .product-subtotal span {
   color: #222;
@@ -12836,11 +12823,11 @@ footer .slogan-paragraph {
   padding: 0.95rem 1.5rem;
   transition: all 200ms ease;
   color: #fff;
-  background: #222;
+  background: #d3162e;
   text-transform: uppercase;
 }
 .cart .pin-wrapper .card-body .proceed-to-checkout-button:hover, .cart .pin-wrapper .card-body .proceed-to-checkout-button:focus, .cart .pin-wrapper .card-body .proceed-to-checkout-button:active {
-  background: #ee3ee2;
+  background: #af1226;
 }
 
 .checkout .breadcrumb {
@@ -12857,20 +12844,20 @@ footer .slogan-paragraph {
   color: #ccc;
 }
 .checkout .breadcrumb li .active {
-  color: #ee3ee2;
+  color: #d3162e;
 }
 .checkout .breadcrumb li .done {
-  color: #222;
+  color: #1a3253;
   text-decoration: none;
 }
 .checkout .open-apply-coupon {
   text-transform: uppercase;
-  color: #222;
+  color: #1a3253;
   font-weight: 600;
   transition: color 200ms ease;
 }
 .checkout .open-apply-coupon:hover, .checkout .open-apply-coupon:focus, .checkout .open-apply-coupon:active {
-  color: #ee3ee2;
+  color: #d3162e;
 }
 .checkout .card {
   border-width: 3px !important;
@@ -12892,14 +12879,14 @@ footer .slogan-paragraph {
   font-weight: 600;
   padding: 0.95rem 1.5rem;
   transition: all 200ms ease;
-  color: #222;
+  color: #3f3f3f;
   background: #eee;
   text-transform: uppercase;
   width: clamp(220px, 100%, 270px);
 }
 .checkout .card .card-body .apply-coupon-button:hover, .checkout .card .card-body .apply-coupon-button:focus, .checkout .card .card-body .apply-coupon-button:active {
-  background: #ee3ee2;
-  color: #fff;
+  background: #d3162e;
+  color: #FFFFFF;
 }
 .checkout .shop_table td {
   padding: 15px 10px;
@@ -12929,38 +12916,36 @@ footer .slogan-paragraph {
   padding: 0.95rem 1.6rem;
   transition: all 200ms ease;
   color: #fff;
-  background: #222;
+  background: #d3162e;
   text-transform: uppercase;
 }
 .checkout .preview-button:hover, .checkout .preview-button:focus, .checkout .preview-button:active {
-  background: #ee3ee2;
+  background: #af1226;
 }
 
 .nav-tabs {
   border: 0;
-  margin-bottom: 10px;
-  border-bottom: 3px solid #eee;
+  border-bottom: 3px solid #1a3253;
 }
 .nav-tabs li {
-  margin-bottom: -3px;
+  margin-bottom: 15px;
 }
 .nav-tabs li .nav-link {
   background: none;
   border: 0;
-  border-bottom: 3px solid #eee;
   border-radius: 0;
   color: #3f3f3f;
   font-size: 14px;
   font-weight: 600;
-  transition: all 200ms ease;
+  transition: all 50ms ease;
+  margin-right: 10px;
 }
 .nav-tabs li .nav-link:hover, .nav-tabs li .nav-link:focus, .nav-tabs li .nav-link:active {
-  border-bottom: 3px solid #eee;
-  color: #cb34c2;
+  color: #d3162e;
 }
 .nav-tabs li .nav-link.active {
-  border-bottom: 3px solid #eee;
-  color: #cb34c2;
+  border: 1.5px solid #d3162e;
+  color: #1a3253;
 }
 
 .dataTables_filter {
@@ -12975,27 +12960,30 @@ footer .slogan-paragraph {
 .orders-returns-primary-button,
 .orders-returns-secondary-button {
   border: none;
-  transition: background 200ms ease;
+  transition: all 200ms ease;
   font-size: 1rem;
   font-weight: 400;
-  border-radius: 5px;
-  padding: 10px 20px;
+  padding: 12.5px 25px;
+  text-decoration: none;
+  text-align: center;
 }
 
 .orders-returns-primary-button {
-  background: #cb34c2;
+  background: #d3162e;
   color: #FFFFFF;
 }
 .orders-returns-primary-button:hover, .orders-returns-primary-button:focus, .orders-returns-primary-button:active {
-  background: #a12c9b;
+  color: #FFFFFF;
+  background: #af1226;
 }
 
 .orders-returns-secondary-button {
   background: #eee;
-  color: #3f3f3f;
+  color: #818181;
 }
 .orders-returns-secondary-button:hover, .orders-returns-secondary-button:focus, .orders-returns-secondary-button:active {
-  background: #818181;
+  color: #FFFFFF;
+  background: #d3162e;
 }
 
 .form-check {
@@ -13004,6 +12992,6 @@ footer .slogan-paragraph {
 }
 
 .form-check-input:checked {
-  background-color: #cb34c2;
-  border-color: #cb34c2;
+  background-color: #d3162e;
+  border-color: #d3162e;
 }

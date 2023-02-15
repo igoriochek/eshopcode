@@ -1,15 +1,15 @@
 <footer class="d-block">
-    <div class="bg-light" style="padding: 100px 0 80px 0">
+    <div style="padding: 100px 0 80px 0; background: #1a3253">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-12">
                     <a class="navbar-brand fw-bold" href="{{ url('/home') }}">
-                        <img src="/images/bonatrip.png" alt="bonatrip-logo" width="200px">
+                        <img src="{{ asset('images/logo.jpeg') }}" alt="logo" width="250px">
                     </a>
                     <p class="my-4 slogan-paragraph">
                         {{ __('footer.slogan') }}
                     </p>
-                    <div class="d-flex mt-5" style="gap: 20px">
+                    <div class="d-flex mt-5 mb-4 mb-md-0" style="gap: 20px">
                         <a class="footer-link" href="{{ route('facebook.login') }}">
                             <i class="fa-brands fa-facebook fs-4"></i>
                         </a>
@@ -28,24 +28,6 @@
 
                     <ul class="list-unstyled mb-0">
                         @include('layouts.menus.user_menu_bottom')
-                        {{--                        <li class="mb-4">--}}
-                        {{--                            <a class="footer-link" href="{{ url('/') }}">--}}
-                        {{--                                <i class="fa-solid fa-address-card fs-5 me-1"></i>--}}
-                        {{--                                <span>{{ __('footer.aboutUsTeam') }}</span>--}}
-                        {{--                            </a>--}}
-                        {{--                        </li>--}}
-                        {{--                        <li class="mb-4">--}}
-                        {{--                            <a class="footer-link" href="{{ url('/') }}">--}}
-                        {{--                                <i class="fa-solid fa-briefcase fs-5 me-1"></i>--}}
-                        {{--                                <span>{{ __('footer.career') }}</span>--}}
-                        {{--                            </a>--}}
-                        {{--                        </li>--}}
-                        {{--                        <li class="mb-4">--}}
-                        {{--                            <a class="footer-link" href="{{ url('/') }}">--}}
-                        {{--                                <i class="fa-solid fa-earth-africa fs-5 me-1"></i>--}}
-                        {{--                                <span>{{ __('footer.allLocations') }}</span>--}}
-                        {{--                            </a>--}}
-                        {{--                        </li>--}}
                     </ul>
                 </div>
                 <div class="col-lg-4 col-md-6 mt-4 mt-md-5 mt-lg-0 position-relative">
@@ -53,67 +35,55 @@
                         {{ __('footer.contactUs') }}
                     </h5>
                     <ul class="list-unstyled mb-0">
-{{--                        <li class="d-flex align-items-center mb-4">--}}
-{{--                            <div style="width: 50px">--}}
-{{--                                <i class="fa-sharp fa-solid fa-building fs-3 contact-travel-icon"></i>--}}
-{{--                            </div>--}}
-{{--                            <span class="contact-travel-paragraph">{{ __('MB OPATRIP') }}</span>--}}
-{{--                        </li>--}}
                         <li class="d-flex align-items-center mb-4">
                             <div style="width: 50px">
-                                <i class="fa-solid fa-location-dot fs-3 contact-travel-icon"></i>
-                            </div>
-                            <span
-                                class="contact-travel-paragraph">{{ __('Gyneju g. 14, LT-01109 Vilnius, Lietuva') }}</span>
-                        </li>
-                        <li class="d-flex align-items-center mb-4">
-                            <div style="width: 50px">
-                                <i class="fa-solid fa-phone fs-3 contact-travel-icon"></i>
-                            </div>
-                            <span class="contact-travel-paragraph">{{ __('+370 679 22249') }}</span>
-                        </li>
-                        <li class="d-flex align-items-center mb-4">
-                            <div style="width: 50px">
-                                <i class="fa-solid fa-file-lines fs-3 contact-travel-icon"></i>
+                                <i class="fa-solid fa-location-dot fs-4 contact-travel-icon"></i>
                             </div>
                             <div>
-                                <h6 class="">{{ __('footer.companyCode') }}</h6>
-                                <span class="contact-travel-paragraph">{{ __('300111402') }}</span>
+                                <h6 style="color: #ccc">{{ __('footer.address') }}</h6>
+                                <span class="contact-travel-paragraph">{{ __('Perkūnkiemio g. 13-91, LT-12114 Vilnius ') }}</span>
                             </div>
                         </li>
                         <li class="d-flex align-items-center mb-4">
                             <div style="width: 50px">
-                                <i class="fa-solid fa-building-columns fs-3 contact-travel-icon"></i>
+                                <i class="fa-solid fa-phone fs-4 contact-travel-icon"></i>
                             </div>
                             <div>
-                                <h6 class="">{{ __('footer.vatCode') }}</h6>
-                                <span class="contact-travel-paragraph">{{ __('LT100001696617') }}</span>
+                                <h6 style="color: #ccc">{{ __('footer.phoneNumber') }}</h6>
+                                <span class="contact-travel-paragraph">{{ __('+370 686 10246') }}</span>
                             </div>
                         </li>
-                        {{--                        <li class="d-flex align-items-center mb-4" style="gap: 20px">--}}
-                        {{--                            <a href="#" class="footer-link">--}}
-                        {{--                                <i class="fa-brands fa-whatsapp fs-4"></i>--}}
-                        {{--                            </a>--}}
-                        {{--                            <a href="#" class="footer-link">--}}
-                        {{--                                <i class="fa-brands fa-viber fs-4"></i>--}}
-                        {{--                            </a>--}}
-                        {{--                            <a href="#" class="footer-link">--}}
-                        {{--                                <i class="fa-brands fa-telegram fs-4"></i>--}}
-                        {{--                            </a>--}}
-                        {{--                        </li>--}}
+                        <li class="d-flex align-items-center mb-4">
+                            <div style="width: 50px">
+                                <i class="fa-solid fa-file-lines fs-4 contact-travel-icon"></i>
+                            </div>
+                            <div>
+                                <h6 style="color: #ccc">{{ __('footer.companyCode') }}</h6>
+                                <span class="contact-travel-paragraph">{{ __('304073493') }}</span>
+                            </div>
+                        </li>
+                        <li class="d-flex align-items-center mb-4">
+                            <div style="width: 50px">
+                                <i class="fa-solid fa-building-columns fs-4 contact-travel-icon"></i>
+                            </div>
+                            <div>
+                                <h6 style="color: #ccc">{{ __('footer.vatCode') }}</h6>
+                                <span class="contact-travel-paragraph">{{ __('LT100009695219') }}</span>
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
-    <div class="py-4">
+    <div class="py-4" style="background: #162a48">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-12 col-lg-6">
                     <ul class="mb-0 p-0 d-flex justify-content-center justify-content-lg-start align-items-center list-unstyled text-center"
                         style="gap: 25px">
                         <li>
-                            <a class="footer-link" href="{{ url('/about') }}">
+                            <a class="footer-link" href="{{ url('/eu_projects') }}">
                                 {{ __('menu.aboutUs') }}
                             </a>
                         </li>
@@ -124,7 +94,7 @@
                         </li>
                         <li>
                             <a class="footer-link" href="{{ url('/policy') }}">
-                                {{ __('menu.policy') }}
+                                {{ __('footer.privacyPolicy') }}
                             </a>
                         </li>
                     </ul>

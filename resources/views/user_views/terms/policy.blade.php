@@ -8,14 +8,14 @@
                 <h2 style="font-family: 'Times New Roman', sans-serif; font-weight: 500" class="mb-4 mt-3">
                     Privatumo Politika
                 </h2>
-                Privatumo politika (toliau – „Privatumo politika“) paaiškina, kaip MB Opatrip.com (toliau – „Bendrovė“) renka ir tvarko svetainės www.bonatrip.com (toliau – „Svetainė“) lankytojų informaciją, nurodo kokias teises Svetainės lankytojai turi bei kaip jas gali įgyvendinti. Prieš registruojantis Svetainėje rekomenduojame atidžiai perskaityti šią Privatumo politiką.<br/>
+                Privatumo politika (toliau – „Privatumo politika“) paaiškina, kaip Du prieš du, MB (toliau – „Bendrovė“) renka ir tvarko svetainės www.recovcenter.com (toliau – „Svetainė“) lankytojų informaciją, nurodo kokias teises Svetainės lankytojai turi bei kaip jas gali įgyvendinti. Prieš registruojantis Svetainėje rekomenduojame atidžiai perskaityti šią Privatumo politiką.<br/>
                 Bendrovė yra įsipareigojusi savo veikloje atsakingai ir saugiai tvarkyti Jūsų asmens duomenis. Vadovaudamiesi, šiais esminiais principais, mes visada sieksime užtikrinti pakankamą Jūsų duomenų apsaugos lygį bei Jūsų teisių apsaugą. Mes tvarkome Asmens duomenis, pagal šią Privatumo politiką, vadovaudamiesi taikomais teisės aktais, įskaitant Bendrąjį duomenų apsaugos reglamentą (2016/679) (toliau – „BDAR“) bei taikomus Lietuvos nacionalinius asmens duomenų apsaugos teisės aktus.<br/>
                 <h5 class="mt-4 mb-2">Duomenų valdytojas</h5>
-                MB Opatrip.com<br/>
-                Įmonės kodas yra: 300111402<br/>
-                Adresas: Gynėjų g. 14, LT-01109 Vilnius<br/>
-                Tel. Nr. +370 679 22249<br/>
-                El. pašto adresas: info@opatrip.lt<br/>
+                Du prieš du, MB<br/>
+                Įmonės kodas yra: 304073493<br/>
+                Adresas: Perkūnkiemio g. 13-91, LT-12114 Vilnius<br/>
+                Tel. Nr.: +370 686 10246<br/>
+                El. pašto adresas: aurimas.mileisis@gmail.com<br/>
                 <h5 class="mt-4 mb-2">Kokią informaciją renkame, naudojame ir saugojame apie Jus? </h5>
                 Informacija, kurią pateikia pats Svetainės lankytojas, pildydamas registracijos formą mūsų Svetainėje:<br/>
                 1. Vardas<br/>
@@ -47,14 +47,14 @@
                 <h2 style="font-family: 'Times New Roman', sans-serif; font-weight: 500" class="mb-4 mt-3">
                     Политика Kонфиденциальности
                 </h2>
-                Политика конфиденциальности (далее — «Политика конфиденциальности») объясняет, как MB Opatrip.com (далее — «Компания») собирает и обрабатывает информацию о посетителях веб-сайта www.bonatrip.com (далее — «Сайт»), указывает, какими правами обладают посетители Сайта и как вы можете их реализовать. Перед регистрацией на Веб-сайте рекомендуем внимательно ознакомиться с настоящей Политикой конфиденциальности.<br/>
+                Политика конфиденциальности (далее — «Политика конфиденциальности») объясняет, как Du prieš du, MB (далее — «Компания») собирает и обрабатывает информацию о посетителях веб-сайта www.recovcenter.com (далее — «Сайт»), указывает, какими правами обладают посетители Сайта и как вы можете их реализовать. Перед регистрацией на Веб-сайте рекомендуем внимательно ознакомиться с настоящей Политикой конфиденциальности.<br/>
                 Компания обязуется ответственно и безопасно обращаться с вашими личными данными в своей деятельности. Основываясь на этих основных принципах, мы всегда будем стремиться обеспечить достаточный уровень защиты ваших данных и защиту ваших прав. Мы обрабатываем Персональные данные в соответствии с настоящей Политикой конфиденциальности, в соответствии с применимыми правовыми актами, в том числе Общим регламентом защиты данных (2016/679) (далее — «GDPR») и применимым литовским национальным законодательством о защите персональных данных.<br />
                 <h5 class="mt-4 mb-2">Контроллер данных</h5>
-                МБ Opatrip.com<br/>
-                Код компании: 300111402<br/>
-                Адрес: ул. Гинею. 14, LT-01109 Вильнюс<br/>
-                Тел. № +370 679 22249<br/>
-                Адрес электронной почты: info@opatrip.lt<br/>
+                Du prieš du, MB<br/>
+                Код компании: 304073493<br/>
+                Адрес: ул. Perkūnkiemio 13-91, LT-12114 Вильнюс<br/>
+                Тел. № +370 686 10246<br/>
+                Адрес электронной почты: aurimas.mileisis@gmail.com<br/>
                 <h5 class="mt-4 mb-2">Какую информацию о вас мы собираем, используем и храним?</h5>
                 Информация, предоставленная самим посетителем Сайта при заполнении регистрационной формы на нашем Сайте:<br/>
                 1. Имя<br/>
@@ -88,14 +88,14 @@
                     Privacy Policy
                 </h2>
                 <hr>
-                The Privacy Policy (hereinafter - the "Privacy Policy") explains how MB Opatrip.com (hereinafter - the "Company") collects and processes the information of visitors to the website www.bonatrip.com (hereinafter - the "Site"), indicates what rights the visitors of the Site have and how you can implement them. Before registering on the Website, we recommend that you carefully read this Privacy Policy.<br/>
+                The Privacy Policy (hereinafter - the "Privacy Policy") explains how Du prieš du, MB (hereinafter - the "Company") collects and processes the information of visitors to the website www.recovcenter.com (hereinafter - the "Site"), indicates what rights the visitors of the Site have and how you can implement them. Before registering on the Website, we recommend that you carefully read this Privacy Policy.<br/>
                 The company is committed to handling your personal data responsibly and securely in its activities. Based on these essential principles, we will always strive to ensure a sufficient level of protection of your data and the protection of your rights. We process Personal Data, in accordance with this Privacy Policy, in accordance with the applicable legal acts, including the General Data Protection Regulation (2016/679) (hereinafter - "GDPR") and the applicable Lithuanian national personal data protection legislation.<br/>
                 <h5 class="mt-4 mb-2">Data Controller</h5>
-                MB Opatrip.com<br/>
-                The company code is: 300111402<br/>
-                Address: Gynėjų st. 14, LT-01109 Vilnius<br/>
-                Tel. No. +370 679 22249<br/>
-                E-mail address: info@opatrip.lt<br/>
+                Du prieš du, MB<br/>
+                The company code is: 304073493<br/>
+                Address: Perkūnkiemio g. 13-91, LT-12114 Vilnius<br/>
+                Tel. No. +370 686 10246<br/>
+                E-mail address: aurimas.mileisis@gmail.com<br/>
                 <h5 class="mt-4 mb-2">What information do we collect, use and store about you?</h5>
                 Information provided by the Website visitor himself when filling out the registration form on our Website:<br/>
                 1. Name<br/>

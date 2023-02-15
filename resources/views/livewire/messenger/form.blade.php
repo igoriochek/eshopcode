@@ -9,6 +9,7 @@
                 required
             >
             <button type="submit" class="messenger-form-button">
+                <i class="fa-solid fa-paper-plane fs-6 me-1"></i>
                 {{__('messages.send')}}
             </button>
         </div>

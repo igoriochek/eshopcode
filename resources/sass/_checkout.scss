@@ -3,12 +3,12 @@
 
     .open-apply-coupon {
         text-transform: uppercase;
-        color: #222;
+        color: $dark-blue-color;
         font-weight: 600;
         transition: color 200ms ease;
 
         &:hover, &:focus, &:active {
-            color: #ee3ee2;
+            color: $red-color;
         }
     }
 
@@ -33,14 +33,14 @@
                 font-weight: 600;
                 padding: .95rem 1.5rem;
                 transition: all 200ms ease;
-                color: #222;
+                color: $gray-color;
                 background: #eee;
                 text-transform: uppercase;
                 width: clamp(220px, 100%, 270px);
 
                 &:hover, &:focus, &:active {
-                    background: #ee3ee2;
-                    color: #fff;
+                    background: $red-color;
+                    color: $white-color;
                 }
             }
         }
@@ -92,11 +92,11 @@
         padding: .95rem 1.6rem;
         transition: all 200ms ease;
         color: #fff;
-        background: #222;
+        background: $red-color;
         text-transform: uppercase;
 
         &:hover, &:focus, &:active {
-            background: #ee3ee2;
+            background: $button-hover-focus-background;
         }
     }
 }
