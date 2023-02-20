@@ -1,6 +1,5 @@
 <ul class="m-0 ps-4">
     @foreach($childs as $child)
-        @if (count($child->products)>0)
         <li>
             <a class="{{ str_contains(url()->current(), "/innercategories/$child->id") ? 'active' : '' }}"
                 href="{{ route("innercategories", ["category_id" => $child->id ])}}">
@@ -10,9 +9,8 @@
             </a>
             <hr>
         </li>
+        @if(count($child->innerCategories))
+            @include('user_views.category.category_tree_children',['childs' => $child->innerCategories])
         @endif
-            @if(count($child->innerCategories))
-                @include('user_views.category.category_tree_children',['childs' => $child->innerCategories])
-            @endif
     @endforeach
 </ul>
