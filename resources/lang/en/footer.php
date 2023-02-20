@@ -23,6 +23,6 @@ return [
     'phoneNumber' => 'Phone Number',
     'companyCode' => 'Company code',
     'vatCode' => 'VAT code',
-    'copyright' => '© 2022 Du prieš du. All rights reserved.',
+    'copyright' => '© 2023 MB "Du prieš du". All rights reserved.',
 
 ];

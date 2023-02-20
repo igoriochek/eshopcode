@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-white shadow">
     <div class="container">
         <a class="navbar-brand fw-bold d-block" href="{{ url('/') }}">
-            <img src="{{ __('/images/logo.jpeg') }}" alt="logo" width="160px">
+            <img src="{{ __('/images/logo.jpeg') }}" alt="logo" width="200px">
         </a>
         <div class="d-flex justify-content-center menu-container">
             <ul class="nav navbar-nav menu" style="gap: 10px">

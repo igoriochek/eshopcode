@@ -1,5 +1,5 @@
 <footer class="d-block">
-    <div style="padding: 100px 0 80px 0; background: #1a3253">
+    <div style="padding: 100px 0 80px 0; background: #2f3e3f">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-12">
@@ -76,12 +76,11 @@
             </div>
         </div>
     </div>
-    <div class="py-4" style="background: #162a48">
+    <div class="py-4" style="background: #172c2d">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-12 col-lg-6">
-                    <ul class="mb-0 p-0 d-flex justify-content-center justify-content-lg-start align-items-center list-unstyled text-center"
-                        style="gap: 25px">
+                    <ul class="mb-0 p-0 d-flex justify-content-center justify-content-lg-start align-items-center list-unstyled text-center" style="gap: 25px">
                         <li>
                             <a class="footer-link" href="{{ url('/eu_projects') }}">
                                 {{ __('menu.aboutUs') }}

@@ -16,13 +16,13 @@ return [
     'allLocations' => 'Lokacijos',
     'menu' => 'Meniu',
     'faq' => 'D.U.K.',
-    'privacyPolicy' => 'Privatumo Politika',
-    'termsOfService' => 'Paslaugų Teikimo Sąlygos',
+    'privacyPolicy' => 'Privatumo politika',
+    'termsOfService' => 'Paslaugų teikimo sąlygos',
     'contantSupport' => 'Kontaktai / Pagalba',
     'address' => 'Adresas',
     'phoneNumber' => 'Telefono numeris',
     'companyCode' => 'Įmonės kodas',
     'vatCode' => 'PVM kodas',
-    'copyright' => '© 2022 Du prieš du. Visos teisės saugomos.'
+    'copyright' => '© 2023 MB "Du prieš du". Visos teisės saugomos.'
 
 ];

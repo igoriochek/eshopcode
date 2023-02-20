@@ -96,9 +96,9 @@ return [
     'discountCoupons' => 'Купоны на скидку',
     'discountCouponDetails' => 'Информация о купоне на скидку',
     'editDiscountCoupon' => 'Редактировать купон на скидку',
-    "noDiscountCoupons" => "У вас еще нет купонов на скидку :(",
-    "discountCouponCode" => "Код купона на скидку",
-    "discountCouponValue" => "Стоимость купона на скидку",
+    'noDiscountCoupons' => 'У вас еще нет купонов на скидку :(',
+    'discountCouponCode' => 'Код купона на скидку',
+    'discountCouponValue' => 'Стоимость купона на скидку',
 
     //Export Import
     'dataExpImp' => 'Экспорт/импорт данных',
@@ -244,20 +244,20 @@ return [
     'desc' => 'Описание',
     'name' => 'Имя',
 
-    'old' => "Старый",
-    'new' => "Новый",
+    'old' => 'Старый',
+    'new' => 'Новый',
 
     'orderBy' => 'Сортировать по',
 
     'results' => 'Резултаты',
 
-    "zeroRecords" => "Нет данных",
-    "showing" => "Показаны",
-    "entries" => "записи",
-    "to" => "до",
-    "of" => "из",
-    "first" => "Первый",
-    "last" => "Последний",
+    'zeroRecords' => 'Нет данных',
+    'showing' => 'Показаны',
+    'entries' => 'записи',
+    'to' => 'до',
+    'of' => 'из',
+    'first' => 'Первый',
+    'last' => 'Последний',
     'userInfo' => 'Информация Пользователя'
 
 ];

@@ -15,10 +15,10 @@ return [
     'menu' => 'Меню',
     'personal' => 'Личный',
     'address' => 'Адрес',
-    'phoneNumber' => 'Номер Телефона',
+    'phoneNumber' => 'Номер телефона',
     'companyCode' => 'Код компании',
     'vatCode' => 'Код НДС',
-    'copyright' => '© 2022 Du prieš du. Все права защищены',
+    'copyright' => '© 2023 MB "Du prieš du". Все права защищены',
     'information' => 'Информация',
     'contactUs' => 'Свяжитесь с нами',
     'slogan' => 'Лозунг',
@@ -26,8 +26,8 @@ return [
     'career' => 'Карьера',
     'allLocations' => 'Локации',
     'faq' => 'ЧАВО',
-    'privacyPolicy' => 'Политика Kонфиденциальности',
-    'termsOfService' => 'Условия Oбслуживания',
+    'privacyPolicy' => 'Политика конфиденциальности',
+    'termsOfService' => 'Условия обслуживания',
     'contantSupport' => 'Контакты / Помощь',
 
 ];

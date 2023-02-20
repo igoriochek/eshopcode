@@ -13,7 +13,7 @@ return [
     |
     */
     'add' => 'Pridėti',
-    'addNew' => 'Pridėti Naują',
+    'addNew' => 'Pridėti naują',
     'addNewMsg' => 'Sukurti naują žinutę',
     'addToCart' => 'Pridėti į krepšelį',
     'back' => 'Grįžti',
@@ -21,27 +21,27 @@ return [
     'backToAllPromotions' => 'Grįžti atgal į visas akcijas',
     'cancel' => 'Atšaukti',
     'checkout' => 'Atsiskaityti',
-    'chooseFile' => 'Pasirinkite Failą',
+    'chooseFile' => 'Pasirinkite failą',
     'downloadPDF' => 'Atsiųsti PDF',
     'export' => 'Eksportuoti',
     'filter'=> 'Filtruoti',
-    'forgotPassword'=> 'Pamiršote Slaptažodį?',
+    'forgotPassword'=> 'Pamiršote slaptažodį?',
     'import' => 'Importuoti',
     'login'=> 'Prisijungti',
     'pay'=> 'Apmokėti',
     'preview' => 'Peržiūrėti',
     'register' => 'Registruotis',
     'save' => 'Išsaugoti',
-    'showLogs' => 'Rodyti Žurnalus',
-    'showStatistics' => 'Rodyti Statistikas',
+    'showLogs' => 'Rodyti žurnalus',
+    'showStatistics' => 'Rodyti statistikas',
     'submit' => 'Pateikti',
     'sendResetPasswordLink' => 'Siųsti slaptažodžio nustatymo nuorodą',
     'contact' => 'Susisiekti',
-    'applyCoupon' => 'Taikyti Kuponą',
-    'placeOrder' => 'Pateikite Užsakymą',
+    'applyCoupon' => 'Taikyti kuponą',
+    'placeOrder' => 'Pateikite užsakymą',
     'proceedToCheckout' => 'Pereiti prie apmokėjimo ',
     'details' => 'Detaliai',
     'return' => 'Grąžinti',
-    'invoice' => 'Sąskaita Faktūra'
+    'invoice' => 'Sąskaita faktūra'
 
 ];

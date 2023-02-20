@@ -38,8 +38,8 @@ return [
     'postReview' => 'Опубликовать отзыв',
     'proceedToCheckout' => 'Перейти к оформлению заказа',
     'contact' => 'Контакт',
-    'applyCoupon' => 'Применить Kупон',
-    'placeOrder' => 'Разместить Заказ',
+    'applyCoupon' => 'Применить купон',
+    'placeOrder' => 'Разместить заказ',
     'details' => 'Подробности',
     'return' => 'Возврат',
     'invoice' => 'Счет'
