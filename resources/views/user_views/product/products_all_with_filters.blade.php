@@ -89,7 +89,7 @@
                             @empty
                                 <span class="text-muted">{{ __('names.noProducts') }}</span>
                             @endforelse
-                            {{ $products->links() }}
+                            {{ $products->onEachSide(1)->links() }}
                         </div>
                     </div>
                     <div class="col-lg-4 mt-4 mt-md-5 mt-lg-0 order-first order-lg-last">

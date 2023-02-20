@@ -37,7 +37,7 @@
                                 {{ __('names.noDiscountCoupons') }}
                             </span>
                         @endif
-                        @if (!empty($discountCoupons->count())) {{ $discountCoupons->links() }} @endif
+                        @if (!empty($discountCoupons->count())) {{ $discountCoupons->onEachSide(1)->links() }} @endif
                     </div>
                 </div>
             </div>

@@ -9,7 +9,7 @@
     <!-- Title -->
     <title>{{ config('app.name', 'Bonatrip') }}</title>
     <!-- Favicon -->
-    <link rel="icon" href="{{ url('opatrip-logo-favicon.png') }}">
+{{--    <link rel="icon" href="{{ asset('images/logo.jpeg') }}">--}}
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

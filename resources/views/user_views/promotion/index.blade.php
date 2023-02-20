@@ -110,7 +110,7 @@
                         @empty
                             <span class="promotions-empty">{{ __('names.noPromotions') }}</span>
                         @endforelse
-                        {{ $promotions->links() }}
+                        {{ $promotions->onEachSide(1)->links() }}
                     </div>
                 </div>
             </div>
