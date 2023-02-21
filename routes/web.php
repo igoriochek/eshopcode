@@ -194,19 +194,21 @@ Route::group(array('prefix' => 'user', 'middleware' => ['auth', 'cookie-consent'
     Route::get('messenger/{id}', MessengerShow::class)->name('livewire.messenger.show');
 });
 
-//Route::get("home", [App\Http\Controllers\HomeController::class, 'home'])->name('home');
-Route::get("rootcategories", [CategoryController::class, 'userRootCategories'])->name('rootcategories');
-Route::get("innercategories/{category_id}", [CategoryController::class, 'userInnerCategories'])->name('innercategories');
-Route::get("categorytree", [CategoryController::class, 'userCategoryTree'])->name('categorytree');
-Route::get("viewcategory", [CategoryController::class, 'userViewCategory'])->name('viewcategory');
-Route::get("viewproduct/{id}", [ProductController::class, 'userViewProduct'])->where('id', '[0-9]+')->name('viewproduct');
-Route::get('products', [ProductController::class, 'userProductIndex'])->name('userproducts');
-Route::get('promotions', [\App\Http\Controllers\PromotionController::class, 'indexPromotions'])->name('promotions');
-Route::get('promotion/{id}', [\App\Http\Controllers\PromotionController::class, 'promotionProducts'])->name('promotion');
-Route::get("termsofservice", [\App\Http\Controllers\TermsOfServiceController::class, 'index'])->name('termsofservice');
-Route::get("policy", [\App\Http\Controllers\TermsOfServiceController::class, 'policy'])->name('policy');
-Route::view('about_us', 'user_views.about_us.index')->name('aboutUs');
-Route::view('eu_projects', 'user_views.eu_projects.index')->name('euProjects');
+Route::middleware('cookie-consent')->group(function () {
+    //Route::get("home", [App\Http\Controllers\HomeController::class, 'home'])->name('home');
+    Route::get("rootcategories", [CategoryController::class, 'userRootCategories'])->name('rootcategories');
+    Route::get("innercategories/{category_id}", [CategoryController::class, 'userInnerCategories'])->name('innercategories');
+    //Route::get("categorytree", [CategoryController::class, 'userCategoryTree'])->name('categorytree');
+    //Route::get("viewcategory", [CategoryController::class, 'userViewCategory'])->name('viewcategory');
+    Route::get("viewproduct/{id}", [ProductController::class, 'userViewProduct'])->where('id', '[0-9]+')->name('viewproduct');
+    Route::get('products', [ProductController::class, 'userProductIndex'])->name('userproducts');
+    Route::get('promotions', [\App\Http\Controllers\PromotionController::class, 'indexPromotions'])->name('promotions');
+    Route::get('promotion/{id}', [\App\Http\Controllers\PromotionController::class, 'promotionProducts'])->name('promotion');
+    Route::get("termsofservice", [\App\Http\Controllers\TermsOfServiceController::class, 'index'])->name('termsofservice');
+    Route::get("policy", [\App\Http\Controllers\TermsOfServiceController::class, 'policy'])->name('policy');
+    Route::view('about_us', 'user_views.about_us.index')->name('aboutUs');
+    Route::view('eu_projects', 'user_views.eu_projects.index')->name('euProjects');
+});
 
 Auth::routes();
 Route::get("logout", function () {
