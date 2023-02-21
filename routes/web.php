@@ -146,97 +146,94 @@ Route::group(array('prefix' => 'admin', 'middleware' => 'admin'), function () {
     Route::post('data_export_import/import', [DataExportImportController::class, 'import'])->name('data_export_import.import');
 });
 
-    Route::group(array('prefix' => 'user', 'middleware' => ['auth', 'cookie-consent']), function () {
-        Route::get('/', function () {
-            return redirect()->route('userproducts');
-        });
-        Route::get('homepage', [App\Http\Controllers\HomeController::class, 'userhomepage'])->name('userhomepage');
-        Route::get('rootcategories', [CategoryController::class, 'userRootCategories'])->name('rootcategories');
-        Route::get('innercategories/{category_id}', [CategoryController::class, 'userInnerCategories'])->name('innercategories');
+Route::group(array('prefix' => 'user', 'middleware' => ['auth', 'cookie-consent']), function () {
+    Route::get('/', function () {
+        return redirect()->route('userproducts');
+    });
+    Route::get('homepage', [App\Http\Controllers\HomeController::class, 'userhomepage'])->name('userhomepage');
+    Route::get('rootcategories', [CategoryController::class, 'userRootCategories'])->name('rootcategories');
+    Route::get('innercategories/{category_id}', [CategoryController::class, 'userInnerCategories'])->name('innercategories');
 //        Route::get("categorytree", [CategoryController::class, 'userCategoryTree'])->name('categorytree');
-        Route::get('viewcategory', [CategoryController::class, 'userViewCategory'])->name('viewcategory');
-        Route::get('viewproduct/{id}', [ProductController::class, 'userViewProduct'])->where('id', '[0-9]+')->name('viewproduct');
-        Route::post('addtocart', [CartController::class, 'addToCart'])->name('addtocart');
-        //Route::get('viewCarts', [\App\Models\Cart::class, 'viewAllCarts'])->name('viewallcarts');
-        Route::get('viewcart', [CartController::class, 'viewCart'])->name('viewcart');
-        Route::delete('cartItems/destroy/{id}', [\App\Http\Controllers\CartItemController::class, 'userCartItemDestroy'])->where('id', '[0-9]+')->name('userCartItemDestroy');
-        Route::get('products', [ProductController::class, 'userProductIndex'])->name('userproducts');
+    Route::get('viewcategory', [CategoryController::class, 'userViewCategory'])->name('viewcategory');
+    Route::get('viewproduct/{id}', [ProductController::class, 'userViewProduct'])->where('id', '[0-9]+')->name('viewproduct');
+    Route::post('addtocart', [CartController::class, 'addToCart'])->name('addtocart');
+    //Route::get('viewCarts', [\App\Models\Cart::class, 'viewAllCarts'])->name('viewallcarts');
+    Route::get('viewcart', [CartController::class, 'viewCart'])->name('viewcart');
+    Route::delete('cartItems/destroy/{id}', [\App\Http\Controllers\CartItemController::class, 'userCartItemDestroy'])->where('id', '[0-9]+')->name('userCartItemDestroy');
+    Route::get('products', [ProductController::class, 'userProductIndex'])->name('userproducts');
 //    Route::get('viewOrders', [\App\Models\Order::class, 'viewAllOrders'])->name('viewallorders');
-        Route::get('checkout', [OrderController::class, 'checkout'])->name('checkout');
-        Route::post('checkout/preview', [OrderController::class, 'checkoutPreview'])->name('checkout-preview');
-        Route::post('pay', [PayController::class, 'index'])->name('pay');
-        Route::get('pay/accept/{id}', [PayController::class, 'accept'])->where('id', '[0-9]+')->name('pay-accept');
-        Route::get('pay/cancel/{id}', [PayController::class, 'cancel'])->where('id', '[0-9]+')->name('pay-cancel');
-        Route::get('pay/callback/{id}', [PayController::class, 'callback'])->where('id', '[0-9]+')->name('pay-callback');
-        Route::get('rootorders', [OrderController::class, 'indexOrders'])->name('rootorders');
-        Route::get('rootoreturns', [ReturnsController::class, 'indexReturns'])->name('rootoreturns');
-        Route::get('vieworder/{id}', [OrderController::class, 'viewOrder'])->where('id', '[0-9]+')->name('vieworder');
-        Route::get('download_invoice/{id}', [OrderController::class, 'downloadInvoicePdf'])->where('id', '[0-9]+')->name(('download_invoice'));
-        Route::get('viewreturn/{id}', [ReturnsController::class, 'viewReturn'])->where('id', '[0-9]+')->name('viewreturn');
-        Route::get('cancelnorder/{id}', [\App\Http\Controllers\ReturnsController::class, 'cancelOrder'])->where('id', '[0-9]+')->name('cancelnorder');
-        Route::get('returnorder/{id}', [\App\Http\Controllers\ReturnsController::class, 'returnOrder'])->where('id', '[0-9]+')->name('returnorder');
-        Route::post('returnorder/{id}/save', [\App\Http\Controllers\ReturnsController::class, 'saveReturnOrder'])->where('id', '[0-9]+')->name('savereturnorder');
-        Route::post('savecancelnorder/{id}/save', [\App\Http\Controllers\ReturnsController::class, 'saveCancelOrder'])->where('id', '[0-9]+')->name('savecancelnorder');
-        Route::get('promotions', [\App\Http\Controllers\PromotionController::class, 'indexPromotions'])->name('promotions');
-        Route::get('promotion/{id}', [\App\Http\Controllers\PromotionController::class, 'promotionProducts'])->name('promotion');
-        Route::get('termsofservice', [\App\Http\Controllers\TermsOfServiceController::class, 'rules'])->name('termsofservice');
-        Route::get('policy', [\App\Http\Controllers\TermsOfServiceController::class, 'policy'])->name('policy');
-        Route::get('discountCoupons', [\App\Http\Controllers\DiscountCouponController::class, 'discountcouponUser'])->name('discountCoupons');
-        Route::post('addUserRating', [\App\Http\Controllers\RatingsController::class, 'addUserRating'])->name('addUserRating');
-        Route::get('userprofile', [\App\Http\Controllers\UserController::class, 'show'])->name('userprofile');
-        Route::patch('userprofilesave', [\App\Http\Controllers\UserController::class, 'store'])->name('userprofilesave');
-        Route::post('changePassword', [\App\Http\Controllers\UserController::class, 'changePassword'])->name('changePassword');
-        Route::get('messenger', MessengerIndex::class)->name('livewire.messenger.index');
-        Route::get('messenger/add', MessengerAdd::class)->name('livewire.messenger.add');
-        Route::get('messenger/{id}', MessengerShow::class)->name('livewire.messenger.show');
-    });
+    Route::get('checkout', [OrderController::class, 'checkout'])->name('checkout');
+    Route::post('checkout/preview', [OrderController::class, 'checkoutPreview'])->name('checkout-preview');
+    Route::post('pay', [PayController::class, 'index'])->name('pay');
+    Route::get('pay/accept/{id}', [PayController::class, 'accept'])->where('id', '[0-9]+')->name('pay-accept');
+    Route::get('pay/cancel/{id}', [PayController::class, 'cancel'])->where('id', '[0-9]+')->name('pay-cancel');
+    Route::get('pay/callback/{id}', [PayController::class, 'callback'])->where('id', '[0-9]+')->name('pay-callback');
+    Route::get('rootorders', [OrderController::class, 'indexOrders'])->name('rootorders');
+    Route::get('rootoreturns', [ReturnsController::class, 'indexReturns'])->name('rootoreturns');
+    Route::get('vieworder/{id}', [OrderController::class, 'viewOrder'])->where('id', '[0-9]+')->name('vieworder');
+    Route::get('download_invoice/{id}', [OrderController::class, 'downloadInvoicePdf'])->where('id', '[0-9]+')->name(('download_invoice'));
+    Route::get('viewreturn/{id}', [ReturnsController::class, 'viewReturn'])->where('id', '[0-9]+')->name('viewreturn');
+    Route::get('cancelnorder/{id}', [\App\Http\Controllers\ReturnsController::class, 'cancelOrder'])->where('id', '[0-9]+')->name('cancelnorder');
+    Route::get('returnorder/{id}', [\App\Http\Controllers\ReturnsController::class, 'returnOrder'])->where('id', '[0-9]+')->name('returnorder');
+    Route::post('returnorder/{id}/save', [\App\Http\Controllers\ReturnsController::class, 'saveReturnOrder'])->where('id', '[0-9]+')->name('savereturnorder');
+    Route::post('savecancelnorder/{id}/save', [\App\Http\Controllers\ReturnsController::class, 'saveCancelOrder'])->where('id', '[0-9]+')->name('savecancelnorder');
+    Route::get('promotions', [\App\Http\Controllers\PromotionController::class, 'indexPromotions'])->name('promotions');
+    Route::get('promotion/{id}', [\App\Http\Controllers\PromotionController::class, 'promotionProducts'])->name('promotion');
+    Route::get('termsofservice', [\App\Http\Controllers\TermsOfServiceController::class, 'rules'])->name('termsofservice');
+    Route::get('policy', [\App\Http\Controllers\TermsOfServiceController::class, 'policy'])->name('policy');
+    Route::get('discountCoupons', [\App\Http\Controllers\DiscountCouponController::class, 'discountcouponUser'])->name('discountCoupons');
+    Route::post('addUserRating', [\App\Http\Controllers\RatingsController::class, 'addUserRating'])->name('addUserRating');
+    Route::get('userprofile', [\App\Http\Controllers\UserController::class, 'show'])->name('userprofile');
+    Route::patch('userprofilesave', [\App\Http\Controllers\UserController::class, 'store'])->name('userprofilesave');
+    Route::post('changePassword', [\App\Http\Controllers\UserController::class, 'changePassword'])->name('changePassword');
+    Route::get('messenger', MessengerIndex::class)->name('livewire.messenger.index');
+    Route::get('messenger/add', MessengerAdd::class)->name('livewire.messenger.add');
+    Route::get('messenger/{id}', MessengerShow::class)->name('livewire.messenger.show');
+});
 
-Route::get('rootcategories', [CategoryController::class, 'userRootCategories'])->name('rootcategories');
-Route::get('innercategories/{category_id}', [CategoryController::class, 'userInnerCategories'])->name('innercategories');
-Route::get('viewcategory', [CategoryController::class, 'userViewCategory'])->name('viewcategory');
-Route::get('viewproduct/{id}', [ProductController::class, 'userViewProduct'])->where('id', '[0-9]+')->name('viewproduct');
-Route::get('products', [ProductController::class, 'userProductIndex'])->name('userproducts');
-Route::get('promotions', [\App\Http\Controllers\PromotionController::class, 'indexPromotions'])->name('promotions');
-Route::get('promotion/{id}', [\App\Http\Controllers\PromotionController::class, 'promotionProducts'])->name('promotion');
-Route::get('termsofservice', [\App\Http\Controllers\TermsOfServiceController::class, 'rules'])->name('termsofservice');
-Route::get('policy', [\App\Http\Controllers\TermsOfServiceController::class, 'policy'])->name('policy');
-Route::get('eu_projects',[\App\Http\Controllers\AboutUsController::class, 'index'])->name('about');
+Route::middleware('cookie-consent')->group(function () {
+    Route::get('rootcategories', [CategoryController::class, 'userRootCategories'])->name('rootcategories');
+    Route::get('innercategories/{category_id}', [CategoryController::class, 'userInnerCategories'])->name('innercategories');
+    Route::get('viewcategory', [CategoryController::class, 'userViewCategory'])->name('viewcategory');
+    Route::get('viewproduct/{id}', [ProductController::class, 'userViewProduct'])->where('id', '[0-9]+')->name('viewproduct');
+    Route::get('products', [ProductController::class, 'userProductIndex'])->name('userproducts');
+    Route::get('promotions', [\App\Http\Controllers\PromotionController::class, 'indexPromotions'])->name('promotions');
+    Route::get('promotion/{id}', [\App\Http\Controllers\PromotionController::class, 'promotionProducts'])->name('promotion');
+    Route::get('termsofservice', [\App\Http\Controllers\TermsOfServiceController::class, 'rules'])->name('termsofservice');
+    Route::get('policy', [\App\Http\Controllers\TermsOfServiceController::class, 'policy'])->name('policy');
+    Route::get('eu_projects',[\App\Http\Controllers\AboutUsController::class, 'index'])->name('about');
+});
 
-    Auth::routes();
-    Route::get("logout", function () {
-        Auth::logout();
-        return redirect()->route('products');
-    })->name("getlogout");
+Auth::routes();
 
-    Route::prefix('facebook')->name('facebook.')->group(function () {
-        Route::get('auth', [FaceBookController::class, 'loginUsingFacebook'])->name('login');
-        Route::get('callback', [FaceBookController::class, 'callbackFromFacebook'])->name('callback');
-    });
+Route::get("logout", function () {
+    Auth::logout();
+    return redirect()->route('products');
+})->name("getlogout");
 
-    Route::prefix('google')->name('google.')->group(function () {
-        Route::get('auth', [GoogleController::class, 'loginUsingGoogle'])->name('login');
-        Route::get('callback', [GoogleController::class, 'callbackFromGoogle'])->name('callback');
-    });
+Route::prefix('facebook')->name('facebook.')->group(function () {
+    Route::get('auth', [FaceBookController::class, 'loginUsingFacebook'])->name('login');
+    Route::get('callback', [FaceBookController::class, 'callbackFromFacebook'])->name('callback');
+});
 
-    Route::prefix('twitter')->name('twitter.')->group(function () {
-        Route::get('auth', [TwitterController::class, 'loginUsingTwitter'])->name('login');
-        Route::get('callback', [TwitterController::class, 'callbackFromTwitter'])->name('callback');
-    });
+Route::prefix('google')->name('google.')->group(function () {
+    Route::get('auth', [GoogleController::class, 'loginUsingGoogle'])->name('login');
+    Route::get('callback', [GoogleController::class, 'callbackFromGoogle'])->name('callback');
+});
 
-//    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::prefix('twitter')->name('twitter.')->group(function () {
+    Route::get('auth', [TwitterController::class, 'loginUsingTwitter'])->name('login');
+    Route::get('callback', [TwitterController::class, 'callbackFromTwitter'])->name('callback');
+});
 
-    Route::get('lang/{locale}', function ($locale) {
-        app()->setLocale($locale);
-        session()->put('locale', $locale);
-//    return redirect()->back();
-        return redirect()->back();
-    });
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::get('lang/{locale}', function ($locale) {
+    app()->setLocale($locale);
+    session()->put('locale', $locale);
+    return redirect()->back();
+});
 
 //Route::resource('categories', App\Http\Controllers\CategoryController::class);
-
-
-    Route::resource('messages', App\Http\Controllers\MessageController::class);
-
-
-    Route::resource('ratings', App\Http\Controllers\RatingsController::class);
+//Route::resource('messages', App\Http\Controllers\MessageController::class);
+//Route::resource('ratings', App\Http\Controllers\RatingsController::class);

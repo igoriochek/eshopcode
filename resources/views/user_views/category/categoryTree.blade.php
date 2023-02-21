@@ -1,16 +1,14 @@
 <ul class="category-menu ps-0">
     @foreach($treeCategories as $category)
-        @if (count($category->products) > 0)
-            <li class="category-nav-item">
-                <a href="{{ route("innercategories", ["category_id" => $category->id ]) }}"
-                   class="nav-link {{ substr(url()->current(), -1) == "$category->id" ? 'active' : '' }}">
+        <li class="category-nav-item">
+            <a href="{{ route("innercategories", ["category_id" => $category->id ]) }}"
+               class="nav-link {{ substr(url()->current(), -1) == "$category->id" ? 'active' : '' }}">
                     <span style="white-space: normal;">
                         {{ $category->name }}
                         ({{ count($category->products) }})
                     </span>
-                </a>
-            </li>
-        @endif
+            </a>
+        </li>
         @if(count($category->innerCategories))
             @include('user_views.category.categoryTreeChildren', ['childs' => $category->innerCategories])
         @endif
