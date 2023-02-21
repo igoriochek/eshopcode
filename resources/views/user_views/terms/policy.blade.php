@@ -8,10 +8,10 @@
                 <h2 style="font-family: 'Times New Roman', sans-serif; font-weight: 500" class="mb-4 mt-3">
                     Privatumo Politika
                 </h2>
-                Privatumo politika (toliau – „Privatumo politika“) paaiškina, kaip Du prieš du, MB (toliau – „Bendrovė“) renka ir tvarko svetainės www.recovcenter.com (toliau – „Svetainė“) lankytojų informaciją, nurodo kokias teises Svetainės lankytojai turi bei kaip jas gali įgyvendinti. Prieš registruojantis Svetainėje rekomenduojame atidžiai perskaityti šią Privatumo politiką.<br/>
+                Privatumo politika (toliau – "Privatumo politika") paaiškina, kaip MB "Du prieš du" (toliau – "Bendrovė") renka ir tvarko svetainės www.recovcenter.com (toliau – "Svetainė") lankytojų informaciją, nurodo kokias teises Svetainės lankytojai turi bei kaip jas gali įgyvendinti. Prieš registruojantis Svetainėje rekomenduojame atidžiai perskaityti šią Privatumo politiką.<br/>
                 Bendrovė yra įsipareigojusi savo veikloje atsakingai ir saugiai tvarkyti Jūsų asmens duomenis. Vadovaudamiesi, šiais esminiais principais, mes visada sieksime užtikrinti pakankamą Jūsų duomenų apsaugos lygį bei Jūsų teisių apsaugą. Mes tvarkome Asmens duomenis, pagal šią Privatumo politiką, vadovaudamiesi taikomais teisės aktais, įskaitant Bendrąjį duomenų apsaugos reglamentą (2016/679) (toliau – „BDAR“) bei taikomus Lietuvos nacionalinius asmens duomenų apsaugos teisės aktus.<br/>
                 <h5 class="mt-4 mb-2">Duomenų valdytojas</h5>
-                Du prieš du, MB<br/>
+                MB "Du prieš du"<br/>
                 Įmonės kodas yra: 304073493<br/>
                 Adresas: Perkūnkiemio g. 13-91, LT-12114 Vilnius<br/>
                 Tel. Nr.: +370 686 10246<br/>
@@ -47,10 +47,10 @@
                 <h2 style="font-family: 'Times New Roman', sans-serif; font-weight: 500" class="mb-4 mt-3">
                     Политика Kонфиденциальности
                 </h2>
-                Политика конфиденциальности (далее — «Политика конфиденциальности») объясняет, как Du prieš du, MB (далее — «Компания») собирает и обрабатывает информацию о посетителях веб-сайта www.recovcenter.com (далее — «Сайт»), указывает, какими правами обладают посетители Сайта и как вы можете их реализовать. Перед регистрацией на Веб-сайте рекомендуем внимательно ознакомиться с настоящей Политикой конфиденциальности.<br/>
+                Политика конфиденциальности (далее — «Политика конфиденциальности») объясняет, как MB "Du prieš du" (далее — «Компания») собирает и обрабатывает информацию о посетителях веб-сайта www.recovcenter.com (далее — «Сайт»), указывает, какими правами обладают посетители Сайта и как вы можете их реализовать. Перед регистрацией на Веб-сайте рекомендуем внимательно ознакомиться с настоящей Политикой конфиденциальности.<br/>
                 Компания обязуется ответственно и безопасно обращаться с вашими личными данными в своей деятельности. Основываясь на этих основных принципах, мы всегда будем стремиться обеспечить достаточный уровень защиты ваших данных и защиту ваших прав. Мы обрабатываем Персональные данные в соответствии с настоящей Политикой конфиденциальности, в соответствии с применимыми правовыми актами, в том числе Общим регламентом защиты данных (2016/679) (далее — «GDPR») и применимым литовским национальным законодательством о защите персональных данных.<br />
                 <h5 class="mt-4 mb-2">Контроллер данных</h5>
-                Du prieš du, MB<br/>
+                MB "Du prieš du"<br/>
                 Код компании: 304073493<br/>
                 Адрес: ул. Perkūnkiemio 13-91, LT-12114 Вильнюс<br/>
                 Тел. № +370 686 10246<br/>
@@ -88,10 +88,10 @@
                     Privacy Policy
                 </h2>
                 <hr>
-                The Privacy Policy (hereinafter - the "Privacy Policy") explains how Du prieš du, MB (hereinafter - the "Company") collects and processes the information of visitors to the website www.recovcenter.com (hereinafter - the "Site"), indicates what rights the visitors of the Site have and how you can implement them. Before registering on the Website, we recommend that you carefully read this Privacy Policy.<br/>
+                The Privacy Policy (hereinafter - the "Privacy Policy") explains how MB "Du prieš du" (hereinafter - the "Company") collects and processes the information of visitors to the website www.recovcenter.com (hereinafter - the "Site"), indicates what rights the visitors of the Site have and how you can implement them. Before registering on the Website, we recommend that you carefully read this Privacy Policy.<br/>
                 The company is committed to handling your personal data responsibly and securely in its activities. Based on these essential principles, we will always strive to ensure a sufficient level of protection of your data and the protection of your rights. We process Personal Data, in accordance with this Privacy Policy, in accordance with the applicable legal acts, including the General Data Protection Regulation (2016/679) (hereinafter - "GDPR") and the applicable Lithuanian national personal data protection legislation.<br/>
                 <h5 class="mt-4 mb-2">Data Controller</h5>
-                Du prieš du, MB<br/>
+                MB "Du prieš du"<br/>
                 The company code is: 304073493<br/>
                 Address: Perkūnkiemio g. 13-91, LT-12114 Vilnius<br/>
                 Tel. No. +370 686 10246<br/>

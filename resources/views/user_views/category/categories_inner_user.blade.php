@@ -18,8 +18,13 @@
                     </div>
                 </div>
                 <div class="col-lg-8 mb-5">
-                    <div class="d-flex justify-content-center gap-2 flex-column col-12 mb-4">
+                    <div class="d-flex gap-2 flex-column col-12 mb-4">
                         <h3 class="column-title mb-0">{{ $maincategory->name }}</h3>
+                    </div>
+                    <div class="d-flex gap-2 flex-column col-12 mb-4">
+                        {!! $maincategory->description !!}
+                    </div>
+                    <div class="d-flex gap-2 flex-column col-12 mb-4">
                         <span class="text-muted">{{ __('names.results').': '.$products->total() }}</span>
                     </div>
                     <div class="row">

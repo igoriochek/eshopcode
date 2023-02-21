@@ -96,7 +96,7 @@
                                     @endif
                                 </div>
                             </div>
-                            <p class="product-description">{{ $product->description }}</p>
+                            <div class="product-description">{!! $product->description !!}</div>
                             {!! Form::open(['route' => ['addtocart'], 'method' => 'post', 'class' => 'product-add-to-cart-container']) !!}
                                 <div class="d-flex">
                                     <input type="button" class="minus text-color-hover-light bg-color-hover-primary border-color-hover-primary" value="-">
@@ -113,7 +113,7 @@
                             <div class="product-detail-container">
                                 <span class="me-2">{{ __('names.categories') }}:</span>
                                 @forelse ($product->categories as $category)
-                                    <a href="{{ url("/user/innercategories/$category->id") }}" class="category-link">
+                                    <a href="{{ url("/innercategories/$category->id") }}" class="category-link">
                                         {{ $category->name }}@if (!$loop->last),@endif
                                     </a>
                                 @empty

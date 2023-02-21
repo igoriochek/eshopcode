@@ -11249,7 +11249,7 @@ textarea.form-control-lg {
   min-height: 100vh;
 }
 * body p {
-  text-align: left;
+  text-align: justify;
   margin: 0;
   font-size: 1em;
 }
