@@ -10,7 +10,7 @@ return [
 
     'information' => 'Informacija',
     'contactUs' => 'Susisiekite su mumis',
-    'slogan' => 'Šūkis',
+    'securedPayment' => 'Saugus mokėjimas',
     'aboutUsTeam' => 'Apie mus / Komanda',
     'career' => 'Karjera',
     'allLocations' => 'Lokacijos',
@@ -18,7 +18,7 @@ return [
     'faq' => 'D.U.K.',
     'privacyPolicy' => 'Privatumo politika',
     'termsOfService' => 'Paslaugų teikimo sąlygos',
-    'contantSupport' => 'Kontaktai / Pagalba',
+    'contactSupport' => 'Kontaktai / Pagalba',
     'address' => 'Adresas',
     'phoneNumber' => 'Telefono numeris',
     'companyCode' => 'Įmonės kodas',

@@ -8,26 +8,21 @@ return [
     |--------------------------------------------------------------------------
     */
 
-    'contactInfo' => 'Контактная информация',
-    'phone' => 'Телефон',
-    'email' => 'Электронная почта',
-    'browse' => 'Обзор',
-    'menu' => 'Меню',
-    'personal' => 'Личный',
-    'address' => 'Адрес',
-    'phoneNumber' => 'Номер телефона',
-    'companyCode' => 'Код компании',
-    'vatCode' => 'Код НДС',
-    'copyright' => '© 2023 MB "Du prieš du". Все права защищены',
     'information' => 'Информация',
     'contactUs' => 'Свяжитесь с нами',
-    'slogan' => 'Лозунг',
+    'securedPayment' => 'Безопасный платеж',
     'aboutUsTeam' => 'Про нас / Команда',
     'career' => 'Карьера',
+    'menu' => 'Меню',
     'allLocations' => 'Локации',
     'faq' => 'ЧАВО',
     'privacyPolicy' => 'Политика конфиденциальности',
     'termsOfService' => 'Условия обслуживания',
-    'contantSupport' => 'Контакты / Помощь',
+    'contactSupport' => 'Контакты / Помощь',
+    'address' => 'Адрес',
+    'phoneNumber' => 'Номер телефона',
+    'companyCode' => 'Код компании',
+    'vatCode' => 'Код НДС',
+    'copyright' => '© 2023 MB "Du prieš du". Все права защищены'
 
 ];

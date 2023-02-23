@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta name="verify-paysera" content="11af48f59febdff78c728362f7b79943">
+    <meta name="verify-paysera" content="c28bc78df5c59152d779cd87ccb182d1">
     <!-- Title -->
-    <title>{{ config('app.name', 'Bonatrip') }}</title>
+    <title>{{ config('app.name', 'Recovcenter') }}</title>
     <!-- Favicon -->
-{{--    <link rel="icon" href="{{ asset('images/logo.jpeg') }}">--}}
+    <link rel="icon" href="{{ asset('images/favicon.ico') }}">
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

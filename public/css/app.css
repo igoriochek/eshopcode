@@ -12709,6 +12709,7 @@ footer .footer-link:hover, footer .footer-link:focus {
 footer .footer-bar-title {
   color: #eee;
   font-family: "Playfair Display", serif;
+    text-transform: uppercase;
 }
 footer .contact-travel-paragraph {
   color: #FFFFFF;

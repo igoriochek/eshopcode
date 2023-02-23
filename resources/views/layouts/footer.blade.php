@@ -2,34 +2,6 @@
     <div style="padding: 100px 0 80px 0; background: #2f3e3f">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 col-md-12">
-                    <a class="navbar-brand fw-bold" href="{{ url('/home') }}">
-                        <img src="{{ asset('images/logo.jpeg') }}" alt="logo" width="250px">
-                    </a>
-                    <p class="my-4 slogan-paragraph">
-                        {{ __('footer.slogan') }}
-                    </p>
-                    <div class="d-flex mt-5 mb-4 mb-md-0" style="gap: 20px">
-                        <a class="footer-link" href="{{ route('facebook.login') }}">
-                            <i class="fa-brands fa-facebook fs-4"></i>
-                        </a>
-                        <a class="footer-link" href="{{ route('google.login') }}">
-                            <i class="fa-brands fa-google fs-4"></i>
-                        </a>
-                        <a class="footer-link" href="{{ route('twitter.login') }}">
-                            <i class="fa-brands fa-twitter fs-4"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mt-4 mt-md-5 mt-lg-0">
-                    <h5 class="fw-bold mb-5 footer-bar-title">
-                        {{ __('footer.menu') }}
-                    </h5>
-
-                    <ul class="list-unstyled mb-0">
-                        @include('layouts.menus.user_menu_bottom')
-                    </ul>
-                </div>
                 <div class="col-lg-4 col-md-6 mt-4 mt-md-5 mt-lg-0 position-relative">
                     <h5 class="fw-bold mb-5 footer-bar-title">
                         {{ __('footer.contactUs') }}
@@ -72,6 +44,20 @@
                             </div>
                         </li>
                     </ul>
+                </div>
+                <div class="col-lg-4 col-md-6 mt-4 mt-md-5 mt-lg-0">
+                    <h5 class="fw-bold mb-5 footer-bar-title">
+                        {{ __('footer.menu') }}
+                    </h5>
+                    <ul class="list-unstyled mb-0">
+                        @include('layouts.menus.user_menu_bottom')
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <h5 class="fw-bold mb-5 footer-bar-title">
+                        {{ __('footer.securedPayment') }}
+                    </h5>
+                    <img src="{{ asset('images/320px-Paysera_logo.png') }}" alt="Paysera" width="250px">
                 </div>
             </div>
         </div>

@@ -8,7 +8,6 @@
                 <div class="col-lg-12 mb-5">
                     <div class="d-flex justify-content-center gap-2 flex-column col-12 mb-4">
                         <h3 class="column-title mb-0">{{ __('menu.discountCoupons') }}</h3>
-                        <span class="text-muted">{{ __('names.results').': '.$discountCoupons->total() }}</span>
                     </div>
                     <div class="row mx-0">
                         @if(($discountCoupons->count()))

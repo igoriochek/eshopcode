@@ -10,7 +10,7 @@ return [
 
     'information' => 'Information',
     'contactUs' => 'Contact Us',
-    'slogan' => 'Slogan',
+    'securedPayment' => 'Secured Payment',
     'aboutUsTeam' => 'About Us / Team',
     'career' => 'Career',
     'menu' => 'Menu',
@@ -18,7 +18,7 @@ return [
     'faq' => 'F.A.Q.',
     'privacyPolicy' => 'Privacy Policy',
     'termsOfService' => 'Terms of Service',
-    'contantSupport' => 'Contant / Support',
+    'contactSupport' => 'Contant / Support',
     'address' => 'Address',
     'phoneNumber' => 'Phone Number',
     'companyCode' => 'Company code',

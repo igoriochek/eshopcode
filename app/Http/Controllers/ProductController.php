@@ -51,6 +51,18 @@ class ProductController extends AppBaseController
             ->with('products', $products);
     }
 
+    private function getProductsWithCorrectIds(object $products): object
+    {
+        $products = $products->paginate(9)->appends(request()->query());
+
+        foreach ($products as $product)
+        {
+            $product->id = $product->product_id;
+        }
+
+        return $products;
+    }
+
     public function userProductIndex(Request $request)
     {
         $filter = $request->query('filter');
@@ -88,7 +100,8 @@ class ProductController extends AppBaseController
 
         $products = QueryBuilder::for(Product::class)
             ->join('products_translations', function ($join) {
-                $join->on('products.id', '=', 'products_translations.product_id')
+                //$join->on('products.id', '=', 'products_translations.product_id')
+                $join->on('products_translations.product_id', '=', 'products.id')
                     ->where('products_translations.locale', '=', app()->getLocale());
             })
             ->allowedFilters([
@@ -112,7 +125,8 @@ class ProductController extends AppBaseController
         return view('user_views.product.products_all_with_filters')
             ->with([
                     'maxPrice' => $products->max('price'),
-                    'products'=> $products->paginate(10)->appends(request()->query()),
+                    //'products'=> $products->paginate(10)->appends(request()->query()),
+                    'products'=> $this->getProductsWithCorrectIds($products),
                     'categories' => $categories,
                     'filter' => $filter ? $filter : array(),
                     'selCategories' => $selCategories ? explode(",",$selCategories) : array(),
