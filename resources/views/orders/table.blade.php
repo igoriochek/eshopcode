@@ -1,5 +1,5 @@
-<div class="table-responsive">
-    <table class="table" id="orders-table">
+<div class="table table-responsive">
+    <table class="table table-striped table-bordered my-3" id="orders-table">
         <thead>
         <tr>
             <th>{{__('table.user')}}</th>

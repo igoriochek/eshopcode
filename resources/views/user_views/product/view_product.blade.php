@@ -87,10 +87,12 @@
                                 </div>
                                 <div class="product-price">
                                     @if ($product->discount)
-                                        <span class="offer">
-                                           {{ number_format($product->price,2) }} €
-                                        </span>&nbsp;
-                                        {{ $product->price - (round(($product->price * $product->discount->proc / 100), 2)) }} €
+                                        <strike>
+                                           {{ number_format($product->price, 2) }} €
+                                        </strike>&nbsp;
+                                        <b style="color: #9e5b36">
+                                            {{ $product->price - (round(($product->price * $product->discount->proc / 100), 2)) }} €
+                                        </b>
                                     @else
                                         <span>{{ number_format($product->price,2) }} €</span>
                                     @endif

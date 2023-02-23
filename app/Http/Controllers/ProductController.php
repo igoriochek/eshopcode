@@ -53,7 +53,7 @@ class ProductController extends AppBaseController
 
     private function getProductsWithCorrectIds(object $products): object
     {
-        $products = $products->paginate(9)->appends(request()->query());
+        $products = $products->paginate(6)->appends(request()->query());
 
         foreach ($products as $product)
         {

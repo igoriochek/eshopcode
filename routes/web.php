@@ -3,6 +3,7 @@
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PayController;
 use App\Http\Controllers\ReturnsController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
@@ -183,18 +184,20 @@ Route::group(array('prefix' => 'user', 'middleware' => ['auth', 'cookie-consent'
     Route::get('messenger/{id}', MessengerShow::class)->name('livewire.messenger.show');
 });
 
-//Route::get("homepage", [App\Http\Controllers\HomeController::class, 'userhomepage'])->name('userhomepage');
-Route::get("rootcategories", [CategoryController::class, 'userRootCategories'])->name('rootcategories');
-Route::get("innercategories/{category_id}", [CategoryController::class, 'userInnerCategories'])->name('innercategories');
-Route::get("categorytree", [CategoryController::class, 'userCategoryTree'])->name('categorytree');
-Route::get("viewcategory", [CategoryController::class, 'userViewCategory'])->name('viewcategory');
-Route::get("viewproduct/{id}", [ProductController::class, 'userViewProduct'])->where('id', '[0-9]+')->name('viewproduct');
-Route::get('products', [ProductController::class, 'userProductIndex'])->name('userproducts');
-Route::get('promotions', [PromotionController::class, 'indexPromotions'])->name('promotions');
-Route::get('promotion/{id}', [PromotionController::class, 'promotionProducts'])->name('promotion');
-Route::get("termsofservice", [TermsOfServiceController::class, 'rules'])->name('termsofservice');
-Route::get("policy", [TermsOfServiceController::class, 'policy'])->name('policy');
-Route::get('eu_projects',[AboutUsController::class, 'index'])->name('about');
+Route::middleware('cookie-consent')->group(function () {
+    //Route::get("homepage", [App\Http\Controllers\HomeController::class, 'userhomepage'])->name('userhomepage');
+    Route::get("rootcategories", [CategoryController::class, 'userRootCategories'])->name('rootcategories');
+    Route::get("innercategories/{category_id}", [CategoryController::class, 'userInnerCategories'])->name('innercategories');
+    Route::get("categorytree", [CategoryController::class, 'userCategoryTree'])->name('categorytree');
+    Route::get("viewcategory", [CategoryController::class, 'userViewCategory'])->name('viewcategory');
+    Route::get("viewproduct/{id}", [ProductController::class, 'userViewProduct'])->where('id', '[0-9]+')->name('viewproduct');
+    Route::get('products', [ProductController::class, 'userProductIndex'])->name('userproducts');
+    Route::get('promotions', [PromotionController::class, 'indexPromotions'])->name('promotions');
+    Route::get('promotion/{id}', [PromotionController::class, 'promotionProducts'])->name('promotion');
+    Route::get("termsofservice", [TermsOfServiceController::class, 'rules'])->name('termsofservice');
+    Route::get("policy", [TermsOfServiceController::class, 'policy'])->name('policy');
+    Route::get('eu_projects',[AboutUsController::class, 'index'])->name('about');
+});
 
 Auth::routes();
 Route::get("logout", function () {
