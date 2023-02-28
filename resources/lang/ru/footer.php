@@ -20,6 +20,7 @@ return [
     'termsOfService' => 'Условия обслуживания',
     'contactSupport' => 'Контакты / Помощь',
     'address' => 'Адрес',
+    'email' => 'Электронная почта',
     'phoneNumber' => 'Номер телефона',
     'companyCode' => 'Код компании',
     'vatCode' => 'Код НДС',

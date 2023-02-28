@@ -11,12 +11,9 @@
                 <div class="row">
                     <div class="col-xl-8">
                         <ul class="list-unstyled">
-                            <li class="text-muted"><b>{{__('forms.to')}}:</b> <span
-                                    style="color:#8f8061 ;">{{$order->user->name}}</span></li>
-                            <li class="text-muted"><b>{{__('forms.street')}}, {{__('forms.city')}} :</b> {{$order->user->street}}
-                                , {{$order->user->city}}</li>
-                            <li class="text-muted"><b>{{__('forms.house_flat')}}:</b> {{$order->user->house_flat}}</li>
-                            <li class="text-muted"><i class="fas fa-phone"></i> {{$order->user->phone_number}}</li>
+                            <li class="text-muted"><b>{{ __('forms.buyer') }}:</b> <span style="color:#8f8061 ;">{{$order->user->name}}</span></li>
+                            <li class="text-muted"><b>{{ __('forms.address') }}:</b> {{ $order->user->street }} {{ $order->user->house_flat }}, {{ $order->user->city }}</li>
+                            <li class="text-muted"><b>{{ __('forms.phone_number') }}:</b> {{ $order->user->phone_number }}</li>
                         </ul>
                     </div>
                     <div class="col-xl-4 ">
@@ -63,16 +60,11 @@
                             </div>
                         </div>
                         <div class="col-md-7 mb-4 mb-md-0">
-                            <p class="fw-bold">{{ $orderItem->product->name}}</p>
-                            <p class="mb-1">
-                                    <span
-                                        class="text-muted me-2">{{__('table.description')}}: </span><span>{{$orderItem->product->description}}</span>
-                            </p>
+                            <p class="fw-bold">{{ $orderItem->product->name }}</p>
                         </div>
                         <div class="col-md-3 mb-4 mb-md-0 my-md-4 align-items-md-center justify-content-md-center">
                             <h5 class="mb-2">
-                                <span
-                                    class="align-middle"><b>{{__('table.price')}}:</b> {{ number_format($orderItem->price_current,2)}} € x {{$orderItem->count}}</span>
+                                <span class="align-middle"><b>{{__('table.price')}}:</b> {{ number_format($orderItem->price_current,2)}} € x {{$orderItem->count}}</span>
                             </h5>
                         </div>
                     </div>

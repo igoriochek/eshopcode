@@ -19,6 +19,7 @@ return [
     'searchPlaceholder' => 'Ieškoti',
 
     'avatar' => 'Nuotrauka',
+    'buyer' => 'Pirkėjas',
     'name' => 'Vardas',
     'email' => 'El. paštas',
     'description' => 'Aprašymas',
@@ -26,6 +27,7 @@ return [
     'post_index' => 'Pašto kodas',
     'house_flat' => 'Namas/Butas',
     'city' => 'Miestas',
+    'address' => 'Adresas',
     'phone_number' => 'Telefono Nr.',
     'order' => 'Rūšiuoti pagal',
     'usertype' => 'Naudotojo tipas',
@@ -38,10 +40,10 @@ return [
     'new_password' => 'Naujas slaptažodis',
     'confirm_password' => 'Patvirtinti slaptažodį',
 
-    'default' => 'Numatytasis',
-    'productNameAsc' => 'Produkto Pavadinimas – Didėjančia',
-    'productNameDesc' => 'Produkto Pavadinimas – Mažėjančia',
-    'priceAsc' => 'Kaina - Didėjančia',
-    'priceDesc' => 'Kaina - Mažėjančia'
+    'default' => 'Numatytasis rūšiavimas',
+    'productNameAsc' => 'Pavadinimas – didėjančia tvarka',
+    'productNameDesc' => 'Pavadinimas – mažėjančia tvarka',
+    'priceAsc' => 'Kaina - didėjančia tvarka',
+    'priceDesc' => 'Kaina - mažėjančia tvarka'
 
 ];

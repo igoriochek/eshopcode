@@ -55,7 +55,7 @@
                                     @endforeach
                                     <tr class="cart-subtotal border-bottom">
                                         <td>
-                                            <strong class="text-dark">{{ __('Subtotal') }}</strong>
+                                            <strong class="text-dark">{{ __('names.subtotal') }}</strong>
                                         </td>
                                         <td class="border-top-0 text-end">
                                             <strong>

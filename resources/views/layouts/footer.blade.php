@@ -1,5 +1,5 @@
 <footer class="d-block">
-    <div style="padding: 100px 0 80px 0; background: #2f3e3f">
+    <div class="footer">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-6 mt-4 mt-md-5 mt-lg-0 position-relative">
@@ -23,6 +23,15 @@
                             <div>
                                 <h6 style="color: #ccc">{{ __('footer.phoneNumber') }}</h6>
                                 <span class="contact-travel-paragraph">{{ __('+370 686 10246') }}</span>
+                            </div>
+                        </li>
+                        <li class="d-flex align-items-center mb-4">
+                            <div style="width: 50px">
+                                <i class="fa-solid fa-envelope fs-4 contact-travel-icon"></i>
+                            </div>
+                            <div>
+                                <h6 style="color: #ccc">{{ __('footer.email') }}</h6>
+                                <span class="contact-travel-paragraph"><a href="mailto:info@recovcenter.com" class="footer-link">{{ __('info@recovcenter.com') }}</a></span>
                             </div>
                         </li>
                         <li class="d-flex align-items-center mb-4">
@@ -57,7 +66,7 @@
                     <h5 class="fw-bold mb-5 footer-bar-title">
                         {{ __('footer.securedPayment') }}
                     </h5>
-                    <img src="{{ asset('images/320px-Paysera_logo.png') }}" alt="Paysera" width="250px">
+                    <img src="{{ asset('images/Paysera_logo_white.png') }}" alt="Paysera" width="250px">
                 </div>
             </div>
         </div>

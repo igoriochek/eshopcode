@@ -35,6 +35,7 @@ return [
     'orderComplete' => 'Užsakymas baigtas',
     'subtotal' => 'Tarpinė suma',
     'product' => 'Produktas',
+    'removeProduct' => 'Pašalinti produktą',
     'overview' => 'Apžvalga',
     'wantToApply' => 'Norite pritaikyti nuolaidą savo krepšeliui?',
     'selectDiscountCoupon' => 'Pasirinkite nuolaidos kuponą',
@@ -44,22 +45,14 @@ return [
     'discountCoupon' => 'Nuolaidos kuponas',
     'acceptedOrder' => 'Ačiū. Jūsų užsakymas buvo priimtas.',
     'canceledOrder' => 'Jūsų užsakymas buvo atšauktas.',
-    'wantToApply' => 'Norite pritaikyti nuolaidą savo krepšeliui?',
-    'selectDiscountCoupon' => 'Pasirinkite Nuolaidos Kuponą',
-    'yourOrder' => 'Jūsų užsakymas',
-    'paymentMethods' => 'Mokėjimo metodai',
-    'off' => '',
-    'discountCoupon' => 'Nuolaidos kuponas',
-    'acceptedOrder' => 'Ačiū. Jūsų užsakymas buvo priimtas.',
-    'canceledOrder' => 'Jūsų užsakymas buvo atšauktas.',
 
     //Categories
     'categories' => 'Kategorijos',
     'categoryDetails' => 'Kategorijos informacija',
     'categoryList' => 'Kategorijų sąrašas',
     'categoryTree' => 'Kategorijų medis',
-    'createCategory' => 'Sukurti kategorija',
-    'editCategory' => 'Redaguoti kategorija',
+    'createCategory' => 'Sukurti kategoriją',
+    'editCategory' => 'Redaguoti kategoriją',
     'noCategories' => 'Nėra kategorijų',
 
     //Subcategories
@@ -123,7 +116,7 @@ return [
     'table' => 'Lentelė',
 
     //Homepage
-    'home' => 'Namo',
+    'home' => 'Pagrindinis',
     'addedAt' => 'Pridėta',
     'browseProducts'=> 'Naršyti produktus',
     'code' => 'Kodas',
@@ -150,8 +143,6 @@ return [
     'viewReturn' => 'Peržiūrėti grąžinimą',
     'youHave' => 'Jūs turite',
     'unreadMsg' => 'neperskaitytas žinutes.',
-    'bannerTitle' => 'KELIAUKIME',
-    'bannerDescription' => 'Užsisakykite unikalias keliones ir patirtis',
 
     //Messenger
     'messages' => 'Pranešimai',
@@ -182,6 +173,7 @@ return [
     'invoicePreview' => 'Peržiūrėti sąskaitą faktūrą',
 
     //Products
+    'product' => 'Produktas',
     'createProduct' => 'Sukurti produktą',
     'editProduct' => 'Redaguoti produktą',
     'products' => 'Produktai',
@@ -191,7 +183,7 @@ return [
     'productOrders' => 'Produktų užsakymai',
     'noProducts' => 'Nėra produktų',
     'search' => 'Ieškoti',
-    'filterByPrice' => 'Filtruoti pagal kainą',
+    'additionalInformation' => 'Papildoma informacija',
 
     //Promotions
     'createPromotion' => 'Sukurti akciją',
@@ -211,6 +203,7 @@ return [
     'to' => 'Iki',
     'sum' => 'Suma',
     'total' => 'Galutinė suma',
+    'filterByPrice' => 'Filtruoti pagal kainą',
 
     //Rating
     'alreadyVoted' => 'Jūs jau prabalsavote už šį produktą!',
@@ -222,6 +215,8 @@ return [
     //Reviews
     'customerReview' => 'klientų atsiliepimas',
     'customerReviews' => 'klientų atsiliepimai',
+    'review' => 'Atsiliepimas',
+    'reviews' => 'Atsiliepimai',
     'reviewsFor' => 'Atsiliepimai apie',
     'addReview' => 'Pridėti atsiliepimą',
     'noReviews' => 'Nėra atsiliepimų',
@@ -273,6 +268,6 @@ return [
     'of' => 'iš',
     'first' => 'Pirmas',
     'last' => 'Paskutinis',
-    'userInfo' => 'Naudotojo informacija'
+    'userInfo' => 'Naudotojo informacija',
 
 ];

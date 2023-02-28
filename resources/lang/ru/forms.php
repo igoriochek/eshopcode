@@ -19,6 +19,7 @@ return [
     'searchPlaceholder' => 'Искать',
 
     'avatar' => 'Аватар',
+    'buyer' => 'Покупатель',
     'name' => 'Имя',
     'email' => 'Электронная почта',
     'description' => 'Описание',
@@ -26,6 +27,7 @@ return [
     'post_index' => 'Индекс',
     'house_flat' => 'Дом/Квартира',
     'city' => 'Город',
+    'address' => 'Адрес',
     'phone_number' => 'Номер телефона',
     'order' => 'Упорядочить по',
     'usertype' => 'Тип пользователя',
@@ -38,9 +40,9 @@ return [
     'new_password' => 'Новый пароль',
     'confirm_password' => 'Подтвердить пароль',
 
-    'default' => 'Дефолт',
-    'productNameAsc' => 'Название Продукта — по возрастанию',
-    'productNameDesc' => 'Название Продукта - по убыванию',
+    'default' => 'Сортировка по умолчанию',
+    'productNameAsc' => 'Название - по возрастанию',
+    'productNameDesc' => 'Название - по убыванию',
     'priceAsc' => 'Цена - по возрастанию',
     'priceDesc' => 'Цена - по убыванию'
 

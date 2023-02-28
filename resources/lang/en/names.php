@@ -45,6 +45,7 @@ return [
     'orderComplete' => 'Order Complete',
     'subtotal' => 'Subtotal',
     'product' => 'Product',
+    'removeProduct' => 'Remove product',
     'overview' => 'Overview',
     'wantToApply' => 'Want to apply a discount to your cart?',
     'selectDiscountCoupon' => 'Select Discount Coupon',
@@ -111,9 +112,9 @@ return [
     'discountCoupons' => 'Discount Coupons',
     'discountCouponDetails' => 'Discount Coupon Details',
     'editDiscountCoupon' => 'Edit Discount Coupon',
-    "noDiscountCoupons" => "You have no discount coupons yet :(",
-    "discountCouponCode" => "Discount coupon code",
-    "discountCouponValue" => "Discount coupon value",
+    'noDiscountCoupons' => 'You have no discount coupons yet :(',
+    'discountCouponCode' => 'Discount coupon code',
+    'discountCouponValue' => 'Discount coupon value',
 
     //Export Import
     'dataExpImp' => 'Data Export / Import',
@@ -152,8 +153,6 @@ return [
     'viewReturn' => 'View Return',
     'youHave' => 'You have',
     'unreadMsg' => 'unread messages.',
-    'bannerTitle' => 'LET’S TRAVEL',
-    'bannerDescription' => 'Book Unique Tours & Experiences',
 
     //Messenger
     'messages' => 'Messages',

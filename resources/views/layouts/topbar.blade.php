@@ -6,16 +6,18 @@
                     <div class="d-lg-flex align-items-center text-center">
                         <div class="d-flex justify-content-between" style="gap: 20px">
                             <div class="d-flex align-items-center">
-                                <a class="text-light" href="#">
-                                    <i class="fa-solid fa-phone topbar_icon me-1"></i>
-                                    <span>+370 686 10246</span>
+                                <i class="fa-solid fa-phone topbar_icon me-1"></i>
+                                <span>+370 686 10246</span>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <a class="text-light" href="mailto:info@recovcenter.com">
+                                    <i class="fa-solid fa-envelope topbar_icon me-1"></i>
+                                    <span>info@recovcenter.com</span>
                                 </a>
                             </div>
                             <div class="d-flex align-items-center">
-                                <a class="text-light" href="#">
-                                    <i class="fa-solid fa-location-dot topbar_icon me-1"></i>
-                                    <span>Perkūnkiemio g. 13-91, LT-12114 Vilnius </span>
-                                </a>
+                                <i class="fa-solid fa-location-dot topbar_icon me-1"></i>
+                                <span>Perkūnkiemio g. 13-91, LT-12114 Vilnius </span>
                             </div>
                         </div>
                         <div class="d-flex justify-content-between ms-auto" style="gap: 5px">

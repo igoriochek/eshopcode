@@ -13,7 +13,6 @@ return [
     |
     */
 
-
     //Carts
     'cart' => 'Корзина',
     'cartDetails' => 'Информация о корзине',
@@ -31,36 +30,30 @@ return [
     'editCartItem' => 'Редактировать товар в корзине',
     'editCartStatus' => 'Редактировать статус корзины',
     'emptyCart' => 'Ваша корзина пуста',
+    'noDiscount' => 'Нет скидок',
     'preview' => 'Предпросмотр',
     'orderComplete' => 'Заказ выполнен',
     'subtotal' => 'Итого',
+    'product' => 'Продукт',
     'removeProduct' => 'Удалить товар',
     'overview' => 'Обзор',
-    'noDiscount' => 'Скидок нету',
-    'preview' => 'Предпросмотр',
-
-
-    'adminUserCount' => 'Количество пользователей-администраторов',
-    'canceled' => 'Отменено',
-    'logins' => 'Логины',
-    'ordersPerMonth' => 'Заказов в месяц',
-    'paid' => 'Оплачено',
-    'perMonth' => 'В месяц',
-    'productOrderCount' => 'Количество заказов товара',
-    'registrations' => 'Регистрации',
-    'unpaid' => 'Не оплачено',
-
-    'admins' => 'Администраторы',
-    'users' => 'Пользователи',
+    'wantToApply' => 'Хотите применить скидку к своей корзине?',
+    'selectDiscountCoupon' => 'Выберите скидочный ваучер',
+    'yourOrder' => 'Ваш заказ',
+    'paymentMethods' => 'Способы оплаты',
+    'off' => 'отключен',
+    'discountCoupon' => 'Скидочный ваучер',
+    'acceptedOrder' => 'Спасибо. Ваш заказ был принят.',
+    'canceledOrder' => 'Ваш заказ был отменен.',
 
     //Categories
     'categories' => 'Категории',
     'categoryDetails' => 'Сведения о категории',
     'categoryList' => 'Список категорий',
+    'categoryTree' => 'Дерево категории',
     'createCategory' => 'Создать категорию',
     'editCategory' => 'Редактировать категорию',
     'noCategories' => 'Нет категорий',
-
 
     //Subcategories
     'subcategories' => 'Субкатегории',
@@ -78,6 +71,19 @@ return [
     'selectStatisticType' => 'Выберите тип статистики',
     'unpaidOrders' => 'Неоплаченные заказы',
     'userAdminCount' => 'Пользователь - количество администраторов',
+
+    'adminUserCount' => 'Количество администраторов и пользователей',
+    'canceled' => 'Отменено',
+    'logins' => 'Логины',
+    'ordersPerMonth' => 'Заказов в месяц',
+    'paid' => 'Оплачено',
+    'perMonth' => 'В месяц',
+    'productOrderCount' => 'Количество заказов товара',
+    'registrations' => 'Регистрации',
+    'unpaid' => 'Не оплачено',
+
+    'admins' => 'Администраторы',
+    'users' => 'Пользователи',
 
     //Cookies
     'cookies' => 'Куки',
@@ -110,6 +116,7 @@ return [
     'table' => 'Таблица',
 
     //Homepage
+    'home' => 'Главная страница',
     'addedAt' => 'Добавлено в',
     'browseProducts'=> 'Просмотреть продукты',
     'code' => 'Код',
@@ -189,6 +196,7 @@ return [
 
     //Price
     'discount' => 'Скидка',
+    'discountCoupons' => 'Купоны на скидку',
     'discountCouponsForYou' => 'Купоны на скидку для вас',
     'price' => 'Цена',
     'from' => 'От',
@@ -202,13 +210,14 @@ return [
     'rating' => 'Рейтинг',
     'ratingOrRatings' => 'Рейтинг(и)',
     'starRating' => 'Звездный рейтинг',
-    'voted' => "Спасибо за ваш голос!",
+    'voted' => 'Спасибо за ваш голос!',
 
     //Reviews
     'customerReview' => 'отзыв клиента',
     'customerReviews' => 'отзывы клиентов',
     'review' => 'Отзыв',
     'reviews' => 'Отзывы',
+    'reviewsFor' => 'Отзывы о',
     'addReview' => 'Добавить отзыв',
     'noReviews' => 'Нет отзывов',
     'loginToReview' => 'Пожалуйста, войдите, чтобы оставить отзыв об этом продукте',
@@ -241,6 +250,7 @@ return [
     'editCustomer' => 'Редактировать клиента',
     'userLogs' => 'Журналы пользователей',
 
+    //Other
     'desc' => 'Описание',
     'name' => 'Имя',
 

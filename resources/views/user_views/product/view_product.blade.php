@@ -77,7 +77,7 @@
                                         @elseif ($average >= $i - .5) fa-solid fa-star-half-stroke
                                         @else fa-regular fa-star @endif"></i>
                                     @endfor
-                                    <p class="ms-1">
+                                    <p class="ms-1 mb-0">
                                         @if ($rateCount == 1)
                                             ({{ __('names.customerReview').' '.$rateCount }})
                                         @else

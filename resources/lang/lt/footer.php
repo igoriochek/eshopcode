@@ -20,6 +20,7 @@ return [
     'termsOfService' => 'Paslaugų teikimo sąlygos',
     'contactSupport' => 'Kontaktai / Pagalba',
     'address' => 'Adresas',
+    'email' => 'El. paštas',
     'phoneNumber' => 'Telefono numeris',
     'companyCode' => 'Įmonės kodas',
     'vatCode' => 'PVM kodas',
