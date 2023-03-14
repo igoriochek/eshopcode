@@ -4,7 +4,7 @@
             <img src="{{ __('/images/logo.jpeg') }}" alt="logo" width="200px">
         </a>
         <div class="d-flex justify-content-center menu-container">
-            <ul class="nav navbar-nav menu" style="gap: 10px">
+            <ul class="nav navbar-nav menu">
                 @include('layouts.menus.menu')
             </ul>
         </div>
