@@ -112,13 +112,15 @@ class ProductController extends AppBaseController
         }
 
         return view('user_views.product.products_all_with_filters')
-            ->with(['products'=> $products,
+            ->with([
+                'minPrice' => Product::all()->min('price'),
+                'maxPrice' => Product::all()->max('price'),
+                'products'=> $products,
                 'categories' => $categories,
                 'filter' => $filter ? $filter : array(),
                 'selCategories' => $selCategories ? explode(",",$selCategories) : array(),
                 'order_list' => $this->productsOrderSelector(),
                 'selectedOrder' => $selectedOrder,
-                'maxPrice' => round($products->max('price'))
             ]);
     }
 

@@ -106,7 +106,7 @@ return [
     'discountCoupons' => 'Discount Coupons',
     'discountCouponDetails' => 'Discount Coupon Details',
     'editDiscountCoupon' => 'Edit Discount Coupon',
-    "noDiscountCoupons" => "You have no discount coupons yet :(",
+    "noDiscountCoupons" => "No discount coupons available",
     "discountCouponCode" => "Discount coupon code",
     "discountCouponValue" => "Discount coupon value",
 

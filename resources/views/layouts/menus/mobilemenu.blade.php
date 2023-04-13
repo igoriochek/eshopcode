@@ -52,7 +52,7 @@
                         <div style="height: 30px"></div>
                         @auth
                             <li class="menu-item">
-                                <a href="{{ url('/user/viewcart') }}">
+                                <a href="{{ url('/user/viewcart') }}" style="color: {{ request()->is('user/viewcart*') ? '#e10000' : '' }}">
                                     <img alt="cart-icon" src="{{ asset('/images/theme/icons/icon-cart.svg') }}" width="15" class="me-1" />
                                     @if (!empty($cartItemCount))
                                         <span class="pro-count blue">({{ $cartItemCount }})</span>
@@ -63,7 +63,7 @@
                             </li>
                             <li class="menu-item-has-children">
                                 <a href="{{ url('/user/userprofile') }}"
-                                   style="color: {{ request()->is('user/userprofile*') ? '#3BB77E' : '' }}">
+                                   style="color: {{ request()->is('user/userprofile*') ? '#e10000' : '' }}">
                                     <i class="fi fi-rs-user mr-10"></i>{{__('menu.profile')}}
                                 </a>
                                 <ul class="dropdown">
@@ -108,15 +108,15 @@
             <div class="mobile-social-icon mb-50 mt-40">
                 <h6 class="mb-15">{{__('names.followUs')}}</h6>
                 <div class="d-flex">
-                    <a href="{{ route('facebook.login') }}">
+                    <a href="https://www.facebook.com/krims.lt">
                         <img src="{{ asset('/images/theme/icons/icon-facebook-white.svg') }}" alt="facebook"/>
                     </a>
-                    <a href="{{ route('google.login') }}" class="d-flex justify-content-center align-items-center">
-                        <i class="fa-brands fa-google text-white" style="font-size: .8em"></i>
-                    </a>
-                    <a href="{{ route('twitter.login') }}">
-                        <img src="{{ asset('/images/theme/icons/icon-twitter-white.svg') }}" alt="twitter"/>
-                    </a>
+{{--                    <a href="{{ route('google.login') }}" class="d-flex justify-content-center align-items-center">--}}
+{{--                        <i class="fa-brands fa-google text-white" style="font-size: .8em"></i>--}}
+{{--                    </a>--}}
+{{--                    <a href="{{ route('twitter.login') }}">--}}
+{{--                        <img src="{{ asset('/images/theme/icons/icon-twitter-white.svg') }}" alt="twitter"/>--}}
+{{--                    </a>--}}
                 </div>
             </div>
         </div>

@@ -226,9 +226,9 @@ class CartController extends AppBaseController
 
             $this->cartRepository->cartSum($cart);
 
-            Flash::success(__('messages.addToCart'));
+//            Flash::success(__('messages.addToCart'));
         } else {
-            Flash::error('Product not found');
+            Flash::error('Product was not found');
         }
         return redirect(route('viewcart'));
     }

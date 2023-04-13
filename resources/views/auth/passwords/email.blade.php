@@ -11,7 +11,7 @@
                             <div class="heading_s1">
                                 <h2 class="mb-15 mt-15">{{ __('auth.resetPassword') }}</h2>
                                 <p class="mb-30">{{ __('auth.rememberedPassword') }}
-                                    <a href="{{ route('login') }}">{{ __('auth.loginHere') }}</a>
+                                    <a class="ml-5" href="{{ route('login') }}">{{ __('auth.loginHere') }}</a>
                                 </p>
                             </div>
                             <form method="POST" action="{{ route('password.email') }}">

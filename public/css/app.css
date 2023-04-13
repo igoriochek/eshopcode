@@ -6952,17 +6952,17 @@ h6.post-title {
   align-items: center;
 }
 
-.header-info > ul > li:before {
-  content: '';
-  position: absolute;
-  right: -10px;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  transform: translateY(-50%);
-  width: 1px;
-  height: 10px;
-  background: #dedfe2;
-}
+/*.header-info > ul > li:before {*/
+/*  content: '';*/
+/*  position: absolute;*/
+/*  right: -10px;*/
+/*  top: 50%;*/
+/*  -webkit-transform: translateY(-50%);*/
+/*  transform: translateY(-50%);*/
+/*  width: 1px;*/
+/*  height: 10px;*/
+/*  background: #dedfe2;*/
+/*}*/
 
 .header-info > ul > li:last-child {
   margin-right: 0;
@@ -6989,7 +6989,7 @@ h6.post-title {
 .header-info > ul > li > ul.language-dropdown {
   position: absolute;
   top: 100%;
-  left: 0;
+  left: -40px;
   z-index: 2;
   min-width: 85px;
   background: #fff;
@@ -11508,9 +11508,9 @@ footer .hotline img {
   .detail-info .product-extra-link2 .button.button-add-to-cart {
     padding: 0 20px;
   }
-  .detail-info .product-extra-link2 .button.button-add-to-cart i {
-    display: none;
-  }
+  /*.detail-info .product-extra-link2 .button.button-add-to-cart i {*/
+  /*  display: none;*/
+  /*}*/
   .shopping-summery table tbody tr img {
     max-width: 80px;
     margin-right: 15px;

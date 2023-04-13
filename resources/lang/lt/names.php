@@ -108,7 +108,7 @@ return [
     'discountCoupons' => 'Nuolaidų kuponai',
     'discountCouponDetails' => 'Nuolaidų kupono informacija',
     'editDiscountCoupon' => 'Redaguoti nuolaidos kuponą',
-    "ndDiscountCoupons" => 'Jūs dar neturite nuolaidų kuponų :(',
+    "noDiscountCoupons" => "Nėra nuolaidų kuponų",
     "discountCouponCode" => 'Nuolaidų kupono kodas',
     "discountCouponValue" => 'Nuolaidų kupono suma',
 
@@ -201,7 +201,6 @@ return [
 
     //Price
     'discount' => 'Nuolaida',
-    'discountCoupons' => 'Nuolaidų kuponai',
     'discountCouponsForYou' => 'Nuolaidų kuponai Jums',
     'price' => 'Kaina',
     'from' => 'Nuo',

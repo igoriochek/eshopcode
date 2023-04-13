@@ -6,18 +6,18 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <div class="widget-about font-md mb-md-3 mb-lg-3 mb-xl-0">
+                    <div class="widget-about font-md mb-3 mb-xl-0">
                         <div class="logo mb-30">
                             <h4 class="widget-title text-uppercase text-brand">{{__('footer.contactInfo')}}</h4>
                         </div>
                         <ul class="contact-infor d-flex flex-column gap-2">
                             <li>
-                                <i class="fa-solid fa-location-dot text-danger me-2 fs-5"></i>
+                                <i class="fa-solid fa-location-dot text-danger me-2 pe-1 fs-5"></i>
                                 <strong>{{__('footer.address')}}: </strong>
                                 <span>Savanorių pr. 253, Vilnius</span>
                             </li>
                             <li>
-                                <i class="fa-solid fa-building text-danger me-2 fs-5"></i>
+                                <i class="fa-solid fa-building text-danger me-2 pe-1 fs-5"></i>
                                 <strong>{{__('footer.companycode')}}: </strong>
                                 <span>300570003</span>
                             </li>
@@ -29,10 +29,10 @@
                             <li>
                                 <i class="fa-solid fa-phone text-danger me-2 fs-5"></i>
                                 <strong>{{__('footer.phone')}}: </strong>
-                                <span>+370 653 63927</span>
+                                <span><a href="tel:+37065363927">+370 653 63927</a></span>
                             </li>
                             <li>
-                                <i class="fa-solid fa-envelope text-danger me-2 fs-5"></i>
+                                <i class="fa-solid fa-envelope text-danger me-2 pe-1 fs-5"></i>
                                 <strong>{{__('footer.email')}}: </strong>
                                 <span><a href="mailto:info@krims.lt">info@krims.lt</a></span>
                             </li>
@@ -46,7 +46,7 @@
                 </div>
                 <div class="footer-link-widget col">
                     <h4 class="widget-title text-uppercase text-brand">{{__('footer.menu')}}</h4>
-                    <ul class="footer-list mb-sm-5 mb-md-0">
+                    <ul class="footer-list mb-3">
                         @include('layouts.menus.guest_user_menu')
                     </ul>
                 </div>
@@ -109,11 +109,15 @@
             </div>
             <div class="col-xl-4 col-lg-6 col-md-6 text-end d-none d-md-block">
                 <div class="mobile-social-icon">
-                    <a href="/facebook/auth"><img src="{{asset('/images/theme/icons/icon-facebook-white.svg')}}" alt="/facebook/auth" /></a>
-                    <a href="/google/auth">
-                        <i class="fa-brands fa-google text-white" style="font-size: 11px; margin-top: 10px"></i>
+                    <a href="https://www.facebook.com/krims.lt">
+                        <img src="{{asset('/images/theme/icons/icon-facebook-white.svg')}}" alt="/facebook/auth" />
                     </a>
-                    <a href="/twitter/auth"><img src="{{asset('/images/theme/icons/icon-twitter-white.svg')}}" alt="/twitter/auth" /></a>
+{{--                    <a href="/google/auth">--}}
+{{--                        <i class="fa-brands fa-google text-white" style="font-size: 11px; margin-top: 10px"></i>--}}
+{{--                    </a>--}}
+{{--                    <a href="/twitter/auth">--}}
+{{--                        <img src="{{asset('/images/theme/icons/icon-twitter-white.svg')}}" alt="/twitter/auth" />--}}
+{{--                    </a>--}}
                 </div>
             </div>
         </div>

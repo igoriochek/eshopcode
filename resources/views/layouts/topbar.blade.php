@@ -7,7 +7,7 @@
                         <li class="d-flex gap-1">
                             <i class="fa-solid fa-phone me-1 text-danger"></i>
                             <strong>{{__('footer.phone')}}: </strong>
-                            <span>+370 653 63927</span>
+                            <span><a href="tel:+37065363927">+370 653 63927</a></span>
                         </li>
                         <li class="d-none d-md-flex gap-1">
                             <i class="fa-solid fa-envelope me-1 text-danger"></i>

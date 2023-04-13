@@ -9,7 +9,10 @@
                         <div class="padding_eight_all bg-white">
                             <div class="heading_s1">
                                 <h1 class="mb-5">{{__('auth.register')}}</h1>
-                                <p class="mb-30">{{__('auth.haveAccount')}} <a href="{{ route('login') }}">{{__('auth.loginHere')}}</a></p>
+                                <p class="mb-30">
+                                    {{__('auth.haveAccount')}}
+                                    <a class="ml-5" href="{{ route('login') }}">{{__('auth.loginHere')}}</a>
+                                </p>
                             </div>
                             <form method="post" action="{{ route('register') }}">
                                 @csrf
