@@ -109,7 +109,7 @@
             </div>
             <div class="col-xl-4 col-lg-6 col-md-6 text-end d-none d-md-block">
                 <div class="mobile-social-icon">
-                    <a href="https://www.facebook.com/krims.lt">
+                    <a href="https://www.facebook.com/krims.lt" target="__blank">
                         <img src="{{asset('/images/theme/icons/icon-facebook-white.svg')}}" alt="/facebook/auth" />
                     </a>
 {{--                    <a href="/google/auth">--}}

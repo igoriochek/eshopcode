@@ -15,6 +15,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @property integer $product_id
  * @property number $price_current
  * @property number $count
+ * @property string $size
  */
 class OrderItem extends Model
 {
@@ -27,6 +28,7 @@ class OrderItem extends Model
         'product_id',
         'price_current',
         'count',
+        'size',
         'created_at',
         'updated_at'
     ];
@@ -41,6 +43,7 @@ class OrderItem extends Model
         'product_id' => 'integer',
         'price_current' => 'double',
         'count' => 'double',
+        'size' => 'string',
         'created_at' => 'datetime',
         'updated_at' => 'datetime'
     ];
@@ -53,7 +56,8 @@ class OrderItem extends Model
     public static $rules = [
         'product_id' => 'required',
         'price_current' => 'required|min:5',
-        'count' => 'required|min:1'
+        'count' => 'required|min:1',
+        'size' => 'nullable|string'
     ];
 
     public function product()

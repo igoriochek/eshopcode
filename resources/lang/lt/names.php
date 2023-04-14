@@ -188,6 +188,11 @@ return [
     'saleOff' => 'Išpardavimas',
     'searchForItems' => 'Ieškoti prekių',
     'search' => 'Ieškoti',
+    'small' => 'Mažas',
+    'large' => 'Didelis',
+    'size' => 'Dydis',
+    'selectSize' => 'Pasirinkite dydį',
+    'selectSizeInfo' => 'jei nepasirinksite, numatytasis bus didelis',
 
     //Promotions
     'createPromotion' => 'Sukurti akciją',

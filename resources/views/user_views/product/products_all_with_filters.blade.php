@@ -55,9 +55,9 @@
                             <h5 class="section-title style-1 mb-30">{{ __('names.search') }}</h5>
                             <div class="d-flex align-items-center">
                                 <input type="text" name="filter[namelike]" class="form-control"
-                                       id="filter[namelike]" style="font-size: 1em"
+                                       id="filter[namelike]" style="font-size: 1em; border-radius: 5px 0 0 5px"
                                        placeholder="{{ __('names.searchForItems') }}..." value="{{$filter["namelike"] ?? ""}}">
-                                <button type="submit" class="btn btn-primary p-2 ms-2" style="height: 48px">
+                                <button type="submit" class="btn btn-primary p-2 border-0" style="height: 48px; border-radius: 0 5px 5px 0">
                                     <i class="fas fa-search m-2"></i>
                                 </button>
                             </div>
@@ -108,7 +108,7 @@
                                 </div>
                             </div>
                             <input type="hidden" id="order" name="order" value="{{ $selectedOrder }}">
-                            <button type="submit" class="btn btn-primary w-100" id="filterSubmit" style="font-size: 15px; padding: 10px 0">
+                            <button type="submit" class="btn btn-primary w-100 border-0" id="filterSubmit" style="font-size: 15px; padding: 10px 0">
                                 <i class="fi-rs-filter mr-5"></i>
                                 {{ __('buttons.filter') }}
                             </button>

@@ -108,7 +108,7 @@
             <div class="mobile-social-icon mb-50 mt-40">
                 <h6 class="mb-15">{{__('names.followUs')}}</h6>
                 <div class="d-flex">
-                    <a href="https://www.facebook.com/krims.lt">
+                    <a href="https://www.facebook.com/krims.lt" target="__blank">
                         <img src="{{ asset('/images/theme/icons/icon-facebook-white.svg') }}" alt="facebook"/>
                     </a>
 {{--                    <a href="{{ route('google.login') }}" class="d-flex justify-content-center align-items-center">--}}

@@ -16,8 +16,11 @@ class ProductSeeder extends Seeder
     public function run()
     {
         $faker = Faker::create();
-        for ($i=0; $i<=200; $i++){
-            $cdata = [
+        $hasSizes = [false, true];
+
+        for ($i = 0; $i <= 100; $i++) {
+            $randomHasSizes = $hasSizes[rand(0, 1)];
+            $productData = [
                 'en' => [
                     'name' => "product $faker->name",
                     'description' => "product $faker->text",
@@ -30,11 +33,13 @@ class ProductSeeder extends Seeder
                     'name' => "продукт $faker->name",
                     'description' => "продукт $faker->text",
                 ],
-                'price' => rand(1,1000),
-                'promotion_id' => ( $i % 10 ? rand(1,10) : null )
+                'price' => $randomHasSizes ? null : rand(1, 20),
+                'small' => $randomHasSizes ? rand(1, 10) : null,
+                'big' => $randomHasSizes ? rand(10, 20) : null,
+                'hasSizes' => $randomHasSizes,
+                'promotion_id' => ($i % 10 ? rand(1, 10) : null)
             ];
-            $product = Product::create($cdata);
-
+            Product::create($productData);
 
 //            DB::table('products')->insert([
 ////                'name' => "product $faker->name",

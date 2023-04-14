@@ -22,11 +22,12 @@ class CreateOrdersTable extends Migration
             $table->unsignedBigInteger('admin_id')->unsigned();
             $table->unsignedBigInteger('status_id')->unsigned();
             $table->time('collect_time');
+            $table->text('description')->nullable();
             $table->double('sum')->nullable();
-            $table->timestamps();
             $table->foreign('cart_id')->references('id')->on('carts');
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('admin_id')->references('id')->on('users');
+            $table->timestamps();
         });
     }
 

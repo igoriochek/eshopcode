@@ -169,7 +169,7 @@ return [
     'invoice' => 'Счет',
     'invoicePreview' => 'Предварительный просмотр счета',
 
-    // Products
+    //Products
     'createProduct' => 'Создать продукт',
     'editProduct' => 'Редактировать товар',
     'products' => 'Продукты',
@@ -180,12 +180,16 @@ return [
     'noProducts' => 'Нет товаров',
     'filters' => 'Филтры',
     'filterByPrice' => 'Фильтровать по цене',
-    'search' => 'Поиск',
     'topRated' => 'Самые популярные',
     'productDescription' => 'Описание продукта',
     'saleOff' => 'Распродажа',
     'searchForItems' => 'Поиск предметов',
     'search' => 'Поиск',
+    'маленький' => 'Маленький',
+    'большой' => 'Большой',
+    'размер' => 'Размер',
+    'selectSize' => 'Выберите размер',
+    'selectSizeInfo' => 'если не выбрано, по умолчанию будет большим',
 
     //Promotions
     'createPromotion' => 'Создать акцию',

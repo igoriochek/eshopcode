@@ -22,7 +22,7 @@ class OrderSeeder extends Seeder
     public function run()
     {
         for ($i=0; $i<=30; $i++){
-            $this->createOrder($i,$i, 1);
+            $this->createOrder($i,$i, 3);
         }
     }
 

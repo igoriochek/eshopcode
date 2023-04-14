@@ -1,4 +1,4 @@
-<div class="col-xl-4 col-lg-6 col-md-12 col-sm-12">
+<div class="col-xxl-4 col-xl-6 col-lg-6 col-md-12 col-sm-12">
     <div class="product-cart-wrap mb-30">
         <div class="product-img-action-wrap">
             <div class="product-img product-img-zoom">
@@ -33,10 +33,9 @@
                 <div class="d-flex">
                     @for($i = 1; $i <= 5; $i++)
                         <i class="fs-6 product-rating-star text-warning
-                                                        @if ($product->average >= $i) fa-solid fa-star
-                                                        @elseif ($product->average >= $i - .5) fa-solid fa-star-half-stroke
-                                                        @else fa-regular fa-star @endif"
-                        ></i>
+                                  @if ($product->average >= $i) fa-solid fa-star
+                                  @elseif ($product->average >= $i - .5) fa-solid fa-star-half-stroke
+                                  @else fa-regular fa-star @endif"></i>
                     @endfor
                 </div>
                 <span class="font-small ms-1">({{ sprintf("%.1f", $product->average) ?? 0 }})</span>
@@ -48,20 +47,49 @@
             </h2>
             <div class="product-rate-cover mt-2 mb-4">
                 <div class="product-price text-center d-flex justify-content-center align-items-center gap-3">
-                    @if ($product->discount)
-                        <span class="old-price">€{{ sprintf("%.2f", $product->price) }}</span>
-                        <span >€{{ $product->price - (round(($product->price * $product->discount->proc / 100), 2)) }}</span>
+                    @if ($product->hasSizes)
+                        @if ($product->discount)
+                            <div class="d-flex flex-column gap-1">
+                                <div class="d-flex gap-2">
+                                    <span class="fw-500 fs-6" style="color: #888">{{ __('names.small') }}:</span>
+                                    <span class="old-price">€{{ sprintf("%.2f", $product->small) }}</span>
+                                    <span >€{{ $product->small - (round(($product->small * $product->discount->proc / 100), 2)) }}</span>
+                                </div>
+                                <div class="d-flex gap-2">
+                                    <span class="fw-500 fs-6" style="color: #888">{{ __('names.large') }}:</span>
+                                    <span class="old-price">€{{ sprintf("%.2f", $product->big) }}</span>
+                                    <span >€{{ $product->big - (round(($product->big * $product->discount->proc / 100), 2)) }}</span>
+                                </div>
+                            </div>
+                        @else
+                            <div class="d-flex align-items-center flex-wrap gap-2">
+                                <div class="d-flex gap-2">
+                                    <span class="fw-500 fs-6" style="color: #888">{{ __('names.small') }}:</span>
+                                    <span>€{{ sprintf("%.2f", $product->small) }}</span>
+                                </div>
+                                <div class="d-flex gap-2">
+                                    <span class="fw-500 fs-6" style="color: #888">{{ __('names.large') }}:</span>
+                                    <span>€{{ sprintf("%.2f", $product->big) }}</span>
+                                </div>
+                            </div>
+                        @endif
                     @else
-                        <span>€{{ sprintf("%.2f", $product->price) }}</span>
+                        @if ($product->discount)
+                            <span class="old-price">€{{ sprintf("%.2f", $product->price) }}</span>
+                            <span >€{{ $product->price - (round(($product->price * $product->discount->proc / 100), 2)) }}</span>
+                        @else
+                            <span>€{{ sprintf("%.2f", $product->price) }}</span>
+                        @endif
                     @endif
                 </div>
             </div>
             <div class="product-card-bottom mb-3">
                 <div class="add-cart w-100 d-flex justify-content-center align-items-center">
                     {!! Form::open(['route' => ['addtocart'], 'method' => 'post', 'class' => 'd-flex justify-content-between align-items-center gap-2']) !!}
-                    {!! Form::number('count', "1", ['style' => 'height: 47px; width: 80px; padding-left: 25px; padding-right: 15px; border-radius: 5px', "min" => "1", "max" => "5", "minlength" => "1", "maxlength" => "5", "oninput" => "this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null"]) !!}
+                    {!! Form::number('count', "1", ['style' => 'height: 46px; width: 80px; padding-left: 20px; padding-right: 15px; border-radius: 5px', "min" => "1", "max" => "5", "minlength" => "1", "maxlength" => "5", "oninput" => "this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null"]) !!}
                     <input type="hidden" name="id" value="{{ $product->id }}">
-                    <button type="submit" class="ms-1 add">
+                    <input type="hidden" name="size" id="size" value="{{ \App\Models\Product::LARGE }}">
+                    <button type="submit" class="ms-1 add border-0">
                         <i class="fa-solid fa-bag-shopping me-1"></i>
                         {{ __('buttons.addToCart') }}
                     </button>

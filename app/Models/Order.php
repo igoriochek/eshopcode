@@ -18,7 +18,8 @@ use Carbon\Carbon;
  * @property integer $user_id
  * @property integer $admin_id
  * @property integer $status_id
- * @property string $withdrawal_time
+ * @property string $collect_time
+ * @property string $description
  * @property integer $sum
  */
 class Order extends Model
@@ -27,16 +28,6 @@ class Order extends Model
 
     public $table = 'orders';
 
-    public function scopeDateFrom(Builder $query, $date_from): Builder
-    {
-        return $query->where('created_at', '>=', Carbon::parse($date_from));
-    }
-
-    public function scopeDateTo(Builder $query, $date_to): Builder
-    {
-        return $query->where('created_at', '<=', Carbon::parse($date_to));
-    }
-
     public $fillable = [
         'cart_id',
         'order_id',
@@ -44,6 +35,7 @@ class Order extends Model
         'admin_id',
         'status_id',
         'collect_time',
+        'description',
         'sum',
         'created_at',
         'updated_at'
@@ -61,6 +53,7 @@ class Order extends Model
         'admin_id' => 'integer',
         'status_id' => 'integer',
         'collect_time' => 'string',
+        'description' => 'string',
         'sum' => 'double',
         'created_at' => 'datetime',
         'updated_at' => 'datetime'
@@ -74,7 +67,8 @@ class Order extends Model
     public static $rules = [
         'user_id' => 'required',
         'admin_id' => 'required',
-        'status_id' => 'required'
+        'status_id' => 'required',
+        'description' => 'nullable|string',
     ];
 
     public function user()
@@ -90,5 +84,15 @@ class Order extends Model
     public function status()
     {
         return $this->hasOne(OrderStatus::class, 'id', 'status_id');
+    }
+
+    public function scopeDateFrom(Builder $query, $date_from): Builder
+    {
+        return $query->where('created_at', '>=', Carbon::parse($date_from));
+    }
+
+    public function scopeDateTo(Builder $query, $date_to): Builder
+    {
+        return $query->where('created_at', '<=', Carbon::parse($date_to));
     }
 }

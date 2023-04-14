@@ -188,6 +188,7 @@ Route::group(array('prefix' => 'admin', 'middleware' => 'admin'), function () {
         Route::get('messenger', MessengerIndex::class)->name('livewire.messenger.index');
         Route::get('messenger/add', MessengerAdd::class)->name('livewire.messenger.add');
         Route::get('messenger/{id}', MessengerShow::class)->name('livewire.messenger.show');
+        Route::post('changeProductPrice/{id}', [ProductController::class, 'changeProductPrice'])->name('changeProductPrice');
     });
 
 //Route::get("home", [App\Http\Controllers\HomeController::class, 'index'])->name('userhomepage');

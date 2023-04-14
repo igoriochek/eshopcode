@@ -25,30 +25,26 @@ class CartSeeder extends Seeder
     public function run()
     {
         for ($i=0; $i<=30; $i++){
-            $this->createCart(2, 5, 5);
+            $this->createCart(2, 3, 5, 5);
         }
     }
 
-    public function createCart($userID, $maxProducts, $itemProductCount ) {
+    public function createCart($userID, $adminID, $maxProducts, $itemProductCount ) {
         $faker = Faker::create();
         $firstStatus = CartStatus::query()
-            ->first();
-
-        $firstAdmin = User::query()
-            ->where('type', 1)
             ->first();
 
         $cart = new Cart([
             'user_id' => $userID,
             'code' => Hash::make($faker->password),
             'status_id' => $firstStatus->id,
-            'admin_id' => $firstAdmin->id,
+            'admin_id' => $adminID,
         ]);
         $cart->save();
 
         $count = rand(1,$maxProducts);
         for($i=1; $i <= $count; $i++) {
-            $product = Product::find(rand(1,200));
+            $product = Product::find(rand(1, 100));
             // if isset product
             if (null !== $product) {
                 // getOrSet CartItem
@@ -63,7 +59,7 @@ class CartSeeder extends Seeder
                     $cartItem = new CartItem([
                         'cart_id' => $cart->id,
                         'product_id' => $product->id,
-                        'price_current' => $product->price,
+                        'price_current' => $product->hasSizes ? $product->big : $product->price,
                         'count' => rand(1,$itemProductCount),
                     ]);
                     $cartItem->save();

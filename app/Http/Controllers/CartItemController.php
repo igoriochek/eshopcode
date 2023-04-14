@@ -198,7 +198,7 @@ class CartItemController extends AppBaseController
         $this->cartItemRepository->delete($id);
         $this->cartRepository->cartSum($cart);
 
-        Flash::success('Cart Item deleted successfully.');
+//        Flash::success('Cart Item deleted successfully.');
 
         return redirect(route('viewcart'));
     }

@@ -20,12 +20,18 @@ use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
  * @property string $image
  * @property string $video
  * @property integer $visible
+ * @property float $small
+ * @property float $big
+ * @property boolean $hasSizes
  * @property integer $promotion_id
  * @property integer $discount_id
  */
 class Product extends Model implements TranslatableContract
 {
-    use HasFactory,Translatable;
+    use HasFactory, Translatable;
+
+    const SMALL = 'Small';
+    const LARGE = 'Large';
 
     public $table = 'products';
 
@@ -37,6 +43,9 @@ class Product extends Model implements TranslatableContract
         'image',
         'video',
         'visible',
+        'small',
+        'big',
+        'hasSizes',
         'promotion_id',
         'discount_id',
         'created_at',
@@ -54,6 +63,9 @@ class Product extends Model implements TranslatableContract
         'image' => 'string',
         'video' => 'string',
         'visible' => 'integer',
+        'small' => 'float',
+        'big' => 'float',
+        'hasSizes' => 'boolean',
         'promotion_id' => 'integer',
         'discount_id' => 'integer',
         'created_at' => 'datetime',
@@ -66,8 +78,11 @@ class Product extends Model implements TranslatableContract
      * @var array
      */
     public static $rules = [
-        'price' => 'required',
-        'count' => 'required',
+        'price' => 'nullable|numeric',
+        'count' => 'required|integer',
+        'small' => 'nullable|numeric',
+        'big' => 'nullable|numeric',
+        'hasSizes' => 'nullable|boolean'
     ];
 
     public function categories()

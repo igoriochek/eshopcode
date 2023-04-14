@@ -10,6 +10,7 @@ use App\Repositories\CategoryRepository;
 use App\Repositories\ProductRepository;
 use App\Traits\ProductRatings;
 use Flash;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Response;
@@ -333,5 +334,60 @@ class ProductController extends AppBaseController
         Flash::success('Product deleted successfully.');
 
         return redirect(route('products.index'));
+    }
+
+    /**
+     * @throws \Exception
+     */
+    private function getProductById(int $id): object
+    {
+        $product = Product::find($id);
+
+        if (!$product) {
+            throw new \Exception(__('messages.productNotFound'));
+        }
+
+        return $product;
+    }
+
+    private function calculatePricesOnSize(float $productSizePrice, object $product): JsonResponse
+    {
+        if ($product->discount) {
+            $newPrice = number_format(
+                $productSizePrice - (round(($productSizePrice * $product->discount->proc / 100), 2)),
+                2
+            );
+            $oldPrice = number_format($productSizePrice, 2);
+
+            return response()->json([
+                'newPrice' => $newPrice,
+                'oldPrice' => $oldPrice
+            ]);
+        }
+
+        return response()->json(['price' => number_format($productSizePrice, 2)]);
+    }
+
+    public function changeProductPrice(int $id, Request $request): JsonResponse
+    {
+        try {
+            $product = $this->getProductById($id);
+
+            if ($product->hasSizes && $request->size == Product::SMALL) {
+                return $this->calculatePricesOnSize($product->small, $product);
+            }
+            if ($product->hasSizes && $request->size == Product::LARGE) {
+                return $this->calculatePricesOnSize($product->big, $product);
+            }
+            if ($request->size == Product::SMALL) {
+                return response()->json(['price' => number_format($product->small, 2)]);
+            }
+            if ($request->size == Product::LARGE) {
+                return response()->json(['price' => number_format($product->big, 2)]);
+            }
+        }
+        catch (\Throwable $exception) {
+            return response()->json(['exception' => $exception->getMessage()], 500);
+        }
     }
 }

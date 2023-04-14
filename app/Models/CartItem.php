@@ -15,6 +15,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @property integer $product_id
  * @property number $price_current
  * @property integer $count
+ * @property string $size
  */
 class CartItem extends Model
 {
@@ -29,6 +30,7 @@ class CartItem extends Model
         'product_id',
         'price_current',
         'count',
+        'size',
         'created_at',
         'updated_at'
     ];
@@ -43,6 +45,7 @@ class CartItem extends Model
         'product_id' => 'integer',
         'price_current' => 'double',
         'count' => 'integer',
+        'size' => 'string',
         'created_at' => 'datetime',
         'updated_at' => 'datetime'
     ];
@@ -56,7 +59,8 @@ class CartItem extends Model
         'cart_id' => 'required',
         'product_id' => 'required',
         'price_current' => 'required|min:5',
-        'count' => 'required'
+        'count' => 'required',
+        'size' => 'nullable|string'
     ];
 
     public function product()

@@ -178,11 +178,10 @@ class CartController extends AppBaseController
 
         $this->cartRepository->delete($id);
 
-        Flash::success('Cart deleted successfully.');
+//        Flash::success('Cart deleted successfully.');
 
         return redirect(route('carts.index'));
     }
-
 
     /**
      * Add to cart
@@ -207,16 +206,27 @@ class CartController extends AppBaseController
                     'product_id' => $product->id,
                     //'price_current' => $product->price,
                 ])
-                ->first();
+                ->get()
+                ->last();
 
-            if (null === $cartItem) {
+            $productPrice = $product->price;
+
+            if ($product->hasSizes && $request->size == Product::SMALL) {
+                $productPrice = $product->small;
+            }
+            if ($product->hasSizes && $request->size == Product::LARGE) {
+                $productPrice = $product->big;
+            }
+
+            if (null === $cartItem || $cartItem->size !== $request->size) {
                 $cartItem = CartItem::create([
                     'cart_id' => $cart->id,
                     'product_id' => $product->id,
-                    'price_current' => $product->discount ?
-                        $product->price - (round(($product->price * $product->discount->proc / 100), 2)) :
-                        $product->price,
+                    'price_current' => $product->discount
+                        ? $productPrice - (round(($productPrice * $product->discount->proc / 100), 2))
+                        : $productPrice,
                     'count' => $validated['count'],
+                    'size' => $request->size ?? Product::LARGE
                 ]);
                 $cartItem->save();
             } else {
@@ -233,7 +243,6 @@ class CartController extends AppBaseController
         return redirect(route('viewcart'));
     }
 
-
     public function viewCart(Request $request)
     {
         $cart = $this->cartRepository->getOrSetCart($request);
@@ -243,7 +252,4 @@ class CartController extends AppBaseController
         return view('user_views.cart.view')
             ->with(['cart' => $cart ,'cartItems'=> $cartItems]);
     }
-
-
-
 }

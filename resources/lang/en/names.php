@@ -186,6 +186,11 @@ return [
     'saleOff' => 'Sale',
     'searchForItems' => 'Search For Items',
     'search' => 'Search',
+    'small' => 'Small',
+    'large' => 'Large',
+    'size' => 'Size',
+    'selectSize' => 'Select size',
+    'selectSizeInfo' => 'if not selected, default will be large',
 
     //Promotions
     'createPromotion' => 'Create Promotion',

@@ -25,7 +25,7 @@ class AddToCartRequest extends FormRequest
     {
         return [
             'id' => 'required|integer',
-            'count' => 'required|integer',
+            'count' => 'required|integer'
         ];
     }
 }
