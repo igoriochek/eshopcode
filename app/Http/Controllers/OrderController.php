@@ -336,6 +336,8 @@ class OrderController extends AppBaseController
 
         $amount = $this->cartRepository->cartSum($cart, false);
 
+        $discountAmounted = null;
+
         if (isset($validated['discount']) &&
             is_array($validated['discount'])
         ) {
@@ -349,9 +351,9 @@ class OrderController extends AppBaseController
 
             if ($discounts) {
                 foreach ($discounts as $discount) {
-                    $newAmount = $amount - $discount->value;
-                    if ($newAmount > 0) {
-                        $amount = $newAmount;
+                    $discountAmounted = $amount * $discount->value / 100;
+                    if ($discountAmounted > 0) {
+                        $amount = $amount - $discountAmounted;
 
                         $discount->cart_id = $cart->id;
                         $discount->used = 1;
@@ -373,6 +375,7 @@ class OrderController extends AppBaseController
                 'cart' => $cart,
                 'cartItems' => $cartItems,
                 'discounts' => $discounts ?? [],
+                'discountedAmount' => $discountAmounted,
                 'amount' => $amount,
             ]);
     }
