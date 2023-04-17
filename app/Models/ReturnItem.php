@@ -15,6 +15,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @property integer $user_id
  * @property integer $return_id
  * @property integer $product_id
+ * @property integer $product_meat_id
  * @property number $price_current
  * @property number $count
  * @property string $size
@@ -30,6 +31,7 @@ class ReturnItem extends Model
         'user_id',
         'return_id',
         'product_id',
+        'product_meat_id',
         'price_current',
         'count',
         'size',
@@ -47,6 +49,7 @@ class ReturnItem extends Model
         'user_id' => 'integer',
         'return_id' => 'integer',
         'product_id' => 'integer',
+        'product_meat_id' => 'integer',
         'price_current' => 'double',
         'count' => 'double',
         'size' => 'string',

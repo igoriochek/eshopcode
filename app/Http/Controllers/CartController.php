@@ -222,11 +222,12 @@ class CartController extends AppBaseController
                 $cartItem = CartItem::create([
                     'cart_id' => $cart->id,
                     'product_id' => $product->id,
+                    'product_meat_id' => $request->meat,
                     'price_current' => $product->discount
                         ? $productPrice - (round(($productPrice * $product->discount->proc / 100), 2))
                         : $productPrice,
                     'count' => $validated['count'],
-                    'size' => $request->size ?? Product::LARGE
+                    'size' => $request->size
                 ]);
                 $cartItem->save();
             } else {

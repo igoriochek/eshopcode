@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
             DiscountCouponSeeder::class,
             PromotionSeeder::class,
             ProductSeeder::class,
+            ProductMeatSeeder::class,
             ProductCategorySeeder::class,
             ReturnStatusesSeeder::class,
             CartSeeder::class,

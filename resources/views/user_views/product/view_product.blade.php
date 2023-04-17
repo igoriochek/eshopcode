@@ -89,7 +89,7 @@
                                         <div class="d-flex align-items-center gap-1">
                                             <p class="mb-0 pb-0">{{ __('names.selectSize').' ('.__('names.selectSizeInfo').')' }}</p>
                                         </div>
-                                        <div class="d-flex align-items-center gap-2 mb-40">
+                                        <div class="d-flex align-items-center gap-2">
                                             <div class="product-size-button">
                                                 <input type="radio" id="small" name="size" value="{{ \App\Models\Product::SMALL }}" />
                                                 <label class="rounded" for="small">{{ __('names.small') }}</label>
@@ -101,7 +101,22 @@
                                         </div>
                                     </div>
                                 @endif
-                                <div class="detail-extralink mb-50">
+                                @if ($product->hasMeats)
+                                    <div class="d-block mt-20">
+                                        <div class="d-flex align-items-center gap-1">
+                                            <p class="mb-0 pb-0">{{ __('names.selectMeat').' ('.__('names.selectMeatInfo').')' }}</p>
+                                        </div>
+                                        <div class="d-flex align-items-center gap-2">
+                                            @foreach($productMeats as $productMeat)
+                                                <div class="product-size-button">
+                                                    <input type="radio" id="{{ $productMeat->name }}" name="meat" value="{{ $productMeat->id }}" />
+                                                    <label class="rounded" for="{{ $productMeat->name }}">{{ $productMeat->name }}</label>
+                                                </div>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                @endif
+                                <div class="detail-extralink mb-50 mt-40">
                                     {!! Form::open(['route' => ['addtocart'], 'method' => 'post', 'class' => 'd-flex align-items-center']) !!}
                                         <div class="d-flex me-4">
                                             {!! Form::number('count', "1", ['style' => 'width: 80px; height: 51px; padding-left: 20px; padding-right: 15px; border-radius: 5px', "min" => "1", "max" => "5", "minlength" => "1", "maxlength" => "5", "oninput" => "this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null"]) !!}
@@ -109,6 +124,9 @@
                                         <input type="hidden" name="id" value="{{ $product->id }}">
                                         @if ($product->hasSizes)
                                             <input type="hidden" name="size" id="size" value="{{ \App\Models\Product::LARGE }}">
+                                        @endif
+                                        @if ($product->hasMeats)
+                                            <input type="hidden" name="meat" id="meat" value="{{ \App\Models\ProductMeat::BEEF }}">
                                         @endif
                                         <div class="product-extra-link2">
                                             <button type="submit" class="button button-add-to-cart" style="padding-inline: 30px; font-size: .95rem">
@@ -238,49 +256,65 @@
 
 @push('scripts')
     <script>
-        const small = document.getElementById('small')
-        const large = document.getElementById('large')
-        const size = document.getElementById('size')
+        @if ($product->hasSizes)
+            const small = document.getElementById('small')
+            const large = document.getElementById('large')
+            const size = document.getElementById('size')
 
-        const buttons = [small, large]
+            const buttons = [small, large]
 
-        const createClickEventListenerForButtons = buttons => {
-            buttons.forEach(button => {
-                button.addEventListener('click', () => {
-                    size.value = button.value
-                    changeProductPrice()
-                });
-            })
-        }
-        createClickEventListenerForButtons(buttons)
+            const createClickEventListenerForButtons = buttons => {
+                buttons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        size.value = button.value
+                        changeProductPrice()
+                    })
+                })
+            }
+            createClickEventListenerForButtons(buttons)
 
-        const changeProductPrice = () => {
-            const newPrice = document.getElementById('newPrice');
-            const oldPrice = document.getElementById('oldPrice');
-            const price = document.getElementById('price');
+            const changeProductPrice = () => {
+                const newPrice = document.getElementById('newPrice');
+                const oldPrice = document.getElementById('oldPrice');
+                const price = document.getElementById('price');
 
-            $.ajax({
-                url: '{{ route('changeProductPrice', $product->id) }}',
-                type: 'POST',
-                data: {
-                    '_token': '{{ csrf_token() }}',
-                    size: size.value
-                },
-                success: res => {
-                    @if ($product->hasSizes)
-                        @if ($product->discount)
-                            newPrice.innerText = `€${res.newPrice}`
-                            oldPrice.innerText = `€${res.oldPrice}`
+                $.ajax({
+                    url: '{{ route('changeProductPrice', $product->id) }}',
+                    type: 'POST',
+                    data: {
+                        '_token': '{{ csrf_token() }}',
+                        size: size.value
+                    },
+                    success: res => {
+                        @if ($product->hasSizes)
+                            @if ($product->discount)
+                                newPrice.innerText = `€${res.newPrice}`
+                                oldPrice.innerText = `€${res.oldPrice}`
+                            @else
+                                price.innerText = `€${res.price}`
+                            @endif
                         @else
                             price.innerText = `€${res.price}`
                         @endif
-                    @else
-                        price.innerText = `€${res.price}`
-                    @endif
-                },
-                error: XMLHttpRequest => console.error(XMLHttpRequest)
-            })
-        }
+                    },
+                    error: XMLHttpRequest => console.error(XMLHttpRequest)
+                })
+            }
+        @endif
+
+        @if ($product->hasMeats)
+            const meatButtons = document.querySelectorAll("input[name='meat']")
+            const meatInput = document.getElementById('meat')
+
+            const createClickEventListenerForMeatButtons = meatButtons => {
+                meatButtons.forEach((button, index) => {
+                    if (index !== meatButtons.length - 1) {
+                        button.addEventListener('click', () => meatInput.value = button.value)
+                    }
+                })
+            }
+            createClickEventListenerForMeatButtons(meatButtons)
+        @endif
 
         $('button[type="button"]').click(function () {
             const value = $('input[type=radio][name=rating]:checked').val();

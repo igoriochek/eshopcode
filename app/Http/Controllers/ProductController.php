@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreateProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use App\Models\Product;
+use App\Models\ProductMeat;
 use App\Models\Ratings;
 use App\Repositories\CategoryRepository;
 use App\Repositories\ProductRepository;
@@ -204,7 +205,7 @@ class ProductController extends AppBaseController
      * View Product
      *
      * @param $id integer
-     * @return Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function userViewProduct($id)
     {
@@ -226,7 +227,8 @@ class ProductController extends AppBaseController
                 'rateCount' => $count,
                 'percentages' => $this->calculateAndGetRatingStarPercentages(
                     $count, $this->addRatingStarValues($productRatings)
-                )
+                ),
+                'productMeats' => $product->hasMeats ? ProductMeat::all() : null
             ]);
     }
 

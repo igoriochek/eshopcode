@@ -18,11 +18,13 @@ class CreateOrderItemsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('order_id')->unsigned();
             $table->unsignedBigInteger('product_id')->unsigned();
+            $table->unsignedBigInteger('product_meat_id')->unsigned()->nullable();
             $table->double('price_current');
             $table->double('count');
             $table->string('size')->nullable();
             $table->foreign('order_id')->references('id')->on('orders');
             $table->foreign('product_id')->references('id')->on('products');
+            $table->foreign('product_meat_id')->references('id')->on('product_meats');
             $table->timestamps();
         });
     }

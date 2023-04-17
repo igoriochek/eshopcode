@@ -191,6 +191,9 @@ return [
     'size' => 'Size',
     'selectSize' => 'Select size',
     'selectSizeInfo' => 'if not selected, default will be large',
+    'meat' => 'Meat',
+    'selectMeat' => 'Select meat',
+    'selectMeatInfo' => 'if not selected, default will be beef',
 
     //Promotions
     'createPromotion' => 'Create Promotion',

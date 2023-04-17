@@ -192,7 +192,10 @@ return [
     'large' => 'Didelis',
     'size' => 'Dydis',
     'selectSize' => 'Pasirinkite dydį',
-    'selectSizeInfo' => 'jei nepasirinksite, numatytasis bus didelis',
+    'selectSizeInfo' => 'jei nepasirinksite, pagal nutylėjimą bus didelis',
+    'meat' => 'Mėsa',
+    'selectMeat' => 'Pasirinkite mėsą',
+    'selectMeatInfo' => 'jei nepasirinkta, pagal nutylėjimą bus jautiena',
 
     //Promotions
     'createPromotion' => 'Sukurti akciją',

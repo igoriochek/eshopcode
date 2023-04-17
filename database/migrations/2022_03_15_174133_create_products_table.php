@@ -24,6 +24,7 @@ class CreateProductsTable extends Migration
             $table->float('small')->nullable();
             $table->float('big')->nullable();
             $table->boolean('hasSizes')->default(false);
+            $table->boolean('hasMeats')->default(false);
             $table->unsignedBigInteger("promotion_id")->nullable()->unsigned();
             $table->unsignedBigInteger("discount_id")->nullable()->unsigned();
             $table->foreign('promotion_id')->references('id')->on('promotions');

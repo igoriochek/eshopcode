@@ -23,10 +23,10 @@ class CartItemFactory extends Factory
     {
         return [
             'cart_id' => $this->faker->randomDigitNotNull,
-        'product_id' => $this->faker->randomDigitNotNull,
-        'price_current' => $this->faker->word,
-        'created_at' => $this->faker->date('Y-m-d H:i:s'),
-        'updated_at' => $this->faker->date('Y-m-d H:i:s')
+            'product_id' => $this->faker->randomDigitNotNull,
+            'price_current' => $this->faker->word,
+            'created_at' => $this->faker->date('Y-m-d H:i:s'),
+            'updated_at' => $this->faker->date('Y-m-d H:i:s')
         ];
     }
 }
