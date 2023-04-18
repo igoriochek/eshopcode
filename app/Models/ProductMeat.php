@@ -11,10 +11,11 @@ class ProductMeat extends Model implements TranslatableContract
 {
     use HasFactory, Translatable;
 
-    const BEEF = 1;
-    const CHICKEN = 2;
-
     public $table = 'product_meats';
 
     public $translatedAttributes = ['name'];
+
+    protected $fillable = ['default'];
+
+    protected $casts = ['default' => 'boolean'];
 }

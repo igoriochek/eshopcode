@@ -6,6 +6,7 @@ use App\Http\Requests\CreateProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use App\Models\Product;
 use App\Models\ProductMeat;
+use App\Models\ProductSauce;
 use App\Models\Ratings;
 use App\Repositories\CategoryRepository;
 use App\Repositories\ProductRepository;
@@ -201,6 +202,17 @@ class ProductController extends AppBaseController
         if ($user) $user->log("Viewed {$product->name}");
     }
 
+    private function getDefaultInstance(object $collection): ?int
+    {
+        $default = null;
+
+        foreach ($collection as $row) {
+            $row->default === true && $default = $row->value('id');
+        }
+
+        return $default;
+    }
+
     /**
      * View Product
      *
@@ -217,6 +229,9 @@ class ProductController extends AppBaseController
         $sum = $sumAndCount['sum'];
         $count = $sumAndCount['count'];
 
+        $productMeats = ProductMeat::all();
+        $productSauces = ProductSauce::all();
+
         $this->logUserViewedProduct($product);
 
         return view('user_views.product.view_product')
@@ -228,7 +243,10 @@ class ProductController extends AppBaseController
                 'percentages' => $this->calculateAndGetRatingStarPercentages(
                     $count, $this->addRatingStarValues($productRatings)
                 ),
-                'productMeats' => $product->hasMeats ? ProductMeat::all() : null
+                'productMeats' => $product->hasMeats ? $productMeats : null,
+                'productSauces' => $product->hasSauces ? $productSauces : null,
+                'defaultMeat' => $this->getDefaultInstance($productMeats),
+                'defaultSauce' => $this->getDefaultInstance($productSauces)
             ]);
     }
 

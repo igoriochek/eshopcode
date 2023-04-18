@@ -194,6 +194,9 @@ return [
     'meat' => 'Meat',
     'selectMeat' => 'Select meat',
     'selectMeatInfo' => 'if not selected, default will be beef',
+    'sauce' => 'Sauce',
+    'selectSauce' => 'Select sauce',
+    'selectSauceInfo' => 'if not selected, default will be garlic',
 
     //Promotions
     'createPromotion' => 'Create Promotion',

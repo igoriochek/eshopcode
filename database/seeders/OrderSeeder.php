@@ -66,6 +66,7 @@ class OrderSeeder extends Seeder
                     $newOrderItem->order_id = $newOrder->id;
                     $newOrderItem->product_id = $cartItem->product_id;
                     $newOrderItem->product_meat_id = $cartItem->product_meat_id;
+                    $newOrderItem->product_sauce_id = $cartItem->product_sauce_id;
                     $newOrderItem->price_current = $cartItem->price_current;
                     $newOrderItem->count = $cartItem->count;
                     $newOrderItem->save();

@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @property integer $cart_id
  * @property integer $product_id
  * @property integer $product_meat_id
+ * @property integer $product_sauce_id
  * @property number $price_current
  * @property integer $count
  * @property string $size
@@ -30,6 +31,7 @@ class CartItem extends Model
         'cart_id',
         'product_id',
         'product_meat_id',
+        'product_sauce_id',
         'price_current',
         'count',
         'size',
@@ -46,6 +48,7 @@ class CartItem extends Model
         'cart_id' => 'integer',
         'product_id' => 'integer',
         'product_meat_id' => 'integer',
+        'product_sauce_id' => 'integer',
         'price_current' => 'double',
         'count' => 'integer',
         'size' => 'string',
@@ -73,5 +76,10 @@ class CartItem extends Model
     public function meat()
     {
         return $this->hasOne(ProductMeat::class, 'id', 'product_meat_id');
+    }
+
+    public function sauce()
+    {
+        return $this->hasOne(ProductSauce::class, 'id', 'product_sauce_id');
     }
 }

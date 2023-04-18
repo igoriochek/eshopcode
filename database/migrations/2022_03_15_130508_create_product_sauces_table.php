@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProductMeatsTable extends Migration
+class CreateProductSaucesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class CreateProductMeatsTable extends Migration
      */
     public function up()
     {
-        Schema::create('product_meats', function (Blueprint $table) {
+        Schema::create('product_sauces', function (Blueprint $table) {
             $table->id();
+            $table->string('color', 10);
             $table->boolean('default')->default(false);
             $table->timestamps();
         });
@@ -27,6 +28,6 @@ class CreateProductMeatsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('product_meats');
+        Schema::dropIfExists('product_sauces');
     }
 }

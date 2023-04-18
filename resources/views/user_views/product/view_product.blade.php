@@ -66,19 +66,19 @@
                                         @else
                                             @if ($product->discount)
                                                 <span class="current-price text-brand">
-                                                {{ sprintf("%.2f", $product->price - (round(($product->price * $product->discount->proc / 100), 2))) }} €
-                                            </span>
+                                                    €{{ sprintf("%.2f", $product->price - (round(($product->price * $product->discount->proc / 100), 2))) }}
+                                                </span>
                                                 <span>
                                                 <span class="save-price font-md color3 ml-15 fs-6">
                                                     {{ '-'.$product->discount->proc.'% '.__('names.off') }}
                                                 </span>
                                                 <span class="old-price font-md ml-15 fs-5">
-                                                    {{ sprintf("%.2f", $product->price) }} €
+                                                    €{{ sprintf("%.2f", $product->price) }}
                                                 </span>
                                             </span>
                                             @else
                                                 <span class="current-price text-brand">
-                                                    {{ sprintf("%.2f", $product->price) }} €
+                                                    €{{ sprintf("%.2f", $product->price) }}
                                                 </span>
                                             @endif
                                         @endif
@@ -87,16 +87,28 @@
                                 @if ($product->hasSizes)
                                     <div class="d-block">
                                         <div class="d-flex align-items-center gap-1">
-                                            <p class="mb-0 pb-0">{{ __('names.selectSize').' ('.__('names.selectSizeInfo').')' }}</p>
+                                            <p class="mb-0 pb-0 fw-600">{{ __('names.selectSize') }}:</p>
                                         </div>
                                         <div class="d-flex align-items-center gap-2">
                                             <div class="product-size-button">
                                                 <input type="radio" id="small" name="size" value="{{ \App\Models\Product::SMALL }}" />
-                                                <label class="rounded" for="small">{{ __('names.small') }}</label>
+                                                <label for="small">
+                                                    @if ($product->discount)
+                                                        {{ __('names.small').' (€'.number_format($product->small - (round(($product->small * $product->discount->proc / 100), 2)), 2).')' }}
+                                                    @else
+                                                        {{ __('names.small').' (€'.number_format($product->small, 2).')' }}
+                                                    @endif
+                                                </label>
                                             </div>
                                             <div class="product-size-button">
                                                 <input type="radio" id="large" name="size" value="{{ \App\Models\Product::LARGE }}" />
-                                                <label class="rounded" for="large">{{ __('names.large') }}</label>
+                                                <label for="large">
+                                                    @if ($product->discount)
+                                                        {{ __('names.large').' (€'.sprintf("%.2f", $product->big - (round(($product->big * $product->discount->proc / 100), 2))).')' }}
+                                                    @else
+                                                        {{ __('names.large').' (€'.sprintf("%.2f", $product->big).')' }}
+                                                    @endif
+                                                </label>
                                             </div>
                                         </div>
                                     </div>
@@ -104,19 +116,38 @@
                                 @if ($product->hasMeats)
                                     <div class="d-block mt-20">
                                         <div class="d-flex align-items-center gap-1">
-                                            <p class="mb-0 pb-0">{{ __('names.selectMeat').' ('.__('names.selectMeatInfo').')' }}</p>
+                                            <p class="mb-0 pb-0 fw-600">{{ __('names.selectMeat') }}:</p>
                                         </div>
                                         <div class="d-flex align-items-center gap-2">
                                             @foreach($productMeats as $productMeat)
                                                 <div class="product-size-button">
                                                     <input type="radio" id="{{ $productMeat->name }}" name="meat" value="{{ $productMeat->id }}" />
-                                                    <label class="rounded" for="{{ $productMeat->name }}">{{ $productMeat->name }}</label>
+                                                    <label for="{{ $productMeat->name }}">{{ $productMeat->name }}</label>
                                                 </div>
                                             @endforeach
                                         </div>
                                     </div>
                                 @endif
-                                <div class="detail-extralink mb-50 mt-40">
+                                @if ($product->hasSauces)
+                                    <div class="d-block mt-20">
+                                        <div class="d-flex align-items-center gap-1">
+                                            <p class="mb-0 pb-0 fw-600">{{ __('names.selectSauce') }}:</p>
+                                        </div>
+                                        <div class="d-flex align-items-center flex-wrap gap-2">
+                                            @foreach($productSauces as $productSauce)
+                                                <div class="product-size-button">
+                                                    <input type="radio" id="{{ $productSauce->name }}" name="sauce" value="{{ $productSauce->id }}" />
+                                                    <label class="d-flex align-items-center justify-content-center" for="{{ $productSauce->name }}">
+                                                        <div style="background: {{ $productSauce->color }}; width: 22px; height: 22px; border-radius: 13px"></div>
+                                                        <div style="width: 10px"></div>
+                                                        {{ $productSauce->name }}
+                                                    </label>
+                                                </div>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                @endif
+                                <div class="detail-extralink mb-50 @if ($product->hasSizes || $product->hasMeats || $product->hasSauces) mt-40 @endif">
                                     {!! Form::open(['route' => ['addtocart'], 'method' => 'post', 'class' => 'd-flex align-items-center']) !!}
                                         <div class="d-flex me-4">
                                             {!! Form::number('count', "1", ['style' => 'width: 80px; height: 51px; padding-left: 20px; padding-right: 15px; border-radius: 5px', "min" => "1", "max" => "5", "minlength" => "1", "maxlength" => "5", "oninput" => "this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null"]) !!}
@@ -126,7 +157,10 @@
                                             <input type="hidden" name="size" id="size" value="{{ \App\Models\Product::LARGE }}">
                                         @endif
                                         @if ($product->hasMeats)
-                                            <input type="hidden" name="meat" id="meat" value="{{ \App\Models\ProductMeat::BEEF }}">
+                                            <input type="hidden" name="meat" id="meat" value="{{ $defaultMeat }}">
+                                        @endif
+                                        @if ($product->hasSauces)
+                                            <input type="hidden" name="sauce" id="sauce" value="{{ $defaultSauce }}">
                                         @endif
                                         <div class="product-extra-link2">
                                             <button type="submit" class="button button-add-to-cart" style="padding-inline: 30px; font-size: .95rem">
@@ -172,7 +206,8 @@
         .product-size-button {
             margin: 0 5px 0 0;
             background: transparent;
-            width: 120px;
+            min-width: 100px;
+            width: auto;
             text-align: center;
             font-family: "Quicksand", sans-serif;
             font-weight: 600;
@@ -182,16 +217,21 @@
         .product-size-button input {
             display: block;
             background: transparent;
-            border: 1px solid #dc0505;
-            color: #dc0505;
+            color: #3a3a3a;
+            opacity: .8;
+            border-bottom: 1px solid #ccc;
         }
 
         .product-size-button label:hover,
         .product-size-button input:hover {
-            -webkit-box-shadow: 0 0 0 1.5px #dc0505;
-            -moz-box-shadow: 0 0 0 1.5px #dc0505;
-            box-shadow: 0 0 0 1.5px #dc0505;
+            -webkit-box-shadow: 0 0 0 2px #dc0505;
+            -moz-box-shadow: 0 0 0 2px #dc0505;
+            box-shadow: 0 0 0 2px #dc0505;
+            color: #dc0505;
             font-weight: 900;
+            opacity: 1;
+            border-radius: 4px;
+            border: none;
         }
 
         .product-size-button input[type="radio"] {
@@ -201,17 +241,20 @@
 
         .product-size-button input[type="radio"]:checked + label {
             background: transparent;
-            border-radius: 4px;
-            -webkit-box-shadow: 0 0 0 1.5px #dc0505;
-            -moz-box-shadow: 0 0 0 1.5px #dc0505;
-            box-shadow: 0 0 0 1.5px #dc0505;
+            -webkit-box-shadow: 0 0 0 2px #dc0505;
+            -moz-box-shadow: 0 0 0 2px #dc0505;
+            box-shadow: 0 0 0 2px #dc0505;
+            color: #dc0505;
             font-weight: 900;
+            opacity: 1;
+            border-radius: 4px;
+            border: none;
         }
 
         .product-size-button label {
             cursor: pointer;
             z-index: 90;
-            padding: 12px 20px;
+            padding: 8px 18px;
             font-size: .95rem;
         }
 
@@ -314,6 +357,20 @@
                 })
             }
             createClickEventListenerForMeatButtons(meatButtons)
+        @endif
+
+        @if ($product->hasSauces)
+            const sauceButtons = document.querySelectorAll("input[name='sauce']")
+            const sauceInput = document.getElementById('sauce');
+
+            const createClickEventListenerForSauceButtons = sauceButtons => {
+                sauceButtons.forEach((button, index) => {
+                    if (index !== sauceButtons.length - 1) {
+                        button.addEventListener('click', () => sauceInput.value = button.value)
+                    }
+                })
+            }
+            createClickEventListenerForSauceButtons(sauceButtons)
         @endif
 
         $('button[type="button"]').click(function () {

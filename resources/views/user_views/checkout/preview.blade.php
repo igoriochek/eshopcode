@@ -56,20 +56,27 @@
                                                     <a href="{{ route('viewproduct', $item['product']->id) }}" class="product-name">
                                                         {{ $item['product']->name }}
                                                     </a>
-                                                    @if ($item->size)
-                                                        <span class="fw-normal fs-6" style="color: #888">
-                                                            @if ($item->size == \App\Models\Product::SMALL)
-                                                                {{ __('names.size').': '.__('names.small') }}
-                                                            @elseif ($item->size == \App\Models\Product::LARGE)
-                                                                {{ __('names.size').': '.__('names.large') }}
-                                                            @endif
-                                                        </span>
-                                                    @endif
-                                                    @if ($item->product_meat_id)
-                                                        <span class="fw-normal fs-6" style="color: #888">
-                                                            {{ __('names.meat').': '.$item->meat->name }}
-                                                        </span>
-                                                    @endif
+                                                    <div class="d-flex flex-column">
+                                                        @if ($item->size)
+                                                            <span class="fw-normal fs-6" style="color: #888">
+                                                                @if ($item->size == \App\Models\Product::SMALL)
+                                                                    {{ __('names.size').': '.__('names.small') }}
+                                                                @elseif ($item->size == \App\Models\Product::LARGE)
+                                                                    {{ __('names.size').': '.__('names.large') }}
+                                                                @endif
+                                                             </span>
+                                                        @endif
+                                                        @if ($item->product_meat_id)
+                                                            <span class="fw-normal fs-6" style="color: #888">
+                                                                {{ __('names.meat').': '.$item->meat->name }}
+                                                            </span>
+                                                        @endif
+                                                        @if ($item->product_sauce_id)
+                                                            <span class="fw-normal fs-6" style="color: #888">
+                                                                {{ __('names.sauce').': '.$item->sauce->name }}
+                                                            </span>
+                                                        @endif
+                                                    </div>
                                                 </div>
                                                 <div class="d-flex align-items-center" style="width: 15%; color: #888">
                                                     {{ $item->count }}

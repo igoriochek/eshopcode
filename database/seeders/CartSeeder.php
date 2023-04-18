@@ -60,6 +60,7 @@ class CartSeeder extends Seeder
                         'cart_id' => $cart->id,
                         'product_id' => $product->id,
                         'product_meat_id' => rand(1, 2),
+                        'product_sauce_id' => rand(1, 5),
                         'price_current' => $product->hasSizes ? $product->big : $product->price,
                         'count' => rand(1,$itemProductCount),
                     ]);

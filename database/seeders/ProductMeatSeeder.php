@@ -27,5 +27,9 @@ class ProductMeatSeeder extends Seeder
                 'ru' => ['name' => $meatTypes['ru'][$i]],
             ]);
         }
+
+        $randomProductSauce = ProductMeat::find(1);
+        $randomProductSauce->default = true;
+        $randomProductSauce->save();
     }
 }

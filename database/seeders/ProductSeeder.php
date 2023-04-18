@@ -21,6 +21,7 @@ class ProductSeeder extends Seeder
         for ($i = 0; $i <= 100; $i++) {
             $randomHasSizes = $boolean[rand(0, 1)];
             $randomHasMeats = $boolean[rand(0, 1)];
+            $randomHasSauces = $boolean[rand(0, 1)];
             $productData = [
                 'en' => [
                     'name' => "product $faker->name",
@@ -39,6 +40,7 @@ class ProductSeeder extends Seeder
                 'big' => $randomHasSizes ? rand(10, 20) : null,
                 'hasSizes' => $randomHasSizes,
                 'hasMeats' => $randomHasMeats,
+                'hasSauces' => $randomHasSauces,
                 'promotion_id' => ($i % 10 ? rand(1, 10) : null)
             ];
             Product::create($productData);

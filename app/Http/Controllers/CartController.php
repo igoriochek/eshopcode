@@ -223,6 +223,7 @@ class CartController extends AppBaseController
                     'cart_id' => $cart->id,
                     'product_id' => $product->id,
                     'product_meat_id' => $request->meat,
+                    'product_sauce_id' => $request->sauce,
                     'price_current' => $product->discount
                         ? $productPrice - (round(($productPrice * $product->discount->proc / 100), 2))
                         : $productPrice,

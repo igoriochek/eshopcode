@@ -193,6 +193,9 @@ return [
     'meat' => 'Мясо',
     'selectMeat' => 'Выберите мясо',
     'selectMeatInfo' => 'если не выбрано, по умолчанию будет говядина',
+    'соус' => 'Соус',
+    'selectSauce' => 'Выберите соус',
+    'selectSauceInfo' => 'если не выбрано, по умолчанию будет чеснок',
 
     //Promotions
     'createPromotion' => 'Создать акцию',

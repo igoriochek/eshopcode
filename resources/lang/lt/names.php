@@ -195,7 +195,10 @@ return [
     'selectSizeInfo' => 'jei nepasirinksite, pagal nutylėjimą bus didelis',
     'meat' => 'Mėsa',
     'selectMeat' => 'Pasirinkite mėsą',
-    'selectMeatInfo' => 'jei nepasirinkta, pagal nutylėjimą bus jautiena',
+    'selectMeatInfo' => 'jei nepasirinksite, pagal nutylėjimą bus jautiena',
+    'sauce' => 'Padažas',
+    'selectSauce' => 'Pasirinkite padažą',
+    'selectSauceInfo' => 'jei nepasirinksite, pagal nutylėjimą bus česnakas',
 
     //Promotions
     'createPromotion' => 'Sukurti akciją',
