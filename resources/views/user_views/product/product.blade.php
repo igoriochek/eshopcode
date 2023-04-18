@@ -50,27 +50,22 @@
                     @if ($product->hasSizes)
                         @if ($product->discount)
                             <div class="d-flex flex-column gap-1">
-                                <div class="d-flex gap-2">
-                                    <span class="fw-500 fs-6" style="color: #888">{{ __('names.small') }}:</span>
-                                    <span class="old-price">€{{ sprintf("%.2f", $product->small) }}</span>
-                                    <span >€{{ $product->small - (round(($product->small * $product->discount->proc / 100), 2)) }}</span>
-                                </div>
-                                <div class="d-flex gap-2">
-                                    <span class="fw-500 fs-6" style="color: #888">{{ __('names.large') }}:</span>
-                                    <span class="old-price">€{{ sprintf("%.2f", $product->big) }}</span>
-                                    <span >€{{ $product->big - (round(($product->big * $product->discount->proc / 100), 2)) }}</span>
-                                </div>
+                                @foreach ($product->sizesPrices as $sizePrice)
+                                    <div class="d-flex gap-2">
+                                        <span class="fw-500 fs-6" style="color: #888">{{ $sizePrice->size->name }}:</span>
+                                        <span class="old-price">€{{ sprintf("%.2f", $sizePrice->price) }}</span>
+                                        <span >€{{ $sizePrice->price - (round(($sizePrice->price * $product->discount->proc / 100), 2)) }}</span>
+                                    </div>
+                                @endforeach
                             </div>
                         @else
                             <div class="d-flex align-items-center flex-wrap gap-2">
-                                <div class="d-flex gap-2">
-                                    <span class="fw-500 fs-6" style="color: #888">{{ __('names.small') }}:</span>
-                                    <span>€{{ sprintf("%.2f", $product->small) }}</span>
-                                </div>
-                                <div class="d-flex gap-2">
-                                    <span class="fw-500 fs-6" style="color: #888">{{ __('names.large') }}:</span>
-                                    <span>€{{ sprintf("%.2f", $product->big) }}</span>
-                                </div>
+                                @foreach ($product->sizesPrices as $sizePrice)
+                                    <div class="d-flex gap-2">
+                                        <span class="fw-500 fs-6" style="color: #888">{{ $sizePrice->size->name }}:</span>
+                                        <span>€{{ sprintf("%.2f", $sizePrice->price) }}</span>
+                                    </div>
+                                @endforeach
                             </div>
                         @endif
                     @else
@@ -88,7 +83,15 @@
                     {!! Form::open(['route' => ['addtocart'], 'method' => 'post', 'class' => 'd-flex justify-content-between align-items-center gap-2']) !!}
                     {!! Form::number('count', "1", ['style' => 'height: 46px; width: 80px; padding-left: 20px; padding-right: 15px; border-radius: 5px', "min" => "1", "max" => "5", "minlength" => "1", "maxlength" => "5", "oninput" => "this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null"]) !!}
                     <input type="hidden" name="id" value="{{ $product->id }}">
-                    <input type="hidden" name="size" id="size" value="{{ \App\Models\Product::LARGE }}">
+                    @if ($product->hasSizes)
+                        <input type="hidden" name="size" id="size" value="{{ $product->sizesPrices[1]->size->id }}">
+                    @endif
+                    @if ($product->hasMeats)
+                        <input type="hidden" name="meat" id="meat" value="{{ $defaultMeat }}">
+                    @endif
+                    @if ($product->hasSauces)
+                        <input type="hidden" name="sauce" id="sauce" value="{{ $defaultSauce }}">
+                    @endif
                     <button type="submit" class="ms-1 add border-0">
                         <i class="fa-solid fa-bag-shopping me-1"></i>
                         {{ __('buttons.addToCart') }}

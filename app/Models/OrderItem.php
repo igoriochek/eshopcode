@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  *
  * @property integer $order_id
  * @property integer $product_id
+ * @property integer $product_size_id
  * @property integer $product_meat_id
  * @property integer $product_sauce_id
  * @property number $price_current
@@ -28,6 +29,7 @@ class OrderItem extends Model
     public $fillable = [
         'order_id',
         'product_id',
+        'product_size_id',
         'product_meat_id',
         'product_sauce_id',
         'price_current',
@@ -45,6 +47,7 @@ class OrderItem extends Model
     protected $casts = [
         'order_id' => 'integer',
         'product_id' => 'integer',
+        'product_size_id' => 'integer',
         'product_meat_id' => 'integer',
         'product_sauce_id' => 'integer',
         'price_current' => 'double',
@@ -69,6 +72,11 @@ class OrderItem extends Model
     public function product()
     {
         return $this->hasOne(Product::class, 'id', 'product_id');
+    }
+
+    public function size()
+    {
+        return $this->hasOne(ProductSize::class, 'id', 'product_size_id');
     }
 
     public function meat()

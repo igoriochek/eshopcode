@@ -57,14 +57,10 @@
                                                         {{ $item['product']->name }}
                                                     </a>
                                                     <div class="d-flex flex-column">
-                                                        @if ($item->size)
+                                                        @if ($item->product_size_id)
                                                             <span class="fw-normal fs-6" style="color: #888">
-                                                                @if ($item->size == \App\Models\Product::SMALL)
-                                                                    {{ __('names.size').': '.__('names.small') }}
-                                                                @elseif ($item->size == \App\Models\Product::LARGE)
-                                                                    {{ __('names.size').': '.__('names.large') }}
-                                                                @endif
-                                                             </span>
+                                                                {{ __('names.size').': '.$item->itemSize->name }}
+                                                            </span>
                                                         @endif
                                                         @if ($item->product_meat_id)
                                                             <span class="fw-normal fs-6" style="color: #888">

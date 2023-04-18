@@ -16,7 +16,7 @@
                             <div class="detail-gallery">
                                 <div class="product-image-slider slick-initialized slick-slider" style="border: 2px solid white">
                                     @if($product->image)
-                                        <img src="{{ $product->image }}" alt="{{$product->name}}" class="w-100"/>
+                                        <img src="{{ $product->image }}" alt="{{ $product->name }}" class="w-100"/>
                                     @else
                                         <img src="{{ asset('images/noimage.jpeg') }}" alt="no-product-image" class="w-100"/>
                                     @endif
@@ -48,19 +48,19 @@
                                         @if ($product->hasSizes)
                                             @if ($product->discount)
                                                 <span class="current-price text-brand" id="newPrice">
-                                                    €{{ sprintf("%.2f", $product->big - (round(($product->big * $product->discount->proc / 100), 2))) }}
+                                                    €{{ sprintf("%.2f", $defaultSize->price - (round(($defaultSize->price * $product->discount->proc / 100), 2))) }}
                                                 </span>
                                                 <span>
                                                 <span class="save-price font-md color3 ml-15 fs-6">
                                                     {{ '-'.$product->discount->proc.'% '.__('names.off') }}
                                                 </span>
                                                 <span class="old-price font-md ml-15 fs-5" id="oldPrice">
-                                                    €{{ sprintf("%.2f", $product->big) }}
+                                                    €{{ sprintf("%.2f", $defaultSize->price) }}
                                                 </span>
                                             </span>
                                             @else
                                                 <span class="current-price text-brand" id="price">
-                                                    €{{ sprintf("%.2f", $product->big) }}
+                                                    €{{ sprintf("%.2f", $defaultSize->price) }}
                                                 </span>
                                             @endif
                                         @else
@@ -90,26 +90,18 @@
                                             <p class="mb-0 pb-0 fw-600">{{ __('names.selectSize') }}:</p>
                                         </div>
                                         <div class="d-flex align-items-center gap-2">
-                                            <div class="product-size-button">
-                                                <input type="radio" id="small" name="size" value="{{ \App\Models\Product::SMALL }}" />
-                                                <label for="small">
-                                                    @if ($product->discount)
-                                                        {{ __('names.small').' (€'.number_format($product->small - (round(($product->small * $product->discount->proc / 100), 2)), 2).')' }}
-                                                    @else
-                                                        {{ __('names.small').' (€'.number_format($product->small, 2).')' }}
-                                                    @endif
-                                                </label>
-                                            </div>
-                                            <div class="product-size-button">
-                                                <input type="radio" id="large" name="size" value="{{ \App\Models\Product::LARGE }}" />
-                                                <label for="large">
-                                                    @if ($product->discount)
-                                                        {{ __('names.large').' (€'.sprintf("%.2f", $product->big - (round(($product->big * $product->discount->proc / 100), 2))).')' }}
-                                                    @else
-                                                        {{ __('names.large').' (€'.sprintf("%.2f", $product->big).')' }}
-                                                    @endif
-                                                </label>
-                                            </div>
+                                            @foreach($product->sizesPrices as $sizePrice)
+                                                <div class="product-size-button">
+                                                    <input type="radio" id="{{ $sizePrice->size->name }}" name="size" value="{{ $sizePrice->size->id }}" />
+                                                    <label for="{{ $sizePrice->size->name }}">
+                                                        @if ($product->discount)
+                                                            {{ $sizePrice->size->name.' (€'.sprintf("%.2f", $sizePrice->price - (round(($sizePrice->price * $product->discount->proc / 100), 2))).')' }}
+                                                        @else
+                                                            {{ $sizePrice->size->name.' (€'.sprintf("%.2f", $sizePrice->price).')' }}
+                                                        @endif
+                                                    </label>
+                                                </div>
+                                            @endforeach
                                         </div>
                                     </div>
                                 @endif
@@ -154,7 +146,7 @@
                                         </div>
                                         <input type="hidden" name="id" value="{{ $product->id }}">
                                         @if ($product->hasSizes)
-                                            <input type="hidden" name="size" id="size" value="{{ \App\Models\Product::LARGE }}">
+                                            <input type="hidden" name="size" id="size" value="{{ $defaultSize->size->id }}">
                                         @endif
                                         @if ($product->hasMeats)
                                             <input type="hidden" name="meat" id="meat" value="{{ $defaultMeat }}">
@@ -300,21 +292,19 @@
 @push('scripts')
     <script>
         @if ($product->hasSizes)
-            const small = document.getElementById('small')
-            const large = document.getElementById('large')
-            const size = document.getElementById('size')
+            const sizeButtons = document.querySelectorAll("input[name='size']")
 
-            const buttons = [small, large]
-
-            const createClickEventListenerForButtons = buttons => {
-                buttons.forEach(button => {
-                    button.addEventListener('click', () => {
-                        size.value = button.value
-                        changeProductPrice()
-                    })
+            const createClickEventListenerForSizeButtons = sizeButtons => {
+                sizeButtons.forEach((button, index) => {
+                    if (index !== sizeButtons.length - 1) {
+                        button.addEventListener('click', () => {
+                            size.value = button.value
+                            changeProductPrice()
+                        })
+                    }
                 })
             }
-            createClickEventListenerForButtons(buttons)
+            createClickEventListenerForSizeButtons(sizeButtons)
 
             const changeProductPrice = () => {
                 const newPrice = document.getElementById('newPrice');
@@ -329,6 +319,7 @@
                         size: size.value
                     },
                     success: res => {
+                        console.log(res)
                         @if ($product->hasSizes)
                             @if ($product->discount)
                                 newPrice.innerText = `€${res.newPrice}`

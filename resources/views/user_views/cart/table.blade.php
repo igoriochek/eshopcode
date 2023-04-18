@@ -32,13 +32,9 @@
                             {{ $item['product']->name }}
                         </a>
                         <div class="d-flex flex-column">
-                            @if ($item->size)
+                            @if ($item->product_size_id)
                                 <span class="fw-normal fs-6" style="color: #888">
-                                    @if ($item->size == \App\Models\Product::SMALL)
-                                        {{ __('names.size').': '.__('names.small') }}
-                                    @elseif ($item->size == \App\Models\Product::LARGE)
-                                        {{ __('names.size').': '.__('names.large') }}
-                                    @endif
+                                      {{ __('names.size').': '.$item->itemSize->name }}
                                 </span>
                             @endif
                             @if ($item->product_meat_id)
@@ -55,17 +51,15 @@
                     </div>
                     <div class="d-flex align-items-center" style="width: 15%; color: #888">
                         @if ($item['product']->hasSizes)
-                            @if ($item['product']->discount && $item->size == \App\Models\Product::SMALL)
-                                €{{ $item['product']->small - (round(($item['product']->small * $item['product']->discount->proc / 100), 2)) }}
-                            @elseif ($item['product']->discount && $item->size == \App\Models\Product::LARGE)
-                                €{{ $item['product']->big - (round(($item['product']->big * $item['product']->discount->proc / 100), 2)) }}
-                            @else
-                                @if ($item->size == \App\Models\Product::SMALL)
-                                    €{{ sprintf("%.2f", $item['product']->small) }}
+                            @foreach($item['product']->sizesPrices as $sizePrice)
+                                @if ($item['product']->discount && $item->product_size_id == $sizePrice->product_size_id)
+                                    €{{ $sizePrice->price - (round(($sizePrice->price * $item['product']->discount->proc / 100), 2)) }}
                                 @else
-                                    €{{ sprintf("%.2f", $item['product']->big) }}
+                                    @if ($item->product_size_id == $sizePrice->product_size_id)
+                                        €{{ sprintf("%.2f", $sizePrice->price) }}
+                                    @endif
                                 @endif
-                            @endif
+                            @endforeach
                         @else
                             @if ($item['product']->discount)
                                 €{{ $item['product']->price - (round(($item['product']->price * $item['product']->discount->proc / 100), 2)) }}

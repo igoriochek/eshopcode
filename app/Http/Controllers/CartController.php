@@ -211,24 +211,23 @@ class CartController extends AppBaseController
 
             $productPrice = $product->price;
 
-            if ($product->hasSizes && $request->size == Product::SMALL) {
-                $productPrice = $product->small;
-            }
-            if ($product->hasSizes && $request->size == Product::LARGE) {
-                $productPrice = $product->big;
+            foreach ($product->sizesPrices as $sizePrice) {
+                if ($product->hasSizes && $request->size == $sizePrice->product_size_id) {
+                    $productPrice = $sizePrice->price;
+                }
             }
 
             if (null === $cartItem || $cartItem->size !== $request->size) {
                 $cartItem = CartItem::create([
                     'cart_id' => $cart->id,
                     'product_id' => $product->id,
+                    'product_size_id' => $request->size,
                     'product_meat_id' => $request->meat,
                     'product_sauce_id' => $request->sauce,
                     'price_current' => $product->discount
                         ? $productPrice - (round(($productPrice * $product->discount->proc / 100), 2))
                         : $productPrice,
                     'count' => $validated['count'],
-                    'size' => $request->size
                 ]);
                 $cartItem->save();
             } else {

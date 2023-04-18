@@ -21,8 +21,6 @@ class CreateProductsTable extends Migration
             $table->string('image')->nullable();
             $table->string('video')->nullable();
             $table->integer('visible')->default(1);
-            $table->float('small')->nullable();
-            $table->float('big')->nullable();
             $table->boolean('hasSizes')->default(false);
             $table->boolean('hasMeats')->default(false);
             $table->boolean('hasSauces')->default(false);

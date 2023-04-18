@@ -59,9 +59,10 @@ class CartSeeder extends Seeder
                     $cartItem = new CartItem([
                         'cart_id' => $cart->id,
                         'product_id' => $product->id,
+                        'product_size_id' => rand(1, 2),
                         'product_meat_id' => rand(1, 2),
                         'product_sauce_id' => rand(1, 5),
-                        'price_current' => $product->hasSizes ? $product->big : $product->price,
+                        'price_current' => $product->hasSizes ? rand(1, 20) : $product->price,
                         'count' => rand(1,$itemProductCount),
                     ]);
                     $cartItem->save();

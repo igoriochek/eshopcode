@@ -23,15 +23,14 @@ use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
  * @property float $small
  * @property float $big
  * @property boolean $hasSizes
+ * @property boolean $hasMeats
+ * @property boolean $hasSauces
  * @property integer $promotion_id
  * @property integer $discount_id
  */
 class Product extends Model implements TranslatableContract
 {
     use HasFactory, Translatable;
-
-    const SMALL = 'Small';
-    const LARGE = 'Large';
 
     public $table = 'products';
 
@@ -46,6 +45,8 @@ class Product extends Model implements TranslatableContract
         'small',
         'big',
         'hasSizes',
+        'hasMeats',
+        'hasSauces',
         'promotion_id',
         'discount_id',
         'created_at',
@@ -66,6 +67,8 @@ class Product extends Model implements TranslatableContract
         'small' => 'float',
         'big' => 'float',
         'hasSizes' => 'boolean',
+        'hasMeats' => 'boolean',
+        'hasSauces' => 'boolean',
         'promotion_id' => 'integer',
         'discount_id' => 'integer',
         'created_at' => 'datetime',
@@ -81,8 +84,7 @@ class Product extends Model implements TranslatableContract
         'price' => 'nullable|numeric',
         'count' => 'required|integer',
         'small' => 'nullable|numeric',
-        'big' => 'nullable|numeric',
-        'hasSizes' => 'nullable|boolean'
+        'big' => 'nullable|numeric'
     ];
 
     public function categories()
@@ -103,6 +105,11 @@ class Product extends Model implements TranslatableContract
     public function ratings()
     {
         return $this->hasMany(Ratings::class);
+    }
+
+    public function sizesPrices()
+    {
+        return $this->hasMany(ProductSizePrice::class, 'product_id', 'id');
     }
 
     public function scopePriceFrom(Builder $query, $price) : Builder

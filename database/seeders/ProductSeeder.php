@@ -36,8 +36,6 @@ class ProductSeeder extends Seeder
                     'description' => "продукт $faker->text",
                 ],
                 'price' => $randomHasSizes ? null : rand(1, 20),
-                'small' => $randomHasSizes ? rand(1, 10) : null,
-                'big' => $randomHasSizes ? rand(10, 20) : null,
                 'hasSizes' => $randomHasSizes,
                 'hasMeats' => $randomHasMeats,
                 'hasSauces' => $randomHasSauces,

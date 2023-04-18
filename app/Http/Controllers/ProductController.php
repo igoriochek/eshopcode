@@ -114,6 +114,9 @@ class ProductController extends AppBaseController
             $product->average = $this->calculateAverageRating($product->sum, $product->count);
         }
 
+        $productMeats = ProductMeat::all();
+        $productSauces = ProductSauce::all();
+
         return view('user_views.product.products_all_with_filters')
             ->with([
                 'minPrice' => Product::all()->min('price'),
@@ -124,6 +127,8 @@ class ProductController extends AppBaseController
                 'selCategories' => $selCategories ? explode(",",$selCategories) : array(),
                 'order_list' => $this->productsOrderSelector(),
                 'selectedOrder' => $selectedOrder,
+                'defaultMeat' => $this->getDefaultInstance($productMeats),
+                'defaultSauce' => $this->getDefaultInstance($productSauces)
             ]);
     }
 
@@ -245,6 +250,7 @@ class ProductController extends AppBaseController
                 ),
                 'productMeats' => $product->hasMeats ? $productMeats : null,
                 'productSauces' => $product->hasSauces ? $productSauces : null,
+                'defaultSize' => $product->sizesPrices[1],
                 'defaultMeat' => $this->getDefaultInstance($productMeats),
                 'defaultSauce' => $this->getDefaultInstance($productSauces)
             ]);
@@ -393,17 +399,13 @@ class ProductController extends AppBaseController
         try {
             $product = $this->getProductById($id);
 
-            if ($product->hasSizes && $request->size == Product::SMALL) {
-                return $this->calculatePricesOnSize($product->small, $product);
-            }
-            if ($product->hasSizes && $request->size == Product::LARGE) {
-                return $this->calculatePricesOnSize($product->big, $product);
-            }
-            if ($request->size == Product::SMALL) {
-                return response()->json(['price' => number_format($product->small, 2)]);
-            }
-            if ($request->size == Product::LARGE) {
-                return response()->json(['price' => number_format($product->big, 2)]);
+            foreach ($product->sizesPrices as $sizePrice) {
+                if ($product->hasSizes && $request->size == $sizePrice->product_size_id) {
+                    return $this->calculatePricesOnSize($sizePrice->price, $product);
+                }
+                if ($request->size == $sizePrice->product_size_id) {
+                    return response()->json(['price' => number_format($sizePrice->price, 2)]);
+                }
             }
         }
         catch (\Throwable $exception) {
