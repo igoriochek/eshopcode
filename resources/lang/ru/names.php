@@ -199,6 +199,8 @@ return [
     'paidAccessory' => 'Платный аксессуар',
     'paidAccessories' => 'Платные аксессуары',
     'selectPaidAccessories' => 'Выберите платные аксессуары',
+    'compositionWithout' => 'Состав без',
+    'selectComposition' => 'Выбрать состав',
 
     //Promotions
     'createPromotion' => 'Создать акцию',

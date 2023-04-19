@@ -23,6 +23,7 @@ class ProductSeeder extends Seeder
             $randomHasMeats = $boolean[rand(0, 1)];
             $randomHasSauces = $boolean[rand(0, 1)];
             $randomHasPaidAccessories = $boolean[rand(0, 1)];
+            $randomHasFreeAccessories = $boolean[rand(0, 1)];
 
             $productData = [
                 'en' => [
@@ -42,6 +43,7 @@ class ProductSeeder extends Seeder
                 'hasMeats' => $randomHasMeats,
                 'hasSauces' => $randomHasSauces,
                 'hasPaidAccessories' => $randomHasPaidAccessories,
+                'hasFreeAccessories' => $randomHasFreeAccessories,
                 'promotion_id' => ($i % 10 ? rand(1, 10) : null)
             ];
 

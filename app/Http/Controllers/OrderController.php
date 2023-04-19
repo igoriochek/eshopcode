@@ -8,6 +8,7 @@ use App\Http\Requests\UpdateOrderRequest;
 use App\Models\Cart;
 use App\Models\CartItem;
 use App\Models\DiscountCoupon;
+use App\Models\FreeAccessory;
 use App\Models\LogActivity;
 use App\Models\Order;
 use App\Models\OrderItem;
@@ -289,6 +290,36 @@ class OrderController extends AppBaseController
         ]);
     }
 
+    private function setPaidAccessoriesToCartItem(object $cartItem): object
+    {
+        $paidAccessories = collect();
+
+        if ($cartItem->paid_accessories) {
+            $paidAccessoryIds = explode(',', $cartItem->paid_accessories);
+
+            foreach ($paidAccessoryIds as $paidAccessoryId) {
+                $paidAccessories->add(FreeAccessory::find($paidAccessoryId));
+            }
+        }
+
+        return $paidAccessories;
+    }
+
+    private function setFreeAccessoriesToCartItem(object $cartItem): object
+    {
+        $freeAccessories = collect();
+
+        if ($cartItem->free_accessories) {
+            $freeAccessoryIds = explode(',', $cartItem->free_accessories);
+
+            foreach ($freeAccessoryIds as $freeAccessoryId) {
+                $freeAccessories->add(FreeAccessory::find($freeAccessoryId));
+            }
+        }
+
+        return $freeAccessories;
+    }
+
     public function checkout(Request $request)
     {
         $user = Auth::user();
@@ -303,17 +334,8 @@ class OrderController extends AppBaseController
             ->get();
 
         foreach ($cartItems as $cartItem) {
-            $paidAccessories = collect();
-
-            if ($cartItem->paid_accessories) {
-                $paidAccessoryIds = explode(',', $cartItem->paid_accessories);
-
-                foreach ($paidAccessoryIds as $paidAccessoryId) {
-                    $paidAccessories->add(PaidAccessory::find($paidAccessoryId));
-                }
-            }
-
-            $cartItem->paidAccessories = $paidAccessories;
+            $cartItem->paidAccessories = $this->setPaidAccessoriesToCartItem($cartItem);
+            $cartItem->freeAccessories = $this->setFreeAccessoriesToCartItem($cartItem);
         }
 
         $discounts = DiscountCoupon::query()
@@ -348,6 +370,11 @@ class OrderController extends AppBaseController
             ])
             ->get();
 
+        foreach ($cartItems as $cartItem) {
+            $cartItem->paidAccessories = $this->setPaidAccessoriesToCartItem($cartItem);
+            $cartItem->freeAccessories = $this->setFreeAccessoriesToCartItem($cartItem);
+        }
+
         $amount = $this->cartRepository->cartSum($cart, false);
 
         $discountAmounted = null;
@@ -379,20 +406,6 @@ class OrderController extends AppBaseController
 
         $minutes = $request->minutes ?? '00';
         $this->cartRepository->setCartCollectTime($cart, $request->hours.':'.$minutes);
-
-        foreach ($cartItems as $cartItem) {
-            $paidAccessories = collect();
-
-            if ($cartItem->paid_accessories) {
-                $paidAccessoryIds = explode(',', $cartItem->paid_accessories);
-
-                foreach ($paidAccessoryIds as $paidAccessoryId) {
-                    $paidAccessories->add(PaidAccessory::find($paidAccessoryId));
-                }
-            }
-
-            $cartItem->paidAccessories = $paidAccessories;
-        }
 
         $request->session()->put('appPayCartId', $cart->id);
         $request->session()->put('appPayAmount', $amount);

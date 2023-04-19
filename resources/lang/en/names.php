@@ -200,6 +200,8 @@ return [
     'paidAccessory' => 'Paid accessory',
     'paidAccessories' => 'Paid accessories',
     'selectPaidAccessories' => 'Select paid accessories',
+    'compositionWithout' => 'Composition without',
+    'selectComposition' => 'Select composition',
 
     //Promotions
     'createPromotion' => 'Create Promotion',

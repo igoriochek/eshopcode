@@ -24,6 +24,7 @@ class CreateReturnItemsTable extends Migration
             $table->unsignedBigInteger('product_meat_id')->unsigned()->nullable();
             $table->unsignedBigInteger('product_sauce_id')->unsigned()->nullable();
             $table->string('paid_accessories')->nullable();
+            $table->string('free_accessories')->nullable();
             $table->double('price_current');
             $table->double('count');
             $table->foreign('order_id')->references('id')->on('orders');

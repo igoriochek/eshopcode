@@ -202,6 +202,8 @@ return [
     'paidAccessory' => 'Mokamas priedas',
     'paidAccessories' => 'Mokami priedai',
     'selectPaidAccessories' => 'Pasirinkite mokamus priedus',
+    'compositionWithout' => 'Sudėtis be',
+    'selectComposition' => 'Pasirinkite sudėtį',
 
     //Promotions
     'createPromotion' => 'Sukurti akciją',

@@ -144,7 +144,7 @@
                                         <div class="d-flex align-items-center gap-1">
                                             <p class="mb-0 pb-0 fw-600">{{ __('names.selectPaidAccessories') }}:</p>
                                         </div>
-                                        <div class="d-flex align-items-center flex-wrap gap-4 mt-3">
+                                        <div class="d-flex flex-column flex-sm-row align-items-sm-center flex-wrap gap-4 mt-3">
                                             @foreach($paidAccessories as $paidAccessory)
                                                 <div class="d-flex align-items-center gap-2">
                                                     <input type="checkbox" id="{{ $paidAccessory->name }}" name="paidAccessory" value="{{ $paidAccessory->id }}" />
@@ -157,7 +157,24 @@
                                         </div>
                                     </div>
                                 @endif
-                                <div class="detail-extralink mb-50 @if ($product->hasSizes || $product->hasMeats || $product->hasSauces) mt-40 @endif">
+                                @if ($product->hasFreeAccessories)
+                                    <div class="d-block mt-30">
+                                        <div class="d-flex align-items-center gap-1">
+                                            <p class="mb-0 pb-0 fw-600">{{ __('names.selectComposition') }}:</p>
+                                        </div>
+                                        <div class="d-flex flex-column flex-sm-row align-items-sm-center flex-wrap gap-4 mt-3">
+                                            @foreach($product->freeAccessories as $freeAccessory)
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <input type="checkbox" id="{{ $freeAccessory->name }}" name="freeAccessory" value="{{ $freeAccessory->id }}" checked />
+                                                    <label class="d-flex align-items-center justify-content-center pt-1 fw-500" for="{{ $freeAccessory->name }}" style="font-size: 15px; line-height: 2px; color: #666">
+                                                        {{ $freeAccessory->name }}
+                                                    </label>
+                                                </div>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                @endif
+                                <div class="detail-extralink mb-50 @if ($product->hasSizes || $product->hasMeats || $product->hasSauces || $product->hasPaidAccessories || $product->hasFreeAccessories) mt-40 @endif">
                                     {!! Form::open(['route' => ['addtocart'], 'method' => 'post', 'class' => 'd-flex align-items-center']) !!}
                                         <div class="d-flex me-4">
                                             {!! Form::number('count', "1", ['style' => 'width: 80px; height: 51px; padding-left: 20px; padding-right: 15px; border-radius: 5px', "min" => "1", "max" => "5", "minlength" => "1", "maxlength" => "5", "oninput" => "this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null"]) !!}
@@ -174,6 +191,9 @@
                                         @endif
                                         @if ($product->hasPaidAccessories)
                                             <input type="hidden" name="paid_accessories" id="paidAccessories">
+                                        @endif
+                                        @if ($product->hasFreeAccessories)
+                                            <input type="hidden" name="free_accessories" id="freeAccessories">
                                         @endif
                                         <div class="product-extra-link2">
                                             <button type="submit" class="button button-add-to-cart" style="padding-inline: 30px; font-size: .95rem">
@@ -400,16 +420,6 @@
 
             let paidAccessories = ''
 
-            const createClickEventListenersForPaidAccessoryButtons = paidAccessoryButtons => {
-                paidAccessoryButtons.forEach(button => {
-                    button.addEventListener('click', () => {
-                        removeDuplicatesFromPaidAccessoriesArr(button)
-                        addPaidAccessoriesToInput(button)
-                    })
-                })
-            }
-            createClickEventListenersForPaidAccessoryButtons(paidAccessoryButtons)
-
             const removeDuplicatesFromPaidAccessoriesArr = button => {
                 let paidAccessoriesArr = paidAccessories.split(',')
 
@@ -427,6 +437,51 @@
                 paidAccessories += button.checked ? button.value : ''
                 paidAccessoriesInput.value = paidAccessories
             }
+
+            const createClickEventListenersForPaidAccessoryButtons = paidAccessoryButtons => {
+                paidAccessoryButtons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        removeDuplicatesFromPaidAccessoriesArr(button)
+                        addPaidAccessoriesToInput(button)
+                    })
+                })
+            }
+            createClickEventListenersForPaidAccessoryButtons(paidAccessoryButtons)
+        @endif
+
+        @if ($product->hasFreeAccessories)
+            const freeAccessoryButtons = document.querySelectorAll("input[name='freeAccessory']")
+            const freeAccessoriesInput = document.getElementById('freeAccessories')
+
+            let freeAccessories = ''
+
+            const removeDuplicatesFromFreeAccessoriesArr = button => {
+                let freeAccessoriesArr = freeAccessories.split(',')
+
+                for (let i = 0; i < freeAccessoriesArr.length; i++) {
+                    if (freeAccessoriesArr[i] === button.value) {
+                        freeAccessoriesArr.splice(i, 1)
+                        freeAccessories = freeAccessoriesArr.join(',')
+                        break
+                    }
+                }
+            }
+
+            const addFreeAccessoriesToInput = button => {
+                freeAccessories += !button.checked && freeAccessories ? ',' : ''
+                freeAccessories += !button.checked ? button.value : ''
+                freeAccessoriesInput.value = freeAccessories
+            }
+
+            const createClickEventListenersForFreeAccessoryButtons = freeAccessoryButtons => {
+                freeAccessoryButtons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        removeDuplicatesFromFreeAccessoriesArr(button)
+                        addFreeAccessoriesToInput(button)
+                    })
+                })
+            }
+            createClickEventListenersForFreeAccessoryButtons(freeAccessoryButtons)
         @endif
 
         $('button[type="button"]').click(function () {

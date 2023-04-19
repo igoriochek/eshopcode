@@ -56,6 +56,15 @@
                                     @endforelse
                                 </span>
                             @endif
+                            @if ($item->free_accessories)
+                                <span class="fw-normal fs-6" style="color: #888">
+                                    {{ __('names.compositionWithout').': ' }}
+                                    @forelse($item->freeAccessories as $freeAccessory)
+                                        {{ $freeAccessory->name }}@if (!$loop->last),@endif
+                                    @empty
+                                    @endforelse
+                                </span>
+                            @endif
                         </div>
                     </div>
                     <div class="d-flex align-items-center" style="width: 15%; color: #888">

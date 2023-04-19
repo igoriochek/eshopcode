@@ -26,6 +26,7 @@ use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
  * @property boolean $hasMeats
  * @property boolean $hasSauces
  * @property boolean $hasPaidAccessories
+ * @property boolean $hasFreeAccessories
  * @property integer $promotion_id
  * @property integer $discount_id
  */
@@ -49,6 +50,7 @@ class Product extends Model implements TranslatableContract
         'hasMeats',
         'hasSauces',
         'hasPaidAccessories',
+        'hasFreeAccessories',
         'promotion_id',
         'discount_id',
         'created_at',
@@ -72,6 +74,7 @@ class Product extends Model implements TranslatableContract
         'hasMeats' => 'boolean',
         'hasSauces' => 'boolean',
         'hasPaidAccessories' => 'boolean',
+        'hasFreeAccessories' => 'boolean',
         'promotion_id' => 'integer',
         'discount_id' => 'integer',
         'created_at' => 'datetime',
@@ -113,6 +116,11 @@ class Product extends Model implements TranslatableContract
     public function sizesPrices()
     {
         return $this->hasMany(ProductSizePrice::class, 'product_id', 'id');
+    }
+
+    public function freeAccessories()
+    {
+        return $this->hasMany(FreeAccessory::class, 'product_id', 'id');
     }
 
     public function scopePriceFrom(Builder $query, $price) : Builder

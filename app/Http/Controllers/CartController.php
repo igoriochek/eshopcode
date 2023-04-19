@@ -8,6 +8,7 @@ use App\Http\Requests\UpdateCartRequest;
 use App\Models\Cart;
 use App\Models\CartItem;
 use App\Models\CartStatus;
+use App\Models\FreeAccessory;
 use App\Models\PaidAccessory;
 use App\Models\Product;
 use App\Models\User;
@@ -236,6 +237,7 @@ class CartController extends AppBaseController
                     'product_meat_id' => $request->meat,
                     'product_sauce_id' => $request->sauce,
                     'paid_accessories' => $request->paid_accessories,
+                    'free_accessories' => $request->free_accessories,
                     'price_current' => $product->discount
                         ? $productPrice - (round(($productPrice * $product->discount->proc / 100), 2)) + $paidAccessoriesTotalPrice
                         : $productPrice + $paidAccessoriesTotalPrice,
@@ -256,28 +258,48 @@ class CartController extends AppBaseController
         return redirect(route('viewcart'));
     }
 
+    private function setPaidAccessoriesToCartItem(object $cartItem): object
+    {
+        $paidAccessories = collect();
+        $cartItem->paidAccessoriesTotalPrice = 0;
+
+        if ($cartItem->paid_accessories) {
+            $paidAccessoryIds = explode(',', $cartItem->paid_accessories);
+
+            foreach ($paidAccessoryIds as $paidAccessoryId) {
+                $paidAccessory = PaidAccessory::find($paidAccessoryId);
+
+                $paidAccessories->add($paidAccessory);
+                $cartItem->paidAccessoriesTotalPrice += $paidAccessory->price;
+            }
+        }
+
+        return $paidAccessories;
+    }
+
+    private function setFreeAccessoriesToCartItem(object $cartItem): object
+    {
+        $freeAccessories = collect();
+
+        if ($cartItem->free_accessories) {
+            $freeAccessoryIds = explode(',', $cartItem->free_accessories);
+
+            foreach ($freeAccessoryIds as $freeAccessoryId) {
+                $freeAccessories->add(FreeAccessory::find($freeAccessoryId));
+            }
+        }
+
+        return $freeAccessories;
+    }
+
     public function viewCart(Request $request)
     {
         $cart = $this->cartRepository->getOrSetCart($request);
         $cartItems = $this->getCartItems($cart);
 
         foreach ($cartItems as $cartItem) {
-            $paidAccessories = collect();
-
-            $cartItem->paidAccessoriesTotalPrice = 0;
-
-            if ($cartItem->paid_accessories) {
-                $paidAccessoryIds = explode(',', $cartItem->paid_accessories);
-
-                foreach ($paidAccessoryIds as $paidAccessoryId) {
-                    $paidAccessory = PaidAccessory::find($paidAccessoryId);
-
-                    $paidAccessories->add($paidAccessory);
-                    $cartItem->paidAccessoriesTotalPrice += $paidAccessory->price;
-                }
-            }
-
-            $cartItem->paidAccessories = $paidAccessories;
+            $cartItem->paidAccessories = $this->setPaidAccessoriesToCartItem($cartItem);
+            $cartItem->freeAccessories = $this->setFreeAccessoriesToCartItem($cartItem);
         }
 
         return view('user_views.cart.view')
