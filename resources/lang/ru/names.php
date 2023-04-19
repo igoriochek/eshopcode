@@ -196,6 +196,9 @@ return [
     'соус' => 'Соус',
     'selectSauce' => 'Выберите соус',
     'selectSauceInfo' => 'если не выбрано, по умолчанию будет чеснок',
+    'paidAccessory' => 'Платный аксессуар',
+    'paidAccessories' => 'Платные аксессуары',
+    'selectPaidAccessories' => 'Выберите платные аксессуары',
 
     //Promotions
     'createPromotion' => 'Создать акцию',

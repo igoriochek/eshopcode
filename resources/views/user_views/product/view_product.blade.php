@@ -130,9 +130,27 @@
                                                 <div class="product-size-button">
                                                     <input type="radio" id="{{ $productSauce->name }}" name="sauce" value="{{ $productSauce->id }}" />
                                                     <label class="d-flex align-items-center justify-content-center" for="{{ $productSauce->name }}">
-                                                        <div style="background: {{ $productSauce->color }}; width: 22px; height: 22px; border-radius: 13px"></div>
-                                                        <div style="width: 10px"></div>
+                                                        <div style="background: {{ $productSauce->color }}; width: 21px; height: 21px; border-radius: 13px"></div>
+                                                        <div style="width: 8px"></div>
                                                         {{ $productSauce->name }}
+                                                    </label>
+                                                </div>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                @endif
+                                @if ($product->hasPaidAccessories)
+                                    <div class="d-block mt-20">
+                                        <div class="d-flex align-items-center gap-1">
+                                            <p class="mb-0 pb-0 fw-600">{{ __('names.selectPaidAccessories') }}:</p>
+                                        </div>
+                                        <div class="d-flex align-items-center flex-wrap gap-4 mt-3">
+                                            @foreach($paidAccessories as $paidAccessory)
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <input type="checkbox" id="{{ $paidAccessory->name }}" name="paidAccessory" value="{{ $paidAccessory->id }}" />
+                                                    <label class="d-flex align-items-center justify-content-center pt-1 fw-500" for="{{ $paidAccessory->name }}" style="font-size: 15px; line-height: 2px; color: #666">
+                                                        {{ $paidAccessory->name }}
+                                                        (+€{{ number_format($paidAccessory->price, 2) }})
                                                     </label>
                                                 </div>
                                             @endforeach
@@ -153,6 +171,9 @@
                                         @endif
                                         @if ($product->hasSauces)
                                             <input type="hidden" name="sauce" id="sauce" value="{{ $defaultSauce }}">
+                                        @endif
+                                        @if ($product->hasPaidAccessories)
+                                            <input type="hidden" name="paid_accessories" id="paidAccessories">
                                         @endif
                                         <div class="product-extra-link2">
                                             <button type="submit" class="button button-add-to-cart" style="padding-inline: 30px; font-size: .95rem">
@@ -209,21 +230,19 @@
         .product-size-button input {
             display: block;
             background: transparent;
-            color: #3a3a3a;
-            opacity: .8;
-            border-bottom: 1px solid #ccc;
+            color: #6e6e6e;
+            border: 1px solid #d9d9d9;
+            border-radius: 20px;
+            transition: all 100ms ease-in-out;
         }
 
         .product-size-button label:hover,
         .product-size-button input:hover {
-            -webkit-box-shadow: 0 0 0 2px #dc0505;
-            -moz-box-shadow: 0 0 0 2px #dc0505;
-            box-shadow: 0 0 0 2px #dc0505;
+            -webkit-box-shadow: 1px 1px 12px #e9e9e9;
+            -moz-box-shadow: 1px 1px 12px #e9e9e9;
+            box-shadow: 1px 1px 12px #e9e9e9;
             color: #dc0505;
-            font-weight: 900;
-            opacity: 1;
-            border-radius: 4px;
-            border: none;
+            transform: translateY(-2px);
         }
 
         .product-size-button input[type="radio"] {
@@ -233,14 +252,10 @@
 
         .product-size-button input[type="radio"]:checked + label {
             background: transparent;
-            -webkit-box-shadow: 0 0 0 2px #dc0505;
-            -moz-box-shadow: 0 0 0 2px #dc0505;
-            box-shadow: 0 0 0 2px #dc0505;
+            -webkit-box-shadow: 1px 1px 12px #e9e9e9;
+            -moz-box-shadow: 1px 1px 12px #e9e9e9;
+            box-shadow: 1px 1px 12px #e9e9e9;
             color: #dc0505;
-            font-weight: 900;
-            opacity: 1;
-            border-radius: 4px;
-            border: none;
         }
 
         .product-size-button label {
@@ -248,6 +263,22 @@
             z-index: 90;
             padding: 8px 18px;
             font-size: .95rem;
+        }
+
+        /*
+         * Checkboxes
+         */
+        input[type='checkbox'] {
+            width: 16px;
+            height: 16px;
+        }
+
+        input[type='checkbox']:checked {
+            accent-color: #ec0f0f;
+        }
+
+        input[type='checkbox']:checked + label {
+            color: #dc0505;
         }
 
         /*
@@ -319,15 +350,14 @@
                         size: size.value
                     },
                     success: res => {
-                        console.log(res)
                         @if ($product->hasSizes)
                             @if ($product->discount)
-                                newPrice.innerText = `€${res.newPrice}`
-                                oldPrice.innerText = `€${res.oldPrice}`
-                            @else
-                                price.innerText = `€${res.price}`
-                            @endif
+                            newPrice.innerText = `€${res.newPrice}`
+                        oldPrice.innerText = `€${res.oldPrice}`
                         @else
+                            price.innerText = `€${res.price}`
+                        @endif
+                            @else
                             price.innerText = `€${res.price}`
                         @endif
                     },
@@ -362,6 +392,41 @@
                 })
             }
             createClickEventListenerForSauceButtons(sauceButtons)
+        @endif
+
+        @if ($product->hasPaidAccessories)
+            const paidAccessoryButtons = document.querySelectorAll("input[name='paidAccessory']")
+            const paidAccessoriesInput = document.getElementById('paidAccessories')
+
+            let paidAccessories = ''
+
+            const createClickEventListenersForPaidAccessoryButtons = paidAccessoryButtons => {
+                paidAccessoryButtons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        removeDuplicatesFromPaidAccessoriesArr(button)
+                        addPaidAccessoriesToInput(button)
+                    })
+                })
+            }
+            createClickEventListenersForPaidAccessoryButtons(paidAccessoryButtons)
+
+            const removeDuplicatesFromPaidAccessoriesArr = button => {
+                let paidAccessoriesArr = paidAccessories.split(',')
+
+                for (let i = 0; i < paidAccessoriesArr.length; i++) {
+                    if (paidAccessoriesArr[i] === button.value) {
+                        paidAccessoriesArr.splice(i, 1)
+                        paidAccessories = paidAccessoriesArr.join(',')
+                        break
+                    }
+                }
+            }
+
+            const addPaidAccessoriesToInput = button => {
+                paidAccessories += button.checked && paidAccessories ? ',' : ''
+                paidAccessories += button.checked ? button.value : ''
+                paidAccessoriesInput.value = paidAccessories
+            }
         @endif
 
         $('button[type="button"]').click(function () {

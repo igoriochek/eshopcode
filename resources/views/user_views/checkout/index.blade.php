@@ -70,6 +70,15 @@
                                                                 {{ __('names.sauce').': '.$item->sauce->name }}
                                                             </span>
                                                         @endif
+                                                            @if ($item->paid_accessories)
+                                                                <span class="fw-normal fs-6" style="color: #888">
+                                                                    {{ __('names.paidAccessories').': ' }}
+                                                                    @forelse($item->paidAccessories as $paidAccessory)
+                                                                        {{ $paidAccessory->name }}@if (!$loop->last),@endif
+                                                                    @empty
+                                                                    @endforelse
+                                                                </span>
+                                                            @endif
                                                     </div>
                                                 </div>
                                                 <div class="d-flex align-items-center" style="width: 15%; color: #888">

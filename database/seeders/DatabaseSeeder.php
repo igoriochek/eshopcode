@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
             ProductSizeSeeder::class,
             ProductMeatSeeder::class,
             ProductSizePriceSeeder::class,
+            PaidAccessorySeeder::class,
             ProductCategorySeeder::class,
             ReturnStatusesSeeder::class,
             CartSeeder::class,

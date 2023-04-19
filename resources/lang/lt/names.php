@@ -199,6 +199,9 @@ return [
     'sauce' => 'Padažas',
     'selectSauce' => 'Pasirinkite padažą',
     'selectSauceInfo' => 'jei nepasirinksite, pagal nutylėjimą bus česnakas',
+    'paidAccessory' => 'Mokamas priedas',
+    'paidAccessories' => 'Mokami priedai',
+    'selectPaidAccessories' => 'Pasirinkite mokamus priedus',
 
     //Promotions
     'createPromotion' => 'Sukurti akciją',

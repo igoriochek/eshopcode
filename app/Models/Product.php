@@ -25,6 +25,7 @@ use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
  * @property boolean $hasSizes
  * @property boolean $hasMeats
  * @property boolean $hasSauces
+ * @property boolean $hasPaidAccessories
  * @property integer $promotion_id
  * @property integer $discount_id
  */
@@ -47,6 +48,7 @@ class Product extends Model implements TranslatableContract
         'hasSizes',
         'hasMeats',
         'hasSauces',
+        'hasPaidAccessories',
         'promotion_id',
         'discount_id',
         'created_at',
@@ -69,6 +71,7 @@ class Product extends Model implements TranslatableContract
         'hasSizes' => 'boolean',
         'hasMeats' => 'boolean',
         'hasSauces' => 'boolean',
+        'hasPaidAccessories' => 'boolean',
         'promotion_id' => 'integer',
         'discount_id' => 'integer',
         'created_at' => 'datetime',

@@ -8,6 +8,7 @@ use App\Http\Requests\UpdateCartRequest;
 use App\Models\Cart;
 use App\Models\CartItem;
 use App\Models\CartStatus;
+use App\Models\PaidAccessory;
 use App\Models\Product;
 use App\Models\User;
 use App\Repositories\CartRepository;
@@ -217,6 +218,16 @@ class CartController extends AppBaseController
                 }
             }
 
+            $paidAccessoriesTotalPrice = 0;
+
+            if ($request->paid_accessories) {
+                $paidAccessoryIds = explode(',', $request->paid_accessories);
+
+                foreach ($paidAccessoryIds as $paidAccessoryId) {
+                    $paidAccessoriesTotalPrice += PaidAccessory::find($paidAccessoryId)->price;
+                }
+            }
+
             if (null === $cartItem || $cartItem->size !== $request->size) {
                 $cartItem = CartItem::create([
                     'cart_id' => $cart->id,
@@ -224,9 +235,10 @@ class CartController extends AppBaseController
                     'product_size_id' => $request->size,
                     'product_meat_id' => $request->meat,
                     'product_sauce_id' => $request->sauce,
+                    'paid_accessories' => $request->paid_accessories,
                     'price_current' => $product->discount
-                        ? $productPrice - (round(($productPrice * $product->discount->proc / 100), 2))
-                        : $productPrice,
+                        ? $productPrice - (round(($productPrice * $product->discount->proc / 100), 2)) + $paidAccessoriesTotalPrice
+                        : $productPrice + $paidAccessoriesTotalPrice,
                     'count' => $validated['count'],
                 ]);
                 $cartItem->save();
@@ -247,10 +259,31 @@ class CartController extends AppBaseController
     public function viewCart(Request $request)
     {
         $cart = $this->cartRepository->getOrSetCart($request);
-
         $cartItems = $this->getCartItems($cart);
 
+        foreach ($cartItems as $cartItem) {
+            $paidAccessories = collect();
+
+            $cartItem->paidAccessoriesTotalPrice = 0;
+
+            if ($cartItem->paid_accessories) {
+                $paidAccessoryIds = explode(',', $cartItem->paid_accessories);
+
+                foreach ($paidAccessoryIds as $paidAccessoryId) {
+                    $paidAccessory = PaidAccessory::find($paidAccessoryId);
+
+                    $paidAccessories->add($paidAccessory);
+                    $cartItem->paidAccessoriesTotalPrice += $paidAccessory->price;
+                }
+            }
+
+            $cartItem->paidAccessories = $paidAccessories;
+        }
+
         return view('user_views.cart.view')
-            ->with(['cart' => $cart ,'cartItems'=> $cartItems]);
+            ->with([
+                'cart' => $cart,
+                'cartItems'=> $cartItems
+            ]);
     }
 }

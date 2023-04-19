@@ -72,6 +72,15 @@
                                                                 {{ __('names.sauce').': '.$item->sauce->name }}
                                                             </span>
                                                         @endif
+                                                            @if ($item->paid_accessories)
+                                                                <span class="fw-normal fs-6" style="color: #888">
+                                                                    {{ __('names.paidAccessories').': ' }}
+                                                                    @forelse($item->paidAccessories as $paidAccessory)
+                                                                        {{ $paidAccessory->name }}@if (!$loop->last),@endif
+                                                                    @empty
+                                                                    @endforelse
+                                                                </span>
+                                                            @endif
                                                     </div>
                                                 </div>
                                                 <div class="d-flex align-items-center" style="width: 15%; color: #888">
@@ -105,8 +114,8 @@
                                 </div>
                                 @foreach($discounts as $item)
                                     <div class="d-flex align-items-center justify-content-between border-bottom pb-2">
-                                        <h6 class="text-heading">{{ $item->code }} - {{ $item->value }}% {{ __('names.off') }}</h6>
-                                        <h5 class="text-brand text-end">- €{{ number_format($discountedAmount, 2) }}</h5>
+                                        <h6 class="text-heading">{{ $item->code }} -{{ $item->value }}% {{ __('names.off') }}</h6>
+                                        <h5 class="text-brand text-end">-€{{ number_format($discountedAmount, 2) }}</h5>
                                     </div>
                                 @endforeach
                             @endif

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateProductRequest;
 use App\Http\Requests\UpdateProductRequest;
+use App\Models\PaidAccessory;
 use App\Models\Product;
 use App\Models\ProductMeat;
 use App\Models\ProductSauce;
@@ -236,6 +237,7 @@ class ProductController extends AppBaseController
 
         $productMeats = ProductMeat::all();
         $productSauces = ProductSauce::all();
+        $paidAccessories = PaidAccessory::all();
 
         $this->logUserViewedProduct($product);
 
@@ -250,7 +252,8 @@ class ProductController extends AppBaseController
                 ),
                 'productMeats' => $product->hasMeats ? $productMeats : null,
                 'productSauces' => $product->hasSauces ? $productSauces : null,
-                'defaultSize' => $product->sizesPrices[1],
+                'paidAccessories' => $product->hasPaidAccessories ? $paidAccessories: null,
+                'defaultSize' => $product->hasSizes ? $product->sizesPrices[1] : null,
                 'defaultMeat' => $this->getDefaultInstance($productMeats),
                 'defaultSauce' => $this->getDefaultInstance($productSauces)
             ]);
@@ -402,9 +405,6 @@ class ProductController extends AppBaseController
             foreach ($product->sizesPrices as $sizePrice) {
                 if ($product->hasSizes && $request->size == $sizePrice->product_size_id) {
                     return $this->calculatePricesOnSize($sizePrice->price, $product);
-                }
-                if ($request->size == $sizePrice->product_size_id) {
-                    return response()->json(['price' => number_format($sizePrice->price, 2)]);
                 }
             }
         }

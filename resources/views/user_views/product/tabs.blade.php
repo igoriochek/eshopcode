@@ -29,7 +29,7 @@
                                     <div class="d-flex flex-column justify-content-between">
                                         <div class="d-flex flex-column flex-md-row justify-content-between mb-10 w-100">
                                             <div class="thumb mb-1">
-                                                <a href="#" class="font-heading text-brand fs-6">{{ $rating->user->name }}</a>
+                                                <a href="javascript:void(0)" class="font-heading text-brand fs-6">{{ $rating->user->name }}</a>
                                             </div>
                                             <div class="d-flex align">
                                                 <div class="d-flex align-items-center mb-2">

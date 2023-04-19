@@ -16,6 +16,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @property integer $product_size_id
  * @property integer $product_meat_id
  * @property integer $product_sauce_id
+ * @property string $paid_accessories
  * @property number $price_current
  * @property number $count
  * @property string $size
@@ -32,6 +33,7 @@ class OrderItem extends Model
         'product_size_id',
         'product_meat_id',
         'product_sauce_id',
+        'paid_accessories',
         'price_current',
         'count',
         'size',
@@ -50,6 +52,7 @@ class OrderItem extends Model
         'product_size_id' => 'integer',
         'product_meat_id' => 'integer',
         'product_sauce_id' => 'integer',
+        'paid_accessories' => 'boolean',
         'price_current' => 'double',
         'count' => 'double',
         'size' => 'string',

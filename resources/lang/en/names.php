@@ -197,6 +197,9 @@ return [
     'sauce' => 'Sauce',
     'selectSauce' => 'Select sauce',
     'selectSauceInfo' => 'if not selected, default will be garlic',
+    'paidAccessory' => 'Paid accessory',
+    'paidAccessories' => 'Paid accessories',
+    'selectPaidAccessories' => 'Select paid accessories',
 
     //Promotions
     'createPromotion' => 'Create Promotion',

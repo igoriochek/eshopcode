@@ -12,6 +12,7 @@ use App\Models\LogActivity;
 use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\OrderStatus;
+use App\Models\PaidAccessory;
 use App\Models\ReturnItem;
 use App\Models\User;
 use App\Repositories\CartRepository;
@@ -288,7 +289,6 @@ class OrderController extends AppBaseController
         ]);
     }
 
-
     public function checkout(Request $request)
     {
         $user = Auth::user();
@@ -301,6 +301,20 @@ class OrderController extends AppBaseController
                 'cart_id' => $cart->id,
             ])
             ->get();
+
+        foreach ($cartItems as $cartItem) {
+            $paidAccessories = collect();
+
+            if ($cartItem->paid_accessories) {
+                $paidAccessoryIds = explode(',', $cartItem->paid_accessories);
+
+                foreach ($paidAccessoryIds as $paidAccessoryId) {
+                    $paidAccessories->add(PaidAccessory::find($paidAccessoryId));
+                }
+            }
+
+            $cartItem->paidAccessories = $paidAccessories;
+        }
 
         $discounts = DiscountCoupon::query()
             ->where([
@@ -365,6 +379,20 @@ class OrderController extends AppBaseController
 
         $minutes = $request->minutes ?? '00';
         $this->cartRepository->setCartCollectTime($cart, $request->hours.':'.$minutes);
+
+        foreach ($cartItems as $cartItem) {
+            $paidAccessories = collect();
+
+            if ($cartItem->paid_accessories) {
+                $paidAccessoryIds = explode(',', $cartItem->paid_accessories);
+
+                foreach ($paidAccessoryIds as $paidAccessoryId) {
+                    $paidAccessories->add(PaidAccessory::find($paidAccessoryId));
+                }
+            }
+
+            $cartItem->paidAccessories = $paidAccessories;
+        }
 
         $request->session()->put('appPayCartId', $cart->id);
         $request->session()->put('appPayAmount', $amount);

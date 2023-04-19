@@ -34,7 +34,7 @@
                         <div class="d-flex flex-column">
                             @if ($item->product_size_id)
                                 <span class="fw-normal fs-6" style="color: #888">
-                                      {{ __('names.size').': '.$item->itemSize->name }}
+                                    {{ __('names.size').': '.$item->itemSize->name }}
                                 </span>
                             @endif
                             @if ($item->product_meat_id)
@@ -43,8 +43,17 @@
                                 </span>
                             @endif
                             @if ($item->product_sauce_id)
-                                    <span class="fw-normal fs-6" style="color: #888">
+                                <span class="fw-normal fs-6" style="color: #888">
                                     {{ __('names.sauce').': '.$item->sauce->name }}
+                                </span>
+                            @endif
+                            @if ($item->paid_accessories)
+                                <span class="fw-normal fs-6" style="color: #888">
+                                    {{ __('names.paidAccessories').': ' }}
+                                    @forelse($item->paidAccessories as $paidAccessory)
+                                        {{ $paidAccessory->name }}@if (!$loop->last),@endif
+                                    @empty
+                                    @endforelse
                                 </span>
                             @endif
                         </div>
@@ -53,18 +62,18 @@
                         @if ($item['product']->hasSizes)
                             @foreach($item['product']->sizesPrices as $sizePrice)
                                 @if ($item['product']->discount && $item->product_size_id == $sizePrice->product_size_id)
-                                    €{{ $sizePrice->price - (round(($sizePrice->price * $item['product']->discount->proc / 100), 2)) }}
+                                    €{{ number_format($sizePrice->price - (round(($sizePrice->price * $item['product']->discount->proc / 100), 2)) + $item->paidAccessoriesTotalPrice, 2) }}
                                 @else
                                     @if ($item->product_size_id == $sizePrice->product_size_id)
-                                        €{{ sprintf("%.2f", $sizePrice->price) }}
+                                        €{{ sprintf("%.2f", $sizePrice->price + $item->paidAccessoriesTotalPrice) }}
                                     @endif
                                 @endif
                             @endforeach
                         @else
                             @if ($item['product']->discount)
-                                €{{ $item['product']->price - (round(($item['product']->price * $item['product']->discount->proc / 100), 2)) }}
+                                €{{ number_format($item['product']->price - (round(($item['product']->price * $item['product']->discount->proc / 100), 2)) + $item->paidAccessoriesTotalPrice, 2) }}
                             @else
-                                €{{ sprintf("%.2f", $item['product']->price) }}
+                                €{{ sprintf("%.2f", $item['product']->price + $item->paidAccessoriesTotalPrice) }}
                             @endif
                         @endif
                     </div>
