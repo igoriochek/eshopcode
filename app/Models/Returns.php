@@ -17,6 +17,9 @@ use Carbon\Carbon;
  * @property integer $admin_id
  * @property integer $order_id
  * @property string $code
+ * @property string $collect_time
+ * @property integer $place
+ * @property boolean $isCompanyBuying
  * @property string $text
  * @property integer $status_id
  */
@@ -24,23 +27,19 @@ class Returns extends Model
 {
     use HasFactory;
 
+    const ONTHESPOT = 1;
+    const TAKEAWAY = 2;
+
     public $table = 'returns';
-
-    public function scopeDateFrom(Builder $query, $date_from): Builder
-    {
-        return $query->where('created_at', '>=', Carbon::parse($date_from));
-    }
-
-    public function scopeDateTo(Builder $query, $date_to): Builder
-    {
-        return $query->where('created_at', '<=', Carbon::parse($date_to));
-    }
 
     public $fillable = [
         'user_id',
         'admin_id',
         'order_id',
         'code',
+        'collect_time',
+        'place',
+        'isCompanyBuying',
         'description',
         'status_id',
         'created_at',
@@ -57,6 +56,9 @@ class Returns extends Model
         'admin_id' => 'integer',
         'order_id' => 'integer',
         'code' => 'string',
+        'collect_time' => 'string',
+        'place' => 'integer',
+        'isCompanyBuying' => 'boolean',
         'description' => 'string',
         'status_id' => 'integer',
         'created_at' => 'datetime',
@@ -73,7 +75,8 @@ class Returns extends Model
         'admin_id' => 'required',
         'order_id' => 'required',
         'code' => 'required',
-        'status_id' => 'required'
+        'status_id' => 'required',
+        'isCompanyBuying' => 'required',
     ];
 
     public function user()
@@ -89,5 +92,15 @@ class Returns extends Model
     public function status()
     {
         return $this->hasOne(ReturnStatus::class, 'id', 'status_id');
+    }
+
+    public function scopeDateFrom(Builder $query, $date_from): Builder
+    {
+        return $query->where('created_at', '>=', Carbon::parse($date_from));
+    }
+
+    public function scopeDateTo(Builder $query, $date_to): Builder
+    {
+        return $query->where('created_at', '<=', Carbon::parse($date_to));
     }
 }

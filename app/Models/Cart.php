@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use Eloquent as Model;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Builder;
@@ -15,6 +15,9 @@ use Carbon\Carbon;
  *
  * @property integer $user_id
  * @property string $code
+ * @property string $collect_time
+ * @property integer $place
+ * @property boolean $isCompanyBuying
  * @property integer $status_id
  * @property integer $admin_id
  */
@@ -24,6 +27,8 @@ class Cart extends Model
 
     const STATUS_ON = 1;
     const STATUS_OFF = 2;
+    const ONTHESPOT = 1;
+    const TAKEAWAY = 2;
 
     public $table = 'carts';
 
@@ -41,6 +46,8 @@ class Cart extends Model
         'user_id',
         'code',
         'collect_time',
+        'place',
+        'isCompanyBuying',
         'sum',
         'status_id',
         'admin_id',
@@ -57,6 +64,8 @@ class Cart extends Model
         'user_id' => 'integer',
         'code' => 'string',
         'collect_time' => 'string',
+        'place' => 'integer',
+        'isCompanyBuying' => 'boolean',
         'sum' => 'double',
         'status_id' => 'integer',
         'admin_id' => 'integer',
@@ -72,7 +81,9 @@ class Cart extends Model
     public static $rules = [
         'user_id' => 'required',
         'code' => 'required',
-        'status_id' => 'required'
+        'status_id' => 'required',
+        'place' => 'required',
+        'isCompanyBuying' => 'required'
     ];
 
     public function user()

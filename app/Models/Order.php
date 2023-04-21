@@ -19,12 +19,17 @@ use Carbon\Carbon;
  * @property integer $admin_id
  * @property integer $status_id
  * @property string $collect_time
+ * @property integer $place
+ * @property boolean $isCompanyBuying
  * @property string $description
  * @property integer $sum
  */
 class Order extends Model
 {
     use HasFactory;
+
+    const ONTHESPOT = 1;
+    const TAKEAWAY = 2;
 
     public $table = 'orders';
 
@@ -35,6 +40,8 @@ class Order extends Model
         'admin_id',
         'status_id',
         'collect_time',
+        'place',
+        'isCompanyBuying',
         'description',
         'sum',
         'created_at',
@@ -53,6 +60,8 @@ class Order extends Model
         'admin_id' => 'integer',
         'status_id' => 'integer',
         'collect_time' => 'string',
+        'place' => 'integer',
+        'isCompanyBuying' => 'boolean',
         'description' => 'string',
         'sum' => 'double',
         'created_at' => 'datetime',
@@ -69,6 +78,7 @@ class Order extends Model
         'admin_id' => 'required',
         'status_id' => 'required',
         'description' => 'nullable|string',
+        'place' => 'required'
     ];
 
     public function user()

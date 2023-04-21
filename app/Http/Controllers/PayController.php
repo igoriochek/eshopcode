@@ -113,6 +113,9 @@ class PayController extends AppBaseController
                 $newOrder->user_id = $cart->user_id;
                 $newOrder->admin_id = $this->getAdminId();
                 $newOrder->status_id = 2;
+                $newOrder->collect_time = $cart->collect_time;
+                $newOrder->place = $cart->place;
+                $newOrder->isCompanyBuying = $cart->isCompanyBuying;
                 $newOrder->sum = $params['amount'] / 100;
 
                 if ($newOrder->save()) {
@@ -121,6 +124,11 @@ class PayController extends AppBaseController
                         $newOrderItem = new OrderItem();
                         $newOrderItem->order_id = $newOrder->id;
                         $newOrderItem->product_id = $cartItem->product_id;
+                        $newOrderItem->product_size_id = $cartItem->product_size_id;
+                        $newOrderItem->product_meat_id = $cartItem->product_meat_id;
+                        $newOrderItem->product_sauce_id = $cartItem->product_sauce_id;
+                        $newOrderItem->paid_accessories = $cartItem->paid_accessories;
+                        $newOrderItem->free_accessories = $cartItem->free_accessories;
                         $newOrderItem->price_current = $cartItem->price_current;
                         $newOrderItem->count = $cartItem->count;
                         $newOrderItem->save();

@@ -56,38 +56,41 @@
                                                     </a>
                                                     <div class="d-flex flex-column">
                                                         @if ($item->product_size_id)
-                                                            <span class="fw-normal fs-6" style="color: #888">
-                                                                  {{ __('names.size').': '.$item->itemSize->name }}
+                                                            <span class="fw-normal fs-6" style="color: #999">
+                                                                {{ __('names.size').': ' }}
+                                                            <span style="color: #777">{{ $item->itemSize->name }}</span>
                                                             </span>
                                                         @endif
                                                         @if ($item->product_meat_id)
-                                                            <span class="fw-normal fs-6" style="color: #888">
-                                                                {{ __('names.meat').': '.$item->meat->name }}
+                                                            <span class="fw-normal fs-6" style="color: #999">
+                                                                {{ __('names.meat').': ' }}
+                                                                <span style="color: #777">{{ $item->meat->name }}</span>
                                                             </span>
                                                         @endif
                                                         @if ($item->product_sauce_id)
-                                                            <span class="fw-normal fs-6" style="color: #888">
-                                                                {{ __('names.sauce').': '.$item->sauce->name }}
+                                                            <span class="fw-normal fs-6" style="color: #999">
+                                                                {{ __('names.sauce').': ' }}
+                                                                <span style="color: #777">{{ $item->sauce->name }}</span>
                                                             </span>
                                                         @endif
-                                                            @if ($item->paid_accessories)
-                                                                <span class="fw-normal fs-6" style="color: #888">
-                                                                    {{ __('names.paidAccessories').': ' }}
-                                                                    @forelse($item->paidAccessories as $paidAccessory)
-                                                                        {{ $paidAccessory->name }}@if (!$loop->last),@endif
-                                                                    @empty
-                                                                    @endforelse
-                                                                </span>
-                                                            @endif
-                                                            @if ($item->free_accessories)
-                                                                <span class="fw-normal fs-6" style="color: #888">
-                                                                    {{ __('names.compositionWithout').': ' }}
-                                                                    @forelse($item->freeAccessories as $freeAccessory)
-                                                                        {{ $freeAccessory->name }}@if (!$loop->last),@endif
-                                                                    @empty
-                                                                    @endforelse
-                                                                </span>
-                                                            @endif
+                                                        @if ($item->paid_accessories)
+                                                            <span class="fw-normal fs-6" style="color: #999">
+                                                                {{ __('names.paidAccessories').': ' }}
+                                                                @forelse($item->paidAccessories as $paidAccessory)
+                                                                    <span style="color: #777">{{ $paidAccessory->name }}</span>@if (!$loop->last),@endif
+                                                                @empty
+                                                                @endforelse
+                                                            </span>
+                                                        @endif
+                                                        @if ($item->free_accessories)
+                                                            <span class="fw-normal fs-6" style="color: #999">
+                                                                {{ __('names.compositionWithout').': ' }}
+                                                                @forelse($item->freeAccessories as $freeAccessory)
+                                                                    <span style="color: #777">{{ $freeAccessory->name }}</span>@if (!$loop->last),@endif
+                                                                @empty
+                                                                @endforelse
+                                                            </span>
+                                                        @endif
                                                     </div>
                                                 </div>
                                                 <div class="d-flex align-items-center" style="width: 15%; color: #888">
@@ -107,7 +110,7 @@
                 </div>
                 <!-- End col-lg-5 -->
                 <div class="col-xxl-4 col-xl-5 col-lg-6 px-0">
-                    <div class="border p-md-4 cart-totals ml-30">
+                    <div class="border p-md-4 cart-totals ms-md-4">
                         <h5 class="fw-bold text-black text-uppercase mb-3 text-center">{{ __('names.overview') }}</h5>
                         <div class="divider-2 mb-30"></div>
                         <div class="col text-center">
@@ -116,6 +119,8 @@
                                 <div class="d-flex flex-column flex-lg-row align-items-center gap-3">
                                     <input type="hidden" name="hours" id="hoursHidden">
                                     <input type="hidden" name="minutes" id="minutesHidden">
+                                    <input type="hidden" name="place" id="placeHidden">
+                                    <input type="hidden" name="isCompanyBuying" id="isCompanyBuyingHidden">
                                     <select name="discount[]" class="form-control border-radius-0">
                                         <option value="" class="text-muted">{{ __('---') }}</option>
                                         @foreach($discounts as $item)
@@ -126,15 +131,50 @@
                                 </div>
                             {!! Form::close() !!}
                         </div>
+                        <div class="divider-2 mb-30 mt-30"></div>
                         {!! Form::open(['route' => ['checkout-preview'], 'method' => 'post']) !!}
-                            <div class="d-flex flex-column justify-content-center align-items-center mt-30 mb-10 gap-2">
-                                <p class="mb-2">{{ __('names.selectCollectTime') }}.</p>
+                            <div class="d-flex flex-column justify-content-center mt-30 mb-30 gap-2">
+                                <p class="mb-2">
+                                    1. {{ __('names.selectCollectTime') }}.
+                                </p>
                                 <div class="d-flex align-items-center gap-2">
                                     {!! Form::select('hours', $hoursList, null, ['id' => 'hoursSelector', 'class' => 'form-control custom-select', 'style' => 'width: 55px;']) !!}
                                     <span class="fw-bold fs-6">:</span>
                                     {!! Form::select('minutes', $minutesList, null, ['id' => 'minutesSelector', 'class' => 'form-control custom-select', 'style' => 'width: 55px;']) !!}
                                 </div>
                             </div>
+                            <div class="d-flex flex-column justify-content-center">
+                                <p class="m-0 p-0">
+                                    2. {{ __('names.selectEatLocation') }}.
+                                    <span class="text-danger fw-bold ms-1 fs-5">*</span>
+                                </p>
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="product-size-button">
+                                        <input type="radio" id="onTheSpot" name="place" value="1" required />
+                                        <label for="onTheSpot">
+                                            {{ __('names.onTheSpot') }}
+                                        </label>
+                                    </div>
+                                    <div class="product-size-button">
+                                        <input type="radio" id="takeaway" name="place" value="2" required />
+                                        <label for="takeaway">
+                                            {{ __('names.takeaway') }}
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex flex-column justify-content-center gap-3 mt-30">
+                                <p class="m-0 p-0">
+                                    3. {{ __('names.selectCompanyBuy') }}.
+                                </p>
+                                <div class="d-flex align-items-center gap-2">
+                                    <input type="checkbox" id="companyBuy" name="isCompanyBuying" />
+                                    <label class="d-flex align-items-center justify-content-center pt-1 fw-500" for="companyBuy" style="font-size: 16px; line-height: 2px; color: #666">
+                                        {{ __('names.companyBuy') }}
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="divider-2 mb-30 mt-30"></div>
                             <div class="d-flex align-items-center justify-content-between mb-4 mt-30" style="border: 2px solid white">
                                 <h6 class="text-heading">{{__('names.total')}}</h6>
                                 <h5 class="text-brand text-end">€{{ number_format($cart->sum, 2) }}</h5>
@@ -163,6 +203,74 @@
 
         .product-name:hover,
         .product-name:focus {
+            color: #dc0505;
+        }
+
+        /*
+         * Size buttons
+         */
+        .product-size-button {
+            margin: 0 5px 0 0;
+            background: transparent;
+            min-width: 100px;
+            width: auto;
+            text-align: center;
+            font-family: "Quicksand", sans-serif;
+            font-weight: 600;
+        }
+
+        .product-size-button label,
+        .product-size-button input {
+            display: block;
+            background: transparent;
+            color: #6e6e6e;
+            border: 1px solid #d9d9d9;
+            border-radius: 20px;
+            transition: all 100ms ease-in-out;
+        }
+
+        .product-size-button label:hover,
+        .product-size-button input:hover {
+            -webkit-box-shadow: 1px 1px 12px #e9e9e9;
+            -moz-box-shadow: 1px 1px 12px #e9e9e9;
+            box-shadow: 1px 1px 12px #e9e9e9;
+            color: #dc0505;
+            transform: translateY(-2px);
+        }
+
+        .product-size-button input[type="radio"] {
+            opacity: 0.011;
+            z-index: 100;
+        }
+
+        .product-size-button input[type="radio"]:checked + label {
+            background: transparent;
+            -webkit-box-shadow: 1px 1px 12px #e9e9e9;
+            -moz-box-shadow: 1px 1px 12px #e9e9e9;
+            box-shadow: 1px 1px 12px #e9e9e9;
+            color: #dc0505;
+        }
+
+        .product-size-button label {
+            cursor: pointer;
+            z-index: 90;
+            padding: 8px 18px;
+            font-size: .95rem;
+        }
+
+        /*
+         * Checkboxes
+         */
+        input[type='checkbox'] {
+            width: 18px;
+            height: 18px;
+        }
+
+        input[type='checkbox']:checked {
+            accent-color: #ec0f0f;
+        }
+
+        input[type='checkbox']:checked + label {
             color: #dc0505;
         }
     </style>
@@ -230,6 +338,38 @@
         setCollectTimeAutomatically();
         setDiscountHours();
         setDiscountMinutes();
+
+        const onTheSpot = document.getElementById('onTheSpot');
+        const takeaway = document.getElementById('takeaway');
+
+        const placeButtons = [onTheSpot, takeaway];
+
+        const addEventListenerToPlaceButtons = () => {
+            placeButtons.forEach(button => button.addEventListener('click', () => setPlaceHidden(button)));
+        }
+
+        const setPlaceHidden = button => {
+            const placeHidden = document.getElementById('placeHidden')
+            placeHidden.value = button.value;
+        }
+
+        addEventListenerToPlaceButtons()
+
+        const companyBuy = document.getElementById('companyBuy');
+
+        const addEventListenerToCompanyBuying = () => {
+            companyBuy.addEventListener('click', () => {
+                companyBuy.checked ? companyBuy.value = 1 : companyBuy.value = 0;
+                setIsCompanyBuyingHidden(companyBuy)
+            });
+        }
+
+        const setIsCompanyBuyingHidden = checkbox => {
+            const isCompanyBuyingHidden = document.getElementById('isCompanyBuyingHidden')
+            isCompanyBuyingHidden.value = checkbox.value;
+        }
+
+        addEventListenerToCompanyBuying()
     </script>
 @endpush
 

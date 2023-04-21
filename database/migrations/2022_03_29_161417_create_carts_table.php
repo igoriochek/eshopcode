@@ -19,6 +19,8 @@ class CreateCartsTable extends Migration
             $table->unsignedBigInteger('user_id')->unsigned();
             $table->string('code');
             $table->time('collect_time')->nullable();
+            $table->integer('place')->nullable();
+            $table->boolean('isCompanyBuying')->default(false);
             $table->double('sum')->nullable();
             $table->unsignedBigInteger('status_id')->unsigned();
             $table->unsignedBigInteger('admin_id')->unsigned();//->nullable(true);

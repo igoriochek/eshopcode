@@ -423,13 +423,10 @@
             const removeDuplicatesFromPaidAccessoriesArr = button => {
                 let paidAccessoriesArr = paidAccessories.split(',')
 
-                for (let i = 0; i < paidAccessoriesArr.length; i++) {
-                    if (paidAccessoriesArr[i] === button.value) {
-                        paidAccessoriesArr.splice(i, 1)
-                        paidAccessories = paidAccessoriesArr.join(',')
-                        break
-                    }
-                }
+                paidAccessoriesArr.filter((paidAccessory, index) =>
+                    paidAccessory === button.value && paidAccessoriesArr.splice(index, 1)
+                )
+                freeAccessories = paidAccessoriesArr.join(',')
             }
 
             const addPaidAccessoriesToInput = button => {
@@ -458,13 +455,10 @@
             const removeDuplicatesFromFreeAccessoriesArr = button => {
                 let freeAccessoriesArr = freeAccessories.split(',')
 
-                for (let i = 0; i < freeAccessoriesArr.length; i++) {
-                    if (freeAccessoriesArr[i] === button.value) {
-                        freeAccessoriesArr.splice(i, 1)
-                        freeAccessories = freeAccessoriesArr.join(',')
-                        break
-                    }
-                }
+                freeAccessoriesArr.filter((freeAccessory, index) =>
+                    freeAccessory === button.value && freeAccessoriesArr.splice(index, 1)
+                )
+                freeAccessories = freeAccessoriesArr.join(',')
             }
 
             const addFreeAccessoriesToInput = button => {

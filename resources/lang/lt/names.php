@@ -41,6 +41,12 @@ return [
     'acceptedOrder' => 'Ačiū. Jūsų užsakymas buvo priimtas.',
     'canceledOrder' => 'Jūsų užsakymas buvo atšauktas.',
     'selectCollectTime' => 'Pasirinkite laiką, kada atsiimsite savo užsakymą',
+    'selectEatLocation' => 'Pasirinkite, kaip norėtumėte valgyti',
+    'onTheSpot' => 'Vietoje',
+    'takeaway' => 'Išsinešimui',
+    'eatLocation' => 'Kaip norėtumėte valgyti',
+    'selectCompanyBuy' => "Pažymėkite, jeigu perka įmonė",
+    'companyBuy' => 'Perka įmonė',
 
     //Categories
     'categories' => 'Kategorijos',
@@ -267,17 +273,15 @@ return [
     'editCustomer' => 'Redaguoti naudotoją',
     'userLogs' => 'Naudotojų žurnalai',
 
+    //Other
     'desc' => 'Aprašymas',
     'name' => 'Pavadinimas',
-
     'old' => 'Senos',
     'new' => 'Naujos',
-
     'orderBy' => 'Rūšiuoti pagal',
     'view' => 'Peržiūrėti',
     'home' => 'Pradžia',
     'followUs' => 'Sekite mus',
-
     'zeroRecords' => 'Įrašų nėra',
     'showing' => 'Rodomi',
     'entries' => 'užrašai',
@@ -285,5 +289,7 @@ return [
     'of' => 'iš',
     'first' => 'Pirmas',
     'last' => 'Paskutinis',
+    'yes' => 'Taip',
+    'no' => 'Ne'
 
 ];

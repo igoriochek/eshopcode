@@ -33,34 +33,37 @@
                         </a>
                         <div class="d-flex flex-column">
                             @if ($item->product_size_id)
-                                <span class="fw-normal fs-6" style="color: #888">
-                                    {{ __('names.size').': '.$item->itemSize->name }}
+                                <span class="fw-normal fs-6" style="color: #aaa">
+                                    {{ __('names.size').': ' }}
+                                    <span style="color: #777">{{ $item->itemSize->name }}</span>
                                 </span>
                             @endif
                             @if ($item->product_meat_id)
-                                <span class="fw-normal fs-6" style="color: #888">
-                                    {{ __('names.meat').': '.$item->meat->name }}
+                                <span class="fw-normal fs-6" style="color: #aaa">
+                                    {{ __('names.meat').': ' }}
+                                    <span style="color: #777">{{ $item->meat->name }}</span>
                                 </span>
                             @endif
                             @if ($item->product_sauce_id)
-                                <span class="fw-normal fs-6" style="color: #888">
-                                    {{ __('names.sauce').': '.$item->sauce->name }}
+                                <span class="fw-normal fs-6" style="color: #aaa">
+                                    {{ __('names.sauce').': ' }}
+                                    <span style="color: #777">{{ $item->sauce->name }}</span>
                                 </span>
                             @endif
                             @if ($item->paid_accessories)
-                                <span class="fw-normal fs-6" style="color: #888">
+                                <span class="fw-normal fs-6" style="color: #aaa">
                                     {{ __('names.paidAccessories').': ' }}
                                     @forelse($item->paidAccessories as $paidAccessory)
-                                        {{ $paidAccessory->name }}@if (!$loop->last),@endif
+                                        <span style="color: #777">{{ $paidAccessory->name }}</span>@if (!$loop->last),@endif
                                     @empty
                                     @endforelse
                                 </span>
                             @endif
                             @if ($item->free_accessories)
-                                <span class="fw-normal fs-6" style="color: #888">
+                                <span class="fw-normal fs-6" style="color: #aaa">
                                     {{ __('names.compositionWithout').': ' }}
                                     @forelse($item->freeAccessories as $freeAccessory)
-                                        {{ $freeAccessory->name }}@if (!$loop->last),@endif
+                                        <span style="color: #777">{{ $freeAccessory->name }}</span>@if (!$loop->last),@endif
                                     @empty
                                     @endforelse
                                 </span>

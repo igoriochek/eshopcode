@@ -22,7 +22,7 @@
         </div>
     </div>
     <div class="container py-5">
-        <div class="container mb-10 mt-20">
+        <div class="container mb-10 mt-20 px-0">
             <div class="row">
                 <div class="col-lg-8 mb-40">
                     <h1 class="heading-2 mb-10">{{ __('buttons.preview') }}</h1>
@@ -58,38 +58,41 @@
                                                     </a>
                                                     <div class="d-flex flex-column">
                                                         @if ($item->product_size_id)
-                                                            <span class="fw-normal fs-6" style="color: #888">
-                                                                {{ __('names.size').': '.$item->itemSize->name }}
+                                                            <span class="fw-normal fs-6" style="color: #999">
+                                                                {{ __('names.size').': ' }}
+                                                                <span style="color: #777">{{ $item->itemSize->name }}</span>
                                                             </span>
                                                         @endif
                                                         @if ($item->product_meat_id)
-                                                            <span class="fw-normal fs-6" style="color: #888">
-                                                                {{ __('names.meat').': '.$item->meat->name }}
+                                                            <span class="fw-normal fs-6" style="color: #999">
+                                                                {{ __('names.meat').': ' }}
+                                                                <span style="color: #777">{{ $item->meat->name }}</span>
                                                             </span>
                                                         @endif
                                                         @if ($item->product_sauce_id)
-                                                            <span class="fw-normal fs-6" style="color: #888">
-                                                                {{ __('names.sauce').': '.$item->sauce->name }}
+                                                            <span class="fw-normal fs-6" style="color: #999">
+                                                                {{ __('names.sauce').': ' }}
+                                                                <span style="color: #777">{{ $item->sauce->name }}</span>
                                                             </span>
                                                         @endif
-                                                            @if ($item->paid_accessories)
-                                                                <span class="fw-normal fs-6" style="color: #888">
-                                                                    {{ __('names.paidAccessories').': ' }}
-                                                                    @forelse($item->paidAccessories as $paidAccessory)
-                                                                        {{ $paidAccessory->name }}@if (!$loop->last),@endif
-                                                                    @empty
-                                                                    @endforelse
-                                                                </span>
-                                                            @endif
-                                                            @if ($item->free_accessories)
-                                                                <span class="fw-normal fs-6" style="color: #888">
-                                                                    {{ __('names.compositionWithout').': ' }}
-                                                                    @forelse($item->freeAccessories as $freeAccessory)
-                                                                        {{ $freeAccessory->name }}@if (!$loop->last),@endif
-                                                                    @empty
-                                                                    @endforelse
-                                                                </span>
-                                                            @endif
+                                                        @if ($item->paid_accessories)
+                                                            <span class="fw-normal fs-6" style="color: #999">
+                                                                {{ __('names.paidAccessories').': ' }}
+                                                                @forelse($item->paidAccessories as $paidAccessory)
+                                                                    <span style="color: #777">{{ $paidAccessory->name }}</span>@if (!$loop->last),@endif
+                                                                @empty
+                                                                @endforelse
+                                                            </span>
+                                                        @endif
+                                                        @if ($item->free_accessories)
+                                                            <span class="fw-normal fs-6" style="color: #999">
+                                                                {{ __('names.compositionWithout').': ' }}
+                                                                @forelse($item->freeAccessories as $freeAccessory)
+                                                                    <span style="color: #777">{{ $freeAccessory->name }}</span>@if (!$loop->last),@endif
+                                                                @empty
+                                                                @endforelse
+                                                            </span>
+                                                        @endif
                                                     </div>
                                                 </div>
                                                 <div class="d-flex align-items-center" style="width: 15%; color: #888">
@@ -109,13 +112,34 @@
                 </div>
                 <!-- End col-lg-5 -->
                 <div class="col-xxl-4 col-xl-5 col-lg-6 px-0">
-                    <div class="border p-md-4 cart-totals ml-30">
+                    <div class="border p-md-4 cart-totals ms-md-4">
                         <h5 class="fw-bold text-black text-uppercase mb-3 text-center">{{ __('names.overview') }}</h5>
-                        <div class="divider-2 mb-20"></div>
+                        <div class="divider-2 mb-25"></div>
                         <div class="d-flex flex-column gap-2">
-                            <p class="d-flex justify-content-center gap-2 mb-15">
+                            <p class="d-flex align-items-center gap-2 m-0 p-0" style="line-height: 17px">
+                                {{ __('forms.name') }}: <strong>{{ auth()->user()->name }}</strong>
+                            </p>
+                            <p class="d-flex align-items-center gap-2 m-0 p-0" style="line-height: 17px">
+                                {{ __('forms.phone_number') }}: <strong>{{ auth()->user()->phone_number }}</strong>
+                            </p>
+                            <p class="d-flex align-items-center gap-2 m-0 p-0" style="line-height: 17px">
                                 {{ __('table.collectTime') }}: <strong>{{ $cart->collect_time }}</strong>
                             </p>
+                            <p class="d-flex align-items-center gap-2 m-0 p-0" style="line-height: 17px">
+                                @if ($cart->place == \App\Models\Cart::ONTHESPOT)
+                                    {{ __('names.eatLocation') }}: <strong>{{ __('names.onTheSpot') }}</strong>
+                                @else
+                                    {{ __('names.eatLocation') }}: <strong>{{ __('names.takeaway') }}</strong>
+                                @endif
+                            </p>
+                            <p class="d-flex align-items-center gap-2 m-0 p-0 mb-5" style="line-height: 17px">
+                                @if ($cart->isCompanyBuying)
+                                    {{ __('names.companyBuy') }}: <strong>{{ __('names.yes') }}</strong>
+                                @else
+                                    {{ __('names.companyBuy') }}: <strong>{{ __('names.no') }}</strong>
+                                @endif
+                            </p>
+                            <div class="divider-2 mb-15 mt-15"></div>
                             @if ($discounts)
                                 <div class="d-flex align-items-center justify-content-between border-bottom pb-2">
                                     <h6 class="text-heading">{{ __('table.subTotal') }}</h6>

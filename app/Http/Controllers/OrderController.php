@@ -298,7 +298,7 @@ class OrderController extends AppBaseController
             $paidAccessoryIds = explode(',', $cartItem->paid_accessories);
 
             foreach ($paidAccessoryIds as $paidAccessoryId) {
-                $paidAccessories->add(FreeAccessory::find($paidAccessoryId));
+                $paidAccessories->add(PaidAccessory::find($paidAccessoryId));
             }
         }
 
@@ -406,6 +406,10 @@ class OrderController extends AppBaseController
 
         $minutes = $request->minutes ?? '00';
         $this->cartRepository->setCartCollectTime($cart, $request->hours.':'.$minutes);
+
+        $cart->place = $request->place;
+        $cart->isCompanyBuying = $request->isCompanyBuying ?? false;
+        $cart->save();
 
         $request->session()->put('appPayCartId', $cart->id);
         $request->session()->put('appPayAmount', $amount);

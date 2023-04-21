@@ -20,6 +20,9 @@ class CreateReturnsTable extends Migration
             $table->unsignedBigInteger('admin_id')->unsigned();
             $table->unsignedBigInteger('order_id')->unsigned();
             $table->string('code');
+            $table->time('collect_time');
+            $table->integer('place');
+            $table->boolean('isCompanyBuying')->default(false);
             $table->text('description')->nullable();
             $table->unsignedBigInteger('status_id')->unsigned();
             $table->timestamps();

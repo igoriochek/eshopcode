@@ -39,6 +39,12 @@ return [
     'acceptedOrder' => 'Thank you. Your order has been accepted.',
     'canceledOrder' => 'Your order has been cancelled.',
     'selectCollectTime' => 'Select time when you are going to collect your order',
+    'selectEatLocation' => 'Select how you would like to eat',
+    'onTheSpot' => 'On the spot',
+    'takeaway' => 'Takeaway',
+    'eatLocation' => 'How you would like to eat',
+    'selectCompanyBuy' => "Check if it's company purchase",
+    'companyBuy' => 'Company purchase',
 
     'adminUserCount' => 'Admin User Count',
     'canceled' => 'Canceled',
@@ -265,19 +271,15 @@ return [
     'editCustomer' => 'Edit Customer',
     'userLogs' => 'User Logs',
 
-
-
+    //Other
     'desc' => 'Description',
     'name' => 'Name',
-
     'old' => "Old",
     'new' => "New",
-
     'orderBy' => 'Order By',
     'view' => 'View',
     'home' => 'Home',
     'followUs' => 'Follow Us',
-
     "zeroRecords" => "No matching records found",
     "showing" => "Showing",
     "entries" => "entries",
@@ -286,7 +288,7 @@ return [
     "first" => "First",
     "last" => "Last",
     'off' => 'OFF',
-
-
+    'yes' => 'Yes',
+    'no' => 'No'
 
 ];

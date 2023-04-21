@@ -24,6 +24,8 @@ class CartRepository extends BaseRepository
     protected $fieldSearchable = [
         'user_id',
         'code',
+        'collect_time',
+        'place',
         'status_id',
         'admin_id'
     ];
