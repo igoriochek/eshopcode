@@ -23,6 +23,6 @@
     </div>
 @empty
     <div class="d-flex align-items-center justify-content-between" style="border: 1px solid lightgray">
-        <div class="d-flex align-items-center p-3">{{ __('names.noOrders') }}</div>
+        <div class="d-flex align-items-center p-3 fs-6">{{ __('names.noOrders') }}</div>
     </div>
 @endforelse

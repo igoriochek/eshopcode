@@ -227,7 +227,9 @@ class OrderController extends AppBaseController
         ]);
 
         return view('user_views.orders.index')
-            ->with('orders', $orders->toQuery()->orderByDesc('id')->paginate(10));
+            ->with([
+                'orders' => count($orders) > 0 ? $orders->toQuery()->orderByDesc('id')->paginate(10) : []
+            ]);
     }
 
 

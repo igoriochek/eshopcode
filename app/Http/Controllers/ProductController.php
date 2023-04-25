@@ -120,8 +120,8 @@ class ProductController extends AppBaseController
 
         return view('user_views.product.products_all_with_filters')
             ->with([
-                'minPrice' => Product::all()->min('price'),
-                'maxPrice' => Product::all()->max('price'),
+                'minPrice' => ceil(Product::all()->min('price')),
+                'maxPrice' => ceil(Product::all()->max('price')),
                 'products'=> $products,
                 'categories' => $categories,
                 'filter' => $filter ? $filter : array(),
