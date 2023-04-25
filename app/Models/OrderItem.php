@@ -80,7 +80,7 @@ class OrderItem extends Model
         return $this->hasOne(Product::class, 'id', 'product_id');
     }
 
-    public function size()
+    public function itemSize()
     {
         return $this->hasOne(ProductSize::class, 'id', 'product_size_id');
     }

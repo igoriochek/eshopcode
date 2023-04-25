@@ -94,7 +94,7 @@ class ReturnItem extends Model
         return $this->hasOne(User::class, 'id', 'user_id');
     }
 
-    public function size()
+    public function itemSize()
     {
         return $this->hasOne(ProductSize::class, 'id', 'product_size_id');
     }

@@ -227,9 +227,8 @@ class OrderController extends AppBaseController
             'user_id' => $userId,
         ]);
 
-        return view('user_views.orders.index')->with([
-            'orders' => $orders,
-        ]);
+        return view('user_views.orders.index')
+            ->with('orders', $orders->toQuery()->orderByDesc('id')->paginate(10));
     }
 
 
@@ -275,7 +274,10 @@ class OrderController extends AppBaseController
                 $item->setAttribute('isReturned', 'Returned');
             }
 
+            $item->paidAccessories = $this->setPaidAccessoriesToCartItem($item);
+            $item->freeAccessories = $this->setFreeAccessoriesToCartItem($item);
         }
+
         $logs = LogActivity::search("Order ID:{$id}")->get();
 
         foreach ($logs as $log ){
