@@ -11,9 +11,8 @@ class OrderCreatedMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    private int $orderId;
-    private float $orderSum;
-    private string $customerName;
+    private object $order;
+    private object $customer;
     private object $orderItems;
 
     /**
@@ -21,11 +20,10 @@ class OrderCreatedMail extends Mailable
      *
      * @return void
      */
-    public function __construct($orderId, $orderSum, $customerName, $orderItems)
+    public function __construct($order, $customer, $orderItems)
     {
-        $this->orderId = $orderId;
-        $this->orderSum = $orderSum;
-        $this->customerName = $customerName;
+        $this->order = $order;
+        $this->customer = $customer;
         $this->orderItems = $orderItems;
     }
 
@@ -51,10 +49,9 @@ class OrderCreatedMail extends Mailable
             ->subject(__('messages.orderCreatedSubject'))
             ->markdown(__('messages.orderCreatedMarkdown'))
             ->with([
-                'orderId' => $this->orderId,
-                'customerName' => $this->customerName,
+                'order' => $this->order,
+                'customer' => $this->customer,
                 'orderItems' => $this->orderItems,
-                'orderSum' => $this->orderSum,
                 'orderItemCountSum' => $this->calculateOrderItemCountSum($this->orderItems)
             ]);
     }

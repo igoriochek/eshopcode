@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Events\OrderCreated;
 use App\Repositories\CartRepository;
 use App\Traits\CartItems;
 use Illuminate\Http\Request;

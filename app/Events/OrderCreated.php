@@ -14,9 +14,8 @@ class OrderCreated
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    public int $orderId;
-    public float $orderSum;
-    public string $customerName;
+    public object $order;
+    public object $customer;
     public object $orderItems;
 
     /**
@@ -24,11 +23,10 @@ class OrderCreated
      *
      * @return void
      */
-    public function __construct($orderId, $orderSum, $customerName, $orderItems)
+    public function __construct($order, $customer, $orderItems)
     {
-        $this->orderId = $orderId;
-        $this->orderSum = $orderSum;
-        $this->customerName = $customerName;
+        $this->order = $order;
+        $this->customer = $customer;
         $this->orderItems = $orderItems;
     }
 

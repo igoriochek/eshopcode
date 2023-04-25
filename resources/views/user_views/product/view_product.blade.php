@@ -150,7 +150,9 @@
                                                     <input type="checkbox" id="{{ $paidAccessory->name }}" name="paidAccessory" value="{{ $paidAccessory->id }}" />
                                                     <label class="d-flex align-items-center justify-content-center pt-1 fw-500" for="{{ $paidAccessory->name }}" style="font-size: 15px; line-height: 2px; color: #666">
                                                         {{ $paidAccessory->name }}
-                                                        (+€{{ number_format($paidAccessory->price, 2) }})
+                                                        @if ($paidAccessory->price != '0.00')
+                                                            (+€{{ number_format($paidAccessory->price, 2) }})
+                                                        @endif
                                                     </label>
                                                 </div>
                                             @endforeach

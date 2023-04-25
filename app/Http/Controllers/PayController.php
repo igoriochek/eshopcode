@@ -32,17 +32,17 @@ class PayController extends AppBaseController
         $cartId = $request->session()->get('appPayCartId');
         $amount = $request->session()->get('appPayAmount');
 
-        if(strpos($amount, ".") == strlen($amount)-2)  $amount = $amount . "0";
-        elseif (strpos($amount, ".") === false ) $amount = $amount . "00";
-
-        $amount = preg_replace("/\D/", "", $amount);
+        $amountArray = explode('.', $amount);
+        $partialAmount = str_replace(",", "", $amountArray[0]);
+        $cents = $amountArray[1] ?? '00';
+        $fullAmount = $partialAmount.$cents;
 
         $appUrl = env('APP_URL');
         $payment = [
             'projectid' => env('WEBTOPAY_PROJECTID'),
             'sign_password' => env('WEBTOPAY_SIGN_PASSWORD'),
             'orderid' => time(),
-            'amount' => $amount,
+            'amount' => $fullAmount,
             'currency' => 'EUR',
             'country' => 'LT',
             'accepturl' => $appUrl. '/user/pay/accept/' . $cartId,
@@ -139,7 +139,7 @@ class PayController extends AppBaseController
                         $user->log("Created new Order ID:{$newOrder->id}");
                     }
 
-                    event(new OrderCreated($newOrder->id, $newOrder->sum, $user->name, $cartItems));
+                    event(new OrderCreated($newOrder, $user, $cartItems));
 
                     return 'OK';
                 }

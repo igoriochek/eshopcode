@@ -27,10 +27,9 @@ class SendOrderCreatedEmail
      */
     public function handle($event)
     {
-        Mail::to('info@opatrip.com')->send(new OrderCreatedMail(
-            $event->orderId,
-            $event->orderSum,
-            $event->customerName,
+        Mail::to(env('MAIL_TO_ADDRESS'))->send(new OrderCreatedMail(
+            $event->order,
+            $event->customer,
             $event->orderItems
         ));
     }

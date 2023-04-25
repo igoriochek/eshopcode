@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreateOrderRequest;
 use App\Http\Requests\PayRequest;
 use App\Http\Requests\UpdateOrderRequest;
-use App\Models\Cart;
 use App\Models\CartItem;
 use App\Models\DiscountCoupon;
 use App\Models\FreeAccessory;
@@ -22,8 +21,8 @@ use App\Repositories\OrderRepository;
 use App\Http\Controllers\AppBaseController;
 use Dompdf\Dompdf;
 use Illuminate\Http\Request;
-use Flash;
 use Illuminate\Support\Facades\Auth;
+use Flash;
 use Response;
 use StyledPDF;
 
