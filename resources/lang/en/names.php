@@ -271,6 +271,13 @@ return [
     'editCustomer' => 'Edit Customer',
     'userLogs' => 'User Logs',
 
+    //Product sizes
+    'productSize' => 'Product size',
+    'createProductSize' => 'Create product size',
+    'editProductSize' => 'Edit product size',
+    'noProductSizes' => 'No product sizes',
+    'areYouSureDeleteProductSize' => 'Are you sure to delete this product size?',
+
     //Other
     'desc' => 'Description',
     'name' => 'Name',

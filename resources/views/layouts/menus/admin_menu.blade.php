@@ -5,6 +5,12 @@
     </a>
 </li>
 <li class="menu-item-has-children admin-navbar-item">
+    <a class="admin-navbar-link" style="{{ request()->is('admin/product_sizes') ? 'color: #e10000' : '' }}" href="/admin/product_sizes">
+        <i class="fa-solid fa-maximize"></i>
+        {{ __('menu.productSizes') }}
+    </a>
+</li>
+<li class="menu-item-has-children admin-navbar-item">
     <a class="admin-navbar-link" style="{{ request()->is('admin/categories') ? 'color: #e10000' : '' }}" href="/admin/categories">
         <i class="fa-solid fa-sitemap"></i>
         {{ __('menu.categories') }}
@@ -103,7 +109,7 @@
         {{ __('menu.messenger') }}
     </a>
 </li>
-<li class="menu-item" style="height: 50px"></li>
+{{--<li class="menu-item" style="height: 50px"></li>--}}
 <li class="menu-item-has-children admin-navbar-item d-lg-none">
     <a href="#"
        style="{{ request()->is('user/userprofile*') ? 'color: #e10000' : '' }}">

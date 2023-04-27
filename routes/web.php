@@ -145,6 +145,7 @@ Route::group(array('prefix' => 'admin', 'middleware' => 'admin'), function () {
     Route::get('data_export_import', [DataExportImportController::class, 'index'])->name('data_export_import.index');
     Route::get('data_export_import/export', [DataExportImportController::class, 'export'])->name('data_export_import.export');
     Route::post('data_export_import/import', [DataExportImportController::class, 'import'])->name('data_export_import.import');
+    Route::resource('product_sizes', \App\Http\Controllers\ProductSizeController::class)->except(['show']);
 });
 
     Route::group(array('prefix' => 'user', 'middleware' => ['auth', 'cookie-consent']), function () {

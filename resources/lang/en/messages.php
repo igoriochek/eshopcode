@@ -44,4 +44,9 @@ return [
     'successAuthLogin' => 'You are now successfully logged in',
     'errorUnauthAccess' => 'Unauthorized access',
 
+    'successCreateProductSize' => 'Successfully created product size',
+    'successUpdateProductSize' => 'Successfully updated product size',
+    'successDeleteProductSize' => 'Successfully deleted product size',
+    'productSizeNotFound' => 'Product size not found',
+
 ];

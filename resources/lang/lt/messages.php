@@ -43,4 +43,9 @@ return [
     'orderCreatedSubject' => 'Sukurtas Naujas Užsakymas',
     'orderCreatedMarkdown' => 'emails.order_created_lt',
 
+    'successCreateProductSize' => 'Sėkmingai sukurtas produkto dydis',
+    'successUpdateProductSize' => 'Sėkmingai atnaujintas produkto dydis',
+    'successDeleteProductSize' => 'Sėkmingai ištrintas produkto dydis',
+    'productSizeNotFound' => 'Produkto dydis nerastas',
+
 ];

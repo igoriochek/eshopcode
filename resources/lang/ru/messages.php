@@ -44,4 +44,9 @@ return [
     'orderCreatedSubject' => 'Создан Новый Заказ',
     'orderCreatedMarkdown' => 'emails.order_created_ru',
 
+    'successCreateProductSize' => 'Успешно создан размер товара',
+    'successUpdateProductSize' => 'Успешно обновлен размер продукта',
+    'successDeleteProductSize' => 'Успешно удален размер товара',
+    'productSizeNotFound' => 'Размер товара не найден',
+
 ];

@@ -42,6 +42,7 @@ return [
     'usersActivitiesReport' => 'Users Activities Report',
     'termsofservice' => 'Rules',
     'policy' => 'Privacy Policy',
-    'euProjects' => 'EU Projects'
+    'euProjects' => 'EU Projects',
+    'productSizes' => 'Product Sizes'
 
 ];

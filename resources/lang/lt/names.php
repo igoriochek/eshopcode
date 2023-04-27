@@ -273,6 +273,13 @@ return [
     'editCustomer' => 'Redaguoti naudotoją',
     'userLogs' => 'Naudotojų žurnalai',
 
+    //Product sizes
+    'productSize' => 'Produkto dydis',
+    'createProductSize' => 'Sukurti produkto dydį',
+    'editProductSize' => 'Redaguoti produkto dydį',
+    'noProductSizes' => 'Prekių dydžių nėra',
+    'areYouSureDeleteProductSize' => 'Ar tikrai noritė ištrinti šį produkto dydį?',
+
     //Other
     'desc' => 'Aprašymas',
     'name' => 'Pavadinimas',

@@ -45,5 +45,6 @@ return [
     'termsofservice' => 'Taisyklės',
     'policy' => 'Privatumo politika',
     'euProjects' => 'ES projektai',
+    'productSizes' => 'Produktų dydžiai'
 
 ];

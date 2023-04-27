@@ -270,6 +270,13 @@ return [
     'editCustomer' => 'Редактировать клиента',
     'userLogs' => 'Журналы пользователей',
 
+    //Product sizes
+    'productSize' => 'Размер товара',
+    'createProductSize' => 'Создать размер товара',
+    'editProductSize' => 'Изменить размер товара',
+    'noProductSizes' => 'Нет размеров товаров',
+    'areYouSureDeleteProductSize' => 'Вы действительно хотите удалить этот размер товара?',
+
     //Other
     'desc' => 'Описание',
     'name' => 'Имя',
