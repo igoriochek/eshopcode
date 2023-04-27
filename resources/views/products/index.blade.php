@@ -25,7 +25,7 @@
 
         <div class="card">
             <div class="card-body p-0">
-                @include('products.table')
+                @include('products.tables.product_table')
 
                 <div class="card-footer clearfix">
                     <div class="float-right">

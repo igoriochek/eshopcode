@@ -1,9 +1,9 @@
 <?php
 
+use App\Http\Controllers\ProductSizeController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PayController;
 use App\Http\Controllers\ReturnsController;
-use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
@@ -145,7 +145,11 @@ Route::group(array('prefix' => 'admin', 'middleware' => 'admin'), function () {
     Route::get('data_export_import', [DataExportImportController::class, 'index'])->name('data_export_import.index');
     Route::get('data_export_import/export', [DataExportImportController::class, 'export'])->name('data_export_import.export');
     Route::post('data_export_import/import', [DataExportImportController::class, 'import'])->name('data_export_import.import');
-    Route::resource('product_sizes', \App\Http\Controllers\ProductSizeController::class)->except(['show']);
+    Route::resource('product_sizes', ProductSizeController::class)->except(['show']);
+    Route::get('products/{id}/add_product_size_price', [ProductSizeController::class, 'addProductSizePriceView'])->name('addProductSizePriceView');
+    Route::post('products/{id}/add_product_size_price', [ProductSizeController::class, 'addProductSizePrice'])->name('addProductSizePrice');
+    Route::get('products/{productId}/edit_product_size_price/{sizePriceId}', [ProductSizeController::class, 'editProductSizePriceView'])->name('editProductSizePriceView');
+    Route::patch('products/{productId}/edit_product_size_price/{sizePriceId}', [ProductSizeController::class, 'editProductSizePrice'])->name('editProductSizePrice');
 });
 
     Route::group(array('prefix' => 'user', 'middleware' => ['auth', 'cookie-consent']), function () {

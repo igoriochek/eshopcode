@@ -48,5 +48,8 @@ return [
     'successUpdateProductSize' => 'Успешно обновлен размер продукта',
     'successDeleteProductSize' => 'Успешно удален размер товара',
     'productSizeNotFound' => 'Размер товара не найден',
+    'successAddProductSizePrice' => 'Цена добавлена к размеру товара',
+    'successEditProductSizePrice' => 'Успешно изменена цена размера товара',
+    'productSizePriceNotFound' => 'Цена размера товара не найдена',
 
 ];

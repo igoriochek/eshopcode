@@ -277,6 +277,8 @@ return [
     'editProductSize' => 'Edit product size',
     'noProductSizes' => 'No product sizes',
     'areYouSureDeleteProductSize' => 'Are you sure to delete this product size?',
+    'addProductSizePrice' => 'Add price to product size',
+    'editProductSizePrice' => 'Edit price of product size',
 
     //Other
     'desc' => 'Description',

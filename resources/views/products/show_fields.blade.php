@@ -52,6 +52,12 @@
     <p>{{ $product->discount_id }}</p>
 </div>
 
+<!-- Has Sizes Field -->
+<div class="col-sm-12">
+    {!! Form::label('updated_at', __('table.hasSizes').':') !!}
+    <p>{{ $product->hasSizes }}</p>
+</div>
+
 <!-- Created At Field -->
 <div class="col-sm-12">
     {!! Form::label('created_at', __('table.created_at').':') !!}

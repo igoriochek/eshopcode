@@ -87,10 +87,13 @@ class Product extends Model implements TranslatableContract
      * @var array
      */
     public static $rules = [
-        'price' => 'nullable|numeric',
+        'price' => 'required_if:hasSizes,==,false|numeric',
         'count' => 'required|integer',
-        'small' => 'nullable|numeric',
-        'big' => 'nullable|numeric'
+        'hasSizes' => 'required|boolean',
+//        'hasMeats' => 'required|boolean',
+//        'hasSauces' => 'required|boolean',
+//        'hasPaidAccessories' => 'required|boolean',
+//        'hasFreeAccessories' => 'required|boolean',
     ];
 
     public function categories()

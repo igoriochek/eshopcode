@@ -20,7 +20,7 @@ class ProductSizePrice extends Model
     protected $casts = [
         'product_id' => 'integer',
         'product_size_id' => 'integer',
-        'price' => 'integer'
+        'price' => 'double'
     ];
 
     public function product()

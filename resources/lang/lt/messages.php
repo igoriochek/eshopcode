@@ -47,5 +47,8 @@ return [
     'successUpdateProductSize' => 'Sėkmingai atnaujintas produkto dydis',
     'successDeleteProductSize' => 'Sėkmingai ištrintas produkto dydis',
     'productSizeNotFound' => 'Produkto dydis nerastas',
+    'successAddProductSizePrice' => 'Kaina sėkmingai pridėta prie produkto dydžio',
+    'successEditProductSizePrice' => 'Produkto dydžio kaina sėkmingai redaguota',
+    'productSizePriceNotFound' => 'Produkto dydžio kaina nerasta',
 
 ];

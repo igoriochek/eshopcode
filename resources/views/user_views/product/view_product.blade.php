@@ -95,9 +95,9 @@
                                                     <input type="radio" id="{{ $sizePrice->size->name }}" name="size" value="{{ $sizePrice->size->id }}" />
                                                     <label for="{{ $sizePrice->size->name }}">
                                                         @if ($product->discount)
-                                                            {{ $sizePrice->size->name.' (€'.sprintf("%.2f", $sizePrice->price - (round(($sizePrice->price * $product->discount->proc / 100), 2))).')' }}
+                                                            {{ $sizePrice->size->name.' (€'.number_format($sizePrice->price - (round(($sizePrice->price * $product->discount->proc / 100), 2))).')' }}
                                                         @else
-                                                            {{ $sizePrice->size->name.' (€'.sprintf("%.2f", $sizePrice->price).')' }}
+                                                            {{ $sizePrice->size->name.' (€'.number_format($sizePrice->price, 2).')' }}
                                                         @endif
                                                     </label>
                                                 </div>

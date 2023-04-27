@@ -276,6 +276,8 @@ return [
     'editProductSize' => 'Изменить размер товара',
     'noProductSizes' => 'Нет размеров товаров',
     'areYouSureDeleteProductSize' => 'Вы действительно хотите удалить этот размер товара?',
+    'addProductSizePrice' => 'Добавить цену к размеру товара',
+    'editProductSizePrice' => 'Изменить цену размера товара',
 
     //Other
     'desc' => 'Описание',

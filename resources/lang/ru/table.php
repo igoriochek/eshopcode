@@ -60,6 +60,7 @@ return [
     'value' => 'Значение',
     'video' => 'Видео',
     'visible' => 'Видимый',
-    'collectTime' => 'Время прибытия'
+    'collectTime' => 'Время прибытия',
+    'hasSizes' => 'Имеет размеры',
 
 ];

@@ -60,6 +60,7 @@ return [
     'value' => 'Value',
     'video' => 'Video',
     'visible' => 'Visible',
-    'collectTime' => 'Collect Time'
+    'collectTime' => 'Collect Time',
+    'hasSizes' => 'Has sizes',
 
 ];

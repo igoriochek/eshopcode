@@ -27,7 +27,7 @@
 <!-- Price Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('price',__('table.price').':') !!}
-    {!! Form::number('price', null, ['class' => 'form-control', 'step' => '0.01']) !!}
+    {!! Form::number('price', isset($product->price) ? $product->price : 0, ['class' => 'form-control', 'step' => '0.01']) !!}
 </div>
 
 <!-- Count Field -->
@@ -49,7 +49,6 @@
 </div>
 <div class="clearfix"></div>
 
-
 <!-- Video Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('video', __('table.video').':') !!}
@@ -62,13 +61,11 @@
     {!! Form::select('visible', $visible_list, null, ['class' => 'form-control custom-select']) !!}
 </div>
 
-
 <!-- Promotion Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('promotion_id', __('table.promotionId').':') !!}
     {!! Form::select('promotion_id', $promotions, null, ['class' => 'form-control custom-select', 'placeholder' => '---']) !!}
 </div>
-
 
 <!-- Discount Id Field -->
 <div class="form-group col-sm-6">
@@ -76,9 +73,14 @@
     {!! Form::select('discount_id', $discounts, null, ['class' => 'form-control custom-select', 'placeholder' => '---']) !!}
 </div>
 
-
-<!-- Discount Id Field -->
+<!-- Categories Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('categories', __('table.categories').':') !!}
     {!! Form::select('categories[]', $categories, null, ['class' => 'form-control custom-select', 'multiple'=>'multiple','name'=>'categories[]']) !!}
+</div>
+
+<!-- hasSizes Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('hasSizes', __('table.hasSizes').':') !!}
+    {!! Form::select('hasSizes', $default, isset($product->hasSizes) ? $product->hasSizes : null, ['class' => 'form-control custom-select']) !!}
 </div>

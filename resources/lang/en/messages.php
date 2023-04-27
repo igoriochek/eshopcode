@@ -48,5 +48,8 @@ return [
     'successUpdateProductSize' => 'Successfully updated product size',
     'successDeleteProductSize' => 'Successfully deleted product size',
     'productSizeNotFound' => 'Product size not found',
+    'successAddProductSizePrice' => 'Successfully added price to product size',
+    'successEditProductSizePrice' => 'Successfully edited price of product size',
+    'productSizePriceNotFound' => 'Product size price not found',
 
 ];

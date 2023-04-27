@@ -279,6 +279,8 @@ return [
     'editProductSize' => 'Redaguoti produkto dydį',
     'noProductSizes' => 'Prekių dydžių nėra',
     'areYouSureDeleteProductSize' => 'Ar tikrai noritė ištrinti šį produkto dydį?',
+    'addProductSizePrice' => 'Pridėti kainą prie produkto dydžio',
+    'editProductSizePrice' => 'Redaguoti produkto dydžio kainą',
 
     //Other
     'desc' => 'Aprašymas',

@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\PrepareTranslations;
+use App\Http\Controllers\forSelector;
 use App\Http\Requests\CreateProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use App\Models\PaidAccessory;
 use App\Models\Product;
 use App\Models\ProductMeat;
 use App\Models\ProductSauce;
+use App\Models\ProductSize;
 use App\Models\Ratings;
 use App\Repositories\CategoryRepository;
 use App\Repositories\ProductRepository;
@@ -25,19 +28,21 @@ class ProductController extends AppBaseController
 {
     use ProductRatings;
 
-    /** @var ProductRepository $productRepository*/
     private $productRepository;
-
-    /** @var CategoryRepository $categoryRepository*/
     private $categoryRepository;
 
-    use \App\Http\Controllers\forSelector;
-    use \App\Http\Controllers\PrepareTranslations;
+    private readonly array $default;
+
+    use forSelector, PrepareTranslations;
 
     public function __construct(CategoryRepository $categoryRepo, ProductRepository $productRepository)
     {
         $this->categoryRepository = $categoryRepo;
         $this->productRepository = $productRepository;
+        $this->default = [
+            0 => __('names.no'),
+            1 => __('names.yes')
+        ];
     }
 
     /**
@@ -145,6 +150,7 @@ class ProductController extends AppBaseController
                 'categories' => $this->categoriesForSelector(),
                 'promotions' => $this->promotionForSelector(),
                 'discounts' => $this->discountForSelector(),
+                'default' => $this->default
             ]
         );
     }
@@ -198,7 +204,11 @@ class ProductController extends AppBaseController
             return redirect(route('products.index'));
         }
 
-        return view('products.show')->with('product', $product);
+        return view('products.show')
+            ->with([
+                'product' => $product,
+                'productSizesCount' => count(ProductSize::all())
+            ]);
     }
 
     private function logUserViewedProduct($product)
@@ -283,6 +293,7 @@ class ProductController extends AppBaseController
                 'categories' => $this->categoriesForSelector(),
                 'promotions' => $this->promotionForSelector(),
                 'discounts' => $this->discountForSelector(),
+                'default' => $this->default
             ]
         );
     }
