@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreateReturnsRequest;
 use App\Http\Requests\UpdateReturnsRequest;
 use App\Http\Requests\UserCreateReturnsRequest;
+use App\Models\FreeAccessory;
 use App\Models\LogActivity;
 use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\OrderStatus;
+use App\Models\PaidAccessory;
 use App\Models\ReturnItem;
 use App\Models\Returns;
 use App\Models\ReturnStatus;
@@ -255,7 +257,16 @@ class ReturnsController extends AppBaseController
             ])
             ->get();
 
+        $returnItemSum = 0;
 
+        foreach ($returnItems as $returnItem) {
+            $returnItem->paidAccessories = $this->setPaidAccessoriesToCartItem($returnItem);
+            $returnItem->freeAccessories = $this->setFreeAccessoriesToCartItem($returnItem);
+
+            foreach ($return->returnItems as $returnItem) {
+                $returnItemSum += $returnItem->price_current;
+            }
+        }
 
         $logs = $this->getOrderByReturnId($id);
 
@@ -267,7 +278,8 @@ class ReturnsController extends AppBaseController
         return view('user_views.returns.view')->with([
             'return' => $return,
             'returnItems' => $returnItems,
-            'logs'=>$logs,
+            'returnItemSum' => $returnItemSum,
+            'logs' => $logs,
         ]);
     }
 
@@ -450,5 +462,35 @@ class ReturnsController extends AppBaseController
         $orderId = Returns::where(['id' => $id])->value('order_id');
 
         return LogActivity::search("Order ID:{$orderId}")->get();
+    }
+
+    private function setPaidAccessoriesToCartItem(object $returnItem): object
+    {
+        $paidAccessories = collect();
+
+        if ($returnItem->paid_accessories) {
+            $paidAccessoryIds = explode(',', $returnItem->paid_accessories);
+
+            foreach ($paidAccessoryIds as $paidAccessoryId) {
+                $paidAccessories->add(PaidAccessory::find($paidAccessoryId));
+            }
+        }
+
+        return $paidAccessories;
+    }
+
+    private function setFreeAccessoriesToCartItem(object $returnItem): object
+    {
+        $freeAccessories = collect();
+
+        if ($returnItem->free_accessories) {
+            $freeAccessoryIds = explode(',', $returnItem->free_accessories);
+
+            foreach ($freeAccessoryIds as $freeAccessoryId) {
+                $freeAccessories->add(FreeAccessory::find($freeAccessoryId));
+            }
+        }
+
+        return $freeAccessories;
     }
 }

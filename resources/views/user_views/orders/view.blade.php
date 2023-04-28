@@ -66,7 +66,7 @@
                             </div>
                             <div class="d-flex gap-2">
                                 {{ __('names.total') }}:
-                                <strong>{{ number_format($order->sum, 2) }} €</strong>
+                                <strong>€{{ number_format($order->sum, 2) }}</strong>
                             </div>
                         </div>
                     </div>

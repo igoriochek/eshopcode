@@ -1,73 +1,60 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="page-header breadcrumb-wrap">
-        <div class="container">
-            <div class="breadcrumb">
-                <a href="{{ url('/') }}" rel="nofollow">
-                    <i class="fi-rs-home mr-5"></i>
-                    {{ __('menu.home') }}
-                </a>
-                <span></span>
-                <a href="{{ url("/user/rootoreturns") }}">
-                    {{ __('menu.returns') }}
-                </a>
-                <span></span>
-                <a href="{{ url("/user/viewtrurn/$return->id") }}">
-                    {{ $return->id ?? '-' }}
-                </a>
-            </div>
-        </div>
-    </div>
     <div class="container py-5">
-        <div class="col-lg-10 m-auto">
+        <div class="col-lg-12 m-auto px-0">
             <div class="row justify-content-center">
                 <div class="col-12">
-                    <div class="tab-pane account" id="orders">
-                        <div class="card">
-                            <div class="card-header">
-                                <h3 class="mb-2">{{__('names.return')}}: {{ $return->id }}</h3>
-                                @include('flash::message')
-                                <div class="clearfix"></div>
-                                <div>{{__('names.returnStatus')}}: {{ __("status." .$return->status->name) }}</div>
+                    <div class="w-100">
+                        @include('flash::message')
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex flex-column flex-md-row justify-content-md-between align-items-md-center gap-3 mb-40">
+                <div class="d-flex flex-column gap-2">
+                    <h3 class="mb-3">{{__('names.return')}}: {{ $return->id }}</h3>
+                    <div class="d-flex flex-column gap-3 fs-6">
+                        <div class="d-flex flex-column gap-1">
+                            <div class="d-flex gap-2">
+                                {{ __('names.order')}} ID:
+                                <strong>{{ $return->order_id }}</strong>
                             </div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table">
-                                        <thead>
-                                        <tr>
-                                            <th>{{__('table.productName')}}</th>
-                                            <th>{{__('table.price')}}</th>
-                                            <th>{{__('table.count')}}</th>
-                                            <th> </th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        @foreach($returnItems as $item)
-                                            <tr>
-                                                <td>{{ $item->product->name }}</td>
-                                                <td>{{ number_format($item->price_current, 2) }} €</td>
-                                                <td>{{ $item->count }}</td>
-                                            </tr>
-                                        @endforeach
-                                        </tbody>
-                                    </table>
-                                </div>
+                            <div class="d-flex gap-2">
+                                {{ __('table.description') }}:
+                                <strong>{{ $return->description }}</strong>
                             </div>
-                        </div>
-                        <div class="content px-0">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h3>{{__('names.orderHistory')}}</h3>
-                                </div>
-                                <div class="card-body">
-                                    <div class="row">
-                                        @include('orders.history_table')
-                                    </div>
-                                </div>
+                            <div style="height: 2px; background: lightgray; width: 50px" class="my-2"></div>
+                            <div class="d-flex gap-2">
+                                {{ __('names.returnStatus')}}:
+                                <strong>{{ __("status." . $return->status->name) }}</strong>
+                            </div>
+                            <div class="d-flex gap-2">
+                                {{ __('names.total') }}:
+                                <strong>€{{ number_format($returnItemSum, 2) }}</strong>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div class="col-12 d-flex flex-column overflow-scroll">
+                <h4 class="mb-3">{{ __('names.products') }}</h4>
+                <div style="min-width: 600px; box-shadow: 1px 1px 10px #efefef">
+                    <div class="d-flex gap-2 px-4 fs-6 fw-bold text-dark" style="border: 1px solid lightgray; border-radius: 8px 8px 0 0">
+                        <div class="d-flex align-items-center py-3" style="width: 75%">{{ __('table.productName') }}</div>
+                        <div class="d-flex align-items-center py-3" style="width: 25%">{{ __('table.price') }}</div>
+                        <div class="d-flex align-items-center py-3" style="width: 25%">{{ __('table.count') }}</div>
+                    </div>
+                    @include('user_views.returns.tables.return_items_table')
+                </div>
+            </div>
+            <div class="col-12 d-flex flex-column overflow-scroll mt-40">
+                <h4 class="mb-3">{{ __('names.orderHistory') }}</h4>
+                <div style="min-width: 500px; box-shadow: 1px 1px 10px #efefef">
+                    <div class="d-flex gap-2 px-4 fs-6 fw-bold text-dark" style="border: 1px solid lightgray; border-radius: 8px 8px 0 0">
+                        <div class="d-flex align-items-center py-3" style="width: 50%">{{ __('table.date') }}</div>
+                        <div class="d-flex align-items-center py-3" style="width: 50%">{{ __('table.action') }}</div>
+                    </div>
+                    @include('user_views.returns.tables.return_history_table')
                 </div>
             </div>
         </div>
