@@ -84,14 +84,19 @@ class ReturnItem extends Model
         'size' => 'nullable|string'
     ];
 
-    public function product()
-    {
-        return $this->hasOne(Product::class, 'id', 'product_id');
-    }
-
     public function user()
     {
         return $this->hasOne(User::class, 'id', 'user_id');
+    }
+
+    public function return()
+    {
+        return $this->hasOne(Returns::class, 'id', 'return_id');
+    }
+
+    public function product()
+    {
+        return $this->hasOne(Product::class, 'id', 'product_id');
     }
 
     public function itemSize()

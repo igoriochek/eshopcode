@@ -213,8 +213,17 @@ class ReturnsController extends AppBaseController
             'user_id' => $userId,
         ]);
 
+        $returnItemSum = 0;
+
+        foreach ($returns as $return) {
+            foreach ($return->returnItems as $returnItem) {
+                $returnItemSum += $returnItem->price_current;
+            }
+        }
+
         return view('user_views.returns.index')->with([
-            'returns' => $returns,
+            'returns' => count($returns) > 0 ? $returns->toQuery()->orderByDesc('id')->paginate(10) : [],
+            'returnItemSum' => $returnItemSum
         ]);
     }
 

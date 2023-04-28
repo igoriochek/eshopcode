@@ -2,11 +2,10 @@
 
 namespace App\Models;
 
-use Eloquent as Model;
-
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Returns
@@ -89,9 +88,19 @@ class Returns extends Model
         return $this->hasOne(User::class, 'id', 'admin_id');
     }
 
+    public function order()
+    {
+        return $this->hasOne(Order::class, 'id', 'order_id');
+    }
+
     public function status()
     {
         return $this->hasOne(ReturnStatus::class, 'id', 'status_id');
+    }
+
+    public function returnItems()
+    {
+        return $this->hasMany(ReturnItem::class, 'return_id', 'id');
     }
 
     public function scopeDateFrom(Builder $query, $date_from): Builder
