@@ -165,6 +165,8 @@ return [
         Barryvdh\DomPDF\ServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
         Meneses\LaravelMpdf\LaravelMpdfServiceProvider::class,
+        //If you get an error Class "Meneses\LaravelMpdf\LaravelMpdfServiceProvider" not found
+        //Change this line into Mccarlosen\LaravelMpdf\LaravelMpdfServiceProvider::class
         /*
          * Package Service Providers...
          */

@@ -54,6 +54,10 @@ Route::group(array('prefix' => 'admin', 'middleware' => 'admin'), function () {
     Route::resource('cookies', \App\Http\Controllers\CookieController::class);
     Route::resource('products', ProductController::class);
     Route::resource('discounts', App\Http\Controllers\DiscountController::class);
+    Route::resource('freeAccessory', App\Http\Controllers\FreeAccessoryController::class);
+    Route::resource('paidAccessory', App\Http\Controllers\PaidAccessoryController::class);
+    Route::resource('productMeat', App\Http\Controllers\ProductMeatController::class);
+    Route::resource('productSauce', App\Http\Controllers\ProductSauceController::class);
     Route::resource('discountCoupons', App\Http\Controllers\DiscountCouponController::class);
     Route::resource('promotions', App\Http\Controllers\PromotionController::class);
     Route::resource('customers', App\Http\Controllers\CustomerController::class);
