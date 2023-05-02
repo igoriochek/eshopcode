@@ -24,6 +24,7 @@ class CreateOrdersTable extends Migration
             $table->time('collect_time');
             $table->integer('place');
             $table->boolean('isCompanyBuying')->default(false);
+            $table->text('description')->nullable();
             $table->double('sum')->nullable();
             $table->foreign('cart_id')->references('id')->on('carts');
             $table->foreign('user_id')->references('id')->on('users');

@@ -146,7 +146,7 @@ class ProductSizeController extends AppBaseController
 
     public function addProductSizePrice($id, Request $request): RedirectResponse
     {
-        $validated = $this->validateProductSizePriceRules($id);
+        $validated = $this->validateProductSizePriceRules($request);
 
         try {
             ProductSizePrice::firstOrCreate([

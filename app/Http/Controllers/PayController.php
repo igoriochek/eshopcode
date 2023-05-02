@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PaidAccessory;
+use App\Models\FreeAccessory;
 use App\Events\OrderCreated;
 use App\Http\Requests\PayRequest;
 use App\Models\Cart;
@@ -144,6 +146,10 @@ class PayController extends AppBaseController
                         $user->log("Created new Order ID:{$newOrder->id}");
                     }
 
+                    $orderDescription = $this->createDescriptionText($newOrder, $cartItems);
+                    $newOrder->description = $orderDescription;
+                    $newOrder->save();
+
                     event(new OrderCreated($newOrder, $user, $cartItems));
 
                     return 'OK';
@@ -169,5 +175,73 @@ class PayController extends AppBaseController
         ksort($admins);
 
         return array_shift($admins);
+    }
+
+    private function createDescriptionText(object $order, object $orderItems): string
+    {
+        $orderId = __('names.order').' ID:'.$order->id;
+        $clientName = __('names.name').':'.$order->user->name;
+
+        $orderClientPhoneNumber = isset($order->user->phone_number) ? $order->user->phone_number : '';
+        $clientPhoneNumber = __('forms.phone_number').':'.$orderClientPhoneNumber;
+        
+        $collectTime = __('table.collectTime').':'.$order->collect_time;
+
+        $orderPlace = $order->place == '1' ? __('names.onTheSpot') : __('names.takeaway');
+        $place = __('names.eatLocation').':'.$orderPlace;
+
+        $orderCompanyPurchase = $order->isCompanyBuying ? __('names.yes') : __('names.no');
+        $companyPurchase = __('names.companyBuy').':'.$orderCompanyPurchase;
+
+        $orderItemDescriptions = [];
+
+        foreach ($orderItems as $orderItem) {
+            $name = __('names.productName').':'.$orderItem->product->name;
+            $size = isset($orderItem->itemSize->name) ? __('names.sauce').':'.$orderItem->itemSize->name : '';
+            $meat = isset($orderItem->meat->name) ? __('names.meat').':'.$orderItem->meat->name : '';
+            $sauce = isset($orderItem->sauce->name) ? __('names.meat').':'.$orderItem->sauce->name : '';
+
+            $paidAccessories = $this->setPaidAccessoriesToOrderItem($orderItem);
+            $freeAccessories = $this->setFreeAccessoriesToOrderItem($orderItem);
+
+            count($paidAccessories) > 0 ? $paidAccessories = __('names.paidAccessories').':'.implode("," ,$paidAccessories) : $paidAccessories = '';
+            count($freeAccessories) > 0 ? $freeAccessories = __('names.compositionWithout').':'.implode(",", $freeAccessories) : $freeAccessories = '';
+
+            $orderItemDescriptions[] = $name.' - '.$size.' '.$meat.' '.$sauce.' '.$paidAccessories.' '.$freeAccessories;
+        }
+
+        count($orderItemDescriptions) > 0 ? $orderItemDescriptions = implode(", ", $orderItemDescriptions) : $orderItemDescriptions = '';
+        
+        return $orderId.' '.$clientName.' '.$clientPhoneNumber.' '.$collectTime.' '.$place.' '.$companyPurchase.' '.$orderItemDescriptions;
+    }
+
+    private function setPaidAccessoriesToOrderItem(object $orderItem): array
+    {
+        $paidAccessories = [];
+
+        if ($orderItem->paid_accessories) {
+            $paidAccessoryIds = explode(',', $orderItem->paid_accessories);
+
+            foreach ($paidAccessoryIds as $paidAccessoryId) {
+                $paidAccessories[] = PaidAccessory::find($paidAccessoryId)->name;
+            }
+        }
+
+        return $paidAccessories;
+    }
+
+    private function setFreeAccessoriesToOrderItem(object $orderItem): array
+    {
+        $freeAccessories = [];
+
+        if ($orderItem->free_accessories) {
+            $freeAccessoryIds = explode(',', $orderItem->free_accessories);
+
+            foreach ($freeAccessoryIds as $freeAccessoryId) {
+                $freeAccessories[] = FreeAccessory::find($freeAccessoryId)->name;
+            }
+        }
+
+        return $freeAccessories;
     }
 }
