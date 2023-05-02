@@ -428,7 +428,7 @@
                 paidAccessoriesArr.filter((paidAccessory, index) =>
                     paidAccessory === button.value && paidAccessoriesArr.splice(index, 1)
                 )
-                freeAccessories = paidAccessoriesArr.join(',')
+                paidAccessories = paidAccessoriesArr.join(',')
             }
 
             const addPaidAccessoriesToInput = button => {

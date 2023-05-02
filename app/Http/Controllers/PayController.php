@@ -34,6 +34,11 @@ class PayController extends AppBaseController
 
         $amountArray = explode('.', $amount);
         $partialAmount = str_replace(",", "", $amountArray[0]);
+
+        if (isset($amountArray[1]) && strlen($amountArray[1]) === 1) {
+            $amountArray[1] = $amountArray[1].'0';
+        }
+
         $cents = $amountArray[1] ?? '00';
         $fullAmount = $partialAmount.$cents;
 

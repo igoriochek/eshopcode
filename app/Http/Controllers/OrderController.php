@@ -414,6 +414,8 @@ class OrderController extends AppBaseController
         $cart->isCompanyBuying = $request->isCompanyBuying ?? false;
         $cart->save();
 
+        event(new \App\Events\OrderCreated($cart, $user, $cartItems));
+
         $request->session()->put('appPayCartId', $cart->id);
         $request->session()->put('appPayAmount', $amount);
 

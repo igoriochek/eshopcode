@@ -12,7 +12,7 @@ Perka įmonė: @if ($order->isCompanyBuying) {{ __('names.yes') }} @else {{ __('
     |Produktas     |Kaina     |Kiekis  |
     |:----------- |:---------:|:--------:|
     @foreach($orderItems as $orderItem)
-        | {{ $orderItem->product->name }} | €{{ number_format($orderItem->price_current, 2) }} | {{ $orderItem->count }} |
+        | {{ $orderItem->product->name }}<br>@if ($orderItem->product_size_id){{ __('names.size').': '.$orderItem->itemSize->name }}<br>@endif @if ($orderItem->product_meat_id){{ __('names.meat').': '.$orderItem->meat->name }}<br>@endif @if ($orderItem->product_sauce_id){{ __('names.sauce').': '.$orderItem->sauce->name }}<br>@endif @if ($orderItem->paid_accessories){{ __('names.paidAccessories').': '}}@foreach ($orderItem->paidAccessories as $paidAccessory) {{ $paidAccessory->name }}</span>@if (!$loop->last),@endif @endforeach <br>@endif @if ($orderItem->free_accessories){{ __('names.compositionWithout').': '}}@foreach ($orderItem->freeAccessories as $freeAccessory) {{ $freeAccessory->name }}</span>@if (!$loop->last),@endif @endforeach <br>@endif | €{{ number_format($orderItem->price_current, 2) }} | {{ $orderItem->count }} |
     @endforeach
     |Bendra Suma | €{{ number_format($order->sum, 2) }} | {{ $orderItemCountSum }} |
 @endcomponent
