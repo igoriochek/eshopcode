@@ -47,9 +47,12 @@ class OrderCreatedMail extends Mailable
      */
     public function build()
     {
+        $subject = `__('messages.orderCreatedSubject')`;
+        $markdown = __('messages.orderCreatedMarkdown');
+
         return $this
-            ->subject(__('messages.orderCreatedSubject'))
-            ->markdown(__('messages.orderCreatedMarkDown'))
+            ->subject($subject)
+            ->markdown($markdown)
             ->with([
                 'orderId' => $this->orderId,
                 'customerName' => $this->customerName,
