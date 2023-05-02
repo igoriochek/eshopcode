@@ -1,6 +1,10 @@
 {{__('menu.adminmenu')}}:
 <li><a class="dropdown-item" href="/admin/categories">{{__('menu.categories')}}</a>&nbsp;&nbsp;</li>
 <li><a class="dropdown-item" href="/admin/products">{{__('menu.products')}}</a>&nbsp;&nbsp;</li>
+<li><a class="dropdown-item" href="/admin/freeAccessory">{{__('menu.freeAccessory')}}</a>&nbsp;&nbsp;</li>
+<li><a class="dropdown-item" href="/admin/paidAccessory">{{__('menu.paidAccessory')}}</a>&nbsp;&nbsp;</li>
+<li><a class="dropdown-item" href="/admin/productMeat">{{__('menu.productMeat')}}</a>&nbsp;&nbsp;</li>
+<li><a class="dropdown-item" href="/admin/productSauce">{{__('menu.productSauce')}}</a>&nbsp;&nbsp;</li>
 <li><a class="dropdown-item" href="/admin/carts">{{__('menu.carts')}}</a>&nbsp;&nbsp;</li>
 {{--<a class="dropdown-item" href="/admin/cartItems">Cart Items</a>&nbsp;&nbsp;--}}
 <li><a class="dropdown-item" href="/admin/cartStatuses">{{__('menu.cartStatuses')}}</a>&nbsp;&nbsp;</li>

@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\AppBaseController;
+use App\Models\FreeAccessory;
 use App\Repositories\FreeAccessoryRepository;
 
 use Illuminate\Http\Request;
 
 class FreeAccessoryController extends AppBaseController
 {
+    use PrepareTranslations;
     protected $freeAccessoryRepository;
     public function __construct(FreeAccessoryRepository $freeAccessoryRepo)
     {
@@ -25,7 +27,7 @@ class FreeAccessoryController extends AppBaseController
     {
         $freeAccessory = $this->freeAccessoryRepository->all();
         return view('free_accessory.index')
-            ->with('freeAccessory', $freeAccessory);
+            ->with('freeAccessory', $freeAccessory); 
     }
 
     /**
@@ -33,9 +35,11 @@ class FreeAccessoryController extends AppBaseController
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($request)
+    public function create()
     {
-        //
+        $freeAccessory = $this->freeAccessoryRepository->all();
+        return view('free_accessory.create')
+            ->with('freeAccessory', $freeAccessory);
     }
 
     /**
@@ -46,7 +50,9 @@ class FreeAccessoryController extends AppBaseController
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+        $freeAccessory = $this->freeAccessoryRepository->create($input);
+        return redirect(route('freeAccessory.index'));
     }
 
     /**
@@ -57,7 +63,9 @@ class FreeAccessoryController extends AppBaseController
      */
     public function show($id)
     {
-        //
+        $freeAccessory = $this->freeAccessoryRepository->find($id);
+        return view('free_accessory.show')
+            ->with('freeAccessory', $freeAccessory);
     }
 
     /**
@@ -68,9 +76,9 @@ class FreeAccessoryController extends AppBaseController
      */
     public function edit($id)
     {
-        //
+        return view('free_accessory.edit')
+            ->with('freeAccessory', $this->getAccessoryById($id));
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -80,7 +88,10 @@ class FreeAccessoryController extends AppBaseController
      */
     public function update(Request $request, $id)
     {
-        //
+        $freeAccessory = $this->freeAccessoryRepository->find($id);
+        $input = $this->prepare($request->all(), ['name']);
+        $freeAccessory = $this->freeAccessoryRepository->update($input, $id);
+        return redirect(route('freeAccessory.index'));
     }
 
     /**
@@ -91,6 +102,13 @@ class FreeAccessoryController extends AppBaseController
      */
     public function destroy($id)
     {
-        //
+        $this->freeAccessoryRepository->delete($id);
+        return redirect(route('freeAccessory.index'));
+    }
+
+    private function getAccessoryById(int $id): object
+    {
+        $freeAccessory = FreeAccessory::find($id);
+        return $freeAccessory;
     }
 }
