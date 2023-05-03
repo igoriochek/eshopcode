@@ -1,8 +1,9 @@
 <li class="menu-item-has-children admin-navbar-item">
     <a class="admin-navbar-link" style="{{ 
         request()->is('admin/products') ||
-        request()->is('admin/freeAccessory') ||
+        request()->is('admin/product_sizes') ||
         request()->is('admin/paidAccessory') ||
+        request()->is('admin/freeAccessory') ||
         request()->is('admin/productMeat') ||
         request()->is('admin/productSauce')
         ? 'color: #e10000' : '' }}" href="/admin/products">
@@ -12,12 +13,6 @@
     <ul class="admin-navbar-item-dropdown dropdown">
         @include('layouts.dropdowns.admin_products_dropdown')
     </ul>
-</li>
-<li class="menu-item-has-children admin-navbar-item">
-    <a class="admin-navbar-link" style="{{ request()->is('admin/product_sizes') ? 'color: #e10000' : '' }}" href="/admin/product_sizes">
-        <i class="fa-solid fa-maximize"></i>
-        {{ __('menu.productSizes') }}
-    </a>
 </li>
 <li class="menu-item-has-children admin-navbar-item">
     <a class="admin-navbar-link" style="{{ request()->is('admin/categories') ? 'color: #e10000' : '' }}" href="/admin/categories">

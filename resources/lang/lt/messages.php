@@ -39,6 +39,7 @@ return [
     'textMsg' => 'Žinutės tekstas',
     'typeYourMsgHere' => 'Įveskite savo žinutę čia...',
     'updatedAt' => 'Atnaujinta',
+    'areYouSureCart' => 'Ar tikrai norite pašalinti šį produktą iš savo krepšelio',
 
     'orderCreatedSubject' => 'Sukurtas Naujas Užsakymas',
     'orderCreatedMarkdown' => 'emails.order_created_lt',
