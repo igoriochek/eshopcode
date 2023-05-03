@@ -303,6 +303,13 @@ return [
     'noProductMeats' => 'Mėsos produktų nėra',
     'areYouSureDeleteProductMeat' => 'Ar tikrai noritė ištrinsite šio produkto mėsą?',
 
+    //Product sauces
+    'productSauce' => 'Produktų padažas',
+    'createProductSauce' => 'Sukurti produkto padažą',
+    'editProductSauce' => 'Redaguoti produkto padažą',
+    'noProductSauces' => 'Be produktų padažų',
+    'areYouSureDeleteProductSauce' => 'Ar tikrai noritė ištrinsite šio produkto padažą?',
+
     //Other
     'desc' => 'Aprašymas',
     'name' => 'Pavadinimas',

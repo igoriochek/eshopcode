@@ -294,11 +294,18 @@ return [
     'areYouSureDeleteFreeAccessory' => 'Вы действительно хотите удалить этот бесплатный аксессуар?',
 
     //Product meats
-    'productMeat' => 'Мясной продукт',
+    'productMeat' => 'Мясо товара',
     'createProductMeat' => 'Создать мясной продукт',
     'editProductMeat' => 'Редактировать мясо продукта',
-    'noProductMeats' => 'Нет мясных продуктов',
-    'areYouSureDeleteProductMeat' => 'Вы действительно хотите удалить мясо этого продукта?',
+    'noProductMeats' => 'Нет мясо к продуктам',
+    'areYouSureDeleteProductMeat' => 'Вы действительно хотите удалить мясо товара?',
+
+    //Product sauces
+    'productSauce' => 'Соус товара',
+    'createProductSauce' => 'Создать соус для продукта',
+    'editProductSauce' => 'Изменить соус к продукту',
+    'noProductSauces' => 'Нет соусов к продуктам',
+    'areYouSureDeleteProductSauce' => 'Вы действительно хотите удалить соус товара?',
 
     //Other
     'desc' => 'Описание',

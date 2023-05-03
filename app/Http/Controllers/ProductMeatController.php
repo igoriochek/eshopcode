@@ -98,7 +98,8 @@ class ProductMeatController extends AppBaseController
             return redirect()->route('productMeat.index');
         }
         catch (Exception $exception) {
-            return back()->with('error', $exception->getMessage());
+            session()->flash('error', $exception->getMessage());
+            return back();
         }
     }
 
@@ -122,5 +123,4 @@ class ProductMeatController extends AppBaseController
             }
         }
     }
-
 }

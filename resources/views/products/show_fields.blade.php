@@ -55,13 +55,29 @@
 @if ($product->hasSizes)
     <!-- Has Sizes Field -->
     <div class="col-sm-12">
-        {!! Form::label('updated_at', __('table.hasSizes').':') !!}
+        {!! Form::label('hasSiszes', __('table.hasSizes').':') !!}
         <p>{{ $product->hasSizes ? __('names.yes') : __('names.no') }}</p>
     </div>
 @endif
 
+@if ($product->hasMeats)
+    <!-- Has Meats Field -->
+    <div class="col-sm-12">
+        {!! Form::label('hasMeats', __('table.hasMeats').':') !!}
+        <p>{{ $product->hasMeats ? __('names.yes') : __('names.no') }}</p>
+    </div>
+@endif
+
+@if ($product->hasSauces)
+    <!-- Has Sauces Field -->
+    <div class="col-sm-12">
+        {!! Form::label('hasSauces', __('table.hasSauces').':') !!}
+        <p>{{ $product->hasSauces ? __('names.yes') : __('names.no') }}</p>
+    </div>
+@endif
+
 @if ($product->hasPaidAccessories)
-    <!-- Has Sizes Field -->
+    <!-- Has Paid Accessories Field -->
     <div class="col-sm-12">
         {!! Form::label('hasPaidAccessories', __('table.hasPaidAccessories').':') !!}
         <p>{{ $product->hasPaidAccessories ? __('names.yes') : __('names.no') }}</p>
@@ -69,7 +85,7 @@
 @endif
 
 @if ($product->hasFreeAccessories)
-<!-- Has Sizes Field -->
+<!-- Has Free Accessories Field -->
 <div class="col-sm-12">
     {!! Form::label('hasFreeAccessories', __('table.hasFreeAccessories').':') !!}
     <p>{{ $product->hasFreeAccessories ? __('names.yes') : __('names.no') }}</p>

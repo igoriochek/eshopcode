@@ -5,14 +5,21 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\AppBaseController;
 use App\Models\ProductSauce;
 use App\Repositories\ProductSauceRepository;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Http\RedirectResponse;
+use Exception;
 
 use Illuminate\Http\Request;
 
 class ProductSauceController extends AppBaseController
 {
     use PrepareTranslations;
+
     protected $productSauceRepository;
     private readonly array $default;
+
     public function __construct(ProductSauceRepository $productSauceRepo)
     {
         $this->productSauceRepository = $productSauceRepo;
@@ -21,98 +28,101 @@ class ProductSauceController extends AppBaseController
             1 => __('names.yes')
         ];
     }
-    /**
-     * Display a listing of the Customer.
-     *
-     * @param Request $request
-     *
-     * @return Response
-     */
-    public function index()
+
+    public function index(): Factory|View|Application
     {
-        $productSauce = $this->productSauceRepository->all();
         return view('product_sauce.index')
-            ->with('productSauce', $productSauce); 
+            ->with('productSauces', $this->productSauceRepository->all()); 
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function create(): Factory|View|Application
     {
         return view('product_sauce.create')
             ->with('default', $this->default);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
-        $input = $request->all();
-        $productSauce = $this->productSauceRepository->create($input);
-        return redirect(route('productSauce.index'));
+        $validated = $this->validateProductSauceRules($request);
+
+        try {
+            $this->changePreviousDefaultToFalse($request->default);
+
+            $requestData = [...$validated, 'default' => $request->default ?? false];
+            $input = $this->prepare($requestData, ['name']);
+            ProductSauce::create($input);
+
+            session()->flash('success', __('messages.successCreateProductSauce'));
+            return redirect(route('productSauce.index'));
+        }
+        catch (Exception $exception) {
+            session()->flash('error', $exception->getMessage());
+            return back();
+        }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        $productSauce = $this->productSauceRepository->find($id);
-        return view('product_sauce.show')
-            ->with('productSauce', $productSauce);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function edit($id): Factory|View|Application
     {
         return view('product_sauce.edit')
-            ->with('productSauce', $this->getAccessoryById($id));
-    }
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        $productSauce = $this->productSauceRepository->find($id);
-        $input = $this->prepare($request->all(), ['name']);
-        $productSauce = $this->productSauceRepository->update($input, $id);
-        return redirect(route('productSauce.index'));
+            ->with([
+                'productSauce' => $this->productSauceRepository->find($id),
+                'default' => $this->default
+            ]);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+    public function update(Request $request, $id): RedirectResponse
     {
-        $this->productSauceRepository->delete($id);
-        return redirect(route('productSauce.index'));
+        $validated = $this->validateProductSauceRules($request);
+
+        try {
+            $this->changePreviousDefaultToFalse($request->default);
+
+            $requestData = [...$validated, 'default' => $request->default ?? false];
+            $input = $this->prepare($requestData, ['name']);
+            $this->productSauceRepository->update($input, $id);
+
+            session()->flash('success', __('messages.successUpdateProductSauce'));
+            return redirect(route('productSauce.index')); 
+        }
+        catch (Exception $exception) {
+            session()->flash('error', $exception->getMessage());
+            return back();
+        }
     }
 
-    private function getAccessoryById(int $id): object
+    public function destroy($id): RedirectResponse
     {
-        $productSauce = ProductSauce::find($id);
-        return $productSauce;
+        try {
+            $this->productSauceRepository->delete($id);
+
+            session()->flash('success', __('messages.successDeleteProductSauce'));
+            return redirect(route('productSauce.index'));
+        }
+        catch (Exception $exception) {
+            session()->flash('error', $exception->getMessage());
+            return back();
+        }
+    }
+
+    private function validateProductSauceRules(object $request): array
+    {
+        return $request->validate([
+            'name_en' => 'required|string',
+            'name_lt' => 'required|string',
+            'name_ru' => 'required|string',
+            'color' => 'required|string'
+        ]);
+    }
+
+    private function changePreviousDefaultToFalse(string $default): void
+    {
+        if ($default === "1") {
+            $oldDefaultProductSauce = ProductSauce::where('default', true)->first();
+            
+            if ($oldDefaultProductSauce) {
+                $oldDefaultProductSauce->default = false;
+                $oldDefaultProductSauce->save();
+            }
+        }
     }
 }

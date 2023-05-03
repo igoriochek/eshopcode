@@ -48,6 +48,7 @@ return [
     'productSizes' => 'Produktų dydžiai',
     'paidAccessories' => 'Mokami priedai',
     'freeAccessories' => 'Nemokami priedai',
-    'productMeats' => 'Produktų mėsos'
+    'productMeats' => 'Produktų mėsos',
+    'productSauces' => 'Produktų padažai'
 
 ];

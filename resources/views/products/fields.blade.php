@@ -91,13 +91,19 @@
     {!! Form::select('hasMeats', $default, isset($product->hasMeats) ? $product->hasMeats : null, ['class' => 'form-control custom-select']) !!}
 </div>
 
-<!-- hasSizes Field -->
+<!-- hasSauces Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('hasSauces', __('table.hasSauces').':') !!}
+    {!! Form::select('hasSauces', $default, isset($product->hasSauces) ? $product->hasSauces : null, ['class' => 'form-control custom-select']) !!}
+</div>
+
+<!-- hasPaidAccessories Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('hasPaidAccessories', __('table.hasPaidAccessories').':') !!}
     {!! Form::select('hasPaidAccessories', $default, isset($product->hasPaidAccessories) ? $product->hasPaidAccessories : null, ['class' => 'form-control custom-select']) !!}
 </div>
 
-<!-- hasSizes Field -->
+<!-- hasFreeAccessories Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('hasFreeAccessories', __('table.hasFreeAccessories').':') !!}
     {!! Form::select('hasFreeAccessories', $default, isset($product->hasFreeAccessories) ? $product->hasFreeAccessories : null, ['class' => 'form-control custom-select']) !!}

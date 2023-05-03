@@ -46,6 +46,7 @@ return [
     'productSizes' => 'Product Sizes',
     'paidAccessories' => 'Paid Accessories',
     'freeAccessories' => 'Free Accessories',
-    'productMeats' => 'Product Meats'
+    'productMeats' => 'Product Meats',
+    'productSauces' => 'Product Sauces'
 
 ];

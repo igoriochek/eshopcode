@@ -64,6 +64,8 @@ return [
     'hasSizes' => 'Turi dydžių',
     'hasPaidAccessories' => 'Turi mokamų priedų',
     'hasFreeAccessories' => 'Turi nemokamų priedų',
-    'hasMeats' => 'Turi mėsos'
+    'hasMeats' => 'Turi mėsos',
+    'hasSauces' => 'Turi padažų',
+    'color' => 'Spalva'
 
 ];

@@ -301,6 +301,13 @@ return [
     'noProductMeats' => 'No product meats',
     'areYouSureDeleteProductMeat' => 'Are you sure to delete this product meat?',
 
+    //Product sauces
+    'productSauce' => 'Product sauce',
+    'createProductSauce' => 'Create product sauce',
+    'editProductSauce' => 'Edit product sauce',
+    'noProductSauces' => 'No product sauces',
+    'areYouSureDeleteProductSauce' => 'Are you sure to delete this product sauce?',
+
     //Other
     'desc' => 'Description',
     'name' => 'Name',

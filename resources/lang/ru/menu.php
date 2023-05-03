@@ -48,6 +48,7 @@ return [
     'productSizes' => 'Размеры товаров',
     'paidAccessories' => 'Платные аксессуары',
     'freeAccessories' => 'Бесплатные аксессуары',
-    'productMeats' => 'Мясо товаров'
+    'productMeats' => 'Мясо товаров',
+    'productSauces' => 'Соусы товаров'
 
 ];

@@ -64,6 +64,8 @@ return [
     'hasSizes' => 'Has sizes',
     'hasPaidAccessories' => 'Has paid accessories',
     'hasFreeAccessories' => 'Has free accessories',
-    'hasMeats' => 'Has meats'
+    'hasMeats' => 'Has meats',
+    'hasSauces' => 'Has sauces',
+    'color' => 'Color'
 
 ];

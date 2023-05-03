@@ -64,6 +64,8 @@ return [
     'hasSizes' => 'Имеет размеры',
     'hasPaidAccessories' => 'Имеет платные аксессуары',
     'hasFreeAccessories' => 'Имеет бесплатные аксессуары',
-    'hasMeats' => 'Есть мясо'
+    'hasMeats' => 'Есть мясо',
+    'hasSauces' => 'Есть соусы',
+    'color' => 'Цвет'
 
 ];
