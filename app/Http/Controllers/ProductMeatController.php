@@ -2,95 +2,125 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ProductMeat;
 use App\Http\Controllers\AppBaseController;
 use App\Repositories\ProductMeatRepository;
-
 use Illuminate\Http\Request;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Http\RedirectResponse;
+use Exception;
 
 class ProductMeatController extends AppBaseController
 {
+    use PrepareTranslations;
+
     protected $productMeatRepository;
+    private readonly array $default;
+
     public function __construct(ProductMeatRepository $productMeatRepo)
     {
         $this->productMeatRepository = $productMeatRepo;
+        $this->default = [
+            0 => __('names.no'),
+            1 => __('names.yes')
+        ];
     }
-    /**
-     * Display a listing of the Customer.
-     *
-     * @param Request $request
-     *
-     * @return Response
-     */
-    public function index()
+
+    public function index(): Factory|View|Application
     {
-        $productMeat = $this->productMeatRepository->all();
         return view('product_meat.index')
-            ->with('productMeat', $productMeat);
+            ->with('productMeats', $this->productMeatRepository->all());
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create($request)
+    public function create(): Factory|View|Application
     {
-        //
+        return view('product_meat.create')
+            ->with('default', $this->default);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
-        //
+        $validated = $this->validateProductMeatRules($request);
+
+        try {
+            $this->changePreviousDefaultToFalse($request->default);
+
+            $requestData = [...$validated, 'default' => $request->default ?? false];
+            $input = $this->prepare($requestData, ['name']);
+            ProductMeat::create($input);
+
+            session()->flash('success', __('messages.successCreateProductMeat'));
+            return redirect()->route('productMeat.index');
+        }
+        catch (Exception $exception) {
+            session()->flash('error', $exception->getMessage());
+            return back();
+        }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function edit($id): Factory|View|Application
     {
-        //
+        return view('product_meat.edit')
+            ->with([
+                'productMeat' => $this->productMeatRepository->find($id),
+                'default' => $this->default
+            ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function update(Request $request, $id): RedirectResponse
     {
-        //
+        $validated = $this->validateProductMeatRules($request);
+
+        try {
+            $this->changePreviousDefaultToFalse($request->default);
+
+            $requestData = [...$validated, 'default' => $request->default ?? false];
+            $input = $this->prepare($requestData, ['name']);
+            $this->productMeatRepository->update($input, $id);
+
+            session()->flash('success', __('messages.successUpdateProductMeat'));
+            return redirect()->route('productMeat.index');
+        }
+        catch (Exception $exception) {
+            session()->flash('error', $exception->getMessage());
+            return back();
+        }
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function destroy($id): RedirectResponse
     {
-        //
+        try {
+            $this->productMeatRepository->delete($id);
+
+            session()->flash('success', __('messages.successDeleteProductMeat'));
+            return redirect()->route('productMeat.index');
+        }
+        catch (Exception $exception) {
+            return back()->with('error', $exception->getMessage());
+        }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+    private function validateProductMeatRules(object $request): array
     {
-        //
+        return $request->validate([
+            'name_en' => 'required|string',
+            'name_lt' => 'required|string',
+            'name_ru' => 'required|string'
+        ]);
     }
+
+    private function changePreviousDefaultToFalse(string $default): void
+    {
+        if ($default === "1") {
+            $oldDefaultProductMeat = ProductMeat::where('default', true)->first();
+            
+            if ($oldDefaultProductMeat) {
+                $oldDefaultProductMeat->default = false;
+                $oldDefaultProductMeat->save();
+            }
+        }
+    }
+
 }

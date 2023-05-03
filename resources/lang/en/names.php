@@ -294,6 +294,13 @@ return [
     'noFreeAccessories' => 'No free accessories',
     'areYouSureDeleteFreeAccessory' => 'Are you sure to delete this free accessory?',
 
+    //Product meats
+    'productMeat' => 'Product meat',
+    'createProductMeat' => 'Create product meat',
+    'editProductMeat' => 'Edit product meat',
+    'noProductMeats' => 'No product meats',
+    'areYouSureDeleteProductMeat' => 'Are you sure to delete this product meat?',
+
     //Other
     'desc' => 'Description',
     'name' => 'Name',

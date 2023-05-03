@@ -47,6 +47,7 @@ return [
     'euProjects' => 'ЕС проекты',
     'productSizes' => 'Размеры товаров',
     'paidAccessories' => 'Платные аксессуары',
-    'freeAccessories' => 'Бесплатные аксессуары'
+    'freeAccessories' => 'Бесплатные аксессуары',
+    'productMeats' => 'Мясо товаров'
 
 ];

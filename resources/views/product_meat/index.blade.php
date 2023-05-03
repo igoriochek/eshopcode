@@ -1,41 +1,22 @@
 @extends('layouts.app')
-
 @section('content')
-    <section class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1>{{__('names.product_meat')}}</h1>
-                </div>
-                <div class="col-sm-6">
-                    <a class="btn btn-primary float-right"
-                       href="#">
-                       {{__('buttons.addNew')}}
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-12">
+                @include('flash::message')
+                @include('adminlte-templates::common.errors')
+                <div class="d-flex justify-content-between align-items-center">
+                    <h2>{{ __('menu.productMeats') }}</h2>
+                    <a href="{{ route('productMeat.create') }}" class="btn btn-primary">
+                        {{ __('buttons.addNew') }}
                     </a>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <div class="content px-3">
-
-        @include('flash::message')
-
-        <div class="clearfix"></div>
-
-        <div class="card">
-            <div class="card-body p-0">
+            <div class="col-12 mt-40" style="border: 1px solid #e3e3e3; box-shadow: 1px 1px 10px #f5f5f5">
                 @include('product_meat.table')
-
-                <div class="card-footer clearfix">
-                    <div class="float-right">
-
-                    </div>
-                </div>
             </div>
-
         </div>
     </div>
-
 @endsection
+
 

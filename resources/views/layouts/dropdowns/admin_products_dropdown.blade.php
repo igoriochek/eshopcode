@@ -9,6 +9,11 @@
     </a>
 </li>
 <li class="admin-navbar-subitem">
+    <a class="admin-navbar-sublink" style="{{ request()->is('admin/productMeat') ? 'color: #e10000' : '' }}" href="/admin/productMeat">
+        {{__('menu.productMeats')}}
+    </a>
+</li>
+<li class="admin-navbar-subitem">
     <a class="admin-navbar-sublink" style="{{ request()->is('admin/paidAccessory') ? 'color: #e10000' : '' }}" href="/admin/paidAccessory">
         {{__('menu.paidAccessories')}}
     </a>
@@ -16,11 +21,6 @@
 <li class="admin-navbar-subitem">
     <a class="admin-navbar-sublink" style="{{ request()->is('admin/freeAccessory') ? 'color: #e10000' : '' }}" href="/admin/freeAccessory">
         {{__('menu.freeAccessories')}}
-    </a>
-</li>
-<li class="admin-navbar-subitem">
-    <a class="admin-navbar-sublink" style="{{ request()->is('admin/productMeat') ? 'color: #e10000' : '' }}" href="/admin/productMeat">
-        {{__('menu.product_meat')}}
     </a>
 </li>
 <li class="admin-navbar-subitem">

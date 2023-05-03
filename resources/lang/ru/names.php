@@ -293,6 +293,13 @@ return [
     'noFreeAccessories' => 'Нет бесплатных аксессуаров',
     'areYouSureDeleteFreeAccessory' => 'Вы действительно хотите удалить этот бесплатный аксессуар?',
 
+    //Product meats
+    'productMeat' => 'Мясной продукт',
+    'createProductMeat' => 'Создать мясной продукт',
+    'editProductMeat' => 'Редактировать мясо продукта',
+    'noProductMeats' => 'Нет мясных продуктов',
+    'areYouSureDeleteProductMeat' => 'Вы действительно хотите удалить мясо этого продукта?',
+
     //Other
     'desc' => 'Описание',
     'name' => 'Имя',

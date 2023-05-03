@@ -56,7 +56,7 @@ Route::group(array('prefix' => 'admin', 'middleware' => 'admin'), function () {
     Route::resource('discounts', App\Http\Controllers\DiscountController::class);
     Route::resource('freeAccessory', App\Http\Controllers\FreeAccessoryController::class)->except(['show']);
     Route::resource('paidAccessory', App\Http\Controllers\PaidAccessoryController::class)->except(['show']);
-    Route::resource('productMeat', App\Http\Controllers\ProductMeatController::class);
+    Route::resource('productMeat', App\Http\Controllers\ProductMeatController::class)->except(['show']);
     Route::resource('productSauce', App\Http\Controllers\ProductSauceController::class);
     Route::resource('discountCoupons', App\Http\Controllers\DiscountCouponController::class);
     Route::resource('promotions', App\Http\Controllers\PromotionController::class);

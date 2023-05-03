@@ -63,6 +63,7 @@ return [
     'collectTime' => 'Collect Time',
     'hasSizes' => 'Has sizes',
     'hasPaidAccessories' => 'Has paid accessories',
-    'hasFreeAccessories' => 'Has free accessories'
+    'hasFreeAccessories' => 'Has free accessories',
+    'hasMeats' => 'Has meats'
 
 ];

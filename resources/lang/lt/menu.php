@@ -47,6 +47,7 @@ return [
     'euProjects' => 'ES projektai',
     'productSizes' => 'Produktų dydžiai',
     'paidAccessories' => 'Mokami priedai',
-    'freeAccessories' => 'Nemokami priedai'
+    'freeAccessories' => 'Nemokami priedai',
+    'productMeats' => 'Produktų mėsos'
 
 ];

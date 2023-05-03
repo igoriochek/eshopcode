@@ -45,6 +45,7 @@ return [
     'euProjects' => 'EU Projects',
     'productSizes' => 'Product Sizes',
     'paidAccessories' => 'Paid Accessories',
-    'freeAccessories' => 'Free Accessories'
+    'freeAccessories' => 'Free Accessories',
+    'productMeats' => 'Product Meats'
 
 ];

@@ -63,6 +63,7 @@ return [
     'collectTime' => 'Время прибытия',
     'hasSizes' => 'Имеет размеры',
     'hasPaidAccessories' => 'Имеет платные аксессуары',
-    'hasFreeAccessories' => 'Имеет бесплатные аксессуары'
+    'hasFreeAccessories' => 'Имеет бесплатные аксессуары',
+    'hasMeats' => 'Есть мясо'
 
 ];

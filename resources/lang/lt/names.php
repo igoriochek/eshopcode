@@ -296,6 +296,13 @@ return [
     'noFreeAccessories' => 'Nėra nemokamų priedų',
     'areYouSureDeleteFreeAccessory' => 'Ar tikrai noritė ištrinsite šį nemokamą priedą?',
 
+    //Product meats
+    "productMeat" => "Produkto mėsa",
+    'createProductMeat' => 'Sukurti produkto mėsą',
+    'editProductMeat' => 'Redaguoti produkto mėsą',
+    'noProductMeats' => 'Mėsos produktų nėra',
+    'areYouSureDeleteProductMeat' => 'Ar tikrai noritė ištrinsite šio produkto mėsą?',
+
     //Other
     'desc' => 'Aprašymas',
     'name' => 'Pavadinimas',

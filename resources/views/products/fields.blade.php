@@ -85,6 +85,12 @@
     {!! Form::select('hasSizes', $default, isset($product->hasSizes) ? $product->hasSizes : null, ['class' => 'form-control custom-select']) !!}
 </div>
 
+<!-- hasMeats Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('hasMeats', __('table.hasMeats').':') !!}
+    {!! Form::select('hasMeats', $default, isset($product->hasMeats) ? $product->hasMeats : null, ['class' => 'form-control custom-select']) !!}
+</div>
+
 <!-- hasSizes Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('hasPaidAccessories', __('table.hasPaidAccessories').':') !!}

@@ -63,6 +63,7 @@ return [
     'collectTime' => 'Atsiemimo laikas',
     'hasSizes' => 'Turi dydžių',
     'hasPaidAccessories' => 'Turi mokamų priedų',
-    'hasFreeAccessories' => 'Turi nemokamų priedų'
+    'hasFreeAccessories' => 'Turi nemokamų priedų',
+    'hasMeats' => 'Turi mėsos'
 
 ];
