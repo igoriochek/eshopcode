@@ -52,11 +52,29 @@
     <p>{{ $product->discount_id }}</p>
 </div>
 
+@if ($product->hasSizes)
+    <!-- Has Sizes Field -->
+    <div class="col-sm-12">
+        {!! Form::label('updated_at', __('table.hasSizes').':') !!}
+        <p>{{ $product->hasSizes ? __('names.yes') : __('names.no') }}</p>
+    </div>
+@endif
+
+@if ($product->hasPaidAccessories)
+    <!-- Has Sizes Field -->
+    <div class="col-sm-12">
+        {!! Form::label('hasPaidAccessories', __('table.hasPaidAccessories').':') !!}
+        <p>{{ $product->hasPaidAccessories ? __('names.yes') : __('names.no') }}</p>
+    </div>
+@endif
+
+@if ($product->hasFreeAccessories)
 <!-- Has Sizes Field -->
 <div class="col-sm-12">
-    {!! Form::label('updated_at', __('table.hasSizes').':') !!}
-    <p>{{ $product->hasSizes }}</p>
+    {!! Form::label('hasFreeAccessories', __('table.hasFreeAccessories').':') !!}
+    <p>{{ $product->hasFreeAccessories ? __('names.yes') : __('names.no') }}</p>
 </div>
+@endif
 
 <!-- Created At Field -->
 <div class="col-sm-12">

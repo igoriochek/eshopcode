@@ -84,3 +84,15 @@
     {!! Form::label('hasSizes', __('table.hasSizes').':') !!}
     {!! Form::select('hasSizes', $default, isset($product->hasSizes) ? $product->hasSizes : null, ['class' => 'form-control custom-select']) !!}
 </div>
+
+<!-- hasSizes Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('hasPaidAccessories', __('table.hasPaidAccessories').':') !!}
+    {!! Form::select('hasPaidAccessories', $default, isset($product->hasPaidAccessories) ? $product->hasPaidAccessories : null, ['class' => 'form-control custom-select']) !!}
+</div>
+
+<!-- hasSizes Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('hasFreeAccessories', __('table.hasFreeAccessories').':') !!}
+    {!! Form::select('hasFreeAccessories', $default, isset($product->hasFreeAccessories) ? $product->hasFreeAccessories : null, ['class' => 'form-control custom-select']) !!}
+</div>

@@ -62,5 +62,7 @@ return [
     'visible' => 'Matomumas',
     'collectTime' => 'Atsiemimo laikas',
     'hasSizes' => 'Turi dydžių',
+    'hasPaidAccessories' => 'Turi mokamų priedų',
+    'hasFreeAccessories' => 'Turi nemokamų priedų'
 
 ];

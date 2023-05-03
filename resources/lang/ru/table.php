@@ -62,5 +62,7 @@ return [
     'visible' => 'Видимый',
     'collectTime' => 'Время прибытия',
     'hasSizes' => 'Имеет размеры',
+    'hasPaidAccessories' => 'Имеет платные аксессуары',
+    'hasFreeAccessories' => 'Имеет бесплатные аксессуары'
 
 ];

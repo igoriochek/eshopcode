@@ -62,5 +62,7 @@ return [
     'visible' => 'Visible',
     'collectTime' => 'Collect Time',
     'hasSizes' => 'Has sizes',
+    'hasPaidAccessories' => 'Has paid accessories',
+    'hasFreeAccessories' => 'Has free accessories'
 
 ];
