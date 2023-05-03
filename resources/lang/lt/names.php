@@ -289,6 +289,13 @@ return [
     'noPaidAccessories' => 'Nėra mokamų priedų',
     'areYouSureDeletePaidAccessory' => 'Ar tikrai noritė ištrinsite šį mokamą priedą?',
 
+    //Free accessories
+    'freeAccessory' => 'Nemokamas priedas',
+    'createFreeAccessory' => 'Sukurti nemokamą priedą',
+    'editFreeAccessory' => 'Redaguoti nemokamą priedą',
+    'noFreeAccessories' => 'Nėra nemokamų priedų',
+    'areYouSureDeleteFreeAccessory' => 'Ar tikrai noritė ištrinsite šį nemokamą priedą?',
+
     //Other
     'desc' => 'Aprašymas',
     'name' => 'Pavadinimas',

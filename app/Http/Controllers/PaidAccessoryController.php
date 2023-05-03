@@ -5,11 +5,11 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\AppBaseController;
 use App\Models\PaidAccessory;
 use App\Repositories\PaidAccessoryRepository;
-use Exception;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
+use Exception;
 
 use Illuminate\Http\Request;
 

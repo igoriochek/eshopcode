@@ -44,6 +44,7 @@ return [
     'policy' => 'Privacy Policy',
     'euProjects' => 'EU Projects',
     'productSizes' => 'Product Sizes',
-    'paidAccessories' => 'Paid Accessories'
+    'paidAccessories' => 'Paid Accessories',
+    'freeAccessories' => 'Free Accessories'
 
 ];

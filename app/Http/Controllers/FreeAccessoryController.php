@@ -3,112 +3,95 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\AppBaseController;
-use App\Models\FreeAccessory;
 use App\Repositories\FreeAccessoryRepository;
-
 use Illuminate\Http\Request;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Http\RedirectResponse;
+use Exception;
 
 class FreeAccessoryController extends AppBaseController
 {
-    use PrepareTranslations;
+    use PrepareTranslations, forSelector;
+
     protected $freeAccessoryRepository;
+    
     public function __construct(FreeAccessoryRepository $freeAccessoryRepo)
     {
         $this->freeAccessoryRepository = $freeAccessoryRepo;
     }
-    /**
-     * Display a listing of the Customer.
-     *
-     * @param Request $request
-     *
-     * @return Response
-     */
-    public function index()
+
+    public function index(): Factory|View|Application
     {
-        $freeAccessory = $this->freeAccessoryRepository->all();
         return view('free_accessory.index')
-            ->with('freeAccessory', $freeAccessory); 
+            ->with('freeAccessories', $this->freeAccessoryRepository->all()); 
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function create(): Factory|View|Application
     {
-        $freeAccessory = $this->freeAccessoryRepository->all();
         return view('free_accessory.create')
-            ->with('freeAccessory', $freeAccessory);
+            ->with('productList', $this->productsForSelector());
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
-        $input = $request->all();
-        $freeAccessory = $this->freeAccessoryRepository->create($input);
-        return redirect(route('freeAccessory.index'));
+        $validated = $this->validateFreeAccessoryRules($request);
+
+        try {
+            $input = $this->prepare($validated, ['name']);
+            $this->freeAccessoryRepository->create($input);
+
+            return redirect(route('freeAccessory.index'));
+        }
+        catch (Exception $exception) {
+            return back()->with('error', $exception->getMessage());
+        }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        $freeAccessory = $this->freeAccessoryRepository->find($id);
-        return view('free_accessory.show')
-            ->with('freeAccessory', $freeAccessory);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function edit($id): Factory|View|Application
     {
         return view('free_accessory.edit')
-            ->with('freeAccessory', $this->getAccessoryById($id));
-    }
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        $freeAccessory = $this->freeAccessoryRepository->find($id);
-        $input = $this->prepare($request->all(), ['name']);
-        $freeAccessory = $this->freeAccessoryRepository->update($input, $id);
-        return redirect(route('freeAccessory.index'));
+            ->with([
+                'freeAccessory' => $this->freeAccessoryRepository->find($id),
+                'productList' => $this->productsForSelector()
+            ]);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+    public function update(Request $request, $id): RedirectResponse
     {
-        $this->freeAccessoryRepository->delete($id);
-        return redirect(route('freeAccessory.index'));
+        $validated = $this->validateFreeAccessoryRules($request);
+
+        try {
+            $input = $this->prepare($validated, ['name']);
+            $freeAccessory = $this->freeAccessoryRepository->find($id);
+            $this->freeAccessoryRepository->update($input, $id);
+
+            return redirect(route('freeAccessory.index'));
+        }
+        catch (Exception $exception) {
+            return back()->with('error', $exception->getMessage());
+        }
     }
 
-    private function getAccessoryById(int $id): object
+    public function destroy($id): RedirectResponse
     {
-        $freeAccessory = FreeAccessory::find($id);
-        return $freeAccessory;
+        try {
+            $this->freeAccessoryRepository->delete($id);
+            return redirect(route('freeAccessory.index'));
+        }
+        catch (Exception $exception) {
+            return back()->with('error', $exception->getMessage());
+        }
+    }
+
+    private function validateFreeAccessoryRules(object $request): array
+    {
+        return $request->validate([
+            'name_en' => 'required|string',
+            'name_lt' => 'required|string',
+            'name_ru' => 'required|string',
+            'product_id' => 'required|integer'
+        ]);
     }
 }

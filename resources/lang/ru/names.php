@@ -286,6 +286,13 @@ return [
     'noPaidAccessories' => 'Нет платных аксессуаров',
     'areYouSureDeletePaidAccessory' => 'Вы действительно хотите удалить этот платный аксессуар?',
 
+    //Free accessories
+    'freeAccessory' => 'Бесплатный аксессуар',
+    'createFreeAccessory' => 'Создать бесплатный аксессуар',
+    'editFreeAccessory' => 'Изменить бесплатный аксессуар',
+    'noFreeAccessories' => 'Нет бесплатных аксессуаров',
+    'areYouSureDeleteFreeAccessory' => 'Вы действительно хотите удалить этот бесплатный аксессуар?',
+
     //Other
     'desc' => 'Описание',
     'name' => 'Имя',

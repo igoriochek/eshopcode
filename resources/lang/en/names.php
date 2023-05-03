@@ -287,6 +287,13 @@ return [
     'noPaidAccessories' => 'No paid accessories',
     'areYouSureDeletePaidAccessory' => 'Are you sure to delete this paid accessory?',
 
+    //Free accessories
+    'freeAccessory' => 'Free accessory',
+    'createFreeAccessory' => 'Create free accessory',
+    'editFreeAccessory' => 'Edit free accessory',
+    'noFreeAccessories' => 'No free accessories',
+    'areYouSureDeleteFreeAccessory' => 'Are you sure to delete this free accessory?',
+
     //Other
     'desc' => 'Description',
     'name' => 'Name',

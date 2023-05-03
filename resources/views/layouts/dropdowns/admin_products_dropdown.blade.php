@@ -5,7 +5,7 @@
 </li>
 <li class="admin-navbar-subitem">
     <a class="admin-navbar-sublink" style="{{ request()->is('admin/freeAccessory') ? 'color: #e10000' : '' }}" href="/admin/freeAccessory">
-        {{__('menu.free_accessory')}}
+        {{__('menu.freeAccessories')}}
     </a>
 </li>
 <li class="admin-navbar-subitem">

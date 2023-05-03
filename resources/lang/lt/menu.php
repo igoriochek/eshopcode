@@ -46,6 +46,7 @@ return [
     'policy' => 'Privatumo politika',
     'euProjects' => 'ES projektai',
     'productSizes' => 'Produktų dydžiai',
-    'paidAccessories' => 'Mokami priedai'
+    'paidAccessories' => 'Mokami priedai',
+    'freeAccessories' => 'Nemokami priedai'
 
 ];

@@ -46,6 +46,7 @@ return [
     'policy' => 'Политика конфиденциальности',
     'euProjects' => 'ЕС проекты',
     'productSizes' => 'Размеры товаров',
-    'paidAccessories' => 'Платные аксессуары'
+    'paidAccessories' => 'Платные аксессуары',
+    'freeAccessories' => 'Бесплатные аксессуары'
 
 ];
