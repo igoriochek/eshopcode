@@ -3,94 +3,101 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\AppBaseController;
+use App\Models\PaidAccessory;
 use App\Repositories\PaidAccessoryRepository;
+use Exception;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Http\RedirectResponse;
 
 use Illuminate\Http\Request;
 
 class PaidAccessoryController extends AppBaseController
 {
+    use PrepareTranslations;
+    
     protected $paidAccessoryRepository;
+
     public function __construct(PaidAccessoryRepository $paidAccessoryRepo)
     {
         $this->paidAccessoryRepository = $paidAccessoryRepo;
     }
-    /**
-     * Display a listing of the Customer.
-     *
-     * @param Request $request
-     *
-     * @return Response
-     */
-    public function index()
+
+    public function index(): Factory|View|Application
     {
-        $paidAccessory = $this->paidAccessoryRepository->all();
         return view('paid_accessory.index')
-            ->with('paidAccessory', $paidAccessory);
+            ->with('paidAccessories', $this->paidAccessoryRepository->all());
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create($request)
+    public function create(): Factory|View|Application
     {
-        //
+        return view('paid_accessory.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
-        //
+        $validated = $this->validatePaidAccessoryRules($request);
+
+        try {
+            $input = $this->prepare($validated, ['name']);
+            PaidAccessory::create($input);
+
+            session()->flash('success', __('messages.successCreatePaidAccessory'));
+            return redirect()->route('paidAccessory.index');
+        }
+        catch (Exception $exception) {
+            session()->flash('error', $exception->getMessage());
+            return back();
+        }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function edit($id): Factory|View|Application
     {
-        //
+        return view('paid_accessory.edit')
+            ->with('paidAccessory', $this->paidAccessoryRepository->find($id));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function update(Request $request, $id): RedirectResponse
     {
-        //
+        $validated = $this->validatePaidAccessoryRules($request);
+
+        try {
+            $input = $this->prepare($validated, ['name']);
+            $paidAccessory = $this->paidAccessoryRepository->find($id);
+            $paidAccessory->update($input);
+
+            session()->flash('success', __('messages.successUpdatePaidAccessory'));
+            return redirect()->route('paidAccessory.index');
+        } 
+        catch (Exception $exception) {
+            session()->flash('error', $exception->getMessage());
+            return back();
+        }
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function destroy($id): RedirectResponse
     {
-        //
+        try {
+            $paidAccessory = $this->paidAccessoryRepository->find($id);
+            $paidAccessory->delete();
+
+            session()->flash('success', __('messages.successDeletePaidAccessory'));
+            return back();
+        }
+        catch (Exception $exception) {
+            session()->flash('error', $exception->getMessage());
+            return back();
+        }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+    private function validatePaidAccessoryRules(object $request): array
     {
-        //
+        return $request->validate([
+            'name_en' => 'required|string',
+            'name_lt' => 'required|string',
+            'name_ru' => 'required|string',
+            'price' => 'required|numeric'
+        ]);
     }
 }

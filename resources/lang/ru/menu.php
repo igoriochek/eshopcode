@@ -45,6 +45,7 @@ return [
     'termsofservice' => 'Правила',
     'policy' => 'Политика конфиденциальности',
     'euProjects' => 'ЕС проекты',
-    'productSizes' => 'Размеры товаров'
+    'productSizes' => 'Размеры товаров',
+    'paidAccessories' => 'Платные аксессуары'
 
 ];

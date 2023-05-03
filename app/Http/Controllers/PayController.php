@@ -147,7 +147,7 @@ class PayController extends AppBaseController
                     }
 
                     $orderDescription = $this->createDescriptionText($newOrder, $cartItems);
-                    $newOrder->description = $orderDescription;
+                    $newOrder->description = htmlspecialchars($orderDescription);
                     $newOrder->save();
 
                     event(new OrderCreated($newOrder, $user, $cartItems));

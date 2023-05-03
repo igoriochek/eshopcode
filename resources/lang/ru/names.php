@@ -279,6 +279,13 @@ return [
     'addProductSizePrice' => 'Добавить цену к размеру товара',
     'editProductSizePrice' => 'Изменить цену размера товара',
 
+    //Paid accessories
+    'paidAccessory' => 'Платный аксессуар',
+    'createPaidAccessory' => 'Создать платный аксессуар',
+    'editPaidAccessory' => 'Редактировать платный аксессуар',
+    'noPaidAccessories' => 'Нет платных аксессуаров',
+    'areYouSureDeletePaidAccessory' => 'Вы действительно хотите удалить этот платный аксессуар?',
+
     //Other
     'desc' => 'Описание',
     'name' => 'Имя',

@@ -43,6 +43,7 @@ return [
     'termsofservice' => 'Rules',
     'policy' => 'Privacy Policy',
     'euProjects' => 'EU Projects',
-    'productSizes' => 'Product Sizes'
+    'productSizes' => 'Product Sizes',
+    'paidAccessories' => 'Paid Accessories'
 
 ];

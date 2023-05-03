@@ -282,6 +282,13 @@ return [
     'addProductSizePrice' => 'Pridėti kainą prie produkto dydžio',
     'editProductSizePrice' => 'Redaguoti produkto dydžio kainą',
 
+    //Paid accessories
+    'paidAccessory' => 'Mokamas priedas',
+    'createPaidAccessory' => 'Sukurti mokamą priedą',
+    'editPaidAccessory' => 'Redaguoti mokamą priedą',
+    'noPaidAccessories' => 'Nėra mokamų priedų',
+    'areYouSureDeletePaidAccessory' => 'Ar tikrai noritė ištrinsite šį mokamą priedą?',
+
     //Other
     'desc' => 'Aprašymas',
     'name' => 'Pavadinimas',

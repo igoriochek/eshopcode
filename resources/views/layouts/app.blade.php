@@ -7,6 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="verify-paysera" content="23d6a9a8614d0a9e15268433818dd962">
+    {{-- <meta name="verify-paysera" content="da329b7b4c132b3f0e240d45f76a5214"> --}}
     <title>{{ config('app.name', 'Krims kebabai') }}</title>
 
     <!-- Fonts -->

@@ -280,6 +280,13 @@ return [
     'addProductSizePrice' => 'Add price to product size',
     'editProductSizePrice' => 'Edit price of product size',
 
+    //Paid accessories
+    'paidAccessory' => 'Paid accessory',
+    'createPaidAccessory' => 'Create paid accessory',
+    'editPaidAccessory' => 'Edit paid accessory',
+    'noPaidAccessories' => 'No paid accessories',
+    'areYouSureDeletePaidAccessory' => 'Are you sure to delete this paid accessory?',
+
     //Other
     'desc' => 'Description',
     'name' => 'Name',
