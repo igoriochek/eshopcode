@@ -8,9 +8,9 @@
                     <h1>{{__('names.product_sauce')}}</h1>
                 </div>
                 <div class="col-sm-6">
-                    <a class="btn btn-primary float-right"
-                       href="#">
-                       {{__('buttons.addNew')}}
+                    <a class="btn btn-primary float-right" 
+                        href="{{ route('productSauce.create') }}">
+                        {{__('buttons.addNew')}}
                     </a>
                 </div>
             </div>
@@ -29,13 +29,11 @@
 
                 <div class="card-footer clearfix">
                     <div class="float-right">
-
+                        
                     </div>
                 </div>
             </div>
 
         </div>
     </div>
-
 @endsection
-

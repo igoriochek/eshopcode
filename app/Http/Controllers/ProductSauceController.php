@@ -3,16 +3,23 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\AppBaseController;
+use App\Models\ProductSauce;
 use App\Repositories\ProductSauceRepository;
 
 use Illuminate\Http\Request;
 
 class ProductSauceController extends AppBaseController
 {
+    use PrepareTranslations;
     protected $productSauceRepository;
+    private readonly array $default;
     public function __construct(ProductSauceRepository $productSauceRepo)
     {
         $this->productSauceRepository = $productSauceRepo;
+        $this->default = [
+            0 => __('names.no'),
+            1 => __('names.yes')
+        ];
     }
     /**
      * Display a listing of the Customer.
@@ -25,7 +32,7 @@ class ProductSauceController extends AppBaseController
     {
         $productSauce = $this->productSauceRepository->all();
         return view('product_sauce.index')
-            ->with('productSauce', $productSauce);
+            ->with('productSauce', $productSauce); 
     }
 
     /**
@@ -33,9 +40,10 @@ class ProductSauceController extends AppBaseController
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($request)
+    public function create()
     {
-        //
+        return view('product_sauce.create')
+            ->with('default', $this->default);
     }
 
     /**
@@ -46,7 +54,9 @@ class ProductSauceController extends AppBaseController
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+        $productSauce = $this->productSauceRepository->create($input);
+        return redirect(route('productSauce.index'));
     }
 
     /**
@@ -57,7 +67,9 @@ class ProductSauceController extends AppBaseController
      */
     public function show($id)
     {
-        //
+        $productSauce = $this->productSauceRepository->find($id);
+        return view('product_sauce.show')
+            ->with('productSauce', $productSauce);
     }
 
     /**
@@ -68,9 +80,9 @@ class ProductSauceController extends AppBaseController
      */
     public function edit($id)
     {
-        //
+        return view('product_sauce.edit')
+            ->with('productSauce', $this->getAccessoryById($id));
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -80,7 +92,10 @@ class ProductSauceController extends AppBaseController
      */
     public function update(Request $request, $id)
     {
-        //
+        $productSauce = $this->productSauceRepository->find($id);
+        $input = $this->prepare($request->all(), ['name']);
+        $productSauce = $this->productSauceRepository->update($input, $id);
+        return redirect(route('productSauce.index'));
     }
 
     /**
@@ -91,6 +106,13 @@ class ProductSauceController extends AppBaseController
      */
     public function destroy($id)
     {
-        //
+        $this->productSauceRepository->delete($id);
+        return redirect(route('productSauce.index'));
+    }
+
+    private function getAccessoryById(int $id): object
+    {
+        $productSauce = ProductSauce::find($id);
+        return $productSauce;
     }
 }

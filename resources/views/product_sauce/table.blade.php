@@ -8,24 +8,23 @@
         </tr>
         </thead>
         <tbody>
-        @foreach($productSauce as $prodSauce)
+        @foreach($productSauce as $productSau)
             <tr>
-                <td>{{ $prodSauce->name }}</td>
-                <td>{{ $prodSauce->color }}</td>
-                <td>{{ $prodSauce->default }}</td>
+                <td>{{ $productSau->name }}</td>
+                <td>{{ $productSau->color }}</td>
+                <td>{{ $productSau->default }}</td>
                 <td width="120">
+                    {!! Form::open(['route' => ['productSauce.destroy', $productSau], 'method' => 'delete']) !!}
                     <div class='btn-group'>
-                        <a href="#"
-                           class='btn btn-default btn-xs'>
-                            <i class="far fa-eye"></i>
-                        </a>
-                        <a href="#"
+                        <a href="{{ route('productSauce.edit', ['productSauce' => $productSau]) }}"
                            class='btn btn-default btn-xs'>
                             <i class="far fa-edit"></i>
                         </a>
+                        {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
                     </div>
+                    {!! Form::close() !!}
                 </td>
-            </tr>
+            </tr>   
         @endforeach
         </tbody>
     </table>
