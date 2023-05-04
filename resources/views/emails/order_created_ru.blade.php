@@ -1,8 +1,9 @@
 @component('mail::message')
-# Создан Новый Заказ
+# Создан новый заказ
 
 Заказа ID: {{ $orderId }}<br>
-Имя Клиента: {{ $customerName }}<br>
+Имя клиента: {{ $customerName }}<br>
+Дата и время: {{ now()->format('Y-m-d H:i') }}<br>
 
 @component('mail::table')
     |Продукт     |Цена     |Количество  |

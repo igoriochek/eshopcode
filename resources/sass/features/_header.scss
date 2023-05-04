@@ -6,11 +6,11 @@
     .header-body {
         display: flex;
         flex-direction: column;
-        background: #FFF;
+        background: #fff;
         transition: min-height 0.3s ease;
         width: 100%;
-        border-top: 3px solid #EDEDED;
-        border-bottom: 1px solid #EDEDED;
+        border-top: 3px solid #ededed;
+        border-bottom: 1px solid #ededed;
         z-index: 1001;
 
         .header-body-bottom-border-fixed {
@@ -65,8 +65,10 @@
                                     font-weight: 500;
                                     transition: color 100ms ease;
 
-                                    &:hover, &:focus, &:active {
-                                        color: #0088CC;
+                                    &:hover,
+                                    &:focus,
+                                    &:active {
+                                        color: #0088cc;
                                     }
                                 }
 
@@ -105,16 +107,15 @@
                                     margin-top: -2px;
                                     margin-left: -2px;
                                     box-shadow: 0 10px 30px 10px rgb(0 0 0 / 5%);
-                                    background: #FFF;
+                                    background: #fff;
                                     min-width: 50px;
                                     z-index: 10000;
                                     margin-right: 20px;
-                                    transition: opacity .2s ease-out;
+                                    transition: opacity 0.2s ease-out;
                                     border-radius: 0;
 
-
                                     &:before {
-                                        content: '';
+                                        content: "";
                                         display: block;
                                         position: absolute;
                                         top: 0;
@@ -172,7 +173,7 @@
                                     }
 
                                     .social-icons-facebook {
-                                        @include socialIconsEffect(#4267B2);
+                                        @include socialIconsEffect(#4267b2);
                                     }
 
                                     .social-icons-google {
@@ -180,7 +181,7 @@
                                     }
 
                                     .social-icons-twitter {
-                                        @include socialIconsEffect(#1DA1F2);
+                                        @include socialIconsEffect(#1da1f2);
                                     }
                                 }
                             }
@@ -219,19 +220,21 @@
                         max-height: 100%;
 
                         .header-logo {
-                            margin: .8rem 0;
+                            margin: 0.8rem 0;
                             position: relative;
                         }
 
                         .hamburger-button {
-                            background: #0088CC;
+                            background: #0088cc;
                             transition: background 200ms ease;
 
                             i {
                                 color: #fff;
                             }
 
-                            &:hover, &:focus, &:active {
+                            &:hover,
+                            &:focus,
+                            &:active {
                                 background: #00a1f2;
                             }
                         }
@@ -250,23 +253,25 @@
                                     border-radius: 5px;
                                     height: 38px;
                                     background: transparent;
-                                    color: #0088CC;
-                                    border: 2px solid #0088CC;
+                                    color: #0088cc;
+                                    border: 2px solid #0088cc;
                                     display: flex;
                                     justify-content: center;
                                     align-items: center;
-                                    font-size: .8rem;
+                                    font-size: 0.8rem;
                                     transition: all 200ms ease;
 
-                                    &:hover, &:focus, &:active {
-                                        background: #0088CC;
+                                    &:hover,
+                                    &:focus,
+                                    &:active {
+                                        background: #0088cc;
                                         color: #fff;
                                     }
                                 }
 
                                 .header-nav-features-toggle {
                                     color: #444;
-                                    margin: 0 .8rem;
+                                    margin: 0 0.8rem;
                                     font-size: 1.4rem;
                                     transition: color 100ms ease;
 
@@ -282,7 +287,7 @@
                                             background-color: #f33535;
                                             border-radius: 10px;
                                             color: #fff;
-                                            font-size: .4em;
+                                            font-size: 0.4em;
                                             font-weight: 500;
                                             display: flex;
                                             justify-content: center;
@@ -290,13 +295,20 @@
                                         }
                                     }
 
-                                    &:hover, &:focus, &:active {
-                                        color: #0088CC;
+                                    &:hover,
+                                    &:focus,
+                                    &:active {
+                                        color: #0c9f6e;
                                     }
 
                                     .header-nav-features-img {
-                                        &:hover, &:focus, &:active  {
-                                            filter: invert(52%) sepia(37%) saturate(5169%) hue-rotate(170deg) brightness(98%) contrast(101%);
+                                        &:hover,
+                                        &:focus,
+                                        &:active {
+                                            filter: invert(45%) sepia(88%)
+                                                saturate(709%)
+                                                hue-rotate(119deg)
+                                                brightness(84%) contrast(91%);
                                         }
                                     }
                                 }

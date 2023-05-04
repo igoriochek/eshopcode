@@ -47,7 +47,7 @@ class OrderCreatedMail extends Mailable
      */
     public function build()
     {
-        $subject = `__('messages.orderCreatedSubject')`;
+        $subject = __('messages.orderCreatedSubject');
         $markdown = __('messages.orderCreatedMarkdown');
 
         return $this

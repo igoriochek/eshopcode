@@ -26,13 +26,13 @@
     <div class="row">
         <div class="col text-center">
             <p>{{ __('names.wantToApply') }}
-                <a href="#" class="open-apply-coupon" data-bs-toggle="collapse" data-bs-target=".coupon-form-wrapper" aria-expanded="true">
+                <a href="#" class="open-apply-coupon" data-bs-toggle="collapse" data-bs-target=".coupon-form-wrapper" aria-expanded="false">
                     {{ __('names.selectDiscountCoupon') }}
                 </a>
             </p>
         </div>
     </div>
-    <div class="row justify-content-center coupon-form-wrapper mb-5 collapse show">
+    <div class="row justify-content-center coupon-form-wrapper mb-5 collapse">
         <div class="col-12 col-md-8">
             <div class="card">
                 <div class="card-body">

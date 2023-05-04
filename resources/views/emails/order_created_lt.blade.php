@@ -1,8 +1,9 @@
 @component('mail::message')
-# Sukurtas Naujas Užsakymas
+# Sukurtas naujas užsakymas
 
 Užsakymo ID: {{ $orderId }}<br>
-Kliento Vardas: {{ $customerName }}<br>
+Kliento vardas: {{ $customerName }}<br>
+Data ir laikas: {{ now()->format('Y-m-d H:i') }}<br>
 
 @component('mail::table')
     |Produktas     |Kaina     |Kiekis  |

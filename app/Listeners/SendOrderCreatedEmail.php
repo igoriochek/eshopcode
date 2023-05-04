@@ -27,7 +27,7 @@ class SendOrderCreatedEmail
      */
     public function handle($event)
     {
-        Mail::to('info@eshopbilan.eu')->send(new OrderCreatedMail(
+        Mail::to(env('MAIL_TO_ADDRESS'))->send(new OrderCreatedMail(
             $event->orderId,
             $event->orderSum,
             $event->customerName,
