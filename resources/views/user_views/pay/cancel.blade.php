@@ -3,9 +3,11 @@
 @section('content')
 <section class="content-header">
     <div class="container-fluid">
-        <div class="row m-2">
-            <div class="col-sm-6">
-                <h1>Paysera Cancel</h1>
+        <div class="row mt-40 mb-20">
+            <div class="col-12">
+                <div class="d-flex justify-content-center">
+                    <h3>Paysera payment cancelled</h1>
+                </div>
             </div>
         </div>
     </div>

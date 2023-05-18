@@ -25,6 +25,10 @@ class PayController extends AppBaseController
     /** @var CartRepository $cartRepository*/
     private $cartRepository;
 
+    private object $order;
+    private object $orderItems;
+    private array $companyInfo = [];
+
     public function __construct(CartRepository $cartRepo)
     {
         $this->cartRepository = $cartRepo;
@@ -73,12 +77,19 @@ class PayController extends AppBaseController
     public function accept(Request $request, $id)
     {
         $this->setOrder($request, $id);
-        return view('user_views.pay.accept');
+
+        return view('user_views.pay.accept')
+            ->with([
+                'order' => $this->order,
+                'orderItems' => $this->orderItems,
+                'company' => $this->companyInfo
+            ]);
     }
 
     public function cancel(Request $request, $id)
     {
         $this->setOrder($request, $id);
+
         return view('user_views.pay.cancel');
     }
 
@@ -167,13 +178,17 @@ class PayController extends AppBaseController
                     if ($cart->isCompanyBuying) {
                         $companyInfo = $request->session()->get('companyInfo');
                         $this->setCompany($newOrder->id, $companyInfo);
+                        $this->companyInfo = $companyInfo;
 
                         event(new OrderCreated($newOrder, $user, $cartItems, $companyInfo));
 
-                        $request->session()->forget('companyInfo');
+                        // $request->session()->forget('companyInfo');
                     } else {
                         event(new OrderCreated($newOrder, $user, $cartItems));
                     }
+
+                    $this->order = $newOrder;
+                    $this->orderItems = $cartItems;
 
                     return 'OK';
                 }

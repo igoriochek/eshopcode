@@ -43,6 +43,7 @@ return [
     'errorAuthCheck' => 'You are not logged in',
     'successAuthLogin' => 'You are now successfully logged in',
     'errorUnauthAccess' => 'Unauthorized access',
+    'successPurchase' => 'successfully accepted',
 
     'successCreateProductSize' => 'Successfully created product size',
     'successUpdateProductSize' => 'Successfully updated product size',
