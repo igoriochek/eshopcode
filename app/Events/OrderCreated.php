@@ -17,17 +17,19 @@ class OrderCreated
     public object $order;
     public object $customer;
     public object $orderItems;
+    public ?array $companyInfo;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($order, $customer, $orderItems)
+    public function __construct($order, $customer, $orderItems, $companyInfo = null)
     {
         $this->order = $order;
         $this->customer = $customer;
         $this->orderItems = $orderItems;
+        $this->companyInfo = $companyInfo;
     }
 
     /**

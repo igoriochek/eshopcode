@@ -27,10 +27,16 @@ class SendOrderCreatedEmail
      */
     public function handle($event)
     {
-        Mail::to(env('MAIL_TO_ADDRESS'))->send(new OrderCreatedMail(
+        $emails = [
+            'vilmavenckute3@gmail.com',
+            'igoriok.katin@gmail.com'
+        ];
+
+        Mail::to($emails)->send(new OrderCreatedMail(
             $event->order,
             $event->customer,
-            $event->orderItems
+            $event->orderItems,
+            $event->companyInfo ?? null
         ));
     }
 }

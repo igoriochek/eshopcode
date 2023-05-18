@@ -47,6 +47,7 @@ return [
     'eatLocation' => 'Kaip norėtumėte valgyti',
     'selectCompanyBuy' => "Pažymėkite, jeigu perka įmonė",
     'companyBuy' => 'Perka įmonė',
+    'enterPhoneNumber' => 'Įveskite savo telefono numerį',
 
     //Categories
     'categories' => 'Kategorijos',
@@ -129,7 +130,7 @@ return [
 
     //Homepage
     'addedAt' => 'Pridėta',
-    'browseProducts'=> 'Naršyti produktus',
+    'browseProducts' => 'Naršyti produktus',
     'code' => 'Kodas',
     'createdAt' => 'Sukurta',
     'dashboard' => 'Valdyklė',

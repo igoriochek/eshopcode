@@ -21,7 +21,12 @@
                             {{ $productSauce->name }}
                         @endif
                     </td>
-                    <td>{{ $productSauce->color }}
+                    <td>
+                        <div class="d-flex align-items-center gap-2">
+                            <div style="height: 17px; width: 17px; border-radius: 9px; background: {{ $productSauce->color }}"></div>
+                            {{ $productSauce->color }}
+                        </div>
+                    </td>
                     <td>{{ $productSauce->created_at }}</td>
                     <td>{{ $productSauce->updated_at }}</td>
                     <td width="100px">

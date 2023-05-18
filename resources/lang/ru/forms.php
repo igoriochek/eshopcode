@@ -33,6 +33,10 @@ return [
     'uploadPhoto' => 'Загрузить аватар',
     'admin' => 'Администратор',
     'to' => 'к',
+    'companyName' => 'Название компании',
+    'companyAddress' => 'Адрес компании',
+    'companyCode' => 'Код компании',
+    'companyVatCode' => 'Код НДС компании',
 
     'current_password' => 'Текущий пароль',
     'new_password' => 'Новый пароль',

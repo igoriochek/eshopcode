@@ -57,6 +57,7 @@ class OrderSeeder extends Seeder
             $newOrder->status_id = rand(1,7);
             $newOrder->collect_time = rand(7, 24).':00';
             $newOrder->place = rand(1, 2);
+            $newOrder->phone_number = $faker->phoneNumber();
             $newOrder->sum = $cart->sum;
             $newOrder->created_at = Carbon::today()->subDays(rand(0, 365));
 

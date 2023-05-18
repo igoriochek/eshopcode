@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta name="verify-paysera" content="23d6a9a8614d0a9e15268433818dd962">
-    {{-- <meta name="verify-paysera" content="da329b7b4c132b3f0e240d45f76a5214"> --}}
+    <!-- Localhost testing -->
+    {{-- <meta name="verify-paysera" content="23d6a9a8614d0a9e15268433818dd962"> --}}
+    <!-- Krims paysera production -->
+    <meta name="verify-paysera" content="da329b7b4c132b3f0e240d45f76a5214">
+    <!-- Krims paysera testing -->
+    {{-- <meta name="verify-paysera" content="7a0f79c13d0e74941cfa60e50a9b9e15"> --}}
     <title>{{ config('app.name', 'Krims kebabai') }}</title>
 
     <!-- Fonts -->
@@ -16,95 +21,93 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/logo.jpeg') }}"/>
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/logo.jpeg') }}" />
 
     <!-- Styles -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ asset('css/plugins/animate.min.css') }}"/>
-    <link rel="stylesheet" href="{{ asset('css/app.css?v=5.5') }}"/>
-    <link rel="stylesheet" href="{{ asset('css/custom.css') }}"/>
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ asset('css/plugins/animate.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/app.css?v=5.5') }}" />
+    <link rel="stylesheet" href="{{ asset('css/custom.css') }}" />
     <link href="{{ asset('css/jquery-ui.min.css') }}" rel="stylesheet">
     <link href="{{ asset('datatables/media/css/jquery.dataTables.min.css') }}" rel="stylesheet">
     <link href="{{ asset('fontawesome-free/css/all.min.css') }}" rel="stylesheet">
-    <link href="{{asset('css/jquery-ui.css')}}" rel="stylesheet">
+    <link href="{{ asset('css/jquery-ui.css') }}" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.5.1/nouislider.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="{{asset("vendor/cookie-consent/css/cookie-consent.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('vendor/cookie-consent/css/cookie-consent.css') }}">
     @stack('css')
     @livewireStyles
 </head>
+
 <body>
 
-<div class="@auth @if (Auth::user()->type == 1) admin-view @endif @endauth">
-    @auth
-        @if (Auth::user()->type == 1)
-            @include('layouts.navbars.admin_navbar')
-        @else
+    <div class="@auth @if (Auth::user()->type == 1) admin-view @endif @endauth">
+        @auth
+            @if (Auth::user()->type == 1)
+                @include('layouts.navbars.admin_navbar')
+            @else
+                @include('layouts.topbar')
+                @include('layouts.navbars.navbar')
+            @endif
+        @endauth
+        @guest
             @include('layouts.topbar')
             @include('layouts.navbars.navbar')
-        @endif
-    @endauth
-    @guest
-        @include('layouts.topbar')
-        @include('layouts.navbars.navbar')
-    @endif
-    <main>
-        @yield('content')
-    </main>
-    @include('layouts.footer')
-</div>
+            @endif
+            <main>
+                @yield('content')
+            </main>
+            @include('layouts.footer')
+        </div>
 
-<script src="{{asset('js/jquery-3.6.0.min.js')}}"></script>
-<script src="{{asset('js/bootstrap.bundle.js')}}"></script>
-<script src="{{asset('js/jquery.dataTables.min.js')}}"></script>
-<script src="{{asset('js/jquery-ui.js')}}"></script>
-{{--<script src="{{ asset('js/app.js') }}"></script>--}}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.5.1/nouislider.min.js"></script>
-<!-- Vendor JS-->
-<script src="{{asset('/js/vendor/modernizr-3.6.0.min.js')}}"></script>
-<script src="{{asset('/js/vendor/jquery-migrate-3.3.0.min.js')}}"></script>
-<script src="{{asset('/js/vendor/bootstrap.bundle.min.js')}}"></script>
-<script src="{{asset('/js/plugins/slick.js')}}"></script>
-<script src="{{asset('/js/plugins/jquery.syotimer.min.js')}}"></script>
-<script src="{{asset('/js/plugins/waypoints.js')}}"></script>
-<script src="{{asset('/js/plugins/wow.js')}}"></script>
-<script src="{{asset('/js/plugins/perfect-scrollbar.js')}}"></script>
-<script src="{{asset('/js/plugins/magnific-popup.js')}}"></script>
-<script src="{{asset('/js/plugins/select2.min.js')}}"></script>
-<script src="{{asset('/js/plugins/counterup.js')}}"></script>
-<script src="{{asset('/js/plugins/jquery.countdown.min.js')}}"></script>
-<script src="{{asset('/js/plugins/images-loaded.js')}}"></script>
-<script src="{{asset('/js/plugins/isotope.js')}}"></script>
-<script src="{{asset('/js/plugins/scrollup.js')}}"></script>
-<script src="{{asset('/js/plugins/jquery.vticker-min.js')}}"></script>
-<script src="{{asset('/js/plugins/jquery.theia.sticky.js')}}"></script>
-<script src="{{asset('/js/plugins/jquery.elevatezoom.js')}}"></script>
-<!-- Template  JS -->
-<script src="{{asset('/js/main.js?v=5.5')}}"></script>
-<script src="{{asset('/js/shop.js?v=5.5')}}"></script>
-<script>
-
-    $(document).ready(function () {
-        $('#categories').DataTable(
-            {
-                "language":
-                    {
+        <script src="{{ asset('js/jquery-3.6.0.min.js') }}"></script>
+        <script src="{{ asset('js/bootstrap.bundle.js') }}"></script>
+        <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
+        <script src="{{ asset('js/jquery-ui.js') }}"></script>
+        {{-- <script src="{{ asset('js/app.js') }}"></script> --}}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.5.1/nouislider.min.js"></script>
+        <!-- Vendor JS-->
+        <script src="{{ asset('/js/vendor/modernizr-3.6.0.min.js') }}"></script>
+        <script src="{{ asset('/js/vendor/jquery-migrate-3.3.0.min.js') }}"></script>
+        <script src="{{ asset('/js/vendor/bootstrap.bundle.min.js') }}"></script>
+        <script src="{{ asset('/js/plugins/slick.js') }}"></script>
+        <script src="{{ asset('/js/plugins/jquery.syotimer.min.js') }}"></script>
+        <script src="{{ asset('/js/plugins/waypoints.js') }}"></script>
+        <script src="{{ asset('/js/plugins/wow.js') }}"></script>
+        <script src="{{ asset('/js/plugins/perfect-scrollbar.js') }}"></script>
+        <script src="{{ asset('/js/plugins/magnific-popup.js') }}"></script>
+        <script src="{{ asset('/js/plugins/select2.min.js') }}"></script>
+        <script src="{{ asset('/js/plugins/counterup.js') }}"></script>
+        <script src="{{ asset('/js/plugins/jquery.countdown.min.js') }}"></script>
+        <script src="{{ asset('/js/plugins/images-loaded.js') }}"></script>
+        <script src="{{ asset('/js/plugins/isotope.js') }}"></script>
+        <script src="{{ asset('/js/plugins/scrollup.js') }}"></script>
+        <script src="{{ asset('/js/plugins/jquery.vticker-min.js') }}"></script>
+        <script src="{{ asset('/js/plugins/jquery.theia.sticky.js') }}"></script>
+        <script src="{{ asset('/js/plugins/jquery.elevatezoom.js') }}"></script>
+        <!-- Template  JS -->
+        <script src="{{ asset('/js/main.js?v=5.5') }}"></script>
+        <script src="{{ asset('/js/shop.js?v=5.5') }}"></script>
+        <script>
+            $(document).ready(function() {
+                $('#categories').DataTable({
+                    "language": {
                         "emptyTable": "No data available in table",
-                        "info": "{{__("names.showing")}} _START_ {{__("names.to")}} _END_ {{__("names.of")}} _TOTAL_ {{__("names.entries")}}",
-                        "infoEmpty": "{{__("names.showing")}}  0 {{__("names.to")}} 0 {{__("names.of")}} 0 {{__("names.entries")}}",
+                        "info": "{{ __('names.showing') }} _START_ {{ __('names.to') }} _END_ {{ __('names.of') }} _TOTAL_ {{ __('names.entries') }}",
+                        "infoEmpty": "{{ __('names.showing') }}  0 {{ __('names.to') }} 0 {{ __('names.of') }} 0 {{ __('names.entries') }}",
                         "infoFiltered": "(filtered from _MAX_ total entries)",
                         "infoThousands": ",",
-                        "lengthMenu": "{{__("names.showing")}} _MENU_ {{__("names.entries")}}",
+                        "lengthMenu": "{{ __('names.showing') }} _MENU_ {{ __('names.entries') }}",
                         "loadingRecords": "Loading...",
                         "processing": "Processing...",
-                        "search": "{{__("names.search")}}:",
-                        "zeroRecords": "{{__("names.zeroRecords")}}:",
+                        "search": "{{ __('names.search') }}:",
+                        "zeroRecords": "{{ __('names.zeroRecords') }}:",
                         "thousands": ",",
                         "paginate": {
-                            "first": "{{__("names.first")}}",
-                            "previous": "&laquo;&nbsp;{{__("pagination.previous")}}",
-                            "next": "{{__("pagination.next") }}&nbsp;&raquo;",
-                            "last": "{{__("names.last")}}"
+                            "first": "{{ __('names.first') }}",
+                            "previous": "&laquo;&nbsp;{{ __('pagination.previous') }}",
+                            "next": "{{ __('pagination.next') }}&nbsp;&raquo;",
+                            "last": "{{ __('names.last') }}"
                         },
                         "aria": {
                             "sortAscending": ": activate to sort column ascending",
@@ -327,22 +330,20 @@
                             }
                         }
                     }
-            }
-        );
-    });
+                });
+            });
 
-    $(function () {
-        $("#start").datepicker();
-    });
+            $(function() {
+                $("#start").datepicker();
+            });
 
-    $(function () {
-        $("#finish").datepicker();
-    });
+            $(function() {
+                $("#finish").datepicker();
+            });
+        </script>
 
+        @stack('scripts')
+        @livewireScripts
+    </body>
 
-</script>
-
-@stack('scripts')
-@livewireScripts
-</body>
-</html>
+    </html>

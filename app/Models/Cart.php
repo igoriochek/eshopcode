@@ -48,6 +48,7 @@ class Cart extends Model
         'collect_time',
         'place',
         'isCompanyBuying',
+        'phone_number',
         'sum',
         'status_id',
         'admin_id',
@@ -66,6 +67,7 @@ class Cart extends Model
         'collect_time' => 'string',
         'place' => 'integer',
         'isCompanyBuying' => 'boolean',
+        'phone_number' => 'string',
         'sum' => 'double',
         'status_id' => 'integer',
         'admin_id' => 'integer',
@@ -83,7 +85,8 @@ class Cart extends Model
         'code' => 'required',
         'status_id' => 'required',
         'place' => 'required',
-        'isCompanyBuying' => 'required'
+        'isCompanyBuying' => 'required',
+        'phone_number' => 'string'
     ];
 
     public function user()

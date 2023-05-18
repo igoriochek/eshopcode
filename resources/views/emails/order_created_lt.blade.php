@@ -6,7 +6,13 @@ Kliento vardas: {{ $customer->name }}<br>
 Telefono numeris: {{ $customer->phone_number }}<br>
 Atsiemimo laikas: {{ $order->collect_time }}<br>
 Kaip valgys klientas: @if ($order->place) {{ __('names.onTheSpot') }} @else {{ __('names.takeaway') }} @endif<br>
-Perka įmonė: @if ($order->isCompanyBuying) {{ __('names.yes') }} @else {{ __('names.no') }} @endif <br>
+Perka įmonė: @if ($order->isCompanyBuying) {{ __('names.yes') }} @else {{ __('names.no') }} @endif <br><br>
+@if ($order->isCompanyBuying)
+Įmonės pavadinimas: {{ $company['name'] }}<br>
+Įmonės adresas: {{ $company['address'] }}<br>
+Įmonės kodas: {{ $company['code'] }}<br>
+Įmonės PVM kodas: {{ $company['vat_code'] ?? '-' }}<br>
+@endif
 
 @component('mail::table')
     |Produktas     |Kaina     |Kiekis  |
@@ -17,7 +23,7 @@ Perka įmonė: @if ($order->isCompanyBuying) {{ __('names.yes') }} @else {{ __('
     |Bendra Suma | €{{ number_format($order->sum, 2) }} | {{ $orderItemCountSum }} |
 @endcomponent
 
-@component('mail::button', ['url' => env('APP_URL').'/admin/orders/1'])
+@component('mail::button', ['url' => env('APP_URL').'/admin/orders/'.$order->id])
     Peržiūrėti Užsakymą
 @endcomponent
 

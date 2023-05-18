@@ -8,6 +8,7 @@ use App\Events\OrderCreated;
 use App\Http\Requests\PayRequest;
 use App\Models\Cart;
 use App\Models\CartItem;
+use App\Models\Company;
 use App\Models\DiscountCoupon;
 use App\Models\Order;
 use App\Models\OrderItem;
@@ -38,11 +39,11 @@ class PayController extends AppBaseController
         $partialAmount = str_replace(",", "", $amountArray[0]);
 
         if (isset($amountArray[1]) && strlen($amountArray[1]) === 1) {
-            $amountArray[1] = $amountArray[1].'0';
+            $amountArray[1] = $amountArray[1] . '0';
         }
 
         $cents = $amountArray[1] ?? '00';
-        $fullAmount = $partialAmount.$cents;
+        $fullAmount = $partialAmount . $cents;
 
         $appUrl = env('APP_URL');
         $payment = [
@@ -52,9 +53,9 @@ class PayController extends AppBaseController
             'amount' => $fullAmount,
             'currency' => 'EUR',
             'country' => 'LT',
-            'accepturl' => $appUrl. '/user/pay/accept/' . $cartId,
-            'cancelurl' => $appUrl. '/user/pay/cancel/' . $cartId,
-            'callbackurl' => $appUrl. '/user/pay/callback/' . $cartId,
+            'accepturl' => $appUrl . '/user/pay/accept/' . $cartId,
+            'cancelurl' => $appUrl . '/user/pay/cancel/' . $cartId,
+            'callbackurl' => $appUrl . '/user/pay/callback/' . $cartId,
         ];
 
         if (true !== env('WEBTOPAY_PROD')) {
@@ -86,12 +87,24 @@ class PayController extends AppBaseController
         return $this->setOrder($request, $id);
     }
 
+    private function setCompany(int $id, array $companyInfo): void
+    {
+        Company::create([
+            'name' => $companyInfo['name'],
+            'address' => $companyInfo['address'],
+            'code' => $companyInfo['code'],
+            'vat_code' => $companyInfo['vatCode'],
+            'order_id' => $id
+        ]);
+    }
+
     private function setOrder(Request $request, $id)
     {
         $params = [];
         parse_str(base64_decode(strtr($request->get('data'), ['-' => '+', '_' => '/'])), $params);
 
-        if (is_array($params) &&
+        if (
+            is_array($params) &&
             isset($params['status']) &&
             $params['status'] == 1 &&
             is_numeric($id)
@@ -123,6 +136,7 @@ class PayController extends AppBaseController
                 $newOrder->collect_time = $cart->collect_time;
                 $newOrder->place = $cart->place;
                 $newOrder->isCompanyBuying = $cart->isCompanyBuying;
+                $newOrder->phone_number = $cart->phone_number;
                 $newOrder->sum = $params['amount'] / 100;
 
                 if ($newOrder->save()) {
@@ -142,7 +156,7 @@ class PayController extends AppBaseController
                     }
                     $user = Auth::user();
 
-                    if($user){
+                    if ($user) {
                         $user->log("Created new Order ID:{$newOrder->id}");
                     }
 
@@ -150,7 +164,16 @@ class PayController extends AppBaseController
                     $newOrder->description = htmlspecialchars($orderDescription);
                     $newOrder->save();
 
-                    event(new OrderCreated($newOrder, $user, $cartItems));
+                    if ($cart->isCompanyBuying) {
+                        $companyInfo = $request->session()->get('companyInfo');
+                        $this->setCompany($newOrder->id, $companyInfo);
+
+                        event(new OrderCreated($newOrder, $user, $cartItems, $companyInfo));
+
+                        $request->session()->forget('companyInfo');
+                    } else {
+                        event(new OrderCreated($newOrder, $user, $cartItems));
+                    }
 
                     return 'OK';
                 }
@@ -179,40 +202,40 @@ class PayController extends AppBaseController
 
     private function createDescriptionText(object $order, object $orderItems): string
     {
-        $orderId = __('names.order').' ID:'.$order->id;
-        $clientName = __('names.name').':'.$order->user->name;
+        $orderId = __('names.order') . ' ID:' . $order->id;
+        $clientName = __('names.name') . ':' . $order->user->name;
 
         $orderClientPhoneNumber = isset($order->user->phone_number) ? $order->user->phone_number : '';
-        $clientPhoneNumber = __('forms.phone_number').':'.$orderClientPhoneNumber;
-        
-        $collectTime = __('table.collectTime').':'.$order->collect_time;
+        $clientPhoneNumber = __('forms.phone_number') . ':' . $orderClientPhoneNumber;
+
+        $collectTime = __('table.collectTime') . ':' . $order->collect_time;
 
         $orderPlace = $order->place == '1' ? __('names.onTheSpot') : __('names.takeaway');
-        $place = __('names.eatLocation').':'.$orderPlace;
+        $place = __('names.eatLocation') . ':' . $orderPlace;
 
         $orderCompanyPurchase = $order->isCompanyBuying ? __('names.yes') : __('names.no');
-        $companyPurchase = __('names.companyBuy').':'.$orderCompanyPurchase;
+        $companyPurchase = __('names.companyBuy') . ':' . $orderCompanyPurchase;
 
         $orderItemDescriptions = [];
 
         foreach ($orderItems as $orderItem) {
-            $name = __('names.productName').':'.$orderItem->product->name;
-            $size = isset($orderItem->itemSize->name) ? __('names.sauce').':'.$orderItem->itemSize->name : '';
-            $meat = isset($orderItem->meat->name) ? __('names.meat').':'.$orderItem->meat->name : '';
-            $sauce = isset($orderItem->sauce->name) ? __('names.meat').':'.$orderItem->sauce->name : '';
+            $name = __('names.productName') . ':' . $orderItem->product->name;
+            $size = isset($orderItem->itemSize->name) ? __('names.sauce') . ':' . $orderItem->itemSize->name : '';
+            $meat = isset($orderItem->meat->name) ? __('names.meat') . ':' . $orderItem->meat->name : '';
+            $sauce = isset($orderItem->sauce->name) ? __('names.meat') . ':' . $orderItem->sauce->name : '';
 
             $paidAccessories = $this->setPaidAccessoriesToOrderItem($orderItem);
             $freeAccessories = $this->setFreeAccessoriesToOrderItem($orderItem);
 
-            count($paidAccessories) > 0 ? $paidAccessories = __('names.paidAccessories').':'.implode("," ,$paidAccessories) : $paidAccessories = '';
-            count($freeAccessories) > 0 ? $freeAccessories = __('names.compositionWithout').':'.implode(",", $freeAccessories) : $freeAccessories = '';
+            count($paidAccessories) > 0 ? $paidAccessories = __('names.paidAccessories') . ':' . implode(",", $paidAccessories) : $paidAccessories = '';
+            count($freeAccessories) > 0 ? $freeAccessories = __('names.compositionWithout') . ':' . implode(",", $freeAccessories) : $freeAccessories = '';
 
-            $orderItemDescriptions[] = $name.' - '.$size.' '.$meat.' '.$sauce.' '.$paidAccessories.' '.$freeAccessories;
+            $orderItemDescriptions[] = $name . ' - ' . $size . ' ' . $meat . ' ' . $sauce . ' ' . $paidAccessories . ' ' . $freeAccessories;
         }
 
         count($orderItemDescriptions) > 0 ? $orderItemDescriptions = implode(", ", $orderItemDescriptions) : $orderItemDescriptions = '';
-        
-        return $orderId.' '.$clientName.' '.$clientPhoneNumber.' '.$collectTime.' '.$place.' '.$companyPurchase.' '.$orderItemDescriptions;
+
+        return $orderId . ' ' . $clientName . ' ' . $clientPhoneNumber . ' ' . $collectTime . ' ' . $place . ' ' . $companyPurchase . ' ' . $orderItemDescriptions;
     }
 
     private function setPaidAccessoriesToOrderItem(object $orderItem): array

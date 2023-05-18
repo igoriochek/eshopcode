@@ -39,6 +39,7 @@ class Returns extends Model
         'collect_time',
         'place',
         'isCompanyBuying',
+        'phone_number',
         'description',
         'status_id',
         'created_at',
@@ -57,6 +58,7 @@ class Returns extends Model
         'code' => 'string',
         'collect_time' => 'string',
         'place' => 'integer',
+        'phone_number' => 'string',
         'isCompanyBuying' => 'boolean',
         'description' => 'string',
         'status_id' => 'integer',
@@ -76,6 +78,7 @@ class Returns extends Model
         'code' => 'required',
         'status_id' => 'required',
         'isCompanyBuying' => 'required',
+        'phone_number' => 'string',
     ];
 
     public function user()

@@ -6,7 +6,13 @@ Customer name: {{ $customer->name }}<br>
 Phone number: {{ $customer->phone_number }}<br>
 Collect time: {{ $order->collect_time }}<br>
 How will the customer eat: @if ($order->place == '1') {{ __('names.onTheSpot') }} @elseif ($order->place == '2') {{ __('names.takeaway') }} @endif<br>
-Company purchase: @if ($order->isCompanyBuying) {{ __('names.yes') }} @else {{ __('names.no') }} @endif <br>
+Company purchase: @if ($order->isCompanyBuying) {{ __('names.yes') }} @else {{ __('names.no') }} @endif <br><br>
+@if ($order->isCompanyBuying)
+Company name: {{ $company['name'] }}<br>
+Company address: {{ $company['address'] }}<br>
+Company code: {{ $company['code'] }}<br>
+Company VAT code: {{ $company['vat_code'] ?? '-' }}<br>
+@endif
 
 @component('mail::table')
     |Product     |Price     |Quantity  |
@@ -22,7 +28,7 @@ Company purchase: @if ($order->isCompanyBuying) {{ __('names.yes') }} @else {{ _
     |Total Sum | €{{ number_format($order->sum, 2) }} | {{ $orderItemCountSum }} |
 @endcomponent
 
-@component('mail::button', ['url' => env('APP_URL').'/admin/orders/1'])
+@component('mail::button', ['url' => env('APP_URL').'/admin/orders/'.$order->id])
     View Order
 @endcomponent
 

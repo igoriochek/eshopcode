@@ -21,9 +21,10 @@ class CreateCartsTable extends Migration
             $table->time('collect_time')->nullable();
             $table->integer('place')->nullable();
             $table->boolean('isCompanyBuying')->default(false);
+            $table->string('phone_number')->nullable();
             $table->double('sum')->nullable();
             $table->unsignedBigInteger('status_id')->unsigned();
-            $table->unsignedBigInteger('admin_id')->unsigned();//->nullable(true);
+            $table->unsignedBigInteger('admin_id')->unsigned(); //->nullable(true);
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('status_id')->references('id')->on('cart_statuses');

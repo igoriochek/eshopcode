@@ -45,6 +45,7 @@ return [
     'eatLocation' => 'How you would like to eat',
     'selectCompanyBuy' => "Check if it's company purchase",
     'companyBuy' => 'Company purchase',
+    'enterPhoneNumber' => 'Enter your phone number',
 
     'adminUserCount' => 'Admin User Count',
     'canceled' => 'Canceled',

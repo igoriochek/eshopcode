@@ -19,6 +19,7 @@ use App\Repositories\CartRepository;
 use App\Repositories\DiscountCouponRepository;
 use App\Repositories\OrderRepository;
 use App\Http\Controllers\AppBaseController;
+use App\Models\Company;
 use Dompdf\Dompdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -124,6 +125,7 @@ class OrderController extends AppBaseController
             'order' => $order,
             'orderItems' => $orderItems,
             'logs' => $logs,
+            'company' => Company::where('order_id', $id)->first()
         ]);
     }
 
@@ -263,8 +265,7 @@ class OrderController extends AppBaseController
 
         foreach ($orderItems as $item) {
 
-            $returnItem = ReturnItem::
-            where([
+            $returnItem = ReturnItem::where([
                 'order_id' => $order->id,
                 'user_id' => $userId,
                 'product_id' => $item->product_id
@@ -281,9 +282,8 @@ class OrderController extends AppBaseController
 
         $logs = LogActivity::search("Order ID:{$id}")->get();
 
-        foreach ($logs as $log ){
+        foreach ($logs as $log) {
             $log->activity = $this->logTranslate($log->activity, app()->getLocale());
-
         }
 
         return view('user_views.orders.view')->with([
@@ -382,7 +382,8 @@ class OrderController extends AppBaseController
 
         $discountAmounted = null;
 
-        if (isset($validated['discount']) &&
+        if (
+            isset($validated['discount']) &&
             is_array($validated['discount'])
         ) {
             $discounts = DiscountCoupon::query()
@@ -408,11 +409,22 @@ class OrderController extends AppBaseController
         }
 
         $minutes = $request->minutes ?? '00';
-        $this->cartRepository->setCartCollectTime($cart, $request->hours.':'.$minutes);
+        $this->cartRepository->setCartCollectTime($cart, $request->hours . ':' . $minutes);
 
         $cart->place = $request->place;
         $cart->isCompanyBuying = $request->isCompanyBuying ?? false;
+        $cart->phone_number = $request->phone_number;
         $cart->save();
+
+        if ($cart->isCompanyBuying) {
+            $companyInfo = [
+                'name' => $request->company_name,
+                'address' => $request->company_address,
+                'code' => $request->company_code,
+                'vatCode' => $request->company_vat_code
+            ];
+            $request->session()->put('companyInfo', $companyInfo);
+        }
 
         $request->session()->put('appPayCartId', $cart->id);
         $request->session()->put('appPayAmount', $amount);
@@ -425,6 +437,7 @@ class OrderController extends AppBaseController
                 'discounts' => $discounts ?? [],
                 'discountedAmount' => $discountAmounted,
                 'amount' => $amount,
+                'companyInfo' => $companyInfo ?? null
             ]);
     }
 
@@ -454,8 +467,10 @@ class OrderController extends AppBaseController
 
         if ($user->id != $order->user_id) $user = User::query()->where(['id' => $order->user_id])->first();
 
-        return StyledPDF::loadView('user_views.orders.invoice',
-            ['order' => $order, 'orderItems' => $orderItems])->stream('invoice.pdf');
+        return StyledPDF::loadView(
+            'user_views.orders.invoice',
+            ['order' => $order, 'orderItems' => $orderItems]
+        )->stream('invoice.pdf');
     }
 
     public function invoicePreview($id)
@@ -489,7 +504,5 @@ class OrderController extends AppBaseController
             'order' => $order,
             'orderItems' => $orderItems
         ]);
-
     }
-
 }

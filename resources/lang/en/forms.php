@@ -31,6 +31,10 @@ return [
     'userProfile' => 'User Profile',
     'admin' => "Administrator",
     'to' => 'To',
+    'companyName' => 'Company name',
+    'companyAddress' => 'Company address',
+    'companyCode' => 'Company code',
+    'companyVatCode' => 'Company VAT code' ,
 
     'current_password' => "Current password",
     'new_password' => "New password",

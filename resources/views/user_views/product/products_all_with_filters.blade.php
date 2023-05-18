@@ -4,7 +4,7 @@
     @include('page_header', [
         'secondPageLink' => 'products',
         'secondPageName' => __('menu.products'),
-        'hasThirdPage' => false
+        'hasThirdPage' => false,
     ])
     <div class="container mb-30 mt-30" style="transform: none;">
         <div class="row" style="transform: none;">
@@ -15,16 +15,16 @@
                         <p>
                             {{ __('names.showing') }}
                             @if ($products->currentPage() !== $products->lastPage())
-                                {{ ($products->count() * $products->currentPage() - $products->count() + 1).__('–').($products->count() * $products->currentPage())}}
+                                {{ $products->count() * $products->currentPage() - $products->count() + 1 . __('–') . $products->count() * $products->currentPage() }}
                             @else
                                 @if ($products->total() - $products->count() === 0)
                                     {{ $products->count() }}
                                 @else
-                                    {{ ($products->total() - $products->count()).__('–').$products->total() }}
+                                    {{ $products->total() - $products->count() . __('–') . $products->total() }}
                                 @endif
                             @endif
                             {{ __('names.of') }}
-                            {{ $products->total().' '.__('names.resultsOf') }}
+                            {{ $products->total() . ' ' . __('names.resultsOf') }}
                         </p>
                     </div>
                     <div class="sort-by-product-area">
@@ -47,17 +47,21 @@
                     {{ $products->onEachSide(1)->links() }}
                 </div>
             </div>
-            <div class="col-xl-3 col-lg-4 col-md-5 col-12 primary-sidebar sticky-sidebar order-md-1 order-0" style="position: relative; overflow: visible; box-sizing: border-box; min-height: 1px;">
+            <div class="col-xl-3 col-lg-4 col-md-5 col-12 primary-sidebar sticky-sidebar order-md-1 order-0"
+                style="position: relative; overflow: visible; box-sizing: border-box; min-height: 1px;">
                 <!-- Product sidebar Widget -->
-                <div class="theiaStickySidebar" style="padding-top: 0; padding-bottom: 1px; position: static; transform: none;">
-                    <form method="get" action="{{ route("userproducts") }}" id="mainForm">
+                <div class="theiaStickySidebar"
+                    style="padding-top: 0; padding-bottom: 1px; position: static; transform: none;">
+                    <form method="get" action="{{ route('userproducts') }}" id="mainForm">
                         <div class="sidebar-widget price_range range mb-30">
                             <h5 class="section-title style-1 mb-30">{{ __('names.search') }}</h5>
                             <div class="d-flex align-items-center">
-                                <input type="text" name="filter[namelike]" class="form-control"
-                                       id="filter[namelike]" style="font-size: 1em; border-radius: 5px 0 0 5px"
-                                       placeholder="{{ __('names.searchForItems') }}..." value="{{$filter["namelike"] ?? ""}}">
-                                <button type="submit" class="btn btn-primary p-2 border-0" style="height: 48px; border-radius: 0 5px 5px 0">
+                                <input type="text" name="filter[namelike]" class="form-control" id="filter[namelike]"
+                                    style="font-size: 1em; border-radius: 5px 0 0 5px"
+                                    placeholder="{{ __('names.searchForItems') }}..."
+                                    value="{{ $filter['namelike'] ?? '' }}">
+                                <button type="submit" class="btn btn-primary p-2 border-0"
+                                    style="height: 48px; border-radius: 0 5px 5px 0">
                                     <i class="fas fa-search m-2"></i>
                                 </button>
                             </div>
@@ -70,16 +74,17 @@
                                     <div class="d-flex justify-content-between">
                                         <div class="caption">{{ __('names.from') }}:
                                             <span class="fs-6" style="color: #e10000">€</span>
-                                            <input type="text" id="filter[pricefrom]" name="filter[pricefrom]"
-                                                   readonly
-                                                   value="{{ $filter["pricefrom"] ?? '0' }}"
-                                                   class="border-0 text-start text-brand p-0 fw-bold" style="max-width: 40px"/>
+                                            <input type="text" id="filter[pricefrom]" name="filter[pricefrom]" readonly
+                                                value="{{ $filter['pricefrom'] ?? '0' }}"
+                                                class="border-0 text-start text-brand p-0 fw-bold"
+                                                style="max-width: 40px" />
                                         </div>
                                         <div class="caption">{{ __('names.to') }}:
                                             <span class="fs-6" style="color: #e10000">€</span>
                                             <input type="text" id="filter[priceto]" name="filter[priceto]" readonly
-                                                   value="{{ $filter["priceto"] ?? '0' }}"
-                                                   class="border-0 text-start text-brand p-0 fw-bold" style="max-width: 40px"/>
+                                                value="{{ $filter['priceto'] ?? '0' }}"
+                                                class="border-0 text-start text-brand p-0 fw-bold"
+                                                style="max-width: 40px" />
                                         </div>
                                     </div>
                                 </div>
@@ -89,26 +94,23 @@
                                     <label class="fw-900 mb-2">{{ __('names.categories') }}:</label>
                                     @forelse($categories as $category)
                                         <div class="form-check mb-2 ms-1">
-                                            <input class="form-check-input" type="checkbox"
-                                                   value="{{ $category->id }}" id="category" onclick="calc();"
-                                                    @if ($filter && array_key_exists('categories.id', $filter))
-                                                        {{ in_array($category->id, $selCategories) ? "checked=\"checked\"" : ""}}
-                                                    @endif
-                                            >
+                                            <input class="form-check-input" type="checkbox" value="{{ $category->id }}"
+                                                id="category" onclick="calc();"
+                                                @if ($filter && array_key_exists('categories.id', $filter)) {{ in_array($category->id, $selCategories) ? "checked=\"checked\"" : '' }} @endif>
                                             <label class="form-check-label" for="categories.id">
-                                                {{ $category->name.' ('.count($category->products).')' }}
+                                                {{ $category->name }}
                                             </label>
                                         </div>
                                     @empty
                                         <span class="text-muted">{{ __('names.noCategories') }}</span>
                                     @endforelse
-                                    <input type="text" value="{{ implode(",", $selCategories) }}"
-                                           name="filter[categories.id]" id="filter[categories.id]"
-                                           class="d-none">
+                                    <input type="text" value="{{ implode(',', $selCategories) }}"
+                                        name="filter[categories.id]" id="filter[categories.id]" class="d-none">
                                 </div>
                             </div>
                             <input type="hidden" id="order" name="order" value="{{ $selectedOrder }}">
-                            <button type="submit" class="btn btn-primary w-100 border-0" id="filterSubmit" style="font-size: 15px; padding: 10px 0">
+                            <button type="submit" class="btn btn-primary w-100 border-0" id="filterSubmit"
+                                style="font-size: 15px; padding: 10px 0">
                                 <i class="fi-rs-filter mr-5"></i>
                                 {{ __('buttons.filter') }}
                             </button>
@@ -136,7 +138,7 @@
                     range: true,
                     min: {{ $minPrice }},
                     max: {{ $maxPrice }},
-                    values: [{{ $filter["pricefrom"] ?? $minPrice }}, {{ $filter["priceto"] ?? $maxPrice }}],
+                    values: [{{ $filter['pricefrom'] ?? $minPrice }}, {{ $filter['priceto'] ?? $maxPrice }}],
                     slide: (event, ui) => {
                         $(priceFrom).val(ui.values[0]);
                         $(priceTo).val(ui.values[1]);
@@ -208,4 +210,3 @@
         </style>
     @endpush
 @endsection
-

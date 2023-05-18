@@ -31,6 +31,10 @@ return [
     'userProfile' => 'Naudotojo profilis',
     'admin' => 'Administratorius',
     'to' => 'Kam',
+    'companyName' => 'Įmonės pavadinimas',
+    'companyAddress' => 'Įmonės adresas',
+    'companyCode' => 'Įmonės kodas',
+    'companyVatCode' => 'Įmonės PVM kodas',
 
     'current_password' => 'Dabartinis slaptažodis',
     'new_password' => 'Naujas slaptažodis',

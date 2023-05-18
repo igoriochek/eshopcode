@@ -16,17 +16,19 @@ class OrderCreatedMail extends Mailable
     private object $order;
     private object $customer;
     private object $orderItems;
+    private ?array $companyInfo;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($order, $customer, $orderItems)
+    public function __construct($order, $customer, $orderItems, $companyInfo = null)
     {
         $this->order = $order;
         $this->customer = $customer;
         $this->orderItems = $orderItems;
+        $this->companyInfo = $companyInfo;
     }
 
     private function calculateOrderItemCountSum(object $orderItems): int
@@ -82,7 +84,7 @@ class OrderCreatedMail extends Mailable
 
     /**
      * Build the message.
-     *
+     *§
      * @return $this
      */
     public function build()
@@ -90,13 +92,14 @@ class OrderCreatedMail extends Mailable
         $this->setAccessoriesToOrderItems($this->orderItems);
 
         return $this
-            ->subject(__('messages.orderCreatedSubject'))
-            ->markdown(__('messages.orderCreatedMarkdown'))
+            ->subject(__('Sukurtas Naujas Užsakymas'))
+            ->markdown(__('emails.order_created_lt'))
             ->with([
                 'order' => $this->order,
                 'customer' => $this->customer,
                 'orderItems' => $this->orderItems,
-                'orderItemCountSum' => $this->calculateOrderItemCountSum($this->orderItems)
+                'orderItemCountSum' => $this->calculateOrderItemCountSum($this->orderItems),
+                'company' => $this->companyInfo ?? null
             ]);
     }
 }

@@ -42,6 +42,7 @@ class Order extends Model
         'collect_time',
         'place',
         'isCompanyBuying',
+        'phone_number',
         'description',
         'sum',
         'created_at',
@@ -62,6 +63,7 @@ class Order extends Model
         'collect_time' => 'string',
         'place' => 'integer',
         'isCompanyBuying' => 'boolean',
+        'phone_number' => 'string',
         'description' => 'string',
         'sum' => 'double',
         'created_at' => 'datetime',
@@ -78,7 +80,8 @@ class Order extends Model
         'admin_id' => 'required',
         'status_id' => 'required',
         'description' => 'nullable|string',
-        'place' => 'required'
+        'place' => 'required',
+        'phone_number' => 'string'
     ];
 
     public function user()

@@ -17,6 +17,7 @@ use App\Models\ReturnStatus;
 use App\Repositories\ReturnItemRepository;
 use App\Repositories\ReturnsRepository;
 use App\Http\Controllers\AppBaseController;
+use App\Models\Company;
 use Illuminate\Http\Request;
 use Flash;
 use Illuminate\Support\Facades\Auth;
@@ -115,7 +116,7 @@ class ReturnsController extends AppBaseController
         return view('returns.show')->with([
             'returns' => $returns,
             'returnItems' => $returnItems,
-            'logs'=>$logs,
+            'logs' => $logs,
         ]);
     }
 
@@ -270,9 +271,8 @@ class ReturnsController extends AppBaseController
 
         $logs = $this->getOrderByReturnId($id);
 
-        foreach ($logs as $log ){
+        foreach ($logs as $log) {
             $log->activity = $this->logTranslate($log->activity, app()->getLocale());
-
         }
 
         return view('user_views.returns.view')->with([
@@ -363,6 +363,10 @@ class ReturnsController extends AppBaseController
                 'status_id' => 1,
             ]);
 
+            $company = Company::where('order_id', $order->id)->first();
+            $company->return_id = $returns->id;
+            $company->save();
+
             $orderItems = [];
             foreach ($return_items as $item) {
 
@@ -386,8 +390,6 @@ class ReturnsController extends AppBaseController
                         'price_current' => $item[0]->price_current,
                         'count' => $item[0]->count,
                     ]);
-
-
                 }
             }
 
@@ -458,7 +460,8 @@ class ReturnsController extends AppBaseController
      * @param $id return_id
      * @return mixed
      */
-    private function getOrderByReturnId($id){
+    private function getOrderByReturnId($id)
+    {
         $orderId = Returns::where(['id' => $id])->value('order_id');
 
         return LogActivity::search("Order ID:{$orderId}")->get();
