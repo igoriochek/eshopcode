@@ -39,6 +39,8 @@ class Product extends Model implements TranslatableContract
         'discount_id',
         'created_at',
         'updated_at',
+        'rental_start_date',
+        'rental_end_date'
     ];
 
     /**
@@ -55,7 +57,9 @@ class Product extends Model implements TranslatableContract
         'promotion_id' => 'integer',
         'discount_id' => 'integer',
         'created_at' => 'datetime',
-        'updated_at' => 'datetime'
+        'updated_at' => 'datetime',
+        'rental_start_date' => 'datetime',
+        'rental_end_date' => 'datetime'
     ];
 
     /**
@@ -101,6 +105,10 @@ class Product extends Model implements TranslatableContract
     {
         return $query->where('name', 'like', "%$name%");
     }
-
+    public function scopeAvailableForRental(Builder $query)
+    {
+        return $query->whereNull('rental_start_date')
+            ->orWhereDate('rental_end_date', '<=', now()->toDateString());
+    }
 
 }

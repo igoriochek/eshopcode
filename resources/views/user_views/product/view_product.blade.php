@@ -88,6 +88,18 @@
                                 <input type="hidden" name="id" value="{{ $product->id }}">
                                 <input type="submit" value="{{__('buttons.addToCart')}}" class="btn product-add-to-cart-button">
                             {!! Form::close() !!}
+                            {!! Form::open(['route' => ['products.rent', $product], 'method' => 'POST', 'class' => 'rent-product-form']) !!}
+                                <div class="form-group">
+                                    {!! Form::label('start_date', 'Start Date') !!}
+                                    {!! Form::date('start_date', null, ['class' => 'form-control', 'required']) !!}
+                                </div>
+                                <div class="form-group">
+                                    {!! Form::label('end_date', 'End Date') !!}
+                                    {!! Form::date('end_date', null, ['class' => 'form-control', 'required']) !!}
+                                </div>
+                                {!! Form::submit('Rent', ['class' => 'btn btn-primary']) !!}
+                            {!! Form::close() !!}
+
                         </div>
                     </div>
                 </div>
