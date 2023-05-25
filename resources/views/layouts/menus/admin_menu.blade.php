@@ -5,6 +5,12 @@
     </a>
 </li>
 <li class="admin-navbar-item">
+    <a class="admin-navbar-link {{ request()->is('admin/unavailable_product_dates') ? 'active' : '' }}" href="/admin/unavailable_product_dates">
+        <i class="fa-solid fa-calendar-days"></i>
+        {{ __('menu.unavailableProductDates') }}
+    </a>
+</li>
+<li class="admin-navbar-item">
     <a class="admin-navbar-link {{ request()->is('admin/categories') ? 'active' : '' }}" href="/admin/categories">
         <i class="fa-solid fa-sitemap"></i>
         {{ __('menu.categories') }}

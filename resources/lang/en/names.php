@@ -239,6 +239,11 @@ return [
     'editCustomer' => 'Edit Customer',
     'userLogs' => 'User Logs',
 
+    //Unavailable product dates
+    'unavailableProductDates' => 'Unavailable product dates',
+    'createUnavailableProductDate' => 'Create unavailable product date',
+    'areYouSureDeleteUnavailableProductDate' => 'Are you sure you want to delete this unavailable product date?',
+
     'desc' => 'Description',
     'name' => 'Name',
 

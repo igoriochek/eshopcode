@@ -24,6 +24,7 @@ use App\Http\Livewire\MessengerIndex;
 use App\Http\Livewire\MessengerAdd;
 use App\Http\Livewire\MessengerShow;
 use App\Http\Controllers\RentController;
+use App\Http\Controllers\UnavailableProductDateController;
 
 /*
 |--------------------------------------------------------------------------
@@ -72,7 +73,9 @@ Route::group(array('prefix' => 'admin', 'middleware' => 'admin'), function () {
     Route::get('messenger/add', MessengerAdd::class)->name('livewire.messenger.add');
     Route::get('messenger/{id}', MessengerShow::class)->name('livewire.messenger.show');
     Route::get('invoice/{id}', [OrderController::class, 'invoicePreview'])->where('id', '[0-9]+')->name(('invoice'));
-    Route::post('products/{id}/return', RentController::class)->name('products.return');
+    // Route::post('products/{id}/return', RentController::class)->name('products.return');
+    Route::resource('unavailable_product_dates', UnavailableProductDateController::class)->except(['show', 'edit', 'update']);
+    Route::get('unavailable_dates', [UnavailableProductDateController::class, 'getUnavailableProductDates'])->name('getUnavailableProductDates');
 
     // Statistics
     Route::prefix('')->middleware('cors')->name('customers.')->group(function () {
@@ -83,7 +86,7 @@ Route::group(array('prefix' => 'admin', 'middleware' => 'admin'), function () {
     // Logs
     Route::get('logs', [CustomerController::class, 'logs'])->name('customers.logs');
 
-//    Route::prefix('orders_report')->name('orders_report.')->group(function () {
+    //    Route::prefix('orders_report')->name('orders_report.')->group(function () {
     Route::prefix('orders_report')->name('orders_report.')->group(function () {
         Route::get('', [OrdersReportController::class, 'index'])->name('index');
         Route::get('email', [OrdersReportController::class, 'sendEmail'])->name('email');
@@ -114,32 +117,32 @@ Route::group(array('prefix' => 'admin', 'middleware' => 'admin'), function () {
         Route::get('download_pdf', [UserActivitiesReportController::class, 'downloadPdf'])->name('download_pdf');
         Route::get('download_csv', [UserActivitiesReportController::class, 'downloadCsv'])->name('download_csv');
     });
-//});
-    Route::prefix('orders_report')->name('orders_report.')->group( function () {
+    //});
+    Route::prefix('orders_report')->name('orders_report.')->group(function () {
         Route::get('', [OrdersReportController::class, 'index'])->name('index');
         Route::get('email', [OrdersReportController::class, 'sendEmail'])->name('email');
         Route::get('download_pdf', [OrdersReportController::class, 'downloadPdf'])->name('download_pdf');
         Route::get('download_csv', [OrdersReportController::class, 'downloadCsv'])->name('download_csv');
     });
-    Route::prefix('returns_report')->name('returns_report.')->group( function () {
+    Route::prefix('returns_report')->name('returns_report.')->group(function () {
         Route::get('', [ReturnsReportController::class, 'index'])->name('index');
         Route::get('email', [ReturnsReportController::class, 'sendEmail'])->name('email');
         Route::get('download_pdf', [ReturnsReportController::class, 'downloadPdf'])->name('download_pdf');
         Route::get('download_csv', [ReturnsReportController::class, 'downloadCsv'])->name('download_csv');
     });
-    Route::prefix('carts_report')->name('carts_report.')->group( function () {
+    Route::prefix('carts_report')->name('carts_report.')->group(function () {
         Route::get('', [CartsReportController::class, 'index'])->name('index');
         Route::get('email', [CartsReportController::class, 'sendEmail'])->name('email');
         Route::get('download_pdf', [CartsReportController::class, 'downloadPdf'])->name('download_pdf');
         Route::get('download_csv', [CartsReportController::class, 'downloadCsv'])->name('download_csv');
     });
-    Route::prefix('users_report')->name('users_report.')->group( function () {
+    Route::prefix('users_report')->name('users_report.')->group(function () {
         Route::get('', [UsersReportController::class, 'index'])->name('index');
         Route::get('email', [UsersReportController::class, 'sendEmail'])->name('email');
         Route::get('download_pdf', [UsersReportController::class, 'downloadPdf'])->name('download_pdf');
         Route::get('download_csv', [UsersReportController::class, 'downloadCsv'])->name('download_csv');
     });
-    Route::prefix('user_activities_report')->name('user_activities_report.')->group( function () {
+    Route::prefix('user_activities_report')->name('user_activities_report.')->group(function () {
         Route::get('', [UserActivitiesReportController::class, 'index'])->name('index');
         Route::get('email', [UserActivitiesReportController::class, 'sendEmail'])->name('email');
         Route::get('download_pdf', [UserActivitiesReportController::class, 'downloadPdf'])->name('download_pdf');
@@ -179,7 +182,7 @@ Route::group(array('prefix' => 'user', 'middleware' => ['auth', 'cookie-consent'
     Route::get('messenger', MessengerIndex::class)->name('livewire.messenger.index');
     Route::get('messenger/add', MessengerAdd::class)->name('livewire.messenger.add');
     Route::get('messenger/{id}', MessengerShow::class)->name('livewire.messenger.show');
-    Route::post('products/{id}/rent', RentController::class)->name('products.rent');
+    Route::post('products/{id}/rent', [RentController::class, 'rent'])->name('products.rent');
 });
 
 //Route::get("home", [App\Http\Controllers\HomeController::class, 'home'])->name('home');
@@ -193,7 +196,7 @@ Route::get('promotions', [\App\Http\Controllers\PromotionController::class, 'ind
 Route::get('promotion/{id}', [\App\Http\Controllers\PromotionController::class, 'promotionProducts'])->name('promotion');
 Route::get("termsofservice", [\App\Http\Controllers\TermsOfServiceController::class, 'index'])->name('termsofservice');
 Route::get("policy", [\App\Http\Controllers\TermsOfServiceController::class, 'policy'])->name('policy');
-Route::get('eu_projects',[\App\Http\Controllers\AboutUsController::class, 'index'])->name('about');
+Route::get('eu_projects', [\App\Http\Controllers\AboutUsController::class, 'index'])->name('about');
 
 Auth::routes();
 Route::get("logout", function () {

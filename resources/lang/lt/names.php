@@ -111,7 +111,7 @@ return [
 
     //Homepage
     'addedAt' => 'Pridėta',
-    'browseProducts'=> 'Naršyti produktus',
+    'browseProducts' => 'Naršyti produktus',
     'code' => 'Kodas',
     'createdAt' => 'Sukurta',
     'dashboard' => 'Valdyklė',
@@ -122,7 +122,7 @@ return [
     'loggedIn' => 'Jūs esate prisijungę!',
     'language' => 'Kalba yra',
     'myCart' => 'Mano krepšelis',
-    'myOrders'=> 'Mano užsakymai',
+    'myOrders' => 'Mano užsakymai',
     'myReturns' => 'Mano grąžinimai',
     'openMsg' => 'Atidaryti pranešėją',
     'noProductsInCart' => 'Jūsų krepšelyje nėra jokių produktų!',
@@ -238,6 +238,11 @@ return [
     'createCustomer' => 'Sukurti klientą',
     'editCustomer' => 'Redaguoti klientą',
     'userLogs' => 'Naudotojų žurnalai',
+
+    //Unavailable product dates
+    'unavailableProductDates' => 'Nepasiekiamo produkto datos',
+    'createUnavailableProductDate' => 'Sukurti nepasiekiamą produkto datą',
+    'areYouSureDeleteUnavailableProductDate' => 'Ar tikrai norite ištrinti šią nepasiekiamą produkto datą?',
 
     'desc' => 'Aprašymas',
     'name' => 'Pavadinimas',

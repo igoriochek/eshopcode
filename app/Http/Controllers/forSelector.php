@@ -21,10 +21,10 @@ trait forSelector
     public function categoriesForSelector()
     {
         $c = array();
-//        Category::all()->map(function ($item) use (&$c) {
-//            $c[$item->id] = $item->name;
-//        });
-    Category::translatedIn(app()->getLocale())->get()->map(function ($item) use (&$c) {
+        //        Category::all()->map(function ($item) use (&$c) {
+        //            $c[$item->id] = $item->name;
+        //        });
+        Category::translatedIn(app()->getLocale())->get()->map(function ($item) use (&$c) {
             $c[$item->id] = $item->name;
         });
         return $c;
@@ -33,9 +33,9 @@ trait forSelector
     public function productsForSelector()
     {
         $c = array();
-//        Product::all()->map(function ($item) use (&$c) {
-//            $c[$item->id] = $item->name;
-//        });
+        //        Product::all()->map(function ($item) use (&$c) {
+        //            $c[$item->id] = $item->name;
+        //        });
         Product::translatedIn(app()->getLocale())->get()->map(function ($item) use (&$c) {
             $c[$item->id] = $item->name;
         });
@@ -146,7 +146,7 @@ trait forSelector
             __('forms.priceDesc')
         ];
 
-        for($i = 0; $i < count($titles); $i++){
+        for ($i = 0; $i < count($titles); $i++) {
             $c[$i] = $titles[$i];
         }
 
@@ -159,7 +159,7 @@ trait forSelector
 
         $numbers = [12, 24, 36];
 
-        for($i = 0; $i < count($numbers); $i++){
+        for ($i = 0; $i < count($numbers); $i++) {
             $c[$i] = $numbers[$i];
         }
 
