@@ -24,8 +24,7 @@
                         <div>
                             @if ($product->image)
                                 <div>
-                                    <img src="{{ $product->image }}" alt="{{ $product->name }}"
-                                         class="d-block w-100"/>
+                                    <img src="{{ $product->image }}" alt="{{ $product->name }}" class="d-block w-100"/>
                                 </div>
                             @else
                                 <div>
@@ -81,6 +80,7 @@
                                 </li>
                             </ul>
                             <hr>
+                            <h6>{{ __('names.purchase') }}</h6>
                             {!! Form::open(['route' => ['addtocart'], 'method' => 'post', 'class' => 'product-add-to-cart-container']) !!}
                                 <input type="button" class="minus text-color-hover-light bg-color-hover-primary border-color-hover-primary" value="-">
                                 {!! Form::number('count', "1", ['class' => 'product-add-to-cart-number', "min" => "1", "max" => "5", "minlength" => "1", "maxlength" => "5", "oninput" => "this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null"]) !!}
@@ -88,24 +88,41 @@
                                 <input type="hidden" name="id" value="{{ $product->id }}">
                                 <input type="submit" value="{{__('buttons.addToCart')}}" class="btn product-add-to-cart-button">
                             {!! Form::close() !!}
-                            {!! Form::open(['route' => ['products.rent', $product], 'method' => 'POST', 'class' => 'rent-product-form']) !!}
-                                <div class="form-group">
-                                    {!! Form::label('start_date', 'Start Date') !!}
-                                    {!! Form::date('start_date', null, ['class' => 'form-control', 'required']) !!}
+                            @if ($product->is_rentable)
+                                <div class="divider divider-small">
+                                    <hr class="bg-color-grey-scale-4">
                                 </div>
-                                <div class="form-group">
-                                    {!! Form::label('end_date', 'End Date') !!}
-                                    {!! Form::date('end_date', null, ['class' => 'form-control', 'required']) !!}
-                                </div>
-                                {!! Form::submit('Rent', ['class' => 'btn btn-primary']) !!}
-                            {!! Form::close() !!}
-
+                                <h6>{{ __('names.rent') }}</h6>
+                                {!! Form::open(['route' => ['rentProduct', $product->id], 'method' => 'POST', 'class' => 'row']) !!}
+                                    <div class="form-group col-lg-6 col-md-12 col-sm-6 col-12">
+                                        {!! Form::label('start_date', __('forms.startDate')) !!}
+                                        {!! Form::date('start_date', null, ['class' => "form-control py-2", 'style' => 'border-color: #e1e1e1']) !!}
+                                        @error('start_date')
+                                            <span class="text-danger" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group col-lg-6 col-md-12 col-sm-6 col-12">
+                                        {!! Form::label('end_date', __('forms.endDate')) !!}
+                                        {!! Form::date('end_date', null, ['class' => "form-control py-2", 'style' => 'border-color: #e1e1e1']) !!}
+                                        @error('end_date')
+                                            <span class="text-danger" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group col-12 mt-3">
+                                        {!! Form::submit(__('buttons.rent'), ['class' => 'btn btn-primary orders-returns-primary-button px-4']) !!}
+                                    </div>
+                                {!! Form::close() !!}
+                            @endif
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row mb-4">
+        <div class="row mb-4 mt-5">
             <div class="col">
                 <div id="description" class="tabs tabs-simple tabs-simple-full-width-line tabs-product tabs-dark mb-2">
                     <ul class="nav nav-tabs justify-content-start" role="tablist">

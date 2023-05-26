@@ -6,7 +6,7 @@
                     <p class="messenger-add-users-name mb-0">
                         {{ $user->name }}
                         <span class="text-muted">
-                            @if ($user->type == 1) ({{ __('admin') }}) @else ({{ __('user') }}) @endif
+                            @if ($user->type == 1) ({{ __('admin') }}) @endif
                         </span>
                     </p>
                     <p class="messenger-add-users-email mb-0">{{ $user->email }}</p>

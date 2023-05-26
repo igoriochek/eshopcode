@@ -75,7 +75,6 @@ Route::group(array('prefix' => 'admin', 'middleware' => 'admin'), function () {
     Route::get('invoice/{id}', [OrderController::class, 'invoicePreview'])->where('id', '[0-9]+')->name(('invoice'));
     // Route::post('products/{id}/return', RentController::class)->name('products.return');
     Route::resource('unavailable_product_dates', UnavailableProductDateController::class)->except(['show', 'edit', 'update']);
-    Route::get('unavailable_dates', [UnavailableProductDateController::class, 'getUnavailableProductDates'])->name('getUnavailableProductDates');
 
     // Statistics
     Route::prefix('')->middleware('cors')->name('customers.')->group(function () {
@@ -182,7 +181,8 @@ Route::group(array('prefix' => 'user', 'middleware' => ['auth', 'cookie-consent'
     Route::get('messenger', MessengerIndex::class)->name('livewire.messenger.index');
     Route::get('messenger/add', MessengerAdd::class)->name('livewire.messenger.add');
     Route::get('messenger/{id}', MessengerShow::class)->name('livewire.messenger.show');
-    Route::post('products/{id}/rent', [RentController::class, 'rent'])->name('products.rent');
+    Route::post('viewproduct/{id}/rent', [RentController::class, 'rentProduct'])->name('rentProduct');
+    Route::get('unavailable_dates', [UnavailableProductDateController::class, 'getUnavailableProductDates'])->name('getUnavailableProductDates');
 });
 
 //Route::get("home", [App\Http\Controllers\HomeController::class, 'home'])->name('home');

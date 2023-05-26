@@ -37,7 +37,13 @@
 <!-- Visible Field -->
 <div class="col-sm-12">
     {!! Form::label('visible',  __('table.visible').':') !!}
-    <p>{{ $product->visible }}</p>
+    <p>{{ $product->visible ? __('names.yes') : __('names.no') }}</p>
+</div>
+
+<!-- Is Rentable Field -->
+<div class="col-sm-12">
+    {!! Form::label('is_rentable',  __('names.rent').':') !!}
+    <p>{{ $product->is_rentable ? __('names.yes') : __('names.no') }}</p>
 </div>
 
 <!-- Promotion Id Field -->

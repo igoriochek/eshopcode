@@ -13,7 +13,21 @@
         @foreach($orderItems as $orderItem)
             <tr>
                 <td>{{ $orderItem->order_id }}</td>
-                <td>{{ $orderItem->product->name }}</td>
+                <td>
+                    {{ $orderItem->product->name }}
+                    @if ($orderItem->rental_start_date && $orderItem->rental_end_date)
+                        <div class="d-flex flex-column flex-md-row gap-md-3 gap-1 mt-2" style="color: #444">
+                            <div class="d-flex flex-column" style="line-height: 22px">
+                                <span style="color: #555">{{ __('forms.startDate') }}:</span>
+                                <b>{{ $orderItem->rental_start_date->format('Y-m-d') }}</b>
+                            </div>
+                            <div class="d-flex flex-column" style="line-height: 22px">
+                                <span style="color: #555">{{ __('forms.endDate') }}:</span>
+                                <b>{{ $orderItem->rental_end_date->format('Y-m-d') }}</b>
+                            </div>
+                        </div>
+                    @endif
+                </td>
                 <td>{{ $orderItem->price_current }}</td>
                 <td>{{ $orderItem->count }}</td>
                 <td width="120">

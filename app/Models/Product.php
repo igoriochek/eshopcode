@@ -25,7 +25,7 @@ use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
  */
 class Product extends Model implements TranslatableContract
 {
-    use HasFactory,Translatable;
+    use HasFactory, Translatable;
 
     public $table = 'products';
     public $translatedAttributes = ['name', 'description'];
@@ -35,12 +35,11 @@ class Product extends Model implements TranslatableContract
         'image',
         'video',
         'visible',
+        'is_rentable',
         'promotion_id',
         'discount_id',
         'created_at',
-        'updated_at',
-        'rental_start_date',
-        'rental_end_date'
+        'updated_at'
     ];
 
     /**
@@ -54,12 +53,11 @@ class Product extends Model implements TranslatableContract
         'image' => 'string',
         'video' => 'string',
         'visible' => 'integer',
+        'is_rentable' => 'integer',
         'promotion_id' => 'integer',
         'discount_id' => 'integer',
         'created_at' => 'datetime',
-        'updated_at' => 'datetime',
-        'rental_start_date' => 'datetime',
-        'rental_end_date' => 'datetime'
+        'updated_at' => 'datetime'
     ];
 
     /**
@@ -92,23 +90,17 @@ class Product extends Model implements TranslatableContract
         return $this->hasMany(Ratings::class);
     }
 
-    public function scopePriceFrom(Builder $query, $price) : Builder
+    public function scopePriceFrom(Builder $query, $price): Builder
     {
         return $query->where('price', '>=', $price);
     }
 
-    public function scopePriceTo(Builder $query, $price) : Builder
+    public function scopePriceTo(Builder $query, $price): Builder
     {
         return $query->where('price', '<=', $price);
     }
-    public function scopeNameLike(Builder $query, $name) : Builder
+    public function scopeNameLike(Builder $query, $name): Builder
     {
         return $query->where('name', 'like', "%$name%");
     }
-    public function scopeAvailableForRental(Builder $query)
-    {
-        return $query->whereNull('rental_start_date')
-            ->orWhereDate('rental_end_date', '<=', now()->toDateString());
-    }
-
 }

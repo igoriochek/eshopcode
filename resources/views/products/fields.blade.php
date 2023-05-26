@@ -62,6 +62,11 @@
     {!! Form::select('visible', $visible_list, null, ['class' => 'form-control custom-select']) !!}
 </div>
 
+<!-- Is Rentable Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('is_rentable', __('names.rent').':') !!}
+    {!! Form::select('is_rentable', $booleanList, null, ['class' => 'form-control custom-select']) !!}
+</div>
 
 <!-- Promotion Id Field -->
 <div class="form-group col-sm-6">

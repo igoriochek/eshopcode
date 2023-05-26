@@ -42,7 +42,20 @@
                                             <td>
                                                 <strong class="d-block text-dark line-height-1">
                                                     {{ $item['product']->name }}
-                                                    <span class="product-qty">x{{ $item->count }}</span>
+                                                    @if ($item->rental_start_date && $item->rental_end_date)
+                                                        <div class="d-flex flex-md-row flex-column gap-md-3 gap-1 mt-2" style="color: #444">
+                                                            <div class="d-flex flex-column" style="line-height: 22px">
+                                                                <span style="color: #555">{{ __('forms.startDate') }}:</span>
+                                                                <b>{{ $item->rental_start_date->format('Y-m-d') }}</b>
+                                                            </div>
+                                                            <div class="d-flex flex-column" style="line-height: 22px">
+                                                                <span style="color: #555">{{ __('forms.endDate') }}:</span>
+                                                                <b>{{ $item->rental_end_date->format('Y-m-d') }}</b>
+                                                            </div>
+                                                        </div>
+                                                    @else
+                                                        <span class="product-qty">x{{ $item->count }}</span>
+                                                    @endif
                                                 </strong>
                                             </td>
                                             <td class="text-end align-top">

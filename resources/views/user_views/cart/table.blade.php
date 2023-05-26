@@ -4,13 +4,13 @@
         <tr class="text-dark">
             <th class="product-thumbnail" width="15%">
             </th>
-            <th class="product-name" width="30%">
+            <th class="product-name" width="35%">
                 {{ __('names.product') }}
             </th>
             <th class="product-price" width="15%">
                 {{ __('names.price') }}
             </th>
-            <th class="product-quantity" width="20%">
+            <th class="product-quantity" width="15%">
                 {{ __('names.quantity') }}
             </th>
             <th class="product-subtotal text-end" width="20%">
@@ -39,6 +39,18 @@
                     <a href="{{ route('viewproduct', $item['product']->id) }}">
                         {{ $item['product']->name }}
                     </a>
+                    @if ($item->rental_start_date && $item->rental_end_date)
+                        <div class="d-flex flex-column gap-1 mt-2" style="color: #444">
+                            <div class="d-flex flex-column" style="line-height: 22px">
+                                <span style="color: #555">{{ __('forms.startDate') }}:</span>
+                                <b>{{ $item->rental_start_date->format('Y-m-d') }}</b>
+                            </div>
+                            <div class="d-flex flex-column" style="line-height: 22px">
+                                <span style="color: #555">{{ __('forms.endDate') }}:</span>
+                                <b>{{ $item->rental_end_date->format('Y-m-d') }}</b>
+                            </div>
+                        </div>
+                    @endif
                 </td>
                 <td class="product-price">
                     <span class="amount font-weight-medium text-color-grey">€{{ number_format($item->price_current,2) }}</span>

@@ -15,7 +15,21 @@
                 {{--<td>{{ $returnItem->order_id }}</td>--}}
                 <td>{{ $returnItem->user->name }}</td>
                 {{--<td>{{ $returnItem->return_id }}</td>--}}
-                <td>{{ $returnItem->product->name }}</td>
+                <td>
+                    {{ $returnItem->product->name }}
+                    @if ($returnItem->rental_start_date && $returnItem->rental_end_date)
+                        <div class="d-flex flex-column flex-md-row gap-md-3 gap-1 mt-2" style="color: #444">
+                            <div class="d-flex flex-column" style="line-height: 22px">
+                                <span style="color: #555">{{ __('forms.startDate') }}:</span>
+                                <b>{{ $returnItem->rental_start_date->format('Y-m-d') }}</b>
+                            </div>
+                            <div class="d-flex flex-column" style="line-height: 22px">
+                                <span style="color: #555">{{ __('forms.endDate') }}:</span>
+                                <b>{{ $returnItem->rental_end_date->format('Y-m-d') }}</b>
+                            </div>
+                        </div>
+                    @endif
+                </td>
                 <td>{{ $returnItem->price_current }}</td>
                 <td>{{ $returnItem->count }}</td>
                 <td width="120">

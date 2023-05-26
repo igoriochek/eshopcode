@@ -28,6 +28,8 @@ return [
     'userProfile' => 'Naudotojo profilis',
     'admin' => 'Administratorius',
     'to' => 'Kam',
+    'startDate' => 'Pradžios data',
+    'endDate' => 'Pabaigos data',
 
     'current_password' => 'Dabartinis slaptažodis',
     'new_password' => 'Naujas slaptažodis',

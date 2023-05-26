@@ -113,7 +113,7 @@ class ReturnsController extends AppBaseController
         return view('returns.show')->with([
             'returns' => $returns,
             'returnItems' => $returnItems,
-            'logs'=>$logs,
+            'logs' => $logs,
         ]);
     }
 
@@ -250,15 +250,14 @@ class ReturnsController extends AppBaseController
 
         $logs = $this->getOrderByReturnId($id);
 
-        foreach ($logs as $log ){
+        foreach ($logs as $log) {
             $log->activity = $this->logTranslate($log->activity, app()->getLocale());
-
         }
 
         return view('user_views.returns.view')->with([
             'return' => $return,
             'returnItems' => $returnItems,
-            'logs'=>$logs,
+            'logs' => $logs,
         ]);
     }
 
@@ -335,7 +334,7 @@ class ReturnsController extends AppBaseController
         if (isset($order)) {
             $returns = $this->returnsRepository->create([
                 'user_id' => $userId,
-                'admin_id' => 10,
+                'admin_id' => 2,
                 'order_id' => $order->id,
                 'code' => md5(time()),
                 'description' => $input['description'],
@@ -362,11 +361,11 @@ class ReturnsController extends AppBaseController
                         'user_id' => $userId,
                         'return_id' => $returns->id,
                         'product_id' => $item[0]->product_id,
+                        'rental_start_price' => $item[0]->rental_start_price ?? NULL,
+                        'rental_end_price' => $item[0]->rental_end_price ?? NULL,
                         'price_current' => $item[0]->price_current,
                         'count' => $item[0]->count,
                     ]);
-
-
                 }
             }
 
@@ -437,7 +436,8 @@ class ReturnsController extends AppBaseController
      * @param $id return_id
      * @return mixed
      */
-    private function getOrderByReturnId($id){
+    private function getOrderByReturnId($id)
+    {
         $orderId = Returns::where(['id' => $id])->value('order_id');
 
         return LogActivity::search("Order ID:{$orderId}")->get();

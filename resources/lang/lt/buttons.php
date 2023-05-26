@@ -25,11 +25,11 @@ return [
     'chooseFile' => 'Pasirinkite failą',
     'downloadPDF' => 'Atsiųsti PDF',
     'export' => 'Eksportuoti',
-    'filter'=> 'Filtruoti',
-    'forgotPassword'=> 'Pamiršote slaptažodį?',
+    'filter' => 'Filtruoti',
+    'forgotPassword' => 'Pamiršote slaptažodį?',
     'import' => 'Importuoti',
-    'login'=> 'Prisijungti',
-    'pay'=> 'Apmokėti',
+    'login' => 'Prisijungti',
+    'pay' => 'Apmokėti',
     'preview' => 'Peržiūrėti',
     'register' => 'Registruotis',
     'save' => 'Išsaugoti',
@@ -44,5 +44,6 @@ return [
     'details' => 'Detaliai',
     'return' => 'Grąžinti',
     'invoice' => 'Sąskaita faktūra',
+    'rent' => 'Nuomoti'
 
 ];

@@ -165,4 +165,9 @@ trait forSelector
 
         return $c;
     }
+
+    public function booleanForSelector(): array
+    {
+        return [__('names.no'), __('names.yes')];
+    }
 }

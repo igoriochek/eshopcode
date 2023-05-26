@@ -16,13 +16,12 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id('id');
-//            $table->string('name');
             $table->double('price');
             $table->integer('count')->default(0);
-//            $table->text('description');
             $table->string('image')->nullable(true);
             $table->string('video')->nullable(true);
             $table->integer('visible')->default(1);
+            $table->boolean('is_rentable')->default(false);
             $table->unsignedBigInteger("promotion_id")->nullable(true);
             $table->unsignedBigInteger("discount_id")->nullable(true);
             $table->foreign('promotion_id')->references('id')->on('promotions');

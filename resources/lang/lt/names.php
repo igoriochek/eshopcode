@@ -177,6 +177,8 @@ return [
     'noProducts' => 'Nėra produktų',
     'search' => 'Ieškoti',
     'additionalInformation' => 'Papildoma informacija',
+    'purchase' => 'Pirkimas',
+    'rent' => 'Nuoma',
 
     //Promotions
     'createPromotion' => 'Sukurti akciją',
@@ -239,23 +241,22 @@ return [
     'editCustomer' => 'Redaguoti klientą',
     'userLogs' => 'Naudotojų žurnalai',
 
+    //Discounts coupons
+    'ndDiscountCoupons' => 'Jūs dar neturite nuolaidų kuponų :(',
+    'discountCouponCode' => 'Nuolaidų kupono kodas',
+    'discountCouponValue' => 'Nuolaidų kupono suma',
+
     //Unavailable product dates
     'unavailableProductDates' => 'Nepasiekiamo produkto datos',
     'createUnavailableProductDate' => 'Sukurti nepasiekiamą produkto datą',
     'areYouSureDeleteUnavailableProductDate' => 'Ar tikrai norite ištrinti šią nepasiekiamą produkto datą?',
 
+    //Other 
     'desc' => 'Aprašymas',
     'name' => 'Pavadinimas',
-
     'old' => 'Senos',
     'new' => 'Naujos',
-
     'orderBy' => 'Rūšiuoti pagal',
-
-    //Discounts coupons
-    'ndDiscountCoupons' => 'Jūs dar neturite nuolaidų kuponų :(',
-    'discountCouponCode' => 'Nuolaidų kupono kodas',
-    'discountCouponValue' => 'Nuolaidų kupono suma',
     'zeroRecords' => 'Įrašų nėra',
     'showing' => 'Rodomi',
     'entries' => 'užrašai',
@@ -263,4 +264,7 @@ return [
     'of' => 'iš',
     'first' => 'Pirmas',
     'last' => 'Paskutinis',
+    'yes' => 'Taip',
+    'no' => 'Ne'
+
 ];

@@ -177,6 +177,8 @@ return [
     'noProducts' => 'Нет товаров',
     'search' => 'Поиск',
     'additionalInformation' => 'Дополнительная информация',
+    'purchase' => 'Купить',
+    'rent' => 'Аренда',
 
     //Promotions
     'createPromotion' => 'Создать акцию',
@@ -239,23 +241,22 @@ return [
     'editCustomer' => 'Редактировать клиента',
     'userLogs' => 'Журналы пользователей',
 
+    //Discounts coupons
+    "ndDiscountCoupons" => "У вас еще нет купонов на скидку :(",
+    "discountCouponCode" => "Код купона на скидку",
+    "discountCouponValue" => "Стоимость купона на скидку",
+
     //Unavailable product dates
     'unavailableProductDates' => 'Недоступные даты продукта',
     'createUnavailableProductDate' => 'Создать дату недоступного продукта',
     'areYouSureDeleteUnavailableProductDate' => 'Вы уверены, что хотите удалить эту недоступную дату продукта?',
 
+    //Other
     'desc' => 'Описание',
     'name' => 'Имя',
-
     'old' => "Старый",
     'new' => "Новый",
-
     'orderBy' => 'Сортировать по',
-
-    //Discounts coupons
-    "ndDiscountCoupons" => "У вас еще нет купонов на скидку :(",
-    "discountCouponCode" => "Код купона на скидку",
-    "discountCouponValue" => "Стоимость купона на скидку",
     "zeroRecords" => "Нет данных",
     "showing" => "Показаны",
     "entries" => "записи",
@@ -263,4 +264,7 @@ return [
     "of" => "из",
     "first" => "Первый",
     "last" => "Последний",
+    'yes' => 'Да',
+    'no' => 'Нет'
+
 ];

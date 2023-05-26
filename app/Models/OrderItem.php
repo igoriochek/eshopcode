@@ -25,6 +25,8 @@ class OrderItem extends Model
     public $fillable = [
         'order_id',
         'product_id',
+        'rental_start_date',
+        'rental_end_date',
         'price_current',
         'count',
         'created_at',
@@ -39,6 +41,8 @@ class OrderItem extends Model
     protected $casts = [
         'order_id' => 'integer',
         'product_id' => 'integer',
+        'rental_start_date' => 'date',
+        'rental_end_date' => 'date',
         'price_current' => 'double',
         'count' => 'double',
         'created_at' => 'datetime',

@@ -9,13 +9,15 @@ use App\Models\CartItem;
 use App\Models\DiscountCoupon;
 use App\Models\Order;
 use App\Models\OrderItem;
+use App\Models\UnavailableProductDate;
 use App\Models\User;
 use App\Repositories\CartRepository;
-use Exception;
-use Flash;
+use Carbon\CarbonPeriod;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Response;
+use Exception;
+use Flash;
 
 class PayController extends AppBaseController
 {
@@ -31,16 +33,16 @@ class PayController extends AppBaseController
     {
         $cartId = $request->session()->get('appPayCartId');
         $amount = $request->session()->get('appPayAmount');
-//        $amount = str_replace(".", "", $amount);
-//        $amount = $amount * 10;
+        //        $amount = str_replace(".", "", $amount);
+        //        $amount = $amount * 10;
 
-//        if (!preg_match("/\./", $amount)) {
-            if(strpos($amount, ".") == strlen($amount)-2)  $amount = $amount . "0";
-            elseif (strpos($amount, ".") === false ) $amount = $amount . "00";
-//            elseif(strpos($amount, ".") == strlen($amount)-3)  $amount = $amount . "00";
-//        }
+        //        if (!preg_match("/\./", $amount)) {
+        if (strpos($amount, ".") == strlen($amount) - 2)  $amount = $amount . "0";
+        elseif (strpos($amount, ".") === false) $amount = $amount . "00";
+        //            elseif(strpos($amount, ".") == strlen($amount)-3)  $amount = $amount . "00";
+        //        }
 
-//        $amount = str_replace(".", "", $amount);
+        //        $amount = str_replace(".", "", $amount);
         $amount = preg_replace("/\D/", "", $amount);
 
 
@@ -52,9 +54,9 @@ class PayController extends AppBaseController
             'amount' => $amount,
             'currency' => 'EUR',
             'country' => 'LT',
-            'accepturl' => $appUrl. 'user/pay/accept/' . $cartId,
-            'cancelurl' => $appUrl. 'user/pay/cancel/' . $cartId,
-            'callbackurl' => $appUrl. 'user/pay/callback/' . $cartId,
+            'accepturl' => $appUrl . 'user/pay/accept/' . $cartId,
+            'cancelurl' => $appUrl . 'user/pay/cancel/' . $cartId,
+            'callbackurl' => $appUrl . 'user/pay/callback/' . $cartId,
         ];
 
         if (true !== env('WEBTOPAY_PROD')) {
@@ -91,7 +93,8 @@ class PayController extends AppBaseController
         $params = [];
         parse_str(base64_decode(strtr($request->get('data'), ['-' => '+', '_' => '/'])), $params);
 
-        if (is_array($params) &&
+        if (
+            is_array($params) &&
             isset($params['status']) &&
             $params['status'] == 1 &&
             is_numeric($id)
@@ -128,13 +131,19 @@ class PayController extends AppBaseController
                         $newOrderItem = new OrderItem();
                         $newOrderItem->order_id = $newOrder->id;
                         $newOrderItem->product_id = $cartItem->product_id;
+                        $newOrderItem->rental_start_date = $cartItem->rental_start_date ?? NULL;
+                        $newOrderItem->rental_end_date = $cartItem->rental_end_date ?? NULL;
                         $newOrderItem->price_current = $cartItem->price_current;
                         $newOrderItem->count = $cartItem->count;
                         $newOrderItem->save();
+
+                        if ($cartItem->rental_start_date && $cartItem->rental_end_date) {
+                            $this->addUnavailableDates($cartItem);
+                        }
                     }
                     $user = Auth::user();
 
-                    if($user){
+                    if ($user) {
                         $user->log("Created new Order ID:{$newOrder->id}");
                     }
 
@@ -163,5 +172,23 @@ class PayController extends AppBaseController
         ksort($admins);
 
         return array_shift($admins);
+    }
+
+    private function addUnavailableDates(object $cartItem): void
+    {
+        $unavailableDates = [];
+        $carbonDates = CarbonPeriod::create($cartItem->rental_start_date, $cartItem->rental_end_date);
+
+        foreach ($carbonDates as $carbonDate) {
+            $unavailableDates[] = $carbonDate->format('Y-m-d');
+        }
+
+        foreach ($unavailableDates as $unavailableDate) {
+            UnavailableProductDate::firstOrCreate([
+                'product_id' => $cartItem->product_id,
+                'unavailable_date' => $unavailableDate,
+                'created_at' => now()
+            ]);
+        }
     }
 }

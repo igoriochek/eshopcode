@@ -28,6 +28,8 @@ return [
     'userProfile' => 'User Profile',
     'admin' => "Administrator",
     'to' => 'To',
+    'startDate' => 'Start Date',
+    'endDate' => 'End Date',
 
     'current_password' => "Current password",
     'new_password' => "New password",

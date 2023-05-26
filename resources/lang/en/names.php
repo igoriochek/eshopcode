@@ -92,7 +92,7 @@ return [
     'createDiscount' => 'Create Discount',
     'discounts' => 'Discounts',
     'discountDetails' => 'Discount Details',
-    'editDiscount'=> 'Edit Discount',
+    'editDiscount' => 'Edit Discount',
 
     //DiscountCoupons
     'createDiscountCoupon' => 'Create Discount Coupon',
@@ -111,7 +111,7 @@ return [
 
     //Homepage
     'addedAt' => 'Added at',
-    'browseProducts'=> 'Browse Products',
+    'browseProducts' => 'Browse Products',
     'code' => 'Code',
     'createdAt' => 'Created At',
     'dashboard' => 'Dashboard',
@@ -122,7 +122,7 @@ return [
     'loggedIn' => 'You are logged in!',
     'language' => 'Language is',
     'myCart' => 'My Cart',
-    'myOrders'=> 'My Orders',
+    'myOrders' => 'My Orders',
     'myReturns' => 'My Returns',
     'openMsg' => 'Open messenger',
     'noProductsInCart' => 'You don`t have ny Products in your Cart!',
@@ -149,7 +149,7 @@ return [
     'createOrder' => 'Create Order',
     'createOrderItem' => 'Create Order Item',
     'createOrderStatus' => 'Create Order Status',
-    'editOrder'=> 'Edit Order',
+    'editOrder' => 'Edit Order',
     'editOrderItem' => 'Edit Order Item',
     'editOrderStatus' => 'Edit Order Status',
     'order' => 'Order',
@@ -165,7 +165,7 @@ return [
     'invoice' => 'Invoice',
     'invoicePreview' => 'Invoice Preview',
 
-    // Products
+    //Products
     'product' => 'Product',
     'createProduct' => 'Create Product',
     'editProduct' => 'Edit Product',
@@ -177,6 +177,8 @@ return [
     'noProducts' => 'No Products',
     'search' => 'Search',
     'additionalInformation' => 'Additional Information',
+    'purchase' => 'Purchase',
+    'rent' => 'Rent',
 
     //Promotions
     'createPromotion' => 'Create Promotion',
@@ -229,7 +231,7 @@ return [
     'returnItemDetails' => 'Return Item Details',
     'returnStatus' => 'Return Status',
     'returnStatuses' => 'Return Statuses',
-    'returnStatusDetails'=> 'Return Status Details',
+    'returnStatusDetails' => 'Return Status Details',
     'noReturns' => 'You have no returns',
 
     //User
@@ -239,22 +241,22 @@ return [
     'editCustomer' => 'Edit Customer',
     'userLogs' => 'User Logs',
 
+    //Discounts coupons
+    "ndDiscountCoupons" => "You have no discount coupons yet :(",
+    "discountCouponCode" => "Discount coupon code",
+    "discountCouponValue" => "Discount coupon value",
+
     //Unavailable product dates
     'unavailableProductDates' => 'Unavailable product dates',
     'createUnavailableProductDate' => 'Create unavailable product date',
     'areYouSureDeleteUnavailableProductDate' => 'Are you sure you want to delete this unavailable product date?',
 
+    //Other
     'desc' => 'Description',
     'name' => 'Name',
-
     'old' => "Old",
     'new' => "New",
-
     'orderBy' => 'Order By',
-    //Discounts coupons
-    "ndDiscountCoupons" => "You have no discount coupons yet :(",
-    "discountCouponCode" => "Discount coupon code",
-    "discountCouponValue" => "Discount coupon value",
     "zeroRecords" => "No matching records found",
     "showing" => "Showing",
     "entries" => "entries",
@@ -262,5 +264,7 @@ return [
     "of" => "of",
     "first" => "First",
     "last" => "Last",
+    'yes' => 'Yes',
+    'no' => 'No'
 
 ];

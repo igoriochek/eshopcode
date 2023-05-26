@@ -2,32 +2,57 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\AppBaseController;
+use App\Repositories\CartRepository;
+use App\Models\CartItem;
 use App\Models\Product;
+use App\Http\Controllers\AppBaseController;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Exception;
 
 class RentController extends AppBaseController
 {
-    public function rent(Request $request, Product $product)
+    public function __construct(private CartRepository $cartRepository)
     {
-        $product->rental_start_date = Carbon::now()->toDateString();
-        $product->rental_end_date = Carbon::now()->addWeeks(2)->toDateString();
-        $product->save();
-
-        // Perform any additional logic or redirection as needed
-
-        return back()->with('success', 'Product rented successfully.');
     }
 
-    public function returnProduct(Request $request, Product $product)
+    public function rentProduct(int $id, Request $request)
     {
-        $product->rental_start_date = null;
-        $product->rental_end_date = null;
-        $product->save();
+        $twoWeeks = null;
 
-        // Perform any additional logic or redirection as needed
+        if ($request->start_date) {
+            $twoWeeks = Carbon::createFromFormat('Y-m-d', $request->start_date)->addWeeks(2)->toDateString();
+        }
 
-        return back()->with('success', 'Product returned successfully.');
+        $validated = $request->validate([
+            'start_date' => 'required|date|after:today',
+            'end_date' => 'required|date|before:' . $twoWeeks
+        ]);
+
+        try {
+            $product = Product::findOrFail($id);
+            $cart = $this->cartRepository->getOrSetCart($request);
+
+            $this->addProductRentToCart($cart, $product, $validated);
+            $this->cartRepository->cartSum($cart);
+
+            return redirect(route('viewcart'));
+        } catch (Exception $exception) {
+            return back()->with('error', $exception->getMessage());
+        }
+    }
+
+    private function addProductRentToCart(object $cart, object $product, array $validated): void
+    {
+        CartItem::create([
+            'cart_id' => $cart->id,
+            'product_id' => $product->id,
+            'rental_start_date' => $validated['start_date'] ?? NULL,
+            'rental_end_date' => $validated['end_date'] ?? NULL,
+            'price_current' => $product->discount
+                ? $product->price - (round(($product->price * $product->discount->proc / 100), 2))
+                : $product->price,
+            'count' => 1
+        ]);
     }
 }

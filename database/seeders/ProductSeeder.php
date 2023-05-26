@@ -6,6 +6,7 @@ use Faker\Factory as Faker;
 use Illuminate\Database\Seeder;
 use DB;
 use App\Models\Product;
+
 class ProductSeeder extends Seeder
 {
     /**
@@ -16,7 +17,7 @@ class ProductSeeder extends Seeder
     public function run()
     {
         $faker = Faker::create();
-        for ($i=0; $i<=200; $i++){
+        for ($i = 0; $i <= 200; $i++) {
             $cdata = [
                 'en' => [
                     'name' => "product $faker->name",
@@ -30,18 +31,19 @@ class ProductSeeder extends Seeder
                     'name' => "RUproduct $faker->name",
                     'description' => "RUproduct $faker->text",
                 ],*/
-                'price' => rand(1,1000),
-                'promotion_id' => ( $i % 10 ? rand(1,10) : null )
+                'price' => rand(1, 1000),
+                'is_rentable' => $faker->boolean(),
+                'promotion_id' => ($i % 10 ? rand(1, 10) : null)
             ];
             $product = Product::create($cdata);
 
 
-//            DB::table('products')->insert([
-////                'name' => "product $faker->name",
-////                'description' => "product $faker->text",
-//                'price' => rand(1,1000),
-//                'promotion_id' => ( $i % 10 ? rand(1,10) : null )
-//            ]);
+            //            DB::table('products')->insert([
+            ////                'name' => "product $faker->name",
+            ////                'description' => "product $faker->text",
+            //                'price' => rand(1,1000),
+            //                'promotion_id' => ( $i % 10 ? rand(1,10) : null )
+            //            ]);
         }
     }
 }

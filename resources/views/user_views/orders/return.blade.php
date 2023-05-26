@@ -34,8 +34,8 @@
                             <table class="table table-striped table-bordered">
                                 <thead style="background: #e7e7e7;">
                                 <tr>
-                                    <th class="text-center">{{__('names.checkReturn')}}</th>
-                                    <th>{{__('table.productId')}}</th>
+                                    <th class="text-center" style="width: 100px"></th>
+                                    {{-- <th>{{__('table.productId')}}</th> --}}
                                     <th>{{__('table.productName')}}</th>
                                     <th>{{__('table.price')}}</th>
                                     <th>{{__('table.count')}}</th>
@@ -45,10 +45,24 @@
                                 @foreach($orderItems as $item)
                                     <tr>
                                         <td class="text-center">
-                                            {!! Form::checkbox("return_items[]", $item->product_id, false, ['class' => 'form-check-input']) !!}
+                                            {!! Form::checkbox("return_items[]", $item->product_id, false, ['class' => 'form-check-input', 'style' => 'width: 25px; height: 25px']) !!}
                                         </td>
-                                        <td>{{ $item->product_id }}</td>
-                                        <td>{{ $item->product->name }}</td>
+                                        {{-- <td>{{ $item->product_id }}</td> --}}
+                                        <td>
+                                            {{ $item->product->name }}
+                                            @if ($item->rental_start_date && $item->rental_end_date)
+                                                <div class="d-flex flex-column flex-md-row gap-md-3 gap-1 mt-2" style="color: #444">
+                                                    <div class="d-flex flex-column" style="line-height: 22px">
+                                                        <span style="color: #555">{{ __('forms.startDate') }}:</span>
+                                                        <b>{{ $item->rental_start_date->format('Y-m-d') }}</b>
+                                                    </div>
+                                                    <div class="d-flex flex-column" style="line-height: 22px">
+                                                        <span style="color: #555">{{ __('forms.endDate') }}:</span>
+                                                        <b>{{ $item->rental_end_date->format('Y-m-d') }}</b>
+                                                    </div>
+                                                </div>
+                                            @endif
+                                        </td>
                                         <td>{{ $item->price_current }} €</td>
                                         <td>{{ $item->count }}</td>
                                     </tr>

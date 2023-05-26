@@ -23,10 +23,11 @@ class CartItem extends Model
 
     public $table = 'cart_items';
 
-
     public $fillable = [
         'cart_id',
         'product_id',
+        'rental_start_date',
+        'rental_end_date',
         'price_current',
         'count',
         'created_at',
@@ -41,6 +42,8 @@ class CartItem extends Model
     protected $casts = [
         'cart_id' => 'integer',
         'product_id' => 'integer',
+        'rental_start_date' => 'date',
+        'rental_end_date' => 'date',
         'price_current' => 'double',
         'count' => 'integer',
         'created_at' => 'datetime',
@@ -63,6 +66,4 @@ class CartItem extends Model
     {
         return $this->hasOne(Product::class, 'id', 'product_id');
     }
-
-
 }

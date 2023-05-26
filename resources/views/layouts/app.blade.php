@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta name="verify-paysera" content="904a0a9764282772a34a62dc3ce21bb4">
+    <!-- Production Paysera -->
+    {{-- <meta name="verify-paysera" content="904a0a9764282772a34a62dc3ce21bb4"> --}}
+    <!-- Development Paysera -->
+    {{-- <meta name="verify-paysera" content="da329b7b4c132b3f0e240d45f76a5214"> --}}
     <!-- Title -->
     <title>Karuseles.com</title>
     <!-- Fonts -->
