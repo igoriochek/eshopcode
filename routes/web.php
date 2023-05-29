@@ -182,7 +182,6 @@ Route::group(array('prefix' => 'user', 'middleware' => ['auth', 'cookie-consent'
     Route::get('messenger/add', MessengerAdd::class)->name('livewire.messenger.add');
     Route::get('messenger/{id}', MessengerShow::class)->name('livewire.messenger.show');
     Route::post('viewproduct/{id}/rent', [RentController::class, 'rentProduct'])->name('rentProduct');
-    Route::get('unavailable_dates', [UnavailableProductDateController::class, 'getUnavailableProductDates'])->name('getUnavailableProductDates');
 });
 
 //Route::get("home", [App\Http\Controllers\HomeController::class, 'home'])->name('home');
@@ -197,6 +196,7 @@ Route::get('promotion/{id}', [\App\Http\Controllers\PromotionController::class, 
 Route::get("termsofservice", [\App\Http\Controllers\TermsOfServiceController::class, 'index'])->name('termsofservice');
 Route::get("policy", [\App\Http\Controllers\TermsOfServiceController::class, 'policy'])->name('policy');
 Route::get('eu_projects', [\App\Http\Controllers\AboutUsController::class, 'index'])->name('about');
+Route::get('unavailable_dates', [UnavailableProductDateController::class, 'getUnavailableProductDates'])->name('getUnavailableProductDates');
 
 Auth::routes();
 Route::get("logout", function () {

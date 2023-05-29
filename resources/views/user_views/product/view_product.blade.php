@@ -96,7 +96,21 @@
                                 {!! Form::open(['route' => ['rentProduct', $product->id], 'method' => 'POST', 'class' => 'row']) !!}
                                     <div class="form-group col-lg-6 col-md-12 col-sm-6 col-12">
                                         {!! Form::label('start_date', __('forms.startDate')) !!}
-                                        {!! Form::date('start_date', null, ['class' => "form-control py-2", 'style' => 'border-color: #e1e1e1']) !!}
+                                        <input type="text"
+                                            name="start_date"
+                                            class="form-control py-2 datepicker"
+                                            autocomplete="off"
+                                            data-provide="datepicker" 
+                                            data-date-autoclose="true"
+                                            data-date-format="yy-mm-dd" 
+                                            data-date-today-highlight="true"
+                                            id="startDatePicker" 
+                                            style="border-color: #e1e1e1"
+                                            placeholder="{{ __('yyyy-mm-dd') }}"
+                                            onchange="this.dispatchEvent(new InputEvent('input'))"
+                                            onkeydown="return false"
+                                            readonly
+                                        >
                                         @error('start_date')
                                             <span class="text-danger" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -105,7 +119,21 @@
                                     </div>
                                     <div class="form-group col-lg-6 col-md-12 col-sm-6 col-12">
                                         {!! Form::label('end_date', __('forms.endDate')) !!}
-                                        {!! Form::date('end_date', null, ['class' => "form-control py-2", 'style' => 'border-color: #e1e1e1']) !!}
+                                        <input type="text"
+                                            name="end_date"
+                                            class="form-control py-2 datepicker"
+                                            autocomplete="off"
+                                            data-provide="datepicker" 
+                                            data-date-autoclose="true"
+                                            data-date-format="yy-mm-dd" 
+                                            data-date-today-highlight="true"
+                                            id="endDatePicker" 
+                                            style="border-color: #e1e1e1"
+                                            placeholder="{{ __('yyyy-mm-dd') }}"
+                                            onchange="this.dispatchEvent(new InputEvent('input'))"
+                                            onkeydown="return false"
+                                            readonly
+                                        >
                                         @error('end_date')
                                             <span class="text-danger" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -272,6 +300,68 @@
 
 @push('scripts')
     <script>
+        $(() => {
+            let data = {
+                '_token': "{{ csrf_token() }}",
+                'productId': "{{ $product->id }}"
+            }
+
+            $.ajax({
+                url: '{{ route('getUnavailableProductDates') }}',
+                type: 'GET',
+                data: data,
+                dataType: 'html',
+                success: response => setDatePickers(JSON.parse(response).unavailableDates),
+                error: XMLHttpRequest => console.error(XMLHttpRequest)
+            })
+        })
+
+        const setDatePickers = unavailableDates => {
+            setStartDatePicker(unavailableDates)
+            setEndDatePicker(unavailableDates)
+        }
+
+        const setStartDatePicker = unavailableDates => {
+            $(() => {
+                $('#startDatePicker').datepicker({
+                    minDate: '{{ now()->addDay()->toDateString() }}',
+                    dateFormat: 'yy-mm-dd',
+                    showButtonPanel: true,
+                    beforeShowDay: date => {
+                        $(".ui-datepicker").css('font-size', 20);
+                        const dateToString = jQuery.datepicker.formatDate('yy-mm-dd', date);
+                        return [unavailableDates.indexOf(dateToString) === -1]
+                    }
+                }).on("change", () => $('#endDatePicker').datepicker("option", "minDate", getDate($('#startDatePicker').val())))
+            })
+        }
+
+        const setEndDatePicker = unavailableDates => {
+            $(() => {
+                $('#endDatePicker').datepicker({
+                    minDate: '{{ now()->addDay()->toDateString() }}',
+                    dateFormat: 'yy-mm-dd',
+                    showButtonPanel: true,
+                    beforeShowDay: date => {
+                        $(".ui-datepicker").css('font-size', 20);
+                        const dateToString = jQuery.datepicker.formatDate('yy-mm-dd', date);
+                        return [unavailableDates.indexOf(dateToString) === -1]
+                    }
+                })
+            })
+        }
+
+        const getDate = element => {
+            let date;
+            try {
+                date = $.datepicker.parseDate('yy-mm-dd', element);
+            } catch (error) {
+                date = null;
+                console.error(error)
+            }
+            return date;
+        }
+
         $('.product-reviews-add-review-submit').click(function () {
             const value = $('input[type=radio][name=rating]:checked').val();
             const desc = $('textarea#comment').val();

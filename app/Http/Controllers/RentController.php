@@ -26,7 +26,7 @@ class RentController extends AppBaseController
 
         $validated = $request->validate([
             'start_date' => 'required|date|after:today',
-            'end_date' => 'required|date|before:' . $twoWeeks
+            'end_date' => 'required|date|before:' . $twoWeeks . '|after:start_date'
         ]);
 
         try {
