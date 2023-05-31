@@ -42,6 +42,20 @@ trait forSelector
         return $c;
     }
 
+    public function rentableRroductsForSelector(): array
+    {
+        $c = [];
+
+        Product::translatedIn(app()->getLocale())
+            ->where('is_rentable', true)
+            ->get()
+            ->map(function ($item) use (&$c) {
+                $c[$item->id] = $item->name;
+            });
+
+        return $c;
+    }
+
     public function discountForSelector()
     {
         $c = array();

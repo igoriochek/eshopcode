@@ -44,6 +44,7 @@ return [
     'discountCoupon' => 'Nuolaidos kuponas',
     'acceptedOrder' => 'Ačiū. Jūsų užsakymas buvo priimtas.',
     'canceledOrder' => 'Jūsų užsakymas buvo atšauktas.',
+    'areYouSureRemoveCartItem' => 'Ar tikrai norite pašalinti šią prekę iš krepšelio?',
 
     'hello' => 'Sveiki',
 
@@ -253,6 +254,7 @@ return [
     'unavailableProductDates' => 'Nepasiekiamo produkto datos',
     'createUnavailableProductDate' => 'Sukurti nepasiekiamą produkto datą',
     'areYouSureDeleteUnavailableProductDate' => 'Ar tikrai norite ištrinti šią nepasiekiamą produkto datą?',
+    'noUnavailableDates' => 'Nėra Nepasiekiamų datų',
 
     //Other 
     'desc' => 'Aprašymas',

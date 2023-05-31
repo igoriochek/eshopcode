@@ -25,7 +25,7 @@
                     <div class="product-thumbnail-wrapper">
                         {!! Form::open(['route' => ['userCartItemDestroy', $item->id], 'method' => 'delete']) !!}
                         <button type="submit" class="product-thumbnail-remove" title="{{ __('names.removeProduct') }}"
-                                onclick="return confirm('{{ __('messages.areYouSureCart') }}?')">
+                                onclick="return confirm('{{ __('names.areYouSureRemoveCartItem') }}?')">
                             <i class="fas fa-times"></i>
                         </button>
                         {!! Form::close() !!}

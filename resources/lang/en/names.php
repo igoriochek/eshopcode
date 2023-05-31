@@ -44,6 +44,7 @@ return [
     'discountCoupon' => 'Discount Coupon',
     'acceptedOrder' => 'Thank you. Your order has been accepted.',
     'canceledOrder' => 'Your order has been cancelled.',
+    'areYouSureRemoveCartItem' => 'Are you sure you want to remove this product from shopping cart?',
 
     'adminUserCount' => 'Admin User Count',
     'canceled' => 'Canceled',
@@ -253,6 +254,7 @@ return [
     'unavailableProductDates' => 'Unavailable product dates',
     'createUnavailableProductDate' => 'Create unavailable product date',
     'areYouSureDeleteUnavailableProductDate' => 'Are you sure you want to delete this unavailable product date?',
+    'noUnavailableDates' => 'No available dates',
 
     //Other
     'desc' => 'Description',

@@ -18,7 +18,6 @@ return [
     'changedpassword' => 'Пароль успешно изменен.',
     'incorrectpassword' => 'Неверный текущий пароль.',
 
-
     "nocategories" => "Нет категорий",
     "noinnercategories" => "Нет подкатегорий",
     "subcategories" => "Подкатегории",

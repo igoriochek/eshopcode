@@ -13,8 +13,8 @@
             <tr>
                 <td class="ps-3 text-start" width="300px">{{ $unavailableDate->unavailable_date->format('Y-m-d') }}</td>
                 <td class="ps-3 text-start">{{ $unavailableDate->product->name }}</td>
-                <td class="ps-3 text-start">{{ $unavailableDate->created_at ? $unavailableDate->created_at->format('Y-m-d H:m') : '-' }}</td>
-                {{-- <td class="ps-3 text-start">{{ $unavailableDate->updated_at ? $unavailableDate->updated_at->format('Y-m-d H:m') : '-' }}</td> --}}
+                <td class="ps-3 text-start">{{ $unavailableDate->created_at ? $unavailableDate->created_at->format('Y-m-d') : '-' }}</td>
+                {{-- <td class="ps-3 text-start">{{ $unavailableDate->updated_at ? $unavailableDate->updated_at->format('Y-m-d') : '-' }}</td> --}}
                 <td class="text-start" width="120">
                     <div class='btn-group w-100 d-flex justify-content-center align-items-center'>
                         @include('unavailable_product_dates.forms.destroy_form')

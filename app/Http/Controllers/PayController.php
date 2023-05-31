@@ -33,25 +33,23 @@ class PayController extends AppBaseController
     {
         $cartId = $request->session()->get('appPayCartId');
         $amount = $request->session()->get('appPayAmount');
-        //        $amount = str_replace(".", "", $amount);
-        //        $amount = $amount * 10;
 
-        //        if (!preg_match("/\./", $amount)) {
-        if (strpos($amount, ".") == strlen($amount) - 2)  $amount = $amount . "0";
-        elseif (strpos($amount, ".") === false) $amount = $amount . "00";
-        //            elseif(strpos($amount, ".") == strlen($amount)-3)  $amount = $amount . "00";
-        //        }
+        $amountArray = explode('.', $amount);
+        $partialAmount = str_replace(",", "", $amountArray[0]);
 
-        //        $amount = str_replace(".", "", $amount);
-        $amount = preg_replace("/\D/", "", $amount);
+        if (isset($amountArray[1]) && strlen($amountArray[1]) === 1) {
+            $amountArray[1] = $amountArray[1] . '0';
+        }
 
+        $cents = $amountArray[1] ?? '00';
+        $fullAmount = $partialAmount . $cents;
 
         $appUrl = env('APP_URL');
         $payment = [
             'projectid' => env('WEBTOPAY_PROJECTID'),
             'sign_password' => env('WEBTOPAY_SIGN_PASSWORD'),
             'orderid' => time(),
-            'amount' => $amount,
+            'amount' => $fullAmount,
             'currency' => 'EUR',
             'country' => 'LT',
             'accepturl' => $appUrl . 'user/pay/accept/' . $cartId,
@@ -184,11 +182,15 @@ class PayController extends AppBaseController
         }
 
         foreach ($unavailableDates as $unavailableDate) {
-            UnavailableProductDate::firstOrCreate([
-                'product_id' => $cartItem->product_id,
-                'unavailable_date' => $unavailableDate,
-                'created_at' => now()
-            ]);
+            $existingUnavailableDate = UnavailableProductDate::where('unavailable_date', $unavailableDate)->first();
+
+            if (!$existingUnavailableDate) {
+                UnavailableProductDate::firstOrCreate([
+                    'product_id' => $cartItem->product_id,
+                    'unavailable_date' => $unavailableDate,
+                    'created_at' => now()
+                ]);
+            }
         }
     }
 }

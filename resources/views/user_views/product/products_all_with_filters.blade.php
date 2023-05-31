@@ -119,7 +119,7 @@
                                                     </span>
                                                 @endif
                                             </div>
-                                            @if ($product->rental_price)
+                                            @if ($product->is_rentable)
                                                 <div>
                                                     @if ($product->discount)
                                                         <span class="product-previous-price product-price-font-family">

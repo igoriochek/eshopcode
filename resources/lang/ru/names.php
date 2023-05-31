@@ -44,6 +44,7 @@ return [
     'discountCoupon' => 'Скидочный купон',
     'acceptedOrder' => 'Спасибо. Ваш заказ принят.',
     'canceledOrder' => 'Ваш заказ отменен.',
+    'areYouSureRemoveCartItem' => 'Вы уверены, что хотите удалить этот товар из корзины?',
 
     'adminUserCount' => 'Количество пользователей-администраторов',
     'canceled' => 'Отменено',
@@ -253,6 +254,7 @@ return [
     'unavailableProductDates' => 'Недоступные даты продукта',
     'createUnavailableProductDate' => 'Создать дату недоступного продукта',
     'areYouSureDeleteUnavailableProductDate' => 'Вы уверены, что хотите удалить эту недоступную дату продукта?',
+    'noUnavailableDates' => 'Нет доступных дат',
 
     //Other
     'desc' => 'Описание',

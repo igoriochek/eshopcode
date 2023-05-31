@@ -19,7 +19,7 @@ class UnavailableProductDateController extends Controller
     public function create()
     {
         return view('unavailable_product_dates.create')
-            ->with('products', $this->productsForSelector());
+            ->with('products', $this->rentableRroductsForSelector());
     }
 
     public function store(Request $request)
