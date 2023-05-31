@@ -3,9 +3,10 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 use Faker\Factory as Faker;
 use DB;
-use Illuminate\Support\Facades\Hash;
+
 class UserSeeder extends Seeder
 {
     /**
@@ -15,13 +16,7 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        $faker = Faker::create();
-        DB::table('users')->insert([
-            'name' => $faker->name,
-            'email' => md5($faker->email),
-            'password' => Hash::make($faker->password),
-            'type' => 1,
-        ]);
+        // $faker = Faker::create();
         DB::table('users')->insert([
             'name' => 'igor',
             'email' => 'igor@getweb.lt',
@@ -39,16 +34,10 @@ class UserSeeder extends Seeder
             'password' => Hash::make('8RhNUNun2SqdMaF'),
         ]);
         DB::table('users')->insert([
-            'name' => 'karolis',
-            'email' => 'karolis@viko.lt',
-            'password' => Hash::make('admin'),
-            'type' => 1,
-        ]);
-        DB::table('users')->insert([
             'name' => 'andrej',
             'email' => 'andtaress2@gmail.com',
             'password' => Hash::make('caveman123'),
-            'type' => 1,
+            'type' => 2,
         ]);
     }
 }

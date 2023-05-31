@@ -179,6 +179,9 @@ return [
     'additionalInformation' => 'Дополнительная информация',
     'purchase' => 'Купить',
     'rent' => 'Аренда',
+    'regularPrice' => 'Обычная цена',
+    'rentalPrice' => 'Стоимость аренды (в суток)',
+    'day' => 'суток',
 
     //Promotions
     'createPromotion' => 'Создать акцию',

@@ -58,15 +58,27 @@
                             <div class="divider divider-small">
                                 <hr class="bg-color-grey-scale-4">
                             </div>
-                            <p class="price mb-3">
+                            <p class="price mb-2 d-flex flex-sm-row flex-column align-items-start">
+                                <b class="me-2 fs-6">{{ __('names.regularPrice') }}:</b>
                                 @if ($product->discount)
-                                    <span class="amount">€{{ $product->price }}</span>
-                                    <span class="sale">€{{ $product->price - (round(($product->price * $product->discount->proc / 100), 2)) }}</span>
+                                    <span class="amount text-muted">€{{ number_format($product->price, 2) }}</span>
+                                    <span class="sale">€{{ (round(($product->price * $product->discount->proc / 100), 2)) }}</span>
                                 @else
-                                    <span class="default-price">€{{ $product->price }}</span>
+                                    <span class="default-price">€{{ number_format($product->price, 2) }}</span>
                                 @endif
                             </p>
-                            <p class="mb-3">{{ $product->description }}</p>
+                            @if ($product->is_rentable)
+                                <p class="price mb-4 d-flex flex-sm-row flex-column align-items-start">
+                                    <b class="me-2 fs-6">{{ __('names.rentalPrice') }}:</b>
+                                    @if ($product->discount)
+                                        <span class="amount text-muted">€{{ number_format($product->rental_price, 2).' / '.__('names.day') }}</span>
+                                        <span class="sale">€{{ (round(($product->rental_price * $product->discount->proc / 100), 2)).' / '.__('names.day') }}</span>
+                                    @else
+                                        <span class="default-price">€{{ number_format($product->rental_price, 2).' / '.__('names.day') }}</span>
+                                    @endif
+                                </p>
+                            @endif
+                            {{-- <p class="mb-3">{{ $product->description }}</p> --}}
                             <ul class="list list-unstyled text-2">
                                 <li class="mb-0">
                                     <span class="fw-bold">{{ __('names.categories') }}:</span>

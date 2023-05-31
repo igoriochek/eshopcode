@@ -211,9 +211,9 @@ class CartController extends AppBaseController
                 $cartItem = CartItem::create([
                     'cart_id' => $cart->id,
                     'product_id' => $product->id,
-                    'price_current' => $product->discount ?
-                        $product->price - (round(($product->price * $product->discount->proc / 100), 2)) :
-                        $product->price,
+                    'price_current' => $product->discount
+                        ? (round(($product->price * $product->discount->proc / 100), 2))
+                        : $product->price,
                     'count' => $validated['count'],
                 ]);
                 $cartItem->save();
@@ -236,7 +236,8 @@ class CartController extends AppBaseController
         return $this->cartRepository->getOrSetCart($request);
     }
 
-    private function getCartItemsByCart($cart) {
+    private function getCartItemsByCart($cart)
+    {
         return CartItem::query()
             ->with('product')
             ->where('cart_id', $cart->id)

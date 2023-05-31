@@ -179,6 +179,9 @@ return [
     'additionalInformation' => 'Additional Information',
     'purchase' => 'Purchase',
     'rent' => 'Rent',
+    'regularPrice' => 'Regular price',
+    'rentalPrice' => 'Rental price (per day)',
+    'day' => 'day',
 
     //Promotions
     'createPromotion' => 'Create Promotion',

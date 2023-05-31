@@ -30,6 +30,12 @@
     {!! Form::number('price', null, ['class' => 'form-control', 'step' => '0.01']) !!}
 </div>
 
+<!-- Rental Price Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('rental_price', __('names.rentalPrice').':') !!}
+    {!! Form::number('rental_price', null, ['class' => 'form-control', 'step' => '0.01']) !!}
+</div>
+
 <!-- Count Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('count', __('table.count').':') !!}

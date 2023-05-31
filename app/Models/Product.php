@@ -31,6 +31,7 @@ class Product extends Model implements TranslatableContract
     public $translatedAttributes = ['name', 'description'];
     public $fillable = [
         'price',
+        'rental_price',
         'count',
         'image',
         'video',
@@ -49,6 +50,7 @@ class Product extends Model implements TranslatableContract
      */
     protected $casts = [
         'price' => 'double',
+        'rental_price' => 'double',
         'count' => 'integer',
         'image' => 'string',
         'video' => 'string',

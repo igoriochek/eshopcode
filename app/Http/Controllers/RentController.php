@@ -9,6 +9,7 @@ use App\Http\Controllers\AppBaseController;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Exception;
+use DateTime;
 
 class RentController extends AppBaseController
 {
@@ -44,22 +45,21 @@ class RentController extends AppBaseController
 
     private function addProductRentToCart(object $cart, object $product, array $validated): void
     {
-        $pricePerDay = $product->discount
-        ? $product->price - (round(($product->price * $product->discount->proc / 100), 2))
-        : $product->price;
+        $rentalPrice = $product->discount
+            ? (round(($product->rental_price * $product->discount->proc / 100), 2))
+            : $product->rental_price;
 
-    $startDate = $validated['start_date'] ?? null;
-    $endDate = $validated['end_date'] ?? null;
-    $days = $startDate && $endDate ? (new Carbon($endDate))->diffInDays(new Carbon($startDate)) + 1 : 0;
-    $rentalPrice = $pricePerDay * $days;
+        $startDate = new DateTime($validated['start_date']);
+        $endDate = new DateTime($validated['end_date']);
+        $days = $startDate->diff($endDate)->format('%a');
 
-    CartItem::create([
-        'cart_id' => $cart->id,
-        'product_id' => $product->id,
-        'rental_start_date' => $startDate,
-        'rental_end_date' => $endDate,
-        'price_current' => $rentalPrice,
-        'count' => 1
-    ]);
+        CartItem::create([
+            'cart_id' => $cart->id,
+            'product_id' => $product->id,
+            'rental_start_date' => $validated['start_date'],
+            'rental_end_date' => $validated['end_date'],
+            'price_current' => $rentalPrice * $days,
+            'count' => 1
+        ]);
     }
 }

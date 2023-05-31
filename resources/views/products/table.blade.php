@@ -26,7 +26,7 @@
                 <td>{{ $product->image }}</td>
                 <td>{{ $product->video }}</td>
                 <td>{{ $product->visible ? __('names.yes') : __('names.no') }}</td>
-                <td>{{ $product->is_rental ? __('names.yes') : __('names.no') }}</td>
+                <td>{{ $product->is_rentable ? __('names.yes') : __('names.no') }}</td>
                 <td>{{ $product->promotion_id }}</td>
                 <td>{{ $product->discount_id }}</td>
                 <td>

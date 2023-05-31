@@ -10,6 +10,14 @@
     <p>{{ $product->price }}</p>
 </div>
 
+@if ($product->is_rentable)
+    <!-- Rental Price Field -->
+    <div class="col-sm-12">
+        {!! Form::label('rental_price',  __('names.rentalPrice').':') !!}
+        <p>{{ $product->rental_price }}</p>
+    </div>
+@endif
+
 <!-- Count Field -->
 <div class="col-sm-12">
     {!! Form::label('count',  __('table.count').':') !!}

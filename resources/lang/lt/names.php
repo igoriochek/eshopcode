@@ -179,6 +179,9 @@ return [
     'additionalInformation' => 'Papildoma informacija',
     'purchase' => 'Pirkimas',
     'rent' => 'Nuoma',
+    'regularPrice' => 'Pirkimo kaina',
+    'rentalPrice' => 'Nuomos kaina (per dieną)',
+    'day' => 'diena',
 
     //Promotions
     'createPromotion' => 'Sukurti akciją',

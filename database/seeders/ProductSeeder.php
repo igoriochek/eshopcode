@@ -17,7 +17,9 @@ class ProductSeeder extends Seeder
     public function run()
     {
         $faker = Faker::create();
+
         for ($i = 0; $i <= 200; $i++) {
+            $randomBool = $faker->boolean();
             $cdata = [
                 'en' => [
                     'name' => "product $faker->name",
@@ -27,23 +29,16 @@ class ProductSeeder extends Seeder
                     'name' => "produktas $faker->name",
                     'description' => "produktas $faker->text",
                 ],
-                /*'ru' => [
-                    'name' => "RUproduct $faker->name",
-                    'description' => "RUproduct $faker->text",
-                ],*/
+                // /*'ru' => [
+                //     'name' => "RUproduct $faker->name",
+                //     'description' => "RUproduct $faker->text",
+                // ],*/
                 'price' => rand(1, 1000),
-                'is_rentable' => $faker->boolean(),
+                'rental_price' => $randomBool ? rand(10, 100) : null,
+                'is_rentable' => $randomBool,
                 'promotion_id' => ($i % 10 ? rand(1, 10) : null)
             ];
-            $product = Product::create($cdata);
-
-
-            //            DB::table('products')->insert([
-            ////                'name' => "product $faker->name",
-            ////                'description' => "product $faker->text",
-            //                'price' => rand(1,1000),
-            //                'promotion_id' => ( $i % 10 ? rand(1,10) : null )
-            //            ]);
+            Product::create($cdata);
         }
     }
 }

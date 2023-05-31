@@ -298,15 +298,17 @@ class ProductController extends AppBaseController
             return redirect(route('products.index'));
         }
 
-        return view('products.edit')->with(
-            [
-                'product' => $product,
-                'visible_list' => $this->visible_list,
-                'categories' => $this->categoriesForSelector(),
-                'promotions' => $this->promotionForSelector(),
-                'discounts' => $this->discountForSelector(),
-            ]
-        );
+        return view('products.edit')
+            ->with(
+                [
+                    'product' => $product,
+                    'visible_list' => $this->visible_list,
+                    'booleanList' => $this->booleanForSelector(),
+                    'categories' => $this->categoriesForSelector(),
+                    'promotions' => $this->promotionForSelector(),
+                    'discounts' => $this->discountForSelector(),
+                ]
+            );
     }
 
     /**
