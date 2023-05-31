@@ -44,15 +44,22 @@ class RentController extends AppBaseController
 
     private function addProductRentToCart(object $cart, object $product, array $validated): void
     {
-        CartItem::create([
-            'cart_id' => $cart->id,
-            'product_id' => $product->id,
-            'rental_start_date' => $validated['start_date'] ?? NULL,
-            'rental_end_date' => $validated['end_date'] ?? NULL,
-            'price_current' => $product->discount
-                ? $product->price - (round(($product->price * $product->discount->proc / 100), 2))
-                : $product->price,
-            'count' => 1
-        ]);
+        $pricePerDay = $product->discount
+        ? $product->price - (round(($product->price * $product->discount->proc / 100), 2))
+        : $product->price;
+
+    $startDate = $validated['start_date'] ?? null;
+    $endDate = $validated['end_date'] ?? null;
+    $days = $startDate && $endDate ? (new Carbon($endDate))->diffInDays(new Carbon($startDate)) + 1 : 0;
+    $rentalPrice = $pricePerDay * $days;
+
+    CartItem::create([
+        'cart_id' => $cart->id,
+        'product_id' => $product->id,
+        'rental_start_date' => $startDate,
+        'rental_end_date' => $endDate,
+        'price_current' => $rentalPrice,
+        'count' => 1
+    ]);
     }
 }
