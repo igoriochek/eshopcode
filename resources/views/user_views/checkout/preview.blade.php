@@ -141,7 +141,7 @@
                                 {{ __('forms.name') }}: <strong>{{ auth()->user()->name }}</strong>
                             </p>
                             <p class="d-flex align-items-center gap-2 m-0 p-0" style="line-height: 17px">
-                                {{ __('forms.phone_number') }}: <strong>{{ auth()->user()->phone_number }}</strong>
+                                {{ __('forms.phone_number') }}: <strong>{{ $cart->phone_number ? $cart->phone_number : auth()->user()->phone_number }}</strong>
                             </p>
                             <p class="d-flex align-items-center gap-2 m-0 p-0" style="line-height: 17px">
                                 {{ __('table.collectTime') }}: <strong>{{ $cart->collect_time }}</strong>

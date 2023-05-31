@@ -383,6 +383,7 @@
         }
 
         hoursSelector.addEventListener('change', () => {
+            disableMinutesAfterCurrentMinutes();
             disableMinutesForTwoHours();
             setDiscountHours();
         });
@@ -390,6 +391,25 @@
         minutesSelector.addEventListener('change', () => {
             setDiscountMinutes();
         });
+
+        const disableMinutesAfterCurrentMinutes = () => {
+            let today = new Date();
+            let options = minutesSelector.options;
+
+            if (hoursSelector.value == today.getHours()) {
+                for (let i = 0; i < options.length; i++) {
+                    if (options[i].value < today.getMinutes()) {
+                        options[i].classList.add('d-none');
+                    }
+                }
+            } else {
+                for (let i = 0; i < options.length; i++) {
+                    if (options[i].classList.contains('d-none')) {
+                        options[i].classList.remove('d-none');
+                    }
+                }
+            }
+        }
 
         const disableMinutesForTwoHours = () => {
             if (hoursSelector.value === '02' || hoursSelector.value === '26') {

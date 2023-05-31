@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreateCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
 use App\Models\Product;
+use App\Models\ProductMeat;
+use App\Models\ProductSauce;
 use App\Repositories\CategoryRepository;
 use App\Repositories\ProductRepository;
 use Flash;
@@ -38,7 +40,7 @@ class CategoryController extends AppBaseController
      */
     public function index(Request $request)
     {
-//        $categories = $this->categoryRepository->all();
+        //        $categories = $this->categoryRepository->all();
         $categories = Category::translatedIn(app()->getLocale())->get();
         return view('categories.index')
             ->with('categories', $categories);
@@ -80,11 +82,17 @@ class CategoryController extends AppBaseController
         if ($user)
             $user->log("Viewed {$category->name}");
 
+        $productMeats = ProductMeat::all();
+        $productSauces = ProductSauce::all();
+
         return view('user_views.category.categories_inner_user')
-            ->with(['categoryTree' => $this->getTreeCategories(),
-                    'maincategory' => $category,
-                    'products' => $products,
-                ]);
+            ->with([
+                'categoryTree' => $this->getTreeCategories(),
+                'maincategory' => $category,
+                'products' => $products,
+                'defaultMeat' => $this->getDefaultInstance($productMeats),
+                'defaultSauce' => $this->getDefaultInstance($productSauces)
+            ]);
     }
 
     /*public function userCategoryTree ( Request $request) {
@@ -101,7 +109,6 @@ class CategoryController extends AppBaseController
 
     public function userViewCategory(Request $request)
     {
-
     }
 
     /**
@@ -111,7 +118,7 @@ class CategoryController extends AppBaseController
      */
     public function create()
     {
-        return view('categories.create', [ 'visible_list' => $this->visible_list, 'categories' => $this->categoriesForSelector()]);
+        return view('categories.create', ['visible_list' => $this->visible_list, 'categories' => $this->categoriesForSelector()]);
     }
 
     /**
@@ -173,10 +180,12 @@ class CategoryController extends AppBaseController
         }
 
 
-        return view('categories.edit', [ 'visible_list' => $this->visible_list,
+        return view('categories.edit', [
+            'visible_list' => $this->visible_list,
             'categories' => $this->categoriesForSelector(),
-            'category'=>$category]);
-//        )->with('category', $category);
+            'category' => $category
+        ]);
+        //        )->with('category', $category);
     }
 
     /**
@@ -230,5 +239,16 @@ class CategoryController extends AppBaseController
         Flash::success('Category deleted successfully.');
 
         return redirect(route('categories.index'));
+    }
+
+    private function getDefaultInstance(object $collection): ?int
+    {
+        $default = null;
+
+        foreach ($collection as $row) {
+            $row->default === true && $default = $row->value('id');
+        }
+
+        return $default;
     }
 }

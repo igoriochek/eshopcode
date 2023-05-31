@@ -43,11 +43,7 @@ class ProductSizeController extends AppBaseController
         $validated = $this->validateProductSizeRules($request);
 
         try {
-            if ($request->default === "1") {
-                $oldDefaultProductSize = ProductSize::where('default', true)->first();
-                $oldDefaultProductSize->default = false;
-                $oldDefaultProductSize->save();
-            }
+            $this->changePreviousDefaultToFalse($request->default);
 
             $requestData = [...$validated, 'default' => $request->default ?? false];
             $input = $this->prepare($requestData, ['name']);
@@ -55,8 +51,7 @@ class ProductSizeController extends AppBaseController
 
             session()->flash('success', __('messages.successCreateProductSize'));
             return redirect()->route('product_sizes.index');
-        }
-        catch (Exception $exception) {
+        } catch (Exception $exception) {
             session()->flash('error', $exception->getMessage());
             return back();
         }
@@ -76,11 +71,7 @@ class ProductSizeController extends AppBaseController
         $validated = $this->validateProductSizeRules($request);
 
         try {
-            if ($request->default === "1") {
-                $oldDefaultProductSize = ProductSize::where('default', true)->first();
-                $oldDefaultProductSize->default = false;
-                $oldDefaultProductSize->save();
-            }
+            $this->changePreviousDefaultToFalse($request->default);
 
             $requestData = [...$validated, 'default' => $request->default ?? false];
             $input = $this->prepare($requestData, ['name']);
@@ -89,8 +80,7 @@ class ProductSizeController extends AppBaseController
 
             session()->flash('success', __('messages.successUpdateProductSize'));
             return redirect()->route('product_sizes.index');
-        }
-        catch (Exception $exception) {
+        } catch (Exception $exception) {
             session()->flash('error', $exception->getMessage());
             return back();
         }
@@ -100,12 +90,20 @@ class ProductSizeController extends AppBaseController
     {
         try {
             $productSize = $this->getProductSizeById($id);
+
+            $productSizePrices = ProductSizePrice::all()->where('product_size_id', $productSize->id);
+
+            if (count($productSizePrices) > 0) {
+                foreach ($productSizePrices as $productSizePrice) {
+                    $productSizePrice->delete();
+                }
+            }
+
             $productSize->delete();
 
             session()->flash('success', __('messages.successDeleteProductSize'));
             return back();
-        }
-        catch (Exception $exception) {
+        } catch (Exception $exception) {
             session()->flash('error', $exception->getMessage());
             return back();
         }
@@ -132,8 +130,7 @@ class ProductSizeController extends AppBaseController
             foreach ($productSizes as $key => $productSize) {
                 if (!isset($addedProductSizes[$key])) {
                     $notAddedProductSizes[$productSize->id] = $productSize->name;
-                }
-                else continue;
+                } else continue;
             }
         }
 
@@ -158,8 +155,7 @@ class ProductSizeController extends AppBaseController
 
             session()->flash('success', __('messages.successAddProductSizePrice'));
             return redirect()->route('products.show', $id);
-        }
-        catch (Exception $exception) {
+        } catch (Exception $exception) {
             session()->flash('error', $exception->getMessage());
             return back();
         }
@@ -188,8 +184,7 @@ class ProductSizeController extends AppBaseController
 
             session()->flash('success', __('messages.successEditProductSizePrice'));
             return redirect()->route('products.show', $productId);
-        }
-        catch (Exception $exception) {
+        } catch (Exception $exception) {
             session()->flash('error', $exception->getMessage());
             return back();
         }
@@ -239,5 +234,17 @@ class ProductSizeController extends AppBaseController
         }
 
         return $productSizePrice;
+    }
+
+    private function changePreviousDefaultToFalse(string $default): void
+    {
+        if ($default === "1") {
+            $oldDefaultProductSize = ProductSize::where('default', true)->first();
+
+            if ($oldDefaultProductSize) {
+                $oldDefaultProductSize->default = false;
+                $oldDefaultProductSize->save();
+            }
+        }
     }
 }

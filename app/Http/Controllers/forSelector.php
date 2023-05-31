@@ -21,10 +21,10 @@ trait forSelector
     public function categoriesForSelector()
     {
         $c = array();
-//        Category::all()->map(function ($item) use (&$c) {
-//            $c[$item->id] = $item->name;
-//        });
-    Category::translatedIn(app()->getLocale())->get()->map(function ($item) use (&$c) {
+        //        Category::all()->map(function ($item) use (&$c) {
+        //            $c[$item->id] = $item->name;
+        //        });
+        Category::translatedIn(app()->getLocale())->get()->map(function ($item) use (&$c) {
             $c[$item->id] = $item->name;
         });
         return $c;
@@ -33,9 +33,9 @@ trait forSelector
     public function productsForSelector()
     {
         $c = array();
-//        Product::all()->map(function ($item) use (&$c) {
-//            $c[$item->id] = $item->name;
-//        });
+        //        Product::all()->map(function ($item) use (&$c) {
+        //            $c[$item->id] = $item->name;
+        //        });
         Product::translatedIn(app()->getLocale())->get()->map(function ($item) use (&$c) {
             $c[$item->id] = $item->name;
         });
@@ -146,7 +146,7 @@ trait forSelector
             __('forms.priceDesc')
         ];
 
-        for($i = 0; $i < count($titles); $i++){
+        for ($i = 0; $i < count($titles); $i++) {
             $c[$i] = $titles[$i];
         }
 
@@ -164,7 +164,7 @@ trait forSelector
             $hourChars = str_split($hours[$i]);
 
             if (count($hourChars) === 1) {
-                $hours[$i] = '0'.join("", $hourChars);
+                $hours[$i] = '0' . join("", $hourChars);
                 $c[$hours[$i]] = $hours[$i];
             }
 
@@ -172,7 +172,15 @@ trait forSelector
         }
 
         for ($i = 0; $i < count($hoursAfterMidnight); $i++) {
-            $c[] = $hoursAfterMidnight[$i];
+            $c[$hoursAfterMidnight[$i]] = $hoursAfterMidnight[$i];
+        }
+
+        $currentHour = now()->format('H');
+
+        foreach ($hours as $hour) {
+            if ($hour < $currentHour) {
+                unset($c[$hour]);
+            }
         }
 
         return $c;
@@ -184,7 +192,7 @@ trait forSelector
 
         $minutes = ['00', '15', '30', '45'];
 
-        for($i = 0; $i < count($minutes); $i++){
+        for ($i = 0; $i < count($minutes); $i++) {
             $c[$minutes[$i]] = $minutes[$i];
         }
 

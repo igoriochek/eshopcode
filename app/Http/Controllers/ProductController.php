@@ -125,7 +125,7 @@ class ProductController extends AppBaseController
 
         return view('user_views.product.products_all_with_filters')
             ->with([
-                'minPrice' => ceil(Product::all()->min('price')),
+                'minPrice' => floor(Product::all()->min('price')),
                 'maxPrice' => ceil(Product::all()->max('price')),
                 'products' => $products,
                 'categories' => $categories,
