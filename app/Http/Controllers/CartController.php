@@ -203,7 +203,8 @@ class CartController extends AppBaseController
                 ->where([
                     'cart_id' => $cart->id,
                     'product_id' => $product->id,
-                    //'price_current' => $product->price,
+                    'rental_start_date' => null,
+                    'days' => null
                 ])
                 ->first();
 
@@ -212,7 +213,7 @@ class CartController extends AppBaseController
                     'cart_id' => $cart->id,
                     'product_id' => $product->id,
                     'price_current' => $product->discount
-                        ? (round(($product->price * $product->discount->proc / 100), 2))
+                        ? $product->price - (round(($product->price * $product->discount->proc / 100), 2))
                         : $product->price,
                     'count' => $validated['count'],
                 ]);

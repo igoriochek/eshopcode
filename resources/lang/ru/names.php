@@ -183,6 +183,7 @@ return [
     'regularPrice' => 'Обычная цена',
     'rentalPrice' => 'Стоимость аренды (в суток)',
     'day' => 'суток',
+    'days' => 'сутков',
 
     //Promotions
     'createPromotion' => 'Создать акцию',

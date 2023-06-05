@@ -53,7 +53,7 @@
             $(() => {
                 $("#datePicker").datepicker("destroy");
                 $('#datePicker').datepicker({
-                    minDate: '{{ now()->addDay()->toDateString() }}',
+                    minDate: '{{ now()->addWeeks(2)->toDateString() }}',
                     dateFormat: 'yy-mm-dd',
                     showButtonPanel: true,
                     beforeShowDay: date => {

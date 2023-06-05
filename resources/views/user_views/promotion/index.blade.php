@@ -45,30 +45,34 @@
                                                 <a style="cursor: pointer" href="{{ route('viewproduct', $product->id) }}">
                                                     <img src="{{ $product->image }}" alt="{{ $product->name }}" class="product-image mx-auto"/>
                                                 </a>
-                                                <div class="product-add-to-cart-wrapper">
-                                                    <div class="d-flex justify-content-center justify-content-lg-start">
-                                                        <input type="hidden" name="id" value="{{ $product->id }}">
-                                                        <button type="submit" class="text-decoration-none product-add-to-cart-button" title="Add to Cart">
-                                                            <i class="fa-solid fa-bag-shopping"></i>
-                                                            {{ __('buttons.addToCart') }}
-                                                        </button>
+                                                @if (!$product->is_rentable)
+                                                    <div class="product-add-to-cart-wrapper">
+                                                        <div class="d-flex justify-content-center justify-content-lg-start">
+                                                            <input type="hidden" name="id" value="{{ $product->id }}">
+                                                            <button type="submit" class="text-decoration-none product-add-to-cart-button" title="Add to Cart">
+                                                                <i class="fa-solid fa-bag-shopping"></i>
+                                                                {{ __('buttons.addToCart') }}
+                                                            </button>
+                                                        </div>
                                                     </div>
-                                                </div>
+                                                @endif
                                             </div>
                                         @else
                                             <div class="product-image-container">
                                                 <a style="cursor: pointer" href="{{ route('viewproduct', $product->id) }}">
                                                     <img src="/images/noimage.jpeg" alt="" class="product-image mx-auto"/>
                                                 </a>
-                                                <div class="product-add-to-cart-wrapper">
-                                                    <div class="d-flex justify-content-center justify-content-lg-start">
-                                                        <input type="hidden" name="id" value="{{ $product->id }}">
-                                                        <button type="submit" class="text-decoration-none product-add-to-cart-button" title="Add to Cart">
-                                                            <i class="fa-solid fa-bag-shopping"></i>
-                                                            <span>{{ __('buttons.addToCart') }}</span>
-                                                        </button>
+                                                @if (!$product->is_rentable)
+                                                    <div class="product-add-to-cart-wrapper">
+                                                        <div class="d-flex justify-content-center justify-content-lg-start">
+                                                            <input type="hidden" name="id" value="{{ $product->id }}">
+                                                            <button type="submit" class="text-decoration-none product-add-to-cart-button" title="Add to Cart">
+                                                                <i class="fa-solid fa-bag-shopping"></i>
+                                                                <span>{{ __('buttons.addToCart') }}</span>
+                                                            </button>
+                                                        </div>
                                                     </div>
-                                                </div>
+                                                @endif
                                             </div>
                                         @endif
                                         <div class="product-information">
@@ -89,28 +93,29 @@
                                                     @endif
                                                 </div>
                                                 <div class="product-price d-flex flex-column align-items-end">
-                                                    <div>
-                                                        @if ($product->discount)
-                                                            <span class="product-previous-price product-price-font-family">
-                                                                €{{ number_format($product->price, 2) }}
-                                                            </span>&nbsp
-                                                            <span class="product-discounted-price product-price-font-family">
-                                                                €{{ (round(($product->price * $product->discount->proc / 100), 2)) }}
-                                                            </span>
-                                                        @else
-                                                            <span class="product-no-discount-price product-price-font-family fs-6">
-                                                                €{{ number_format($product->price, 2) }}
-                                                            </span>
-                                                        @endif
-                                                    </div>
-                                                    @if ($product->is_rentable)
+                                                    @if (!$product->is_rentable)
+                                                        <div>
+                                                            @if ($product->discount)
+                                                                <span class="product-previous-price product-price-font-family">
+                                                                    €{{ number_format($product->price, 2) }}
+                                                                </span>&nbsp
+                                                                <span class="product-discounted-price product-price-font-family">
+                                                                    €{{ $product->price - (round(($product->price * $product->discount->proc / 100), 2)) }}
+                                                                </span>
+                                                            @else
+                                                                <span class="product-no-discount-price product-price-font-family fs-6">
+                                                                    €{{ number_format($product->price, 2) }}
+                                                                </span>
+                                                            @endif
+                                                        </div>
+                                                    @else
                                                         <div>
                                                             @if ($product->discount)
                                                                 <span class="product-previous-price product-price-font-family">
                                                                     €{{ number_format($product->rental_price, 2) }}
                                                                 </span>&nbsp
                                                                 <span class="product-discounted-price product-price-font-family">
-                                                                    €{{ (round(($product->rental_price * $product->discount->proc / 100), 2)).' / '.__('names.day') }}
+                                                                    €{{ $product->rental_price - (round(($product->rental_price * $product->discount->proc / 100), 2)).' / '.__('names.day') }}
                                                                 </span>
                                                             @else
                                                                 <span class="product-no-discount-price product-price-font-family fs-6">
@@ -121,13 +126,15 @@
                                                     @endif
                                                 </div>
                                             </div>
-                                            <div class="w-100 d-flex justify-content-center flex-column mt-3">
-                                                <div class="d-flex justify-content-center">
-                                                    <input type="button" class="minus text-color-hover-light bg-color-hover-primary border-color-hover-primary" value="-">
-                                                    {!! Form::number('count', "1", ['class' => 'product-add-to-cart-number', "min" => "1", "max" => "5", "minlength" => "1", "maxlength" => "5", "oninput" => "this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null"]) !!}
-                                                    <input type="button" class="plus text-color-hover-light bg-color-hover-primary border-color-hover-primary" value="+">
+                                            @if (!$product->is_rentable)
+                                                <div class="w-100 d-flex justify-content-center flex-column mt-3">
+                                                    <div class="d-flex justify-content-center">
+                                                        <input type="button" class="minus text-color-hover-light bg-color-hover-primary border-color-hover-primary" value="-">
+                                                        {!! Form::number('count', "1", ['class' => 'product-add-to-cart-number', "min" => "1", "max" => "5", "minlength" => "1", "maxlength" => "5", "oninput" => "this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null"]) !!}
+                                                        <input type="button" class="plus text-color-hover-light bg-color-hover-primary border-color-hover-primary" value="+">
+                                                    </div>
                                                 </div>
-                                            </div>
+                                            @endif
                                         </div>
                                     {!! Form::close() !!}
                                 </div>

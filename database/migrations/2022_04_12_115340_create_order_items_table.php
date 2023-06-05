@@ -19,7 +19,7 @@ class CreateOrderItemsTable extends Migration
             $table->unsignedBigInteger('order_id')->unsigned();
             $table->unsignedBigInteger('product_id')->unsigned();
             $table->date('rental_start_date')->nullable();
-            $table->date('rental_end_date')->nullable();
+            $table->integer('days')->nullable();
             $table->double('price_current');
             $table->double('count');
             $table->timestamps();

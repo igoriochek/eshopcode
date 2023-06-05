@@ -273,6 +273,11 @@ class ProductController extends AppBaseController
         return view('user_views.product.view_product')
             ->with([
                 'product' => $product,
+                'dayList' => [
+                    1 => '1 ' . __('names.day'),
+                    2 => '2 ' . __('names.days'),
+                    3 => '3 ' . __('names.days')
+                ],
                 'voted' => $this->getVotedCondition($id),
                 'average' => $this->calculateAverageRating($sum, $count),
                 'rateCount' => $count

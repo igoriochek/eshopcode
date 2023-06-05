@@ -34,7 +34,9 @@ class OrderCreatedMail extends Mailable
         $countSum = 0;
 
         foreach ($orderItems as $orderItem) {
-            $countSum += $orderItem->count;
+            if (!$orderItem->rental_start_date && !$orderItem->days) {
+                $countSum += $orderItem->count;
+            }
         }
 
         return $countSum;

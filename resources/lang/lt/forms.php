@@ -30,6 +30,8 @@ return [
     'to' => 'Kam',
     'startDate' => 'Pradžios data',
     'endDate' => 'Pabaigos data',
+    'selectDays' => 'Pasirinkite dienas',
+    'selectedDays' => 'Pasirinktos dienos',
 
     'current_password' => 'Dabartinis slaptažodis',
     'new_password' => 'Naujas slaptažodis',

@@ -183,6 +183,7 @@ return [
     'regularPrice' => 'Regular price',
     'rentalPrice' => 'Rental price (per day)',
     'day' => 'day',
+    'days' => 'days',
 
     //Promotions
     'createPromotion' => 'Create Promotion',

@@ -39,15 +39,15 @@
                     <a href="{{ route('viewproduct', $item['product']->id) }}">
                         {{ $item['product']->name }}
                     </a>
-                    @if ($item->rental_start_date && $item->rental_end_date)
+                    @if ($item->rental_start_date && $item->days)
                         <div class="d-flex flex-column gap-1 mt-2" style="color: #444">
                             <div class="d-flex flex-column" style="line-height: 22px">
                                 <span style="color: #555">{{ __('forms.startDate') }}:</span>
                                 <b>{{ $item->rental_start_date->format('Y-m-d') }}</b>
                             </div>
                             <div class="d-flex flex-column" style="line-height: 22px">
-                                <span style="color: #555">{{ __('forms.endDate') }}:</span>
-                                <b>{{ $item->rental_end_date->format('Y-m-d') }}</b>
+                                <span style="color: #555">{{ __('forms.selectedDays') }}:</span>
+                                <b>{{ $item->days.' '.__('names.days') }}</b>
                             </div>
                         </div>
                     @endif
@@ -57,11 +57,11 @@
                 </td>
                 <td class="product-quantity">
                     <div class="quantity d-flex w-50">
-                        <input readonly type="text" class="product-change-cart-number text-start" title="Qty" value="{{ $item->count }}" name="quantity" min="1" max="5" minlength="1" maxlength="5">
+                        <input readonly type="text" class="product-change-cart-number text-start" title="Qty" value="{{ $item->rental_start_date && $item->days ? '-' : $item->count }}" name="quantity" min="1" max="5" minlength="1" maxlength="5">
                     </div>
                 </td>
                 <td class="product-subtotal text-end">
-                    <span>€{{ $item->price_current * $item->count }}</span>
+                    <span>€{{ number_format($item->price_current * $item->count, 2) }}</span>
                 </td>
             </tr>
         @empty

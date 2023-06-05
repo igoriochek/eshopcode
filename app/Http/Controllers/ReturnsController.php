@@ -362,7 +362,7 @@ class ReturnsController extends AppBaseController
                         'return_id' => $returns->id,
                         'product_id' => $item[0]->product_id,
                         'rental_start_price' => $item[0]->rental_start_price ?? NULL,
-                        'rental_end_price' => $item[0]->rental_end_price ?? NULL,
+                        'days' => $item[0]->days ?? NULL,
                         'price_current' => $item[0]->price_current,
                         'count' => $item[0]->count,
                     ]);

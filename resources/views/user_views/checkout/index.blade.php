@@ -70,19 +70,19 @@
                                         <td>
                                             <strong class="d-block text-dark line-height-1">
                                                 {{ $item['product']->name }}
-                                                @if ($item->rental_start_date && $item->rental_end_date)
+                                                @if ($item->rental_start_date && $item->days)
                                                     <div class="d-flex flex-md-row flex-column gap-md-3 gap-1 mt-2" style="color: #444">
                                                         <div class="d-flex flex-column" style="line-height: 22px">
                                                             <span style="color: #555">{{ __('forms.startDate') }}:</span>
                                                             <b>{{ $item->rental_start_date->format('Y-m-d') }}</b>
                                                         </div>
                                                         <div class="d-flex flex-column" style="line-height: 22px">
-                                                            <span style="color: #555">{{ __('forms.endDate') }}:</span>
-                                                            <b>{{ $item->rental_end_date->format('Y-m-d') }}</b>
+                                                            <span style="color: #555">{{ __('forms.selectedDays') }}:</span>
+                                                            <b>{{ $item->days.' '.__('names.days') }}</b>
                                                         </div>
                                                     </div>
                                                 @else
-                                                    <span class="product-qty">x{{ $item->count }}</span>
+                                                    <span class="product-qty">{{ $item->rental_start_date && $item->days ? '-' : 'x'.$item->count }}</span>
                                                 @endif
                                             </strong>
                                         </td>
@@ -98,7 +98,7 @@
                                     <td class="border-top-0 text-end">
                                         <strong>
                                             <span class="amount font-weight-medium">
-                                                €{{  number_format($cart->sum,2) }}
+                                                €{{ number_format($cart->sum, 2) }}
                                             </span>
                                         </strong>
                                     </td>
@@ -109,7 +109,7 @@
                                     </td>
                                     <td class="text-end">
                                         <strong class="text-color-dark">
-                                            <span class="amount text-dark text-5">€{{ number_format($cart->sum,2) }}</span>
+                                            <span class="amount text-dark text-5">€{{ number_format($cart->sum, 2) }}</span>
                                         </strong>
                                     </td>
                                 </tr>

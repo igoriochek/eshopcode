@@ -30,6 +30,8 @@ return [
     'to' => 'к',
     'startDate' => 'Дата начала',
     'endDate' => 'Дата окончания',
+    'selectDays' => 'Выберите количество суток',
+    'selectedDays' => 'Выбранные сутки',
 
     'current_password' => "Текущий пароль",
     'new_password' => "Новый пароль",

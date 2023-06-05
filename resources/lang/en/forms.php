@@ -30,6 +30,8 @@ return [
     'to' => 'To',
     'startDate' => 'Start Date',
     'endDate' => 'End Date',
+    'selectDays' => 'Select days',
+    'selectedDays' => 'Selected days',
 
     'current_password' => "Current password",
     'new_password' => "New password",

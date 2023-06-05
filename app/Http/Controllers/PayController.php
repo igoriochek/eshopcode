@@ -13,6 +13,7 @@ use App\Models\UnavailableProductDate;
 use App\Models\User;
 use App\Repositories\CartRepository;
 use Carbon\CarbonPeriod;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Response;
@@ -130,12 +131,12 @@ class PayController extends AppBaseController
                         $newOrderItem->order_id = $newOrder->id;
                         $newOrderItem->product_id = $cartItem->product_id;
                         $newOrderItem->rental_start_date = $cartItem->rental_start_date ?? NULL;
-                        $newOrderItem->rental_end_date = $cartItem->rental_end_date ?? NULL;
+                        $newOrderItem->days = $cartItem->days ?? NULL;
                         $newOrderItem->price_current = $cartItem->price_current;
                         $newOrderItem->count = $cartItem->count;
                         $newOrderItem->save();
 
-                        if ($cartItem->rental_start_date && $cartItem->rental_end_date) {
+                        if ($cartItem->rental_start_date && $cartItem->days) {
                             $this->addUnavailableDates($cartItem);
                         }
                     }
@@ -175,7 +176,8 @@ class PayController extends AppBaseController
     private function addUnavailableDates(object $cartItem): void
     {
         $unavailableDates = [];
-        $carbonDates = CarbonPeriod::create($cartItem->rental_start_date, $cartItem->rental_end_date);
+        $endDate = $cartItem->rental_start_date->addDays($cartItem->days)->toDateString();
+        $carbonDates = CarbonPeriod::create($cartItem->rental_start_date, $endDate);
 
         foreach ($carbonDates as $carbonDate) {
             $unavailableDates[] = $carbonDate->format('Y-m-d');

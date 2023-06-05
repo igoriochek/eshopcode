@@ -30,7 +30,7 @@ class RentController extends AppBaseController
 
         $validated = $request->validate([
             'start_date' => 'required|date|after:today',
-            'end_date' => 'required|date|before:' . $twoWeeks . '|after:start_date'
+            'days' => 'required|integer|min:1|max:3'
         ]);
 
         try {
@@ -51,7 +51,8 @@ class RentController extends AppBaseController
     private function findUnavailableDateBetweenStartAndEnd(array $validated, int $productId): void
     {
         $unavailableDates = [];
-        $carbonDates = CarbonPeriod::create($validated['start_date'], $validated['end_date']);
+        $endDate = Carbon::createFromFormat('Y-m-d', $validated['start_date'])->addDays($validated['days'])->toDateString();
+        $carbonDates = CarbonPeriod::create($validated['start_date'], $endDate);
 
         foreach ($carbonDates as $carbonDate) {
             $unavailableDates[] = $carbonDate->format('Y-m-d');
@@ -71,19 +72,15 @@ class RentController extends AppBaseController
     private function addProductRentToCart(object $cart, object $product, array $validated): void
     {
         $rentalPrice = $product->discount
-            ? (round(($product->rental_price * $product->discount->proc / 100), 2))
+            ? $product->price - (round(($product->rental_price * $product->discount->proc / 100), 2))
             : $product->rental_price;
-
-        $startDate = new DateTime($validated['start_date']);
-        $endDate = new DateTime($validated['end_date']);
-        $days = $startDate->diff($endDate)->format('%a');
 
         CartItem::firstOrCreate([
             'cart_id' => $cart->id,
             'product_id' => $product->id,
             'rental_start_date' => $validated['start_date'],
-            'rental_end_date' => $validated['end_date'],
-            'price_current' => $rentalPrice * $days,
+            'days' => $validated['days'],
+            'price_current' => $rentalPrice * $validated['days'],
             'count' => 1
         ]);
     }

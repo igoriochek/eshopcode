@@ -50,21 +50,21 @@
                                         {{-- <td>{{ $item->product_id }}</td> --}}
                                         <td>
                                             {{ $item->product->name }}
-                                            @if ($item->rental_start_date && $item->rental_end_date)
+                                            @if ($item->rental_start_date && $item->days)
                                                 <div class="d-flex flex-column flex-md-row gap-md-3 gap-1 mt-2" style="color: #444">
                                                     <div class="d-flex flex-column" style="line-height: 22px">
                                                         <span style="color: #555">{{ __('forms.startDate') }}:</span>
                                                         <b>{{ $item->rental_start_date->format('Y-m-d') }}</b>
                                                     </div>
                                                     <div class="d-flex flex-column" style="line-height: 22px">
-                                                        <span style="color: #555">{{ __('forms.endDate') }}:</span>
-                                                        <b>{{ $item->rental_end_date->format('Y-m-d') }}</b>
+                                                        <span style="color: #555">{{ __('forms.selectedDays') }}:</span>
+                                                        <b>{{ $item->days.' '.__('names.days') }}</b>
                                                     </div>
                                                 </div>
                                             @endif
                                         </td>
                                         <td>{{ $item->price_current }} €</td>
-                                        <td>{{ $item->count }}</td>
+                                        <td>{{ $item->rental_start_date && $item->days ? '-' : $item->count }}</td>
                                     </tr>
                                 @endforeach
                                 </tbody>

@@ -58,21 +58,22 @@
                             <div class="divider divider-small">
                                 <hr class="bg-color-grey-scale-4">
                             </div>
-                            <p class="price mb-2 d-flex flex-sm-row flex-column align-items-start">
-                                <b class="me-2 fs-6">{{ __('names.regularPrice') }}:</b>
-                                @if ($product->discount)
-                                    <span class="amount text-muted">€{{ number_format($product->price, 2) }}</span>
-                                    <span class="sale">€{{ (round(($product->price * $product->discount->proc / 100), 2)) }}</span>
-                                @else
-                                    <span class="default-price">€{{ number_format($product->price, 2) }}</span>
-                                @endif
-                            </p>
-                            @if ($product->is_rentable)
+                            @if (!$product->is_rentable)
+                                <p class="price mb-2 d-flex flex-sm-row flex-column align-items-start">
+                                    <b class="me-2 fs-6">{{ __('names.regularPrice') }}:</b>
+                                    @if ($product->discount)
+                                        <span class="amount text-muted">€{{ number_format($product->price, 2) }}</span>
+                                        <span class="sale">€{{ $product->price - (round(($product->price * $product->discount->proc / 100), 2)) }}</span>
+                                    @else
+                                        <span class="default-price">€{{ number_format($product->price, 2) }}</span>
+                                    @endif
+                                </p>
+                            @else
                                 <p class="price mb-4 d-flex flex-sm-row flex-column align-items-start">
                                     <b class="me-2 fs-6">{{ __('names.rentalPrice') }}:</b>
                                     @if ($product->discount)
                                         <span class="amount text-muted">€{{ number_format($product->rental_price, 2).' / '.__('names.day') }}</span>
-                                        <span class="sale">€{{ (round(($product->rental_price * $product->discount->proc / 100), 2)).' / '.__('names.day') }}</span>
+                                        <span class="sale">€{{ $product->rental_price - (round(($product->rental_price * $product->discount->proc / 100), 2)).' / '.__('names.day') }}</span>
                                     @else
                                         <span class="default-price">€{{ number_format($product->rental_price, 2).' / '.__('names.day') }}</span>
                                     @endif
@@ -92,18 +93,16 @@
                                 </li>
                             </ul>
                             <hr>
-                            <h6>{{ __('names.purchase') }}</h6>
-                            {!! Form::open(['route' => ['addtocart'], 'method' => 'post', 'class' => 'product-add-to-cart-container']) !!}
-                                <input type="button" class="minus text-color-hover-light bg-color-hover-primary border-color-hover-primary" value="-">
-                                {!! Form::number('count', "1", ['class' => 'product-add-to-cart-number', "min" => "1", "max" => "5", "minlength" => "1", "maxlength" => "5", "oninput" => "this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null"]) !!}
-                                <input type="button" class="plus text-color-hover-light bg-color-hover-primary border-color-hover-primary" value="+">
-                                <input type="hidden" name="id" value="{{ $product->id }}">
-                                <input type="submit" value="{{__('buttons.addToCart')}}" class="btn product-add-to-cart-button">
-                            {!! Form::close() !!}
-                            @if ($product->is_rentable)
-                                <div class="divider divider-small">
-                                    <hr class="bg-color-grey-scale-4">
-                                </div>
+                            @if (!$product->is_rentable)
+                                <h6>{{ __('names.purchase') }}</h6>
+                                {!! Form::open(['route' => ['addtocart'], 'method' => 'post', 'class' => 'product-add-to-cart-container']) !!}
+                                    <input type="button" class="minus text-color-hover-light bg-color-hover-primary border-color-hover-primary" value="-">
+                                    {!! Form::number('count', "1", ['class' => 'product-add-to-cart-number', "min" => "1", "max" => "5", "minlength" => "1", "maxlength" => "5", "oninput" => "this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null"]) !!}
+                                    <input type="button" class="plus text-color-hover-light bg-color-hover-primary border-color-hover-primary" value="+">
+                                    <input type="hidden" name="id" value="{{ $product->id }}">
+                                    <input type="submit" value="{{__('buttons.addToCart')}}" class="btn product-add-to-cart-button">
+                                {!! Form::close() !!}
+                            @else
                                 <h6>{{ __('names.rent') }}</h6>
                                 {!! Form::open(['route' => ['rentProduct', $product->id], 'method' => 'POST', 'class' => 'row']) !!}
                                     <div class="form-group col-lg-6 col-md-12 col-sm-6 col-12">
@@ -130,22 +129,8 @@
                                         @enderror
                                     </div>
                                     <div class="form-group col-lg-6 col-md-12 col-sm-6 col-12">
-                                        {!! Form::label('end_date', __('forms.endDate')) !!}
-                                        <input type="text"
-                                            name="end_date"
-                                            class="form-control py-2 datepicker"
-                                            autocomplete="off"
-                                            data-provide="datepicker" 
-                                            data-date-autoclose="true"
-                                            data-date-format="yy-mm-dd" 
-                                            data-date-today-highlight="true"
-                                            id="endDatePicker" 
-                                            style="border-color: #e1e1e1"
-                                            placeholder="{{ __('yyyy-mm-dd') }}"
-                                            onchange="this.dispatchEvent(new InputEvent('input'))"
-                                            onkeydown="return false"
-                                            readonly
-                                        >
+                                        {!! Form::label('end_date', __('forms.selectDays')) !!}
+                                        {!! Form::select('days', $dayList, null, ['class' => 'form-select fs-6', 'id' => 'perPageSelector', 'style' => 'cursor: pointer']) !!}
                                         @error('end_date')
                                             <span class="text-danger" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -323,35 +308,15 @@
                 type: 'GET',
                 data: data,
                 dataType: 'html',
-                success: response => setDatePickers(JSON.parse(response).unavailableDates),
+                success: response => setStartDatePicker(JSON.parse(response).unavailableDates),
                 error: XMLHttpRequest => console.error(XMLHttpRequest)
             })
         })
 
-        const setDatePickers = unavailableDates => {
-            setStartDatePicker(unavailableDates)
-            setEndDatePicker(unavailableDates)
-        }
-
         const setStartDatePicker = unavailableDates => {
             $(() => {
                 $('#startDatePicker').datepicker({
-                    minDate: '{{ now()->addDay()->toDateString() }}',
-                    dateFormat: 'yy-mm-dd',
-                    showButtonPanel: true,
-                    beforeShowDay: date => {
-                        $(".ui-datepicker").css('font-size', 20);
-                        const dateToString = jQuery.datepicker.formatDate('yy-mm-dd', date);
-                        return [unavailableDates.indexOf(dateToString) === -1]
-                    }
-                }).on("change", () => $('#endDatePicker').datepicker("option", "minDate", getDate($('#startDatePicker').val())))
-            })
-        }
-
-        const setEndDatePicker = unavailableDates => {
-            $(() => {
-                $('#endDatePicker').datepicker({
-                    minDate: '{{ now()->addDay()->toDateString() }}',
+                    minDate: '{{ now()->addWeeks(2)->toDateString() }}',
                     dateFormat: 'yy-mm-dd',
                     showButtonPanel: true,
                     beforeShowDay: date => {
