@@ -184,6 +184,9 @@ return [
     'rentalPrice' => 'Rental price (per day)',
     'day' => 'day',
     'days' => 'days',
+    'oneDay' => 'One day',
+    'twoDays' => 'Two days',
+    'threeDays' => 'Three days',
 
     //Promotions
     'createPromotion' => 'Create Promotion',

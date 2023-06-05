@@ -47,7 +47,13 @@
                             </div>
                             <div class="d-flex flex-column" style="line-height: 22px">
                                 <span style="color: #555">{{ __('forms.selectedDays') }}:</span>
-                                <b>{{ $item->days.' '.__('names.days') }}</b>
+                                @if ($item->days == 1)
+                                    <b>{{ __('names.oneDay') }}</b>
+                                @elseif ($item->days == 2)
+                                    <b>{{ __('names.twoDays') }}</b>
+                                @elseif ($item->days == 3)
+                                    <b>{{ __('names.threeDays') }}</b>
+                                @endif
                             </div>
                         </div>
                     @endif

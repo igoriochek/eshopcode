@@ -183,7 +183,10 @@ return [
     'regularPrice' => 'Pirkimo kaina',
     'rentalPrice' => 'Nuomos kaina (per dieną)',
     'day' => 'diena',
-    'days' => 'dienas',
+    'days' => 'dienos',
+    'oneDay' => 'Viena diena',
+    'twoDays' => 'Dvi dienos',
+    'threeDays' => 'Tris dienos',
 
     //Promotions
     'createPromotion' => 'Sukurti akciją',

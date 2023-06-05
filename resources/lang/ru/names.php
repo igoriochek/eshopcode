@@ -184,6 +184,9 @@ return [
     'rentalPrice' => 'Стоимость аренды (в суток)',
     'day' => 'суток',
     'days' => 'сутков',
+    'oneDay' => 'Один день',
+    'twoDays' => 'Два дня',
+    'threeDays' => 'Три дня',
 
     //Promotions
     'createPromotion' => 'Создать акцию',

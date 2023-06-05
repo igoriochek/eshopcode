@@ -274,9 +274,9 @@ class ProductController extends AppBaseController
             ->with([
                 'product' => $product,
                 'dayList' => [
-                    1 => '1 ' . __('names.day'),
-                    2 => '2 ' . __('names.days'),
-                    3 => '3 ' . __('names.days')
+                    1 => __('names.oneDay'),
+                    2 => __('names.twoDays'),
+                    3 => __('names.threeDays')
                 ],
                 'voted' => $this->getVotedCondition($id),
                 'average' => $this->calculateAverageRating($sum, $count),

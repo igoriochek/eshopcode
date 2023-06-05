@@ -42,6 +42,6 @@ return [
     'termsofservice' => 'Taisyklės',
     'policy' => 'Privatumo politika',
     'euProjects' => 'ES projektai',
-    'unavailableProductDates' => 'Nepasiekiamo datos'
+    'unavailableProductDates' => 'Nepasiekiamos datos'
 
 ];

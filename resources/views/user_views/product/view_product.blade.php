@@ -164,7 +164,7 @@
                     </ul>
                     <div class="tab-content p-0">
                         <div class="tab-pane px-0 py-3 active" id="productDescription" role="tabpanel">
-                            <p>{{ $product->description }}</p>
+                            <p>{!! $product->description !!}</p>
                         </div>
 {{--                        <div class="tab-pane px-0 py-3" id="productInfo" role="tabpanel">--}}
 {{--                            <table class="table table-striped m-0">--}}
