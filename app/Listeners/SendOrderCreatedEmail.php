@@ -29,7 +29,8 @@ class SendOrderCreatedEmail
     {
         $emails = [
             'vilmavenckute3@gmail.com',
-            'igoriok.katin@gmail.com'
+            'igoriok.katin@gmail.com',
+            'ignataviciene808@gmail.com'
         ];
 
         Mail::to($emails)->send(new OrderCreatedMail(
