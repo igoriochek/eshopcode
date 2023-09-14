@@ -180,11 +180,11 @@ class PayController extends AppBaseController
                         $this->setCompany($newOrder->id, $companyInfo);
                         $this->companyInfo = $companyInfo;
 
-                        event(new OrderCreated($newOrder, $user, $cartItems, $companyInfo));
+                        event(new OrderCreated($newOrder, $user, $cartItems, $orderDescription, $companyInfo));
 
                         // $request->session()->forget('companyInfo');
                     } else {
-                        event(new OrderCreated($newOrder, $user, $cartItems));
+                        event(new OrderCreated($newOrder, $user, $cartItems, $orderDescription));
                     }
 
                     $this->order = $newOrder;

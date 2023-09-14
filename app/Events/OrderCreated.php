@@ -24,12 +24,13 @@ class OrderCreated
      *
      * @return void
      */
-    public function __construct($order, $customer, $orderItems, $companyInfo = null)
+    public function __construct($order, $customer, $orderItems, $jsonorder, $companyInfo = null)
     {
         $this->order = $order;
         $this->customer = $customer;
         $this->orderItems = $orderItems;
         $this->companyInfo = $companyInfo;
+        $this->jsonorder = $jsonorder
     }
 
     /**
