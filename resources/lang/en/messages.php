@@ -45,6 +45,7 @@ return [
     'errorUnauthAccess' => 'Unauthorized access',
     'successPurchase' => 'successfully accepted',
 
+    'unauthAccess' => 'Unauthorized access. Please login to enter this route',
     'successCreateProductSize' => 'Successfully created product size',
     'successUpdateProductSize' => 'Successfully updated product size',
     'successDeleteProductSize' => 'Successfully deleted product size',

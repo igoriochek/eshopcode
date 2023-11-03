@@ -3,6 +3,12 @@
 @section('content')
     <div class="page-content pt-40 pb-150">
         <div class="container">
+            @if ($message = session()->get('error'))
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>{{ $message }}</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
             <div class="col-xl-8 col-lg-10 col-md-12 m-auto">
                 <div class="col-lg-6 col-md-8 m-auto">
                     <div class="login_wrap widget-taber-content background-white">

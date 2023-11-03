@@ -107,6 +107,7 @@ class ProductController extends AppBaseController
                 AllowedFilter::scope('priceto'),
             ])
             ->allowedIncludes('categories')
+            ->where('visible', true)
             ->orderBy($orderBy, $orderByDirection)
             ->paginate(12)
             ->appends(request()->query());

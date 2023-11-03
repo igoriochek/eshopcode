@@ -45,6 +45,7 @@ return [
     'orderCreatedSubject' => 'Создан Новый Заказ',
     'orderCreatedMarkdown' => 'emails.order_created_ru',
 
+    'unauthAccess' => 'Доступ запрещен. Пожалуйста, войдите, чтобы войти по этоту маршруту',
     'successCreateProductSize' => 'Успешно создан размер товара',
     'successUpdateProductSize' => 'Успешно обновлен размер продукта',
     'successDeleteProductSize' => 'Успешно удален размер товара',

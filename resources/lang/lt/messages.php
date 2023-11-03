@@ -42,6 +42,7 @@ return [
     'areYouSureCart' => 'Ar tikrai norite pašalinti šį produktą iš savo krepšelio',
     'successPurchase' => 'sekmingai priimtas',
 
+    'unauthAccess' => 'Neteisėta prieiga. Prisijunkite jei norite patekti į šį maršrutą',
     'successCreateProductSize' => 'Sėkmingai sukurtas produkto dydis',
     'successUpdateProductSize' => 'Sėkmingai atnaujintas produkto dydis',
     'successDeleteProductSize' => 'Sėkmingai ištrintas produkto dydis',
