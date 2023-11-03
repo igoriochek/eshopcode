@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'opatrip'),
+    'name' => env('APP_NAME', 'bopatrip'),
 
     /*
     |--------------------------------------------------------------------------
@@ -164,7 +164,7 @@ return [
         Laravel\Socialite\SocialiteServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
-        Meneses\LaravelMpdf\LaravelMpdfServiceProvider::class,
+
         /*
          * Package Service Providers...
          */

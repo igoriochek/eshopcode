@@ -23,7 +23,7 @@ use Illuminate\Http\Request;
 use Flash;
 use Illuminate\Support\Facades\Auth;
 use Response;
-use StyledPDF;
+use Barryvdh\DomPDF\Facade\Pdf as PDF;
 
 class OrderController extends AppBaseController
 {
@@ -261,8 +261,7 @@ class OrderController extends AppBaseController
 
         foreach ($orderItems as $item) {
 
-            $returnItem = ReturnItem::
-            where([
+            $returnItem = ReturnItem::where([
                 'order_id' => $order->id,
                 'user_id' => $userId,
                 'product_id' => $item->product_id
@@ -272,13 +271,11 @@ class OrderController extends AppBaseController
             if ($item->product_id == $returnItem) {
                 $item->setAttribute('isReturned', 'Returned');
             }
-
         }
         $logs = LogActivity::search("Order ID:{$id}")->get();
 
-        foreach ($logs as $log ){
+        foreach ($logs as $log) {
             $log->activity = $this->logTranslate($log->activity, app()->getLocale());
-
         }
 
         return view('user_views.orders.view')->with([
@@ -332,7 +329,8 @@ class OrderController extends AppBaseController
 
         $amount = $this->cartRepository->cartSum($cart, false);
 
-        if (isset($validated['discount']) &&
+        if (
+            isset($validated['discount']) &&
             is_array($validated['discount'])
         ) {
             $discounts = DiscountCoupon::query()
@@ -396,8 +394,10 @@ class OrderController extends AppBaseController
 
         if ($user->id != $order->user_id) $user = User::query()->where(['id' => $order->user_id])->first();
 
-        return StyledPDF::loadView('user_views.orders.invoice',
-            ['order' => $order, 'orderItems' => $orderItems])->stream('invoice.pdf');
+        return PDF::loadView(
+            'user_views.orders.invoice',
+            ['order' => $order, 'orderItems' => $orderItems]
+        )->stream('invoice.pdf');
     }
 
     public function invoicePreview($id)
@@ -431,7 +431,5 @@ class OrderController extends AppBaseController
             'order' => $order,
             'orderItems' => $orderItems
         ]);
-
     }
-
 }
