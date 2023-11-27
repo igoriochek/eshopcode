@@ -176,15 +176,23 @@ class PayController extends AppBaseController
     private function addUnavailableDates(object $cartItem): void
     {
         $unavailableDates = [];
-        $endDate = $cartItem->rental_start_date->addDays($cartItem->days)->toDateString();
-        $carbonDates = CarbonPeriod::create($cartItem->rental_start_date, $endDate);
 
-        foreach ($carbonDates as $carbonDate) {
-            $unavailableDates[] = $carbonDate->format('Y-m-d');
+        if ($cartItem->days > 1) {
+            $endDate = $cartItem->rental_start_date->addDays($cartItem->days - 1)->toDateString();
+            $carbonDates = CarbonPeriod::create($cartItem->rental_start_date, $endDate);
+
+            foreach ($carbonDates as $carbonDate) {
+                $unavailableDates[] = $carbonDate->format('Y-m-d');
+            }
+        } else {
+            $unavailableDates[] = $cartItem->rental_start_date->format('Y-m-d');
         }
 
         foreach ($unavailableDates as $unavailableDate) {
-            $existingUnavailableDate = UnavailableProductDate::where('unavailable_date', $unavailableDate)->first();
+            $existingUnavailableDate = UnavailableProductDate::where([
+                'product_id' => $cartItem->product_id,
+                'unavailable_date' => $unavailableDate
+            ])->first();
 
             if (!$existingUnavailableDate) {
                 UnavailableProductDate::firstOrCreate([

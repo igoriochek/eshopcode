@@ -84,7 +84,7 @@
                                 <li class="mb-0">
                                     <span class="fw-bold">{{ __('names.categories') }}:</span>
                                     @forelse ($product->categories as $category)
-                                        <a class="link" href="{{ url("/user/innercategories/$category->id") }}">
+                                        <a class="link" href="{{ url("/innercategories/$category->id") }}">
                                             {{ $category->name }}
                                         </a>
                                     @empty
