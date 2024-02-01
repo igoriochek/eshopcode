@@ -1,4 +1,4 @@
-<footer class="footer">
+<footer class="footer" style="border-top: 1px solid #010717; background-image: linear-gradient(rgba(0, 0, 0, .7),rgba(0, 0, 0, .7)) , url({{ asset('images/18077124.webp') }}); background-position: center;background-size: cover;">
     <div class="container pb-4">
         <div class="row py-4 my-5">
             <div class="col-md-6 @auth col-lg-4 @else col-lg-4 @endauth mb-5 mb-lg-0 ps-1 @auth ps-3 @else ps-5 @endauth">
@@ -8,15 +8,20 @@
                 <ul class="list list-unstyled pt-3">
                     <li class="pb-4">
                         <i class="fa-solid fa-location-dot fs-5 me-3"></i>
-                        <b>{{ __('footer.address') }}:</b>&nbsp;Vaduvos g. 7, LT-02304 Vilnius
+                        <b>{{ __('footer.address') }}:</b>&nbsp;
+                        <a target="_blank" class="contant-link" href="https://www.google.com/maps/place/Vaduvos+g.+7,+02301+Vilnius/data=!4m2!3m1!1s0x46dd935ea4468a75:0x2720080368757e72?sa=X&ved=2ahUKEwiti-exntCDAxXiS_EDHc_GAEcQ8gF6BAgSEAA">
+                            Vaduvos g. 7, LT-02304 Vilnius
+                        </a>
                     </li>
                     <li class="pb-4">
                         <i class="fa-solid fa-phone fs-5 me-2 pe-1"></i>
-                        <b>{{ __('footer.phone') }}:</b>&nbsp;+370 659 39993
+                        <b>{{ __('footer.phone') }}:</b>&nbsp;
+                        <a class="contant-link" href="tel:+37065939993">+370 659 39993</a>
                     </li>
                     <li class="pb-4">
                         <i class="fa-regular fa-envelope fs-5 me-2 pe-1"></i>
-                        <b>{{ __('footer.email') }}:</b>&nbsp;info@biliardas.com
+                        <b>{{ __('footer.email') }}:</b>&nbsp;
+                        <a class="contant-link" href="mailto:info@biliardas.com">info@biliardas.com</a>
                     </li>
                     <li class="pb-4">
                         <i class="fa-solid fa-clipboard fs-5 me-3"></i>
@@ -153,7 +158,7 @@
             </div>
         </div>
     </div>
-    <div class="bottom-footer">
+    <div class="bottom-footer" style="background-color: #111">
         <div class="container">
             <div class="footer-copyright py-4">
                 <div class="row align-items-center justify-content-md-between">

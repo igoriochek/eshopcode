@@ -5,19 +5,24 @@
                 <div class="header-row justify-content-between">
                     <div class="header-column col-auto px-0">
                         <div class="header-row">
-                            <p class="mb-0 d-none d-md-block">
+                            <p class="mb-0 d-none d-sm-inline-block">
                                 <i class="fa-solid fa-envelope me-1"></i>
-                                <b>{{ __('footer.email') }}:</b>&nbsp;info@biliardas.com
+                                <b class="d-none d-md-inline-block">{{ __('footer.email') }}:</b>&nbsp;
+                                <a class="contant-link" href="mailto:info@biliardas.com">info@biliardas.com</a>
                             </p>
-                            <span class="mx-3"></span>
-                            <p class="mb-0 d-none d-md-block">
+                            <span class="mx-3 d-none d-sm-inline-block"></span>
+                            <p class="mb-0 d-md-block">
                                 <i class="fa-solid fa-phone me-1"></i>
-                                <b>{{ __('footer.phone') }}:</b>&nbsp;+370 659 39993
+                                <b class="d-none d-md-inline-block">{{ __('footer.phone') }}:</b>&nbsp;
+                                <a class="contant-link" href="tel:+37065939993">+370 659 39993</a>
                             </p>
-                            <span class="mx-3"></span>
-                            <p class="mb-0 d-none d-md-block">
+                            <span class="mx-3 d-none d-lg-block"></span>
+                            <p class="mb-0 d-none d-lg-inline-block">
                                 <i class="fa-solid fa-location-dot me-1"></i>
-                                <b>{{ __('footer.address') }}:</b>&nbsp;Vaduvos g. 7, LT-02304 Vilnius
+                                <b>{{ __('footer.address') }}:</b>&nbsp;
+                                <a target="_blank" class="contant-link" href="https://www.google.com/maps/place/Vaduvos+g.+7,+02301+Vilnius/data=!4m2!3m1!1s0x46dd935ea4468a75:0x2720080368757e72?sa=X&ved=2ahUKEwiti-exntCDAxXiS_EDHc_GAEcQ8gF6BAgSEAA">
+                                    Vaduvos g. 7, LT-02304 Vilnius
+                                </a>
                             </p>
                         </div>
                     </div>

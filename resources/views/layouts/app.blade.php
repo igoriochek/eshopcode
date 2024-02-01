@@ -45,6 +45,12 @@
         @include('layouts.headers.header')
     @endguest
     <main class="main shop">
+        @if (!Auth::check() || Auth::user()->type != 1)
+            @include('layouts.full_width_image', [
+                'imageUrl' => 'images/amusement-park-vector-cartoon-illustration-attractions-coaster-rides-circus-merry-go-round-carousels-observation-attraction-114257936.webp',
+                'imageHeight' => '500px'
+            ])
+        @endif
         @yield('content')
         <button type="button" class="scroll-to-top-button">
             <i class="fa-solid fa-angle-up"></i>
