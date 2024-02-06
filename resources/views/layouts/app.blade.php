@@ -34,17 +34,12 @@
 </head>
 <body>
     @include('layouts.preloader')
-    <div class="@auth @if (Auth::user()->type == 1) admin-view @endif @endauth">
-        @auth
-            @if (Auth::user()->type == 1)
-                @include('layouts.headers.admin_header')
-            @else
-                @include('layouts.headers.header')
-            @endif
-        @endauth
-        @guest
-            @include('layouts.headers.header')
-        @endguest
+    <div class="@auth @if (auth()->user()->type == 1) admin-view @endif @endauth">
+        @if (auth()->check() && auth()->user()->type == 1)
+            @include('layouts.headers.admin_header')
+        @else
+            @include('layouts.topheader')
+        @endif
         <main class="main shop">
             @yield('content')
             <button type="button" class="scroll-to-top-button">

@@ -1,7 +1,4 @@
-<ul class="dropdown-menu" aria-labelledby="navbarUserDropdown">
-    <li class="dropdown-header">
-        {{ __('names.hello').', '.Auth::user()->name }}
-    </li>
+<ul class="dropdown-menu dropdown-menu-account" aria-labelledby="navbarUserDropdown">
     <li>
         <a class="dropdown-item" href="{{ url('/user/userprofile') }}"
            style="color: {{ request()->is('user/userprofile*') ? '#0e9f6e' : '' }}">
