@@ -20,12 +20,10 @@ use App\Repositories\DiscountCouponRepository;
 use App\Repositories\OrderRepository;
 use App\Http\Controllers\AppBaseController;
 use App\Models\Company;
-use Dompdf\Dompdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Flash;
 use Response;
-use StyledPDF;
 
 class OrderController extends AppBaseController
 {
@@ -467,7 +465,7 @@ class OrderController extends AppBaseController
 
         if ($user->id != $order->user_id) $user = User::query()->where(['id' => $order->user_id])->first();
 
-        return StyledPDF::loadView(
+        return PDF::loadView(
             'user_views.orders.invoice',
             ['order' => $order, 'orderItems' => $orderItems]
         )->stream('invoice.pdf');

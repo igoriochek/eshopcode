@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Krims kebabai'),
+    'name' => env('APP_NAME', 'Krims Kebabai'),
 
     /*
     |--------------------------------------------------------------------------
@@ -164,7 +164,6 @@ return [
         Laravel\Socialite\SocialiteServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
-        Meneses\LaravelMpdf\LaravelMpdfServiceProvider::class,
         //If you get an error Class "Meneses\LaravelMpdf\LaravelMpdfServiceProvider" not found
         //Change this line into Mccarlosen\LaravelMpdf\LaravelMpdfServiceProvider::class
         /*
@@ -237,7 +236,6 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'PDF' => Barryvdh\DomPDF\Facade::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
-        'StyledPDF' => Meneses\LaravelMpdf\Facades\LaravelMpdf::class,
 
         'Form'      => 'Illuminate\Html\FormFacade',
         'Html'      => 'Illuminate\Html\HtmlFacade',
