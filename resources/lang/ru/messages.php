@@ -54,4 +54,6 @@ return [
     'successEditProductSizePrice' => 'Успешно изменена цена размера товара',
     'productSizePriceNotFound' => 'Цена размера товара не найдена',
 
+    'successDailyOrders' => 'Успешно получены ежедневные заказы.',
+    'errorDailyOrders' => 'Неверный ключ в URL запросе.'
 ];

@@ -17,6 +17,7 @@ class OrderCreated
     public object $order;
     public object $customer;
     public object $orderItems;
+    public mixed $jsonOrder;
     public ?array $companyInfo;
 
     /**
@@ -24,13 +25,13 @@ class OrderCreated
      *
      * @return void
      */
-    public function __construct($order, $customer, $orderItems, $jsonorder, $companyInfo = null)
+    public function __construct($order, $customer, $orderItems, $jsonOrder, $companyInfo = null)
     {
         $this->order = $order;
         $this->customer = $customer;
         $this->orderItems = $orderItems;
+        $this->jsonOrder = $jsonOrder;
         $this->companyInfo = $companyInfo;
-        $this->jsonorder = $jsonorder
     }
 
     /**

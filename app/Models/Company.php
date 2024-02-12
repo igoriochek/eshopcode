@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Company extends Model
 {
@@ -41,4 +42,14 @@ class Company extends Model
         'order_id' => 'integer',
         'return_id' => 'integer'
     ];
+
+    public function order(): HasOne
+    {
+        return $this->hasOne(Order::class, 'id', 'order_id');
+    }
+
+    public function return(): HasOne
+    {
+        return $this->hasOne(Returns::class, 'id', 'return_id');
+    }
 }

@@ -54,4 +54,7 @@ return [
     'successEditProductSizePrice' => 'Successfully edited price of product size',
     'productSizePriceNotFound' => 'Product size price not found',
 
+    'successDailyOrders' => 'Successfully retrieved daily orders.',
+    'errorDailyOrders' => 'Incorrect key in URL request.'
+
 ];

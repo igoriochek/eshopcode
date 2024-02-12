@@ -13,7 +13,7 @@
     <meta name="verify-paysera" content="da329b7b4c132b3f0e240d45f76a5214">
     <!-- Krims paysera testing -->
     {{-- <meta name="verify-paysera" content="7a0f79c13d0e74941cfa60e50a9b9e15"> --}}
-    <title>{{ config('app.name', 'Krims kebabai') }}</title>
+    <title>{{ config('app.name', 'Krims Kebabai') }}</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">

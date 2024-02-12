@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\API\CreateOrderAPIRequest;
 use App\Http\Requests\API\UpdateOrderAPIRequest;
 use App\Models\Order;
 use App\Repositories\OrderRepository;
+use App\Traits\DailyOrdersBuilder;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use App\Http\Controllers\AppBaseController;
 use Response;
 
 /**
@@ -17,6 +19,8 @@ use Response;
 
 class OrderAPIController extends AppBaseController
 {
+    use DailyOrdersBuilder;
+
     /** @var  OrderRepository */
     private $orderRepository;
 
@@ -127,5 +131,33 @@ class OrderAPIController extends AppBaseController
         $order->delete();
 
         return $this->sendSuccess('Order deleted successfully');
+    }
+
+    // Retrieve daily orders with full information.
+    public function getDailyOrders(string $requestKey): JsonResponse
+    {
+        $dailyOrdersKey = env('DAILY_ORDERS_KEY');
+
+        if ($requestKey === $dailyOrdersKey) {
+            $currentDate = now()->format('Y-m-d') . ' 00:00:00';
+            $dailyOrders = Order::where('created_at', '>', $currentDate)->get();
+
+            if (count($dailyOrders) > 0) {
+                $dailyOrdersCompanyInfos = $this->getDailyOrdersCompanyInfos($dailyOrders);
+                $dailyOrdersItems = $this->getDailyOrdersItems($dailyOrders);
+                $dailyOrders = $this->buildDailyOrdersArray($dailyOrders, $dailyOrdersCompanyInfos, $dailyOrdersItems);
+            }
+
+            return response()->json([
+                'status' => 'Success',
+                'message' => __('messages.successDailyOrders'),
+                'orders' => count($dailyOrders) > 0 ? $dailyOrders : []
+            ], 200);
+        }
+
+        return response()->json([
+            'status' => 'Error',
+            'message' => __('messages.errorDailyOrders')
+        ], 400);
     }
 }

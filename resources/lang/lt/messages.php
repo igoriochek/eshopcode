@@ -51,4 +51,6 @@ return [
     'successEditProductSizePrice' => 'Produkto dydžio kaina sėkmingai redaguota',
     'productSizePriceNotFound' => 'Produkto dydžio kaina nerasta',
 
+    'successDailyOrders' => 'Sėkmingai gauti dienos užsakymai.',
+    'errorDailyOrders' => 'Neteisingas URL užklausos raktas.'
 ];
