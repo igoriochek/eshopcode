@@ -92,12 +92,11 @@ trait DailyOrdersBuilder
     {
         $accesoriesArray = [];
         $orderItemAccessories = explode(',', $orderItemAccessories);
+        $accessoryModel = "\\App\Models\\" . $accessoryType;
 
         foreach ($orderItemAccessories as $accessory) {
-            $model = "\\App\Models\\" . $accessoryType;
-
-            if (class_exists($model)) {
-                $accessory = $model::where('id', $accessory)->first()->name;
+            if (class_exists($accessoryModel)) {
+                $accessory = $accessoryModel::where('id', $accessory)->first()->name;
                 $accesoriesArray[] = $accessory;
             }
         }

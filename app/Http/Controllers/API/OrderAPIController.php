@@ -140,7 +140,7 @@ class OrderAPIController extends AppBaseController
 
         if ($requestKey === $dailyOrdersKey) {
             $currentDate = now()->format('Y-m-d') . ' 00:00:00';
-            $dailyOrders = Order::where('created_at', '>', $currentDate)->get();
+            $dailyOrders = Order::where('created_at', '>=', $currentDate)->get();
 
             if (count($dailyOrders) > 0) {
                 $dailyOrdersCompanyInfos = $this->getDailyOrdersCompanyInfos($dailyOrders);
