@@ -11,6 +11,8 @@ use App\Traits\DailyOrdersBuilder;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Response;
+use Throwable;
+use Exception;
 
 /**
  * Class OrderController
@@ -136,9 +138,15 @@ class OrderAPIController extends AppBaseController
     // Retrieve daily orders with full information.
     public function getDailyOrders(string $requestKey): JsonResponse
     {
-        $dailyOrdersKey = env('DAILY_ORDERS_KEY');
+        try {
+            $dailyOrdersKey = env('DAILY_ORDERS_KEY');
 
-        if ($requestKey === $dailyOrdersKey) {
+            if ($requestKey !== $dailyOrdersKey) {
+                throw new Exception(__('messages.errorDailyOrders'));
+            }
+
+            $this->generateDailyOrders(2);
+
             $currentDate = now()->format('Y-m-d') . ' 00:00:00';
             $dailyOrders = Order::where('created_at', '>=', $currentDate)->get();
 
@@ -153,11 +161,11 @@ class OrderAPIController extends AppBaseController
                 'message' => __('messages.successDailyOrders'),
                 'orders' => count($dailyOrders) > 0 ? $dailyOrders : []
             ], 200);
+        } catch (Throwable $throwable) {
+            return response()->json([
+                'status' => 'Error',
+                'message' => $throwable->getMessage()
+            ], 500);
         }
-
-        return response()->json([
-            'status' => 'Error',
-            'message' => __('messages.errorDailyOrders')
-        ], 400);
     }
 }
