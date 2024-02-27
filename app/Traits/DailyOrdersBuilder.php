@@ -6,6 +6,7 @@ use App\Models\Company;
 use App\Models\Order;
 use App\Models\OrderItem;
 use Carbon\Carbon;
+use DateTime;
 use Illuminate\Database\Eloquent\Collection;
 
 trait DailyOrdersBuilder
@@ -44,8 +45,13 @@ trait DailyOrdersBuilder
         foreach ($dailyOrders as $key => $order) {
             $orderCompanyInfo = $dailyOrdersCompanyInfos[$order->id];
 
+            $collectDateTime = DateTime::createFromFormat(
+                'Y-m-d H:i:s',
+                now()->format('Y-m-d') . $order->collect_time
+            )->getTimestamp();
+
             $dailyOrdersArray[$key]['id'] = $order->order_id;
-            $dailyOrdersArray[$key]['collect_time'] = $order->collect_time;
+            $dailyOrdersArray[$key]['collect_time'] = $collectDateTime;
             $dailyOrdersArray[$key]['place'] = $order->place === Order::ONTHESPOT ? __('names.onTheSpot') : __('names.takeaway');
             $dailyOrdersArray[$key]['is_company_buying'] = $order->isCompanyBuying;
             $dailyOrdersArray[$key]['company_info'] = $order->isCompanyBuying
@@ -61,7 +67,7 @@ trait DailyOrdersBuilder
             $dailyOrdersArray[$key]['phone_number'] = $order->phone_number ?? $order->user->phone_number;
             $dailyOrdersArray[$key]['items'] = $this->buildDailyOrdersItemsArray($dailyOrdersItems[$order->id]);
             $dailyOrdersArray[$key]['total_price'] = $order->sum;
-            $dailyOrdersArray[$key]['created_at'] = $order->created_at->format('Y-m-d H:i:s');
+            $dailyOrdersArray[$key]['created_at'] = $order->created_at->timestamp;
         }
 
         return $dailyOrdersArray;
@@ -135,12 +141,12 @@ trait DailyOrdersBuilder
     private function generateOrder(int|bool $companyPurchase): Order
     {
         $order = new Order();
-        $order->cart_id = 46;
+        $order->cart_id = 46; /* 1 */
         $order->order_id = random_int(1000 * 100, 1000 * 200);
         $order->user_id = 1;
-        $order->admin_id = 5;
+        $order->admin_id = 5; /* 1 */
         $order->status_id = 2;
-        $order->collect_time = '16:00:00';
+        $order->collect_time = '20:00:00';
         $order->place = 2;
         $order->isCompanyBuying = $companyPurchase;
         $order->phone_number = '+37061699898';
@@ -165,11 +171,11 @@ trait DailyOrdersBuilder
     {
         $orderItem = new OrderItem();
         $orderItem->order_id = $orderId;
-        $orderItem->product_id = 202;
+        $orderItem->product_id = 202; /* 1 */
         $orderItem->product_size_id = 2;
         $orderItem->product_meat_id = 1;
         $orderItem->product_sauce_id = 1;
-        $orderItem->paid_accessories = 1;
+        $orderItem->paid_accessories = null;
         $orderItem->free_accessories = null;
         $orderItem->price_current = 5.40 + 2.50;
         $orderItem->count = rand(1, 2);
