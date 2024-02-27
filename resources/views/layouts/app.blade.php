@@ -47,8 +47,8 @@
     <main class="main shop">
         @if (!Auth::check() || Auth::user()->type != 1)
             @include('layouts.full_width_image', [
-                'imageUrl' => 'images/amusement-park-vector-cartoon-illustration-attractions-coaster-rides-circus-merry-go-round-carousels-observation-attraction-114257936.webp',
-                'imageHeight' => '500px'
+                'imageUrl' => 'images/amusement_park_vector_cartoon_illustration_of_attractions_coaster.jpg',
+                'imageHeight' => '450px'
             ])
         @endif
         @yield('content')

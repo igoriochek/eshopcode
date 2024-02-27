@@ -13418,6 +13418,7 @@ h6,
 .shop .product {
     background: #fff;
     padding: 10px;
+    min-height: 450px;
 }
 .shop .product .product-image-container {
     width: clamp(200px, 100%, 500px);

@@ -1,4 +1,4 @@
-<footer class="footer" style="border-top: 1px solid #010717; background-image: linear-gradient(rgba(0, 0, 0, .7),rgba(0, 0, 0, .7)) , url({{ asset('images/18077124.webp') }}); background-position: center;background-size: cover;">
+<footer class="footer" style="border-top: 1px solid #010717; background-image: linear-gradient(rgba(0, 0, 0, .7),rgba(0, 0, 0, .7)) , url({{ asset('images/old-carousel-18077124.jpg') }}); background-position: center;background-size: cover;">
     <div class="container pb-4">
         <div class="row py-4 my-5">
             <div class="col-md-6 @auth col-lg-4 @else col-lg-4 @endauth mb-5 mb-lg-0 ps-1 @auth ps-3 @else ps-5 @endauth">
