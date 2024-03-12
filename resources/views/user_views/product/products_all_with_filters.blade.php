@@ -1,214 +1,198 @@
 @extends('layouts.app')
 
+@section('title', __('menu.products'))
+
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-lg-9 col-md-8 mb-5 order-last order-md-first">
-            <div class="row mb-4 mt-5 mt-md-0 align-items-center">
-                <div class="col-lg-7">
-                    <h5 class="p-0 m-0 mb-1 mb-lg-0 shop-title text-uppercase">
-                        {{ __('names.products') }}
-                    </h5>
-                    <div class="text-muted mb-2 mb-lg-0">
-                        {{ __('names.showing') }}
-                        @if ($products->currentPage() !== $products->lastPage())
-                            {{ ($products->count() * $products->currentPage() - $products->count() + 1).__('–').($products->count() * $products->currentPage()) }}
-                        @else
-                            @if ($products->total() - $products->count() === 0)
-                                {{ $products->count() }}
-                            @else
-                                {{ ($products->total() - $products->count()).__('–').$products->total() }}
-                            @endif
-                        @endif
-                        {{ __('names.of') }}
-                        {{ $products->total().' '.__('names.entries') }}
-                    </div>
-                </div>
-                <div class="col-lg-5">
-                    <div class="d-flex">
-                        {!! Form::select('order', $order_list, $selectedOrder,
-                            ['class' => 'form-select w-100', 'id' => 'orderSelector', 'style' => 'cursor: pointer; border-radius: 0; border-color: #dfdfdf; font-size: .8rem; padding: 12px 15px']) !!}
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                @forelse ($products as $product)
-                    <div class="col-lg-4 col-md-6 mt-4 mt-md-0 mt-lg-0 mb-5">
-                        <div class="product">
-                            {!! Form::open(['route' => ['addtocart'], 'method' => 'post']) !!}
-                                @if ($product->image)
-                                    <div class="product-image-container">
-                                        <a style="cursor: pointer" href="{{ route('viewproduct', $product->id) }}">
-                                            <img src="{{ $product->image }}" alt="{{ $product->name }}" class="product-image mx-auto"/>
-                                        </a>
-                                        <div class="product-add-to-cart-wrapper">
-                                            <div class="d-flex justify-content-center justify-content-lg-start">
-                                                <input type="hidden" name="id" value="{{ $product->id }}">
-                                                <button type="submit" class="text-decoration-none product-add-to-cart-button" title="Add to Cart">
-                                                    <i class="fa-solid fa-bag-shopping"></i>
-                                                    <span>{{ __('buttons.addToCart') }}</span>
-                                                </button>
-                                                <!--<div class="product-add-to-cart-text">{{ __('buttons.addToCart') }}</div>-->
-                                            </div>
-                                        </div>
-                                    </div>
-                                @else
-                                    <div class="product-image-container">
-                                        <a style="cursor: pointer" href="{{ route('viewproduct', $product->id) }}">
-                                            <img src="/images/noimage.jpeg" alt="" class="product-image mx-auto"/>
-                                        </a>
-                                        <div class="product-add-to-cart-wrapper">
-                                            <div class="d-flex justify-content-center justify-content-lg-start">
-                                                <input type="hidden" name="id" value="{{ $product->id }}">
-                                                <button type="submit" class="text-decoration-none product-add-to-cart-button" title="Add to Cart">
-                                                    <i class="fa-solid fa-bag-shopping"></i>
-                                                    <span>{{ __('buttons.addToCart') }}</span>
-                                                </button>
-                                                <!--<div class="product-add-to-cart-text">{{ __('buttons.addToCart') }}</div>-->
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endif
-                                <div class="product-information">
-                                    <div class="product-title-container">
-                                        <a class="product-title" href="{{ route('viewproduct', $product->id) }}">
-                                            {{ $product->name }}
-                                        </a>
-                                    </div>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <div class="product-price">
-                                            @if ($product->discount)
-                                                <span class="product-previous-price product-price-font-family">
-                                                    €{{ number_format($product->price,2) }}
-                                                </span>&nbsp
-                                                <span class="product-discounted-price product-price-font-family">
-                                                    €{{ $product->price - (round(($product->price * $product->discount->proc / 100), 2)) }}
-                                                </span>
-                                            @else
-                                                <span class="product-no-discount-price product-price-font-family">
-                                                    €{{ number_format($product->price,2) }}
-                                                </span>
-                                            @endif
-                                        </div>
-                                    </div>
-                                    <div class="w-100 d-flex justify-content-center flex-column mt-3">
-                                        <div class="d-flex justify-content-center">
-                                            <input type="button" class="minus text-color-hover-light bg-color-hover-primary border-color-hover-primary" value="-">
-                                            {!! Form::number('count', "1", ['class' => 'product-add-to-cart-number', "min" => "1", "max" => "5", "minlength" => "1", "maxlength" => "5", "oninput" => "this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null"]) !!}
-                                            <input type="button" class="plus text-color-hover-light bg-color-hover-primary border-color-hover-primary" value="+">
-                                        </div>
-                                    </div>
+    <div class="shop-area ptb-70">
+        <div class="container">
+            <div class="row gap-5 gap-lg-0">
+                <div class="col-lg-9">
+                    <div class="shop-top-shorting-area">
+                        <div class="row align-items-center">
+                            <div class="col-lg-6 col-md-6">
+                                <div class="shop-shorting-left-content">
+                                    <ul>
+                                        <li>
+                                            {!! Form::select('order', $order_list, $selectedOrder,
+                                                ['class' => 'form-select', 'id' => 'orderSelector', 'style' => 'cursor: pointer']) !!}
+                                        </li>
+                                    </ul>
                                 </div>
-                            {!! Form::close() !!}
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="shop-shorting-right-content">
+                                    <ul>
+                                        <li>
+                                            <div class="grid-view-content">
+                                                <div class="view-list-row d-none d-lg-block d-md-block">
+                                                    <div class="view-column">
+                                                        <a href="#" class="icon-view-three active">
+                                                            <img src="{{ asset('template/images/icon/grid-icon.svg') }}" alt="icon">
+                                                        </a>
+                                                        <a href="#" class="view-grid-switch">
+                                                            <img src="{{ asset('template/images/icon/list-icon.svg') }}" alt="icon">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <p>
+                                                {{ __('names.showing') }}
+                                                @if ($products->currentPage() !== $products->lastPage())
+                                                    {{ ($products->count() * $products->currentPage() - $products->count() + 1).__('–').($products->count() * $products->currentPage()) }}
+                                                @else
+                                                    @if ($products->total() - $products->count() === 0)
+                                                        {{ $products->count() }}
+                                                    @else
+                                                        {{ ($products->total() - $products->count()).__('–').$products->total() }}
+                                                    @endif
+                                                @endif
+                                                {{ __('names.of') }}
+                                                {{ $products->total().' '.__('names.entries') }}
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                @empty
-                    <span class="text-muted">{{ __('names.noProducts') }}</span>
-                @endforelse
-                <div class="d-flex justify-content-end">
-                    {{ $products->links() }}
+                    <div id="products-collections-filter" class="row justify-content-center">
+                        @forelse ($products as $product)
+                            @include('user_views.product.product')
+                        @empty
+                            <span class="text-muted">{{ __('names.noProducts') }}</span>
+                        @endforelse
+                    </div>
+                    <div class="default-pagination mt-20">
+                        {{ $products->onEachSide(1)->links() }}
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    @include('user_views.product.filters')
                 </div>
             </div>
         </div>
-        <div class="col-lg-3 col-md-4">
-            <aside class="sidebar">
-                <form method="get" action="{{ route("userproducts") }}" id="mainForm">
-                    <div class="input-group mb-3 pb-1">
-                        <input type="text" name="filter[namelike]" class="form-control product-search-input" id="filter[namelike]" placeholder="{{ __('names.search').'...' }}" value="{{$filter["namelike"] ?? ""}}">
-                        <button type="submit" class="btn btn-primary p-2 product-search-button">
-                            <i class="fas fa-search m-2"></i>
-                        </button>
-                    </div>
-                    <h5 class="sidebar-title">{{ __('names.filterByPrice') }}</h5>
-                    <div class="filter-by-price-widget-content">
-                        <fieldset class="form-group">
-                            <div id="range-slider" class="slider mb-3 mt-1 mx-1" wire:ignore></div>
-                            <div class="filter-by-price-button-container mb-3">
-                                <div class="d-flex">
-                                    <span>{{ __('names.price')}} (€):</span>
-                                    <input type="text" id="filter[pricefrom]" name="filter[pricefrom]"
-                                           readonly
-                                           value="{{ $filter["pricefrom"] ?? '0' }}"
-                                           class="border-0 text-end filter-by-price-number" style="max-width: 40px"/>
-                                    <span class="text-center"> — </span>
-                                    <input type="text" id="filter[priceto]" name="filter[priceto]" readonly
-                                           value="{{ $filter["priceto"] ?? '0' }}"
-                                           class="border-0 text-start filter-by-price-number" style="max-width: 40px"/>
-                                </div>
-                            </div>
-                        </fieldset>
-                    </div>
-                    <h5 class="sidebar-title">{{ __('names.categories') }}</h5>
-                    <ul class="nav nav-list flex-column">
-                        @forelse($categories as $category)
-                            <div class="nav-link">
-                                <input class="form-check-input me-2" type="checkbox" value="{{ $category->id }}"
-                                       id="category" onclick="calc();" name="filter[categories.id]"
-                                       @if ($filter && array_key_exists('categories.id', $filter))
-                                           {{ in_array($category->id, $selCategories) ? "checked=\"checked\"" : ""}}
-                                       @endif>
-                                <label class="form-check-label" for="categories.id">
-                                    {{ $category->name }}
-                                </label>
-                            </div>
-                        @empty
-                            <div class="nav-link">
-                                <span class="text-muted">{{ __('names.noCategories') }}</span>
-                            </div>
-                        @endforelse
-                    </ul>
-                    <input type="hidden" id="order" name="order" value="{{ $selectedOrder }}">
-                    <div class="d-flex justify-content-center w-100">
-                        <button type="submit" class="btn btn-primary product-filter-button">
-                            {{ __('buttons.filter') }}
-                        </button>
-                    </div>
-                </form>
-            </aside>
-        </div>
     </div>
-</div>
-
-    @push('scripts')
-        <script>
-            document.getElementById('orderSelector').onchange = () => {
-                addOrderValueToFilter();
-                document.getElementById('mainForm').submit();
-            }
-
-            const addOrderValueToFilter = () => document.getElementById('order').value = $('#orderSelector').val();
-
-            const rangeSlider = document.getElementById('range-slider');
-            const priceFrom = document.getElementById('filter[pricefrom]');
-            const priceTo = document.getElementById('filter[priceto]');
-
-            $(() => {
-                $(rangeSlider).slider({
-                    range: true,
-                    min: 0,
-                    max: {{ $maxPrice }},
-                    values: [{{ $filter["pricefrom"] ?? 0 }}, {{ $filter["priceto"] ?? $maxPrice }}],
-                    slide: (event, ui) => {
-                        $(priceFrom).val(ui.values[0]);
-                        $(priceTo).val(ui.values[1]);
-                    }
-                });
-                $(priceFrom).val($(rangeSlider).slider("values", 0));
-                $(priceTo).val($(rangeSlider).slider("values", 1));
-            });
-
-            function calc() {
-                var elements = document.querySelectorAll("input[type='checkbox']");
-                // console.log(elements);
-                var value = '';
-                for (var i = 0; i < elements.length; i++) {
-                    value += elements[i].checked == true && value ? ',' : '';
-                    value += elements[i].checked == true ? elements[i].value : "";
-                }
-                //console.log(value);
-                document.getElementById("filter[categories.id]").value = value;
-            }
-        </script>
-    @endpush
 @endsection
 
+@push('css')
+    <style>
+        .pagination {
+            display: flex;
+            justify-content: center
+        }
+
+        .pagination .page-item.active .page-link {
+            background-color: #a10909;
+            border-color: transparent;
+            border-radius: 100%;
+            font-weight: bold;
+        }
+
+        .pagination .page-item .page-link {
+            border-color: transparent;
+            color: #111111;
+            border-radius: 100%;
+
+            &:hover {
+                color: #fff;
+            }
+        }
+
+        .default-pagination ul li a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            line-height: 30px;
+        }
+
+        .default-pagination ul li span {
+            text-align: center;
+            height: 40px;
+            width: 40px;
+            line-height: 30px;
+            background-color: var(--whiteColor);
+            display: inline-block;
+            font-family: var(--headingFont);
+            transition: var(--transition);
+            color: var(--headingColor);
+            font-size: 18px;
+            font-weight: 600;
+            position: relative;
+            z-index: 1;
+        }
+
+        .ui-widget.ui-widget-content {
+            border: none;
+            background-color: rgb(230, 230, 230);
+            height: 5px;
+        }
+
+        .ui-state-default, .ui-widget-content .ui-state-default {
+            border: none;
+            background: #a10909;
+            font-weight: normal;
+            color: #a10909;
+            border-radius: 100%;
+            width: 15px;
+            height: 15px;
+
+            &:focus {
+                outline: none;
+            }
+        }
+
+        .ui-widget-header {
+            border: none;
+            background: #a10909;
+            color: #a10909;
+            font-weight: bold;
+        }
+    </style>
+@endpush
+
+@push('scripts')
+    <script>
+        const orderSelector = document.getElementById('orderSelector');
+
+        orderSelector.onchange = () => {
+            console.log(document.getElementById('order'));
+            addOrderValueToFilter();
+            document.getElementById('mainForm').submit();
+        }
+
+        const addOrderValueToFilter = () => document.getElementById('order').value = orderSelector.value;
+
+        const rangeSlider = document.getElementById('range-slider');
+        const priceFrom = document.getElementById('filter[pricefrom]');
+        const priceTo = document.getElementById('filter[priceto]');
+
+        $(document).ready(function () {
+            $(rangeSlider).slider({
+                range: true,
+                min: 0,
+                max: {{ $maxPrice }},
+                values: [{{ $filter["pricefrom"] ?? 0 }}, {{ $filter["priceto"] ?? $maxPrice }}],
+                slide: (event, ui) => {
+                    $(priceFrom).val(ui.values[0]);
+                    $(priceTo).val(ui.values[1]);
+                }
+            });
+            $(priceFrom).val($(rangeSlider).slider("values", 0));
+            $(priceTo).val($(rangeSlider).slider("values", 1));
+        });
+
+        function calc() {
+            var elements = document.querySelectorAll("input[type='checkbox']");
+            var value = '';
+
+            for (var i = 0; i < elements.length; i++) {
+                value += elements[i].checked == true && value ? ',' : '';
+                value += elements[i].checked == true ? elements[i].value : "";
+            }
+
+            document.getElementById("filter[categories.id]").value = value;
+        }
+    </script>
+@endpush

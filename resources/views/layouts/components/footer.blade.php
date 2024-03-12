@@ -40,12 +40,12 @@
                         <li>
                             <a href="{{ url('/rootcategories') }}" 
                                 class="{{ request()->is('rootcategories*') || request()->is('innercategories*') ? 'active' : '' }}">
-                                {{ __('menu.products') }}
+                                {{ __('menu.categories') }}
                             </a>
                         </li>
                         <li>
                             <a href="{{ url('/promotions') }}" class="{{ request()->is('promotions*') || request()->is('promotion*') ? 'active' : '' }}">
-                                {{ __('menu.categories') }}
+                                {{ __('menu.promotions') }}
                             </a>
                         </li>
                         @auth

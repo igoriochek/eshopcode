@@ -9,7 +9,7 @@
     <!-- Title -->
     <title>
         @hasSection('title') 
-            @yield('title') 
+            @yield('title') - {{ config('app.name', 'Consultus Magnus') }}
         @else 
             {{ config('app.name', 'Consultus Magnus') }} 
         @endif
@@ -42,7 +42,7 @@
     @livewireStyles
 </head>
 <body>
-    @include('layouts.preloader')
+    @include('layouts.components.preloader')
     <div class="@auth @if (auth()->user()->type == 1) admin-view @endif @endauth">
         @if (auth()->check() && auth()->user()->type == 1)
             @include('layouts.headers.admin_header')
@@ -53,9 +53,6 @@
         @endif
         <main class="main shop">
             @yield('content')
-            <button type="button" class="scroll-to-top-button">
-                <i class="fa-solid fa-angle-up"></i>
-            </button>
         </main>
         @include('layouts.components.footer')
         @include('layouts.components.copyright_area')
@@ -327,18 +324,6 @@
 
         $(function () {
             $("#finish").datepicker();
-        });
-
-        const scrollToTopButton = document.querySelector('.scroll-to-top-button');
-        const topbarHeight = 42;
-
-        scrollToTopButton.addEventListener('click', () => window.scrollTo(0, 0));
-
-        window.addEventListener('scroll', () => {
-            scrollToTopButton.classList.toggle('show', window.scrollY > topbarHeight);
-
-            if (document.body.scrollTop > topbarHeight || document.documentElement.scrollTop > topbarHeight)
-                scrollToTopButton.classList.add('fade-in');
         });
 
         const minuses = document.querySelectorAll('.minus');

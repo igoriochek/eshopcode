@@ -236,7 +236,8 @@ class CartController extends AppBaseController
         return $this->cartRepository->getOrSetCart($request);
     }
 
-    private function getCartItemsByCart($cart) {
+    private function getCartItemsByCart($cart)
+    {
         return CartItem::query()
             ->with('product')
             ->where('cart_id', $cart->id)

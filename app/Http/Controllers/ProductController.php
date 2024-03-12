@@ -45,7 +45,7 @@ class ProductController extends AppBaseController
      */
     public function index(Request $request)
     {
-//        $products = $this->productRepository->all();
+        //        $products = $this->productRepository->all();
         $products = Product::translatedIn(app()->getLocale())->get();
         return view('products.index')
             ->with('products', $products);
@@ -53,10 +53,9 @@ class ProductController extends AppBaseController
 
     private function getProductsWithCorrectIds(object $products): object
     {
-        $products = $products->paginate(9)->appends(request()->query());
+        $products = $products->paginate(12)->appends(request()->query());
 
-        foreach ($products as $product)
-        {
+        foreach ($products as $product) {
             $product->id = $product->product_id;
         }
 
@@ -75,7 +74,7 @@ class ProductController extends AppBaseController
         $orderBy = "";
         $orderByDirection = "";
 
-        switch ($selectedOrder){
+        switch ($selectedOrder) {
             case "0":
                 $orderBy = "products.id";
                 $orderByDirection = "asc";
@@ -124,14 +123,14 @@ class ProductController extends AppBaseController
         return view('user_views.product.products_all_with_filters')
             ->with([
                 'maxPrice' => $products->max('price'),
-                'products'=> $this->getProductsWithCorrectIds($products),
+                'products' => $this->getProductsWithCorrectIds($products),
                 'categories' => $categories,
                 'filter' => $filter ? $filter : array(),
-                'selCategories' => $selCategories ? explode(",",$selCategories) : array(),
+                'selCategories' => $selCategories ? explode(",", $selCategories) : array(),
                 'order_list' => $this->productsOrderSelector(),
                 'selectedOrder' => $selectedOrder,
-//                'pricefrom' => $request->query('filter[pricefrom]') == null ? "" : $request->query('filter[pricefrom]'),
-//                'priceto' => $request->query('filter[priceto]') == null ? "" : $request->query('filter[priceto]'),
+                //                'pricefrom' => $request->query('filter[pricefrom]') == null ? "" : $request->query('filter[pricefrom]'),
+                //                'priceto' => $request->query('filter[priceto]') == null ? "" : $request->query('filter[priceto]'),
             ]);
     }
 
@@ -142,8 +141,10 @@ class ProductController extends AppBaseController
      */
     public function create()
     {
-        return view('products.create',
-            [ 'visible_list' => $this->visible_list,
+        return view(
+            'products.create',
+            [
+                'visible_list' => $this->visible_list,
                 'categories' => $this->categoriesForSelector(),
                 'promotions' => $this->promotionForSelector(),
                 'discounts' => $this->discountForSelector(),
@@ -162,17 +163,17 @@ class ProductController extends AppBaseController
     {
         $input = $request->all();
 
-        if (isset($input['image']) &&  $input['image']!== null ) {
-            $imageName = time().'.'.$request->image->extension();
+        if (isset($input['image']) &&  $input['image'] !== null) {
+            $imageName = time() . '.' . $request->image->extension();
             $request->image->move(public_path('images/upload'), $imageName);
-//            dd( $path);
-            $input['image'] = "/images/upload/" .$imageName;
+            //            dd( $path);
+            $input['image'] = "/images/upload/" . $imageName;
         }
         $input = $this->prepare($input, ["name", "description"]);
 
-//        $product = $this->productRepository->create($input);
+        //        $product = $this->productRepository->create($input);
         $product = Product::create($input);
-        if ( !empty($input['categories'] ) )
+        if (!empty($input['categories']))
             $this->saveCategories($input['categories'], $product->id);
 
         Flash::success('Product saved successfully.');
@@ -314,12 +315,12 @@ class ProductController extends AppBaseController
         }
 
         $input = $request->all();
-//        $product = $this->productRepository->update($request->all(), $id);
+        //        $product = $this->productRepository->update($request->all(), $id);
 
-        if (isset($input['image']) && $input['image'] !== null ) {
-            $imageName = time().'.'.$request->image->extension();
+        if (isset($input['image']) && $input['image'] !== null) {
+            $imageName = time() . '.' . $request->image->extension();
             $request->image->move(public_path('images/upload'), $imageName);
-            $input['image'] = '/images/upload/' .$imageName;
+            $input['image'] = '/images/upload/' . $imageName;
         }
 
         $input = $this->prepare($input, ["name", "description"]);
@@ -335,8 +336,9 @@ class ProductController extends AppBaseController
 
 
 
-    public function saveCategories( $cats, $prod_id)  {
-        foreach ($cats as $cat ){
+    public function saveCategories($cats, $prod_id)
+    {
+        foreach ($cats as $cat) {
             DB::table('category_product')->insert([
                 'category_id' => $cat,
                 'product_id' => $prod_id,
