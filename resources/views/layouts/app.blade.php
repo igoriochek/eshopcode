@@ -7,7 +7,15 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="verify-paysera" content="3ec543a10d4884d14bb56334d670650d">
     <!-- Title -->
-    <title>{{ config('app.name', 'Consultus Magnus') }}</title>
+    <title>
+        @hasSection('title') 
+            @yield('title') 
+        @else 
+            {{ config('app.name', 'Consultus Magnus') }} 
+        @endif
+    </title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/CM_logo.png') }}">
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -23,6 +31,7 @@
     <link href="{{ asset('vendor/cookie-consent/css/cookie-consent.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('template/css/meanmenu.css') }}" rel="stylesheet">
     <link href="{{ asset('template/css/scrollCue.css') }}" rel="stylesheet">
+    <link href="{{ asset('template/css/banner.css') }}" rel="stylesheet">
     <link href="{{ asset('template/css/shop.css') }}" rel="stylesheet">
     <link href="{{ asset('template/css/footer.css') }}" rel="stylesheet">
     <link href="{{ asset('template/css/style.css') }}" rel="stylesheet">
@@ -40,6 +49,7 @@
         @else
             @include('layouts.components.topheader')
             @include('layouts.components.navbar')
+            @include('layouts.components.page_banner')
         @endif
         <main class="main shop">
             @yield('content')
