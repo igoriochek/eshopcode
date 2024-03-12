@@ -5,7 +5,7 @@
                 <div class="single-footer-widget logo-content">
                     <div class="logo">
                         <a href="{{ route('home') }}">
-                            <img src="{{ asset('images/CM_logo.png') }}" alt="logo" class="bg-white p-3">
+                            <img src="{{ asset('images/CM_logo.png') }}" alt="logo" class="bg-white p-1">
                         </a>
                     </div>
                     <ul>

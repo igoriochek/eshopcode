@@ -59,13 +59,18 @@
         </main>
         @include('layouts.components.footer')
         @include('layouts.components.copyright_area')
+        @include('layouts.components.go_top')
     </div>
     <script src="{{ asset('js/jquery-3.6.0.min.js') }}"></script>
     <script src="{{ asset('js/jquery-ui.js') }}"></script>
     <script src="{{ asset('js/bootstrap.bundle.js') }}"></script>
     <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('template/js/jquery.meanmenu.js') }}"></script>
+    <script src="{{ asset('template/js/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('template/js/jquery.magnific-popup.js') }}"></script>
     <script src="{{ asset('template/js/scrollCue.min.js') }}"></script>
+    <script src="{{ asset('template/js/form-validator.min.js') }}"></script>
+    <script src="{{ asset('template/js/ajaxchimp.min.js') }}"></script>
     <script src="{{ asset('template/js/custom.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.5.1/nouislider.min.js"></script>
     <script>
