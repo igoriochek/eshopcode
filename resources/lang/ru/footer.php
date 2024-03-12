@@ -15,10 +15,11 @@ return [
     'email' => 'Электронная почта',
     'menu' => 'МЕНЮ',
     'account' => 'Мой аккаунт',
-    'copyright' => 'UAB "Bilan" © 2023. Все права защищены',
+    'copyright' => 'UAB "Consultus Magnus" © 2024. Все права защищены',
     'companycode' => "Код предприятия",
     'vatcode' => "Код НДС",
     'ac' => "Р/с",
-    'information' => 'Информация'
+    'information' => 'Информация',
+    'acceptPayments' => 'Мы принимаем оплату через'
 
 ];

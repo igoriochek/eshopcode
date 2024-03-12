@@ -15,10 +15,11 @@ return [
     'email' => 'Email',
     'menu' => 'MENU',
     'account' => 'My Account',
-    'copyright' => 'UAB "Bilan" © 2023. All Rights Reserved',
+    'copyright' => 'UAB "Consultus Magnus" © 2024. All Rights Reserved',
     'companycode' => "Company Code",
     'vatcode' => "VAT",
     'ac' => "A/C",
-    'information' => 'Information'
+    'information' => 'Information',
+    'acceptPayments' => 'We Accept Payment Via'
 
 ];

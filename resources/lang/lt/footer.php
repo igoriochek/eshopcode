@@ -15,10 +15,11 @@ return [
     'email' => 'El. paštas',
     'menu' => 'Meniu',
     'account' => 'Mano paskyra',
-    'copyright' => 'UAB "Bilan" © 2023. Visos teisės saugomos',
+    'copyright' => 'UAB "Consultus Magnus" © 2024. Visos teisės saugomos',
     'companycode' => 'Įmonės kodas',
     'vatcode' => 'PVM kodas',
     'ac' => 'A. s.',
-    'information' => 'Informacija'
+    'information' => 'Informacija',
+    'acceptPayments' => 'Priimame mokėjimus per'
 
 ];
