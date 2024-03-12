@@ -14,10 +14,11 @@ return [
     'mobilePhone' => 'Mobile Phone',
     'email' => 'Email',
     'menu' => 'MENU',
-    'profile' => 'Profile',
+    'account' => 'My Account',
     'copyright' => 'UAB "Bilan" © 2023. All Rights Reserved',
     'companycode' => "Company Code",
     'vatcode' => "VAT",
     'ac' => "A/C",
+    'information' => 'Information'
 
 ];

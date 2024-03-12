@@ -57,7 +57,7 @@
                 <i class="fa-solid fa-angle-up"></i>
             </button>
         </main>
-        @include('layouts.footer')
+        @include('layouts.components.footer')
     </div>
     <script src="{{ asset('js/jquery-3.6.0.min.js') }}"></script>
     <script src="{{ asset('js/jquery-ui.js') }}"></script>

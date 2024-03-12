@@ -3,7 +3,7 @@
         <div class="container">
             <div class="mobile-responsive-menu">
                 <div class="logo">
-                    <a href="{{ url('/') }}">
+                    <a href="{{ route('home') }}">
                         <img src="{{ asset('images/CM_logo.png') }}" alt="CM_logo" style="width: 90%">
                     </a>
                 </div>
@@ -14,7 +14,7 @@
     <div class="desktop-nav">
         <div class="container-fluid">
             <nav class="navbar navbar-expand-md navbar-light">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" href="{{ route('home') }}">
                     <img src="{{ asset('images/CM_logo.png') }}" alt="CM_logo" style="width: 80%">
                 </a>
                 <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent" style="display: block;">

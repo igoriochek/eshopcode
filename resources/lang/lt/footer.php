@@ -14,10 +14,11 @@ return [
     'mobilePhone' => 'Mobilusis telefonas',
     'email' => 'El. paštas',
     'menu' => 'Meniu',
-    'profile' => 'Naudotojo paskyra',
+    'account' => 'Mano paskyra',
     'copyright' => 'UAB "Bilan" © 2023. Visos teisės saugomos',
     'companycode' => 'Įmonės kodas',
     'vatcode' => 'PVM kodas',
     'ac' => 'A. s.',
+    'information' => 'Informacija'
 
 ];
