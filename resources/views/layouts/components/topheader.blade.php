@@ -18,9 +18,9 @@
             <div class="col-lg-5">
                 <div class="top-header-right-content">
                     <ul>
-                        <li>
+                        <li style="cursor: pointer">
                             <i class="fa-solid fa-globe"></i>
-                            <select class="form-select" onchange="changeLanguage(this.value)">
+                            <select class="form-select" style="cursor: pointer" onchange="changeLanguage(this.value)">
                                 @foreach (config('translatable.locales') as $locale)
                                     <option @if (app()->getLocale() == $locale) selected @endif value="{{ strtoupper($locale) }}">
                                         {{ strtoupper($locale) }}

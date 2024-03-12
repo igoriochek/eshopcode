@@ -20,28 +20,33 @@
                 <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent" style="display: block;">
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a href="{{ url('/products') }}" class="nav-link {{ request()->is('products*') ? 'active' : '' }}">
+                            <a href="{{ url('/products') }}" 
+                                class="nav-link {{ request()->is('products*') || request()->is('viewproduct*') ? 'active' : '' }}">
                                 {{ __('menu.products') }}
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ url('/rootcategories') }}" class="nav-link {{ request()->is('rootcategories*') ? 'active' : '' }}">
+                            <a href="{{ url('/rootcategories') }}" 
+                                class="nav-link {{ request()->is('rootcategories*') || request()->is('innercategories*') ? 'active' : '' }}">
                                 {{ __('menu.categories') }}
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ url('/promotions') }}" class="nav-link {{ request()->is('promotions*') ? 'active' : '' }}">
+                            <a href="{{ url('/promotions') }}" 
+                                class="nav-link {{ request()->is('promotions*') || request()->is('promotion*') ? 'active' : '' }}">
                                 {{ __('menu.promotions') }}
                             </a>
                         </li>
                         @auth
                             <li class="nav-item">
-                                <a href="{{ url('/user/discountCoupons*') }}" class="nav-link {{ request()->is('user/discountCoupons**') ? 'active' : '' }}">
+                                <a href="{{ url('/user/discountCoupons*') }}" 
+                                    class="nav-link {{ request()->is('user/discountCoupons**') ? 'active' : '' }}">
                                     {{ __('menu.discountCoupons') }}
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ url('/user/messenger*') }}" class="nav-link {{ request()->is('user/messenger**') ? 'active' : '' }}">
+                                <a href="{{ url('/user/messenger*') }}" 
+                                    class="nav-link {{ request()->is('user/messenger**') ? 'active' : '' }}">
                                     {{ __('menu.messenger') }}
                                 </a>
                             </li>
@@ -49,9 +54,6 @@
                     </ul>
 
                     <div class="others-options">
-                        @guest
-                            <a href="{{ route('login') }}" class="default-btn style5 mt-1">{{ __('buttons.login') }}</a>
-                        @endguest
                         @auth
                             <div class="option-item">
                                 <a href="{{ url('/user/viewcart') }}" class="nav-btn">
@@ -70,6 +72,8 @@
                                     {{ auth()->user()->name }}
                                 </a>
                             </div>
+                        @else
+                            <a href="{{ route('login') }}" class="default-btn style5 mt-1">{{ __('buttons.login') }}</a>
                         @endauth
                     </div>
                 </div>
@@ -81,20 +85,19 @@
         <div class="container">
             <div class="dot-menu" style="top: -40px">
                 <div class="others-options justify-content-center align-items-center">
-                    @guest
-                        <a href="{{ route('login') }}" class="default-btn style5 py-2" style="transform: translateY(-3px)">
-                            {{ __('buttons.login') }}
-                        </a>
-                    @endguest
                     @auth
                         <div class="option-item">
                             <a href="{{ url('/user/viewcart') }}" class="nav-btn">
                                 <div class="icon">
-                                    <img src="{{ asset('template/images/icon/cart-icon.svg') }}" alt="icon" class="mb-1">
+                                    <img src="{{ asset('template/images/icon/cart-icon.svg') }}" alt="icon" class="mb-0">
                                     <span>{{ $cartItemCount }}</span>
                                 </div>
                             </a>
                         </div>
+                    @else
+                        <a href="{{ route('login') }}" class="default-btn style5 py-2" style="transform: translateY(-3px)">
+                            {{ __('buttons.login') }}
+                        </a>
                     @endauth
                 </div>
             </div>

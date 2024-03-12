@@ -38,7 +38,8 @@
         @if (auth()->check() && auth()->user()->type == 1)
             @include('layouts.headers.admin_header')
         @else
-            @include('layouts.topheader')
+            @include('layouts.components.topheader')
+            @include('layouts.components.navbar')
         @endif
         <main class="main shop">
             @yield('content')
