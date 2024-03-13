@@ -99,7 +99,7 @@ class ProductController extends AppBaseController
 
         $products = QueryBuilder::for(Product::class)
             ->join('products_translations', function ($join) {
-                $join->on('products_translations.product_id', '=', 'products.id')
+                $join->on('products.id', '=', 'products_translations.product_id')
                     ->where('products_translations.locale', '=', app()->getLocale());
             })
             ->allowedFilters([
@@ -109,7 +109,10 @@ class ProductController extends AppBaseController
                 AllowedFilter::scope('priceto'),
             ])
             ->allowedIncludes('categories')
-            ->orderBy($orderBy, $orderByDirection);
+            ->where('visible', true)
+            ->orderBy($orderBy, $orderByDirection)
+            ->paginate(12)
+            ->appends(request()->query());
 
         foreach ($products as $product) {
             $product->id = $product->product_id;
@@ -120,10 +123,11 @@ class ProductController extends AppBaseController
             $product->average = $this->calculateAverageRating($product->sum, $product->count);
         }
 
-        return view('user_views.product.products_all_with_filters')
+        return view('user_views.product.all_products')
             ->with([
-                'maxPrice' => $products->max('price'),
-                'products' => $this->getProductsWithCorrectIds($products),
+                'minPrice' => floor(Product::all()->min('price')),
+                'maxPrice' => ceil(Product::all()->max('price')),
+                'products' => $products,
                 'categories' => $categories,
                 'filter' => $filter ? $filter : array(),
                 'selCategories' => $selCategories ? explode(",", $selCategories) : array(),

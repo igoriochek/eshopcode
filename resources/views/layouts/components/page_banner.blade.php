@@ -10,11 +10,10 @@
                 </li>
                 @hasSection('parentTitle')
                     <li>
-                        <a href="{{ asset('') }}@yield('parentUrl')">
+                        <a href="@yield('parentUrl')">
                             @yield('parentTitle', 'Parent Title')
                         </a>
                     </li>
-                    <li>@yield('parentTitle')</li>
                 @endif
                 <li>@yield('title', 'Title')</li>
             </ul>
