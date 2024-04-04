@@ -39,14 +39,14 @@
                         </li>
                         @auth
                             <li class="nav-item">
-                                <a href="{{ url('/user/discountCoupons*') }}" 
-                                    class="nav-link {{ request()->is('user/discountCoupons**') ? 'active' : '' }}">
+                                <a href="{{ url('/user/discountCoupons') }}" 
+                                    class="nav-link {{ request()->is('user/discountCoupons*') ? 'active' : '' }}">
                                     {{ __('menu.discountCoupons') }}
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ url('/user/messenger*') }}" 
-                                    class="nav-link {{ request()->is('user/messenger**') ? 'active' : '' }}">
+                                <a href="{{ url('/user/messenger') }}" 
+                                    class="nav-link {{ request()->is('user/messenger*') ? 'active' : '' }}">
                                     {{ __('menu.messenger') }}
                                 </a>
                             </li>

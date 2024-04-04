@@ -8,7 +8,7 @@
             <div class="row gap-5 gap-lg-0">
                 <div class="col-12">
                     <div class="shop-sidebar">
-                        <div class="single-shop-sidebar-widget color-and-item">
+                        <div class="single-shop-sidebar-widget color-and-item pb-1">
                             <h3>{{ __('names.categories') }}</h3>
                             @include('user_views.category.category_tree')
                         </div>

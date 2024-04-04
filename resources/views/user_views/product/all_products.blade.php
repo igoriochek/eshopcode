@@ -78,51 +78,6 @@
 
 @push('css')
     <style>
-        .pagination {
-            display: flex;
-            justify-content: center
-        }
-
-        .pagination .page-item.active .page-link {
-            background-color: #a10909;
-            border-color: transparent;
-            border-radius: 100%;
-            font-weight: bold;
-        }
-
-        .pagination .page-item .page-link {
-            border-color: transparent;
-            color: #111111;
-            border-radius: 100%;
-
-            &:hover {
-                color: #fff;
-            }
-        }
-
-        .default-pagination ul li a {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            line-height: 30px;
-        }
-
-        .default-pagination ul li span {
-            text-align: center;
-            height: 40px;
-            width: 40px;
-            line-height: 30px;
-            background-color: var(--whiteColor);
-            display: inline-block;
-            font-family: var(--headingFont);
-            transition: var(--transition);
-            color: var(--headingColor);
-            font-size: 18px;
-            font-weight: 600;
-            position: relative;
-            z-index: 1;
-        }
-
         .ui-widget.ui-widget-content {
             border: none;
             background-color: rgb(230, 230, 230);
