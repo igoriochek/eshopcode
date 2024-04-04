@@ -43,7 +43,9 @@
     @livewireStyles
 </head>
 <body>
-    @include('layouts.components.preloader')
+    @if (!request()->is('user/messenger/*'))
+        @include('layouts.components.preloader')
+    @endif
     <div class="@auth @if (auth()->user()->type == 1) admin-view @endif @endauth">
         @if (auth()->check() && auth()->user()->type == 1)
             @include('layouts.headers.admin_header')

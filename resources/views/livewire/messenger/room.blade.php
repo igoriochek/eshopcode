@@ -1,18 +1,13 @@
-<div wire:poll.1s='updateMessages' class="messenger-room p-2 mb-sm-5">
+<div wire:poll.1s='updateMessages' class="messenger-room p-4 mb-sm-5 single-shop-sidebar-widget color-and-item">
     <div>
-        <h6 class="messenger-chat-user-name">
-            {{ $user->name }}
-        </h6>
+        <h4>
+            {{ __('menu.admin').' '.$user->name }}
+        </h4>
     </div>
     <div class="messenger-message-box" id="messsageBox">
         @forelse ($messages ?? [] as $message)
             @if ($message->user_from === $user->id)
                 <div class="messenger-message-from-container">
-                    {{--
-                    <span style="width: clamp(50px, 200px);">
-                        {{$user->name}}
-                    </span>
-                    --}}
                     <span class="messenger-message-from">
                         {{ $message->message_text }}
                     </span>

@@ -1,16 +1,19 @@
+@section('title', $user->name ?? __('names.user'))
+@section('parentTitle', __('menu.messenger'))
+@section('parentUrl', url('/user/messenger'))
+
 <div>
     <section class="pt-5">
         <div class="container">
             <div class="row mb-5">
                 <div class="col-lg-4 mt-4 mt-md-5 mt-lg-0">
-                    <div class="sidebar">
+                    <div class="single-shop-sidebar-widget categories">
                         <div class="widget">
                             <div class="widget-title-container d-flex justify-content-between align-items-center mb-2">
-                                <h6 class="widget-title m-0 text-uppercase">
+                                <h3 class="widget-title m-0">
                                     {{ __('names.messages') }}
-                                </h6>
-                                <a class="btn btn-primary messenger-users-contact" href="{{ route('livewire.messenger.add') }}">
-                                    <i class="fa-solid fa-plus"></i>
+                                </h3>
+                                <a class="default-btn style5" href="{{ route('livewire.messenger.add') }}">
                                     {{ __('buttons.contact') }}
                                 </a>
                             </div>

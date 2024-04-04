@@ -1,6 +1,6 @@
 <div wire:poll.1s>
     <ul class="messenger-users">
-        <hr class="messenger-users-hr"/>
+        <br/>
         @forelse ($users ?? [] as $user)
             <li class="messenger-user-container">
                 <a class="messenger-user" href="{{ route('livewire.messenger.show', [$user->id]) }}">
@@ -29,11 +29,13 @@
                     @endif
                 </a>
             </li>
+            @if (!$loop->last)
+                <hr class="messenger-users-hr mt-1 mb-2"/>
+            @endif
         @empty
             <div>
                 <span>{{__('table.noUsersFound')}}</span>
             </div>
         @endforelse
-        <hr class="messenger-users-hr"/>
     </ul>
 </div>

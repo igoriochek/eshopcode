@@ -7,6 +7,41 @@
         <div class="container">
             <div class="team-area pt-70 pb-45">
                 <div class="container">
+                    <div class="shop-top-shorting-area">
+                        <div class="row align-items-center">
+                            <div class="col-lg-6 col-md-6">
+                                <div class="shop-shorting-left-content">
+                                    <ul>
+                                        <li>
+                                            <h4 class="mb-1">{{ __('menu.discountCoupons') }}</h4>
+                                            <p>
+                                                {{ __('names.showing') }}
+                                                @if ($discountCoupons->currentPage() !== $discountCoupons->lastPage())
+                                                    {{ ($discountCoupons->count() * $discountCoupons->currentPage() - $discountCoupons->count() + 1).__('–').($discountCoupons->count() * $discountCoupons->currentPage()) }}
+                                                @else
+                                                    @if ($discountCoupons->total() - $discountCoupons->count() === 0)
+                                                        {{ $discountCoupons->count() }}
+                                                    @else
+                                                        {{ ($discountCoupons->total() - $discountCoupons->count()).__('–').$discountCoupons->total() }}
+                                                    @endif
+                                                @endif
+                                                {{ __('names.of') }}
+                                                {{ $discountCoupons->total().' '.__('names.entries') }}
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="shop-shorting-right-content">
+                                    <ul>
+                                        <li>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="row justify-content-center">
                         @forelse($discountCoupons as $discountCoupon)
                             @if (!$discountCoupon->used)

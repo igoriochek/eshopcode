@@ -12689,7 +12689,8 @@ fieldset:disabled .btn {
     .header-nav-feature
     .header-nav-features-toggle
     .header-nav-features-img:active {
-        filter: invert(45%) sepia(88%) saturate(709%) hue-rotate(119deg) brightness(84%) contrast(91%);
+    filter: invert(45%) sepia(88%) saturate(709%) hue-rotate(119deg)
+        brightness(84%) contrast(91%);
 }
 .header .header-body .container {
     position: relative;
@@ -14155,7 +14156,7 @@ fieldset:disabled .btn {
     align-items: center;
     width: 100%;
     border-radius: 5px;
-    padding-left: 15px;
+    padding-left: 20px;
     transition: all 200ms ease;
     position: relative;
 }
@@ -14171,7 +14172,7 @@ fieldset:disabled .btn {
     left: 0;
     width: 5px;
     height: 100%;
-    background: #0e9f6e;
+    background: #a10909;
 }
 .messenger-users
     .messenger-user-container
@@ -14331,9 +14332,10 @@ fieldset:disabled .btn {
     .messenger-message-box
     .messenger-message-to-container
     .messenger-message-to {
-    background-color: #1eacf3;
+    background-color: #a10909;
     color: #fff;
     border-radius: 15px 0 15px 15px;
+    opacity: 0.8;
 }
 .messenger-room .messenger-message-box .messenger-message-to-date-container {
     flex-direction: row-reverse;
@@ -14341,7 +14343,8 @@ fieldset:disabled .btn {
 }
 .messenger-room .messenger-message-box .messenger-message-date {
     font-size: 0.7em;
-    color: #d7d7d7;
+    color: #b7b7b7;
+    padding-top: 4px;
 }
 .messenger-room .messenger-form-container {
     display: flex;
