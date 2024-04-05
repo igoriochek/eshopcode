@@ -65,12 +65,44 @@
                                 </a>
                             </div>
                             <div class="option-item">
-                                <a href="{{ url('/user/userprofile') }}" class="nav-btn">
-                                    <div class="icon">
-                                        <img src="{{ asset('images/icons/icon-account.png') }}" alt="icon-account" height="20">
-                                    </div>
-                                    {{ auth()->user()->name }}
-                                </a>
+                                <div class="dropdown">
+                                    <button class="btn dropdown-toggle d-flex justify-content-center align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <div class="icon me-2">
+                                            <img src="{{ asset('images/icons/icon-account.png') }}" alt="icon-account" height="20">
+                                        </div>
+                                        {{ auth()->user()->name }}
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a class="dropdown-item" href="{{ url('/user/userprofile') }}"
+                                               style="color: {{ request()->is('user/userprofile*') ? '#a10909' : '' }}">
+                                                {{ __('menu.profile') }}
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="{{ url('/user/rootorders') }}"
+                                               style="color: {{ request()->is('user/rootorders*') ? '#a10909' : '' }}">
+                                                {{ __('menu.orders') }}
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="{{ url('/user/rootoreturns') }}"
+                                               style="color: {{ request()->is('user/rootoreturns*') ? '#a10909' : '' }}">
+                                                {{ __('menu.returns') }}
+                                            </a>
+                                        </li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li>
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                                                @csrf
+                                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                                   onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                                    {{ __('menu.logout') }}
+                                                </a>
+                                            </form>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         @else
                             <a href="{{ route('login') }}" class="default-btn style5 mt-1">{{ __('buttons.login') }}</a>
