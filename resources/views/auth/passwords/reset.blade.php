@@ -1,64 +1,49 @@
 @extends('layouts.app')
 
+@section('title', __('auth.resetPassword'))
+
 @section('content')
-    <div class="auth-form container">
-        <div class="row justify-content-center">
-            <div class="col-md-6 col-lg-5">
-                <h5 class="font-weight-bold text-5 mb-0">{{ __('auth.resetPassword') }}</h5>
-                <form method="POST" action="{{ route('password.update') }}">
-                    @csrf
-                    <input type="hidden" name="token" value="{{ $token }}">
-                    <div class="row">
-                        <div class="form-group col">
-                            <label class="form-label text-color-dark text-3">
-                                {{ __('auth.email') }}
-                                <span class="text-danger">*</span>
-                            </label>
-                            <div class="col-md-12">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $email ?? old('email') }}" required autocomplete="email">
-                                @error('email')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
+    <div class="login-area ptb-70">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 col-md-8 col-12">
+                    <div class="row align-items-center">
+                        <div class="col-12">
+                            <div class="login-content">
+                                <h3 class="mb-4">{{ __('auth.resetPassword') }}</h3>
+                                <form method="POST" action="{{ route('password.update') }}">
+                                    @csrf
+                                    <input type="hidden" name="token" value="{{ $token }}">
+                                    <div class="form-group">
+                                        <label>{{ __('auth.email') }}*</label>
+                                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $email ?? old('email') }}" required autocomplete="email">
+                                        @error('email')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group">
+                                        <label>{{ __('auth.passwordEnter') }}*</label>
+                                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                        @error('password')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group">
+                                        <label>{{ __('auth.confirmPasswordEnter') }}*</label>
+                                        <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                    </div>
+                                    <button type="submit" class="default-btn style5 w-100" data-loading-text="Loading...">
+                                        {{ __('auth.resetPassword') }}
+                                    </button>
+                                </form>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="form-group col">
-                            <label class="form-label text-color-dark text-3">
-                                {{ __('auth.passwordEnter') }}
-                                <span class="text-danger">*</span>
-                            </label>
-                            <div class="col-md-12">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-                                @error('password')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="form-group col">
-                            <label class="form-label text-color-dark text-3">
-                                {{ __('auth.confirmPasswordEnter') }}
-                                <span class="text-danger">*</span>
-                            </label>
-                            <div class="col-md-12">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="form-group col">
-                            <button type="submit" class="btn btn-dark btn-modern w-100 text-uppercase rounded-0 font-weight-bold text-3 py-3 auth-button mb-3 mt-5" data-loading-text="Loading...">
-                                {{ __('auth.resetPassword') }}
-                            </button>
-                        </div>
-                    </div>
-                </form>
+                </div>
             </div>
         </div>
     </div>
