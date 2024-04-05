@@ -9,6 +9,10 @@
         <div class="container">
             <div class="shop-details-content pl-0">
                 <div class="row align-items-center">
+                    <div class="mb-5">
+                        @include('adminlte-templates::common.errors')
+                        @include('flash_messages')
+                    </div>
                     <div class="col-lg-5">
                         <div class="products-details-img">
                             @if ($product->image)

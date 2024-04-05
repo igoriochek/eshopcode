@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', __("names.cancelOrder"))
-@section('parentTitle', $order->order_id ?? __('names.order'))
+@section('parentTitle', __('names.order').' '.$order->order_id)
 @section('parentUrl', url('/user/vieworder/'.$order->id))
 
 @section('content')

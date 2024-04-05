@@ -7,6 +7,9 @@
         <div class="container">
             <div class="row gap-5 gap-lg-0">
                 <div class="col-lg-9">
+                    <div class="mb-5">
+                        @include('flash_messages')
+                    </div>
                     <div class="shop-top-shorting-area">
                         <div class="row align-items-center">
                             <div class="col-lg-6 col-md-6">

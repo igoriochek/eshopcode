@@ -81,13 +81,19 @@
                                         </li>
                                         <li>
                                             <a class="dropdown-item" href="{{ url('/user/rootorders') }}"
-                                               style="color: {{ request()->is('user/rootorders*') ? '#a10909' : '' }}">
+                                               style="color: {{ 
+                                                request()->is('user/rootorders*') 
+                                                || request()->is('user/vieworder*')
+                                                || request()->is('user/cancelorder*')
+                                                || request()->is('user/returnorder*')
+                                                ? '#a10909' : '' 
+                                                }}">
                                                 {{ __('menu.orders') }}
                                             </a>
                                         </li>
                                         <li>
                                             <a class="dropdown-item" href="{{ url('/user/rootoreturns') }}"
-                                               style="color: {{ request()->is('user/rootoreturns*') ? '#a10909' : '' }}">
+                                               style="color: {{ request()->is('user/rootoreturns*') || request()->is('user/viewreturn*') ? '#a10909' : '' }}">
                                                 {{ __('menu.returns') }}
                                             </a>
                                         </li>

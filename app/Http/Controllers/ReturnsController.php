@@ -211,7 +211,26 @@ class ReturnsController extends AppBaseController
         $userId = Auth::id();
         $returns = $this->returnsRepository->all([
             'user_id' => $userId,
-        ]);
+        ])
+            ->sortByDesc('id')
+            ->sortBy('status_id');
+
+        foreach ($returns as $return) {
+            $returnItemSum = null;
+
+            $returnItems = ReturnItem::query()
+                ->with('product')
+                ->where([
+                    'return_id' => $return->id,
+                ])
+                ->get();
+
+            foreach ($returnItems as $item) {
+                $returnItemSum += $item->price_current;
+            }
+
+            $return->sum = $returnItemSum;
+        }
 
         return view('user_views.returns.index')->with([
             'returns' => $returns,
@@ -239,6 +258,8 @@ class ReturnsController extends AppBaseController
             return redirect(route('rootoreturns'));
         }
 
+        $returnItemSum = null;
+
         $returnItems = ReturnItem::query()
             ->with('product')
             ->where([
@@ -246,6 +267,11 @@ class ReturnsController extends AppBaseController
             ])
             ->get();
 
+        foreach ($returnItems as $item) {
+            $returnItemSum += $item->price_current;
+        }
+
+        $return->sum = $returnItemSum;
 
 
         $logs = $this->getOrderByReturnId($id);

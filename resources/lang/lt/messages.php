@@ -43,6 +43,9 @@ return [
     'orderCreatedSubject' => 'Sukurtas Naujas Užsakymas',
     'orderCreatedMarkdown' => 'emails.order_created_lt',
 
-    'confirmDeleteProduct' => 'Ar tikrai norite pašalinti šį produktą?'
+    'confirmDeleteProduct' => 'Ar tikrai norite pašalinti šį produktą?',
+
+    'loginSuccess' => 'Sėkmingai prisijungėte prie paskyros',
+    'logoutSuccess' => 'Sėkmingai atsijungtėte nuo paskyros'
 
 ];

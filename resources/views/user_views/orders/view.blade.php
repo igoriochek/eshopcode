@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', $order->order_id ?? __('names.order'))
+@section('title', __('names.order').' '.$order->order_id)
 @section('parentTitle', __('menu.orders'))
 @section('parentUrl', url('/user/rootorders'))
 
@@ -47,18 +47,22 @@
                                     <div>{{ __('table.sum').': €' }}{{ number_format($order->sum, 2) }}</div>
                                     <div>{{ __('table.date').': '.$order->created_at->format('M d, Y') }}</div>
                                 </div>
-                                <div>
+                                <div class="d-flex justify-content-start align-items-center">
                                     @if ($order->status->name !== "Returned" && $order->status->name !== "Canceled")
-                                        <div class="btn-group" style="float: right">
-                                            <a href="{{ route('returnorder', [$order->id]) }}" class='btn btn-default btn-xs'>
-                                                <i class="far fa-arrow-alt-circle-right"></i>
-                                            </a>
-                                        </div>
-                                        <div class="btn-group" style="float: right">
-                                            <a href="{{ route('cancelnorder', [$order->id]) }}" class='btn btn-default btn-xs'>
-                                                <i class="far fa-trash-alt"></i>
-                                            </a>
-                                        </div>
+                                        @if ($order->status->name !== 'Completed')
+                                            <div class="btn-group" style="float: right">
+                                                <a href="{{ route('cancelnorder', [$order->id]) }}" class='btn btn-default btn-xs'>
+                                                    <i class="far fa-trash-alt"></i>
+                                                </a>
+                                            </div>
+                                        @endif
+                                        @if ($order->status->name == 'Completed')
+                                            <div class="btn-group" style="float: right">
+                                                <a href="{{ route('returnorder', [$order->id]) }}" class='btn btn-default btn-xs'>
+                                                    <i class="far fa-arrow-alt-circle-right"></i>
+                                                </a>
+                                            </div>
+                                        @endif
                                         @if ($order->status->name == 'Completed')
                                             <div class="btn-group" style="float: right">
                                                 <a href="{{ route('download_invoice', [$order->id]) }}" class='btn btn-default btn-xs'>
