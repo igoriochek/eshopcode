@@ -44,4 +44,6 @@ return [
     'orderCreatedSubject' => 'Создан Новый Заказ',
     'orderCreatedMarkdown' => 'emails.order_created_ru',
 
+    'confirmDeleteProduct' => 'Вы уверены, что хотите удалить этот продукт?'
+
 ];

@@ -1,5 +1,52 @@
 @extends('layouts.app')
 
+@section('title', __('names.preview'))
+@section('parentTitle', __('names.checkout'))
+@section('parentUrl', url('/user/checkout'))
+
+@section('content')
+    <div class="checkout-area pt-70 pb-45">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-md-10 col-12">
+                    <div class="cart-sidebar">
+                        {!! Form::open(['route' => ['pay'], 'method' => 'post']) !!}
+                            <div class="payment-method">
+                                <h3>{{ __('names.paymentMethods') }}</h3>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="payment_method1" name="payment_method" value="cash-on-delivery" checked disabled>
+                                    <label class="form-check-label" for="payment_method1">
+                                        {{ __('Paysera') }}
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="check-out-summary">
+                                <h3>{{ __('names.yourOrder') }}</h3>
+                                <ul>
+                                    @foreach($cartItems as $item)
+                                        <li>{{ $item['product']->name }} {{ 'x'.$item->count }} <span>€{{ number_format(($item->price_current * $item->count),2) }}</span></li>
+                                    @endforeach
+                                    @if ($discounts)
+                                        @foreach($discounts as $item)
+                                            <li>{{ __('names.discountCoupon').' ('.$item->code.')'  }} <span>-€{{ number_format($item->value, 2) }}</span></li>
+                                        @endforeach
+                                    @endif
+                                    <li>{{ __('names.total') }} <span>€{{ $amount }}</span></li>
+                                </ul>
+                                <button type="submit" class="default-btn style5">
+                                    {{ __('buttons.placeOrder')  }}
+                                </button>
+                            </div>
+                        {!! Form::close() !!}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
+
+{{-- @extends('layouts.app')
+
 @section('content')
     <div class="container checkout">
         <div class="row">
@@ -72,7 +119,7 @@
                                             <tr class="border-bottom">
                                                 <td class="text-dark">{{ $item->code }} - {{ $item->value }}% {{ __('names.off') }}</td>
 {{--                                                <td colspan="3" style="text-align: right">-€{{ $amount * ($item->value / 100) }}</td>--}}
-                                                <td colspan="3" style="text-align: right">-€{{ $item->value }}</td>
+                                                {{-- <td colspan="3" style="text-align: right">-€{{ $item->value }}</td>
                                             </tr>
                                         @endforeach
                                     @endif
@@ -112,5 +159,5 @@
             </div>
         {!! Form::close() !!}
     </div>
-@endsection
+@endsection --}}
 

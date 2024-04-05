@@ -25,11 +25,11 @@ return [
     'chooseFile' => 'Pasirinkite failą',
     'downloadPDF' => 'Atsiųsti PDF',
     'export' => 'Eksportuoti',
-    'filter'=> 'Filtruoti',
-    'forgotPassword'=> 'Pamiršote slaptažodį?',
+    'filter' => 'Filtruoti',
+    'forgotPassword' => 'Pamiršote slaptažodį?',
     'import' => 'Importuoti',
-    'login'=> 'Prisijungti',
-    'pay'=> 'Apmokėti',
+    'login' => 'Prisijungti',
+    'pay' => 'Apmokėti',
     'preview' => 'Peržiūrėti',
     'register' => 'Registruotis',
     'save' => 'Išsaugoti',
@@ -40,6 +40,7 @@ return [
     'proceedToCheckout' => 'Pereiti prie apmokėjimo ',
     'contact' => 'Susisiekti',
     'applyCoupon' => 'Taikyti kuponą',
-    'placeOrder' => 'Pateikite užsakymą'
+    'placeOrder' => 'Pateikite užsakymą',
+    'continueShopping' => 'Tęsti apsipirkimą'
 
 ];

@@ -25,8 +25,8 @@ return [
     'chooseFile' => 'Choose File',
     'downloadPDF' => 'Download PDF',
     'export' => 'Export',
-    'filter'=> 'Filter',
-    'forgotPassword'=> 'Forgot Your Password?',
+    'filter' => 'Filter',
+    'forgotPassword' => 'Forgot Your Password?',
     'import' => 'Import',
     'login' => 'Login',
     'preview' => 'Preview',
@@ -38,6 +38,7 @@ return [
     'proceedToCheckout' => 'Proceed to Checkout',
     'contact' => 'Contact',
     'applyCoupon' => 'Apply Coupon',
-    'placeOrder' => 'Place Order'
+    'placeOrder' => 'Place Order',
+    'continueShopping' => 'Continue Shopping'
 
 ];

@@ -25,11 +25,11 @@ return [
     'chooseFile' => 'Выбрать файл',
     'downloadPDF' => 'Скачать PDF',
     'export' => 'Экспорт',
-    'filter'=> 'Фильтр',
-    'forgotPassword'=> 'Забыли пароль?',
+    'filter' => 'Фильтр',
+    'forgotPassword' => 'Забыли пароль?',
     'import' => 'Импорт',
     'login' => 'Войти',
-    'pay'=> 'Оплатить',
+    'pay' => 'Оплатить',
     'preview' => 'Предварительный просмотр',
     'register' => 'Зарегистрироваться',
     'save' => 'Сохранить',
@@ -39,6 +39,7 @@ return [
     'proceedToCheckout' => 'Перейти к оформлению заказа',
     'contact' => 'Контакт',
     'applyCoupon' => 'Применить Kупон',
-    'placeOrder' => 'Разместить Заказ'
+    'placeOrder' => 'Разместить Заказ',
+    'continueShopping' => 'Продолжить Покупку'
 
 ];

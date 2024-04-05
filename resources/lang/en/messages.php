@@ -43,4 +43,6 @@ return [
     'orderCreatedSubject' => 'New Order Created',
     'orderCreatedMarkdown' => 'emails.order_created_en',
 
+    'confirmDeleteProduct' => 'Are you sure you want to remove this product?'
+
 ];

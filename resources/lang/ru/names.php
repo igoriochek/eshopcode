@@ -40,7 +40,7 @@ return [
     'selectDiscountCoupon' => 'Выберите скидочный купон',
     'yourOrder' => 'Твоя очередь',
     'paymentMethods' => 'Способы оплаты',
-    'off' => '',
+    'off' => 'OFF',
     'discountCoupon' => 'Скидочный купон',
     'acceptedOrder' => 'Спасибо. Ваш заказ принят.',
     'canceledOrder' => 'Ваш заказ отменен.',
@@ -92,7 +92,7 @@ return [
     'createDiscount' => 'Создать скидку',
     'discounts' => 'Скидки',
     'discountDetails' => 'Детали скидки',
-    'editDiscount'=> 'Изменить скидку',
+    'editDiscount' => 'Изменить скидку',
 
     //DiscountCoupons
     'createDiscountCoupon' => 'Создать купон на скидку',
@@ -111,7 +111,7 @@ return [
 
     //Homepage
     'addedAt' => 'Добавлено в',
-    'browseProducts'=> 'Просмотреть продукты',
+    'browseProducts' => 'Просмотреть продукты',
     'code' => 'Код',
     'createdAt' => 'Создано в',
     'dashboard' => 'Панель',
@@ -122,7 +122,7 @@ return [
     'loggedIn' => 'Вы вошли в систему!',
     'language' => 'Язык есть',
     'myCart' => 'Моя корзина',
-    'myOrders'=> 'Мои заказы',
+    'myOrders' => 'Мои заказы',
     'myReturns' => 'Мои возвраты',
     'openMsg' => 'Открыть мессенджер',
     'noProductsInCart' => 'В вашей корзине нет товаров!',
@@ -149,7 +149,7 @@ return [
     'createOrder' => 'Создать заказ',
     'createOrderItem' => 'Создать элемент заказа',
     'createOrderStatus' => 'Создать статус заказа',
-    'editOrder'=> 'Редактировать порядок',
+    'editOrder' => 'Редактировать порядок',
     'editOrderItem' => 'Редактировать позицию заказа',
     'editOrderStatus' => 'Редактировать статус заказа',
     'order' => 'Заказ',
@@ -229,7 +229,7 @@ return [
     'returnItemDetails' => 'Вернуть информацию об элементе',
     'returnStatus' => 'Статус возврата',
     'returnStatuses' => 'Статусы возврата',
-    'returnStatusDetails'=> 'Вернуть сведения о статусе',
+    'returnStatusDetails' => 'Вернуть сведения о статусе',
     'noReturns' => 'У вас нет возвратов',
 
     //User

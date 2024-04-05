@@ -43,4 +43,6 @@ return [
     'orderCreatedSubject' => 'Sukurtas Naujas Užsakymas',
     'orderCreatedMarkdown' => 'emails.order_created_lt',
 
+    'confirmDeleteProduct' => 'Ar tikrai norite pašalinti šį produktą?'
+
 ];

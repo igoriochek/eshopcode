@@ -1,58 +1,34 @@
 @extends('layouts.app')
 
+@section('title', __('menu.cart'))
+
 @section('content')
-    <div class="container cart">
-        <div class="row">
-            <div class="col">
-                <ul class="breadcrumb font-weight-bold text-6 justify-content-center my-5">
-                    <li class="text-transform-none me-3">
-                        <span class="active">{{ __('names.cart') }}</span>
-                    </li>
-                    <li class="text-transform-none text-color-grey-lighten me-3">
-                        <i class="fa-solid fa-angle-right me-2"></i>
-                        <span>{{ __('names.checkout') }}</span>
-                    </li>
-                    <li class="text-transform-none text-color-grey-lighten me-3">
-                        <i class="fa-solid fa-angle-right me-2"></i>
-                        <span>{{ __('names.preview') }}</span>
-                    </li>
-                    <li class="text-transform-none text-color-grey-lighten">
-                        <i class="fa-solid fa-angle-right me-2"></i>
-                        <span>{{ __('names.orderComplete') }}</span>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="row pb-4 mb-5">
-            <div class="col-lg-8 mb-5 mb-lg-0">
-                @include('user_views.cart.table')
-            </div>
-            <div class="col-lg-4 overflow-visible">
-                <div class="pin-wrapper">
-                    <div class="card border-width-3 border-radius-0 border-color-hover-dark">
-                        <div class="card-body">
-                            <h6 class="fw-bold text-uppercase mb-3">{{ __('names.overview') }}</h6>
-                            <table class="shop_table cart-totals mb-4">
-                                <tbody>
-                                    <tr class="total">
-                                        <td>
-                                            <strong class="text-dark">{{ __('names.total') }}</strong>
-                                        </td>
-                                        <td class="text-end">
-                                            <strong class="text-dark">
-                                                <span class="amount text-dark">€{{ $cart->sum ? number_format($cart->sum,2) : '0'}}</span>
-                                            </strong>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            @if (count($cartItems) > 0)
-                                <a href="{{ url('user/checkout') }}" class="btn proceed-to-checkout-button w-100">
-                                    {{ __('buttons.proceedToCheckout') }}
-                                    <i class="fas fa-arrow-right ms-2"></i>
-                                </a>
-                            @endif
-                        </div>
+    <div class="cart-area pt-70 pb-45">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="cart-table table table-responsive">
+                        @include('user_views.cart.table')
+                    </div>
+                    <ul class="cart-btn-list d-flex justify-content-between">
+                        <li>
+                            <a href="{{ route('userproducts') }}" class="default-btn style5">
+                                {{ __('buttons.continueShopping') }}
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <div class="check-out-summary">
+                        <h3>{{ __('names.overview') }}</h3>
+                        <ul>
+                            <li>{{ __('names.total') }} <span>€{{ $cart->sum ? number_format($cart->sum, 2) : '0'}}</span></li>
+                        </ul>
+                        @if (count($cartItems) > 0)
+                            <a href="{{ url('user/checkout') }}" class="default-btn style5">
+                                {{ __('buttons.proceedToCheckout') }}
+                            </a>
+                        @endif
                     </div>
                 </div>
             </div>

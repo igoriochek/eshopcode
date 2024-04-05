@@ -40,7 +40,7 @@ return [
     'selectDiscountCoupon' => 'Pasirinkite nuolaidos kuponą',
     'yourOrder' => 'Jūsų užsakymas',
     'paymentMethods' => 'Mokėjimo metodai',
-    'off' => '',
+    'off' => 'OFF',
     'discountCoupon' => 'Nuolaidos kuponas',
     'acceptedOrder' => 'Ačiū. Jūsų užsakymas buvo priimtas.',
     'canceledOrder' => 'Jūsų užsakymas buvo atšauktas.',
@@ -111,7 +111,7 @@ return [
 
     //Homepage
     'addedAt' => 'Pridėta',
-    'browseProducts'=> 'Naršyti produktus',
+    'browseProducts' => 'Naršyti produktus',
     'code' => 'Kodas',
     'createdAt' => 'Sukurta',
     'dashboard' => 'Valdyklė',
@@ -122,7 +122,7 @@ return [
     'loggedIn' => 'Jūs esate prisijungę!',
     'language' => 'Kalba yra',
     'myCart' => 'Mano krepšelis',
-    'myOrders'=> 'Mano užsakymai',
+    'myOrders' => 'Mano užsakymai',
     'myReturns' => 'Mano grąžinimai',
     'openMsg' => 'Atidaryti pranešėją',
     'noProductsInCart' => 'Jūsų krepšelyje nėra jokių produktų!',
