@@ -329,8 +329,8 @@
             $("#finish").datepicker();
         });
 
-        const minuses = document.querySelectorAll('.minus');
-        const pluses = document.querySelectorAll('.plus');
+        const minuses = document.querySelectorAll('.minus-button');
+        const pluses = document.querySelectorAll('.plus-button');
         const amountNumbers = document.querySelectorAll('.product-add-to-cart-number');
 
         const minValue = 1;

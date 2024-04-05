@@ -41,19 +41,24 @@
                         </div>
                     </li>
                 </ul>
-                <div class="w-100 d-flex justify-content-center flex-column mt-3">
-                    <div class="d-flex justify-content-center">
-                        <input type="button" class="minus rounded-0" value="-">
-                        {!! Form::number('count', "1", [
-                            'class' => 'product-add-to-cart-number', 
-                            "min" => "1", 
-                            "max" => "5", 
-                            "minlength" => "1", 
-                            "maxlength" => "5", 
-                            "oninput" => "this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null
-                        "]) !!}
-                        <input type="button" class="plus rounded-0" value="+">
-                    </div>
+                <div class="products-details-content mt-4 d-flex justify-content-center align-items-center">
+                    <ul class="btns">
+                        <li>
+                            <div class="input-counter" style="transform: translateY(18px)">
+                                <span class="minus-button"><i class="fa-solid fa-chevron-down"></i></span>
+                                {!! Form::number('count', "1", [
+                                    'class' => 'product-add-to-cart-number pe-5', 
+                                    "min" => "1", 
+                                    "max" => "5", 
+                                    "minlength" => "1", 
+                                    "maxlength" => "5", 
+                                    "oninput" => "this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null
+                                "]) !!}
+                                <span class="plus-button"><i class="fa-solid fa-chevron-up"></i></span>
+                                <input type="hidden" name="id" value="{{ $product->id }}">
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -62,10 +67,29 @@
 </div>
 
 <style>
-    .minus, .plus {
-        &:hover, &:focus {
-            border-color: #a10909;
-            background-color: #a10909;
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
         }
-    }
+
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+
+        .products-details-content .btns li .input-counter span.minus-button {
+            bottom: 5px;
+        }
+
+        .products-details-content .btns li .input-counter span.plus-button {
+            top: 5px;
+        }
+
+        .products-details-content .btns li .input-counter span {
+            position: absolute;
+            font-size: 13px;
+            right: 15px;
+            color: #111;
+            cursor: pointer;
+        }
 </style>

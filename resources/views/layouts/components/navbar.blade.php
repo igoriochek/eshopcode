@@ -121,16 +121,61 @@
 
     <div class="others-option-for-responsive">
         <div class="container">
-            <div class="dot-menu" style="top: -40px">
+            <div class="dot-menu" style="top: -45px">
                 <div class="others-options justify-content-center align-items-center">
                     @auth
                         <div class="option-item">
                             <a href="{{ url('/user/viewcart') }}" class="nav-btn">
                                 <div class="icon">
-                                    <img src="{{ asset('template/images/icon/cart-icon.svg') }}" alt="icon" class="mb-0">
-                                    <span>{{ $cartItemCount }}</span>
+                                    <img src="{{ asset('template/images/icon/cart-icon.svg') }}" alt="icon" class="mb-0" height="25">
+                                    <span style="background: #a10909">{{ $cartItemCount }}</span>
                                 </div>
                             </a>
+                        </div>
+                        <div class="option-item">
+                            <div class="dropdown">
+                                <button class="btn dropdown-toggle d-flex justify-content-center align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <div class="icon me-2">
+                                        <img src="{{ asset('images/icons/icon-account.png') }}" alt="icon-account" height="30">
+                                    </div>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a class="dropdown-item" href="{{ url('/user/userprofile') }}"
+                                        style="color: {{ request()->is('user/userprofile*') ? '#a10909' : '' }}">
+                                            {{ __('menu.profile') }}
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="{{ url('/user/rootorders') }}"
+                                        style="color: {{ 
+                                            request()->is('user/rootorders*') 
+                                            || request()->is('user/vieworder*')
+                                            || request()->is('user/cancelorder*')
+                                            || request()->is('user/returnorder*')
+                                            ? '#a10909' : '' 
+                                            }}">
+                                            {{ __('menu.orders') }}
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="{{ url('/user/rootoreturns') }}"
+                                        style="color: {{ request()->is('user/rootoreturns*') || request()->is('user/viewreturn*') ? '#a10909' : '' }}">
+                                            {{ __('menu.returns') }}
+                                        </a>
+                                    </li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                                            @csrf
+                                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                                {{ __('menu.logout') }}
+                                            </a>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     @else
                         <a href="{{ route('login') }}" class="default-btn style5 py-2" style="transform: translateY(-3px)">
