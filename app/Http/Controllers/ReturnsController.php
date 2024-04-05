@@ -113,7 +113,7 @@ class ReturnsController extends AppBaseController
         return view('returns.show')->with([
             'returns' => $returns,
             'returnItems' => $returnItems,
-            'logs'=>$logs,
+            'logs' => $logs,
         ]);
     }
 
@@ -234,7 +234,7 @@ class ReturnsController extends AppBaseController
             ->first();
 
         if (empty($return)) {
-            Flash::error('Return not found');
+            session()->flash('error', 'Return not found');
 
             return redirect(route('rootoreturns'));
         }
@@ -250,15 +250,14 @@ class ReturnsController extends AppBaseController
 
         $logs = $this->getOrderByReturnId($id);
 
-        foreach ($logs as $log ){
+        foreach ($logs as $log) {
             $log->activity = $this->logTranslate($log->activity, app()->getLocale());
-
         }
 
         return view('user_views.returns.view')->with([
             'return' => $return,
             'returnItems' => $returnItems,
-            'logs'=>$logs,
+            'logs' => $logs,
         ]);
     }
 
@@ -273,7 +272,7 @@ class ReturnsController extends AppBaseController
             ->first();
 
         if (empty($order)) {
-            Flash::error('Order not found');
+            session()->flash('error', 'Order not found');
 
             return redirect(route('rootorders'));
         }
@@ -297,7 +296,7 @@ class ReturnsController extends AppBaseController
         $input = $request->all();
 
         if (empty($input['return_items'])) {
-            Flash::error('Returns items  selected');
+            session()->flash('error', 'Returns items not selected.');
 
             $order = Order::query()
                 ->where([
@@ -307,7 +306,7 @@ class ReturnsController extends AppBaseController
                 ->first();
 
             if (empty($order)) {
-                Flash::error('Order not found');
+                session()->flash('error', 'Order not found');
 
                 return redirect(route('rootorders'));
             }
@@ -365,8 +364,6 @@ class ReturnsController extends AppBaseController
                         'price_current' => $item[0]->price_current,
                         'count' => $item[0]->count,
                     ]);
-
-
                 }
             }
 
@@ -379,9 +376,9 @@ class ReturnsController extends AppBaseController
             $order->save();
         }
 
-        Flash::success('Returns saved successfully.');
+        session()->flash('success', 'Returns saved successfully.');
 
-        return redirect(route('rootorders'));
+        return redirect(route('viewreturn', $returns->id));
     }
 
     public function cancelOrder($id)
@@ -395,9 +392,9 @@ class ReturnsController extends AppBaseController
             ->first();
 
         if (empty($order)) {
-            Flash::error('Order not found');
+            session()->flash('error', 'Order not found');
 
-            return redirect(route('rootorders'));
+            return redirect(route('vieworder', $id));
         }
 
         return view('user_views.orders.cancel')->with([
@@ -427,9 +424,9 @@ class ReturnsController extends AppBaseController
             $order->save();
         }
 
-        Flash::success('Order cancelled successfully.');
+        session()->flash('success', 'Order cancelled successfully.');
 
-        return redirect(route('rootorders'));
+        return redirect(route('vieworder', $id));
     }
 
     /**
@@ -437,7 +434,8 @@ class ReturnsController extends AppBaseController
      * @param $id return_id
      * @return mixed
      */
-    private function getOrderByReturnId($id){
+    private function getOrderByReturnId($id)
+    {
         $orderId = Returns::where(['id' => $id])->value('order_id');
 
         return LogActivity::search("Order ID:{$orderId}")->get();

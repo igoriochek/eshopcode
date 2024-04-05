@@ -3,15 +3,11 @@
     <div id="preloader">
         <div id="ctn-preloader" class="ctn-preloader">
             <div class="animation-preloader">
+                {{-- <img src="{{ asset('images/CM_logo.png') }}" alt="CM_logo" class="mb-4"> --}}
                 <!-- Start: Text Loading -->
                 <div class="txt-loading">
-                    <span data-text-preloader="L" class="letters-loading">L</span>
-                    <span data-text-preloader="O" class="letters-loading">O</span>
-                    <span data-text-preloader="A" class="letters-loading">A</span>
-                    <span data-text-preloader="D" class="letters-loading">D</span>
-                    <span data-text-preloader="I" class="letters-loading">I</span>
-                    <span data-text-preloader="N" class="letters-loading">N</span>
-                    <span data-text-preloader="G" class="letters-loading">G</span>
+                    <span data-text-preloader="C" class="letters-loading">C</span>
+                    <span data-text-preloader="M" class="letters-loading">M</span>
                 </div>
                 <!-- End: Text Loading -->
 

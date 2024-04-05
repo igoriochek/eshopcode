@@ -164,6 +164,7 @@ return [
     'noOrders' => 'Jūs neatlikote jokių užsakymų',
     'invoice' => 'PVM sąskaita faktūra',
     'invoicePreview' => 'Peržiūrėti PVM sąskaitą faktūrą',
+    'returnOrder' => 'Grąžinti užsakymą',
 
     //Products
     'product' => 'Produktas',

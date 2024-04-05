@@ -164,6 +164,7 @@ return [
     'noOrders' => 'У вас нет заказов',
     'invoice' => 'Счет',
     'invoicePreview' => 'Предварительный просмотр счета',
+    'returnOrder' => 'Заказ на возврат',
 
     //Products
     'product' => 'Товар',

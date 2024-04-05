@@ -164,6 +164,7 @@ return [
     'noOrders' => 'You have no orders',
     'invoice' => 'Invoice',
     'invoicePreview' => 'Invoice Preview',
+    'returnOrder' => 'Return Order',
 
     // Products
     'product' => 'Product',

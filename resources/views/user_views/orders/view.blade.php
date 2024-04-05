@@ -1,110 +1,114 @@
 @extends('layouts.app')
 
+@section('title', $order->order_id ?? __('names.order'))
+@section('parentTitle', __('menu.orders'))
+@section('parentUrl', url('/user/rootorders'))
+
 @section('content')
-    <div class="container">
-<section class="content-header">
-    <div class="container-fluid">
-        <div class="row m-2">
-            <div class="col-sm-6">
-                <h1>{{__('names.order')}} : {{ $order->order_id }}</h1>
+    <div class="my-account-area ptb-70">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-9 col-lg-12">
+                    <div class="mb-5">
+                        @include('adminlte-templates::common.errors')
+                        @include('flash_messages')
+                    </div>
+                    <div class="account-content">
+                        <ul class="account-btns">
+                            <li>
+                                <a href="{{ url('/user/userprofile') }}">
+                                    {{ __('menu.profile') }}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ url('/user/rootorders') }}" class="active">
+                                    {{__('menu.orders')}}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ url('/user/rootoreturns') }}">
+                                    {{ __('menu.returns') }}
+                                </a>
+                            </li>
+                            <li>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                                    @csrf
+                                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                        {{ __('menu.logout') }}
+                                    </a>
+                                </form>
+                            </li>
+                        </ul>
+                        <div class="your-orders">
+                            <h3 class="mb-2">{{ __('names.order').':' }} {{ $order->order_id }}</h3>
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+                                <div class="d-flex flex-wrap align-items-center" style="column-gap: 10px; row-gap: 5px">
+                                    <div>{{ __('table.status').': '.__("status.".$order->status->name) }}</div>
+                                    <div>{{ __('table.sum').': €' }}{{ number_format($order->sum, 2) }}</div>
+                                    <div>{{ __('table.date').': '.$order->created_at->format('M d, Y') }}</div>
+                                </div>
+                                <div>
+                                    @if ($order->status->name !== "Returned" && $order->status->name !== "Canceled")
+                                        <div class="btn-group" style="float: right">
+                                            <a href="{{ route('returnorder', [$order->id]) }}" class='btn btn-default btn-xs'>
+                                                <i class="far fa-arrow-alt-circle-right"></i>
+                                            </a>
+                                        </div>
+                                        <div class="btn-group" style="float: right">
+                                            <a href="{{ route('cancelnorder', [$order->id]) }}" class='btn btn-default btn-xs'>
+                                                <i class="far fa-trash-alt"></i>
+                                            </a>
+                                        </div>
+                                        @if ($order->status->name == 'Completed')
+                                            <div class="btn-group" style="float: right">
+                                                <a href="{{ route('download_invoice', [$order->id]) }}" class='btn btn-default btn-xs'>
+                                                    {{__('names.invoice')}} <i class="fa-solid fa-file-invoice"></i>
+                                                </a>
+                                            </div>
+                                        @endif
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="orders-table table table-responsive">
+                                <table class="table border">
+                                    <thead>
+                                        <tr>
+                                            @if ($order->status->name == 'Returned')
+                                                <th scope="col">{{ __('table.status') }}</th>
+                                            @endif
+                                            <th scope="col">{{ __('table.productName') }}</th>
+                                            <th scope="col">{{ __('table.price') }}</th>
+                                            <th scope="col">{{ __('table.count') }}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach($orderItems as $item)
+                                            <tr>
+                                                @if ($order->status->name == 'Returned')
+                                                    <td>
+                                                        @if ($item->isReturned !== null)
+                                                            {{ $item->isReturned }}
+                                                        @else
+                                                            &nbsp;
+                                                        @endif
+                                                    </td>
+                                                @endif
+                                                <td>{{ $item->product->name }}</td>
+                                                <td>€{{ number_format($item->price_current, 2) }}</td>
+                                                <td>{{ $item->count }}</td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                            <hr class="mt-5 mb-4" />
+                            <h3>{{ __('names.orderHistory') }}</h3>
+                            @include('orders.history_table')
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</section>
-
-<section>
-
-    <div class="content px-3">
-
-        @include('flash::message')
-
-        <div class="clearfix"></div>
-
-        @if($order->status->name !== "Returned" && $order->status->name !== "Canceled")
-
-            <div class="btn-group" style="float: right">
-                <a href="{{ route('returnorder', [$order->id]) }}"
-                   class='btn btn-default btn-xs'>
-                    <i class="far fa-arrow-alt-circle-right"></i>
-                </a>
-            </div>
-            <div class="btn-group" style="float: right">
-                <a href="{{ route('cancelnorder', [$order->id]) }}"
-                   class='btn btn-default btn-xs'>
-                    <i class="far fa-trash-alt"></i>
-                </a>
-            </div>
-        @if($order->status->name == 'Completed')
-            <div class="btn-group" style="float: right">
-                <a href="{{ route('download_invoice', [$order->id]) }}"
-                   class='btn btn-default btn-xs'>
-                    {{__('names.invoice')}} <i class="fa-solid fa-file-invoice"></i>
-                </a>
-            </div>
-            @endif
-        @endif
-
-
-
-        <div>{{__('names.orderStatus')}}: {{ __("status." . $order->status->name) }}</div>
-
-        <div class="table table-responsive">
-            <table class="table">
-                <thead>
-                <tr>
-                    @if($order->status->name == "Returned")
-                        <th class="text-center">{{__('table.status')}}</th>
-                    @endif
-{{--                        <th>{{__('table.productId')}}</th>--}}
-                        <th>{{__('table.productName')}}</th>
-                        <th>{{__('table.price')}}</th>
-                        <th>{{__('table.count')}}</th>
-                </tr>
-                </thead>
-                <tbody>
-                @foreach($orderItems as $item)
-                    <tr>
-                        @if($order->status->name == "Returned")
-                        <td class="text-center">
-                            @if ($item->isReturned !== null)
-                                {{__("status." .$item->isReturned)}}
-                            @else
-                                &nbsp;
-                            @endif
-                        </td>
-                        @endif
-{{--                        <td>{{ $item->product_id }}</td>--}}
-                        <td>{{ $item->product->name }}</td>
-                        <td>{{ number_format($item->price_current,2) }}</td>
-                        <td>{{ $item->count }}</td>
-                    </tr>
-                @endforeach
-                </tbody>
-            </table>
-        </div>
-    </div>
-</section>
-
-<section class="content-header">
-    <div class="container-fluid">
-        <div class="row mb-2">
-            <div class="col-sm-6">
-                <h2>{{__('names.orderHistory')}}</h2>
-            </div>
-        </div>
-    </div>
-</section>
-
-<div class="content px-3">
-    <div class="card">
-        <div class="card-body">
-            <div class="row">
-                @include('orders.history_table')
-            </div>
-        </div>
-    </div>
-</div>
-
     </div>
 @endsection
 

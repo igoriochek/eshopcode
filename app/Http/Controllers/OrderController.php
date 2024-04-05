@@ -219,9 +219,12 @@ class OrderController extends AppBaseController
     public function indexOrders()
     {
         $userId = Auth::id();
+
         $orders = $this->orderRepository->all([
             'user_id' => $userId,
-        ]);
+        ])
+            ->sortByDesc('id')
+            ->sortBy('status_id');
 
         return view('user_views.orders.index')->with([
             'orders' => $orders,
