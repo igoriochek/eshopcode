@@ -10,7 +10,7 @@ return [
     */
 
     'contactInfo' => 'Kontaktinė informacija',
-    'address'=> 'Adresas',
+    'address' => 'Adresas',
     'phone' => 'Telefonas',
     'email' => 'El. paštas',
     'hours' => 'Valandos',
@@ -22,4 +22,6 @@ return [
     'companycode' => 'Įmonės kodas',
     'vatcode' => 'PVM kodas',
     'ac' => 'A. s.',
+    'createdBy' => 'Sukūrė'
+
 ];

@@ -89,7 +89,11 @@
 
                 <div class="footer-link-widget widget-install-app col">
                     <h4 class="widget-title text-uppercase text-brand">{{__('footer.securedPayment')}}</h4>
-                    <img class="wow fadeIn animated" src="{{asset('/images/theme/320px-Paysera_logo.png')}}" style="width: 150px" alt="" />
+                    <img class="wow fadeIn animated" src="{{ asset('/images/theme/320px-Paysera_logo.png') }}" style="width: 150px" alt="" />
+                    <h4 class="widget-title text-uppercase text-brand mt-4 pt-4">{{__('footer.createdBy')}}</h4>
+                    <a href="https://getweb.lt/" target="_blank">
+                        <img class="wow fadeIn animated" src="{{ asset('/images/Getweb_logo.png') }}" style="width: 150px" alt="" />
+                    </a>
                 </div>
             </div>
         </div>

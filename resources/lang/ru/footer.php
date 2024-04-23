@@ -21,4 +21,6 @@ return [
     'companycode' => "Код предприятия",
     'vatcode' => "НДС код",
     'ac' => "Р/с",
+    'createdBy' => 'Создал'
+
 ];
