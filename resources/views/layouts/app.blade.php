@@ -9,13 +9,13 @@
     <!-- Title -->
     <title>
         @hasSection('title') 
-            @yield('title') - {{ config('app.name', 'Consultus Magnus') }}
+            @yield('title') - {{ config('app.name', 'Untitled') }}
         @else 
-            {{ config('app.name', 'Consultus Magnus') }} 
+            {{ config('app.name', 'Untitled') }} 
         @endif
     </title>
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/CM_logo.png') }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('template/img/logo/favicon.png') }}">
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -29,13 +29,14 @@
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('datatables/media/css/jquery.dataTables.min.css') }}" rel="stylesheet">
     <link href="{{ asset('vendor/cookie-consent/css/cookie-consent.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('template/css/meanmenu.css') }}" rel="stylesheet">
-    <link href="{{ asset('template/css/scrollCue.css') }}" rel="stylesheet">
-    <link href="{{ asset('template/css/banner.css') }}" rel="stylesheet">
-    <link href="{{ asset('template/css/shop.css') }}" rel="stylesheet">
-    <link href="{{ asset('template/css/footer.css') }}" rel="stylesheet">
-    <link href="{{ asset('template/css/style.css') }}" rel="stylesheet">
-    <link href="{{ asset('template/css/responsive.css') }}" rel="stylesheet">
+    <link href="{{ asset('template/css/animate.css') }}" rel="stylesheet">
+    <link href="{{ asset('template/css/swiper-bundle.css') }}" rel="stylesheet">
+    <link href="{{ asset('template/css/slick.css') }}" rel="stylesheet">
+    <link href="{{ asset('template/css/magnific-popup.css') }}" rel="stylesheet">
+    <link href="{{ asset('template/css/font-awesome-pro.css') }}" rel="stylesheet">
+    <link href="{{ asset('template/css/flaticon_shofy.css') }}" rel="stylesheet">
+    <link href="{{ asset('template/css/spacing.css') }}" rel="stylesheet">
+    <link href="{{ asset('template/css/main.css') }}" rel="stylesheet">
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.5.1/nouislider.min.css" rel="stylesheet">
@@ -65,13 +66,21 @@
     <script src="{{ asset('js/jquery-ui.js') }}"></script>
     <script src="{{ asset('js/bootstrap.bundle.js') }}"></script>
     <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('template/js/jquery.meanmenu.js') }}"></script>
-    <script src="{{ asset('template/js/owl.carousel.min.js') }}"></script>
-    <script src="{{ asset('template/js/jquery.magnific-popup.js') }}"></script>
-    <script src="{{ asset('template/js/scrollCue.min.js') }}"></script>
-    <script src="{{ asset('template/js/form-validator.min.js') }}"></script>
-    <script src="{{ asset('template/js/ajaxchimp.min.js') }}"></script>
-    <script src="{{ asset('template/js/custom.js') }}"></script>
+    <script src="{{ asset('template/js/vendor/waypoints.js') }}"></script>
+    <script src="{{ asset('template/js/meanmenu.js') }}"></script>
+    <script src="{{ asset('template/js/swiper-bundle.js') }}"></script>
+    <script src="{{ asset('template/js/slick.js') }}"></script>
+    <script src="{{ asset('template/js/range-slider.js') }}"></script>
+    <script src="{{ asset('template/js/magnific-popup.js') }}"></script>
+    <script src="{{ asset('template/js/nice-select.js') }}"></script>
+    <script src="{{ asset('template/js/purecounter.js') }}"></script>
+    <script src="{{ asset('template/js/countdown.js') }}"></script>
+    <script src="{{ asset('template/js/wow.js') }}"></script>
+    <script src="{{ asset('template/js/isotope-pkgd.js') }}"></script>
+    <script src="{{ asset('template/js/imagesloaded-pkgd.js') }}"></script>
+    <script src="{{ asset('template/js/ajax-form.js') }}"></script>
+    <script src="{{ asset('template/js/main.js') }}"></script>
+    <script src="{{ asset('js/custom.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.5.1/nouislider.min.js"></script>
     <script>
         $(document).ready(function () {
@@ -319,39 +328,6 @@
                         }
                 }
             );
-        });
-
-        $(function () {
-            $("#start").datepicker();
-        });
-
-        $(function () {
-            $("#finish").datepicker();
-        });
-
-        const minuses = document.querySelectorAll('.minus-button');
-        const pluses = document.querySelectorAll('.plus-button');
-        const amountNumbers = document.querySelectorAll('.product-add-to-cart-number');
-
-        const minValue = 1;
-        const maxValue = 5;
-
-        minuses.forEach((minus, index) => {
-            minus.addEventListener('click', e => {
-                e.preventDefault();
-                const currentValue = Number(amountNumbers[index].value) || 0;
-                if (currentValue === minValue) return;
-                amountNumbers[index].value = currentValue - 1;
-            });
-        });
-
-        pluses.forEach((plus, index) => {
-            plus.addEventListener('click', e => {
-                e.preventDefault();
-                const currentValue = Number(amountNumbers[index].value) || 0;
-                if (currentValue === maxValue) return;
-                amountNumbers[index].value = currentValue + 1;
-            });
         });
     </script>
     @stack('scripts')
