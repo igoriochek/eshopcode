@@ -51,6 +51,7 @@
         @if (auth()->check() && auth()->user()->type == 1)
             @include('layouts.headers.admin_header')
         @else
+            @include('layouts.components.back_to_top')
             @include('layouts.components.off_canvas_area')
             @include('layouts.components.header')
         @endif
