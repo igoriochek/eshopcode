@@ -12,7 +12,7 @@
           <div class="offcanvas__top mb-70 d-flex justify-content-between align-items-center">
              <div class="offcanvas__logo logo">
                 <a href="{{ url('/') }}">
-                   <img src="{{ asset('') }}" alt="logo">
+                   <img src="{{ asset('images/dts_logo_black.png') }}" alt="logo">
                 </a>
              </div>
           </div>

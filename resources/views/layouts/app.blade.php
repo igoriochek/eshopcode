@@ -58,8 +58,6 @@
             @yield('content')
         </main>
         @include('layouts.components.footer')
-        @include('layouts.components.copyright_area')
-        @include('layouts.components.go_top')
     </div>
     <script src="{{ asset('js/jquery-3.6.0.min.js') }}"></script>
     <script src="{{ asset('js/jquery-ui.js') }}"></script>

@@ -58,7 +58,7 @@
                    <div class="col-xl-2 col-lg-5 col-md-5 col-sm-4 col-6">
                       <div class="logo">
                          <a href="{{ url('/') }}">
-                            <img src="{{ asset('') }}" alt="logo">
+                            <img src="{{ asset('images/dts_logo_black.png') }}" alt="logo">
                          </a>
                       </div>
                    </div>
