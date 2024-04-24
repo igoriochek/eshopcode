@@ -240,18 +240,17 @@ return [
     'editCustomer' => 'Редактировать пользователя',
     'userLogs' => 'Журналы пользователей',
 
-    'desc' => 'Описание',
-    'name' => 'Имя',
-
-    'old' => 'Старый',
-    'new' => 'Новый',
-
-    'orderBy' => 'Сортировать по',
-
     //Discounts coupons
     'ndDiscountCoupons' => 'У вас еще нет купонов на скидку :(',
     'discountCouponCode' => 'Код купона на скидку',
     'discountCouponValue' => 'Стоимость купона на скидку',
+
+    //Other
+    'desc' => 'Описание',
+    'name' => 'Имя',
+    'old' => 'Старый',
+    'new' => 'Новый',
+    'orderBy' => 'Сортировать по',
     'zeroRecords' => 'Нет данных',
     'showing' => 'Показаны',
     'entries' => 'записи',
@@ -259,4 +258,6 @@ return [
     'of' => 'из',
     'first' => 'Первый',
     'last' => 'Последний',
+    'loading' => 'Загрузка'
+
 ];

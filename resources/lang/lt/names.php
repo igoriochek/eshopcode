@@ -240,18 +240,17 @@ return [
     'editCustomer' => 'Redaguoti naudotoją',
     'userLogs' => 'Naudotojų žurnalai',
 
-    'desc' => 'Aprašymas',
-    'name' => 'Pavadinimas',
-
-    'old' => 'Senos',
-    'new' => 'Naujos',
-
-    'orderBy' => 'Rūšiuoti pagal',
-
     //Discounts coupons
     'ndDiscountCoupons' => 'Jūs dar neturite nuolaidų kuponų :(',
     'discountCouponCode' => 'Nuolaidų kupono kodas',
     'discountCouponValue' => 'Nuolaidų kupono suma',
+
+    //Other
+    'desc' => 'Aprašymas',
+    'name' => 'Pavadinimas',
+    'old' => 'Senos',
+    'new' => 'Naujos',
+    'orderBy' => 'Rūšiuoti pagal',
     'zeroRecords' => 'Įrašų nėra',
     'showing' => 'Rodomi',
     'entries' => "įrašai",
@@ -259,4 +258,6 @@ return [
     'of' => 'iš',
     'first' => 'Pirmas',
     'last' => 'Paskutinis',
+    'loading' => 'Pakrovimas'
+
 ];

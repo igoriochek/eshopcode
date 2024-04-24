@@ -240,17 +240,17 @@ return [
     'editCustomer' => 'Edit User',
     'userLogs' => 'User Logs',
 
-    'desc' => 'Description',
-    'name' => 'Name',
-
-    'old' => "Old",
-    'new' => "New",
-
-    'orderBy' => 'Order By',
     //Discounts coupons
     "ndDiscountCoupons" => "You have no discount coupons yet :(",
     "discountCouponCode" => "Discount coupon code",
     "discountCouponValue" => "Discount coupon value",
+
+    //Other
+    'desc' => 'Description',
+    'name' => 'Name',
+    'old' => "Old",
+    'new' => "New",
+    'orderBy' => 'Order By',
     "zeroRecords" => "No matching records found",
     "showing" => "Showing",
     "entries" => "entries",
@@ -258,5 +258,6 @@ return [
     "of" => "of",
     "first" => "First",
     "last" => "Last",
+    'loading' => 'Loading'
 
 ];

@@ -51,9 +51,8 @@
         @if (auth()->check() && auth()->user()->type == 1)
             @include('layouts.headers.admin_header')
         @else
-            @include('layouts.components.topheader')
-            @include('layouts.components.navbar')
-            @include('layouts.components.page_banner')
+            @include('layouts.components.off_canvas_area')
+            @include('layouts.components.header')
         @endif
         <main class="main shop">
             @yield('content')
