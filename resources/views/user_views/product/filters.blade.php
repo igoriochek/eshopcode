@@ -40,7 +40,7 @@
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" id="category.{{ $category->id }}"
                                     value="{{ $category->id }}" onclick="calc();"
-                                    @if ($filter && $filter["categories.id"])
+                                    @if ($filter && isset($filter["categories.id"]))
                                         {{ in_array($category->id, $selCategories) ? "checked=\"checked\"" : ""}}
                                     @endif
                             >
