@@ -1,11 +1,3 @@
-$(function () {
-    $("#start").datepicker();
-});
-
-$(function () {
-    $("#finish").datepicker();
-});
-
 const minuses = document.querySelectorAll('.minus-button');
 const pluses = document.querySelectorAll('.plus-button');
 const amountNumbers = document.querySelectorAll('.product-add-to-cart-number');

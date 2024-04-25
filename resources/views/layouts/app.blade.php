@@ -55,7 +55,8 @@
             @include('layouts.components.off_canvas_area')
             @include('layouts.components.header')
         @endif
-        <main class="main shop">
+        <main>
+            @include('layouts.components.page_banner')
             @yield('content')
         </main>
         @include('layouts.components.footer')
@@ -326,6 +327,14 @@
                         }
                 }
             );
+        });
+
+        $(function () {
+            $("#start").datepicker();
+        });
+
+        $(function () {
+            $("#finish").datepicker();
         });
     </script>
     @stack('scripts')
