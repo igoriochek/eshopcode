@@ -204,6 +204,7 @@ return [
     'ratingOrRatings' => 'Įvertinimas(ai)',
     'starRating' => 'Įvertinimas žvaigždutėmis',
     'voted' => "Ačiū už jūsų balsą!",
+    'stars' => 'Žvaigždės',
 
     //Reviews
     'review' => 'Atsiliepimas',

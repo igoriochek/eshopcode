@@ -45,6 +45,30 @@ trait ProductRatings
 
     public function calculateAverageRating(float|int $sum, int $count): float|int
     {
-        return $count > 0 ? round(($sum / $count),1) : 0;
+        return $count > 0 ? round(($sum / $count), 1) : 0;
+    }
+
+    public function addRatingStarValues(object $productRatings): array
+    {
+        $productRatingStarValues = [1 => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0];
+
+        foreach ($productRatings as $productRating) {
+            $productRatingStarValues[$productRating->value]++;
+        }
+
+        return $productRatingStarValues;
+    }
+
+    public function calculateAndGetRatingStarPercentages(int $count, array $productRatingStarValues): array
+    {
+        $productRatingStarPercentages = [];
+
+        if ($count) {
+            foreach ($productRatingStarValues as $key => $value) {
+                $productRatingStarPercentages[$key] = round(($value / $count * 100), 1);
+            }
+        }
+
+        return $productRatingStarPercentages;
     }
 }

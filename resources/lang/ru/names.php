@@ -204,6 +204,7 @@ return [
     'ratingOrRatings' => 'Рейтинг(и)',
     'starRating' => 'Звездный рейтинг',
     'voted' => "Спасибо за ваш голос!",
+    'stars' => 'Звезды',
 
     //Reviews
     'review' => 'Отзыв',

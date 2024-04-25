@@ -204,6 +204,7 @@ return [
     'ratingOrRatings' => 'Rating(s)',
     'starRating' => 'Star Rating',
     'voted' => "Thank you for your vote!",
+    'stars' => 'Stars',
 
     //Reviews
     'review' => 'Review',

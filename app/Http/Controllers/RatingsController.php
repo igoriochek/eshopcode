@@ -160,7 +160,7 @@ class RatingsController extends AppBaseController
     {
         $username = Auth::user()->id;
         $response = "";
-        if ( $username != null ) {
+        if ($username != null) {
             $rating = new Ratings();
             $rating->user_id = $username;
             $rating->value = $request->rating;
@@ -169,6 +169,6 @@ class RatingsController extends AppBaseController
             $rating->save();
             $response = "ok";
         }
-        return response()->json(array("val"=>$response), 200);
+        return response()->json(array("val" => $response), 200);
     }
 }
