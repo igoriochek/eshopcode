@@ -242,7 +242,10 @@ return [
     'userLogs' => 'User Logs',
 
     //Discounts coupons
-    "ndDiscountCoupons" => "You have no discount coupons yet :(",
+    'coupon' => 'Coupon',
+    'active' => 'Active',
+    'used' => 'Used',
+    "noDiscountCoupons" => "No discount coupons available",
     "discountCouponCode" => "Discount coupon code",
     "discountCouponValue" => "Discount coupon value",
 

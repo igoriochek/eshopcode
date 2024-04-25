@@ -242,7 +242,10 @@ return [
     'userLogs' => 'Журналы пользователей',
 
     //Discounts coupons
-    'ndDiscountCoupons' => 'У вас еще нет купонов на скидку :(',
+    'coupon' => 'Купон',
+    'active' => 'Активный',
+    'used' => 'Использованный',
+    "noDiscountCoupons" => "Нет доступных купонов на скидку",
     'discountCouponCode' => 'Код купона на скидку',
     'discountCouponValue' => 'Стоимость купона на скидку',
 

@@ -3,68 +3,64 @@
 @section('title', __('menu.discountCoupons'))
 
 @section('content')
-    <div class="blog-area ptb-70">
+    <div class="tp-coupon-area pb-120">
         <div class="container">
-            <div class="team-area pt-70 pb-45">
-                <div class="container">
-                    <div class="shop-top-shorting-area">
-                        <div class="row align-items-center">
-                            <div class="col-lg-6 col-md-6">
-                                <div class="shop-shorting-left-content">
-                                    <ul>
-                                        <li>
-                                            <h4 class="mb-1">{{ __('menu.discountCoupons') }}</h4>
-                                            <p>
-                                                {{ __('names.showing') }}
-                                                @if ($discountCoupons->currentPage() !== $discountCoupons->lastPage())
-                                                    {{ ($discountCoupons->count() * $discountCoupons->currentPage() - $discountCoupons->count() + 1).__('–').($discountCoupons->count() * $discountCoupons->currentPage()) }}
-                                                @else
-                                                    @if ($discountCoupons->total() - $discountCoupons->count() === 0)
-                                                        {{ $discountCoupons->count() }}
-                                                    @else
-                                                        {{ ($discountCoupons->total() - $discountCoupons->count()).__('–').$discountCoupons->total() }}
-                                                    @endif
-                                                @endif
-                                                {{ __('names.of') }}
-                                                {{ $discountCoupons->total().' '.__('names.entries') }}
-                                            </p>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6">
-                                <div class="shop-shorting-right-content">
-                                    <ul>
-                                        <li>
-                                        </li>
-                                    </ul>
-                                </div>
+           <div class="row">
+                <p class="fs-6">
+                    {{ __('names.showing') }}
+                    @if ($discountCoupons->currentPage() !== $discountCoupons->lastPage())
+                        {{ ($discountCoupons->count() * $discountCoupons->currentPage() - $discountCoupons->count() + 1).__('–').($discountCoupons->count() * $discountCoupons->currentPage()) }}
+                    @else
+                        @if ($discountCoupons->total() - $discountCoupons->count() === 0)
+                            {{ $discountCoupons->count() }}
+                        @else
+                            {{ ($discountCoupons->total() - $discountCoupons->count()).__('–').$discountCoupons->total() }}
+                        @endif
+                    @endif
+                    {{ __('names.of') }}
+                    {{ $discountCoupons->total().' '.__('names.entries') }}
+                </p>
+                @forelse($discountCoupons as $discountCoupon)
+                    <div class="col-xl-6">
+                        <div class="tp-coupon-item mb-30 p-relative d-md-flex justify-content-between align-items-center">
+                        <span class="tp-coupon-border"></span>
+                        <div class="tp-coupon-item-left d-sm-flex align-items-center">
+                            <div class="tp-coupon-content">
+                                <h3 class="tp-coupon-title">{{ __('names.discountCouponValue') }}</h3>
+                                <p class="tp-coupon-offer mb-0">
+                                <span>{{ $discountCoupon->value }}%</span>
+                                {{ __('names.off') }}
+                                </p>
                             </div>
                         </div>
+                        <div class="tp-coupon-item-right pl-20">
+                            <div class="tp-coupon-status mb-10 d-flex align-items-center">
+                                <h4>
+                                    {{ __('names.coupon') }} 
+                                    @if ($discountCoupon->used)
+                                        <span class="text-danger">{{ __('names.used') }}</span>
+                                    @else
+                                        <span class="active">{{ __('names.active') }}</span>
+                                    @endif
+                                </h4>
+                            </div>
+                            <div class="tp-coupon-date">
+                                <span>{{ $discountCoupon->code }}</span>
+                            </div>
+                        </div>
+                        </div>
                     </div>
-                    <div class="row justify-content-center">
-                        @forelse($discountCoupons as $discountCoupon)
-                            @if (!$discountCoupon->used)
-                                <div class="col-lg-4 col-sm-6">
-                                    <div class="single-team-card">
-                                        <div class="content">
-                                            <h3>{{ __('names.discountCouponCode')}}: {{ $discountCoupon->code }}</h3>
-                                            <span>{{ __('names.discountCouponValue')}}: €{{ number_format($discountCoupon->value, 2)}}</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endif
-                        @empty
-                            <span class="text-muted">{{ __('names.ndDiscountCoupons') }}</span>
-                        @endforelse
+                @empty
+                    <span class="text-muted">{{ __('names.noDiscountCoupons') }}</span>
+                @endforelse
+                <div class="tp-shop-pagination mt-20">
+                    <div class="tp-pagination">
+                        @if (!empty($discountCoupons->count()))
+                            {{ $discountCoupons->onEachSide(1)->links() }}
+                        @endif
                     </div>
-                </div>
-            </div>
-            <div class="default-pagination mt-20">
-                @if (!empty($discountCoupons->count()))
-                    {{ $discountCoupons->onEachSide(1)->links() }}
-                @endif
-            </div>
+                 </div>
+           </div>
         </div>
-    </div>
+     </div>
 @endsection

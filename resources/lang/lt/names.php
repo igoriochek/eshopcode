@@ -242,7 +242,10 @@ return [
     'userLogs' => 'Naudotojų žurnalai',
 
     //Discounts coupons
-    'ndDiscountCoupons' => 'Jūs dar neturite nuolaidų kuponų :(',
+    'coupon' => 'Kuponas',
+    'active' => 'Aktyvus',
+    'used' => 'Naudotas',
+    "noDiscountCoupons" => "Nėra nuolaidų kuponų",
     'discountCouponCode' => 'Nuolaidų kupono kodas',
     'discountCouponValue' => 'Nuolaidų kupono suma',
 
