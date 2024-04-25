@@ -108,7 +108,9 @@
                             @auth
                                 <div class="tp-header-action-item d-none d-lg-block">
                                     <button class="tp-header-action-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <i class="fa-regular fa-user pt-2"></i> 
+                                        <i class="fa-regular fa-user pt-2"></i>
+                                        <span class="fs-6">{{ auth()->user()->name }}</span>
+                                        <i class="fa-solid fa-angle-down" style="font-size: .8rem"></i>
                                     </button>
                                     <ul class="dropdown-menu">
                                         <li>
@@ -188,7 +190,6 @@
 
 <script>
     const changeLanguage = locale => {
-        console.log(locale)
         const currentUrl = window.location.origin;
         window.location.href = `${currentUrl}/lang/${locale.toLowerCase()}`
     }

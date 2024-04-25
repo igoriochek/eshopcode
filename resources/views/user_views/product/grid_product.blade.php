@@ -57,7 +57,7 @@
                 <div class="tp-product-price-wrapper-2">
                     @if ($product->discount)
                         <span class="tp-product-price-2 new-price">
-                            €{{ $product->price - (round(($product->price * $product->discount->proc / 100), 2)) }}
+                            €{{ number_format($product->price - (round(($product->price * $product->discount->proc / 100), 2)), 2) }}
                         </span>
                         <span class="tp-product-price-2 old-price">
                             €{{ number_format($product->price, 2) }}
