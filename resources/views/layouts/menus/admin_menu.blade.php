@@ -118,3 +118,9 @@
         {{ __('menu.messenger') }}
     </a>
 </li>
+
+<style>
+    .active {
+        color: red;
+    }
+</style>

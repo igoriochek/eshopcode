@@ -12794,7 +12794,7 @@ fieldset:disabled .btn {
     .admin-navbar
     .admin-navbar-item:focus
     .admin-navbar-link {
-    color: #0e9f6e;
+    color: #a10909;
     transition: all 200ms ease;
 }
 .admin-header
@@ -12813,7 +12813,7 @@ fieldset:disabled .btn {
     position: absolute;
     width: 3px;
     height: 28px;
-    background: #0e9f6e;
+    background: #a10909;
 }
 .admin-header
     .admin-header-container
@@ -12844,7 +12844,7 @@ fieldset:disabled .btn {
     .admin-navbar
     .admin-navbar-item
     .active {
-    color: #0e9f6e;
+    color: #a10909;
 }
 .admin-header
     .admin-header-container
@@ -12856,7 +12856,7 @@ fieldset:disabled .btn {
     position: absolute;
     width: 3px;
     height: 28px;
-    background: #0e9f6e;
+    background: #a10909;
 }
 .admin-header
     .admin-header-container
@@ -12918,7 +12918,7 @@ fieldset:disabled .btn {
     .admin-navbar-item-dropdown
     .admin-navbar-subitem
     .admin-navbar-sublink:focus {
-    color: #0e9f6e;
+    color: #a10909;
 }
 .admin-header
     .admin-header-container
@@ -12928,7 +12928,7 @@ fieldset:disabled .btn {
     .admin-navbar-item-dropdown
     .admin-navbar-subitem
     .subactive {
-    color: #0e9f6e;
+    color: #a10909;
 }
 .admin-header
     .admin-header-container
@@ -12959,8 +12959,8 @@ fieldset:disabled .btn {
     .admin-header-bottom-container
     .admin-header-account-dropdown:focus
     .admin-header-account-icon {
-    filter: invert(52%) sepia(37%) saturate(5169%) hue-rotate(170deg)
-        brightness(98%) contrast(101%);
+    filter: brightness(0) saturate(100%) invert(11%) sepia(56%) saturate(5695%)
+        hue-rotate(357deg) brightness(104%) contrast(97%);
 }
 .admin-header
     .admin-header-container
@@ -12972,7 +12972,7 @@ fieldset:disabled .btn {
     .admin-header-bottom-container
     .admin-header-account-dropdown:focus
     .admin-header-account-name {
-    color: #0e9f6e;
+    color: #a10909;
 }
 .admin-header
     .admin-header-container
@@ -13004,7 +13004,7 @@ fieldset:disabled .btn {
     .admin-header-container
     .admin-header-bottom-container
     .admin-navbar-language-dropdown:focus {
-    color: #0e9f6e;
+    color: #a10909;
 }
 .admin-header .admin-header-container .hide {
     display: none;
