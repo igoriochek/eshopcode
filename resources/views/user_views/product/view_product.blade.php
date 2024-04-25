@@ -9,7 +9,7 @@
         <div class="tp-product-details-top pb-115">
            <div class="container">
               <div class="row">
-                <div class="col-12">
+                <div class="col-12 mb-4">
                     @include('adminlte-templates::common.errors')
                     @include('flash_messages')
                 </div>

@@ -12,3 +12,10 @@
         color: #fff;
     }
 }
+
+.tp-theme-settings-open {
+    position: absolute;
+    top: -1px;
+    left: 100%;
+    display: none;
+}

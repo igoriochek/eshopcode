@@ -6,7 +6,7 @@
     <section class="tp-shop-area pb-120">
         <div class="container">
            <div class="row">
-                <div class="col-12">
+                <div class="col-12 mb-4">
                     @include('flash_messages')
                 </div>
               <div class="col-xl-9 col-lg-8">

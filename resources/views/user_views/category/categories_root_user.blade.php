@@ -3,34 +3,42 @@
 @section('title', __('menu.categories'))
 
 @section('content')
-    <div class="shop-area ptb-70">
+    <section class="tp-blog-grid-area pb-120">
         <div class="container">
-            <div class="row gap-5 gap-lg-0">
-                <div class="col-12">
-                    <div class="shop-sidebar">
-                        <div class="single-shop-sidebar-widget color-and-item pb-1">
-                            <h3>{{ __('names.categories') }}</h3>
+           <div class="row">
+              <div class="col-12">
+                 <div class="tp-sidebar-wrapper">
+
+                    <!-- categories start -->
+                    <div class="tp-sidebar-widget widget_categories mb-35">
+                       <div class="tp-sidebar-widget-content">
                             @include('user_views.category.category_tree')
-                        </div>
+                       </div>
                     </div>
-                </div>
-            </div>
+                    <!-- categories end -->
+
+                 </div>
+              </div>
+           </div>
         </div>
-    </div>
+     </section>
 @endsection
 
 @push('css')
     <style>
-        a {
-            color: #666666;
-
-            &:hover, &:focus {
-                color: #a10909;
-            }
+        .active {
+            color: #0989FF;
         }
 
-        .active {
-            color: #a10909;
+        .tp-sidebar-widget ul li a::after {
+            position: absolute;
+            content: "";
+            width: 0;
+            height: 0;
+            background-color: transparent;
+            border-radius: 50%;
+            left: 0;
+            top: 12px;
         }
     </style>
 @endpush
