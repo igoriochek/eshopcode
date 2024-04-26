@@ -25,12 +25,10 @@
                                                 El. pašto adresas: info@consultusmagnus.com
                                                 <h6 class="mt-3 mb-2">Kokią informaciją renkame, naudojame ir saugojame apie Jus?</h6>
                                                 Informacija, kurią pateikia pats Svetainės lankytojas, pildydamas registracijos formą mūsų Svetainėje:
-                                                <ol>
-                                                    <li>Vardas</li>
-                                                    <li>Adresas</li>
-                                                    <li>El. paštas</li>
-                                                    <li>Telefono numeris</li>
-                                                </ol>
+                                                <div class="ps-4 pb-1">1. Vardas</div>
+                                                <div class="ps-4 pb-1">2. Adresas</div>
+                                                <div class="ps-4 pb-1">3. El. paštas</div>
+                                                <div class="ps-4 pb-1">4. Telefono numeris</div>
                                                 Informacija reikalinga paslaugos suteikimui (BDAR 6 straipsnio 1 dalies b punktas).
                                                 <h6 class="mt-3 mb-2">Ar naudojame slapukus?</h6>
                                                 Taip, mūsų Svetainėje yra naudojami slapukai.
@@ -38,10 +36,8 @@
                                                 Pildydami registracijos formą mūsų Svetainėje turėtumėte mums pateikti duomenis, prašomus registracijos formoje.
                                                 <h6 class="mt-3 mb-2">Koks yra teisinis informacijos rinkimo pagrindas?</h6>
                                                 Mes renkame informaciją apie Jus teisėtai, nes:
-                                                <ol>
-                                                    <li>Jūsų informacija yra reikalinga sutarčiai su Jumis sudaryti ir vykdyti;</li>
-                                                    <li>Mes turime teisėtą interesą stebėti Svetainės lankomumo statistiką.</li>
-                                                </ol>
+                                                <div class="ps-4 pb-1">1. Jūsų informacija yra reikalinga sutarčiai su Jumis sudaryti ir vykdyti;</div>
+                                                <div class="ps-4 pb-1">2. Mes turime teisėtą interesą stebėti Svetainės lankomumo statistiką.</div>
                                                 <h6 class="mt-3 mb-2">Ar teikiame jūsų informaciją kitiems subjektams (tvarkytojams)?</h6>
                                                 Bendrovė tvarkomų Asmens duomenų neteikia tretiesiems asmenims be išankstinio asmens (duomenų subjekto) sutikimo, išskyrus teisės aktų nustatyta tvarka.
                                                 <h6 class="mt-3 mb-2">Jūsų duomenų tvarkymo principai</h6>
@@ -66,12 +62,10 @@
                                                 Адрес электронной почты: info@consultusmagnus.com
                                                 <h6 class="mt-3 mb-2">Какую информацию о вас мы собираем, используем и храним?</h6>
                                                 Информация, предоставленная самим посетителем Сайта при заполнении регистрационной формы на нашем Сайте:
-                                                <ol>
-                                                    <li>Имя</li>
-                                                    <li>Адрес</li>
-                                                    <li>Электронная почта почта</li>
-                                                    <li>Номер телефона</li>
-                                                </ol>
+                                                <div class="ps-4 pb-1">1. Имя</div>
+                                                <div class="ps-4 pb-1">2. Адрес</div>
+                                                <div class="ps-4 pb-1">3. Электронная почта почта</div>
+                                                <div class="ps-4 pb-1">4. Номер телефона</div>
                                                 Информация необходима для предоставления услуги (статья 6 GDPR, параграф 1, пункт b).
                                                 <h6 class="mt-3 mb-2">Используем ли мы файлы cookie?</h6>
                                                 Да, наш веб-сайт использует файлы cookie.
@@ -79,10 +73,8 @@
                                                 При заполнении регистрационной формы на нашем веб-сайте вы должны предоставить нам данные, запрашиваемые в регистрационной форме.
                                                 <h6 class="mt-3 mb-2">Какова правовая основа для сбора информации?</h6>
                                                 Мы собираем информацию о вас на законных основаниях, потому что:
-                                                <ol>
-                                                    <li>Ваша информация необходима для заключения и исполнения договора с вами;</li>
-                                                    <li>У нас есть законный интерес в отслеживании статистики посещаемости веб-сайта.</li>
-                                                </ol>
+                                                <div class="ps-4 pb-1">1. Ваша информация необходима для заключения и исполнения договора с вами;</div>
+                                                <div class="ps-4 pb-1">2. У нас есть законный интерес в отслеживании статистики посещаемости веб-сайта.</div>
                                                 <h6 class="mt-3 mb-2">Предоставляем ли мы вашу информацию другим организациям (контролерам)?</h6>
                                                 Компания не предоставляет обрабатываемые персональные данные третьим лицам без предварительного согласия лица (субъекта данных), кроме как в порядке, установленном правовыми актами.
                                                 <h6 class="mt-3 mb-2">Ваши принципы обработки данных</h6>
@@ -107,12 +99,10 @@
                                                 Email address: info@consultusmagnus.com
                                                 <h6 class="mt-3 mb-2">What information do we collect, use and store about you?</h6>
                                                 Information provided by the Website visitor himself when filling out the registration form on our Website:
-                                                <ol>
-                                                    <li>Name</li>
-                                                    <li>Address</li>
-                                                    <li>Email</li>
-                                                    <li>Phone number</li>
-                                                </ol>
+                                                <div class="ps-4 pb-1">1. Name</div>
+                                                <div class="ps-4 pb-1">2. Address</div>
+                                                <div class="ps-4 pb-1">3. Email</div>
+                                                <div class="ps-4 pb-1">4. Phone number</div>
                                                 The information is necessary for the provision of the service (GDPR Article 6, Paragraph 1, Clause b)<br/>
                                                 <h6 class="mt-3 mb-2">Do we use cookies?</h6>
                                                 Yes, our Website uses cookies.
@@ -120,10 +110,8 @@
                                                 When completing the registration form on our Website, you should provide us with the data requested in the registration form.
                                                 <h6 class="mt-3 mb-2">What is the legal basis for collecting the information?</h6>
                                                 We collect information about you legally because:
-                                                <ol>
-                                                    <li>Your information is necessary to conclude and execute a contract with you;</li>
-                                                    <li>We have a legitimate interest in monitoring website traffic statistics.</li>
-                                                </ol>
+                                                <div class="ps-4 pb-1">1. Your information is necessary to conclude and execute a contract with you;</div>
+                                                <div class="ps-4 pb-1">2. We have a legitimate interest in monitoring website traffic statistics.</div>
                                                 <h6 class="mt-3 mb-2">Do we provide your information to other entities (controllers)?</h6>
                                                 The company does not provide processed personal data to third parties without the prior consent of the person (data subject), except in accordance with the procedure established by legal acts.
                                                 <h6 class="mt-3 mb-2">Your data processing principles</h6>

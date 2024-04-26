@@ -87,6 +87,11 @@
                                 {{ __('menu.euProjects') }}
                             </a>
                         </li>   
+                        <li>
+                            <a href="{{ url('/fbdatadeletion') }}" class="{{ request()->is('fbdatadeletion') ? 'active' : '' }}">
+                                {{ __('menu.fbDataDeletion') }}
+                            </a>
+                        </li>   
                     </ul>
                 </div>
             </div>
