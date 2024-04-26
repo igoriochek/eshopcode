@@ -1,6 +1,5 @@
 <div wire:poll.1s>
-    <ul class="messenger-users">
-        <br/>
+    <ul class="messenger-users list-unstyled">
         @forelse ($users ?? [] as $user)
             <li class="messenger-user-container">
                 <a class="messenger-user" href="{{ route('livewire.messenger.show', [$user->id]) }}">
@@ -39,3 +38,15 @@
         @endforelse
     </ul>
 </div>
+
+<style>
+    ::marker {
+        unicode-bidi: isolate;
+        font-variant-numeric: tabular-nums;
+        text-transform: none;
+        text-indent: 0px !important;
+        text-align: start !important;
+        text-align-last: start !important;
+        display: none;
+    }
+</style>

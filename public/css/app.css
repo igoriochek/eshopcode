@@ -14155,16 +14155,18 @@ fieldset:disabled .btn {
     display: flex;
     align-items: center;
     width: 100%;
-    border-radius: 5px;
+    border-radius: 0;
     padding-left: 20px;
     transition: all 200ms ease;
     position: relative;
+    border: 2px solid transparent;
 }
 .messenger-users .messenger-user-container .messenger-user:hover,
 .messenger-users .messenger-user-container .messenger-user:focus {
     color: inherit;
+    border: 2px solid #e0e2e3;
 }
-.messenger-users .messenger-user-container .messenger-user:hover:before,
+/* .messenger-users .messenger-user-container .messenger-user:hover:before,
 .messenger-users .messenger-user-container .messenger-user:focus:before {
     content: "";
     position: absolute;
@@ -14172,8 +14174,8 @@ fieldset:disabled .btn {
     left: 0;
     width: 5px;
     height: 100%;
-    background: #a10909;
-}
+    background: #0989ff;
+} */
 .messenger-users
     .messenger-user-container
     .messenger-user
@@ -14188,7 +14190,7 @@ fieldset:disabled .btn {
     .messenger-user-unread {
     width: 19px;
     height: 19px;
-    background-color: #0e9f6e;
+    background-color: #0989ff;
     border-radius: 10px;
     color: #fff;
     display: flex;
@@ -14332,7 +14334,7 @@ fieldset:disabled .btn {
     .messenger-message-box
     .messenger-message-to-container
     .messenger-message-to {
-    background-color: #a10909;
+    background-color: #0989ff;
     color: #fff;
     border-radius: 15px 0 15px 15px;
     opacity: 0.8;
@@ -14344,7 +14346,7 @@ fieldset:disabled .btn {
 .messenger-room .messenger-message-box .messenger-message-date {
     font-size: 0.7em;
     color: #b7b7b7;
-    padding-top: 4px;
+    padding-top: 2px;
 }
 .messenger-room .messenger-form-container {
     display: flex;

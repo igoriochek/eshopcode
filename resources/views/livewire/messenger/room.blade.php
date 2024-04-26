@@ -1,10 +1,10 @@
-<div wire:poll.1s='updateMessages' class="messenger-room p-4 mb-sm-5 single-shop-sidebar-widget color-and-item">
+<div wire:poll.1s='updateMessages' class="messenger-room px-4 pb-4 mb-sm-5 single-shop-sidebar-widget color-and-item">
     <div>
-        <h4>
+        <h4 class="pb-1">
             {{ __('menu.admin').' '.$user->name }}
         </h4>
     </div>
-    <div class="messenger-message-box" id="messsageBox">
+    <div class="messenger-message-box" id="messsageBox" style="border: 1px solid rgba(1, 15, 28, 0.1);">
         @forelse ($messages ?? [] as $message)
             @if ($message->user_from === $user->id)
                 <div class="messenger-message-from-container">
