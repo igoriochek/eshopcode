@@ -1,9 +1,11 @@
 @extends('layouts.app')
 
+@section('title', __('menu.euProjects'))
+
 @section('content')
-    <div class="container">
+    <div class="container py-5">
         <div class="product-section">
-            <h5 class="mb-4 text-uppercase">{{ __('menu.euProjects') }}</h5>
+            <h4 class="mb-4">{{ __('menu.euProjects') }}</h5>
             @if (App()->getLocale() == 'lt')
                 <img src="{{ asset('images/es_projektai.jpeg') }}" alt="es_projektai" class="col-md-6 col-12">
             @else

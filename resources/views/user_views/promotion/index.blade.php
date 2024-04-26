@@ -19,17 +19,9 @@
                                                         <h5 class="mb-1">{{ $promotion->name }}</h5>
                                                         <p>
                                                             {{ __('names.showing') }}
-                                                            @if ($promotions->currentPage() !== $promotions->lastPage())
-                                                                {{ ($promotions->count() * $promotions->currentPage() - $promotions->count() + 1).__('–').($promotions->count() * $promotions->currentPage()) }}
-                                                            @else
-                                                                @if ($promotions->total() - $promotions->count() === 0)
-                                                                    {{ $promotions->count() }}
-                                                                @else
-                                                                    {{ ($promotions->total() - $promotions->count()).__('–').$promotions->total() }}
-                                                                @endif
-                                                            @endif
+                                                            3
                                                             {{ __('names.of') }}
-                                                            {{ $promotions->total().' '.__('names.entries') }}
+                                                            {{ count($promotion->products).' '.__('names.entries') }}
                                                         </p>
                                                     </li>
                                                 </ul>
