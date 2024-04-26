@@ -6,6 +6,9 @@
     <div class="tp-coupon-area pb-120">
         <div class="container">
            <div class="row">
+                <div class="col-12 mb-4">
+                    @include('flash_messages')
+                </div>
                 <p class="fs-6">
                     {{ __('names.showing') }}
                     @if ($discountCoupons->currentPage() !== $discountCoupons->lastPage())
