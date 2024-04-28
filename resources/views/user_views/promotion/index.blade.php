@@ -41,11 +41,13 @@
                                                 <span data-width="40%" style="width: 40%;"></span>
                                                 </div>
                                             </div>
-                                            <div class="tp-category-main-more text-center mb-35">
-                                                <a href="{{ route("promotion", ["id" => $promotion->id]) }}" class="tp-load-more-btn">
-                                                    {{ __("names.more_for_promotions") }} 
-                                                </a>
-                                            </div>
+                                            @if (count($promotion->products) > 3)
+                                                <div class="tp-category-main-more text-center mb-35">
+                                                    <a href="{{ route("promotion", ["id" => $promotion->id]) }}" class="tp-load-more-btn">
+                                                        {{ __("names.more_for_promotions") }} 
+                                                    </a>
+                                                </div>
+                                            @endif
                                             @break
                                         @endif
                                     @empty
