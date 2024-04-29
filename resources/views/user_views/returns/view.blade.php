@@ -5,77 +5,104 @@
 @section('parentUrl', url('/user/rootreturns'))
 
 @section('content')
-    <div class="my-account-area ptb-70">
+    <section class="profile__area pb-120 pt-20">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-xl-9 col-lg-12">
-                    <div class="mb-5">
-                        @include('adminlte-templates::common.errors')
-                        @include('flash_messages')
-                    </div>
-                    <div class="account-content">
-                        <ul class="account-btns">
-                            <li>
-                                <a href="{{ url('/user/userprofile') }}">
-                                    {{ __('menu.profile') }}
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ url('/user/rootorders') }}">
-                                    {{__('menu.orders')}}
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ url('/user/rootoreturns') }}" class="active">
-                                    {{ __('menu.returns') }}
-                                </a>
-                            </li>
-                            <li>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                                    @csrf
-                                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                        {{ __('menu.logout') }}
-                                    </a>
-                                </form>
-                            </li>
-                        </ul>
-                        <div class="your-orders">
-                            <h3 class="mb-2">{{ __('names.return').':' }} {{ $return->id }}</h3>
-                            <div class="d-flex justify-content-between align-items-center mb-4">
-                                <div class="d-flex flex-wrap align-items-center" style="column-gap: 10px; row-gap: 5px">
-                                    <div>{{ __('table.status').': '.__("status.".$return->status->name) }}</div>
-                                    <div>{{ __('table.sum').': €' }}{{ number_format($return->sum, 2) }}</div>
-                                    <div>{{ __('table.date').': '.$return->created_at->format('M d, Y') }}</div>
-                                </div>
-                            </div>
-                            <div class="orders-table table table-responsive">
-                                <table class="table border">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">{{ __('table.productName') }}</th>
-                                            <th scope="col">{{ __('table.price') }}</th>
-                                            <th scope="col">{{ __('table.count') }}</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach($returnItems as $item)
-                                            <tr>
-                                                <td>{{ $item->product->name }}</td>
-                                                <td>€{{ number_format($item->price_current, 2) }}</td>
-                                                <td>{{ $item->count }}</td>
-                                            </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
-                            <hr class="mt-5 mb-4" />
-                            <h3>{{ __('names.orderHistory') }}</h3>
-                            @include('orders.history_table')
-                        </div>
-                    </div>
+           <div class="profile__inner p-relative">
+              <div class="profile__shape">
+                 <img class="profile__shape-1" src="{{ asset('template/img/login/laptop.png') }}" alt="">
+                 <img class="profile__shape-2" src="{{ asset('template/img/login/man.png') }}" alt="">
+                 <img class="profile__shape-3" src="{{ asset('template/img/login/shape-1.png') }}" alt="">
+                 <img class="profile__shape-4" src="{{ asset('template/img/login/shape-2.png') }}" alt="">
+                 <img class="profile__shape-5" src="{{ asset('template/img/login/shape-3.png') }}" alt="">
+                 <img class="profile__shape-6" src="{{ asset('template/img/login/shape-4.png') }}" alt="">
+              </div>
+              <div class="row">
+                <div class="col-12 mb-4">
+                    @include('adminlte-templates::common.errors')
+                    @include('flash_messages')
                 </div>
-            </div>
+                 <div class="col-xxl-4 col-lg-4">
+                    <div class="profile__tab mr-40">
+                       <nav>
+                          <div class="nav nav-tabs tp-tab-menu flex-column" id="profile-tab" role="tablist">
+                             <a class="nav-link" href="{{ url('/user/userprofile') }}">
+                                <span>
+                                    <i class="fa-regular fa-address-card"></i>
+                                </span>
+                                {{ __('menu.profile') }}
+                             </a>
+                             <a class="nav-link" href="{{ url('/user/rootorders') }}">
+                                <span>
+                                    <i class="fa-solid fa-box-open"></i>
+                                </span>
+                                {{ __('menu.orders') }}
+                             </a>
+                             <a class="nav-link active" href="{{ url('/user/rootoreturns') }}">
+                                <span>
+                                    <i class="fa-solid fa-right-left"></i>
+                                </span>
+                                {{ __('menu.returns') }}
+                             </a>
+                             <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                                @csrf
+                                <button class="nav-link" type="submit" onclick="event.preventDefault(); return confirm();">
+                                    <span>
+                                        <i class="fa-solid fa-right-from-bracket"></i>
+                                    </span>
+                                    {{ __('menu.logout') }}
+                                </button>
+                             </form>
+                             <span id="marker-vertical" class="tp-tab-line d-none d-sm-inline-block"></span>
+                          </div>
+                       </nav>
+                    </div>
+                 </div>
+                 <div class="col-xxl-8 col-lg-8">
+                    <div class="profile__tab-content">
+                        <div class="tab-content" id="profile-tabContent">
+                         <div class="tab-pane fade active show" id="nav-order" role="tabpanel" aria-labelledby="nav-order-tab">
+                             <h3 class="profile__info-title">{{ __('names.returnDetails') }}</h3>
+                             <div class="profile__address-item d-flex flex-column align-items-start">
+                                <div class="profile__address-content d-flex flex-wrap gap-4">
+                                   <p><span>{{ __('table.status').': ' }}</span>{{ __("status.".$return->status->name) }}</p>
+                                   <p><span>{{ __('table.sum').': ' }}</span>€{{ number_format($return->sum, 2) }}</p>
+                                   <p><span>{{ __('table.date').': ' }}</span>{{ $return->created_at->format('M d, Y') }}</p>
+                                </div>
+                                <div class="d-flex justify-content-start align-items-center flex-wrap gap-3 mt-10">
+                                    <div class="btn-group">
+                                        <a href="{{ route('vieworder', [$return->order_id]) }}" class="tp-logout-btn">
+                                            {{ __('names.order') }}
+                                        </a>
+                                    </div>
+                                </div>
+                             </div>
+                          </div>
+                        </div>
+                     </div>
+                    <div class="profile__tab-content mt-30">
+                       <div class="tab-content" id="profile-tabContent">
+                        <div class="tab-pane fade active show" id="nav-order" role="tabpanel" aria-labelledby="nav-order-tab">
+                            <h3 class="profile__info-title">{{ __('names.returnItems') }}</h3>
+                            <div class="profile__ticket table-responsive">
+                                @include('user_views.returns.tables.return_item_table')
+                            </div>
+                         </div>
+                       </div>
+                    </div>
+                    <div class="profile__tab-content mt-30">
+                        <div class="tab-content" id="profile-tabContent">
+                         <div class="tab-pane fade active show" id="nav-order" role="tabpanel" aria-labelledby="nav-order-tab">
+                             <h3 class="profile__info-title">{{ __('names.orderHistory') }}</h3>
+                             <div class="profile__ticket table-responsive">
+                                @include('orders.history_table')
+                             </div>
+                          </div>
+                        </div>
+                     </div>
+                 </div>
+              </div>
+           </div>
         </div>
-    </div>
+    </section>
 @endsection
 

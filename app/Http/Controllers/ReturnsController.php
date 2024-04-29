@@ -226,7 +226,7 @@ class ReturnsController extends AppBaseController
                 ->get();
 
             foreach ($returnItems as $item) {
-                $returnItemSum += $item->price_current;
+                $returnItemSum += $item->price_current * $item->count;
             }
 
             $return->sum = $returnItemSum;
@@ -268,7 +268,7 @@ class ReturnsController extends AppBaseController
             ->get();
 
         foreach ($returnItems as $item) {
-            $returnItemSum += $item->price_current;
+            $returnItemSum += $item->price_current * $item->count;
         }
 
         $return->sum = $returnItemSum;
