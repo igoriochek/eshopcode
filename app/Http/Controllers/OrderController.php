@@ -17,6 +17,7 @@ use App\Repositories\CartRepository;
 use App\Repositories\DiscountCouponRepository;
 use App\Repositories\OrderRepository;
 use App\Http\Controllers\AppBaseController;
+use App\Models\Returns;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Flash;
@@ -273,6 +274,9 @@ class OrderController extends AppBaseController
                 $item->setAttribute('isReturned', 'Returned');
             }
         }
+
+        $return = Returns::select('id')->where('order_id', $order->id)->first();
+
         $logs = LogActivity::search("Order ID:{$id}")->get();
 
         foreach ($logs as $log) {
@@ -282,6 +286,7 @@ class OrderController extends AppBaseController
         return view('user_views.orders.view')->with([
             'order' => $order,
             'orderItems' => $orderItems,
+            'return' => $return,
             'logs' => $logs,
         ]);
     }

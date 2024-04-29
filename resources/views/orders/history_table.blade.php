@@ -1,18 +1,16 @@
-<div class="orders-table table table-responsive">
-    <table class="table border">
-        <thead>
-        <tr>
-            <th>{{ __('table.date') }}</th>
-            <th>{{ __('table.action') }}</th>
-        </tr>
-        </thead>
-        <tbody>
-            @foreach($logs as $log)
-                <tr>
-                    <td>{{ $log->created_at }}</td>
-                    <td>{{ $log->activity }}</td>
-                </tr>
-            @endforeach
-        </tbody>
-    </table>
-</div>
+<table class="table">
+    <thead>
+       <tr>
+            <th scope="col">{{ __('table.date') }}</th>
+            <th scope="col">{{ __('table.action') }}</th>
+       </tr>
+    </thead>
+    <tbody>
+        @foreach($logs as $log)
+            <tr>
+                <td data-info="date">{{ $log->created_at }}</td>
+                <td data-info="action">{{ $log->activity }}</td>
+            </tr>
+        @endforeach
+    </tbody>
+</table>
