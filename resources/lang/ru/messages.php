@@ -45,6 +45,7 @@ return [
     'orderCreatedMarkdown' => 'emails.order_created_ru',
 
     'confirmDeleteProduct' => 'Вы уверены, что хотите удалить этот продукт?',
+    'confirmLogout' => 'Вы уверены, что хотите выйти из своего аккаунта?',
 
     'loginSuccess' => 'Успешно вошли в свой аккаунт',
     'logoutSuccess' => 'Успешно вышли из своего аккаунта'

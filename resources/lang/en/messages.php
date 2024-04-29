@@ -44,6 +44,7 @@ return [
     'orderCreatedMarkdown' => 'emails.order_created_en',
 
     'confirmDeleteProduct' => 'Are you sure you want to remove this product?',
+    'confirmLogout' => 'Are you sure you want to logout of your account?',
 
     'loginSuccess' => 'Successfully logged into your account',
     'logoutSuccess' => 'Successfully logged out of your account'

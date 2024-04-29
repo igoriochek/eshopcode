@@ -29,7 +29,7 @@
                 </a>
             </li>
             @if (!$loop->last)
-                <hr class="messenger-users-hr mt-1 mb-2"/>
+                <hr class="messenger-users-hr my-2"/>
             @endif
         @empty
             <div>

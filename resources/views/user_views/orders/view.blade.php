@@ -45,7 +45,7 @@
                              </a>
                              <form id="logout-form" action="{{ route('logout') }}" method="POST">
                                 @csrf
-                                <button class="nav-link" type="submit" onclick="event.preventDefault(); return confirm();">
+                                <button class="nav-link" type="submit" onclick="event.preventDefault(); return confirm('{{ __('messages.confirmLogout') }}');">
                                     <span>
                                         <i class="fa-solid fa-right-from-bracket"></i>
                                     </span>

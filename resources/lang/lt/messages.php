@@ -44,6 +44,7 @@ return [
     'orderCreatedMarkdown' => 'emails.order_created_lt',
 
     'confirmDeleteProduct' => 'Ar tikrai norite pašalinti šį produktą?',
+    'confirmLogout' => 'Ar tikrai norite atsijungti nuo savo paskyros?',
 
     'loginSuccess' => 'Sėkmingai prisijungėte prie paskyros',
     'logoutSuccess' => 'Sėkmingai atsijungtėte nuo paskyros'

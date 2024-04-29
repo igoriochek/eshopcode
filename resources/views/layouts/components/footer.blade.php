@@ -18,7 +18,7 @@
                             <div class="tp-footer-talk mb-20">
                                <span>{{ __('footer.contactInfo') }}</span>
                                <h4>
-                                <a href="tel:#">+370xxxxxxxx</a>
+                                <a href="tel:+3707266145">+370 7 266145</a>
                                </h4>
                             </div>
                             <div class="tp-footer-contact">
@@ -34,7 +34,9 @@
                                      </span>
                                   </div>
                                   <div class="tp-footer-contact-content">
-                                     <p><a href="mailto:#">untitled@untitled.com</a></p>
+                                     <p>
+                                       <a href="mailto:info@dts-solutions.lt">info@dts-solutions.lt</a>
+                                    </p>
                                   </div>
                                </div>
                                <div class="tp-footer-contact-item d-flex align-items-start">
@@ -48,8 +50,10 @@
                                   </div>
                                   <div class="tp-footer-contact-content">
                                      <p>
-                                        <a href="javascript:void(0)" target="_blank">
-                                            {{ __('footer.address') }}
+                                        <a href="https://maps.app.goo.gl/konPpeK3BvXrbx6G8" target="_blank">
+                                          Taikos pr. 88A
+                                          Kaunas, LT-51183
+                                          Lietuva
                                         </a>
                                     </p>
                                   </div>

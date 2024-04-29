@@ -6,7 +6,7 @@
     <div class="container">
        <div class="row">
             <div class="col-lg-4 col-md-6 col-12">
-                <div class="widget">
+                <div class="widget p-3" style="border: 1px solid #e5e5e5">
                     <div class="widget-title-container d-flex justify-content-between align-items-center mb-2 pb-3 mb-3" style="border-bottom: 1px solid #EEEEEE;">
                         <h2 class="tp-sidebar-widget-title mb-0">
                             {{ __('names.messages') }}
