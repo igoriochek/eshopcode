@@ -1,19 +1,19 @@
 <ul class="dropdown-menu dropdown-menu-account" aria-labelledby="navbarUserDropdown">
     <li>
         <a class="dropdown-item" href="{{ url('/user/userprofile') }}"
-           style="color: {{ request()->is('user/userprofile*') ? '#0e9f6e' : '' }}">
+           style="color: {{ request()->is('user/userprofile*') ? '#0989ff' : '' }}">
             {{__('menu.profile')}}
         </a>
     </li>
     <li>
         <a class="dropdown-item" href="{{ url('/user/rootorders') }}"
-           style="color: {{ request()->is('user/rootorders*') ? '#0e9f6e' : '' }}">
+           style="color: {{ request()->is('user/rootorders*') ? '#0989ff' : '' }}">
             {{__('menu.orders')}}
         </a>
     </li>
     <li>
         <a class="dropdown-item" href="{{ url('/user/rootoreturns') }}"
-           style="color: {{ request()->is('user/rootoreturns*') ? '#0e9f6e' : '' }}">
+           style="color: {{ request()->is('user/rootoreturns*') ? '#0989ff' : '' }}">
             {{__('menu.returns')}}
         </a>
     </li>

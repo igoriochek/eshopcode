@@ -51,7 +51,7 @@
     @endif
     <div class="@auth @if (auth()->user()->type == 1) admin-view @endif @endauth">
         @if (auth()->check() && auth()->user()->type == 1)
-            @include('layouts.headers.admin_header')
+            @include('layouts.components.admin_header')
         @else
             @include('layouts.components.back_to_top')
             @include('layouts.components.off_canvas_area')

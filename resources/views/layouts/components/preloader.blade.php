@@ -10,7 +10,7 @@
                       <circle stroke="red" cx="190" cy="190" r="180" stroke-width="6" stroke-linecap="round"></circle> 
                   </svg>
                 </div>
-                <img src="{{ asset('template/img/logo/preloader/preloader-icon.svg') }}" alt="">
+                <img src="{{ asset('images/dts_logo_black.png') }}" alt="">
              </div>
              <h3 class="tp-preloader-title">{{ config('app.name', 'Untitled') }}</h3>
              <p class="tp-preloader-subtitle">{{ __('names.loading') }}</p>
