@@ -174,6 +174,11 @@
                                   {{ __('menu.euProjects') }}
                               </a>
                           </li>   
+                          <li>
+                              <a href="{{ url('/fbdatadeletion') }}">
+                                 {{ __('menu.fbDataDeletion') }}
+                              </a>
+                         </li>  
                         </ul>
                      </div>
                    </div>

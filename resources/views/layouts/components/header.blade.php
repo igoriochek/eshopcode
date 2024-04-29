@@ -116,7 +116,7 @@
                                     <ul class="dropdown-menu">
                                         <li>
                                             <a class="dropdown-item" href="{{ url('/user/userprofile') }}"
-                                            style="color: {{ request()->is('user/userprofile*') ? '#a10909' : '' }}">
+                                            style="color: {{ request()->is('user/userprofile*') ? '#0989FF' : '' }}">
                                                 {{ __('menu.profile') }}
                                             </a>
                                         </li>
@@ -127,7 +127,7 @@
                                                 || request()->is('user/vieworder*')
                                                 || request()->is('user/cancelorder*')
                                                 || request()->is('user/returnorder*')
-                                                ? '#a10909' : '' 
+                                                ? '#0989FF' : '' 
                                                 }}">
                                                 {{ __('menu.orders') }}
                                             </a>

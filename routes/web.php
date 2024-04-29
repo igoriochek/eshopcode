@@ -85,7 +85,7 @@ Route::group(array('prefix' => 'admin', 'middleware' => 'admin'), function () {
     // Logs
     Route::get('logs', [CustomerController::class, 'logs'])->name('customers.logs');
 
-//    Route::prefix('orders_report')->name('orders_report.')->group(function () {
+    //    Route::prefix('orders_report')->name('orders_report.')->group(function () {
     Route::prefix('orders_report')->name('orders_report.')->group(function () {
         Route::get('', [OrdersReportController::class, 'index'])->name('index');
         Route::get('email', [OrdersReportController::class, 'sendEmail'])->name('email');
@@ -116,32 +116,32 @@ Route::group(array('prefix' => 'admin', 'middleware' => 'admin'), function () {
         Route::get('download_pdf', [UserActivitiesReportController::class, 'downloadPdf'])->name('download_pdf');
         Route::get('download_csv', [UserActivitiesReportController::class, 'downloadCsv'])->name('download_csv');
     });
-//});
-    Route::prefix('orders_report')->name('orders_report.')->group( function () {
+    //});
+    Route::prefix('orders_report')->name('orders_report.')->group(function () {
         Route::get('', [OrdersReportController::class, 'index'])->name('index');
         Route::get('email', [OrdersReportController::class, 'sendEmail'])->name('email');
         Route::get('download_pdf', [OrdersReportController::class, 'downloadPdf'])->name('download_pdf');
         Route::get('download_csv', [OrdersReportController::class, 'downloadCsv'])->name('download_csv');
     });
-    Route::prefix('returns_report')->name('returns_report.')->group( function () {
+    Route::prefix('returns_report')->name('returns_report.')->group(function () {
         Route::get('', [ReturnsReportController::class, 'index'])->name('index');
         Route::get('email', [ReturnsReportController::class, 'sendEmail'])->name('email');
         Route::get('download_pdf', [ReturnsReportController::class, 'downloadPdf'])->name('download_pdf');
         Route::get('download_csv', [ReturnsReportController::class, 'downloadCsv'])->name('download_csv');
     });
-    Route::prefix('carts_report')->name('carts_report.')->group( function () {
+    Route::prefix('carts_report')->name('carts_report.')->group(function () {
         Route::get('', [CartsReportController::class, 'index'])->name('index');
         Route::get('email', [CartsReportController::class, 'sendEmail'])->name('email');
         Route::get('download_pdf', [CartsReportController::class, 'downloadPdf'])->name('download_pdf');
         Route::get('download_csv', [CartsReportController::class, 'downloadCsv'])->name('download_csv');
     });
-    Route::prefix('users_report')->name('users_report.')->group( function () {
+    Route::prefix('users_report')->name('users_report.')->group(function () {
         Route::get('', [UsersReportController::class, 'index'])->name('index');
         Route::get('email', [UsersReportController::class, 'sendEmail'])->name('email');
         Route::get('download_pdf', [UsersReportController::class, 'downloadPdf'])->name('download_pdf');
         Route::get('download_csv', [UsersReportController::class, 'downloadCsv'])->name('download_csv');
     });
-    Route::prefix('user_activities_report')->name('user_activities_report.')->group( function () {
+    Route::prefix('user_activities_report')->name('user_activities_report.')->group(function () {
         Route::get('', [UserActivitiesReportController::class, 'index'])->name('index');
         Route::get('email', [UserActivitiesReportController::class, 'sendEmail'])->name('email');
         Route::get('download_pdf', [UserActivitiesReportController::class, 'downloadPdf'])->name('download_pdf');
@@ -208,6 +208,7 @@ Route::middleware('cookie-consent')->group(function () {
     Route::get("policy", [\App\Http\Controllers\TermsOfServiceController::class, 'policy'])->name('policy');
     Route::view('about_us', 'user_views.about_us.index')->name('aboutUs');
     Route::view('eu_projects', 'user_views.eu_projects.index')->name('euProjects');
+    Route::view('fbdatadeletion', 'user_views.fb_data_deletion.index')->name('fbDataDeletion');
 });
 
 Auth::routes();
