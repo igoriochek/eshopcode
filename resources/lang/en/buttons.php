@@ -39,6 +39,8 @@ return [
     'contact' => 'Contact',
     'applyCoupon' => 'Apply Coupon',
     'placeOrder' => 'Place Order',
-    'continueShopping' => 'Continue Shopping'
+    'continueShopping' => 'Continue Shopping',
+    'view' => 'View',
+    'return' => 'Return'
 
 ];
