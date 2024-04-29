@@ -63,7 +63,8 @@
                          <div class="tab-pane fade active show" id="nav-order" role="tabpanel" aria-labelledby="nav-order-tab">
                              <h3 class="profile__info-title">{{ __('names.orderDetails') }}</h3>
                              <div class="profile__address-item d-flex flex-column align-items-start">
-                                <div class="profile__address-content d-flex flex-wrap gap-4">
+                                <div class="profile__address-content d-flex flex-wrap" style="column-gap: 25px">
+                                    <p><span>{{ __('names.order').' ID: ' }}</span>{{ $order->order_id }}</p>
                                    <p><span>{{ __('table.status').': ' }}</span>{{ __("status.".$order->status->name) }}</p>
                                    <p><span>{{ __('table.sum').': ' }}</span>€{{ number_format($order->sum, 2) }}</p>
                                    <p><span>{{ __('table.date').': ' }}</span>{{ $order->created_at->format('M d, Y') }}</p>

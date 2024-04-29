@@ -15,7 +15,7 @@
                 @if ($order->status->name == 'Returned')
                     <td data-info="return">
                         @if ($item->isReturned !== null)
-                            {{ $item->isReturned }}
+                            {{ __("status.".$item->isReturned) }}
                         @else
                             -
                         @endif
