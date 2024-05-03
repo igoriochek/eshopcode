@@ -33,6 +33,7 @@ Route::resource('cart_items', App\Http\Controllers\API\CartItemAPIController::cl
 
 Route::resource('orders', OrderAPIController::class);
 Route::get('orders/daily/{key}', [OrderAPIController::class, 'getDailyOrders'])->name('getDailyOrders');
+Route::get('orders/week/daily_turnover/{key}', [OrderAPIController::class, 'getWeeksOrdersTurnover'])->name('getWeeksOrdersTurnover');
 
 Route::resource('order_items', App\Http\Controllers\API\OrderItemAPIController::class);
 Route::resource('returns', App\Http\Controllers\API\ReturnsAPIController::class);

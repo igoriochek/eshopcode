@@ -8,6 +8,7 @@ use App\Http\Requests\API\UpdateOrderAPIRequest;
 use App\Models\Order;
 use App\Repositories\OrderRepository;
 use App\Traits\DailyOrdersBuilder;
+use App\Traits\WeeksOrdersBuilder;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Response;
@@ -22,6 +23,7 @@ use Exception;
 class OrderAPIController extends AppBaseController
 {
     use DailyOrdersBuilder;
+    use WeeksOrdersBuilder;
 
     /** @var  OrderRepository */
     private $orderRepository;
@@ -161,6 +163,40 @@ class OrderAPIController extends AppBaseController
                 'message' => __('messages.successDailyOrders'),
                 'orders' => count($dailyOrders) > 0 ? $dailyOrders : []
             ], 200);
+        } catch (Throwable $throwable) {
+            return response()->json([
+                'status' => 'Error',
+                'message' => $throwable->getMessage()
+            ], 500);
+        }
+    }
+
+    // Retrieve the daily turnover of all orders from last seven days
+    public function getWeeksOrdersTurnover(string $requestKey) : JsonResponse
+    {
+        try{ 
+            $weeksOrdersKey = env('WEEKS_DAILY_TURNOVER_KEY');
+
+            if ($requestKey !== $weeksOrdersKey) {
+                throw new Exception(__('messages.errorWeeksOrdersTurnover'));
+            }
+
+            $this->generateWeeksOrders(7);
+            
+            $weekAgoDate = now()->modify('-7 days')->format('Y-m-d') . ' 00:00:00';
+            $currentDate = now()->format('Y-m-d') . ' 00:00:00';
+
+            $weeksOrdersTurnovers = Order::whereBetween('created_at', [$weekAgoDate, $currentDate])
+            ->selectRaw('date(created_at) as date, sum(sum) as turnover')
+            ->groupBy('date')
+            ->get();
+
+            return response()->json([
+                'status' => 'Success',
+                'message' => __('messages.successWeeksOrdersTurnover'),
+                'turnovers' => count($weeksOrdersTurnovers) > 0 ? $weeksOrdersTurnovers : []
+            ], 200);
+
         } catch (Throwable $throwable) {
             return response()->json([
                 'status' => 'Error',

@@ -52,5 +52,8 @@ return [
     'productSizePriceNotFound' => 'Produkto dydžio kaina nerasta',
 
     'successDailyOrders' => 'Sėkmingai gauti dienos užsakymai.',
-    'errorDailyOrders' => 'Neteisingas URL užklausos raktas.'
+    'errorDailyOrders' => 'Neteisingas URL užklausos raktas.',
+
+    'successWeeksOrdersTurnover' => 'Sėkmingai gautos pastarųjų septynių dienų kasdienės apyvartos.',
+    'errorWeeksOrdersTurnover' => 'Neteisingas URL užklausos raktas.'
 ];

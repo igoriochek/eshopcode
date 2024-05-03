@@ -55,5 +55,8 @@ return [
     'productSizePriceNotFound' => 'Цена размера товара не найдена',
 
     'successDailyOrders' => 'Успешно получены ежедневные заказы.',
-    'errorDailyOrders' => 'Неверный ключ в URL запросе.'
+    'errorDailyOrders' => 'Неверный ключ в URL запросе.',
+
+    'successWeeksOrdersTurnover' => 'Успешно получены ежедневные обороты за последние семь дней.',
+    'errorWeeksOrdersTurnover' => 'Неверный ключ в URL запросе.'
 ];

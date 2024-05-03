@@ -55,6 +55,8 @@ return [
     'productSizePriceNotFound' => 'Product size price not found',
 
     'successDailyOrders' => 'Successfully retrieved daily orders.',
-    'errorDailyOrders' => 'Incorrect key in URL request.'
+    'errorDailyOrders' => 'Incorrect key in URL request.',
 
+    'successWeeksOrdersTurnover' => 'Successfully retrieved last seven days daily turnovers.',
+    'errorWeeksOrdersTurnover' => 'Incorrect key in URL request.'
 ];
