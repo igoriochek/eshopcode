@@ -53,7 +53,7 @@ trait WeeksOrdersBuilder
         $order->sum = rand(0, 200);
         $order->created_at = now()->subDays(rand(0, 7));
         $order->save();
-        
+
         return $order;
     }
 

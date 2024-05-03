@@ -141,16 +141,18 @@ class OrderAPIController extends AppBaseController
     public function getDailyOrders(string $requestKey): JsonResponse
     {
         try {
-            $dailyOrdersKey = env('DAILY_ORDERS_KEY');
+            $dailyOrdersKey = config('app.daily_orders_key');
 
             if ($requestKey !== $dailyOrdersKey) {
                 throw new Exception(__('messages.errorDailyOrders'));
             }
 
-            $this->generateDailyOrders(2);
+            $this->generateDailyOrders(5);
 
             $currentDate = now()->format('Y-m-d') . ' 00:00:00';
-            $dailyOrders = Order::where('created_at', '>=', $currentDate)->get();
+            $dailyOrders = Order::where('created_at', '>=', $currentDate)
+                ->orderByDesc('created_at')
+                ->get();
 
             if (count($dailyOrders) > 0) {
                 $dailyOrdersCompanyInfos = $this->getDailyOrdersCompanyInfos($dailyOrders);
@@ -172,31 +174,30 @@ class OrderAPIController extends AppBaseController
     }
 
     // Retrieve the daily turnover of all orders from last seven days
-    public function getWeeksOrdersTurnover(string $requestKey) : JsonResponse
+    public function getWeeksOrdersTurnover(string $requestKey): JsonResponse
     {
-        try{ 
-            $weeksOrdersKey = env('WEEKS_DAILY_TURNOVER_KEY');
+        try {
+            $weeksOrdersKey = config('app.weekly_daily_turnover_key');
 
             if ($requestKey !== $weeksOrdersKey) {
                 throw new Exception(__('messages.errorWeeksOrdersTurnover'));
             }
 
             $this->generateWeeksOrders(7);
-            
+
             $weekAgoDate = now()->modify('-7 days')->format('Y-m-d') . ' 00:00:00';
             $currentDate = now()->format('Y-m-d') . ' 00:00:00';
 
             $weeksOrdersTurnovers = Order::whereBetween('created_at', [$weekAgoDate, $currentDate])
-            ->selectRaw('date(created_at) as date, sum(sum) as turnover')
-            ->groupBy('date')
-            ->get();
+                ->selectRaw('date(created_at) as date, sum(sum) as turnover')
+                ->groupBy('date')
+                ->get();
 
             return response()->json([
                 'status' => 'Success',
                 'message' => __('messages.successWeeksOrdersTurnover'),
                 'turnovers' => count($weeksOrdersTurnovers) > 0 ? $weeksOrdersTurnovers : []
             ], 200);
-
         } catch (Throwable $throwable) {
             return response()->json([
                 'status' => 'Error',

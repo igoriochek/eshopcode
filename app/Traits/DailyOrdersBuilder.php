@@ -5,6 +5,7 @@ namespace App\Traits;
 use App\Models\Company;
 use App\Models\Order;
 use App\Models\OrderItem;
+use App\Models\Product;
 use Carbon\Carbon;
 use DateTime;
 use Illuminate\Database\Eloquent\Collection;
@@ -111,16 +112,14 @@ trait DailyOrdersBuilder
         return $accesoriesArray;
     }
 
-    public function generateDailyOrders(int $quantity): void
+    public function generateDailyOrders(int $quantity = 1): void
     {
         $currentDateTimestamp = now()->timestamp;
 
-        if (!cache()->get('nextDate')) {
+        if (!cache()->get('nextDateForDailyOrders')) {
             $nextDate = now()->addDay()->format('Y-m-d');
             $nextDateTimestamp = Carbon::parse($nextDate)->timestamp;
             $nextDateCacheLifespan = $nextDateTimestamp - $currentDateTimestamp;
-
-            cache()->remember('nextDate', $nextDateCacheLifespan, fn () => $nextDateTimestamp);
 
             for ($i = 2; $i < $quantity + 2; $i++) {
                 $companyPurchase = $i % 2;
@@ -130,27 +129,34 @@ trait DailyOrdersBuilder
                     $this->generateCompany($generatedOrder->id);
                 }
                 if ($generatedOrder) {
-                    $this->generateOrderItem($generatedOrder->id);
+                    $this->generateOrderItems($generatedOrder->id, rand(2, 10));
                 }
 
-                sleep(1);
+                $generatedOrder->sum =
+                    OrderItem::where('order_id', $generatedOrder->id)->sum('price_current');
+                $generatedOrder->save();
             }
+
+            cache()->remember('nextDateForDailyOrders', $nextDateCacheLifespan, fn () => $nextDateTimestamp);
         }
     }
 
     private function generateOrder(int|bool $companyPurchase): Order
     {
+        $currentDate = now();
+
         $order = new Order();
-        $order->cart_id = 46; /* 1 */
+        $order->cart_id = config('app.env') != 'production' ? 1 : 46;
         $order->order_id = random_int(1000 * 100, 1000 * 200);
         $order->user_id = 1;
-        $order->admin_id = 5; /* 1 */
+        $order->admin_id = config('app.env') != 'production' ? 1 : 5;
         $order->status_id = 2;
-        $order->collect_time = '20:00:00';
-        $order->place = 2;
+        $order->collect_time = rand(16, 22) . ':00:00';
+        $order->place = $companyPurchase ? 2 : 1;
         $order->isCompanyBuying = $companyPurchase;
-        $order->phone_number = '+37061699898';
-        $order->sum = 5.40 + 2.50;
+        $order->phone_number = '+370' . rand(00000000, 99999999);
+        $order->sum = 0.0;
+        $order->created_at = $currentDate->addSeconds(rand(1, 60 * 60));
         $order->save();
 
         return $order;
@@ -160,25 +166,67 @@ trait DailyOrdersBuilder
     {
         $company = new Company();
         $company->name = 'UDISA, UAB';
-        $company->address = 'Savanorių pr. 187-310';
-        $company->code = '301532607';
+        $company->address = 'Savanorių pr. 18-64';
+        $company->code = '3015326078';
         $company->vat_code = 'LT100003837110';
         $company->order_id = $orderId;
         $company->save();
     }
 
-    private function generateOrderItem(int $orderId): void
+    private function generateOrderItems(int $orderId, int $quantity = 2): void
     {
-        $orderItem = new OrderItem();
-        $orderItem->order_id = $orderId;
-        $orderItem->product_id = 202; /* 1 */
-        $orderItem->product_size_id = 2;
-        $orderItem->product_meat_id = 1;
-        $orderItem->product_sauce_id = 1;
-        $orderItem->paid_accessories = null;
-        $orderItem->free_accessories = null;
-        $orderItem->price_current = 5.40 + 2.50;
-        $orderItem->count = rand(1, 2);
-        $orderItem->save();
+        for ($i = 0; $i < $quantity; $i++) {
+            $productCount = rand(1, 2);
+            $orderItem = new OrderItem();
+
+            if (config('app.env') == 'production') {
+                if ($i === 0) {
+                    $orderItem->order_id = $orderId;
+                    $orderItem->product_id = 202;
+                    $orderItem->product_size_id = 2;
+                    $orderItem->product_meat_id = 1;
+                    $orderItem->product_sauce_id = 1;
+                    $orderItem->paid_accessories = null;
+                    $orderItem->free_accessories = null;
+                    $orderItem->price_current = 5.40 * $productCount;
+                    $orderItem->count = $productCount;
+                    $orderItem->save();
+                    continue;
+                }
+
+                if ($i === 1) {
+                    $randomPaidAccessory = rand(1, 2);
+                    $paidAccesoryPrice = $randomPaidAccessory === 1 ? 2.50 : 3.00;
+
+                    $orderItem->order_id = $orderId;
+                    $orderItem->product_id = 217;
+                    $orderItem->product_size_id = null;
+                    $orderItem->product_meat_id = null;
+                    $orderItem->product_sauce_id = null;
+                    $orderItem->paid_accessories = strval($randomPaidAccessory);
+                    $orderItem->free_accessories = '278,279';
+                    $orderItem->price_current = 6.50 * $productCount + $paidAccesoryPrice;
+                    $orderItem->count = $productCount;
+                    $orderItem->save();
+                    continue;
+                }
+            }
+
+            $randomProduct = Product::whereNotIn('id', [config('app.env') != 'production' ? 1 : 202])
+                ->inRandomOrder()
+                ->first();
+
+            $orderItem->order_id = $orderId;
+            $orderItem->product_id = $randomProduct->id;
+            $orderItem->product_size_id = $randomProduct->hasSizes ? 1 : null;
+            $orderItem->product_meat_id = $randomProduct->hasMeats ? 1 : null;
+            $orderItem->product_sauce_id = $randomProduct->hasSauces ? 1 : null;
+            $orderItem->paid_accessories = null;
+            $orderItem->free_accessories = null;
+            $orderItem->price_current = $productCount * $randomProduct->price;
+            $orderItem->count = $productCount;
+            $orderItem->save();
+            continue;
+        }
     }
 }
