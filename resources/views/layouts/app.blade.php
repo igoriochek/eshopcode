@@ -29,13 +29,15 @@
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('datatables/media/css/jquery.dataTables.min.css') }}" rel="stylesheet">
     <link href="{{ asset('vendor/cookie-consent/css/cookie-consent.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('template/css/meanmenu.css') }}" rel="stylesheet">
-    <link href="{{ asset('template/css/scrollCue.css') }}" rel="stylesheet">
-    <link href="{{ asset('template/css/banner.css') }}" rel="stylesheet">
-    <link href="{{ asset('template/css/shop.css') }}" rel="stylesheet">
-    <link href="{{ asset('template/css/footer.css') }}" rel="stylesheet">
-    <link href="{{ asset('template/css/style.css') }}" rel="stylesheet">
-    <link href="{{ asset('template/css/responsive.css') }}" rel="stylesheet">
+    <link href="{{ asset('template/css/vendor/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('template/css/vendor/font-awesome.css') }}" rel="stylesheet">
+    <link href="{{ asset('template/css/vendor/flaticon/flaticon.css') }}" rel="stylesheet">
+    <link href="{{ asset('template/css/vendor/slick.css') }}" rel="stylesheet">
+    <link href="{{ asset('template/css/vendor/slick-theme.css') }}" rel="stylesheet">
+    <link href="{{ asset('template/css/vendor/sal.css') }}" rel="stylesheet">
+    <link href="{{ asset('template/css/vendor/magnific-popup.css') }}" rel="stylesheet">
+    <link href="{{ asset('template/css/vendor/base.css') }}" rel="stylesheet">
+    <link href="{{ asset('template/css/style.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.5.1/nouislider.min.css" rel="stylesheet">
@@ -65,13 +67,26 @@
     <script src="{{ asset('js/jquery-ui.js') }}"></script>
     <script src="{{ asset('js/bootstrap.bundle.js') }}"></script>
     <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('template/js/jquery.meanmenu.js') }}"></script>
-    <script src="{{ asset('template/js/owl.carousel.min.js') }}"></script>
-    <script src="{{ asset('template/js/jquery.magnific-popup.js') }}"></script>
-    <script src="{{ asset('template/js/scrollCue.min.js') }}"></script>
-    <script src="{{ asset('template/js/form-validator.min.js') }}"></script>
-    <script src="{{ asset('template/js/ajaxchimp.min.js') }}"></script>
-    <script src="{{ asset('template/js/custom.js') }}"></script>
+    <!-- Modernizer JS -->
+    <script src="{{ asset('template/js/vendor/modernizr.min.js') }}"></script>
+    <!-- jQuery JS -->
+    <script src="{{ asset('template/js/vendor/jquery.js') }}"></script>
+    <!-- Bootstrap JS -->
+    <script src="{{ asset('template/js/vendor/popper.min.js') }}"></script>
+    <script src="{{ asset('template/js/vendor/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('template/js/vendor/slick.min.js') }}"></script>
+    <script src="{{ asset('template/js/vendor/js.cookie.js') }}"></script>
+    <!-- <script src="template/js/vendor/jquery.style.switcher.js"></script> -->
+    <script src="{{ asset('template/js/vendor/jquery.ui.touch-punch.min.js') }}"></script>
+    <script src="{{ asset('template/js/vendor/jquery.countdown.min.js') }}"></script>
+    <script src="{{ asset('template/js/vendor/sal.js') }}"></script>
+    <script src="{{ asset('template/js/vendor/jquery.magnific-popup.min.js') }}"></script>
+    <script src="{{ asset('template/js/vendor/imagesloaded.pkgd.min.js') }}"></script>
+    <script src="{{ asset('template/js/vendor/isotope.pkgd.min.js') }}"></script>
+    <script src="{{ asset('template/js/vendor/counterup.js') }}"></script>
+    <script src="{{ asset('template/js/vendor/waypoints.min.js') }}"></script>
+    <!-- Main JS -->
+    <script src="{{ asset('template/js/main.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.5.1/nouislider.min.js"></script>
     <script>
         $(document).ready(function () {
