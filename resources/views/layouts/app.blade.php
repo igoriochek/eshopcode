@@ -56,6 +56,7 @@
         @include('layouts.components.back_to_top')
         @include('layouts.components.header')
         <main class="main-wrapper">
+            @include('layouts.components.page_banner')
             @yield('content')
         </main>
         @include('layouts.components.footer')
