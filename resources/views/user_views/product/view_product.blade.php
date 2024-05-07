@@ -131,28 +131,7 @@
 
 @push('scripts')
     <script>
-        const minus = document.querySelector('.minus-button');
-        const plus = document.querySelector('.plus-button');
-        const amount = document.querySelector('.product-add-to-cart-number');
-
-        const minValues = 1;
-        const maxValues = 5;
-
-        minus.addEventListener('click', e => {
-            e.preventDefault();
-            const currentValue = Number(amount.value) || 0;
-            if (currentValue === minValues) return;
-            amount.value = currentValue - 1;
-        });
-
-        plus.addEventListener('click', e => {
-            e.preventDefault();
-            const currentValue = Number(amount.value) || 0;
-            if (currentValue === maxValues) return;
-            amount.value = currentValue + 1;
-        });
-
-        $('.product-reviews-add-review-submit').click(() => {
+        $('#product-reviews-add-review-submit').click(() => {
             const value = $('input[type=radio][name=rating]:checked').val();
             const desc = $('textarea#comment').val();
             
@@ -166,6 +145,7 @@
                 (data, status) => {
                     if (data.val == "ok") {
                         $('#review-product').html("<p>{{ __('names.reviewProduct') }}</p>");
+                        $('#product-reviews-add-review-submit').prop("disabled", true);
                     }
                 }
             );

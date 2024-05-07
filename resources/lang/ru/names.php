@@ -249,9 +249,10 @@ return [
     'orderBy' => 'Сортировать по',
 
     //Discounts coupons
-    'ndDiscountCoupons' => 'У вас еще нет купонов на скидку :(',
+    "noDiscountCoupons" => "Нет доступных купонов на скидку",
     'discountCouponCode' => 'Код купона на скидку',
     'discountCouponValue' => 'Стоимость купона на скидку',
+
     'zeroRecords' => 'Нет данных',
     'showing' => 'Показаны',
     'entries' => 'записи',

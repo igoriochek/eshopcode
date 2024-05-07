@@ -247,10 +247,12 @@ return [
     'new' => "New",
 
     'orderBy' => 'Order By',
+
     //Discounts coupons
-    "ndDiscountCoupons" => "You have no discount coupons yet :(",
+    "noDiscountCoupons" => "No discount coupons available",
     "discountCouponCode" => "Discount coupon code",
     "discountCouponValue" => "Discount coupon value",
+
     "zeroRecords" => "No matching records found",
     "showing" => "Showing",
     "entries" => "entries",

@@ -249,9 +249,10 @@ return [
     'orderBy' => 'Rūšiuoti pagal',
 
     //Discounts coupons
-    'ndDiscountCoupons' => 'Jūs dar neturite nuolaidų kuponų :(',
+    "noDiscountCoupons" => "Nėra nuolaidų kuponų",
     'discountCouponCode' => 'Nuolaidų kupono kodas',
     'discountCouponValue' => 'Nuolaidų kupono suma',
+
     'zeroRecords' => 'Įrašų nėra',
     'showing' => 'Rodomi',
     'entries' => "įrašai",

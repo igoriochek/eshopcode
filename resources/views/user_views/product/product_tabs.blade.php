@@ -69,7 +69,7 @@
                                 <label>{{ __('names.review').'*' }}</label>
                                 <textarea class="form-control" rows="8" id="comment" name="comment"></textarea>
                             </div>
-                            <button class="default-btn style5 product-reviews-add-review-submit" type="submit">
+                            <button class="default-btn style5" type="submit" id="product-reviews-add-review-submit">
                                 {{ __('buttons.submit') }}
                             </button>
                         </form>
