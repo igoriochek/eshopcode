@@ -53,6 +53,7 @@
             </main>
         </div>
     @else
+        @include('layouts.components.back_to_top')
         @include('layouts.components.header')
         <main class="main-wrapper">
             @yield('content')
