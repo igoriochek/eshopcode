@@ -3,112 +3,65 @@
 @section('title', __('menu.products'))
 
 @section('content')
-    <div class="shop-area ptb-70">
+    <div class="axil-shop-area axil-section-gap bg-color-white">
         <div class="container">
-            <div class="row gap-5 gap-lg-0">
+            <div class="row">
+                <div class="col-12">
+                    @include('flash_messages')
+                </div>
+                <div class="col-lg-3">
+                    @include('user_views.product.filters')
+                </div>
                 <div class="col-lg-9">
-                    <div class="mb-5">
-                        @include('flash_messages')
-                    </div>
-                    <div class="shop-top-shorting-area">
-                        <div class="row align-items-center">
-                            <div class="col-lg-6 col-md-6">
-                                <div class="shop-shorting-left-content">
-                                    <ul>
-                                        <li>
-                                            {!! Form::select('order', $order_list, $selectedOrder,
-                                                ['class' => 'form-select', 'id' => 'orderSelector', 'style' => 'cursor: pointer']) !!}
-                                        </li>
-                                    </ul>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="axil-shop-top mb--40">
+                                <div class="category-select align-items-center justify-content-lg-end justify-content-between">
+                                    <!-- Start Single Select  -->
+                                    <span class="filter-results">
+                                        {{ __('names.showing') }}
+                                        @if ($products->currentPage() !== $products->lastPage())
+                                            {{ ($products->count() * $products->currentPage() - $products->count() + 1).__('–').($products->count() * $products->currentPage()) }}
+                                        @else
+                                            @if ($products->total() - $products->count() === 0)
+                                                {{ $products->count() }}
+                                            @else
+                                                {{ ($products->total() - $products->count()).__('–').$products->total() }}
+                                            @endif
+                                        @endif
+                                        {{ __('names.of') }}
+                                        {{ $products->total().' '.__('names.entries') }}
+                                    </span>
+                                    {!! Form::select('order', $order_list, $selectedOrder,
+                                        ['class' => 'single-select', 'id' => 'orderSelector', 'style' => 'cursor: pointer']) !!}
+                                    <!-- End Single Select  -->
                                 </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6">
-                                <div class="shop-shorting-right-content">
-                                    <ul>
-                                        <li>
-                                            <div class="grid-view-content">
-                                                <div class="view-list-row d-none d-lg-block d-md-block">
-                                                    <div class="view-column">
-                                                        <a href="#" class="icon-view-three active">
-                                                            <img src="{{ asset('template/images/icon/grid-icon.svg') }}" alt="icon">
-                                                        </a>
-                                                        <a href="#" class="view-grid-switch">
-                                                            <img src="{{ asset('template/images/icon/list-icon.svg') }}" alt="icon">
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <p>
-                                                {{ __('names.showing') }}
-                                                @if ($products->currentPage() !== $products->lastPage())
-                                                    {{ ($products->count() * $products->currentPage() - $products->count() + 1).__('–').($products->count() * $products->currentPage()) }}
-                                                @else
-                                                    @if ($products->total() - $products->count() === 0)
-                                                        {{ $products->count() }}
-                                                    @else
-                                                        {{ ($products->total() - $products->count()).__('–').$products->total() }}
-                                                    @endif
-                                                @endif
-                                                {{ __('names.of') }}
-                                                {{ $products->total().' '.__('names.entries') }}
-                                            </p>
-                                        </li>
-                                    </ul>
+                                <div class="d-lg-none">
+                                    <button class="product-filter-mobile filter-toggle">
+                                        <i class="fas fa-filter"></i> 
+                                        {{ __('buttons.filter') }}
+                                    </button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div id="products-collections-filter" class="row justify-content-center">
+                    <!-- End .row -->
+                    <div class="row row--15">
                         @forelse ($products as $product)
                             @include('user_views.product.product')
                         @empty
                             <span class="text-muted">{{ __('names.noProducts') }}</span>
                         @endforelse
                     </div>
-                    <div class="default-pagination mt-20">
+                    <div class="text-center pt--20">
                         {{ $products->onEachSide(1)->links() }}
                     </div>
                 </div>
-                <div class="col-lg-3">
-                    @include('user_views.product.filters')
-                </div>
             </div>
         </div>
+        <!-- End .container -->
     </div>
 @endsection
-
-@push('css')
-    <style>
-        .ui-widget.ui-widget-content {
-            border: none;
-            background-color: rgb(230, 230, 230);
-            height: 5px;
-        }
-
-        .ui-state-default, .ui-widget-content .ui-state-default {
-            border: none;
-            background: #a10909;
-            font-weight: normal;
-            color: #a10909;
-            border-radius: 100%;
-            width: 15px;
-            height: 15px;
-
-            &:focus {
-                outline: none;
-            }
-        }
-
-        .ui-widget-header {
-            border: none;
-            background: #a10909;
-            color: #a10909;
-            font-weight: bold;
-        }
-    </style>
-@endpush
 
 @push('scripts')
     <script>

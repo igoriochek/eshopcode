@@ -40,10 +40,10 @@
             <div class="header-navbar">
                 <div class="header-brand">
                     <a href="{{ route('home') }}" class="logo logo-dark" >
-                        <img src="{{ asset('images/nutika-logo.jpeg') }}" alt="Nutika" style="max-width: 70px; max-height: 70px">
+                        <img src="{{ asset('images/nutika-logo.jpeg') }}" alt="Nutika" style="max-width: 60px; max-height: 60px; z-index: -111">
                     </a>
                     <a href="{{ route('home') }}" class="logo logo-light">
-                        <img src="{{ asset('images/nutika-logo.jpeg') }}" alt="Nutika" style="max-width: 70px; max-height: 70px">
+                        <img src="{{ asset('images/nutika-logo.jpeg') }}" alt="Nutika" style="max-width: 60px; max-height: 60px; z-index: -111">
                     </a>
                 </div>
                 <div class="header-main-nav">
