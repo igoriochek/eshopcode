@@ -57,6 +57,7 @@
         <main class="main-wrapper">
             @yield('content')
         </main>
+        @include('layouts.components.footer')
     @endif
     <script src="{{ asset('js/jquery-3.6.0.min.js') }}"></script>
     <script src="{{ asset('js/jquery-ui.js') }}"></script>
