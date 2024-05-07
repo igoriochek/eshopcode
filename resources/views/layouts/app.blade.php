@@ -29,7 +29,7 @@
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('datatables/media/css/jquery.dataTables.min.css') }}" rel="stylesheet">
     <link href="{{ asset('vendor/cookie-consent/css/cookie-consent.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('template/css/vendor/bootstrap.min.css') }}" rel="stylesheet">
+    <!-- <link href="{{ asset('template/css/vendor/bootstrap.min.css') }}" rel="stylesheet"> -->
     <link href="{{ asset('template/css/vendor/font-awesome.css') }}" rel="stylesheet">
     <link href="{{ asset('template/css/vendor/flaticon/flaticon.css') }}" rel="stylesheet">
     <link href="{{ asset('template/css/vendor/slick.css') }}" rel="stylesheet">
@@ -44,36 +44,28 @@
     @stack('css')
     @livewireStyles
 </head>
-<body>
-    @if (!request()->is('user/messenger/*'))
-        @include('layouts.components.preloader')
-    @endif
-    <div class="@auth @if (auth()->user()->type == 1) admin-view @endif @endauth">
-        @if (auth()->check() && auth()->user()->type == 1)
+<body class="sticky-header">
+    @if (auth()->check() && auth()->user()->type == 1)
+        <div class="admin-view">
             @include('layouts.components.admin_header')
-        @else
-            @include('layouts.components.topheader')
-            @include('layouts.components.navbar')
-            @include('layouts.components.page_banner')
-        @endif
-        <main class="main shop">
+            <main>
+                @yield('content')
+            </main>
+        </div>
+    @else
+        @include('layouts.components.header')
+        <main class="main-wrapper">
             @yield('content')
         </main>
-        @include('layouts.components.footer')
-        @include('layouts.components.copyright_area')
-        @include('layouts.components.go_top')
-    </div>
+    @endif
     <script src="{{ asset('js/jquery-3.6.0.min.js') }}"></script>
     <script src="{{ asset('js/jquery-ui.js') }}"></script>
     <script src="{{ asset('js/bootstrap.bundle.js') }}"></script>
     <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
-    <!-- Modernizer JS -->
     <script src="{{ asset('template/js/vendor/modernizr.min.js') }}"></script>
-    <!-- jQuery JS -->
-    <script src="{{ asset('template/js/vendor/jquery.js') }}"></script>
-    <!-- Bootstrap JS -->
+    <!-- <script src="{{ asset('template/js/vendor/jquery.js') }}"></script> -->
     <script src="{{ asset('template/js/vendor/popper.min.js') }}"></script>
-    <script src="{{ asset('template/js/vendor/bootstrap.min.js') }}"></script>
+    <!-- <script src="{{ asset('template/js/vendor/bootstrap.min.js') }}"></script> -->
     <script src="{{ asset('template/js/vendor/slick.min.js') }}"></script>
     <script src="{{ asset('template/js/vendor/js.cookie.js') }}"></script>
     <!-- <script src="template/js/vendor/jquery.style.switcher.js"></script> -->
@@ -85,8 +77,8 @@
     <script src="{{ asset('template/js/vendor/isotope.pkgd.min.js') }}"></script>
     <script src="{{ asset('template/js/vendor/counterup.js') }}"></script>
     <script src="{{ asset('template/js/vendor/waypoints.min.js') }}"></script>
-    <!-- Main JS -->
     <script src="{{ asset('template/js/main.js') }}"></script>
+    <script src="{{ asset('js/custom.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.5.1/nouislider.min.js"></script>
     <script>
         $(document).ready(function () {
@@ -342,31 +334,6 @@
 
         $(function () {
             $("#finish").datepicker();
-        });
-
-        const minuses = document.querySelectorAll('.minus-button');
-        const pluses = document.querySelectorAll('.plus-button');
-        const amountNumbers = document.querySelectorAll('.product-add-to-cart-number');
-
-        const minValue = 1;
-        const maxValue = 5;
-
-        minuses.forEach((minus, index) => {
-            minus.addEventListener('click', e => {
-                e.preventDefault();
-                const currentValue = Number(amountNumbers[index].value) || 0;
-                if (currentValue === minValue) return;
-                amountNumbers[index].value = currentValue - 1;
-            });
-        });
-
-        pluses.forEach((plus, index) => {
-            plus.addEventListener('click', e => {
-                e.preventDefault();
-                const currentValue = Number(amountNumbers[index].value) || 0;
-                if (currentValue === maxValue) return;
-                amountNumbers[index].value = currentValue + 1;
-            });
         });
     </script>
     @stack('scripts')
