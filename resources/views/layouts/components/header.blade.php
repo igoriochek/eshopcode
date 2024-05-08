@@ -11,7 +11,7 @@
                             <ul class="dropdown-menu">
                                 @foreach (config('translatable.locales') as $locale)
                                     <li>
-                                        <a class="dropdown-item" href="{{ url('/lang'.strtoupper($locale)) }}">
+                                        <a class="dropdown-item" href="{{ url('/lang/' . strtolower($locale)) }}">
                                             {{ strtoupper($locale) }}
                                         </a>
                                     </li>
@@ -39,11 +39,13 @@
         <div class="container">
             <div class="header-navbar">
                 <div class="header-brand">
-                    <a href="{{ route('home') }}" class="logo logo-dark" >
-                        <img src="{{ asset('images/nutika-logo.jpeg') }}" alt="Nutika" style="max-width: 60px; max-height: 60px; z-index: -111">
+                    <a href="{{ route('home') }}" class="logo logo-dark">
+                        <img src="{{ asset('images/nutika-logo.jpeg') }}" alt="Nutika"
+                            style="max-width: 60px; max-height: 60px; z-index: -111">
                     </a>
                     <a href="{{ route('home') }}" class="logo logo-light">
-                        <img src="{{ asset('images/nutika-logo.jpeg') }}" alt="Nutika" style="max-width: 60px; max-height: 60px; z-index: -111">
+                        <img src="{{ asset('images/nutika-logo.jpeg') }}" alt="Nutika"
+                            style="max-width: 60px; max-height: 60px; z-index: -111">
                     </a>
                 </div>
                 <div class="header-main-nav">
@@ -57,32 +59,32 @@
                         </div>
                         <ul class="mainmenu">
                             <li>
-                                <a href="{{ url('/products') }}" 
+                                <a href="{{ url('/products') }}"
                                     class="{{ request()->is('products*') || request()->is('viewproduct*') ? 'active' : '' }}">
                                     {{ __('menu.products') }}
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ url('/rootcategories') }}" 
+                                <a href="{{ url('/rootcategories') }}"
                                     class="{{ request()->is('rootcategories*') || request()->is('innercategories*') ? 'active' : '' }}">
                                     {{ __('menu.categories') }}
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ url('/promotions') }}" 
+                                <a href="{{ url('/promotions') }}"
                                     class="{{ request()->is('promotions*') || request()->is('promotion*') ? 'active' : '' }}">
                                     {{ __('menu.promotions') }}
                                 </a>
                             </li>
                             @auth
                                 <li>
-                                    <a href="{{ url('/user/discountCoupons') }}" 
+                                    <a href="{{ url('/user/discountCoupons') }}"
                                         class="{{ request()->is('user/discountCoupons*') ? 'active' : '' }}">
                                         {{ __('menu.discountCoupons') }}
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('/user/messenger') }}" 
+                                    <a href="{{ url('/user/messenger') }}"
                                         class="{{ request()->is('user/messenger*') ? 'active' : '' }}">
                                         {{ __('menu.messenger') }}
                                     </a>
@@ -128,7 +130,8 @@
                                         <li>
                                             <form id="logout-form" action="{{ route('logout') }}" method="POST">
                                                 @csrf
-                                                <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                                <a href="{{ route('logout') }}"
+                                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                                     {{ __('menu.logout') }}
                                                 </a>
                                             </form>
@@ -138,7 +141,7 @@
                                     <a href="{{ route('login') }}" class="axil-btn btn-bg-primary my-2">
                                         {{ __('auth.login') }}
                                     </a>
-                                    <div class="reg-footer text-center">{{ __('auth.registerParagraph') }} 
+                                    <div class="reg-footer text-center">{{ __('auth.registerParagraph') }}
                                         <a href="{{ route('register') }}" class="btn-link">
                                             {{ __('auth.register') }}
                                         </a>

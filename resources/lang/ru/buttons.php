@@ -40,6 +40,7 @@ return [
     'contact' => 'Контакт',
     'applyCoupon' => 'Применить Kупон',
     'placeOrder' => 'Разместить Заказ',
-    'continueShopping' => 'Продолжить Покупку'
+    'continueShopping' => 'Продолжить Покупку',
+    'submit' => 'Отправить',
 
 ];
