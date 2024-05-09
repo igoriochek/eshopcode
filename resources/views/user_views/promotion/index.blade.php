@@ -3,43 +3,54 @@
 @section('title', __('menu.promotions'))
 
 @section('content')
-    <div class="shop-area ptb-70">
+<div class="axil-single-product-area axil-section-gap bg-color-white">
         <div class="container">
-            <div class="row gap-5 gap-lg-0">
+            <div class="row">
+                <div class="col-12 mb-5">
+                    @include('flash_messages')
+                </div>
+
+                <div class="col-lg-3">
+                    <div class="axil-shop-sidebar" style="z-index: 1000000">
+                        <div class="toggle-list product-categories active">
+                            <h6 class="title">{{ __('names.promotions') }}</h6>
+                            <div class="shop-submenu">
+                            @include('user_views.promotion.promotion_tree')
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="col-lg-9">
                     <div class="row">
                         @forelse ($promotions as $promotion)
                             <div class="col-12 mb-4">
-                                <div class="shop-top-shorting-area">
-                                    <div class="row align-items-center">
-                                        <div class="col-lg-6 col-md-6">
-                                            <div class="shop-shorting-left-content">
-                                                <ul>
-                                                    <li>
-                                                        <h5 class="mb-1">{{ $promotion->name }}</h5>
-                                                        <p>
-                                                            {{ __('names.showing') }}
-                                                            3
-                                                            {{ __('names.of') }}
-                                                            {{ count($promotion->products).' '.__('names.entries') }}
-                                                        </p>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 col-md-6">
-                                            <div class="shop-shorting-right-content">
-                                                <ul>
-                                                    <li>
-                                                        <a href="{{ route("promotion", ["id" => $promotion->id]) }}" class="default-btn style5">
-                                                            {{ __("names.more_for_promotions") }}
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
+
+                                <div class="axil-shop-top mb--40">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                    <div class="flex-shrink-1">
+                                        <a href="{{ route("promotion", ["id" => $promotion->id]) }}" class="axil-btn btn-bg-primary">
+                                            {{ __("names.more_for_promotions") }}
+                                        </a>
+                                    </div>
+                                        <div class="flex-grow-1 d-flex flex-column align-items-end">
+                                            <h5 class="mb-1">{{ $promotion->name }}</h5>
+                                            <span class="filter-results">
+                                                {{ __('names.showing') }}
+                                                3
+                                                {{ __('names.of') }}
+                                                {{ count($promotion->products).' '.__('names.entries') }}
+                                            </span>
                                         </div>
                                     </div>
+                                    <div class="d-lg-none">
+                                        <button class="product-filter-mobile filter-toggle">
+                                            <i class="fas fa-filter"></i>
+                                            {{ __('buttons.filter') }}
+                                        </button>
+                                    </div>
                                 </div>
+
                                 <div id="products-collections-filter" class="row justify-content-center">
                                     @forelse ($promotion->products as $product)
                                         @include('user_views.product.product')
@@ -55,18 +66,13 @@
                             <span class="text-muted">{{ __('names.noPromotions') }}</span>
                         @endforelse
                     </div>
-                    <div class="default-pagination mt-20">
+
+                    <div class="text-center pt--20">
                         {{ $promotions->onEachSide(1)->links() }}
                     </div>
+
                 </div>
-                <div class="col-lg-3">
-                    <div class="shop-sidebar">
-                        <div class="single-shop-sidebar-widget color-and-item">
-                            <h3>{{ __('names.promotions') }}</h3>
-                            @include('user_views.promotion.promotion_tree')
-                        </div>
-                    </div>
-                </div>
+
             </div>
         </div>
     </div>
@@ -74,6 +80,14 @@
 
 @push('css')
     <style>
+        .axil-shop-sidebar .product-categories ul li a::before {
+            content: none !important;
+        }
+
+        .filter-results{
+            margin: 0;
+        }
+
         a {
             color: #666666;
 
