@@ -24,3 +24,23 @@
         background-color: #e5e6ec;
     }
 }
+
+.shop-sorting-left-content {
+    margin-bottom: 15px;
+}
+
+.shop-sorting-right-content {
+    text-align: end;
+    margin-bottom: 15px;
+}
+
+@media only screen and (max-width: 767px) {
+    .shop-sorting-right-content {
+        text-align: start;
+        margin-bottom: 15px;
+    }
+}
+
+.product-filter-mobile {
+    margin-top: 0px;
+}

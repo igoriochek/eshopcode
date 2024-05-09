@@ -3,7 +3,7 @@
         <li>
             <a href="{{ route("innercategories", ["category_id" => $category->id ]) }}"
                class="{{ substr(url()->current(), -1) == "$category->id" ? 'active' : '' }}
-               {{ request()->is('user/rootcategories') || request()->is('rootcategories') ? 'fs-6 my-1' : '' }}">
+               {{ request()->is('user/rootcategories') || request()->is('rootcategories') ? 'fs-4 my-2' : '' }}">
                 @if (count($category->innerCategories))
                     <i class="fa-solid fa-angle-down pe-1"></i>
                 @else
@@ -18,3 +18,12 @@
         </li>
     @endforeach
 </ul>
+
+@push('css')
+    <style>
+        ul li {
+            margin-bottom: 0px;
+            padding-bottom: 0px;
+        }
+    </style>
+@endpush
