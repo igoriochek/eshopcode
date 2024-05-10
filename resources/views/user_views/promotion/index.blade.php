@@ -16,7 +16,7 @@
                                 <button class="sidebar-close filter-close-btn"><i class="fas fa-times"></i></button>
                             </div>
                             <div class="toggle-list product-categories active">
-                            <h6 class="title">{{ __('names.promotions') }}</h6>
+                                <h6 class="title">{{ __('names.promotions') }}</h6>
                                 <div class="shop-submenu">
                                 @include('user_views.promotion.promotion_tree')
                                 </div>
@@ -29,8 +29,6 @@
                         @forelse ($promotions as $promotion)
                             <div class="col-12 mb-4">
                                 <div class="axil-shop-top mb--40">
-
-
                                     <div class="row align-items-center">
                                         <div class="col-lg-6 col-md-6">
                                             <div class="shop-sorting-left-content">
