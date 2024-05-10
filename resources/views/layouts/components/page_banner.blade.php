@@ -1,5 +1,5 @@
-<div class="axil-breadcrumb-area 
-    @if (request()->is('login') || request()->is('register') || request()->is('password/request*')) d-none @endif">
+<div class="axil-breadcrumb-area
+    @if (request()->is('login') || request()->is('register') || request()->is('password/reset*')) d-none @endif">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-6 col-md-8">
