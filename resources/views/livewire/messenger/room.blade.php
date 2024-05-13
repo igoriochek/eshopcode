@@ -1,6 +1,6 @@
-<div wire:poll.1s='updateMessages' class="messenger-room p-4 mb-sm-5 single-shop-sidebar-widget color-and-item">
+<div wire:poll.1s='updateMessages' class="messenger-room p-4 single-shop-sidebar-widget color-and-item">
     <div>
-        <h4>
+        <h4 class="title">
             {{ __('menu.admin').' '.$user->name }}
         </h4>
     </div>
@@ -35,6 +35,18 @@
     </div>
     @include('livewire.messenger.form')
 </div>
+
+@push('css')
+    <style>
+        .messenger-room .messenger-message-box {
+            background-color: #f9f3f0;
+        }
+        .messenger-room .messenger-message-box .messenger-message-to-container .messenger-message-to {
+            background-color: #3577f0;
+        }
+    </style>
+@endpush
+
 
 @push('scripts')
     <script>
