@@ -3,7 +3,7 @@
 @section('title', __('names.orderComplete'))
 
 @section('content')
-    <div class="pt-70 pb-45">
+    <div class="py-5 mt-5">
         <div class="container order-complete">
             <div class="row justify-content-center">
                 <div class="col-lg-8">
