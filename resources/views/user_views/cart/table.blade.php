@@ -1,51 +1,66 @@
-<table class="table">
+<table class="table axil-product-table axil-cart-table mb--40">
     <thead>
         <tr>
-            <th scope="col">{{ __('names.product') }}</th>
-            <th scope="col">{{ __('names.price') }}</th>
-            <th scope="col">{{ __('names.quantity') }}</th>
-            <th scope="col">{{ __('names.subtotal') }}</th>
-            <th scope="col"></th>
+            <th scope="col" class="product-remove"></th>
+            <th scope="col" class="product-thumbnail">{{ __('names.product') }}</th>
+            <th scope="col" class="product-title"></th>
+            <th scope="col" class="product-price">{{ __('names.price') }}</th>
+            <th scope="col" class="product-quantity">{{ __('names.quantity') }}</th>
+            <th scope="col" class="product-subtotal">{{ __('names.subtotal') }}</th>
         </tr>
     </thead>
     <tbody>
         @forelse($cartItems as $item)
             <tr>
-                <td class="image-and-content d-flex align-items-center">
-                    <div class="products-image">
-                        <a href="{{ route('viewproduct', $item['product']->id) }}" title="{{ $item['product']->name }}">
-                            <img alt="{{ $item['product']->name }}" class="product-thumbnail-image" style="height: 50px; width: 100px; object-fit: cover"
-                                 src="@if ($item['product']->image) {{ $item['product']->image }} @else /images/noimage.jpeg @endif">
-                        </a>
-                    </div>
-
-                    <div class="products-content">
-                        <h3>
-                            <a href="{{ route('viewproduct', $item['product']->id) }}">
-                                {{ $item['product']->name }}
-                            </a>
-                        </h3>
-                    </div>
-                </td>
-                <td class="price">€{{ number_format($item->price_current,2) }}</td>
-                <td class="quantity">
-                    <div class="input-counter">
-                        <input type="text" style="border: none" title="Qty" value="{{ $item->count }}" name="quantity" min="1" max="5" minlength="1" maxlength="5" readonly>
-                    </div>
-                </td>
-                <td class="total">€{{ $item->price_current * $item->count }}</td>
-                <td class="remove">
+                <td class="product-remove">
                     {!! Form::open(['route' => ['userCartItemDestroy', $item->id], 'method' => 'delete']) !!}
-                        <button type="submit" class="btn" title="{{ __('names.removeProduct') }}" onclick="return confirm('{{ __('messages.confirmDeleteProduct') }}')">
-                            <i class="fa-solid fa-trash-can"></i>
-                        </button>
+                    <button type="submit" class="remove-wishlist" title="{{ __('names.removeProduct') }}"
+                        onclick="return confirm('{{ __('messages.confirmDeleteProduct') }}')">
+                        <i class="fal fa-times fs-5"></i>
+                    </button>
                     {!! Form::close() !!}
+                </td>
+                <td class="product-thumbnail">
+                    <a href="{{ route('viewproduct', $item['product']->id) }}" title="{{ $item['product']->name }}">
+                        <img alt="{{ $item['product']->name }}" class="product-thumbnail-image"
+                            src="@if ($item['product']->image) {{ $item['product']->image }} @else /template/images/product/electric/product-01.png @endif">
+                </td>
+                <td class="product-title">
+                    <a href="{{ route('viewproduct', $item['product']->id) }}">
+                        {{ $item['product']->name }}
+                    </a>
+                </td>
+                <td class="product-price" data-title="Price">
+                    <span class="currency-symbol">€</span>
+                    {{ number_format($item->price_current, 2) }}
+                </td>
+                <td class="product-quantity" data-title="Qty">
+                    <div style="display: inline-flex; width: 130px; border-radius: 50px; height: 20px">
+                        <input type="text" class="fs-3 fw-bold text-muted px-0 cart-item-quantity"
+                            value="{{ $item->count }}" name="quantity" readonly>
+                    </div>
+                </td>
+                <td class="product-subtotal" data-title="Subtotal">
+                    <span class="currency-symbol">€</span>
+                    {{ number_format($item->price_current * $item->count, 2) }}
                 </td>
             </tr>
         @empty
             <tr>
-                <td colspan="5" class="text-center">{{ __('names.emptyCart') }}</td>
+                <td colspan="6" class="text-center">{{ __('names.emptyCart') }}</td>
             </tr>
         @endforelse
     </tbody>
 </table>
+
+<style>
+    .cart-item-quantity {
+        text-align: start;
+    }
+
+    @media only screen and (max-width: 767px) {
+        .cart-item-quantity {
+            text-align: right;
+        }
+    }
+</style>

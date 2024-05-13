@@ -35,7 +35,7 @@
                         {{ $product->name }}
                     </a>
                 </h5>
-                <div class="d-flex justify-content-center justify-content-md-start align-items-center">
+                <div class="d-flex justify-content-center justify-content-sm-start align-items-center">
                     <div class="rating mb-3">
                         <div class="d-flex">
                             @for ($i = 1; $i <= 5; $i++)
@@ -57,7 +57,8 @@
                         <span class="price current-price">€{{ number_format($product->price, 2) }}</span>
                     @endif
                 </div>
-                <div class="product-action-wrapper d-flex-center mt-4">
+                <div
+                    class="product-action-wrapper d-flex justify-content-sm-start justify-content-center align-items-center mt-4">
                     <div class="pro-qty">
                         <input type="number" name="count" value="1"
                             oninput="this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null">
