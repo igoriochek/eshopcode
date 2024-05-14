@@ -72,12 +72,12 @@
                                     ]) !!}
 
                                     <div class="pro-qty">
-                                        <input type="text" name="count" value="1"
-                                            class="product-add-to-cart-number" min="1" max="5" minlength="1"
-                                            maxlength="5"
+                                        <input type="number" name="count" value="1" min="1"
+                                            class="product-add-to-cart-number"
                                             oninput="this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null">
-                                        <input type="hidden" name="id" value="{{ $product->id }}">
                                     </div>
+
+                                    <input type="hidden" name="id" value="{{ $product->id }}">
 
                                     <ul class="product-action d-flex-center mb--0">
                                         <li class="add-to-cart">

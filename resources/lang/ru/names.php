@@ -252,6 +252,9 @@ return [
     'noDiscountCoupons' => 'Нет доступных купонов на скидку',
     'discountCouponCode' => 'Код купона на скидку',
     'discountCouponValue' => 'Стоимость купона на скидку',
+    'used' => 'Использовано',
+    'active' => 'Активный',
+
     'zeroRecords' => 'Нет данных',
     'showing' => 'Показаны',
     'entries' => 'записи',

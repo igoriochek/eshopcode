@@ -17,7 +17,7 @@
                         <div class="d-lg-none">
                             <button class="sidebar-close filter-close-btn"><i class="fas fa-times"></i></button>
                         </div>
-                        <div class="toggle-list product-categories active">
+                        <div class="toggle-list active">
                             <h6 class="title">{{ __('names.promotions') }}</h6>
                             <div class="shop-submenu">
                                 @include('user_views.promotion.promotion_tree')
@@ -29,34 +29,34 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="axil-shop-top mb--40">
-                                    <div class="row align-items-center">
-                                        <div class="col-lg-6 col-md-6">
-                                            <div class="shop-sorting-left-content">
-                                                <h5 class="mb-1">{{ $promotion->name }}</h5>
-                                                <span class="filter-results">
-                                                    {{ __('names.showing') }}
-                                                    @if ($products->currentPage() !== $products->lastPage())
-                                                        {{ ($products->count() * $products->currentPage() - $products->count() + 1).__('–').($products->count() * $products->currentPage()) }}
+                                <div class="row align-items-center">
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="shop-sorting-left-content">
+                                            <h5 class="mb-1">{{ $promotion->name }}</h5>
+                                            <span class="filter-results ms-0">
+                                                {{ __('names.showing') }}
+                                                @if ($products->currentPage() !== $products->lastPage())
+                                                    {{ $products->count() * $products->currentPage() - $products->count() + 1 . __('–') . $products->count() * $products->currentPage() }}
+                                                @else
+                                                    @if ($products->total() - $products->count() === 0)
+                                                        {{ $products->count() }}
                                                     @else
-                                                        @if ($products->total() - $products->count() === 0)
-                                                            {{ $products->count() }}
-                                                        @else
-                                                            {{ ($products->total() - $products->count()).__('–').$products->total() }}
-                                                        @endif
+                                                        {{ $products->total() - $products->count() . __('–') . $products->total() }}
                                                     @endif
-                                                    {{ __('names.of') }}
-                                                    {{ $products->total().' '.__('names.entries') }}
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 col-md-6">
-                                            <div class="shop-sorting-right-content">
-                                                <a href="{{ route("promotions") }}" class="axil-btn btn-bg-primary">
-                                                    {{ __('buttons.backToAllPromotions') }}
-                                                </a>
-                                            </div>
+                                                @endif
+                                                {{ __('names.of') }}
+                                                {{ $products->total() . ' ' . __('names.entries') }}
+                                            </span>
                                         </div>
                                     </div>
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="shop-sorting-right-content">
+                                            <a href="{{ route('promotions') }}" class="axil-btn btn-bg-primary">
+                                                {{ __('buttons.backToAllPromotions') }}
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
 
                                 <div class="d-lg-none">
                                     <button class="product-filter-mobile filter-toggle">
@@ -81,36 +81,3 @@
         </div>
     </div>
 @endsection
-
-@push('css')
-    <style>
-        .axil-shop-sidebar .product-categories ul li a::before {
-            content: none !important;
-        }
-
-        .axil-shop-sidebar .product-categories ul li a {
-            padding-left: 0 !important;
-        }
-
-        .axil-shop-sidebar .product-categories ul li {
-            padding-top: 12px;
-            padding-bottom: 0 !important;
-        }
-
-        .filter-results{
-            margin: 0;
-        }
-
-        a {
-            color: #666666;
-
-            &:hover, &:focus {
-                color: #a10909;
-            }
-        }
-
-        .active {
-            color: #a10909;
-        }
-    </style>
-@endpush

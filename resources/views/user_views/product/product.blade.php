@@ -60,7 +60,7 @@
                 <div
                     class="product-action-wrapper d-flex justify-content-sm-start justify-content-center align-items-center mt-4">
                     <div class="pro-qty">
-                        <input type="number" name="count" value="1"
+                        <input type="number" name="count" value="1" min="1"
                             oninput="this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null">
                     </div>
                 </div>

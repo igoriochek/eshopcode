@@ -6,13 +6,14 @@
         <div class="toggle-list product-color active">
             <h6 class="title">{{ __('names.search') }}</h6>
             <div class="shop-submenu">
-                <div class="d-flex" style="border: 1px solid #f0f0f0; height: 55px; border-radius: 6px">
-                    <input type="text" name="filter[namelike]" class="form-control" id="filter[namelike]"
-                        placeholder="{{ __('names.product') . '...' }}" value="{{ $filter['namelike'] ?? '' }}"
-                        style="width: 84%; padding-left: 20px;">
-                    <button type="submit" class="btn" style="width: 16%">
-                        <i class="fa-solid fa-magnifying-glass fs-4"></i>
+                <div class="d-flex"
+                    style="border: 1px solid #f0f0f0; height: 55px; border-radius: 6px; background-color: #f0f2f5;">
+                    <button type="submit" class="btn" style="width: 50px; background-color: #f0f2f5;">
+                        <i class="fa-solid fa-magnifying-glass fs-4 text-muted"></i>
                     </button>
+                    <input type="text" name="filter[namelike]" class="form-control fs-4" id="filter[namelike]"
+                        placeholder="{{ __('names.product') . '...' }}" value="{{ $filter['namelike'] ?? '' }}"
+                        style="width: 100%; padding-left: 10px; background-color: #f0f2f5;">
                 </div>
             </div>
         </div>

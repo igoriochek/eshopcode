@@ -7,8 +7,8 @@
 @section('content')
     <div class="axil-checkout-area axil-section-gap">
         <div class="container">
-            <div class="row">
-                <div class="col-12">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-12">
                     {!! Form::open(['route' => ['pay'], 'method' => 'post']) !!}
                     <div class="axil-order-summery order-checkout-summery">
                         <h5 class="title mb--20">{{ __('names.yourOrder') }}</h5>

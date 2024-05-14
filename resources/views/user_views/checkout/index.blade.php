@@ -5,9 +5,9 @@
 @section('content')
     <div class="axil-checkout-area axil-section-gap">
         <div class="container">
-            <div class="row">
+            <div class="row justify-content-center">
                 @if (count($discounts) > 0)
-                    <div class="col-12">
+                    <div class="col-lg-8 col-12">
                         {!! Form::open(['route' => ['checkout-preview'], 'method' => 'post']) !!}
                         <div class="axil-checkout-notice">
                             <div class="axil-toggle-box">
@@ -39,7 +39,7 @@
                         {!! Form::close() !!}
                     </div>
                 @endif
-                <div class="col-12">
+                <div class="col-lg-8 col-12">
                     {!! Form::open(['route' => ['checkout-preview'], 'method' => 'post']) !!}
                     <div class="axil-order-summery order-checkout-summery">
                         <h5 class="title mb--20">{{ __('names.yourOrder') }}</h5>

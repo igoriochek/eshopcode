@@ -50,7 +50,7 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6">
                                         <div class="shop-sorting-right-content">
-                                            <a href="{{ route("rootcategories") }}" class="axil-btn btn-bg-primary">
+                                            <a href="{{ route('rootcategories') }}" class="axil-btn btn-bg-primary">
                                                 {{ __('buttons.backToMainCategories') }}
                                             </a>
                                         </div>
@@ -96,14 +96,15 @@
             padding-bottom: 0 !important;
         }
 
-        .filter-results{
+        .filter-results {
             margin: 0;
         }
 
         a {
             color: #666666;
 
-            &:hover, &:focus {
+            &:hover,
+            &:focus {
                 color: #a10909;
             }
         }

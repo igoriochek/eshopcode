@@ -252,6 +252,9 @@ return [
     'noDiscountCoupons' => 'Nėra nuolaidų kuponų',
     'discountCouponCode' => 'Nuolaidų kupono kodas',
     'discountCouponValue' => 'Nuolaidų kupono suma',
+    'used' => 'Naudota',
+    'active' => 'Aktyvus',
+
     'zeroRecords' => 'Įrašų nėra',
     'showing' => 'Rodomi',
     'entries' => "įrašai",
