@@ -41,6 +41,6 @@ return [
     'contact' => 'Susisiekti',
     'applyCoupon' => 'Taikyti kuponą',
     'placeOrder' => 'Pateikite užsakymą',
-    'continueShopping' => 'Tęsti apsipirkimą'
-
+    'continueShopping' => 'Tęsti apsipirkimą',
+    'view' => 'Žiūrėti'
 ];

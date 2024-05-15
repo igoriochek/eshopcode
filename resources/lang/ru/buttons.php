@@ -42,5 +42,6 @@ return [
     'placeOrder' => 'Разместить Заказ',
     'continueShopping' => 'Продолжить Покупку',
     'submit' => 'Отправить',
+    'view' => 'Посмотреть'
 
 ];
