@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-    <section class="content-header">
+    <section class="content-header mt-5">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-12">
-                    <h1>{{__('names.createReturnItem')}}</h1>
+                    <h2>{{__('names.createReturnItem')}}</h2>
                 </div>
             </div>
         </div>
@@ -28,8 +28,8 @@
             </div>
 
             <div class="card-footer">
-                {!! Form::submit(__('buttons.save'), ['class' => 'btn btn-primary']) !!}
-                <a href="{{ route('returnItems.index') }}" class="btn btn-default">{{__('buttons.cancel')}}</a>
+                {!! Form::submit(__('buttons.save'), ['class' => 'axil-btn btn-primary']) !!}
+                <a href="{{ route('returnItems.index') }}" class="axil-btn btn-secondary">{{__('buttons.cancel')}}</a>
             </div>
 
             {!! Form::close() !!}

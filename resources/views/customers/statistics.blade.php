@@ -5,14 +5,16 @@
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.6.347/pdf.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.debug.js"></script>
-    <div class="container">
-        <div>
+    <div class="container mt-5">
+        <div class="col-sm-6 mb-5">
             <select name="chartType" id="chartType" onchange="updateChartType()">
                 <option value="">{{__('names.selectChartType')}}</option>
                 <option value="line">{{__('names.line')}}</option>
                 <option value="bar">{{__('names.bar')}}</option>
                 <option value="pie">{{__('names.pie')}}</option>
             </select>
+        </div>
+        <div class="col-sm-6 mb-5">
             <select name="statisticType" id="statisticType" onchange="updateStatisticType()">
                 <option value="">{{__('names.selectStatisticType')}}</option>
                 <option value="registerPerMonth">{{__('names.monthlyRegistrations')}}</option>
@@ -28,8 +30,8 @@
         <div>
             <canvas id="myChart" height="100"></canvas>
         </div>
-        <div>
-            <button type="button" class="btn btn-primary" onclick="downloadPDF()">{{__('buttons.downloadPDF')}}</button>
+        <div class="mt-5">
+            <a type="button" class="axil-btn btn-primary" onclick="downloadPDF()">{{__('buttons.downloadPDF')}}</a>
         </div>
     </div>
     <script>

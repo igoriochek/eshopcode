@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    {{__('names.userLogs')}}
+                    <h5 style="margin-bottom: 0px !important;">{{__('names.userLogs')}}</h5>
                 </div>
-                <div class="table table-responsive">
+                <div class="table-responsive">
                     <table class="table" id="categories" data-order='[[ 4, "desc" ]]'>
                         <thead>
                         <tr>

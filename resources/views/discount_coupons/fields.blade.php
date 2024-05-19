@@ -18,3 +18,11 @@
     {!! Form::label('user_id', __('table.userId').':') !!}
     {!! Form::select('user_id', $users_list, null, ['class' => 'form-control custom-select']) !!}
 </div>
+
+
+<style>
+
+.form-control {
+    font-size: 1.4rem;
+}
+</style>

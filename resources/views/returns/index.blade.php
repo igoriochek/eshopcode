@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-    <section class="content-header">
+    <section class="content-header mt-5">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>{{__('names.returns')}}</h1>
+                    <h2>{{__('names.returns')}}</h2>
                 </div>
                 <div class="col-sm-6">
-                    <a class="btn btn-primary float-right"
+                    <a class="axil-btn btn-primary float-right"
                        href="{{ route('returns.create') }}">
                         {{__('buttons.addNew')}}
                     </a>

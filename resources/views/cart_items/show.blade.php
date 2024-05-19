@@ -5,10 +5,10 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>{{__('names.cartItemDetails')}}</h1>
+                    <h2>{{__('names.cartItemDetails')}}</h2>
                 </div>
                 <div class="col-sm-6">
-                    <a class="btn btn-default float-right"
+                    <a class="axil-btn btn-primary float-right"
                        href="{{ route('cartItems.index') }}">
                         {{__('buttons.back')}}
                     </a>

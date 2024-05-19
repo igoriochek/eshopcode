@@ -9,23 +9,29 @@
             </button>
         </div>
         <hr class="admin-header-hr">
+
         <div class="admin-header-center-container">
-            <ul class="admin-navbar">
-                @include('layouts.menus.admin_menu')
-            </ul>
+        <div class="axil-dashboard-aside">
+            <div class="axil-dashboard-nav">
+                <div class="nav nav-tabs" role="tablist">
+                    @include('layouts.menus.admin_menu')
+                </div>
+            </div>
         </div>
+        </div>
+
         <hr class="admin-header-hr">
         <div class="admin-header-bottom-container">
-            <a href="#" class="admin-header-account-dropdown" role="button"
+            <a href="#" role="button"
                id="navbarUserDropdown"
                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img src="{{ asset('images/icons/icon-account.png') }}" height="25" alt="icon-account" class="admin-header-account-icon">
+                <img src="{{ asset('images/icons/icon-account.png') }}" height="30" width="30" alt="icon-account" class="admin-header-account-icon">
                 <span class="admin-header-account-name">{{ Auth::user()->name }}</span>
             </a>
             @include('layouts.dropdowns.admin_dropdown')
             <ul class="nav nav-pills">
                 <li class="nav-item dropdown nav-item-border">
-                    <a class="nav-link text-uppercase admin-navbar-language-dropdown"
+                    <a class="text-uppercase"
                        href="#" role="button" id="dropdownLanguage" data-bs-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">
                         {{ app()->getLocale() }}
@@ -37,6 +43,7 @@
         </div>
     </div>
 </header>
+
 
 @push('scripts')
     <script>

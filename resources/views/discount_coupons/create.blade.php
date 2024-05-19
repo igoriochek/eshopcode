@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <section class="content-header">
+    <section class="content-header mt-5">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-12">
@@ -28,8 +28,8 @@
             </div>
 
             <div class="card-footer">
-                {!! Form::submit(__('buttons.save'), ['class' => 'btn btn-primary']) !!}
-                <a href="{{ route('discountCoupons.index') }}" class="btn btn-default">{{__('buttons.cancel')}}</a>
+                {!! Form::submit(__('buttons.save'), ['class' => 'axil-btn btn-primary']) !!}
+                <a href="{{ route('discountCoupons.index') }}" class="axil-btn btn-secondary">{{__('buttons.cancel')}}</a>
             </div>
 
             {!! Form::close() !!}

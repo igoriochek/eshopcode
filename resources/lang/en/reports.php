@@ -46,6 +46,7 @@ return [
     'shipped' => 'Shipped',
     'status' => 'Status',
     'user' => 'User',
+    'userId' => 'User ID',
     'usersReport' => 'Users Report',
     'userActivitiesReport' => 'User Activities Report',
     'waiting' => 'Waiting',

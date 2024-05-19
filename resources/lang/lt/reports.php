@@ -46,6 +46,7 @@ return [
     'shipped' => 'Išsiųsta',
     'status' => 'Būsena',
     'user' => 'Naudotojas',
+    'userId' => 'Naudotojo ID',
     'usersReport' => 'Naudotojų ataskaita',
     'userActivitiesReport' => 'Naudotojų veiklos ataskaita',
     'waiting' => 'Laukiama',
