@@ -67,7 +67,7 @@
                                                         </tr>
                                                     @empty
                                                         <tr>
-                                                            <td colspan="1">
+                                                            <td colspan="5" style="text-align: left;">
                                                                 {{ __('names.noOrders') }}
                                                             </td>
                                                         </tr>

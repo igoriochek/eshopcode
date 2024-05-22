@@ -35,32 +35,30 @@
                                 <div class="tab-pane fade show active" id="nav-orders" role="tabpanel">
                                 <div class="your-orders">
                                     <h3 class="mb-2">{{ __('names.order').':' }} {{ $order->order_id }}</h3>
-                                    <div class="d-flex justify-content-between align-items-center mb-4">
-                                        <div class="d-flex flex-wrap align-items-center" style="column-gap: 10px; row-gap: 5px">
+                                    <div class="row mb-4">
+                                        <div class="col-12 col-sm-6 d-flex flex-wrap align-items-center" style="column-gap: 10px; row-gap: 5px">
                                             <div>{{ __('table.status').': '.__("status.".$order->status->name) }}</div>
                                             <div>{{ __('table.sum').': €' }}{{ number_format($order->sum, 2) }}</div>
                                             <div>{{ __('table.date').': '.$order->created_at->format('M d, Y') }}</div>
                                         </div>
-                                        <div class="d-flex justify-content-start align-items-center">
+                                        <div class="col-12 col-sm-6 d-flex justify-content-md-end justify-content-start align-items-center mt-3 mt-md-0">
                                             @if ($order->status->name !== "Returned" && $order->status->name !== "Canceled")
                                                 @if ($order->status->name !== 'Completed')
-                                                    <div class="btn-group" style="float: right">
+                                                    <div class="btn-group">
                                                         <a href="{{ route('cancelnorder', [$order->id]) }}" class='axil-btn view-btn'>
-                                                            <i class="far fa-trash-alt"></i>
+                                                            {{__('names.cancelOrder')}}
                                                         </a>
                                                     </div>
                                                 @endif
                                                 @if ($order->status->name == 'Completed')
-                                                    <div class="btn-group" style="float: right">
+                                                    <div class="btn-group me-4">
                                                         <a href="{{ route('returnorder', [$order->id]) }}" class='axil-btn view-btn'>
-                                                            <i class="far fa-arrow-alt-circle-right"></i>
+                                                            {{__('names.returnOrder')}}
                                                         </a>
                                                     </div>
-                                                @endif
-                                                @if ($order->status->name == 'Completed')
-                                                    <div class="btn-group" style="float: right">
+                                                    <div class="btn-group">
                                                         <a href="{{ route('download_invoice', [$order->id]) }}" class='axil-btn view-btn'>
-                                                            {{__('names.invoice')}} <i class="fa-solid fa-file-invoice"></i>
+                                                            {{__('names.invoice')}}
                                                         </a>
                                                     </div>
                                                 @endif
@@ -114,4 +112,32 @@
             </div>
         </div>
 @endsection
+
+@push('css')
+    <style>
+        a.axil-btn, button.axil-btn {
+            padding: 14px 26px !important;
+        }
+        .view-btn {
+            padding: 9px 20px;
+            border: 1px solid var(--color-body);
+            background-color: rgba(0,0,0,0);
+            color: var(--color-dark);
+        }
+        .view-btn:hover {
+            background-color: var(--color-primary);
+            border-color: var(--color-primary);
+            color: var(--color-white);
+        }
+        .col-sm-left {
+            flex: 0 0 auto;
+            width: 45%;
+        }
+        .col-sm-right {
+            flex: 0 0 auto;
+            width: 55%;
+        }
+    </style>
+@endpush
+
 

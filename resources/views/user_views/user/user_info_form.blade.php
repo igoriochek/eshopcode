@@ -11,11 +11,11 @@
         {!! Form::label('street', __('forms.street')) !!}
         {!! Form::text('street', $user->street, ['class' => 'form-control']) !!}
     </div>
-    <div class="form-group col-md-3 col-6">
+    <div class="form-group col">
         {!! Form::label('house_flat', __('forms.house_flat')) !!}
         {!! Form::text('house_flat', $user->house_flat, ['class' => 'form-control']) !!}
     </div>
-    <div class="form-group col-md-3 col-6">
+    <div class="form-group col">
         {!! Form::label('post_index', __('forms.post_index')) !!}
         {!! Form::text('post_index', $user->post_index, ['class' => 'form-control']) !!}
     </div>

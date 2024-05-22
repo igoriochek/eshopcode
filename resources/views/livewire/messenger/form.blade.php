@@ -1,7 +1,7 @@
 <div class="row mt-3">
     <form wire:submit.prevent="sendMessage({{ $user->id }})">
-        <div class="single-shop-sidebar-widget search-bar p-0 mb-0" style="box-shadow: none">
-            <div class="form-group d-flex">
+        <div class="single-shop-sidebar-widget search-bar mb-0" style="box-shadow: none">
+            <div class="form-group d-flex align-items-stretch">
                 <input
                     type="text"
                     class="form-control message-input"
@@ -30,10 +30,14 @@
         .form-group .message-input {
             flex-grow: 1;
             margin-right: 8px;
+            height: 100%;
         }
         .form-group .submit-btn {
             flex-basis: 20%;
             white-space: nowrap;
+        }
+        .search-bar {
+            padding: 0px 8px 0px 8px;
         }
     </style>
 @endpush

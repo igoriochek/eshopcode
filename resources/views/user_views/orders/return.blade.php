@@ -52,7 +52,8 @@
                                                             <tr>
                                                                 <td class="image-and-content d-flex align-items-center">
                                                                     <div class="form-check">
-                                                                        {!! Form::checkbox("return_items[]", $item->product_id, false, ['class' => 'form-check-input']) !!}
+                                                                        {!! Form::checkbox("return_items[]", $item->product_id, false, ['class' => 'form-check-input', 'id' => 'return_items_' . $item->product_id]) !!}
+                                                                        <label for="return_items_{{ $item->product_id }}"></label>
                                                                     </div>
                                                                 </td>
                                                                 <td scope="row">{{ $item->product_id }}</td>

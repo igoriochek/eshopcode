@@ -1,23 +1,25 @@
-<header class="admin-header">
+<header class="admin-header" style="position: fixed; width: 100%;">
     <div class="admin-header-container">
         <div class="admin-header-top-container">
             <a href="{{ url('/home') }}" class="admin-header-logo">
-                <img src="{{ asset('images/CM_logo.png') }}" alt="" class="logo" width="170">
+                <img src="{{ asset('images/nutika-logo.jpeg') }}" alt="Nutika" class="logo"
+                style="max-width: 60px; max-height: 60px; z-index: -111"
+                >
             </a>
-            <button class="admin-header-toggle-button" onclick="onClickOpenMenu()">
+            <button class="admin-header-toggle-button" onclick="onClickOpenMenu()" style="background: #3577f0;">
                 <i class="fa-sharp fa-solid fa-bars text-white"></i>
             </button>
         </div>
         <hr class="admin-header-hr">
 
         <div class="admin-header-center-container">
-        <div class="axil-dashboard-aside">
-            <div class="axil-dashboard-nav">
-                <div class="nav nav-tabs" role="tablist">
-                    @include('layouts.menus.admin_menu')
+            <div class="axil-dashboard-aside" style="padding: 0px; border: 0px;">
+                <div class="axil-dashboard-nav">
+                    <div class="nav nav-tabs" role="tablist">
+                        @include('layouts.menus.admin_menu')
+                    </div>
                 </div>
             </div>
-        </div>
         </div>
 
         <hr class="admin-header-hr">
@@ -43,6 +45,30 @@
         </div>
     </div>
 </header>
+
+@push('css')
+    <style>
+        #header-responsive {
+            position: fixed;
+            z-index: 1030;
+            top: 0;
+            padding: 15px;
+            background: #fff;
+            overflow-x: hidden;
+        }
+        @media (max-width: 992px) {
+            #header-responsive {
+                height: 60px;
+                width: 100%;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            }
+
+            body {
+                padding-top: 60px;
+            }
+        }
+    </style>
+@endpush
 
 
 @push('scripts')

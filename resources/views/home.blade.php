@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container container-dashboard">
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
@@ -126,3 +126,16 @@
         </div>
     </div>
 @endsection
+
+@push('css')
+    <style>
+        .container-dashboard {
+            margin-top: 3rem;
+        }
+        @media (max-width: 992px) {
+            .container-dashboard {
+                margin-top: 100px;
+            }
+        }
+    </style>
+@endpush
