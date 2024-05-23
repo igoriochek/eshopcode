@@ -33,7 +33,6 @@
                                 <div class="tab-pane fade show active" id="nav-profile" role="tabpanel">
                                     <div class="col-lg-9">
                                         <div class="axil-dashboard-account">
-                                            <!-- <form class="account-details-form"> -->
                                             <div class="account-details-form">
                                                 <div class="row">
                                                     <h3 class="col-12">{{ __('menu.userInfo') }}</h3>
@@ -45,7 +44,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <!-- </form> -->
                                         </div>
                                     </div>
                                 </div>

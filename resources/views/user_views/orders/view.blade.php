@@ -62,6 +62,12 @@
                                                         </a>
                                                     </div>
                                                 @endif
+                                            @else
+                                                <div class="btn-group">
+                                                    <a href="{{ route('download_invoice', [$order->id]) }}" class='axil-btn view-btn'>
+                                                        {{__('names.invoice')}}
+                                                    </a>
+                                                </div>
                                             @endif
                                         </div>
                                     </div>
@@ -85,7 +91,7 @@
                                                             @if ($order->status->name == 'Returned')
                                                                 <td>
                                                                     @if ($item->isReturned !== null)
-                                                                        {{ $item->isReturned }}
+                                                                        {{ __('status.Returned') }}
                                                                     @else
                                                                         &nbsp;
                                                                     @endif

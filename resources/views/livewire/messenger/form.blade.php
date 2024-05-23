@@ -30,7 +30,9 @@
         .form-group .message-input {
             flex-grow: 1;
             margin-right: 8px;
-            height: 100%;
+        }
+        .form-group input {
+            height: auto !important;
         }
         .form-group .submit-btn {
             flex-basis: 20%;

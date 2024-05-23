@@ -76,7 +76,7 @@ class User extends Authenticatable
         'name' => 'required',
         'email' => 'required|email:rfc',
 //        'password' => 'required',
-        'phone_number' => 'nullable|numeric|digits:11',
+        'phone_number' => 'nullable|numeric',
     ];
 
     /**
