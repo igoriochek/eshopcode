@@ -1,20 +1,9 @@
-<div id="loading">
-    <div id="loading-center">
-       <div id="loading-center-absolute">
-          <!-- loading content here -->
-          <div class="tp-preloader-content">
-             <div class="tp-preloader-logo">
-                <div class="tp-preloader-circle">
-                   <svg width="190" height="190" viewBox="0 0 380 380" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <circle stroke="#D9D9D9" cx="190" cy="190" r="180" stroke-width="6" stroke-linecap="round"></circle> 
-                      <circle stroke="red" cx="190" cy="190" r="180" stroke-width="6" stroke-linecap="round"></circle> 
-                  </svg>
-                </div>
-                <img src="{{ asset('images/dts_logo_black.png') }}" alt="">
-             </div>
-             <h3 class="tp-preloader-title">{{ config('app.name', 'Untitled') }}</h3>
-             <p class="tp-preloader-subtitle">{{ __('names.loading') }}</p>
-          </div>
-       </div>
-    </div>  
- </div>
+<div class="preloader-activate open_tm_preloader">
+    <div class="preloader-area-wrap">
+        <div class="spinner d-flex justify-content-center align-items-center h-100">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+        </div>
+    </div>
+</div>
