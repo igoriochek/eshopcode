@@ -36,14 +36,17 @@
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('datatables/media/css/jquery.dataTables.min.css') }}" rel="stylesheet">
     <link href="{{ asset('vendor/cookie-consent/css/cookie-consent.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('template/css/animate.css') }}" rel="stylesheet">
-    <link href="{{ asset('template/css/swiper-bundle.css') }}" rel="stylesheet">
-    <link href="{{ asset('template/css/slick.css') }}" rel="stylesheet">
-    <link href="{{ asset('template/css/magnific-popup.css') }}" rel="stylesheet">
-    <link href="{{ asset('template/css/font-awesome-pro.css') }}" rel="stylesheet">
-    <link href="{{ asset('template/css/flaticon_shofy.css') }}" rel="stylesheet">
-    <link href="{{ asset('template/css/spacing.css') }}" rel="stylesheet">
-    <link href="{{ asset('template/css/main.css') }}" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ asset('template/css/vendor/font-awesome.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('template/css/vendor/Pe-icon-7-stroke.css') }}" />
+    <link rel="stylesheet" href="{{ asset('template/css/plugins/animate.min.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('template/css/plugins/jquery-ui.min.css') }}"> --}}
+    <link rel="stylesheet" href="{{ asset('template/css/plugins/swiper-bundle.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('template/css/plugins/nice-select.css') }}">
+    <link rel="stylesheet" href="{{ asset('template/css/plugins/magnific-popup.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('template/css/plugins/ion.rangeSlider.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('template/css/style.css') }}">
+
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.5.1/nouislider.min.css" rel="stylesheet">
@@ -73,20 +76,22 @@
     <script src="{{ asset('js/jquery-ui.js') }}"></script>
     <script src="{{ asset('js/bootstrap.bundle.js') }}"></script>
     <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('template/js/vendor/waypoints.js') }}"></script>
-    <script src="{{ asset('template/js/meanmenu.js') }}"></script>
-    <script src="{{ asset('template/js/swiper-bundle.js') }}"></script>
-    <script src="{{ asset('template/js/slick.js') }}"></script>
-    <script src="{{ asset('template/js/range-slider.js') }}"></script>
-    <script src="{{ asset('template/js/magnific-popup.js') }}"></script>
-    <script src="{{ asset('template/js/nice-select.js') }}"></script>
-    <script src="{{ asset('template/js/purecounter.js') }}"></script>
-    <script src="{{ asset('template/js/countdown.js') }}"></script>
-    <script src="{{ asset('template/js/wow.js') }}"></script>
-    <script src="{{ asset('template/js/isotope-pkgd.js') }}"></script>
-    <script src="{{ asset('template/js/imagesloaded-pkgd.js') }}"></script>
-    <script src="{{ asset('template/js/ajax-form.js') }}"></script>
+
+    {{-- <script src="assets/js/vendor/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/vendor/jquery-3.6.0.min.js"></script> --}}
+    <script src="{{ asset('template/js/vendor/jquery-migrate-3.3.2.min.js') }}"></script>
+    <script src="{{ asset('template/js/vendor/modernizr-3.11.2.min.js') }}"></script>
+    <script src="{{ asset('template/js/plugins/wow.min.js') }}"></script>
+    <script src="{{ asset('template/js/plugins/jquery-ui.min.js') }}"></script>
+    <script src="{{ asset('template/js/plugins/swiper-bundle.min.js') }}"></script>
+    <script src="{{ asset('template/js/plugins/jquery.nice-select.js') }}"></script>
+    <script src="{{ asset('template/js/plugins/parallax.min.js') }}"></script>
+    <script src="{{ asset('template/js/plugins/jquery.magnific-popup.min.js') }}"></script>
+    <script src="{{ asset('template/js/plugins/tippy.min.js') }}"></script>
+    <script src="{{ asset('template/js/plugins/ion.rangeSlider.min.js') }}"></script>
+    <script src="{{ asset('template/js/plugins/mailchimp-ajax.js') }}"></script>
     <script src="{{ asset('template/js/main.js') }}"></script>
+
     <script src="{{ asset('js/custom.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.5.1/nouislider.min.js"></script>
     <script>
