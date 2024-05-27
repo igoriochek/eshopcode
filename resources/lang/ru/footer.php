@@ -15,7 +15,7 @@ return [
     'email' => 'Электронная почта',
     'menu' => 'МЕНЮ',
     'account' => 'Мой аккаунт',
-    'copyright' => 'UAB "Dts Solutions" © 2024. Все права защищены',
+    'copyright' => 'UAB "Jodesta" © 2024. Все права защищены',
     'companycode' => "Код предприятия",
     'vatcode' => "Код НДС",
     'ac' => "Р/с",

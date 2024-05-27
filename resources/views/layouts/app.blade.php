@@ -64,11 +64,12 @@
         @else
             @include('layouts.components.header')
         @endif
-        <main>
+        <main class="main-content">
             @include('layouts.components.page_banner')
             @yield('content')
         </main>
         @include('layouts.components.footer')
+        @include('layouts.components.scroll_to_top')
     </div>
     <script src="{{ asset('js/jquery-3.6.0.min.js') }}"></script>
     <script src="{{ asset('js/jquery-ui.js') }}"></script>

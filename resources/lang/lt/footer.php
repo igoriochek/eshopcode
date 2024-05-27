@@ -15,7 +15,7 @@ return [
     'email' => 'El. paštas',
     'menu' => 'Meniu',
     'account' => 'Mano paskyra',
-    'copyright' => 'UAB "Dts Solutions" © 2024. Visos teisės saugomos',
+    'copyright' => 'UAB "Jodesta" © 2024. Visos teisės saugomos',
     'companycode' => 'Įmonės kodas',
     'vatcode' => 'PVM kodas',
     'ac' => 'A. s.',
