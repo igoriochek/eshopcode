@@ -1,7 +1,7 @@
 <div class="footer-area">
     <div class="footer-top section-space-y-axis-100 text-lavender"
-        data-bg-image="template/images/background-img/1-4-1920x419.png"
-        style="background-image: url(&quot;template/images/background-img/1-4-1920x419.png&quot;);">
+        data-bg-image="{{ asset('template/images/background-img/1-4-1920x419.png') }}"
+        style="background-image: url({{ asset('template/images/background-img/1-4-1920x419.png') }});">
         <div class="container">
             <div class="row">
                 <div class="col-lg-5 col-md-4">
@@ -64,9 +64,9 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <i class="fa fa-chevron-right"></i>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST">
                                         @csrf
+                                        <i class="fa fa-chevron-right"></i>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                             {{ __('menu.logout') }}
