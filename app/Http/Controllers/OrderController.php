@@ -356,7 +356,7 @@ class OrderController extends AppBaseController
                         $amount = $newAmount;
 
                         $discount->cart_id = $cart->id;
-                        $discount->used = 1;
+                        // $discount->used = 1;
                         $discount->save();
                     }
                 }

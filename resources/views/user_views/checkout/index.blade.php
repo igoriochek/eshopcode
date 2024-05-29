@@ -7,7 +7,7 @@
         <div class="container">
             @if (!$discounts->isEmpty())
                 <div class="row justify-content-center">
-                    <div class="col-xl-7 col-lg-8 col-12">
+                    <div class="col-xl-8 col-lg-9 col-12">
                         <div class="coupon-accordion">
                             <h3>
                                 <span id="showcoupon">{{ __('names.selectDiscountCoupon') }}</span>
@@ -37,16 +37,19 @@
                 </div>
             @endif
             <div class="row justify-content-center">
-                <div class="col-xl-7 col-lg-8 col-12">
+                <div class="col-xl-8 col-lg-9 col-12">
                     <div class="your-order">
                         <h3>{{ __('names.yourOrder') }}</h3>
                         <div class="your-order-table table-responsive">
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th class="cart-product-name">{{ __('names.product') }}
+                                        <th class="cart-product-name text-start ps-2">
+                                            {{ __('names.product') }}
                                         </th>
-                                        <th class="cart-product-total">{{ __('names.price') }}</th>
+                                        <th class="cart-product-total text-start ps-2">
+                                            {{ __('names.price') }}
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -86,7 +89,7 @@
                                             <ul class="widgets-checkbox">
                                                 <li>
                                                     <input class="input-checkbox" type="checkbox" id="payment_method1"
-                                                        checked disabled>
+                                                        name="payment_method" value="cash-on-delivery" checked disabled>
                                                     <label class="label-checkbox mb-0" for="payment_method1">
                                                         {{ __('Paysera') }}
                                                     </label>
@@ -97,7 +100,7 @@
                                 </div>
                             </div>
                             <div class="order-button-payment">
-                                <input value="Place order" type="submit">
+                                <input value="{{ __('buttons.preview') }}" type="submit">
                             </div>
                         </div>
                         {!! Form::close() !!}

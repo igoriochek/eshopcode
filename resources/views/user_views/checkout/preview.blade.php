@@ -5,69 +5,94 @@
 @section('parentUrl', url('/user/checkout'))
 
 @section('content')
-    <section class="tp-checkout-area pb-120 pt-40" data-bg-color="#FFFFFF">
+    <div class="checkout-area section-space-y-axis-100">
         <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    {!! Form::open(['route' => ['pay'], 'method' => 'post']) !!}
-                    <!-- checkout place order -->
-                    <div class="tp-checkout-place white-bg" style="border: 1px solid #E0E2E3;">
-                        <h3 class="tp-checkout-place-title">{{ __('names.yourOrder') }}</h3>
-
-                        <div class="tp-order-info-list">
-                            <ul>
-
-                                <!-- header -->
-                                <li class="tp-order-info-list-header">
-                                    <h4>{{ __('names.product') }}</h4>
-                                    <h4>{{ __('names.total') }}</h4>
-                                </li>
-
-                                @foreach ($cartItems as $item)
-                                    <!-- item list -->
-                                    <li class="tp-order-info-list-desc">
-                                        <p>{{ $item['product']->name }}
-                                            <span> {{ 'x ' . $item->count }}</span>
-                                        </p>
-                                        <span>€{{ number_format($item->price_current * $item->count, 2) }}</span>
-                                    </li>
-                                @endforeach
-
-                                @if ($discounts)
-                                    @foreach ($discounts as $item)
-                                        <!-- subtotal -->
-                                        <li class="tp-order-info-list-subtotal">
-                                            <span>{{ __('names.discountCoupon') . ' (' . $item->code . ')' }}</span>
-                                            <span>-€{{ number_format($item->value, 2) }}</span>
-                                        </li>
+            <div class="row justify-content-center">
+                <div class="col-xl-7 col-lg-8 col-12">
+                    <div class="your-order">
+                        <h3>{{ __('names.yourOrder') }}</h3>
+                        <div class="your-order-table table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th class="cart-product-name text-start ps-2">
+                                            {{ __('names.product') }}
+                                        </th>
+                                        <th class="cart-product-total text-start ps-2">
+                                            {{ __('names.price') }}
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($cartItems as $item)
+                                        <tr class="cart_item">
+                                            <td class="cart-product-name">
+                                                {{ $item['product']->name }}
+                                                <strong class="product-quantity">{{ 'x ' . $item->count }}</strong>
+                                            </td>
+                                            <td class="cart-product-total">
+                                                <span class="amount">
+                                                    €{{ number_format($item->price_current * $item->count, 2) }}
+                                                </span>
+                                            </td>
+                                        </tr>
                                     @endforeach
-                                @endif
-
-                                <!-- total -->
-                                <li class="tp-order-info-list-total">
-                                    <span>{{ __('names.total') }}</span>
-                                    <span>€{{ number_format($amount, 2) }}</span>
-                                </li>
-                            </ul>
+                                    @if ($discounts)
+                                        @foreach ($discounts as $item)
+                                            <tr class="cart_item">
+                                                <td class="cart-product-name">
+                                                    {{ __('names.discountCoupon') . ' (' . $item->code . ')' }}
+                                                    <strong class="product-quantity">{{ 'x ' . $item->count }}</strong>
+                                                </td>
+                                                <td class="cart-product-total">
+                                                    <span class="amount">
+                                                        -€{{ number_format($item->value, 2) }}
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    @endif
+                                </tbody>
+                                <tfoot>
+                                    <tr class="order-total">
+                                        <th>{{ __('names.total') }}</th>
+                                        <td>
+                                            <strong>
+                                                <span class="amount">€{{ number_format($amount, 2) }}</span>
+                                            </strong>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
                         </div>
-                        <div class="tp-checkout-payment">
-                            <div class="tp-checkout-payment-item paypal-payment">
-                                <input type="radio" id="payment_method1" name="payment_method" value="cash-on-delivery"
-                                    checked disabled>
-                                <label for="paypal" for="payment_method1">
-                                    {{ __('Paysera') }}
-                                </label>
+                        {!! Form::open(['route' => ['pay'], 'method' => 'post', 'class' => 'payment-method mt-0']) !!}
+                        <div class="payment-accordion">
+                            <div id="accordion">
+                                <div class="card">
+                                    <div class="widgets-area bg-transparent px-0">
+                                        <h5 class="mb-5">{{ __('names.paymentMethods') }}</h5>
+                                        <div class="widgets-item">
+                                            <ul class="widgets-checkbox">
+                                                <li>
+                                                    <input class="input-checkbox" type="checkbox" id="payment_method1"
+                                                        name="payment_method" value="cash-on-delivery" checked disabled>
+                                                    <label class="label-checkbox mb-0" for="payment_method1">
+                                                        {{ __('Paysera') }}
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="order-button-payment">
+                                <input value="{{ __('buttons.placeOrder') }}" type="submit">
                             </div>
                         </div>
-                        <div class="tp-checkout-btn-wrapper d-flex justify-content-center align-items-center">
-                            <button type="submit" class="tp-checkout-btn col-xl-3 col-lg-4 col-md-6 col-12">
-                                {{ __('buttons.placeOrder') }}
-                            </button>
-                        </div>
+                        {!! Form::close() !!}
                     </div>
-                    {!! Form::close() !!}
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 @endsection
