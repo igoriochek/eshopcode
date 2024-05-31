@@ -1,15 +1,13 @@
-<table class="table">
-    <thead>
-       <tr>
-            <th scope="col">{{ __('table.date') }}</th>
-            <th scope="col">{{ __('table.action') }}</th>
-       </tr>
-    </thead>
+<table class="table table-bordered table-hover">
     <tbody>
-        @foreach($logs as $log)
+        <tr>
+            <th>{{ __('table.date') }}</th>
+            <th>{{ __('table.action') }}</th>
+        </tr>
+        @foreach ($logs as $log)
             <tr>
-                <td data-info="date">{{ $log->created_at }}</td>
-                <td data-info="action">{{ $log->activity }}</td>
+                <td>{{ $log->created_at }}</td>
+                <td>{{ $log->activity }}</td>
             </tr>
         @endforeach
     </tbody>

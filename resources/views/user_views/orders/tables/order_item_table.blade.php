@@ -1,29 +1,27 @@
-<table class="table">
-    <thead>
-       <tr>
-            @if ($order->status->name == 'Returned')
-                <th scope="col">{{ __('table.status') }}</th>
-            @endif
-            <th scope="col">{{ __('table.productName') }}</th>
-            <th scope="col">{{ __('table.price') }}</th>
-            <th scope="col">{{ __('table.count') }}</th>
-       </tr>
-    </thead>
+<table class="table table-bordered table-hover">
     <tbody>
-        @foreach($orderItems as $item)
+        <tr>
+            @if ($order->status->name == 'Returned')
+                <th>{{ __('table.status') }}</th>
+            @endif
+            <th>{{ __('table.productName') }}</th>
+            <th>{{ __('table.price') }}</th>
+            <th>{{ __('table.count') }}</th>
+        </tr>
+        @foreach ($orderItems as $item)
             <tr>
                 @if ($order->status->name == 'Returned')
-                    <td data-info="return">
+                    <td>
                         @if ($item->isReturned !== null)
-                            {{ __("status.".$item->isReturned) }}
+                            {{ __('status.' . $item->isReturned) }}
                         @else
                             -
                         @endif
                     </td>
                 @endif
-                <td data-info="product">{{ $item->product->name }}</td>
-                <td data-info="price">€{{ number_format($item->price_current, 2) }}</td>
-                <td data-info="count">{{ $item->count }}</td>
+                <td>{{ $item->product->name }}</td>
+                <td>€{{ number_format($item->price_current, 2) }}</td>
+                <td>{{ $item->count }}</td>
             </tr>
         @endforeach
     </tbody>
