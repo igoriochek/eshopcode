@@ -144,12 +144,14 @@
                                         @endauth
                                     </ul>
                                 </li>
-                                <li class="minicart-wrap me-3 me-lg-0">
-                                    <a href="{{ url('/user/viewcart') }}" class="minicart-btn">
-                                        <i class="pe-7s-shopbag"></i>
-                                        <span class="quantity">{{ $cartItemCount ?? 0 }}</span>
-                                    </a>
-                                </li>
+                                @auth
+                                    <li class="minicart-wrap me-3 me-lg-0">
+                                        <a href="{{ url('/user/viewcart') }}" class="minicart-btn">
+                                            <i class="pe-7s-shopbag"></i>
+                                            <span class="quantity">{{ $cartItemCount ?? 0 }}</span>
+                                        </a>
+                                    </li>
+                                @endauth
                                 <li class="mobile-menu_wrap d-block d-lg-none">
                                     <a href="#mobileMenu" class="mobile-menu_btn toolbar-btn pl-0">
                                         <i class="pe-7s-menu"></i>
