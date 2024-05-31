@@ -48,7 +48,7 @@
                                         @if ($order->status->name == 'Returned')
                                             <div class="btn-group">
                                                 <a href="{{ route('viewreturn', [$return->id]) }}"
-                                                    class="btn btn-dark rounded-0">
+                                                    class="btn btn-dark btn-primary-hover rounded-0">
                                                     {{ __('names.return') }}
                                                 </a>
                                             </div>
@@ -57,7 +57,7 @@
                                             @if ($order->status->name !== 'Completed')
                                                 <div class="btn-group">
                                                     <a href="{{ route('cancelnorder', [$order->id]) }}"
-                                                        class="btn btn-dark rounded-0">
+                                                        class="btn btn-dark btn-primary-hover rounded-0">
                                                         {{ __('buttons.cancel') }}
                                                     </a>
                                                 </div>
@@ -65,7 +65,7 @@
                                             @if ($order->status->name == 'Completed')
                                                 <div class="btn-group">
                                                     <a href="{{ route('returnorder', [$order->id]) }}"
-                                                        class="btn btn-dark rounded-0">
+                                                        class="btn btn-dark btn-primary-hover rounded-0">
                                                         {{ __('buttons.return') }}
                                                     </a>
                                                 </div>
@@ -74,7 +74,7 @@
                                         @if ($order->status->name == 'Completed' || $order->status->name == 'Returned')
                                             <div class="btn-group">
                                                 <a href="{{ route('download_invoice', [$order->id]) }}"
-                                                    class="btn btn-dark rounded-0">
+                                                    class="btn btn-dark btn-primary-hover rounded-0">
                                                     {{ __('names.invoice') }}
                                                 </a>
                                             </div>

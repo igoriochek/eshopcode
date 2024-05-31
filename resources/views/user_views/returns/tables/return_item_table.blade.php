@@ -1,17 +1,15 @@
-<table class="table">
-    <thead>
-       <tr>
-            <th scope="col">{{ __('table.productName') }}</th>
-            <th scope="col">{{ __('table.price') }}</th>
-            <th scope="col">{{ __('table.count') }}</th>
-       </tr>
-    </thead>
+<table class="table table-bordered table-hover">
     <tbody>
-        @foreach($returnItems as $item)
+        <tr>
+            <th>{{ __('table.productName') }}</th>
+            <th>{{ __('table.price') }}</th>
+            <th>{{ __('table.count') }}</th>
+        </tr>
+        @foreach ($returnItems as $item)
             <tr>
-                <td data-info="product">{{ $item->product->name }}</td>
-                <td data-info="price">€{{ number_format($item->price_current, 2) }}</td>
-                <td data-info="count">{{ $item->count }}</td>
+                <td>{{ $item->product->name }}</td>
+                <td>€{{ number_format($item->price_current, 2) }}</td>
+                <td>{{ $item->count }}</td>
             </tr>
         @endforeach
     </tbody>

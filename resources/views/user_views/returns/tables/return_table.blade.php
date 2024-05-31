@@ -14,7 +14,7 @@
                 <td>€{{ number_format($return->sum, 2) }}</td>
                 <td>{{ $return->created_at->format('M d, Y') }}</td>
                 <td>
-                    <a href="{{ route('viewreturn', [$return->id]) }}" class="btn btn-dark btn-primary-hover">
+                    <a href="{{ route('viewreturn', [$return->id]) }}" class="btn btn-dark btn-primary-hover rounded-0">
                         {{ __('buttons.view') }}
                     </a>
                 </td>

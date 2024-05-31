@@ -14,7 +14,7 @@
                 <td>€{{ number_format($order->sum, 2) }}</td>
                 <td>{{ $order->created_at->format('M d, Y') }}</td>
                 <td>
-                    <a href="{{ route('vieworder', [$order->id]) }}" class="btn btn-dark btn-primary-hover">
+                    <a href="{{ route('vieworder', [$order->id]) }}" class="btn btn-dark btn-primary-hover rounded-0">
                         <span>{{ __('buttons.view') }}</span>
                     </a>
                 </td>
