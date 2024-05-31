@@ -34,8 +34,12 @@
                                 <h4 class="small-title">{{ __('menu.userInfo') }}</h4>
                                 @include('user_views.user.user_info_form')
                             </div>
+                        </div>
+                    </div>
+                    <div class="tab-content myaccount-tab-content mt-5">
+                        <div class="tab-pane fade active show">
                             <div class="myaccount-details">
-                                <h4 class="small-title mt-5">{{ __('auth.passwordEnter') }}</h4>
+                                <h4 class="small-title">{{ __('auth.passwordEnter') }}</h4>
                                 @include('user_views.user.change_password_form')
                             </div>
                         </div>

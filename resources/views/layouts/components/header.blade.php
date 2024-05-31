@@ -97,7 +97,7 @@
                                         @auth
                                             <li>
                                                 <a class="dropdown-item" href="{{ url('/user/userprofile') }}"
-                                                    style="color: {{ request()->is('user/userprofile*') ? '#0989FF' : '' }}">
+                                                    style="color: {{ request()->is('user/userprofile*') ? '#ee3231' : '' }}">
                                                     {{ __('menu.profile') }}
                                                 </a>
                                             </li>
@@ -107,14 +107,14 @@
                                                     request()->is('user/vieworder*') ||
                                                     request()->is('user/cancelorder*') ||
                                                     request()->is('user/returnorder*')
-                                                        ? '#0989FF'
+                                                        ? '#ee3231'
                                                         : '' }}">
                                                     {{ __('menu.orders') }}
                                                 </a>
                                             </li>
                                             <li>
                                                 <a class="dropdown-item" href="{{ url('/user/rootoreturns') }}"
-                                                    style="color: {{ request()->is('user/rootoreturns*') || request()->is('user/viewreturn*') ? '#a10909' : '' }}">
+                                                    style="color: {{ request()->is('user/rootoreturns*') || request()->is('user/viewreturn*') ? '#ee3231' : '' }}">
                                                     {{ __('menu.returns') }}
                                                 </a>
                                             </li>
@@ -201,7 +201,7 @@
                                 @auth
                                     <li>
                                         <a class="dropdown-item" href="{{ url('/user/userprofile') }}"
-                                            style="color: {{ request()->is('user/userprofile*') ? '#0989FF' : '' }}">
+                                            style="color: {{ request()->is('user/userprofile*') ? '#ee3231' : '' }}">
                                             {{ __('menu.profile') }}
                                         </a>
                                     </li>
@@ -211,14 +211,14 @@
                                             request()->is('user/vieworder*') ||
                                             request()->is('user/cancelorder*') ||
                                             request()->is('user/returnorder*')
-                                                ? '#0989FF'
+                                                ? '#ee3231'
                                                 : '' }}">
                                             {{ __('menu.orders') }}
                                         </a>
                                     </li>
                                     <li>
                                         <a class="dropdown-item" href="{{ url('/user/rootoreturns') }}"
-                                            style="color: {{ request()->is('user/rootoreturns*') || request()->is('user/viewreturn*') ? '#a10909' : '' }}">
+                                            style="color: {{ request()->is('user/rootoreturns*') || request()->is('user/viewreturn*') ? '#ee3231' : '' }}">
                                             {{ __('menu.returns') }}
                                         </a>
                                     </li>
