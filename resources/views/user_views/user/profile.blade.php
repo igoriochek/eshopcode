@@ -31,11 +31,11 @@
                     <div class="tab-content myaccount-tab-content">
                         <div class="tab-pane fade active show">
                             <div class="myaccount-details">
-                                <h5 class="mb-4">{{ __('menu.userInfo') }}</h5>
+                                <h4 class="small-title">{{ __('menu.userInfo') }}</h4>
                                 @include('user_views.user.user_info_form')
                             </div>
                             <div class="myaccount-details">
-                                <h5 class="mb-4 mt-5">{{ __('auth.passwordEnter') }}</h5>
+                                <h4 class="small-title mt-5">{{ __('auth.passwordEnter') }}</h4>
                                 @include('user_views.user.change_password_form')
                             </div>
                         </div>
