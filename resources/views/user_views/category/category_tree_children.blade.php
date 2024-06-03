@@ -1,6 +1,6 @@
-<ul>
+<ul class="my-2">
     @foreach($childs as $child)
-        <li>
+        <li class="my-2">
             <a href="{{ route("innercategories", ["category_id" => $child->id ]) }}" 
                 class="ps-0 {{ substr(url()->current(), -1) == "$child->id" ? 'active' : '' }}">
                 @if (count($child->innerCategories))

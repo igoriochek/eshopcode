@@ -1,7 +1,7 @@
-<ul>
+<ul class="my-2">
     @foreach($treeCategories as $category)
-        <li>
-            <a href="{{ route("innercategories", ["category_id" => $category->id ]) }}" 
+        <li class="my-2">
+            <a href="{{ route("innercategories", ["category_id" => $category->id ]) }}"
                 class="ps-0 {{ substr(url()->current(), -1) == "$category->id" ? 'active' : '' }}">
                 @if (count($category->innerCategories))
                     <i class="fa-solid fa-angle-down pe-1"></i>
