@@ -1,6 +1,6 @@
 .pagination .page-item.active .page-link {
-    background-color: #0989ff;
-    border-color: #0989ff;
+    background-color: #ee3231;
+    border-color: #ee3231;
 }
 
 .pagination .page-item .page-link {
@@ -13,9 +13,20 @@
     }
 }
 
+.pagination .page-item.active .page-link {
+    color: #000;
+    &:hover {
+        color: #fff;
+    }
+}
+
 .tp-theme-settings-open {
     position: absolute;
     top: -1px;
     left: 100%;
     display: none;
+}
+
+.dec.qtybutton i, .inc.qtybutton i {
+    color: #fff;
 }

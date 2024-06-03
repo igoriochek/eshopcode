@@ -1,20 +1,35 @@
 <form method="get" action="{{ route("userproducts") }}" id="mainForm">
-    <div class="tp-shop-sidebar tp-shop-sidebar-right mr-10">
-        <!-- search -->
-        <div class="tp-shop-widget mb-35">
-            <div class="tp-header-search-2 d-none d-sm-block">
-                <form action="#">
-                   <input type="text" name="filter[namelike]" id="filter[namelike]" placeholder="{{ __('names.search').'...' }}" value="{{ $filter["namelike"] ?? "" }}">
-                   <button type="submit">
-                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                         <path d="M9 17C13.4183 17 17 13.4183 17 9C17 4.58172 13.4183 1 9 1C4.58172 1 1 4.58172 1 9C1 13.4183 4.58172 17 9 17Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                         <path d="M18.9999 19L14.6499 14.65" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                      </svg>                                       
-                   </button>
-                </form>
-             </div>
+
+    <div class="sidebar-area style-2">
+        <div class="widgets-searchbox widgets-area py-6 mb-9">
+            <form id="widgets-searchbox" action="#">
+                <input class="input-field" type="text" name="filter[namelike]" id="filter[namelike]" placeholder="{{ __('names.search').'...' }}" value="{{ $filter["namelike"] ?? "" }}">
+                <button class="widgets-searchbox-btn" type="submit">
+                    <i class="pe-7s-search"></i>
+                </button>
+            </form>
         </div>
-        <!-- filter -->
+
+        <div class="widgets-area mb-9">
+            <h2 class="widgets-title mb-5">{{ __('names.categories') }}</h2>
+            <div class="widgets-item">
+                <ul class="widgets-checkbox">
+                    @forelse ($categories as $category)
+                    <li>
+                        <input class="input-checkbox" type="checkbox" id="category.{{ $category->id }}" value="{{ $category->id }}" onclick="calc();" @if ($filter && isset($filter["categories.id"])) {{ in_array($category->id, $selCategories) ? "checked=\"checked\"" : ""}} @endif>
+                        <label class="label-checkbox mb-0" for="category.{{ $category->id }}">
+                            {{ $category->name }}
+                        </label>
+                    </li>
+                    @empty
+                    <li>
+                        <span class="text-muted">{{ __('names.noCategories') }}</span>
+                    </li>
+                    @endforelse
+                </ul>
+            </div>
+        </div>
+
         <div class="tp-shop-widget mb-35">
             <h3 class="tp-shop-widget-title no-border">{{ __('names.filterByPrice') }}</h3>
 
@@ -45,33 +60,7 @@
                 </div>
             </div>
         </div>
-        <!-- status -->
-        <div class="tp-shop-widget mb-50">
-            <h3 class="tp-shop-widget-title">{{ __('names.categories') }}</h3>
 
-            <div class="tp-shop-widget-content">
-                <div class="tp-shop-widget-checkbox tp-shop-widget-categories">
-                    <ul class="filter-items filter-checkbox">
-                        @forelse ($categories as $category)
-                            <li class="filter-item checkbox">
-                                <input type="checkbox" id="category.{{ $category->id }}" value="{{ $category->id }}" onclick="calc();"
-                                    @if ($filter && isset($filter["categories.id"]))
-                                        {{ in_array($category->id, $selCategories) ? "checked=\"checked\"" : ""}}
-                                    @endif
-                                >
-                                <label for="category.{{ $category->id }}">
-                                    {{ $category->name }}
-                                </label>
-                            </li>
-                        @empty
-                            <li>
-                                <span class="text-muted">{{ __('names.noCategories') }}</span>
-                            </li>
-                        @endforelse
-                    </ul>
-                </div>
-            </div>
-        </div>
         <input type="hidden" id="filter[categories.id]" name="filter[categories.id]" value="{{ implode(",", $selCategories) }}">
         <input type="hidden" id="order" name="order" value="{{ $selectedOrder }}">
     </div>
