@@ -328,6 +328,7 @@ return [
     'first' => 'Pirmas',
     'last' => 'Paskutinis',
     'yes' => 'Taip',
-    'no' => 'Ne'
+    'no' => 'Ne',
+    'appDescription' => 'Krims kebabai internetinė parduotuvė.'
 
 ];
