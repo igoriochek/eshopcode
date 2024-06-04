@@ -118,25 +118,12 @@
     $(document).ready(function() {
         $(rangeSlider).slider({
             range: true,
-            min: {
-                {
-                    $minPrice
-                }
-            },
-            max: {
-                {
-                    $maxPrice
-                }
-            },
-            values: [{
-                {
-                    $filter["pricefrom"] ?? $minPrice
-                }
-            }, {
-                {
-                    $filter["priceto"] ?? $maxPrice
-                }
-            }],
+            min: {{ $minPrice }},
+            max: {{ $maxPrice }},
+            values: [
+                {{ $filter["pricefrom"] ?? $minPrice }},
+                {{ $filter["priceto"] ?? $maxPrice }}
+            ],
             slide: (event, ui) => {
                 $(priceFrom).val(ui.values[0]);
                 $(priceTo).val(ui.values[1]);

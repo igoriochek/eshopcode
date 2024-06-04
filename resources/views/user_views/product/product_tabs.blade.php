@@ -48,8 +48,9 @@
 
             <div class="feedback-area pt-10">
                 <h2 class="heading mb-3">{{ __('names.addReview') }}</h2>
+                <div id="feedback-form"></div>
                 @auth
-                    <form class="feedback-form pt-5">
+                    <form class="feedback-form" style="padding-top: 26px;">
                         <div class="rating-box">
                             <span>{{ __('names.rating').'*' }}</span>
 
@@ -75,7 +76,8 @@
                             <textarea id="comment" name="comment" placeholder="{{ __('names.review').'*' }}" class="textarea-field"></textarea>
                         </div>
                         <div class="button-wrap mt-8">
-                            <button type="submit" value="submit" class="btn btn-custom-size lg-size btn-primary" name="submit">{{ __('buttons.submit') }}</button>
+                            <button id="product-reviews-add-review-submit" type="button" class="btn btn-custom-size lg-size btn-primary">
+                            {{ __('buttons.submit') }}</button>
                         </div>
                     </form>
                 @else

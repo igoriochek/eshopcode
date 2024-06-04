@@ -1,6 +1,6 @@
-<ul>
+<ul class="my-2">
     @foreach($promotions as $promotion)
-        <li>
+        <li class="my-2">
             <a href="{{ route("promotion", ["id" => $promotion->id] ) }}">
                 {{ $promotion->name }} 
                 <span>({{ count($promotion->products) }})</span>

@@ -30,12 +30,12 @@
             </div>
         </div>
 
-        <div class="tp-shop-widget mb-35">
-            <h3 class="tp-shop-widget-title no-border">{{ __('names.filterByPrice') }}</h3>
+        <div class="widgets-area widgets-filter mb-9">
+            <h2 class="widgets-title mb-5">{{ __('names.filterByPrice') }}</h2>
 
             <div class="tp-shop-widget-content">
                 <div class="tp-shop-widget-filter">
-                    <div class="range-slider">
+                    <div class="irs-line">
                         <div id="range-slider" class="slider mb-3 mt-1 mx-1" wire:ignore></div>
                     </div>
                     <div class="tp-shop-widget-filter-info d-flex align-items-center justify-content-between">

@@ -76,11 +76,14 @@
                                     'class' => 'cart-plus-minus-box tp-cart-input', 
                                     "oninput" => "this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null
                                 "]) !!}
+                                <div class="dec qtybutton"><i class="fa fa-minus"></i></div>
+                                <div class="inc qtybutton"><i class="fa fa-plus"></i></div>
                             </div>
                         </li>
                         <li class="add-to-cart">
                             <button type="submit" class="btn btn-custom-size lg-size btn-primary">{{ __('buttons.addToCart') }}</button>
                         </li>
+                        <input type="hidden" name="id" value="{{ $product->id }}">
                         {!! Form::close() !!}
                     </ul>
                     <div class="product-category pb-3">
@@ -147,6 +150,28 @@
 
 @push('scripts')
 <script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const quantityContainer = document.querySelector('.cart-plus-minus');
+
+    if (quantityContainer) {
+        const inputBox = quantityContainer.querySelector('.cart-plus-minus-box');
+        const decButton = quantityContainer.querySelector('.dec');
+        const incButton = quantityContainer.querySelector('.inc');
+
+        decButton.addEventListener('click', function() {
+            if (parseInt(inputBox.value, 10) > 1) {
+                inputBox.value = parseInt(inputBox.value, 10) - 1;
+            }
+        });
+
+        incButton.addEventListener('click', function() {
+            inputBox.value = parseInt(inputBox.value, 10) + 1;
+        });
+    }
+    });
+
+
+
     $('#product-reviews-add-review-submit').click(() => {
         const value = $('input[type=radio][name=rating]:checked').val();
         const desc = $('textarea#comment').val();
@@ -157,15 +182,11 @@
                 "_token": "{{ csrf_token() }}",
                 rating: value,
                 description: desc,
-                product: {
-                    {
-                        $product - > id
-                    }
-                }
+                product: {{$product -> id}}
             },
             (data, status) => {
                 if (data.val == "ok") {
-                    $('#review-product').html("<p class='pt-1'>{{ __('names.reviewProduct') }}</p>");
+                    $('#feedback-form').html("<p class='pt-1'>{{ __('names.reviewProduct') }}</p>");
                     $('#product-reviews-add-review-submit').prop("disabled", true);
 
                     setInterval(() => window.location.reload(), 1000 * seconds);
