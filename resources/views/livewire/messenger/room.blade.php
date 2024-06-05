@@ -36,6 +36,12 @@
     @include('livewire.messenger.form')
 </div>
 
+<style>
+    .messenger-room .messenger-message-box .messenger-message-to-container .messenger-message-to {
+        background-color: #ee3231;
+    }
+</style>
+
 @push('scripts')
     <script>
         const messageBox = document.getElementById('messsageBox');
