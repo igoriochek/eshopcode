@@ -12,7 +12,7 @@
                             <div class="col-12">
                                 <div class="shop-shorting-left-content">
                                     <ul>
-                                        <li>
+                                        <li style="line-height: 2rem">
                                             @if ($lang == 'lt')
                                                 <h4 class="mb-4">Privatumo politika</h4>
                                                 Privatumo politika (toliau – „Privatumo politika“) paaiškina, kaip UAB
@@ -21,14 +21,15 @@
                                                 informaciją, nurodo kokias teises Svetainės lankytojai turi bei kaip jas
                                                 gali įgyvendinti. Prieš registruojantis Svetainėje rekomenduojame atidžiai
                                                 perskaityti šią Privatumo politiką.<br>
-                                                Компания обязуется ответственно и безопасно обрабатывать в своей
-                                                деятельности ваших персональных данных. В соответствии со следующими
-                                                основополагающими принципами мы всегда будем стремиться к обеспечению
-                                                надлежащего уровня защиты ваших данных и ваших прав защита. Мы обрабатываем
-                                                персональные данные в соответствии с настоящей Политикой конфиденциальности,
-                                                в соответствии с действующим законодательством, включая Общий регламент по
-                                                защите данных pегламент (2016/679) ("GDPR") и применимое национальное
-                                                литовское национальным законодательством Литвы о защите персональных данных.
+                                                Bendrovė įsipareigoja atsakingai ir saugiai tvarkyti jūsų asmens duomenis
+                                                savo jūsų asmens duomenis. Vadovaudamasi šiais principais pagrindiniais
+                                                principais, mes visada stengsimės teikti tinkamą jūsų duomenų ir jūsų teisių
+                                                į gynybą apsaugos lygį. Mes tvarkome asmens duomenis laikydamiesi šios
+                                                privatumo politikos, vadovaudamiesi galiojančiais teisės aktais, įskaitant
+                                                Bendrąjį duomenų apsaugos reglamentą (2016/31) ir Bendrąjį duomenų apsaugos
+                                                reglamentą (2016/31). Duomenų apsaugos reglamentu (2016/679) (toliau - BDAR)
+                                                ir taikomais nacionaliniais Lietuvos nacionaliniais teisės aktais,
+                                                reglamentuojančiais asmens duomenų apsaugą.
                                                 <h6 class="mt-3 mb-2">Duomenų valdytojas</h6>
                                                 UAB Consultus Magnus</br>
                                                 Įmonės kodas yra: 223946830</br>

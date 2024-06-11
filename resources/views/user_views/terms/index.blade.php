@@ -15,7 +15,7 @@
                                         <li>
                                             <h4 class="mb-4">{{ __('menu.termsofservice') }}</h4>
                                             @if ($lang == 'lt')
-                                                <p>
+                                                <p style="line-height: 2rem">
                                                     1. Bendrosios nuostatos.</br>
                                                     1.1. Šios prekių / paslaugų pirkimo – pardavimo taisyklės (toliau –
                                                     Taisyklės) yra Šalims privalomas teisinis dokumentas, kuris nustato
