@@ -3,23 +3,6 @@
 @section('title', __('menu.categories'))
 
 @section('content')
-    <!-- <section class="tp-blog-grid-area pb-120">
-        <div class="container">
-           <div class="row">
-              <div class="col-12">
-                 <div class="tp-sidebar-wrapper">
-
-                    <div class="tp-sidebar-widget widget_categories mb-35">
-                       <div class="tp-sidebar-widget-content">
-                            @include('user_views.category.category_tree')
-                       </div>
-                    </div>
-                    
-                 </div>
-              </div>
-           </div>
-        </div>
-     </section> -->
 <div class="shop-area section-space-y-axis-100">
    <div class="container">
       <div class="row">

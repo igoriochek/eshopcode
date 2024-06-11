@@ -42,6 +42,20 @@
                             <span>{{ $products->total() }}</span>
                             {{ __('names.entries') }}
                         </li>
+                        <li class="product-view-wrap">
+                            <ul class="nav" role="tablist">
+                                <li class="grid-view" role="presentation">
+                                    <a class="active" id="grid-view-tab" data-bs-toggle="tab" href="#grid-view" role="tab" aria-selected="true">
+                                        <i class="fa fa-th"></i>
+                                    </a>
+                                </li>
+                                <li class="list-view" role="presentation">
+                                    <a id="list-view-tab" data-bs-toggle="tab" href="#list-view" role="tab" aria-selected="true">
+                                        <i class="fa fa-th-list"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
                         <li class="short">
                            <a href="{{ route("promotions") }}" class="tp-load-more-btn">
                                         {{ __('buttons.backToAllPromotions') }}
@@ -59,7 +73,17 @@
                             @endforelse
                         </div>
                     </div>
+                    <div class="tab-pane fade" id="list-view" role="tabpanel" aria-labelledby="list-view-tab">
+                        <div class="product-list-view row">
+                            @forelse ($products as $product)
+                            @include('user_views.product.list_product')
+                            @empty
+                            <span class="text-muted">{{ __('names.noProducts') }}</span>
+                            @endforelse
+                        </div>
+                    </div>
                 </div>
+                
                 <div class="pagination-area pt-10">
                     <nav aria-label="Page navigation example">
                         <div class="pagination justify-content-end">

@@ -1,4 +1,4 @@
-<ul class="my-2">
+<ul class="my-2 ms-2">
     @foreach($childs as $child)
         <li class="my-2">
             <a href="{{ route("innercategories", ["category_id" => $child->id ]) }}" 

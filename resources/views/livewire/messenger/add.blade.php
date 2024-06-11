@@ -27,21 +27,26 @@
             </div>
             <div class="col-lg-8 col-md-6 col-12 mt-50 mt-md-0">
                 <div class="tp-postbox-wrapper">
-                    <div class="tp-postbox-wrapper">
-                        <p class="fs-6" style="margin-top: 16px;">
-                            {{ __('names.showing') }}
-                            @if ($addUsers->currentPage() !== $addUsers->lastPage())
-                                {{ ($addUsers->count() * $addUsers->currentPage() - $addUsers->count() + 1).__('–').($addUsers->count() * $addUsers->currentPage()) }}
-                            @else
-                                @if ($addUsers->total() - $addUsers->count() === 0)
-                                    {{ $addUsers->count() }}
+                    <div class="product-topbar">
+                        <ul>
+                            <li class="page-count">
+                                {{ __('names.showing') }}
+                                <span>
+                                @if ($addUsers->currentPage() !== $addUsers->lastPage())
+                                    {{ ($addUsers->count() * $addUsers->currentPage() - $addUsers->count() + 1).__('–').($addUsers->count() * $addUsers->currentPage()) }}
                                 @else
-                                    {{ ($addUsers->total() - $addUsers->count()).__('–').$addUsers->total() }}
+                                    @if ($addUsers->total() - $addUsers->count() === 0)
+                                        {{ $addUsers->count() }}
+                                    @else
+                                        {{ ($addUsers->total() - $addUsers->count()).__('–').$addUsers->total() }}
+                                    @endif
                                 @endif
-                            @endif
-                            {{ __('names.of') }}
-                            {{ $addUsers->total().' '.__('names.entries') }}
-                        </p>
+                                </span>
+                                {{ __('names.of') }}
+                                <span>{{ $addUsers->total() }}</span>
+                                {{ __('names.entries') }}
+                            </li>
+                        </ul>
                         @include('livewire.messenger.add_users')
                     </div>
                 </div>

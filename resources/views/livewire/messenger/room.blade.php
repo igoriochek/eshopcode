@@ -40,6 +40,10 @@
     .messenger-room .messenger-message-box .messenger-message-to-container .messenger-message-to {
         background-color: #ee3231;
     }
+
+    .messenger-room .messenger-message-box {
+        border-radius: 0px;
+    }
 </style>
 
 @push('scripts')

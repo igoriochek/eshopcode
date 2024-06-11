@@ -29,7 +29,6 @@
         }
         .form-group .message-input {
             flex-grow: 1;
-            margin-right: 8px;
         }
         .form-group input {
             height: auto !important;
@@ -37,6 +36,9 @@
         .form-group .submit-btn {
             flex-basis: 20%;
             white-space: nowrap;
+        }
+        .form-control {
+            border-radius: 0rem;
         }
         .search-bar {
             padding: 0px;

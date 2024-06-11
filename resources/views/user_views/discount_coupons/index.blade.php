@@ -9,22 +9,31 @@
             <div class="col-12 mb-4">
                 @include('flash_messages')
             </div>
-            <p class="fs-6">
-                @if (count($discountCoupons) > 0)
-                {{ __('names.showing') }}
-                @if ($discountCoupons->currentPage() !== $discountCoupons->lastPage())
-                {{ ($discountCoupons->count() * $discountCoupons->currentPage() - $discountCoupons->count() + 1).__('–').($discountCoupons->count() * $discountCoupons->currentPage()) }}
-                @else
-                @if ($discountCoupons->total() - $discountCoupons->count() === 0)
-                {{ $discountCoupons->count() }}
-                @else
-                {{ ($discountCoupons->total() - $discountCoupons->count()).__('–').$discountCoupons->total() }}
-                @endif
-                @endif
-                {{ __('names.of') }}
-                {{ $discountCoupons->total().' '.__('names.entries') }}
-                @endif
-            </p>
+            <div class="product-topbar">
+                <ul>
+                    <li class="page-count">
+                        @if (count($discountCoupons) > 0)
+                            {{ __('names.showing') }}
+                            <span>
+                            @if ($discountCoupons->currentPage() !== $discountCoupons->lastPage())
+                                {{ ($discountCoupons->count() * $discountCoupons->currentPage() - $discountCoupons->count() + 1).__('–').($discountCoupons->count() * $discountCoupons->currentPage()) }}
+                            @else
+                                @if ($discountCoupons->total() - $discountCoupons->count() === 0)
+                                    {{ $discountCoupons->count() }}
+                                @else
+                                    {{ ($discountCoupons->total() - $discountCoupons->count()).__('–').$discountCoupons->total() }}
+                                @endif
+                            @endif
+                            </span>
+                            {{ __('names.of') }}
+                            <span>
+                            {{ $discountCoupons->total() }} 
+                            </span>
+                            {{__('names.entries') }}
+                        @endif
+                    </li>
+                </ul>
+            </div>
             @forelse($discountCoupons as $discountCoupon)
             <div class="col-xl-6 py-3">
                 <div class="widgets-area">
@@ -43,7 +52,7 @@
                             @if ($discountCoupon->used)
                             <span class="text-danger">{{ __('names.used') }}</span>
                             @else
-                            <span class="active">{{ __('names.active') }}</span>
+                            <span class="active" style="color: #00c100">{{ __('names.active') }}</span>
                             @endif
                         </h4>
                         <div class="tp-coupon-date">

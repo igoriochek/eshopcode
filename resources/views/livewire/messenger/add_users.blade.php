@@ -23,7 +23,7 @@
 @empty
     <span class="text-muted">{{ __('names.noUncontactedUsers') }}</span>
 @endforelse
-<div class="tp-blog-pagination mt-50">
+<div class="tp-blog-pagination mt-5">
     <div class="tp-pagination">
         @if (count($addUsers) > 0)
             {{ $addUsers->onEachSide(1)->links() }}

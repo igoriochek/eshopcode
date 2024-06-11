@@ -15,7 +15,7 @@
 <div class="tab-content product-tab-content">
     <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
         <div class="product-description-body">
-            <p class="short-desc mb-0">{!! $product->description !!}</p>
+            <p class="short-desc mb-0" style="text-align: start;">{!! $product->description !!}</p>
         </div>
     </div>
     <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">

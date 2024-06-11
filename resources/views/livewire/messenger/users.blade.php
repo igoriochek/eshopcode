@@ -8,7 +8,7 @@
                         <div>
                             <h6 class=" mb-0">{{ $user->name }}</h6>
                         </div>
-                        <div class="">
+                        <div class="" style="display: flex; justify-content: flex-start;">
                             @if ($user->last_message->user_from == auth()->user()->id)
                             <span class="me-1" style="color: #6c788c;">{{ __('names.you') }}:</span>
                             @endif

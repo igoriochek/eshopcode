@@ -130,6 +130,11 @@
         -moz-appearance: textfield;
     }
 
+    .btn-custom-size.lg-size {
+        width: auto;
+        padding: 0px 15px;
+    }
+
     .products-details-content .btns li .input-counter span.minus-button {
         bottom: 5px;
     }
@@ -144,6 +149,10 @@
         right: 15px;
         color: #111;
         cursor: pointer;
+    }
+
+    .single-product-content .quantity-with-btn li .cart-plus-minus {
+        width: 76px;
     }
 </style>
 @endpush
