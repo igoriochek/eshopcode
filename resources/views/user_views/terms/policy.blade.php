@@ -12,7 +12,7 @@
                             @if ($lang == 'lt')
                                 Privatumo politika (toliau – "Privatumo politika") paaiškina, kaip UAB
                                 "Nutika" (toliau – "Bendrovė") renka ir tvarko svetainės
-                                https://www.eshop.nutika.com (toliau – "Svetainė") lankytojų
+                                https://www.nutika.lt (toliau – "Svetainė") lankytojų
                                 informaciją, nurodo kokias teises Svetainės lankytojai turi bei kaip jas
                                 gali įgyvendinti. Prieš registruojantis Svetainėje rekomenduojame atidžiai
                                 perskaityti šią Privatumo politiką.<br>
@@ -25,9 +25,9 @@
                                 asmens duomenų apsaugos teisės aktus.
                                 <h6 class="mt-3 mb-2">Duomenų valdytojas</h6>
                                 UAB "Nutika"<br>
-                                Įmonės kodas: 125690535<br>
-                                Adresas: Latvių g. 19A-7, LT-08113 Vilnius<br>
-                                Tel. Nr. +37052310857<br>
+                                Įmonės kodas: 304426502<br>
+                                Adresas: Veisiejų g. 12-40, Druskininkai<br>
+                                Tel. Nr. +37068629686<br>
                                 El. pašto adresas: info@nutika.com
                                 <h6 class="mt-3 mb-2">Kokią informaciją renkame, naudojame ir saugojame apie
                                     Jus?</h6>
@@ -90,8 +90,8 @@
                                 peržiūrėti mūsų Privatumo politiką.<br />
                             @elseif ($lang == 'ru')
                                 Политика конфиденциальности (далее — «Политика конфиденциальности»)
-                                объясняет, как ЗАО «Билан» (далее — «Компания») собирает и обрабатывает
-                                информацию о посетителях веб-сайта https://www.eshop.nutika.com
+                                объясняет, как ЗАО «Nutika» (далее — «Компания») собирает и обрабатывает
+                                информацию о посетителях веб-сайта https://www.nutika.lt
                                 (далее — «Сайт»), указывает, что права, которыми обладают посетители Сайта,
                                 и способы их реализации. Перед регистрацией на Сайте рекомендуем внимательно
                                 ознакомиться с настоящей Политикой конфиденциальности.<br />
@@ -104,10 +104,10 @@
                                 (далее — «GDPR») и применимыми национальными законами Литвы о защите
                                 персональных данных.<br />
                                 <h6 class="mt-3 mb-2">Контроллер данных</h6>
-                                ЗАО «Билан»<br />
-                                Код компании: 125690535<br />
-                                Адрес: Latvių g. 19A-7, LT-08113 Vilnius<br />
-                                Тел. Нр. +37052310857<br />
+                                ЗАО «Nutika»<br />
+                                Код компании: 304426502<br />
+                                Адрес: Veisiejų g. 12-40, Druskininkai<br />
+                                Тел. Нр. +37068629686<br />
                                 Адрес электронной почты: info@nutika.com
                                 <h6 class="mt-3 mb-2">Какую информацию о вас мы собираем, используем и
                                     храним?</h6>
@@ -174,7 +174,7 @@
                             @else
                                 The Privacy Policy (hereinafter - the "Privacy Policy") explains how UAB
                                 "Nutika" (hereinafter - the "Company") collects and processes the
-                                information of visitors to the website https://www.eshop.nutika.com
+                                information of visitors to the website https://www.nutika.lt
                                 (hereinafter - the "Site"), indicates what rights the visitors of the Site
                                 have and how to exercise them. can implement. Before registering on the
                                 Website, we recommend that you carefully read this Privacy Policy.<br />
@@ -188,9 +188,9 @@
                                 legislation.<br />
                                 <h6 class="mt-3 mb-2">Data Controller</h6>
                                 UAB "Nutika"<br />
-                                Registration code: 125690535<br />
-                                Address: Latvių g. 19A-7, LT-08113 Vilnius<br />
-                                Phone. No. +37052310857<br />
+                                Registration code: 304426502<br />
+                                Address: Veisiejų g. 12-40, Druskininkai<br />
+                                Phone. No. +37068629686<br />
                                 Email address: info@nutika.com
                                 <h6 class="mt-3 mb-2">What information do we collect, use and store about
                                     you?</h6>
