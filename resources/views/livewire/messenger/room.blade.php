@@ -1,7 +1,8 @@
-<div wire:poll.1s='updateMessages' class="messenger-room px-4 pb-4 mb-sm-5 single-shop-sidebar-widget color-and-item">
+<div wire:poll.1s='updateMessages'
+    class="messenger-room px-0 pb-4 mb-sm-5 mt-10 mt-lg-0 single-shop-sidebar-widget color-and-item">
     <div>
         <h4 class="pb-1">
-            {{ __('menu.admin').' '.$user->name }}
+            {{ __('menu.admin') . ' ' . $user->name }}
         </h4>
     </div>
     <div class="messenger-message-box" id="messsageBox" style="border: 1px solid rgba(1, 15, 28, 0.1);">

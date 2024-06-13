@@ -3,14 +3,14 @@
         <article class="tp-postbox-item format-image transition-3 p-3">
             <div class="tp-postbox-content d-flex justify-content-between align-items-center">
                 <div>
-                    <h2 class="tp-sidebar-widget-title mb-0">
+                    <h5 class="tp-sidebar-widget-title mb-2">
                         {{ $user->name }}
-                    </h2>
+                    </h5>
                     <p class="mb-0">
                         {{ $user->email }}
                     </p>
                 </div>
-                <a href="{{ route('livewire.messenger.show', [$user->id]) }}" 
+                <a href="{{ route('livewire.messenger.show', [$user->id]) }}"
                     class="btn btn-custom-size md-size btn-primary btn-secondary-hover" style="line-height: 35px;">
                     {{ __('buttons.contact') }}
                 </a>
