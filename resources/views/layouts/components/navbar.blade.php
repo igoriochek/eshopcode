@@ -18,7 +18,7 @@
                     <img src="{{ asset('images/CM_logo.png') }}" alt="CM_logo" style="width: 80%">
                 </a>
                 <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent" style="display: block;">
-                    <ul class="navbar-nav me-auto">
+                    <ul class="navbar-nav me-auto mt-2">
                         <li class="nav-item">
                             <a href="{{ url('/products') }}"
                                 class="nav-link {{ request()->is('products*') || request()->is('viewproduct*') ? 'active' : '' }}">
@@ -51,6 +51,12 @@
                                 </a>
                             </li>
                         @endauth
+                        <li class="nav-item">
+                            <a href="{{ url('/eu_projects') }}" class="nav-link">
+                                <img src="{{ asset('images/Picture1.jpg') }}" alt="es_projektai" width="120px"
+                                    style="transform: translateY(-4px)">
+                            </a>
+                        </li>
                     </ul>
 
                     <div class="others-options">

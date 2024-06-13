@@ -6,11 +6,7 @@
     <div class="container py-5">
         <div class="product-section">
             <h4 class="mb-4">{{ __('menu.euProjects') }}</h5>
-                @if (App()->getLocale() == 'lt')
-                    <img src="{{ asset('images/es_projektai.jpeg') }}" alt="es_projektai" class="col-md-6 col-12">
-                @else
-                    <img src="{{ asset('images/eu_projects.jpeg') }}" alt="eu_projects" class="my-5 col-md-6 col-12">
-                @endif
+                <img src="{{ asset('images/Picture1.jpg') }}" alt="es_projektai" class="col-md-6 col-12 mb-4">
                 <p style="line-height: 2rem">
                     UAB „Consultus Magnus“, įgyvendina projektą <b>„E. pardavimo sandorių sudarymo sprendimų diegimas UAB
                         „Consultus Magnus“</b> Nr. 02-033-K-0052. Bendra projekto vertė – <b>50 268,60</b> Eur, iš kurių
@@ -58,8 +54,8 @@
                     laikas leis aptarnauti daugiau klientų, tai užtikrins didesnį produktų prieinamumą ir įmonės pajamų
                     augimą.<br><br>
                     Projekto veiklas numatyta užbaigti 2025 m. gegužės mėn.<br><br>
-                    Su projektu susijusios užklausos gali būti adresuojamos <a
-                        href="mailto:info@consultusmagnus.com">info@consultusmagnus.com</a>
+                    Su projektu susijusios užklausos gali būti adresuojamos <a href="mailto:info@consultusmagnus.com"
+                        class="link-primary">info@consultusmagnus.com</a>
                 </p>
         </div>
     </div>
