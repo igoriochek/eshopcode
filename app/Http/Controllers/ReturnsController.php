@@ -23,6 +23,7 @@ use Response;
 class ReturnsController extends AppBaseController
 {
     use \App\Http\Controllers\forSelector;
+    use \App\Traits\LogTranslator;
 
     /** @var ReturnsRepository $returnsRepository */
     private $returnsRepository;
@@ -112,7 +113,7 @@ class ReturnsController extends AppBaseController
         return view('returns.show')->with([
             'returns' => $returns,
             'returnItems' => $returnItems,
-            'logs'=>$logs,
+            'logs' => $logs,
         ]);
     }
 
@@ -171,7 +172,7 @@ class ReturnsController extends AppBaseController
         $user = Auth::user();
 
         if ($user) {
-            $user->log("Admin set Order ID:{$id} Return Status to: {$status}");
+            $user->log("Admin set Order ID:{$returns->order_id} Return Status to: {$status}");
         }
 
         Flash::success('Returns updated successfully.');
@@ -210,7 +211,26 @@ class ReturnsController extends AppBaseController
         $userId = Auth::id();
         $returns = $this->returnsRepository->all([
             'user_id' => $userId,
-        ]);
+        ])
+            ->sortByDesc('id')
+            ->sortBy('status_id');
+
+        foreach ($returns as $return) {
+            $returnItemSum = null;
+
+            $returnItems = ReturnItem::query()
+                ->with('product')
+                ->where([
+                    'return_id' => $return->id,
+                ])
+                ->get();
+
+            foreach ($returnItems as $item) {
+                $returnItemSum += $item->price_current;
+            }
+
+            $return->sum = $returnItemSum;
+        }
 
         return view('user_views.returns.index')->with([
             'returns' => $returns,
@@ -233,10 +253,12 @@ class ReturnsController extends AppBaseController
             ->first();
 
         if (empty($return)) {
-            Flash::error('Return not found');
+            session()->flash('error', 'Return not found');
 
             return redirect(route('rootoreturns'));
         }
+
+        $returnItemSum = null;
 
         $returnItems = ReturnItem::query()
             ->with('product')
@@ -245,14 +267,23 @@ class ReturnsController extends AppBaseController
             ])
             ->get();
 
+        foreach ($returnItems as $item) {
+            $returnItemSum += $item->price_current;
+        }
+
+        $return->sum = $returnItemSum;
 
 
         $logs = $this->getOrderByReturnId($id);
 
+        foreach ($logs as $log) {
+            $log->activity = $this->logTranslate($log->activity, app()->getLocale());
+        }
+
         return view('user_views.returns.view')->with([
             'return' => $return,
             'returnItems' => $returnItems,
-            'logs'=>$logs,
+            'logs' => $logs,
         ]);
     }
 
@@ -267,7 +298,7 @@ class ReturnsController extends AppBaseController
             ->first();
 
         if (empty($order)) {
-            Flash::error('Order not found');
+            session()->flash('error', 'Order not found');
 
             return redirect(route('rootorders'));
         }
@@ -289,6 +320,34 @@ class ReturnsController extends AppBaseController
     {
         $userId = Auth::id();
         $input = $request->all();
+
+        if (empty($input['return_items'])) {
+            session()->flash('error', 'Returns items not selected.');
+
+            $order = Order::query()
+                ->where([
+                    'id' => $id,
+                    'user_id' => $userId,
+                ])
+                ->first();
+
+            if (empty($order)) {
+                session()->flash('error', 'Order not found');
+
+                return redirect(route('rootorders'));
+            }
+
+            $orderItems = OrderItem::query()
+                ->with('product')
+                ->where([
+                    'order_id' => $order->id,
+                ])
+                ->get();
+
+            return view('user_views.orders.return')->with([
+                'order' => $order, 'orderItems' => $orderItems,
+            ]);
+        }
 
         $return_items = $input['return_items'];
         $order = Order::query()
@@ -331,8 +390,6 @@ class ReturnsController extends AppBaseController
                         'price_current' => $item[0]->price_current,
                         'count' => $item[0]->count,
                     ]);
-
-
                 }
             }
 
@@ -345,9 +402,9 @@ class ReturnsController extends AppBaseController
             $order->save();
         }
 
-        Flash::success('Returns saved successfully.');
+        session()->flash('success', 'Returns saved successfully.');
 
-        return redirect(route('rootorders'));
+        return redirect(route('viewreturn', $returns->id));
     }
 
     public function cancelOrder($id)
@@ -361,9 +418,9 @@ class ReturnsController extends AppBaseController
             ->first();
 
         if (empty($order)) {
-            Flash::error('Order not found');
+            session()->flash('error', 'Order not found');
 
-            return redirect(route('rootorders'));
+            return redirect(route('vieworder', $id));
         }
 
         return view('user_views.orders.cancel')->with([
@@ -393,9 +450,9 @@ class ReturnsController extends AppBaseController
             $order->save();
         }
 
-        Flash::success('Order cancelled successfully.');
+        session()->flash('success', 'Order cancelled successfully.');
 
-        return redirect(route('rootorders'));
+        return redirect(route('vieworder', $id));
     }
 
     /**
@@ -403,7 +460,8 @@ class ReturnsController extends AppBaseController
      * @param $id return_id
      * @return mixed
      */
-    private function getOrderByReturnId($id){
+    private function getOrderByReturnId($id)
+    {
         $orderId = Returns::where(['id' => $id])->value('order_id');
 
         return LogActivity::search("Order ID:{$orderId}")->get();

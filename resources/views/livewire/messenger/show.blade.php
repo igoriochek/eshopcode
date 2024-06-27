@@ -1,33 +1,32 @@
-<div>
-    <section class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1>{{__('messages.messenger')}}</h1>
+@section('title', $user->name ?? __('names.user'))
+@section('parentTitle', __('menu.messenger'))
+@section('parentUrl', url('/user/messenger'))
+
+<div class="axil-single-product-area axil-section-gap bg-color-white">
+    <section class="pt-2">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-4 mt-4 mt-md-5 mt-lg-0">
+                    <div class="content-blog blog-grid">
+                        <div class="widget">
+                            <div class="widget-title-container d-flex justify-content-between align-items-center mb-2">
+                                <h4 class="mb-1">
+                                    {{ __('names.messages') }}
+                                </h4>
+                                <a class="axil-btn btn-bg-primary" href="{{ route('livewire.messenger.add') }}">
+                                    {{ __('buttons.contact') }}
+                                </a>
+                            </div>
+                            <div class="category-tree-widget-content">
+                                @include('livewire.messenger.users')
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-sm-6">
-                    <a class="btn btn-primary float-end"
-                    href="{{ route('livewire.messenger.add') }}">
-                        {{__('buttons.addNew')}}
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-    <div class="content px-3">
-        <div class="row px-3" style="gap: 10px">
-            @include('flash::message')
-            <div class="clearfix"></div>
-            <div class="card p-3 col-sm-2 h-100">
-                <div class="card-body">
-                    @include('livewire.messenger.users')
-                </div>
-            </div>
-            <div class="card p-3 col-sm h-100">
-                <div class="card-body">
+                <div class="content-blog blog-grid col-lg-8">
                     @include('livewire.messenger.room')
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 </div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreatePromotionRequest;
 use App\Http\Requests\UpdatePromotionRequest;
 use App\Models\Product;
+use App\Models\Promotion;
 use App\Repositories\PromotionRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
@@ -15,6 +16,7 @@ class PromotionController extends AppBaseController
 {
     /** @var PromotionRepository $promotionRepository*/
     private $promotionRepository;
+    use \App\Http\Controllers\PrepareTranslations;
 
     public function __construct(PromotionRepository $promotionRepo)
     {
@@ -30,30 +32,35 @@ class PromotionController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $promotions = $this->promotionRepository->all();
+//        $promotions = $this->promotionRepository->all();
+        $promotions = Promotion::translatedIn(app()->getLocale())->get();
 
         return view('promotions.index')
             ->with('promotions', $promotions);
     }
 
-    public function indexPromotions(Request $request)
+    private function getPromotions(): object
     {
-//         $categories = $this->categoryRepository->allQuery(array("parent_id"=>null))->paginate("3");
-        $promotions = $this->promotionRepository->allQuery()->paginate(5);
-
-        return view('user_views.promotion.index')
-            ->with('promotions', $promotions);
+        return Promotion::translatedIn(app()->getLocale())->paginate(5);
     }
 
+    public function indexPromotions()
+    {
+        return view('user_views.promotion.index')
+            ->with('promotions', $this->getPromotions());
+    }
 
     public function promotionProducts(Request $request)
     {
-//         $categories = $this->categoryRepository->allQuery(array("parent_id"=>null))->paginate("3");
         $promotion = $this->promotionRepository->allQuery(['id' => $request->id])->first();
-        $products = Product::query()->where(['promotion_id' => $request->id])->paginate(5);
+        $products = Product::query()->where(['promotion_id' => $request->id])->paginate(12);
 
-
-        return view('user_views.promotion.promotionproducts',['promotion' => $promotion, 'products' => $products]);
+        return view('user_views.promotion.promotion_products')
+            ->with([
+                'promotions' => $this->getPromotions(),
+                'promotion' => $promotion,
+                'products' => $products
+            ]);
     }
 
     /**
@@ -76,6 +83,7 @@ class PromotionController extends AppBaseController
     public function store(CreatePromotionRequest $request)
     {
         $input = $request->all();
+        $input = $this->prepare($input, ["name", "description"]);
 
         $promotion = $this->promotionRepository->create($input);
 
@@ -141,8 +149,8 @@ class PromotionController extends AppBaseController
 
             return redirect(route('promotions.index'));
         }
-
-        $promotion = $this->promotionRepository->update($request->all(), $id);
+        $input = $this->prepare($request->all(), ["name", "description"]);
+        $promotion->update($input);
 
         Flash::success('Promotion updated successfully.');
 

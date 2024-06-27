@@ -15,6 +15,7 @@ class User extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable;
 
     const TYPE_ADMIN = 1;
+    const TYPE_USER = 2;
 
     /**
      * The attributes that are mass assignable.
@@ -40,8 +41,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'avatar', 
-        'provider_id', 
+        'avatar',
+        'provider_id',
         'provider',
         'access_token',
         "street",
@@ -74,8 +75,8 @@ class User extends Authenticatable
     public static $rules = [
         'name' => 'required',
         'email' => 'required|email:rfc',
-        'password' => 'required',
-        'phone_number' => 'nullable|numeric|digits:11',
+//        'password' => 'required',
+        'phone_number' => 'nullable|numeric',
     ];
 
     /**

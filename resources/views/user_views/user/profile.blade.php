@@ -1,118 +1,56 @@
 @extends('layouts.app')
 
+@section('title', __('menu.profile'))
+
 @section('content')
-    <section class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-12">
-                    <h1>{{__('forms.userProfile')}}</h1>
+        <div class="axil-dashboard-area axil-section-gap">
+            <div class="container">
+                <div class="axil-dashboard-warp">
+                    <div class="mb-5">
+                        @include('adminlte-templates::common.errors')
+                        @include('flash_messages')
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-3 col-md-4">
+                            <aside class="axil-dashboard-aside">
+                                <nav class="axil-dashboard-nav">
+                                    <div class="nav nav-tabs" role="tablist">
+                                        <a class="nav-item nav-link active" data-bs-toggle="tab" href="#nav-profile" role="tab" aria-selected="true"><i class="fas fa-user"></i>{{ __('menu.profile') }}</a>
+                                        <a class="nav-item nav-link" href="{{ url('/user/rootorders') }}" aria-selected="false"><i class="fas fa-shopping-basket"></i>{{__('menu.orders')}}</a>
+                                        <a class="nav-item nav-link" href="{{ url('/user/rootoreturns') }}" aria-selected="false"><i class="fas fa-arrow-circle-left "></i>{{ __('menu.returns') }}</a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            @csrf
+                                        </form>
+                                        <a class="nav-item nav-link" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                            <i class="fal fa-sign-out"></i>{{ __('menu.logout') }}
+                                        </a>
+                                    </div>
+                                </nav>
+                            </aside>
+                        </div>
+                        <div class="col-xl-9 col-md-8">
+                            <div class="tab-content">
+                                <div class="tab-pane fade show active" id="nav-profile" role="tabpanel">
+                                    <div class="col-lg-9">
+                                        <div class="axil-dashboard-account">
+                                            <div class="account-details-form">
+                                                <div class="row">
+                                                    <h3 class="col-12">{{ __('menu.userInfo') }}</h3>
+                                                    @include('user_views.user.user_info_form')
+                                                    <hr class="my-4" />
+                                                    <h3 class="col-12">{{ __('auth.passwordEnter') }}</h3>
+                                                    <div class="col-12">
+                                                        @include('user_views.user.change_password_form')
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
-
-    <div class="content px-3">
-
-        @include('adminlte-templates::common.errors')
-        @include('flash::message')
-
-        <!-- User Info Form -->
-
-        <div class="card">
-
-            {!! Form::model($user, ['route' => ['userprofilesave'], 'method' => 'patch']) !!}
-
-            <div class="card-body">
-                <div class="row">
-
-                    {{--
-                    $table->string("street")->nullable(true);
-                    $table->string("house_flat")->nullable(true);
-                    $table->string("post_index")->nullable(true);
-                    $table->string("city")->nullable(true);
-                    $table->string("phone_number")->nullable(true);
-                    --}}
-                    <!-- Code Field -->
-
-                    <div class="form-group col-sm-6">
-                        {!! Form::label('code', __('forms.name').':' )!!}
-                        {!! Form::text('name', null, ['class' => 'form-control']) !!}
-                    </div>
-
-                    <div class="form-group col-sm-6">
-                        {!! Form::label('email', __('forms.email').':') !!}
-                        {!! Form::text('email', null, ['class' => 'form-control']) !!}
-                    </div>
-                    <div class="form-group col-sm-6">
-                        {!! Form::label('street', __('forms.street').':') !!}
-                        {!! Form::text('street', null, ['class' => 'form-control']) !!}
-                    </div>
-
-                    <div class="form-group col-sm-6">
-                        {!! Form::label('house_flat', __('forms.house_flat').':') !!}
-                        {!! Form::text('house_flat', null, ['class' => 'form-control']) !!}
-                    </div>
-
-
-                    <div class="form-group col-sm-6">
-                        {!! Form::label('post_index', __('forms.post_index').':') !!}
-                        {!! Form::text('post_index', null, ['class' => 'form-control']) !!}
-                    </div>
-
-                    <div class="form-group col-sm-6">
-                        {!! Form::label('city', __('forms.city').':') !!}
-                        {!! Form::text('city', null, ['class' => 'form-control']) !!}
-                    </div>
-
-                    <div class="form-group col-sm-6">
-                        {!! Form::label('phone_number', __('forms.phone_number').':') !!}
-                        {!! Form::text('phone_number', null, ['class' => 'form-control']) !!}
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="card-footer">
-                {!! Form::submit(__('buttons.save'), ['class' => 'btn btn-primary']) !!}
-            </div>
-
-            {!! Form::close() !!}
-
-        </div>
-
-        <!-- Change Password Form -->
-
-        <div class="card mt-4">
-
-            {!! Form::model($user, ['route' => ['changePassword'], 'method' => 'post']) !!}
-
-            <div class="card-body">
-                <div class="row">
-
-                    <div class="form-group col-sm-6">
-                        {!! Form::label('current_password', __('forms.current_password').':' )!!}
-                        {!! Form::password('current_password', ['class' => 'form-control']) !!}
-                    </div>
-
-                    <div class="form-group col-sm-6">
-                        {!! Form::label('new_password', __('forms.new_password').':') !!}
-                        {!! Form::password('new_password', ['class' => 'form-control']) !!}
-                    </div>
-
-                    <div class="form-group col-sm-6">
-                        {!! Form::label('new_password_confirmation', __('forms.confirm_password').':') !!}
-                        {!! Form::password('new_password_confirmation', ['class' => 'form-control']) !!}
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="card-footer">
-                {!! Form::submit(__('buttons.save'), ['class' => 'btn btn-primary']) !!}
-            </div>
-
-            {!! Form::close() !!}
-
-        </div>
-    </div>
 @endsection

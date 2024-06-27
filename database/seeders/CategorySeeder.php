@@ -28,10 +28,10 @@ class CategorySeeder extends Seeder
                     'name' => "kategorija $faker->name",
                     'description' => "kategorija $faker->text",
                 ],
-                'ru' => [
+                /*'ru' => [
                     'name' => "RUcategory $faker->name",
                     'description' => "RUcategory $faker->text",
-                ],
+                ],*/
             ];
                $category = Category::create($cdata);
         }

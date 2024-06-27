@@ -20,17 +20,22 @@ return [
     'passwordConfirmToContinue' => 'Please confirm your password before continuing.',
     'resetPassword' => 'Reset Password',
     'sendResetPasswordLink' => 'Send Reset Password Link',
+    'resetPasswordParagraph' => 'Remembered your password?',
 
     //Login
     'login'=> 'Login',
+    'loginWith' => 'Login with',
     'rememberMe' => 'Remember Me',
+    'or' => 'or',
+    'registerParagraph' => "Don't have an account?",
 
     //Register
     'register' => 'Register',
     'name' => 'Name',
     'email' => 'Email Address',
     'passwordEnter' => 'Password',
-    'passwordEnterConfirm' => 'Confirm Password',
+    'confirmPasswordEnter' => 'Confirm Password',
+    'loginParagraph' => "Already have an account?",
 
     //Verify
     'checkEmailForVerify' => 'Before proceeding, please check your email for a verification link.',

@@ -44,36 +44,44 @@ class CategoryController extends AppBaseController
             ->with('categories', $categories);
     }
 
+    private function getTreeCategories(): object
+    {
+        return Category::where('parent_id', '=', null)->get();
+    }
+
     public function userRootCategories(Request $request)
     {
-        $categories = $this->categoryRepository->allQuery(array("parent_id"=>null))->paginate("3");
+        //$categories = $this->categoryRepository->allQuery(array("parent_id"=>null))->paginate("5");
 
         return view('user_views.category.categories_root_user')
-            ->with('categories', $categories);
+            ->with([
+                //'categories' => $categories,
+                'treeCategories' => $this->getTreeCategories()
+            ]);
     }
 
     public function userInnerCategories(Request $request)
     {
         if (empty($request->category_id))
             return redirect(route('rootcategories'));
+
         $category = $this->categoryRepository->find($request->category_id);
-        $categories = $this->categoryRepository->allQuery(array("parent_id"=>$request->category_id))->get();//->paginate("3");
-        $products = $category->products()->paginate("3");
+        $products = $category->products()->paginate(12);
 
         $user = Auth::user();
 
-        if($user){
+        if ($user)
             $user->log("Viewed {$category->name}");
-        }
 
         return view('user_views.category.categories_inner_user')
-            ->with(['categories'=> $categories,
-                    'maincategory' => $category,
-                    'products' => $products,
-                ]);
+            ->with([
+                'treeCategories' => $this->getTreeCategories(),
+                'maincategory' => $category,
+                'products' => $products,
+            ]);
     }
 
-    public function userCategoryTree ( Request $request) {
+    /*public function userCategoryTree ( Request $request) {
         $categories = Category::where('parent_id', '=', null)->get();
         $allCategories = Category::withTranslation()
             ->translatedIn(app()->getLocale())
@@ -83,7 +91,7 @@ class CategoryController extends AppBaseController
         return view('user_views.category.categoryTreeview',
         ["categories" => $categories, "allCategories" => $allCategories]
         );
-    }
+    }*/
 
     public function userViewCategory(Request $request)
     {

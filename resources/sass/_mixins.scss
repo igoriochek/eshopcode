@@ -1,0 +1,81 @@
+@mixin socialIconsEffect($bg-color) {
+    &:hover, &:focus, &:active {
+        a {
+            background: $bg-color;
+            i {
+                color: #FFFF;
+            }
+        }
+    }
+}
+
+@mixin navItemBefore {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    bottom: -21px;
+    left: 0;
+    background: #0088CC;
+}
+
+@mixin primaryButton {
+    background: #0088CC;
+    color: #fff;
+    border: none;
+    font-weight: 600;
+    font-size: .8rem;
+    transition: all 200ms ease;
+
+    &:hover, &:focus {
+        background: #00a1f2;
+    }
+
+    &:active {
+        background: #006ea6;
+    }
+
+    &:disabled {
+        background: #0088CC;
+    }
+}
+
+@mixin loginButton($bg-color, $hover-bg-color) {
+    background: $bg-color;
+    border: none;
+    font-weight: 600;
+    font-size: .8rem;
+    transition: all 200ms ease;
+    color: #fff;
+
+    &:hover, &:focus, &:active {
+        background: $hover-bg-color;
+    }
+}
+
+@mixin orderSteps {
+    .breadcrumb {
+        background: none;
+        margin: 0;
+        padding: 0;
+        position: relative;
+        z-index: 1;
+        font-weight: 700;
+        font-size: 1.3rem;
+        color: #aaa;
+
+        li {
+            i {
+                color: #ccc;
+            }
+
+            .active {
+                color: #0088CC;
+            }
+
+            .done {
+                color: #222;
+            }
+        }
+    }
+}

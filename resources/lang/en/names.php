@@ -30,7 +30,20 @@ return [
     'editCart' => 'Edit Cart',
     'editCartItem' => 'Edit Cart Item',
     'editCartStatus' => 'Edit Cart Status',
-    'emptyCart' => 'Your Cart is empty',
+    'emptyCart' => 'Your cart is empty',
+    'preview' => 'Preview',
+    'orderComplete' => 'Order Complete',
+    'subtotal' => 'Subtotal',
+    'removeProduct' => 'Remove product',
+    'overview' => 'Overview',
+    'wantToApply' => 'Want to apply a discount to your cart?',
+    'selectDiscountCoupon' => 'Select Discount Coupon',
+    'yourOrder' => 'Your Order',
+    'paymentMethods' => 'Payment Methods',
+    'off' => 'OFF',
+    'discountCoupon' => 'Discount Coupon',
+    'acceptedOrder' => 'Thank you. Your order has been accepted.',
+    'canceledOrder' => 'Your order has been cancelled.',
 
     'adminUserCount' => 'Admin User Count',
     'canceled' => 'Canceled',
@@ -45,6 +58,8 @@ return [
     'admins' => 'Administrators',
     'users' => 'Users',
 
+    'hello' => 'Hello',
+
     //Categories
     'categories' => 'Categories',
     'categoryDetails' => 'Category Details',
@@ -52,6 +67,7 @@ return [
     'createCategory' => 'Create Category',
     'editCategory' => 'Edit Category',
     'noCategories' => 'No Categories',
+    'productsAvailable' => 'products available',
 
     //Charts
     'bar' => 'Bar',
@@ -76,7 +92,7 @@ return [
     'createDiscount' => 'Create Discount',
     'discounts' => 'Discounts',
     'discountDetails' => 'Discount Details',
-    'editDiscount'=> 'Edit Discount',
+    'editDiscount' => 'Edit Discount',
 
     //DiscountCoupons
     'createDiscountCoupon' => 'Create Discount Coupon',
@@ -96,7 +112,7 @@ return [
 
     //Homepage
     'addedAt' => 'Added at',
-    'browseProducts'=> 'Browse Products',
+    'browseProducts' => 'Browse Products',
     'code' => 'Code',
     'createdAt' => 'Created At',
     'dashboard' => 'Dashboard',
@@ -107,7 +123,7 @@ return [
     'loggedIn' => 'You are logged in!',
     'language' => 'Language is',
     'myCart' => 'My Cart',
-    'myOrders'=> 'My Orders',
+    'myOrders' => 'My Orders',
     'myReturns' => 'My Returns',
     'openMsg' => 'Open messenger',
     'noProductsInCart' => 'You don`t have ny Products in your Cart!',
@@ -123,6 +139,10 @@ return [
     'unreadMsg' => 'unread messages.',
 
     //Messenger
+    'messages' => 'Messages',
+    'you' => 'You',
+    'contactUsers' => 'Contact Users',
+    'noUncontactedUsers' => 'No uncontacted users found',
     'typeMsg' => 'Type your message here...',
 
     //Orders
@@ -130,7 +150,7 @@ return [
     'createOrder' => 'Create Order',
     'createOrderItem' => 'Create Order Item',
     'createOrderStatus' => 'Create Order Status',
-    'editOrder'=> 'Edit Order',
+    'editOrder' => 'Edit Order',
     'editOrderItem' => 'Edit Order Item',
     'editOrderStatus' => 'Edit Order Status',
     'order' => 'Order',
@@ -145,9 +165,10 @@ return [
     'noOrders' => 'You have no orders',
     'invoice' => 'Invoice',
     'invoicePreview' => 'Invoice Preview',
-
+    'returnOrder' => 'Return Order',
 
     // Products
+    'product' => 'Product',
     'createProduct' => 'Create Product',
     'editProduct' => 'Edit Product',
     'products' => 'Products',
@@ -156,6 +177,8 @@ return [
     'productName' => 'Product Name',
     'productOrders' => 'Product Orders',
     'noProducts' => 'No Products',
+    'search' => 'Search',
+    'additionalInformation' => 'Additional Information',
 
     //Promotions
     'createPromotion' => 'Create Promotion',
@@ -174,7 +197,7 @@ return [
     'to' => 'To',
     'sum' => 'Sum',
     'total' => 'Total',
-
+    'filterByPrice' => 'Filter by price',
 
     //Rating
     'alreadyVoted' => "You have already voted for this product",
@@ -182,6 +205,16 @@ return [
     'ratingOrRatings' => 'Rating(s)',
     'starRating' => 'Star Rating',
     'voted' => "Thank you for your vote!",
+
+    //Reviews
+    'review' => 'Review',
+    'reviews' => 'Reviews',
+    'addReview' => 'Add a review',
+    'noReviews' => 'No Reviews',
+    'loginToReview' => 'Please login to review this product',
+    'alreadyReviewed' => 'You have already left a review for this product',
+    'reviewProduct' => 'Thank you for reviewing this product',
+    'yourReview' => 'Your review',
 
     //Returns
     'checkReturn' => 'Check to Return',
@@ -198,17 +231,15 @@ return [
     'returnItemDetails' => 'Return Item Details',
     'returnStatus' => 'Return Status',
     'returnStatuses' => 'Return Statuses',
-    'returnStatusDetails'=> 'Return Status Details',
+    'returnStatusDetails' => 'Return Status Details',
     'noReturns' => 'You have no returns',
 
     //User
-    'customers' => 'Customers',
-    'customerDetails' => 'Customer Details',
-    'createCustomer' => 'Create Customer',
-    'editCustomer' => 'Edit Customer',
+    'customers' => 'Users',
+    'customerDetails' => 'User Details',
+    'createCustomer' => 'Create User',
+    'editCustomer' => 'Edit User',
     'userLogs' => 'User Logs',
-
-
 
     'desc' => 'Description',
     'name' => 'Name',
@@ -216,7 +247,21 @@ return [
     'old' => "Old",
     'new' => "New",
 
-    'orderBy' => 'Order By'
+    'orderBy' => 'Order By',
 
+    //Discounts coupons
+    "noDiscountCoupons" => "No discount coupons available",
+    "discountCouponCode" => "Discount coupon code",
+    "discountCouponValue" => "Discount coupon value",
+    'used' => 'Used',
+    'active' => 'Active',
+
+    "zeroRecords" => "No matching records found",
+    "showing" => "Showing",
+    "entries" => "entries",
+    "to" => "to",
+    "of" => "of",
+    "first" => "First",
+    "last" => "Last",
 
 ];

@@ -1,294 +1,143 @@
 @extends('layouts.app')
 
+@section('title', $product->name ?? __('names.product'))
+@section('parentTitle', __('menu.products'))
+@section('parentUrl', url('/products'))
+
 @section('content')
-    <section class="content-header">
-        <div class="container-fluid">
-            <div class="row m-2">
-                <div class="col-sm-6">
-                    <h1>{{ $product->name }} [View Product]</h1>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section>
-        <div class="row m-2">
-            <div class="col-sm-12">
-                <div class="product">
-                    <div class="name"><b>{{__('names.name')}}:</b> {{ $product->name }}</div>
-                    <div class="price"><b>{{__('names.price')}}:</b>
-
-                        @if ($product->discount )
-                            {{__("names.old")}}:<strike>{{$product->price}}</strike>&nbsp;&nbsp;&nbsp;
-                            <b>{{__("names.new")}}:{{ round(($product->price * $product->discount->proc / 100),2) }}</b>
-                        @else
-                            {{ $product->price }}
-                        @endif
-
-
+    <div class="axil-single-product-area axil-section-gap pb--0 bg-color-white">
+        <div class="single-product-thumb mb--40">
+            <div class="container">
+                <div class="row">
+                    <div class="mb-5">
+                        @include('adminlte-templates::common.errors')
+                        @include('flash_messages')
                     </div>
-                    @if ( $product->image )
-                        <div>
-                            <img src="{{ $product->image }}" alt="{{$product->name}}"/>
-                        </div>
-                    @else
-                        <div>
-                            <img src="/images/noimage.jpeg" alt=""/>
-
-                        </div>
-                    @endif
-
-
-                    @if ( $product->video )
-                        {{--                <div>--}}
-                        {{--                    <iframe width="420" height="315"--}}
-                        {{--                            src="{{$product->video}}?autoplay=0&mute=1">--}}
-                        {{--                    </iframe>--}}
-                        {{--                </div>--}}
-                        <div id="ytplayer"></div>
-                    @else
-                        <div>
-                            {{__("messages.novideo")}}
-
-                        </div>
-                    @endif
-
-
-                    <div>&nbsp;</div>
-                    <div class="description"><b>{{__('names.desc')}}:</b> {{ $product->description }}</div>
-                    <div>&nbsp;</div>
-                    <div>
-                        {!! Form::open(['route' => ['addtocart'], 'method' => 'post']) !!}
-                        {!! Form::number('count', "1", ['class' => 'form-control col-lg-5 col-sm-5', "minlength"=>"3", "maxlength"=>"5", "size"=>"5"]) !!}
-                        <input type="hidden" name="id" value="{{ $product->id }}">
-                        <input type="submit" value="{{__('buttons.addToCart')}}">
-                        {!! Form::close() !!}
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </section>
-    <section>
-        <div>&nbsp;</div>
-        <div>&nbsp;</div>
-        <div class="row m-2">
-            <div class="col-sm-12">
-                {{--            <div class="product">--}}
-                {{--                {{__('names.rating')}}--}}
-                {{--            </div>--}}
-
-                <div class="container mt-5">
-                    <div class="card">
-                        <div class="row no-gutters">
-                            <div class="col-md-4 border-right">
-                                <div class="ratings text-center p-4 py-5"><span
-                                        class="badge bg-success"><b>{{$avarage}}</b> <i
-                                            class="fa-solid fa-star"></i></span> <span
-                                        class="d-block about-rating">{{$rateName}}</span> <span
-                                        class="d-block total-ratings">
-                                        {{$rateCount}} {{__('names.ratingOrRatings')}}</span>
+                    <div class="col-lg-5">
+                        <div class="single-product-thumbnail-wrap zoom-gallery">
+                            <div class="single-product-thumbnail product-large-thumbnail-3 axil-product">
+                                <div class="thumbnail">
+                                    @if ($product->image)
+                                        <a href="{{ $product->image }}" class="popup-zoom">
+                                            <img src="{{ $product->image }}" alt="{{ $product->name }}">
+                                        </a>
+                                    @else
+                                        <a href="{{ asset('template/images/product/product-big-01.png') }}"
+                                            class="popup-zoom">
+                                            <img src="{{ asset('template/images/product/product-big-01.png') }}"
+                                                alt="product image">
+                                        </a>
+                                    @endif
                                 </div>
                             </div>
-                            <div class="col-md-8">
-                                <div class="rating-progress-bars p-3">
-                                    <div class="progress-1 align-items-center">
-                                        <div class="progress">
-                                            <div class="progress-bar bg-success" role="progressbar"
-                                                 style="width: {{$arrated[1]}}%;" aria-valuenow="70" aria-valuemin="0"
-                                                 aria-valuemax="100"> {{$arrated[1]}}%
-                                            </div>
-                                        </div>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-custom" role="progressbar"
-                                                 style="width: {{$arrated[2]}}%;" aria-valuenow="25" aria-valuemin="0"
-                                                 aria-valuemax="100">{{$arrated[2]}}%
-                                            </div>
-                                        </div>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-primary" role="progressbar"
-                                                 style="width: {{$arrated[3]}}%;" aria-valuenow="25" aria-valuemin="0"
-                                                 aria-valuemax="100">{{$arrated[3]}}%
-                                            </div>
-                                        </div>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-warning" role="progressbar"
-                                                 style="width: {{$arrated[4]}}%;" aria-valuenow="25" aria-valuemin="0"
-                                                 aria-valuemax="100">{{$arrated[4]}}%
-                                            </div>
-                                        </div>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-danger" role="progressbar"
-                                                 style="width: {{$arrated[5]}}%;" aria-valuenow="25" aria-valuemin="0"
-                                                 aria-valuemax="100">{{$arrated[5]}}%
-                                            </div>
-                                        </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 mb--40">
+                        <div class="single-product-content">
+                            <div class="inner">
+                                <h2 class="product-title mt-4 mt-lg-0">{{ $product->name }}</h2>
+                                <div class="product-price-variant mb-4 pb-3">
+                                    @if ($product->discount)
+                                        <span
+                                            class="price current-price fs-1 text-dark fw-bold">€{{ $product->price - round(($product->price * $product->discount->proc) / 100, 2) }}</span>
+                                        <span class="price old-price fs-1 fw-bold text-muted ms-1">
+                                            <del>€{{ number_format($product->price, 2) }}</del>
+                                        </span>
+                                    @else
+                                        <span
+                                            class="price current-price fs-1 text-dark fw-bold">€{{ number_format($product->price, 2) }}</span>
+                                    @endif
+                                </div>
+
+                                <div class="product-rating">
+                                    <div class="star-rating">
+                                        @for ($i = 1; $i <= 5; $i++)
+                                            <i
+                                                class=
+                                                    "@if ($average >= $i) fas fa-star
+                                                    @elseif ($average >= $i - 0.5) fa-solid fa-star-half-stroke
+                                                    @else far fa-star @endif"></i>
+                                        @endfor
+                                    </div>
+                                    <div class="review-link">
+                                        <span>{{ __('names.reviews') . ' (' . $rateCount . ')' }}</span>
+                                    </div>
+                                </div>
+
+                                <div class="product-action-wrapper d-flex-center">
+                                    {!! Form::open([
+                                        'route' => ['addtocart'],
+                                        'method' => 'post',
+                                        'class' => 'product-add-to-cart-container d-flex-center',
+                                    ]) !!}
+
+                                    <div class="pro-qty">
+                                        <input type="number" name="count" value="1" min="1"
+                                            class="product-add-to-cart-number"
+                                            oninput="this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null">
+                                    </div>
+
+                                    <input type="hidden" name="id" value="{{ $product->id }}">
+
+                                    <ul class="product-action d-flex-center mb--0">
+                                        <li class="add-to-cart">
+                                            <button type="submit"
+                                                class="axil-btn btn-bg-primary">{{ __('buttons.addToCart') }}</button>
+                                        </li>
+                                    </ul>
+                                    {!! Form::close() !!}
+                                </div>
+
+                                <div class="info-list mt-4">
+                                    <div>
+                                        <span>{{ __('names.categories') }}:</span>
+                                        @forelse ($product->categories as $category)
+                                            <a href="{{ url("/innercategories/$category->id") }}">
+                                                {{ $category->name }}
+                                                @if (!$loop->last)
+                                                    ;
+                                                @endif
+                                            </a>
+                                        @empty
+                                            <span class="text-muted">{{ __('names.noCategories') }}</span>
+                                        @endforelse
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                {{--Rating form--}}
-                <div id="vote">
-                    @if ( !$voted)
-                        <h1>{{__('names.starRating')}} </h1>
-                        <div class="rating">
-                            <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label>
-                            <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label>
-                            <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label>
-                            <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label>
-                            <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
-                        </div>
-                    @else
-                        <h1>{{__('names.alreadyVoted')}}</h1>
-                    @endif
-                </div>
-
             </div>
         </div>
-
-    </section>
-
+    </div>
+    <div class="woocommerce-tabs wc-tabs-wrapper bg-vista-white">
+        @include('user_views.product.product_tabs')
+    </div>
 @endsection
 
 @push('scripts')
     <script>
-        $('input[type=radio][name=rating]').change(function () {
-            // alert(this.value);
-            $.post("{{route('addUserRating')}}",
-                {
+        $('#product-reviews-add-review-submit').click(() => {
+            const value = $('input[type=radio][name=rating]:checked').val();
+            const desc = $('textarea#comment').val();
+
+            const seconds = 1;
+
+            $.post("{{ route('addUserRating') }}", {
                     "_token": "{{ csrf_token() }}",
-                    rating: this.value,
-                    product: {{$product->id}}
+                    rating: value,
+                    description: desc,
+                    product: {{ $product->id }}
                 },
-                function (data, status) {
-                    //alert("Data: " + data.val + "\nStatus: " + status);
+                (data, status) => {
                     if (data.val == "ok") {
-                        // $('#vote').hide();
-                        $('#vote').html("<h3>{{__("names.voted")}}");
+                        $('#review-product').html("<p>{{ __('names.reviewProduct') }}</p>");
+                        $('#product-reviews-add-review-submit').prop("disabled", true);
 
+                        setInterval(() => window.location.reload(), 1000 * seconds);
                     }
-
-                });
+                }
+            );
         });
     </script>
-    @if ( $product->video )
-        <script>
-            // Load the IFrame Player API code asynchronously.
-            var tag = document.createElement('script');
-            tag.src = "https://www.youtube.com/player_api";
-            var firstScriptTag = document.getElementsByTagName('script')[0];
-            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-            // Replace the 'ytplayer' element with an <iframe> and
-            // YouTube player after the API code downloads.
-            var player;
-
-            function onYouTubePlayerAPIReady() {
-                player = new YT.Player('ytplayer', {
-                    height: '360',
-                    width: '640',
-                    videoId: '{{$product->video}}'
-                });
-            }
-        </script>
-    @endif
-@endpush
-@push('css')
-
-    <style>
-        .badge {
-            font-size: 25px;
-            font-weight: 200
-        }
-
-        .badge i {
-            font-size: 20px;
-            font-weight: 200
-        }
-
-        .about-rating {
-            font-size: 15px;
-            font-weight: 500;
-            margin-top: 10px
-        }
-
-        .total-ratings {
-            font-size: 12px
-        }
-
-        .bg-custom {
-            background-color: #b7dd29 !important
-        }
-
-        .progress {
-            margin-top: 10px
-        }
-
-        /*    rating form*/
-        .rating {
-            display: flex;
-            flex-direction: row-reverse;
-            justify-content: center
-        }
-
-        .rating > input {
-            display: none
-        }
-
-        .rating > label {
-            position: relative;
-            width: 1em;
-            font-size: 6vw;
-            color: #FFD600;
-            cursor: pointer
-        }
-
-        .rating > label::before {
-            content: "\2605";
-            position: absolute;
-            opacity: 0
-        }
-
-        .rating > label:hover:before,
-        .rating > label:hover ~ label:before {
-            opacity: 1 !important
-        }
-
-        .rating > input:checked ~ label:before {
-            opacity: 1
-        }
-
-        .rating:hover > input:checked ~ label:before {
-            opacity: 0.4
-        }
-
-
-        h1,
-        p {
-            text-align: center
-        }
-
-        h1 {
-            margin-top: 150px
-        }
-
-        p {
-            font-size: 1.2rem
-        }
-
-        @media only screen and (max-width: 600px) {
-            h1 {
-                font-size: 14px
-            }
-
-            p {
-                font-size: 12px
-            }
-        }
-
-
-    </style>
 @endpush

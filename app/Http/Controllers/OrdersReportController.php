@@ -20,36 +20,36 @@ use Excel;
 
 class OrdersReportController extends AppBaseController
 {
-    private function getOrders() 
+    private function getOrders()
     {
         $orders = QueryBuilder::for(Order::class)
             ->allowedFilters([
-                AllowedFilter::exact('id'), 
+                AllowedFilter::exact('id'),
                 'user.name',
-                'status.name', 
-                AllowedFilter::scope('date_from'), 
+                'status.name',
+                AllowedFilter::scope('date_from'),
                 AllowedFilter::scope('date_to')
             ])
             ->allowedIncludes(['user', 'status'])
             ->orderBy('id')
             ->get()
-            ->map(function($order) {
+            ->map(function ($order) {
                 $order->total = DB::select("SELECT SUM(price_current) AS total_price_current,
                                              SUM(count) AS total_count, 
                                              SUM(price_current * count) AS total_price
                                              FROM order_items
                                              WHERE order_id = '$order->id'");
-    
+
                 return $order;
             });
 
         return $orders;
     }
 
-    private function getOrderItems() 
+    private function getOrderItems()
     {
         $orderItems = OrderItem::all()
-            ->map(function($orderItem) {
+            ->map(function ($orderItem) {
                 $orderItem->subtotal = $orderItem->price_current * $orderItem->count;
 
                 return $orderItem;
@@ -62,17 +62,17 @@ class OrdersReportController extends AppBaseController
     {
         $orders = $this->getOrders();
         $orderItems = $this->getOrderItems();
-        
+
         return view('orders_report.index')
             ->with(['orders' => $orders, 'orderItems' => $orderItems]);
     }
 
-    public function sendEmail() 
+    public function sendEmail()
     {
         $orders = $this->getOrders();
         $orderItems = $this->getOrderItems();
         $email = Auth::user()->email;
-        
+
         Mail::to($email)->send(new OrdersReport($orders, $orderItems, $email));
 
         Flash::success('Email has been sent.');
@@ -81,7 +81,7 @@ class OrdersReportController extends AppBaseController
             ->with(['orders' => $orders, 'orderItems' => $orderItems]);
     }
 
-    public function downloadPdf() 
+    public function downloadPdf()
     {
         $data = [
             'orders' => $this->getOrders(),

@@ -16,20 +16,29 @@ return [
     'avatar' => 'Avatar',
     'name' => 'Name',
     'email' => 'Email',
-    'description' => "Description",
-    'street' => "Street",
-    'post_index' => "Post index",
-    'house_flat' => "House/Flat",
-    'city' => "City",
-    'phone_number' => "Phone number",
-    'order' => "Order by",
-    'usertype' => "User type",
-    'user' => "Customer",
+    'description' => 'Description',
+    'street' => 'Street',
+    'buyer' => 'Buyer',
+    'address' => 'Address',
+    'post_index' => 'Post index',
+    'house_flat' => 'House/Flat',
+    'city' => 'City',
+    'phone_number' => 'Phone number',
+    'order' => 'Order by',
+    'usertype' => 'User type',
+    'user' => 'Customer',
     'userProfile' => 'User Profile',
-    'admin' => "Administrator",
+    'admin' => 'Administrator',
     'to' => 'To',
 
-    'current_password' => "Current password",
-    'new_password' => "New password",
-    'confirm_password' => 'Confirm Password'
+    'current_password' => 'Current password',
+    'new_password' => 'New password',
+    'confirm_password' => 'Confirm Password',
+
+    'productNameAsc' => 'Name - Ascending',
+    'productNameDesc' => 'Name - Descending',
+    'priceAsc' => 'Price - Ascending',
+    'priceDesc' => 'Price - Descending'
+
+
 ];

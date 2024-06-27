@@ -280,20 +280,12 @@ class ProductController extends AppBaseController
 
             return redirect(route('products.index'));
         }
-
         $input = $request->all();
-
-        if (isset($input['image']) && $input['image'] !== null ) {
-            $imageName = time().'.'.$request->image->extension();
-            $request->image->move(public_path('images/upload'), $imageName);
-            $input['image'] = '/images/upload/' .$imageName;
-        }
-
+//        $product = $this->productRepository->update($request->all(), $id);
         $input = $this->prepare($input, ["name", "description"]);
-
         $product->update($input);
-        $product->categories()->sync($request->categories);
-
+        if ($input['categories'] != null)
+            $this->saveCategories($input['categories'], $product->id);
         Flash::success('Product updated successfully.');
 
         return redirect(route('products.index'));

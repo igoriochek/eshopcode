@@ -41,9 +41,9 @@
 <div class="form-group col-sm-6">
     {!! Form::label('image',__('table.image').':') !!}
     <div class="input-group">
-        <div class="custom-file">
+        <div class="custom-file d-flex align-items-center">
             {!! Form::file('image', ['class' => 'custom-file-input']) !!}
-            {!! Form::label('image', __('buttons.chooseFile'), ['class' => 'custom-file-label']) !!}
+            <span for="image" class="custom-file-label">{{__('buttons.chooseFile')}}</span>
         </div>
     </div>
 </div>
@@ -82,3 +82,28 @@
     {!! Form::label('categories', __('table.categories').':') !!}
     {!! Form::select('categories[]', $categories, null, ['class' => 'form-control custom-select', 'multiple'=>'multiple','name'=>'categories[]']) !!}
 </div>
+
+<style>
+.custom-file {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.custom-file-input {
+    flex: 1;
+}
+
+.custom-file-label {
+    flex: 1;
+    text-align: center;
+}
+
+.form-group input {
+    padding: 15px;
+}
+
+.form-control {
+    font-size: 1.4rem;
+}
+</style>

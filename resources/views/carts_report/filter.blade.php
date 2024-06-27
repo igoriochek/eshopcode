@@ -1,6 +1,6 @@
 <div class="card-body">
     <div class="row">
-        <div class="form-group col-sm-1">
+        <div class="form-group col-sm-2">
             <label for="id">{{__('reports.cartId')}}:</label>
             <input type="number" name="id" class="form-control"/>
         </div>
@@ -8,7 +8,7 @@
             <label for="user.name">{{__('reports.user')}}:</label>
             <input type="text" name="user.name" class="form-control"/>
         </div>
-        <div class="form-group col-sm-4">
+        <div class="form-group col-sm-3">
             <label for="code">{{__('reports.code')}}:</label>
             <input type="text" name="code" class="form-control"/>
         </div>
@@ -16,8 +16,8 @@
             <label for="status.name">{{__('reports.status')}}:</label>
             <select name="status.name" class="form-control">
                 <option></option>
-                <option value="Draft">On</option>
-                <option value="New">Off</option>
+                <option value="On">On</option>
+                <option value="Off">Off</option>
             </select>
         </div>
         <div class="form-group col-sm-2">
@@ -30,21 +30,32 @@
         </div>
     </div>
 </div>
-<div class="card-footer">
-    <button type="button" class="btn btn-primary" onclick="filter()">{{__('reports.filter')}}</button>
-    <button type="reset" class="btn btn-secondary" onclick="document.location='{{ route('carts_report.index') }}'">
-        {{__('reports.clear')}}
-    </button>
-    <div class="float-end">
-        <button type="button" class="btn btn-secondary" onclick="getReport('/download_pdf')">
-            {{__('reports.download')}} PDF
-        </button>
-        <button type="button" class="btn btn-secondary" onclick="getReport('/download_csv')">
-            {{__('reports.download')}} CSV
-        </button>
-        <button type="button" class="btn btn-secondary" onclick="getReport('/email')">
-            {{__('reports.sendEmail')}}
-        </button>
+<div class="">
+    <div class="container-fluid">
+        <div class="card-footer row mb-2">
+            <div class="col-sm-3 px-0">
+                <div class="button-container">
+                    <button type="button" class="axil-btn btn-primary m-2" onclick="filter()">{{__('reports.filter')}}</button>
+                    <button type="reset" class="axil-btn btn-secondary m-2" onclick="document.location='{{ route('carts_report.index') }}'">
+                        {{__('reports.clear')}}
+                    </button>
+                </div>
+            </div>
+            
+            <div class="col-sm-6 px-0">
+                <div class="button-container">
+                    <button type="button" class="axil-btn btn-secondary m-2" onclick="getReport('/download_pdf')">
+                        {{__('reports.download')}} PDF
+                    </button>
+                    <button type="button" class="axil-btn btn-secondary m-2" onclick="getReport('/download_csv')">
+                        {{__('reports.download')}} CSV
+                    </button>
+                    <button type="button" class="axil-btn btn-secondary m-2" onclick="getReport('/email')">
+                        {{__('reports.sendEmail')}}
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -79,3 +90,26 @@
         }
     </script>
 @endpush
+
+<style>
+    .form-group {
+        margin-bottom: 10px;
+        margin-top: 10px;
+        align-items: center;
+        display: flex !important;
+    }
+    .form-control {
+        font-size: 1.4rem;
+    }
+    .card-body {
+        padding: 2rem 1rem;
+    }
+    .card-footer {
+        display: flex;
+        justify-content: space-between;
+    }
+    .button-container {
+        display: flex;
+        justify-content: space-between;
+    }
+</style>

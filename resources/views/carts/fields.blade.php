@@ -23,3 +23,13 @@
     {!! Form::label('admin_id', __('table.adminId').':') !!}
     {!! Form::select('admin_id', $admin_list, null, ['class' => 'form-control custom-select']) !!}
 </div>
+
+<style>
+.form-group input {
+    padding: 15px;
+}
+
+.form-control {
+    font-size: 1.4rem;
+}
+</style>

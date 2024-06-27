@@ -95,14 +95,7 @@
                                             href="{{route('viewproduct', $product->id)}}">{{$product->name}}</a></h4>
                                     <h6 class="card-subtitle mb-2 text-muted">{{__('names.desc')}}</h6>
                                     <p class="card-text">{{$product->description}}</p>
-                                    <p>
-                                        @if ($product->discount )
-                                            {{__("names.old")}}:<strike>{{$product->price}}</strike>&nbsp;&nbsp;&nbsp;
-                                            <b>{{__("names.new")}}:{{ round(($product->price * $product->discount->proc / 100),2) }}</b>
-                                        @else
-                                            {{ $product->price }}
-                                        @endif
-                                    </p>
+                                    <p>{{$product->price}}</p>
                                     @forelse($product->categories as $c)
                                         <a href="{{route('innercategories', $c->id)}}"
                                            class="card-link">{{$c->name}}</a>

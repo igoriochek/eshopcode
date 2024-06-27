@@ -11,17 +11,12 @@ use Flash;
 
 class UserController extends Controller
 {
-    /**
-     * Show the profile for a given user.
-     *
-     * @param  int  $id
-     * @return \Illuminate\View\View
-     */
     public function show()
     {
         $user = Auth::user();
-        if (!$user){
-            Flash::success('No user found!');
+
+        if (!$user) {
+            session()->flash('error', 'No user found!');
             return view('home');
         }
 
@@ -33,10 +28,9 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $request->validate(User::$rules);
+
         $id = Auth::user()->id;
-
         $user = User::find($id);
-
         $user->name = $request->name;
         $user->email = $request->email;
         $user->street = $request->street;
@@ -46,14 +40,14 @@ class UserController extends Controller
         $user->phone_number = $request->phone_number;
         $user->save();
 
-        Flash::success(__('messages.userupdated'));
+        session()->flash('success', __('messages.userupdated'));
 
         return redirect(route('userprofile'));
     }
 
-    public function changePassword(Request $request) 
+    public function changePassword(Request $request)
     {
-        $validateData = $request->validate([
+        $validatedData = $request->validate([
             'current_password' => 'required',
             'new_password' => 'required|confirmed'
         ]);
@@ -66,14 +60,11 @@ class UserController extends Controller
             $user->password = Hash::make($request->new_password);
             $user->save();
 
-            Flash::success(__('messages.changedpassword'));
-
-            return redirect(route('userprofile'));
+            session()->flash('success', __('messages.changedpassword'));
+        } else {
+            session()->flash('error', __('messages.incorrectpassword'));
         }
-        else {
-            Flash::error(__('messages.incorrectpassword'));
 
-            return redirect(route('userprofile'));
-        }
+        return redirect(route('userprofile'));
     }
 }

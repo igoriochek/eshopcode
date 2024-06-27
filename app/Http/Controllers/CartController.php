@@ -21,7 +21,7 @@ class CartController extends AppBaseController
 {
     use \App\Http\Controllers\forSelector;
 
-    /** @var CartRepository $cartRepository*/
+    /** @var CartRepository $cartRepository */
     private $cartRepository;
 
     public function __construct(CartRepository $cartRepo)
@@ -160,9 +160,9 @@ class CartController extends AppBaseController
      *
      * @param int $id
      *
+     * @return Response
      * @throws \Exception
      *
-     * @return Response
      */
     public function destroy($id)
     {
@@ -208,15 +208,16 @@ class CartController extends AppBaseController
                 ->first();
 
             if (null === $cartItem) {
-                $cartItem = new CartItem([
+                $cartItem = CartItem::create([
                     'cart_id' => $cart->id,
                     'product_id' => $product->id,
-                    'price_current' => $product->price,
+                    'price_current' => $product->discount ?
+                        $product->price - (round(($product->price * $product->discount->proc / 100), 2)) :
+                        $product->price,
                     'count' => $validated['count'],
                 ]);
                 $cartItem->save();
-            }
-            else {
+            } else {
                 $cartItem->increment('count', $validated['count']);
                 $cartItem->save();
             }
@@ -230,24 +231,28 @@ class CartController extends AppBaseController
         return redirect(route('viewcart'));
     }
 
+    private function getCart($request)
+    {
+        return $this->cartRepository->getOrSetCart($request);
+    }
+
+    private function getCartItemsByCart($cart)
+    {
+        return CartItem::query()
+            ->with('product')
+            ->where('cart_id', $cart->id)
+            ->get();
+    }
 
     public function viewCart(Request $request)
     {
-        $cart = $this->cartRepository->getOrSetCart($request);
-
-        $cartItems = CartItem::query()
-            ->with('product')
-            ->where([
-                'cart_id' => $cart->id,
-            ])
-            ->get();
+        $cart = $this->getCart($request);
+        $cartItems = $this->getCartItemsByCart($cart);
 
         return view('user_views.cart.view')
             ->with([
-                'cartItems'=> $cartItems
+                'cartItems' => $cartItems,
+                'cart' => $cart
             ]);
     }
-
-
-
 }

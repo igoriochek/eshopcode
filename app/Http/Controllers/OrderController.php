@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreateOrderRequest;
 use App\Http\Requests\PayRequest;
 use App\Http\Requests\UpdateOrderRequest;
-use App\Models\Cart;
 use App\Models\CartItem;
 use App\Models\DiscountCoupon;
 use App\Models\LogActivity;
@@ -19,14 +18,15 @@ use App\Repositories\DiscountCouponRepository;
 use App\Repositories\OrderRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
-use Flash;
 use Illuminate\Support\Facades\Auth;
+use Flash;
 use Response;
 use PDF;
 
 class OrderController extends AppBaseController
 {
     use \App\Http\Controllers\forSelector;
+    use \App\Traits\LogTranslator;
 
     /** @var OrderRepository $orderRepository */
     private $orderRepository;
@@ -219,9 +219,12 @@ class OrderController extends AppBaseController
     public function indexOrders()
     {
         $userId = Auth::id();
+
         $orders = $this->orderRepository->all([
             'user_id' => $userId,
-        ]);
+        ])
+            ->sortByDesc('id')
+            ->sortBy('status_id');
 
         return view('user_views.orders.index')->with([
             'orders' => $orders,
@@ -271,6 +274,10 @@ class OrderController extends AppBaseController
             }
         }
         $logs = LogActivity::search("Order ID:{$id}")->get();
+
+        foreach ($logs as $log) {
+            $log->activity = $this->logTranslate($log->activity, app()->getLocale());
+        }
 
         return view('user_views.orders.view')->with([
             'order' => $order,
@@ -337,11 +344,14 @@ class OrderController extends AppBaseController
 
             if ($discounts) {
                 foreach ($discounts as $discount) {
+                    //$priceDiscounted = $amount * ($discount->value / 100);
+                    //$newAmount = $amount - $priceDiscounted;
                     $newAmount = $amount - $discount->value;
                     if ($newAmount > 0) {
                         $amount = $newAmount;
 
                         $discount->cart_id = $cart->id;
+                        // $discount->used = 1;
                         $discount->save();
                     }
                 }
@@ -418,7 +428,6 @@ class OrderController extends AppBaseController
         });
 
         if ($user->id != $order->user_id) $user = User::query()->where(['id' => $order->user_id])->first();
-
 
         return view('user_views.orders.invoice')->with([
             'order' => $order,

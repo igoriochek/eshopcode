@@ -1,66 +1,87 @@
 @extends('layouts.app')
 
+@section('title', __('menu.orders'))
+
 @section('content')
-<section class="content-header">
-    <div class="container-fluid">
-        <div class="row m-2">
-            <div class="col-sm-6">
-                <h1>{{__('names.orders')}}</h1>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section>
-
-    <div class="content px-3">
-
-        @include('flash::message')
-
-        <div class="clearfix"></div>
-
-        @if($orders)
-            <div class="card">
-                <div class="card-body p-0">
-                    <div class="table table-responsive">
-                        <table class="table" id="categories">
-                            <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>{{__('table.user')}}</th>
-                                <th>{{__('table.status')}}</th>
-                                <th>{{__('table.sum')}}</th>
-                                <th> </th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($orders as $item)
-                                <tr>
-                                    <td>{{ $item->id }}</td>
-                                    <td>{{ $item->user->name }}</td>
-                                    <td>{{ $item->status->name }}</td>
-                                    <td>{{ $item->sum }}</td>
-                                    <td width="120">
-                                        <div class='btn-group'>
-                                            <a href="{{ route('vieworder', [$item->id]) }}"
-                                               class='btn btn-default btn-xs'>
-                                                <i class="far fa-eye"></i>
-                                            </a>
-                                        </div>
-                                    </td>
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
+        <div class="axil-dashboard-area axil-section-gap">
+            <div class="container">
+                <div class="axil-dashboard-warp">
+                    <div class="mb-5">
+                        @include('adminlte-templates::common.errors')
+                        @include('flash_messages')
                     </div>
-
+                    <div class="row">
+                        <div class="col-xl-3 col-md-4">
+                            <aside class="axil-dashboard-aside">
+                                <nav class="axil-dashboard-nav">
+                                    <div class="nav nav-tabs" role="tablist">
+                                        <a class="nav-item nav-link" href="{{ url('/user/userprofile') }}" aria-selected="false"><i class="fas fa-user"></i>{{ __('menu.profile') }}</a>
+                                        <a class="nav-item nav-link active" data-bs-toggle="tab" href="#nav-orders" role="tab" aria-selected="true"><i class="fas fa-shopping-basket"></i>{{__('menu.orders')}}</a>
+                                        <a class="nav-item nav-link" href="{{ url('/user/rootoreturns') }}" aria-selected="false"><i class="fas fa-arrow-circle-left "></i>{{ __('menu.returns') }}</a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            @csrf
+                                        </form>
+                                        <a class="nav-item nav-link" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                            <i class="fal fa-sign-out"></i>{{ __('menu.logout') }}
+                                        </a>
+                                    </div>
+                                </nav>
+                            </aside>
+                        </div>
+                        <div class="col-xl-9 col-md-8">
+                            <div class="tab-content">
+                                <div class="tab-pane fade show active" id="nav-orders" role="tabpanel">
+                                    <div class="axil-dashboard-order">
+                                        <h3>{{ __('names.orders') }}</h3>
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">{{ __('names.order').' ID' }}</th>
+                                                        <th scope="col">{{ __('table.date') }}</th>
+                                                        <th scope="col">{{ __('table.status') }}</th>
+                                                        <th scope="col">{{ __('table.sum') }}</th>
+                                                        <th scope="col"></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @forelse($orders as $order)
+                                                        <tr>
+                                                            <th scope="row">
+                                                                {{ $order->order_id }}
+                                                            </th>
+                                                            <td>
+                                                                {{ $order->created_at->format('M d, Y') }}
+                                                            </td>
+                                                            <td>
+                                                                {{ __("status.".$order->status->name) }}
+                                                            </td>
+                                                            <td>
+                                                                €{{ number_format($order->sum, 2) }}
+                                                            </td>
+                                                            <td>
+                                                                <a href="{{ route('vieworder', [$order->id]) }}" class='axil-btn view-btn'>
+                                                                    {{ __('buttons.view') }}
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+                                                    @empty
+                                                        <tr>
+                                                            <td colspan="5" style="text-align: left;">
+                                                                {{ __('names.noOrders') }}
+                                                            </td>
+                                                        </tr>
+                                                    @endforelse
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        @else
-        {{__('names.noOrders')}}
-        @endif
-    </div>
-</section>
-
+        </div>
 @endsection
 

@@ -9,9 +9,7 @@ return [
     |
     */
 
-    'usermenu' => 'User menu',
-    'adminmenu' => 'Admin menu',
-
+    'home' => 'Home',
     'admin' => 'Admin',
     'cart' => 'Cart',
     'carts' => 'Carts',
@@ -19,24 +17,30 @@ return [
     'cartStatuses' => 'Cart Statuses',
     'categories' => 'Categories',
     'categoriesTree' => 'Categories Tree',
-    'cookies'=> 'Cookies',
+    'cookies' => 'Cookies',
     'discounts' => 'Discounts',
     'discountCoupons' => 'Discount Coupons',
     'importExport' => 'Import/Export',
-    'messenger' => 'Messenger',
-    'logout'=> 'Logout',
+    'messenger' => 'Chat',
+    'logout' => 'Logout',
     'orders' => 'Orders',
     'orderStatuses' => 'Order Statuses',
     'ordersReport' => 'Orders Report',
     'products' => 'Products',
-    'promotions'=> 'Promotions',
+    'promotions' => 'Promotions',
     'reports' => 'Reports',
     'returns' => 'Returns',
     'returnsReport' => 'Returns Report',
     'returnStatuses' => 'Return Statuses',
-    'users'=> 'Users',
-    'userInfo'=> 'User Info',
+    'users' => 'Users',
+    'userInfo' => 'User Info',
     'usersReport' => 'Users Report',
     'usersActivitiesReport' => 'Users Activities Report',
+    'profile' => 'Profile',
+    'aboutUs' => 'About Us',
+    'termsofservice' => 'Rules',
+    'policy' => 'Privacy Policy',
+    'euProjects' => 'EU Projects',
+    'fbDataDeletion' => 'FB Data Deletion'
 
 ];

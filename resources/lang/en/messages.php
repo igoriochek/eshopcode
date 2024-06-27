@@ -19,6 +19,8 @@ return [
     'incorrectpassword' => 'Incorrect current password.',
 
     "nocategories" => "No Categories",
+    "noinnercategories" => "No subcategories",
+    "subcategories" => "Subcategories",
     "novideo" => "No video",
     "passwordmismatch" => "Password empty or mismatch",
     "makereturn" => "Make a return",
@@ -38,5 +40,12 @@ return [
     'typeYourMsgHere' => 'Type your Message here...',
     'updatedAt' => 'Updated At',
 
+    'orderCreatedSubject' => 'New Order Created',
+    'orderCreatedMarkdown' => 'emails.order_created_en',
+
+    'confirmDeleteProduct' => 'Are you sure you want to remove this product?',
+
+    'loginSuccess' => 'Successfully logged into your account',
+    'logoutSuccess' => 'Successfully logged out of your account'
 
 ];

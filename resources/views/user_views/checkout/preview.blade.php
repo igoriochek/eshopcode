@@ -1,94 +1,66 @@
 @extends('layouts.app')
 
+@section('title', __('names.preview'))
+@section('parentTitle', __('names.checkout'))
+@section('parentUrl', url('/user/checkout'))
+
 @section('content')
-<section class="content-header">
-    <div class="container-fluid">
-        <div class="row m-2">
-            <div class="col-sm-6">
-                <h1>{{__('names.checkoutPreview')}}</h1>
+    <div class="axil-checkout-area axil-section-gap">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-12">
+                    {!! Form::open(['route' => ['pay'], 'method' => 'post']) !!}
+                    <div class="axil-order-summery order-checkout-summery">
+                        <h5 class="title mb--20">{{ __('names.yourOrder') }}</h5>
+                        <div class="summery-table-wrap">
+                            <table class="table summery-table">
+                                <thead>
+                                    <tr>
+                                        <th>{{ __('names.product') }}</th>
+                                        <th>{{ __('names.subtotal') }}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($cartItems as $item)
+                                        <tr class="order-product">
+                                            <td>{{ $item['product']->name }} {{ 'x' . $item->count }}</td>
+                                            <td>€{{ number_format($item->price_current * $item->count, 2) }}</td>
+                                        </tr>
+                                    @endforeach
+                                    @if ($discounts)
+                                        @foreach ($discounts as $item)
+                                            <tr class="order-product">
+                                                <td>{{ __('names.discountCoupon') . ' (' . $item->code . ')' }}</td>
+                                                <td>-€{{ number_format($item->value, 2) }}</td>
+                                            </tr>
+                                        @endforeach
+                                    @endif
+                                    <tr class="order-total">
+                                        <td>{{ __('names.total') }}</td>
+                                        <td class="order-total-amount">€{{ number_format($amount, 2) }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="order-payment-method">
+                            <h5 class="title mb--20">{{ __('names.paymentMethods') }}</h5>
+                            <div class="single-payment">
+                                <div class="input-group justify-content-between align-items-center">
+                                    <input type="radio" id="payment_method1" name="payment_method"
+                                        value="cash-on-delivery" checked disabled>
+                                    <label for="payment_method1">{{ __('Paysera') }}</label>
+                                    <img src="{{ asset('images/1_Paysera logo for light background.svg') }}" alt="Paypal"
+                                        width="100px">
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="axil-btn btn-bg-primary checkout-btn" style="width: fit-content">
+                            {{ __('buttons.placeOrder') }}
+                        </button>
+                    </div>
+                    {!! Form::close() !!}
+                </div>
             </div>
         </div>
     </div>
-</section>
-
-<section>
-
-    <div class="content px-3">
-
-        @include('flash::message')
-
-        <div class="clearfix"></div>
-
-        <div class="row">
-            <div class="col-lg-6">
-                <div><strong>{{__('names.cart')}}</strong></div>
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th>{{__('table.name')}}</th>
-                        <th>{{__('table.count')}}</th>
-                        <th>{{__('table.price')}}</th>
-                        <th>{{__('table.description')}}</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    @foreach($cartItems as $item)
-                        <tr>
-                            <td>{{ $item['product']->name }}</td>
-                            <td>{{ $item->count }}</td>
-                            <td>{{ $item['product']->price }}</td>
-                            <td>{{ $item['product']->description }}</td>
-                        </tr>
-                    @endforeach
-                    </tbody>
-                    <tfoot>
-                    @if ($discounts)
-                        <tr>
-                            <td>{{__('names.sum')}}:</td>
-                            <td colspan="3" style="text-align: right">{{ $cart->sum }}</td>
-                        </tr>
-                        @foreach($discounts as $item)
-                            <tr>
-                                <td>{{__('names.discount')}}:</td>
-                                <td colspan="3" style="text-align: right">{{ $item->value }}</td>
-                            </tr>
-                        @endforeach
-                    @endif
-                    <tr>
-                        <td>{{__('names.total')}}:</td>
-                        <td colspan="3" style="text-align: right">{{ $amount }}</td>
-                    </tr>
-                    </tfoot>
-                </table>
-            </div>
-            <div class="col-lg-6">
-                <div><strong>{{__('forms.user')}}</strong></div>
-                <div>Id: {{ $user->id }}</div>
-                <div>{{__('forms.name')}}: {{ $user->name }}</div>
-                <div>{{__('forms.email')}}: {{ $user->email }}</div>
-                <div>{{__('forms.avatar')}}: {{ $user->avatar }}</div>
-                <div>{{__('forms.street')}}: {{ $user->street }}</div>
-                <div>{{__('forms.house_flat')}}: {{ $user->house_flat }}</div>
-                <div>{{__('forms.post_index')}}: {{ $user->post_index }}</div>
-                <div>{{__('forms.city')}}: {{ $user->city }}</div>
-                <div>{{__('forms.phone_number')}}: {{ $user->phone_number }}</div>
-            </div>
-        </div>
-
-        <br>
-        <br>
-        <div class="row">
-            <div class="col-sm-6">
-                <a class="btn btn-default float-right" href="{{ route('viewcart') }}">{{__('buttons.back')}}</a>
-            </div>
-            <div class="col-sm-6">
-                {!! Form::open(['route' => ['pay'], 'method' => 'post']) !!}
-                <input type="submit" value="{{__('buttons.pay')}}">
-                {!! Form::close() !!}
-            </div>
-        </div>
-    </div>
-</section>
-
 @endsection
-
