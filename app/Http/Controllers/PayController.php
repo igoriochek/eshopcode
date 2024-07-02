@@ -31,16 +31,16 @@ class PayController extends AppBaseController
     {
         $cartId = $request->session()->get('appPayCartId');
         $amount = $request->session()->get('appPayAmount');
-//        $amount = str_replace(".", "", $amount);
-//        $amount = $amount * 10;
+        //        $amount = str_replace(".", "", $amount);
+        //        $amount = $amount * 10;
 
-//        if (!preg_match("/\./", $amount)) {
-            if(strpos($amount, ".") == strlen($amount)-2)  $amount = $amount . "0";
-            elseif (strpos($amount, ".") === false ) $amount = $amount . "00";
-//            elseif(strpos($amount, ".") == strlen($amount)-3)  $amount = $amount . "00";
-//        }
+        //        if (!preg_match("/\./", $amount)) {
+        if (strpos($amount, ".") == strlen($amount) - 2)  $amount = $amount . "00";
+        elseif (strpos($amount, ".") === false) $amount = $amount . "00";
+        //            elseif(strpos($amount, ".") == strlen($amount)-3)  $amount = $amount . "00";
+        //        }
 
-//        $amount = str_replace(".", "", $amount);
+        //        $amount = str_replace(".", "", $amount);
         $amount = preg_replace("/\D/", "", $amount);
 
 
@@ -52,9 +52,9 @@ class PayController extends AppBaseController
             'amount' => $amount,
             'currency' => 'EUR',
             'country' => 'LT',
-            'accepturl' => $appUrl. '/user/pay/accept/' . $cartId,
-            'cancelurl' => $appUrl. '/user/pay/cancel/' . $cartId,
-            'callbackurl' => $appUrl. '/user/pay/callback/' . $cartId,
+            'accepturl' => $appUrl . '/user/pay/accept/' . $cartId,
+            'cancelurl' => $appUrl . '/user/pay/cancel/' . $cartId,
+            'callbackurl' => $appUrl . '/user/pay/callback/' . $cartId,
         ];
 
         if (true !== env('WEBTOPAY_PROD')) {
@@ -91,7 +91,8 @@ class PayController extends AppBaseController
         $params = [];
         parse_str(base64_decode(strtr($request->get('data'), ['-' => '+', '_' => '/'])), $params);
 
-        if (is_array($params) &&
+        if (
+            is_array($params) &&
             isset($params['status']) &&
             $params['status'] == 1 &&
             is_numeric($id)
@@ -134,8 +135,8 @@ class PayController extends AppBaseController
                     }
                     $user = Auth::user();
 
-                    if($user){
-//                        $user->log("Created new Order ID:{$params['orderid']}");
+                    if ($user) {
+                        //                        $user->log("Created new Order ID:{$params['orderid']}");
                         $user->log("Created new Order ID:{$newOrder->id}");
                     }
 
