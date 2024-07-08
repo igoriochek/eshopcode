@@ -20,6 +20,10 @@ class CreateCategoriesTable extends Migration
 //            $table->text('description');
             $table->unsignedBigInteger('parent_id')->unsigned()->nullable();
             $table->boolean('visible')->default(true);
+
+            $table->tinyInteger("includedInComplex")->default(0);
+            $table->tinyInteger("includedInComplexOrder")->default(0);
+
             $table->timestamps();
             $table->foreign('parent_id')->references('id')->on('categories');
         });

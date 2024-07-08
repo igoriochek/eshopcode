@@ -46,9 +46,9 @@ class ProductRepository extends BaseRepository
         return Product::class;
     }
 
-    public function all($search = [], $skip = null, $limit = null, $columns = ['*'])
+    public function all($search = [], $skip = null, $limit = null, $columns = ['*'], $order = null)
     {
-        $query = $this->allQuery($search, $skip, $limit);
+        $query = $this->allQuery($search, $skip, $limit, $order);
 
         return $query->get($columns);
     }
