@@ -20,7 +20,9 @@ class CategoryRepository extends BaseRepository
         'name',
         'description',
         'parent_id',
-        'visible'
+        'visible',
+        "includedInComplex",
+        "includedInComplexOrder",
     ];
 
     /**

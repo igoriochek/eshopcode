@@ -25,6 +25,10 @@ class CreateProductsTable extends Migration
             $table->integer('visible')->default(1);
             $table->unsignedBigInteger("promotion_id")->nullable(true);
             $table->unsignedBigInteger("discount_id")->nullable(true);
+            //0 not included, 1 included
+            $table->tinyInteger("includedInComplex")->default(0);
+            $table->string('complexProductImage')->nullable(true);
+
             $table->foreign('promotion_id')->references('id')->on('promotions');
             $table->foreign('discount_id')->references('id')->on('discounts');
             $table->timestamps();
