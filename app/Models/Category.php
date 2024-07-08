@@ -28,6 +28,8 @@ class Category extends Model implements TranslatableContract
 //        'description',
         'parent_id',
         'visible',
+        "includedInComplex",
+        "includedInComplexOrder",
         'created_at',
         'updated_at'
     ];
@@ -42,6 +44,8 @@ class Category extends Model implements TranslatableContract
 //        'description' => 'string',
         'parent_id' => 'integer',
         'visible' => 'integer',
+        "includedInComplex" => 'integer',
+        "includedInComplexOrder" => 'integer',
         'created_at' => 'datetime',
         'updated_at' => 'datetime'
     ];

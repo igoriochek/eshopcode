@@ -37,6 +37,8 @@ class Product extends Model implements TranslatableContract
         'visible',
         'promotion_id',
         'discount_id',
+        'includedInComplex',
+        'complexProductImage',
         'created_at',
         'updated_at',
     ];
@@ -54,6 +56,8 @@ class Product extends Model implements TranslatableContract
         'visible' => 'integer',
         'promotion_id' => 'integer',
         'discount_id' => 'integer',
+        'includedInComplex' => 'integer',
+        'complexProductImage' => 'string',
         'created_at' => 'datetime',
         'updated_at' => 'datetime'
     ];
@@ -66,6 +70,8 @@ class Product extends Model implements TranslatableContract
     public static $rules = [
         'price' => 'required',
         'count' => 'required',
+        'image' => 'nullable|image|mimes:jpeg,jpg,png,gif',
+        'complexProductImage' => 'nullable|image|mimes:jpeg,jpg,png,gif',
     ];
 
     public function categories()
