@@ -17,6 +17,7 @@ use App\Models\User;
 trait forSelector
 {
     protected $visible_list = ['invisible', 'visible'];
+    protected $included_list = ['not included', 'included'];
 
     public function categoriesForSelector()
     {

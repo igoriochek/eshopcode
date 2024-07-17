@@ -1,4 +1,9 @@
 <li class="nav-list">
+    <a class="{{ request()->is('user/productComplex*') ? 'active' : '' }}" href="{{ url('/user/productComplex') }}">
+        {{ __('menu.productComplex') }}
+    </a>
+</li>
+<li class="nav-list">
     <a class="{{ request()->is('user/products*') ? 'active' : '' }}" href="{{ url('/user/products') }}">
         {{ __('menu.products') }}
     </a>

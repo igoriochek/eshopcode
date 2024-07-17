@@ -59,4 +59,6 @@ return [
     'value' => 'Vertė',
     'video' => 'Vaizdo įrašas',
     'visible' => 'Matomumas',
+    'includedComplex' => "Įtrauktas į complex produktą",
+    'imageComplex' => "Visualizacijos paveiksliukas",
 ];

@@ -59,5 +59,7 @@ return [
     'value' => 'Value',
     'video' => 'Video',
     'visible' => 'Visible',
+    'includedComplex' => "Included Complex",
+    'imageComplex' => "Visualization image",
 
 ];

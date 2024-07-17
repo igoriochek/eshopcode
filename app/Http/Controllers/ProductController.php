@@ -149,21 +149,14 @@ class ProductController extends AppBaseController
             'products.create',
             [
                 'visible_list' => $this->visible_list,
+                'included_list' => $this->included_list,
                 'categories' => $this->categoriesForSelector(),
                 'promotions' => $this->promotionForSelector(),
                 'discounts' => $this->discountForSelector(),
             ]
         );
     }
-
-    /**
-     * Store a newly created Product in storage.
-     *
-     * @param CreateProductRequest $request
-     *
-     * @return Response
-     */
-    public function store(CreateProductRequest $request)
+    private function storeEditHelper($request)
     {
         $input = $request->all();
 
@@ -173,14 +166,50 @@ class ProductController extends AppBaseController
             //            dd( $path);
             $input['image'] = "/images/upload/" . $imageName;
         }
-        $input = $this->prepare($input, ["name", "description"]);
+        if (isset($input['complexProductImage']) &&  $input['complexProductImage'] !== null) {
+            $imageName = time() . '.' . $request->complexProductImage->extension();
+            $request->complexProductImage->move(public_path('images/upload'), $imageName);
+            //            dd( $path);
+            $input['complexProductImage'] = "/images/upload/" . $imageName;
+        }
 
-        //        $product = $this->productRepository->create($input);
+        $input = $this->prepare($input, ["name", "description"]);
+        return $input;
+    }
+    /**
+     * Store a newly created Product in storage.
+     *
+     * @param CreateProductRequest $request
+     *
+     * @return Response
+     */
+    public function store(CreateProductRequest $request)
+    {
+        $input = $this->storeEditHelper($request);
         $product = Product::create($input);
         if (!empty($input['categories']))
             $this->saveCategories($input['categories'], $product->id);
 
         Flash::success('Product saved successfully.');
+
+        return redirect(route('products.index'));
+    }
+
+    public function update($id, UpdateProductRequest $request)
+    {
+        $product = $this->productRepository->find($id);
+
+        if (empty($product)) {
+            Flash::error('Product not found');
+
+            return redirect(route('products.index'));
+        }
+        $input = $this->storeEditHelper($request);
+        $product->update($input);
+
+        $product->categories()->sync($request->categories);
+
+        Flash::success('Product updated successfully.');
 
         return redirect(route('products.index'));
     }
@@ -293,6 +322,7 @@ class ProductController extends AppBaseController
             [
                 'product' => $product,
                 'visible_list' => $this->visible_list,
+                'included_list' => $this->included_list,
                 'categories' => $this->categoriesForSelector(),
                 'promotions' => $this->promotionForSelector(),
                 'discounts' => $this->discountForSelector(),
@@ -308,35 +338,7 @@ class ProductController extends AppBaseController
      *
      * @return Response
      */
-    public function update($id, UpdateProductRequest $request)
-    {
-        $product = $this->productRepository->find($id);
 
-        if (empty($product)) {
-            Flash::error('Product not found');
-
-            return redirect(route('products.index'));
-        }
-
-        $input = $request->all();
-        //        $product = $this->productRepository->update($request->all(), $id);
-
-        if (isset($input['image']) && $input['image'] !== null) {
-            $imageName = time() . '.' . $request->image->extension();
-            $request->image->move(public_path('images/upload'), $imageName);
-            $input['image'] = '/images/upload/' . $imageName;
-        }
-
-        $input = $this->prepare($input, ["name", "description"]);
-
-        $product->update($input);
-
-        $product->categories()->sync($request->categories);
-
-        Flash::success('Product updated successfully.');
-
-        return redirect(route('products.index'));
-    }
 
 
 

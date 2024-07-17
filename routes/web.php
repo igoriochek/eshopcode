@@ -202,7 +202,7 @@ Route::middleware('cookie-consent')->group(function () {
     //Route::get("viewcategory", [CategoryController::class, 'userViewCategory'])->name('viewcategory');
     Route::get("viewproduct/{id}", [ProductController::class, 'userViewProduct'])->where('id', '[0-9]+')->name('viewproduct');
     Route::get('products', [ProductController::class, 'userProductIndex'])->name('userproducts');
-    Route::get('productComplex', [\App\Http\Controllers\ComplexProductController::class, 'index'])->name('usercomplexproduct');
+    Route::get('productComplex', [\App\Http\Controllers\ComplexProductController::class, 'index'])->name('productComplex');
     Route::get('promotions', [\App\Http\Controllers\PromotionController::class, 'indexPromotions'])->name('promotions');
     Route::get('promotion/{id}', [\App\Http\Controllers\PromotionController::class, 'promotionProducts'])->name('promotion');
     Route::get("termsofservice", [\App\Http\Controllers\TermsOfServiceController::class, 'index'])->name('termsofservice');

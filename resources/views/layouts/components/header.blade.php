@@ -59,6 +59,12 @@
                         </div>
                         <ul class="mainmenu">
                             <li>
+                                <a href="{{ url('/productComplex') }}"
+                                   class="{{ request()->is('productComplex*') ? 'active' : '' }}">
+                                    {{ __('menu.productComplex') }}
+                                </a>
+                            </li>
+                            <li>
                                 <a href="{{ url('/products') }}"
                                     class="{{ request()->is('products*') || request()->is('viewproduct*') ? 'active' : '' }}">
                                     {{ __('menu.products') }}

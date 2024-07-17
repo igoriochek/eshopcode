@@ -43,7 +43,7 @@
 
             <div class="card-body p-0 align-content-center" >
                 <h1><div id="complex">TUT budet</div></h1>
-                <h2><div id="complex1">1</div></h2>
+                <h2><div id="complex1">1 </div></h2>
                 <h2><div id="complex2">2</div></h2>
                 <h2><div id="complex3">3</div></h2>
             </div>
@@ -63,6 +63,9 @@
             "complex3": {name: "complex3", id : "3"},
         }
 
+        {{--const productApi = "{{ env("APP_URL")  }}/api/products/";--}}
+        const productApi = "http://127.0.0.1:8000/api/products/";
+
         function findNameById(value) {
             for (const key in complexMap) {
                 if (complexMap.hasOwnProperty(key)) {
@@ -74,14 +77,83 @@
             return null; // Return null if no matching id is found
         }
 
-        function updateValue(e) {
-            var name =  findNameById(event.target.id)
-            const selectComplex = document.getElementById(name);
-            console.log(name);
 
-            selectComplex.textContent = event.target.value
-            // console.log("tut");
-            console.log(`Value of ${event.target.id} changed to: ${event.target.value}`);
+        async function fetchData(url) {
+            try {
+                // Make a request to the API
+                const response = await fetch(url);
+
+                // Check if the response is OK (status code 200-299)
+                if (!response.ok) {
+                    throw new Error('Network response was not ok ' + response.statusText);
+                }
+
+                // Parse the response as JSON
+                const data = await response.json();
+                return data.data;
+                // Log the data to the console (or handle it as needed)
+                // console.log(data.data);
+
+                // console.log("ttu" + data.data.id);
+                //
+                // return data.data;
+
+                // Process the data
+                // You can add code here to update your UI or perform other actions with the data
+
+            } catch (error) {
+                // Handle any errors that occurred during the fetch
+                console.error('There was a problem with the fetch operation:', error);
+            }
+        }
+
+        async function updateValue(e) {
+            var name = findNameById(event.target.id)
+            const selectComplex = document.getElementById(name);
+            console.log("div name " + name);
+            var sVal = event.target.value;
+
+
+            var fullUrl = productApi + sVal;
+
+
+            // console.log(fullUrl);
+
+            let data = await fetchData(fullUrl);
+
+            selectComplex.innerHTML =  "<img src=\"" + data.complexProductImage + "\" />";// + sVal;
+            // console.log(option);
+
+
+            // console.log('ID:', data.id);
+            // console.log('Name:', data.name);
+            // console.log('Price:', data.price);
+
+
+            // event.target.value = data.complexProductImage;
+
+            // .then(
+            //     f =>{
+            //
+            //         console.log(option);
+            //
+            //         // console.log('ID:', option.data.id);
+            //         // console.log('Name:', option.data.name);
+            //         // console.log('Price:', option.data.price);
+            //
+            //
+            //         // data = JSON.parse(option.toString());
+            //
+            //         // console.log("ttu" + option);
+            //         // selectComplex.textContent = event.target.value;
+            //         // console.log("tut");
+            //         // console.log(`Value of ${event.target.id} changed to: ${event.target.value}`);
+            // }
+            // );
+            // const jsonObject = JSON.parse(option);
+
+
+            return;
         }
 
 
@@ -98,6 +170,7 @@
             console.log(name);
             const selectComplex = document.getElementById(name);
             selectComplex.addEventListener("change", updateValue);
+            selectComplex.value ="";
         });
 
 

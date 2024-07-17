@@ -71,3 +71,6 @@ Twitter:
 	profile ur and press save. Now go to keys and tokens, take Client Id and SECRET copy it to .env file where
 	TWITTER_CLIENT_ID=API_KEY, TWITTER_CLIENT_SECRET=API_KEY_SECRET save and rerun server.
 	*Not sure about this one: but in order to make it work you may need to ask for elevated access.
+
+
+laravel update         "laravel/framework": "^8.75", - > 9.x.x

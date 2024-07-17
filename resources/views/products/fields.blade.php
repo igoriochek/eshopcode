@@ -45,7 +45,19 @@
             {!! Form::file('image', ['class' => 'custom-file-input']) !!}
             <span for="image" class="custom-file-label">{{__('buttons.chooseFile')}}</span>
         </div>
-    </div>
+    </div>{{ isset($product->image) ? "<img src=\"$product->image\">" : ""  }}
+</div>
+<div class="clearfix"></div>
+
+<!-- Image Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('complexProductImage',__('table.imageComplex').':') !!}
+    <div class="input-group">
+        <div class="custom-file d-flex align-items-center">
+            {!! Form::file('complexProductImage', ['class' => 'custom-file-input']) !!}
+            <span for="complexProductImage" class="custom-file-label">{{ __('buttons.chooseFile') }}</span>
+        </div>
+    </div><div>{!! isset($product->complexProductImage) ? "<img src=\"$product->complexProductImage\">" : ""  !!}</div>
 </div>
 <div class="clearfix"></div>
 
@@ -81,6 +93,11 @@
 <div class="form-group col-sm-6">
     {!! Form::label('categories', __('table.categories').':') !!}
     {!! Form::select('categories[]', $categories, null, ['class' => 'form-control custom-select', 'multiple'=>'multiple','name'=>'categories[]']) !!}
+</div>
+
+<div class="form-group col-sm-6">
+    {!! Form::label('includedInComplex', __('table.includedComplex').':') !!}
+    {!! Form::select('includedInComplex', $included_list, null, ['class' => 'form-control custom-select']) !!}
 </div>
 
 <style>

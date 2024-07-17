@@ -41,6 +41,7 @@ return [
     'termsofservice' => 'Rules',
     'policy' => 'Privacy Policy',
     'euProjects' => 'EU Projects',
-    'fbDataDeletion' => 'FB Data Deletion'
+    'fbDataDeletion' => 'FB Data Deletion',
+    'productComplex' => 'Product Complex',
 
 ];
