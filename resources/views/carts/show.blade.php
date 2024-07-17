@@ -8,15 +8,13 @@
                     <h1>{{__('names.cartDetails')}}</h1>
                 </div>
                 <div class="col-sm-6">
-                    <a class="btn btn-default float-right"
-                       href="{{ route('carts.index') }}">
+                    <a href="{{ route('carts.index') }}" class="btn btn-primary float-end">
                         {{__('buttons.back')}}
                     </a>
                 </div>
             </div>
         </div>
     </section>
-
     <div class="content px-3">
         <div class="card">
             <div class="card-body">
@@ -26,7 +24,6 @@
             </div>
         </div>
     </div>
-
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
@@ -34,15 +31,13 @@
                     <h1>{{__('names.cartItems')}}</h1>
                 </div>
                 <div class="col-sm-6">
-                    <a class="btn btn-primary float-right"
-                       href="{{ route('cartItems.create', ['cart_id' => $cart->id]) }}">
+                    <a href="{{ route('cartItems.create', ['cart_id' => $cart->id]) }}" class="btn btn-primary float-end">
                         {{__('buttons.addNew')}}
                     </a>
                 </div>
             </div>
         </div>
     </section>
-
     <div class="content px-3">
         <div class="card">
             <div class="card-body">

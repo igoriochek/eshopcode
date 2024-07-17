@@ -66,7 +66,7 @@
                                                     €{{ number_format($order->sum, 2) }}
                                                 </td>
                                                 <td class="actions">
-                                                    <a href="{{ route('vieworder', [$order->id]) }}" class='btn btn-default btn-xs'>
+                                                    <a href="{{ route('vieworder', [$order->id]) }}" class="btn btn-primary btn-xs">
                                                         <i class="far fa-eye"></i>
                                                     </a>
                                                 </td>

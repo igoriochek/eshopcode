@@ -13,7 +13,7 @@
                                 <h3 class="widget-title m-0">
                                     {{ __('names.messages') }}
                                 </h3>
-                                <a class="default-btn style5" href="{{ route('livewire.messenger.add') }}">
+                                <a href="{{ route('livewire.messenger.add') }}" class="default-btn style5">
                                     {{ __('buttons.contact') }}
                                 </a>
                             </div>

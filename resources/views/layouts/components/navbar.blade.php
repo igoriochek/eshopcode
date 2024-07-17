@@ -4,18 +4,17 @@
             <div class="mobile-responsive-menu">
                 <div class="logo">
                     <a href="{{ route('home') }}">
-                        <img src="{{ asset('images/CM_logo.png') }}" alt="CM_logo" style="width: 90%">
+                        <img src="{{ asset('images/CM_logo.png') }}" alt="CM logo" style="width: 90%">
                     </a>
                 </div>
             </div>
         </div>
     </div>
-
     <div class="desktop-nav">
         <div class="container-fluid">
             <nav class="navbar navbar-expand-md navbar-light">
-                <a class="navbar-brand" href="{{ route('home') }}">
-                    <img src="{{ asset('images/CM_logo.png') }}" alt="CM_logo" style="width: 80%">
+                <a href="{{ route('home') }}" class="navbar-brand">
+                    <img src="{{ asset('images/CM_logo.png') }}" alt="CM logo" style="width: 80%">
                 </a>
                 <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent" style="display: block;">
                     <ul class="navbar-nav me-auto mt-2">
@@ -53,12 +52,11 @@
                         @endauth
                         <li class="nav-item">
                             <a href="{{ url('/eu_projects') }}" class="nav-link">
-                                <img src="{{ asset('images/Picture1.jpg') }}" alt="es_projektai" width="120px"
+                                <img src="{{ asset('images/Picture1.jpg') }}" alt="Bendrai finansuoja ES" width="120px"
                                     style="transform: translateY(-4px)">
                             </a>
                         </li>
                     </ul>
-
                     <div class="others-options">
                         @auth
                             <div class="option-item">
@@ -82,13 +80,13 @@
                                     </button>
                                     <ul class="dropdown-menu">
                                         <li>
-                                            <a class="dropdown-item" href="{{ url('/user/userprofile') }}"
+                                            <a href="{{ url('/user/userprofile') }}" class="dropdown-item"
                                                 style="color: {{ request()->is('user/userprofile*') ? '#a10909' : '' }}">
                                                 {{ __('menu.profile') }}
                                             </a>
                                         </li>
                                         <li>
-                                            <a class="dropdown-item" href="{{ url('/user/rootorders') }}"
+                                            <a href="{{ url('/user/rootorders') }}" class="dropdown-item"
                                                 style="color: {{ request()->is('user/rootorders*') ||
                                                 request()->is('user/vieworder*') ||
                                                 request()->is('user/cancelorder*') ||
@@ -99,7 +97,7 @@
                                             </a>
                                         </li>
                                         <li>
-                                            <a class="dropdown-item" href="{{ url('/user/rootoreturns') }}"
+                                            <a href="{{ url('/user/rootoreturns') }}" class="dropdown-item"
                                                 style="color: {{ request()->is('user/rootoreturns*') || request()->is('user/viewreturn*') ? '#a10909' : '' }}">
                                                 {{ __('menu.returns') }}
                                             </a>
@@ -110,7 +108,7 @@
                                         <li>
                                             <form id="logout-form" action="{{ route('logout') }}" method="POST">
                                                 @csrf
-                                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                                <a href="{{ route('logout') }}" class="dropdown-item"
                                                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                                     {{ __('menu.logout') }}
                                                 </a>
@@ -147,19 +145,18 @@
                                 <button class="btn dropdown-toggle d-flex justify-content-center align-items-center"
                                     type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <div class="icon me-2">
-                                        <img src="{{ asset('images/icons/icon-account.png') }}" alt="icon-account"
-                                            height="30">
+                                        <img src="{{ asset('images/icons/icon-account.png') }}" alt="icon-account" height="30">
                                     </div>
                                 </button>
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a class="dropdown-item" href="{{ url('/user/userprofile') }}"
+                                        <a href="{{ url('/user/userprofile') }}" class="dropdown-item"
                                             style="color: {{ request()->is('user/userprofile*') ? '#a10909' : '' }}">
                                             {{ __('menu.profile') }}
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="{{ url('/user/rootorders') }}"
+                                        <a href="{{ url('/user/rootorders') }}" class="dropdown-item"
                                             style="color: {{ request()->is('user/rootorders*') ||
                                             request()->is('user/vieworder*') ||
                                             request()->is('user/cancelorder*') ||
@@ -170,7 +167,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="{{ url('/user/rootoreturns') }}"
+                                        <a href="{{ url('/user/rootoreturns') }}" class="dropdown-item"
                                             style="color: {{ request()->is('user/rootoreturns*') || request()->is('user/viewreturn*') ? '#a10909' : '' }}">
                                             {{ __('menu.returns') }}
                                         </a>
@@ -181,7 +178,7 @@
                                     <li>
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST">
                                             @csrf
-                                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                            <a href="{{ route('logout') }}" class="dropdown-item"
                                                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                                 {{ __('menu.logout') }}
                                             </a>

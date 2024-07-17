@@ -8,34 +8,24 @@
                     <h1>Ratings</h1>
                 </div>
                 <div class="col-sm-6">
-                    <a class="btn btn-primary float-right"
-                       href="{{ route('ratings.create') }}">
-                        Add New
+                    <a href="{{ route('ratings.create') }}" class="btn btn-primary float-end">
+                        {{__('buttons.addNew')}}
                     </a>
                 </div>
             </div>
         </div>
     </section>
-
     <div class="content px-3">
-
         @include('flash::message')
-
         <div class="clearfix"></div>
-
         <div class="card">
             <div class="card-body p-0">
                 @include('ratings.table')
-
                 <div class="card-footer clearfix">
-                    <div class="float-right">
-                        
-                    </div>
+                    <div class="float-end"></div>
                 </div>
             </div>
-
         </div>
     </div>
-
 @endsection
 

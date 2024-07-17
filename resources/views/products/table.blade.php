@@ -19,35 +19,30 @@
         @foreach($products as $product)
             <tr>
                 <td>{{ $product->name }}</td>
-            <td>{{ $product->price }}</td>
-            <td>{{ $product->count }}</td>
-            <td>{{ $product->description }}</td>
-            <td>{{ $product->image }}</td>
-            <td>{{ $product->video }}</td>
-            <td>{{ $product->visible }}</td>
-            <td>{{ $product->promotion_id }}</td>
-            <td>{{ $product->discount_id }}</td>
-            <td>
-                @if( $product->categories != null )
-                    @foreach($product->categories as $c)
-                        {{$c->id}}&nbsp;
-                    @endforeach
-                @else
-                    ---
-                @endif
-
-            </td>
-
-
-                <td width="120">
+                <td>{{ $product->price }}</td>
+                <td>{{ $product->count }}</td>
+                <td>{{ $product->description }}</td>
+                <td>{{ $product->image }}</td>
+                <td>{{ $product->video }}</td>
+                <td>{{ $product->visible }}</td>
+                <td>{{ $product->promotion_id }}</td>
+                <td>{{ $product->discount_id }}</td>
+                <td>
+                    @if( $product->categories != null )
+                        @foreach($product->categories as $c)
+                            {{$c->id}}&nbsp;
+                        @endforeach
+                    @else
+                        ---
+                    @endif
+                </td>
+                <td>
                     {!! Form::open(['route' => ['products.destroy', $product->id], 'method' => 'delete']) !!}
-                    <div class='btn-group'>
-                        <a href="{{ route('products.show', [$product->id]) }}"
-                           class='btn btn-default btn-xs'>
+                    <div class="btn-group">
+                        <a href="{{ route('products.show', [$product->id]) }}" class="btn btn-primary btn-xs">
                             <i class="far fa-eye"></i>
                         </a>
-                        <a href="{{ route('products.edit', [$product->id]) }}"
-                           class='btn btn-default btn-xs'>
+                        <a href="{{ route('products.edit', [$product->id]) }}" class="btn btn-primary btn-xs">
                             <i class="far fa-edit"></i>
                         </a>
                         {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}

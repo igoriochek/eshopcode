@@ -5,7 +5,7 @@
                 <div class="single-footer-widget logo-content">
                     <div class="logo">
                         <a href="{{ route('home') }}">
-                            <img src="{{ asset('images/CM_logo_white.png') }}" alt="logo">
+                            <img src="{{ asset('images/CM_logo_white.png') }}" alt="CM logo">
                         </a>
                     </div>
                     <ul>
@@ -32,13 +32,13 @@
                     <h3>{{ __('footer.menu') }}</h3>
                     <ul class="link-list">
                         <li>
-                            <a href="{{ url('/products') }}" 
+                            <a href="{{ url('/products') }}"
                                 class="{{ request()->is('products*') || request()->is('viewproduct*') ? 'active' : '' }}">
                                 {{ __('menu.products') }}
                             </a>
                         </li>
                         <li>
-                            <a href="{{ url('/rootcategories') }}" 
+                            <a href="{{ url('/rootcategories') }}"
                                 class="{{ request()->is('rootcategories*') || request()->is('innercategories*') ? 'active' : '' }}">
                                 {{ __('menu.categories') }}
                             </a>
@@ -76,22 +76,22 @@
                             <a href="{{ url('/termsofservice') }}" class="{{ request()->is('termsofservice') ? 'active' : '' }}">
                                 {{ __('menu.termsofservice') }}
                             </a>
-                        </li>   
+                        </li>
                         <li>
                             <a href="{{ url('/policy') }}" class="{{ request()->is('termsofservice') ? 'active' : '' }}">
                                 {{ __('menu.policy') }}
                             </a>
-                        </li>   
+                        </li>
                         <li>
                             <a href="{{ url('/eu_projects') }}" class="{{ request()->is('eu_projects') ? 'active' : '' }}">
                                 {{ __('menu.euProjects') }}
                             </a>
-                        </li>   
+                        </li>
                         <li>
                             <a href="{{ url('/fbdatadeletion') }}" class="{{ request()->is('fbdatadeletion') ? 'active' : '' }}">
                                 {{ __('menu.fbDataDeletion') }}
                             </a>
-                        </li>   
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -101,25 +101,25 @@
                     <ul class="link-list">
                         @auth
                             <li>
-                                <a href="{{ url('/user/viewcart') }}" 
+                                <a href="{{ url('/user/viewcart') }}"
                                     class="{{ request()->is('user/viewcart*') ? 'active' : '' }}">
                                     {{ __('menu.cart') }}
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ url('/user/rootorders') }}" 
+                                <a href="{{ url('/user/rootorders') }}"
                                     class="{{ request()->is('user/rootorders*') ? 'active' : '' }}">
                                     {{ __('menu.orders') }}
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ url('/user/rootoreturns') }}" 
+                                <a href="{{ url('/user/rootoreturns') }}"
                                     class="{{ request()->is('user/rootoreturns*') ? 'active' : '' }}">
                                     {{ __('menu.returns') }}
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ url('/user/userprofile') }}" 
+                                <a href="{{ url('/user/userprofile') }}"
                                     class="{{ request()->is('user/userprofile*') ? 'active' : '' }}">
                                     {{ __('menu.profile') }}
                                 </a>
@@ -135,13 +135,13 @@
                             </li>
                         @else
                             <li>
-                                <a href="{{ route('login') }}" 
+                                <a href="{{ route('login') }}"
                                     class="{{ request()->is('login*') ? 'active' : '' }}">
                                     {{ __('buttons.login') }}
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('register') }}" 
+                                <a href="{{ route('register') }}"
                                     class="{{ request()->is('register*') ? 'active' : '' }}">
                                     {{ __('buttons.register') }}
                                 </a>

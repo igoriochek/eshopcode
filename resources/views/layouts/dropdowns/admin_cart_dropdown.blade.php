@@ -1,11 +1,11 @@
 <li class="admin-navbar-subitem">
-    <a class="admin-navbar-sublink {{ request()->is('admin/carts*') ? 'active' : '' }}" href="/admin/carts">
+    <a href="/admin/carts" class="admin-navbar-sublink {{ request()->is('admin/carts*') ? 'active' : '' }}">
         {{__('menu.carts')}}
     </a>
 </li>
-{{--<a class="dropdown-item" href="/admin/cartItems">Cart Items</a>&nbsp;&nbsp;--}}
+{{--<a href="/admin/cartItems" class="dropdown-item">Cart Items</a>&nbsp;&nbsp;--}}
 <li class="admin-navbar-subitem">
-    <a class="admin-navbar-sublink {{ request()->is('admin/cartStatuses*') ? 'active' : '' }}" href="/admin/cartStatuses">
+    <a href="/admin/cartStatuses" class="admin-navbar-sublink {{ request()->is('admin/cartStatuses*') ? 'active' : '' }}">
         {{ __('menu.cartStatuses') }}
     </a>
 </li>

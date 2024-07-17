@@ -12,8 +12,8 @@
                         <ul>
                             <li><span>{{ __('footer.acceptPayments') }}:</span></li>
                             <li>
-                                <img src="{{ asset('images/2_Paysera logo for dark background.svg') }}" 
-                                    alt="image" width="80px">
+                                <img src="{{ asset('images/2_Paysera logo for dark background.svg') }}"
+                                    alt="Paysera" width="80px">
                             </li>
                         </ul>
                     </div>

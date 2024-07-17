@@ -50,22 +50,22 @@
                                 <div class="d-flex justify-content-start align-items-center">
                                     @if ($order->status->name !== "Returned" && $order->status->name !== "Canceled")
                                         @if ($order->status->name !== 'Completed')
-                                            <div class="btn-group" style="float: right">
-                                                <a href="{{ route('cancelnorder', [$order->id]) }}" class='btn btn-default btn-xs'>
+                                            <div class="btn-group float-end">
+                                                <a href="{{ route('cancelnorder', [$order->id]) }}" class="btn btn-primary btn-xs">
                                                     <i class="far fa-trash-alt"></i>
                                                 </a>
                                             </div>
                                         @endif
                                         @if ($order->status->name == 'Completed')
-                                            <div class="btn-group" style="float: right">
-                                                <a href="{{ route('returnorder', [$order->id]) }}" class='btn btn-default btn-xs'>
+                                            <div class="btn-group float-end">
+                                                <a href="{{ route('returnorder', [$order->id]) }}" class="btn btn-primary btn-xs">
                                                     <i class="far fa-arrow-alt-circle-right"></i>
                                                 </a>
                                             </div>
                                         @endif
                                         @if ($order->status->name == 'Completed')
-                                            <div class="btn-group" style="float: right">
-                                                <a href="{{ route('download_invoice', [$order->id]) }}" class='btn btn-default btn-xs'>
+                                            <div class="btn-group float-end">
+                                                <a href="{{ route('download_invoice', [$order->id]) }}" class="btn btn-primary btn-xs">
                                                     {{__('names.invoice')}} <i class="fa-solid fa-file-invoice"></i>
                                                 </a>
                                             </div>

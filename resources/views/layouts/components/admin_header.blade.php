@@ -2,7 +2,7 @@
     <div class="admin-header-container">
         <div class="admin-header-top-container">
             <a href="{{ url('/home') }}" class="admin-header-logo">
-                <img src="{{ asset('images/CM_logo.png') }}" alt="" class="logo" width="170">
+                <img src="{{ asset('images/CM_logo.png') }}" alt="CM logo" class="logo" width="170">
             </a>
             <button class="admin-header-toggle-button" onclick="onClickOpenMenu()">
                 <i class="fa-sharp fa-solid fa-bars text-white"></i>
@@ -25,11 +25,11 @@
             @include('layouts.dropdowns.admin_dropdown')
             <ul class="nav nav-pills">
                 <li class="nav-item dropdown nav-item-border">
-                    <a class="nav-link text-uppercase admin-navbar-language-dropdown"
-                       href="#" role="button" id="dropdownLanguage" data-bs-toggle="dropdown"
+                    <a href="#" class="nav-link text-uppercase admin-navbar-language-dropdown"
+                       role="button" id="dropdownLanguage" data-bs-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">
-                        {{ app()->getLocale() }}
-                        <i class="fas fa-angle-down"></i>
+                       {{ app()->getLocale() }}
+                       <i class="fas fa-angle-down"></i>
                     </a>
                     @include('layouts.dropdowns.language_dropdown')
                 </li>

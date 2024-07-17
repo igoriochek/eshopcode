@@ -8,15 +8,13 @@
                     <h1>{{__('names.orderItemDetails')}}</h1>
                 </div>
                 <div class="col-sm-6">
-                    <a class="btn btn-default float-right"
-                       href="{{ route('orders.show', [$orderItem->order_id]) }}">
+                    <a href="{{ route('orders.show', [$orderItem->order_id]) }}" class="btn btn-primary float-end">
                         {{__('buttons.back')}}
                     </a>
                 </div>
             </div>
         </div>
     </section>
-
     <div class="content px-3">
         <div class="card">
             <div class="card-body">

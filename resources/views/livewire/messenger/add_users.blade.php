@@ -9,7 +9,7 @@
                         </p>
                         <p class="messenger-add-users-email mb-0">{{ $user->email }}</p>
                     </div>
-                    <a class="default-btn style5" href="{{ route('livewire.messenger.show', [$user->id]) }}">
+                    <a href="{{ route('livewire.messenger.show', [$user->id]) }}" class="default-btn style5">
                         {{ __('buttons.contact') }}
                     </a>
                 </div>

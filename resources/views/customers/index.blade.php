@@ -8,42 +8,30 @@
                     <h1>{{__('names.customers')}}</h1>
                 </div>
                 <div class="col-sm-6">
-                    <a class="btn btn-primary float-right"
-                       href="{{ route('customers.create') }}">
+                    <a href="{{ route('customers.create') }}" class="btn btn-primary float-end">
                         {{__('buttons.addNew')}}
                     </a>
-                    <a class="btn btn-primary float-right"
-                       href="{{ route('customers.statistics') }}">
+                    <a href="{{ route('customers.statistics') }}" class="btn btn-primary float-end">
                         {{__('buttons.showStatistics')}}
                     </a>
-                    <a class="btn btn-primary float-right"
-                       href="{{ route('customers.logs') }}">
+                    <a href="{{ route('customers.logs') }}" class="btn btn-primary float-end">
                         {{__('buttons.showLogs')}}
                     </a>
                 </div>
             </div>
         </div>
     </section>
-
     <div class="content px-3">
-
         @include('flash::message')
-
         <div class="clearfix"></div>
-
         <div class="card">
             <div class="card-body p-0">
                 @include('customers.table')
-
                 <div class="card-footer clearfix">
-                    <div class="float-right">
-
-                    </div>
+                    <div class="float-end"></div>
                 </div>
             </div>
-
         </div>
     </div>
-
 @endsection
 

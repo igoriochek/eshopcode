@@ -1,12 +1,12 @@
 <div class="table table-responsive">
     <table class="table" id="categories">
         <thead>
-        <tr>
-            <th>{{__('table.name')}}</th>
-            <th>{{__('table.description')}}</th>
-            <th>{{__('table.proc')}}</th>
-            <th>{{__('table.action')}}</th>
-        </tr>
+            <tr>
+                <th>{{__('table.name')}}</th>
+                <th>{{__('table.description')}}</th>
+                <th>{{__('table.proc')}}</th>
+                <th>{{__('table.action')}}</th>
+            </tr>
         </thead>
         <tbody>
         @foreach($discounts as $discount)
@@ -14,15 +14,13 @@
                 <td>{{ $discount->name }}</td>
             <td>{{ $discount->description }}</td>
             <td>{{ $discount->proc }}</td>
-                <td width="120">
+                <td>
                     {!! Form::open(['route' => ['discounts.destroy', $discount->id], 'method' => 'delete']) !!}
-                    <div class='btn-group'>
-                        <a href="{{ route('discounts.show', [$discount->id]) }}"
-                           class='btn btn-default btn-xs'>
+                    <div class="btn-group">
+                        <a href="{{ route('discounts.show', [$discount->id]) }}" class="btn btn-primary btn-xs">
                             <i class="far fa-eye"></i>
                         </a>
-                        <a href="{{ route('discounts.edit', [$discount->id]) }}"
-                           class='btn btn-default btn-xs'>
+                        <a href="{{ route('discounts.edit', [$discount->id]) }}" class="btn btn-primary btn-xs">
                             <i class="far fa-edit"></i>
                         </a>
                         {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}

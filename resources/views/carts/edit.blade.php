@@ -10,28 +10,20 @@
             </div>
         </div>
     </section>
-
     <div class="content px-3">
-
         @include('adminlte-templates::common.errors')
-
         <div class="card">
-
             {!! Form::model($cart, ['route' => ['carts.update', $cart->id], 'method' => 'patch']) !!}
-
             <div class="card-body">
                 <div class="row">
                     @include('carts.fields')
                 </div>
             </div>
-
             <div class="card-footer">
                 {!! Form::submit(__('buttons.save'), ['class' => 'btn btn-primary']) !!}
-                <a href="{{ route('carts.index') }}" class="btn btn-default">{{__('buttons.cancel')}}</a>
+                <a href="{{ route('carts.index') }}" class="btn btn-primary">{{__('buttons.cancel')}}</a>
             </div>
-
             {!! Form::close() !!}
-
         </div>
     </div>
 @endsection

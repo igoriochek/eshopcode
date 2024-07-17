@@ -1,25 +1,25 @@
 <li class="admin-navbar-subitem">
-    <a class="admin-navbar-sublink" href="/admin/orders_report">
+    <a href="/admin/orders_report" class="admin-navbar-sublink">
         {{ __('menu.ordersReport') }}
     </a>
 </li>
 <li class="admin-navbar-subitem">
-    <a class="admin-navbar-sublink" href="/admin/returns_report">
+    <a href="/admin/returns_report" class="admin-navbar-sublink">
         {{ __('menu.returnsReport') }}
     </a>
 </li>
 <li class="admin-navbar-subitem">
-    <a class="admin-navbar-sublink" href="/admin/carts_report">
+    <a href="/admin/carts_report" class="admin-navbar-sublink">
         {{ __('menu.cartsReport') }}
     </a>
 </li>
 <li class="admin-navbar-subitem">
-    <a class="admin-navbar-sublink" href="/admin/users_report">
+    <a href="/admin/users_report" class="admin-navbar-sublink">
         {{ __('menu.usersReport') }}
     </a>
 </li>
 <li class="admin-navbar-subitem">
-    <a class="admin-navbar-sublink" href="/admin/user_activities_report">
+    <a href="/admin/user_activities_report" class="admin-navbar-sublink">
         {{ __('menu.usersActivitiesReport') }}
     </a>
 </li>

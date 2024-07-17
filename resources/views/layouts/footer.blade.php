@@ -80,22 +80,22 @@
                         @include('layouts.menus.user_menu')
                     @endauth
                         <li class="nav-list">
-                            <a class="{{ request()->is('about_us') ? 'active' : '' }}" href="{{ url('/about_us') }}">
+                            <a href="{{ url('/about_us') }}" class="{{ request()->is('about_us') ? 'active' : '' }}">
                                 {{ __('menu.aboutUs') }}
                             </a>
                         </li>
                         <li class="nav-list">
-                            <a class="{{ request()->is('termsofservice') ? 'active' : '' }}" href="{{ url('/termsofservice') }}">
+                            <a href="{{ url('/termsofservice') }}" class="{{ request()->is('termsofservice') ? 'active' : '' }}">
                                 {{ __('menu.termsofservice') }}
                             </a>
                         </li>
                         <li class="nav-list">
-                            <a class="{{ request()->is('termsofservice') ? 'active' : '' }}" href="{{ url('/policy') }}">
+                            <a href="{{ url('/policy') }}" class="{{ request()->is('termsofservice') ? 'active' : '' }}">
                                 {{ __('menu.policy') }}
                             </a>
                         </li>
                         <li class="nav-list">
-                            <a class="{{ request()->is('eu_projects') ? 'active' : '' }}" href="{{ url('/eu_projects') }}">
+                            <a href="{{ url('/eu_projects') }}" class="{{ request()->is('eu_projects') ? 'active' : '' }}">
                                 {{ __('menu.euProjects') }}
                             </a>
                         </li>

@@ -1,36 +1,36 @@
 <li class="nav-list">
-    <a class="{{ request()->is('products*') ? 'active' : '' }}" href="{{ url('/products') }}">
+    <a href="{{ url('/products') }}" class="{{ request()->is('products*') ? 'active' : '' }}">
         {{ __('menu.products') }}
     </a>
 </li>
 <li class="nav-list">
-    <a class="{{ request()->is('rootcategories*') ? 'active' : '' }}" href="{{ url('/rootcategories') }}">
+    <a href="{{ url('/rootcategories') }}" class="{{ request()->is('rootcategories*') ? 'active' : '' }}">
         {{ __('menu.categories') }}
     </a>
 </li>
 <li class="nav-list">
-    <a class="{{ request()->is('promotions*') ? 'active' : '' }}" href="{{ url('/promotions') }}">
+    <a href="{{ url('/promotions') }}" class="{{ request()->is('promotions*') ? 'active' : '' }}">
         {{ __('menu.promotions') }}
     </a>
 </li>
 <li class="nav-list">
-    <a class="{{ request()->is('user/discountCoupons*') ? 'active' : '' }}" href="{{ url('/user/discountCoupons') }}">
+    <a href="{{ url('/user/discountCoupons') }}" class="{{ request()->is('user/discountCoupons*') ? 'active' : '' }}">
         {{ __('menu.discountCoupons') }}
     </a>
 </li>
 <li class="nav-list">
-    <a class="{{ request()->is('user/messenger*') ? 'active' : '' }}" href="{{ url('/user/messenger') }}">
+    <a href="{{ url('/user/messenger') }}" class="{{ request()->is('user/messenger*') ? 'active' : '' }}">
         {{ __('menu.messenger') }}
     </a>
 </li>
 
 <li class="nav-list">
-    <a class="{{ request()->is('user/termsofservice*') ? 'active' : '' }}" href="{{ url('/termsofservice') }}">
+    <a href="{{ url('/termsofservice') }}" class="{{ request()->is('user/termsofservice*') ? 'active' : '' }}">
         {{ __('menu.termsofservice') }}
     </a>
 </li>
 <li class="nav-list">
-    <a class="{{ request()->is('user/policy*') ? 'active' : '' }}" href="{{ url('/policy') }}">
+    <a href="{{ url('/policy') }}" class="{{ request()->is('user/policy*') ? 'active' : '' }}">
         {{ __('menu.policy') }}
     </a>
 </li>

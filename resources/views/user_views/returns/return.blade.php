@@ -10,19 +10,12 @@
         </div>
     </div>
 </section>
-
 <section>
-
     <div class="content px-3">
-
         @include('flash::message')
-
         <div class="clearfix"></div>
-
         <div class="card">
-
             {!! Form::model($order, ['route' => ['savereturnorder', $order->id], 'method' => 'post']) !!}
-
             <div class="card-body">
                 <div class="row">
                     <!-- Name Field -->
@@ -32,16 +25,12 @@
                     </div>
                 </div>
             </div>
-
             <div class="card-footer">
                 {!! Form::submit(__('buttons.save'), ['class' => 'btn btn-primary']) !!}
-                <a href="{{ route('rootorders') }}" class="btn btn-default">{{__('buttons.cancel')}}</a>
+                <a href="{{ route('rootorders') }}" class="btn btn-primary">{{__('buttons.cancel')}}</a>
             </div>
-
             {!! Form::close() !!}
-
         </div>
-
     </div>
 </section>
 

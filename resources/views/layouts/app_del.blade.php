@@ -22,27 +22,25 @@
     <link href="{{ asset('css/jquery-ui.min.css') }}" rel="stylesheet">
     <link href="{{ asset('datatables/media/css/jquery.dataTables.min.css') }}" rel="stylesheet">
     <link href="{{ asset('fontawesome-free/css/all.min.css') }}" rel="stylesheet">
-    <link href="{{asset('css/jquery-ui.css')}}" rel="stylesheet">
+    <link href="{{ asset('css/jquery-ui.css') }}" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.5.1/nouislider.min.css" rel="stylesheet">
     @stack('css')
 </head>
 <body>
 <div class="dropdown show">
-    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
-       aria-haspopup="true" aria-expanded="false">
-        Dropdown link
+    <a href="#" class="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+       aria-haspopup="true" aria-expanded="false">Dropdown link
     </a>
-
     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-        <a class="dropdown-item" href="#">Action</a>
-        <a class="dropdown-item" href="#">Another action</a>
-        <a class="dropdown-item" href="#">Something else here</a>
+        <a href="#" class="dropdown-item">Action</a>
+        <a href="#" class="dropdown-item">Another action</a>
+        <a href="#" class="dropdown-item">Something else here</a>
     </div>
 </div>
 <div id="app">
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
         <div class="container">
-            <a class="navbar-brand" href="{{ url('/') }}">
+            <a href="{{ url('/') }}" class="navbar-brand">
                 {{ config('app.name', 'Laravel') }}
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -66,18 +64,18 @@
                     @guest
                         @if (Route::has('login'))
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a href="{{ route('login') }}" class="nav-link">{{ __('Login') }}</a>
                             </li>
                         @endif
 
                         @if (Route::has('register'))
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                <a href="{{ route('register') }}" class="nav-link">{{ __('Register') }}</a>
                             </li>
                         @endif
                     @else
                         <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                            <a href="#" id="navbarDropdown" class="nav-link dropdown-toggle" role="button"
                                data-bs-toggle="dropdown" aria-expanded="false">
                                 {{ Auth::user()->name }}
                             </a>
@@ -86,7 +84,7 @@
                             <li>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                    <a href="{{ route('logout') }}" class="dropdown-item"
                                        onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
@@ -99,11 +97,9 @@
             </ul>
         </div>
     </nav>
-
     <main class="py-4">
         @yield('content')
     </main>
-
 </div>
 
 <div>PHP version: {{phpversion()}}</div>

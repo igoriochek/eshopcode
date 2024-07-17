@@ -3,7 +3,7 @@
         <br/>
         @forelse ($users ?? [] as $user)
             <li class="messenger-user-container">
-                <a class="messenger-user" href="{{ route('livewire.messenger.show', [$user->id]) }}">
+                <a href="{{ route('livewire.messenger.show', [$user->id]) }}" class="messenger-user">
                     <div class="messenger-information-container">
                         <div class="my-2">
                             <div>

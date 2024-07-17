@@ -37,8 +37,7 @@ class DiscountCouponController extends AppBaseController
         return view('discount_coupons.index')
             ->with('discountCoupons', $discountCoupons);
     }
-
-
+    
     public function discountcouponUser(Request $request)
     {
         $discountCoupons = $this->discountCouponRepository

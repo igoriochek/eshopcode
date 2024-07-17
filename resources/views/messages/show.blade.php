@@ -8,15 +8,13 @@
                     <h1>{{__('messages.detailsMsg')}}</h1>
                 </div>
                 <div class="col-sm-6">
-                    <a class="btn btn-default float-right"
-                       href="{{ route('messages.index') }}">
+                    <a href="{{ route('messages.index') }}" class="btn btn-primary float-end">
                         {{__('buttons.back')}}
                     </a>
                 </div>
             </div>
         </div>
     </section>
-
     <div class="content px-3">
         <div class="card">
             <div class="card-body">

@@ -24,15 +24,13 @@
                         {{ $order->status_id }}
                     @endif
                 </td>
-                <td width="120">
+                <td>
                     {!! Form::open(['route' => ['orders.destroy', $order->id], 'method' => 'delete']) !!}
-                    <div class='btn-group'>
-                        <a href="{{ route('orders.show', [$order->id]) }}"
-                           class='btn btn-default btn-xs'>
+                    <div class="btn-group">
+                        <a href="{{ route('orders.show', [$order->id]) }}" class="btn btn-primary btn-xs">
                             <i class="far fa-eye"></i>
                         </a>
-                        <a href="{{ route('orders.edit', [$order->id]) }}"
-                           class='btn btn-default btn-xs'>
+                        <a href="{{ route('orders.edit', [$order->id]) }}" class="btn btn-primary btn-xs">
                             <i class="far fa-edit"></i>
                         </a>
                         {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}

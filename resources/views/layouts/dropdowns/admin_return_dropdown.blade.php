@@ -1,10 +1,10 @@
 <li class="admin-navbar-subitem">
-    <a class="admin-navbar-sublink {{ request()->is('admin/returns*') ? 'active' : '' }}" href="/admin/returns">
+    <a href="/admin/returns" class="admin-navbar-sublink {{ request()->is('admin/returns*') ? 'active' : '' }}">
         {{ __('menu.returns') }}
     </a>
 </li>
 <li class="admin-navbar-subitem">
-    <a class="admin-navbar-sublink {{ request()->is('admin/returnStatuses*') ? 'active' : '' }}" href="/admin/returnStatuses">
+    <a href="/admin/returnStatuses" class="admin-navbar-sublink {{ request()->is('admin/returnStatuses*') ? 'active' : '' }}">
         {{ __('menu.returnStatuses') }}
     </a>
 </li>
