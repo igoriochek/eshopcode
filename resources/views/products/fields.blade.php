@@ -45,7 +45,7 @@
             {!! Form::file('image', ['class' => 'custom-file-input']) !!}
             <span for="image" class="custom-file-label">{{__('buttons.chooseFile')}}</span>
         </div>
-    </div>{{ isset($product->image) ? "<img src=\"$product->image\">" : ""  }}
+    </div>{{ isset($product->image) ? "<img class=\"img-thumbnail\" width=\"200\" src=\"$product->image\">" : ""  }}
 </div>
 <div class="clearfix"></div>
 
@@ -57,7 +57,7 @@
             {!! Form::file('complexProductImage', ['class' => 'custom-file-input']) !!}
             <span for="complexProductImage" class="custom-file-label">{{ __('buttons.chooseFile') }}</span>
         </div>
-    </div><div>{!! isset($product->complexProductImage) ? "<img src=\"$product->complexProductImage\">" : ""  !!}</div>
+    </div><div>{!! isset($product->complexProductImage) ? "<img class=\"img-thumbnail\" width=\"200\" src=\"$product->complexProductImage\">" : ""  !!}</div>
 </div>
 <div class="clearfix"></div>
 

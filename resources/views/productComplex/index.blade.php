@@ -40,12 +40,13 @@
                     </div>
                 </div>
             </div>
-
+{{--            // to do: nevidimaja kartinka i dizain. zvonit Ivanu, utochnit skolko budet detalej --}}
             <div class="card-body p-0 align-content-center" >
                 <h1><div id="complex">TUT budet</div></h1>
                 <h2><div id="complex1">1 </div></h2>
                 <h2><div id="complex2">2</div></h2>
                 <h2><div id="complex3">3</div></h2>
+                <h2><div id="complex4">4</div></h2>
             </div>
 
         </div>
@@ -58,9 +59,10 @@
 
         //vremenno:
         const complexMap = {
-            "complex1": {name: "complex1", id : "4"},
-            "complex2": {name: "complex2", id : "7"},
+            "complex1": {name: "complex1", id : "1"},
+            "complex2": {name: "complex2", id : "2"},
             "complex3": {name: "complex3", id : "3"},
+            "complex4": {name: "complex4", id : "4"},
         }
 
         {{--const productApi = "{{ env("APP_URL")  }}/api/products/";--}}
