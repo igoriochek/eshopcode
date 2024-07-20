@@ -162,9 +162,20 @@ return [
     'orderStatuses' => 'Order Statuses',
     'orderStatusDetails' => 'Order Status Details',
     'noOrders' => 'You have no orders',
-    'invoice' => 'Invoice',
-    'invoicePreview' => 'Invoice Preview',
     'returnOrder' => 'Return Order',
+
+    //Invoice
+    'invoice' => 'VAT Invoice',
+    'invoicePreview' => 'Invoice Preview',
+    'seller' => 'Seller',
+    'buyer' => 'Buyer',
+    'series' => 'Series',
+    'number' => 'No.',
+    'reg_code' => 'Registration code',
+    'vat' => 'VAT',
+    'settlement_acc' => 'Settlement account',
+    'bank' => 'Bank',
+    'bank_code' => 'Bank code',
 
     // Products
     'product' => 'Product',

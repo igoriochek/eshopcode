@@ -1,44 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta charset="utf-8">
+    <style>
+        body {
+            font-family: "dejavu sans", serif;
+            font-size: 12px;
+            color: #000;
+        }
+        .text-center {
+            text-align: center;
+        }
+        .table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        .top-align {
+            vertical-align: top;
+        }
+        .capitalize {
+            text-transform: uppercase;
+        }
+        .mb-5 {
+            margin-bottom: 3rem;
+        }
+    </style>
+</head>
+
+<body>
+<h1 class="text-center capitalize ">{{__('names.invoice')}}</h1>
+<div class="text-center">{{__('names.series')}} ES {{__('names.number')}} {{ sprintf("%05d", $order->id) }}</div>
+<div class="text-center mb-5">{{date('Y-m-d', strtotime($order->created_at))}}</div>
+<table class="table mb-5">
+    <tr>
+        <td>
+            <span class="capitalize">{{ __('names.seller') }}</span><br>
+            <b>UAB "Consultus Magnus"</b><br>
+            {{ __('names.reg_code') }}: 223946830<br>
+            {{ __('names.vat') }}: LT239468314<br>
+            {{ __('forms.address') }}: Žalgirio g. 93, LT-08218 Vilnius<br>
+            {{ __('names.settlement_acc') }}: LT287044060001173197<br>
+            {{ __('names.bank') }}: SEB bankas<br>
+            {{ __('names.bank_code') }}: 70440
+        </td>
+        <td class="top-align">
+            <span class="capitalize">{{ __('names.buyer') }}</span><br>
+            <b>{{ $order->user->name }}</b><br>
+            {{ __('forms.address') }}: {{ $order->user->street }} {{ $order->user->house_flat }}, {{ $order->user->city }}<br>
+            {{ __('forms.phone_number') }}: {{ $order->user->phone_number }}
+        </td>
+    </tr>
+</table>
 <div class="card">
     <div class="card-body">
         <div class="container mb-5 mt-3">
             <div class="container flex-grow-1">
-                <div class="col-md-12">
-                    <div class="text-center">
-                        <i class="far fa-building fa-4x ms-0" style="color:#8f8061 ;"></i>
-                        <p class="pt-2">UAB "Bilan"</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xl-8">
-                        <ul class="list-unstyled">
-                            <li class="text-muted"><b>{{ __('forms.buyer') }}:</b> <span style="color:#8f8061 ;">{{ $order->user->name }}</span></li>
-                            <li class="text-muted"><b>{{ __('forms.address') }}:</b> {{ $order->user->street }} {{ $order->user->house_flat }}, {{ $order->user->city }}</li>
-                            <li class="text-muted"><b>{{ __('forms.phone_number') }}:</b> {{ $order->user->phone_number }}</li>
-                        </ul>
-                    </div>
-                    <div class="col-xl-4 ">
-                        <p class="text-muted">{{__('names.invoice')}}</p>
-                        <ul class="list-unstyled">
-                            <li class="text-muted">
-                                <i class="fas fa-circle" style="color:#8f8061 ;"></i> <span class="fw-bold">{{__('table.orderId')}}:</span> {{ $order->id }}
-                            </li>
-                            <li class="text-muted">
-                                <i class="fas fa-circle" style="color:#8f8061 ;"></i> <span class="fw-bold">{{__('table.created_at')}}: </span> {{$order->created_at}}
-                            </li>
-                            <li class="text-muted">
-                                <i class="fas fa-circle" style="color:#8f8061;"></i> <span class="me-1 fw-bold">{{__('table.status')}}:</span>
-                                @if($order->status->name == 'New' || $order->status->name == "Waiting")
-                                    <span class="badge bg-warning text-black fw-bold">{{$order->status->name}}</span>
-                                @elseif($order->status->name == "Canceled" || $order->status->name == "Returned")
-                                    <span class="badge bg-danger text-white fw-bold">{{$order->status->name}}</span>
-                                @else
-                                    <span class="badge bg-success text-white fw-bold">{{$order->status->name}}</span>
-                                @endif
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <hr/>
+                <hr>
                 @foreach($orderItems as $orderItem)
                     <div class="row my-2 mx-1 justify-content-center">
                         <div class="col-md-2 mb-4 mb-md-0 mb col-sm-3">
@@ -60,7 +79,7 @@
                             </div>
                         </div>
                         <div class="col-md-7 mb-4 mb-md-0">
-                            <p class="fw-bold">{{ $orderItem->product->name}}</p>
+                            <p><b>{{ $orderItem->product->name}}</b></p>
                             <p class="mb-1">
                                 <span class="text-muted me-2">{{__('table.description')}}: </span><span>{{$orderItem->product->description}}</span>
                             </p>
@@ -87,7 +106,7 @@
 {{--                        </ul>--}}
 {{--                        {{ number_format((float)$order->sum, 2, '.', '') }}--}}
                         <p class="text-black float-start">
-                            <span class="text-black me-3"> {{__('table.sum')}}</span>
+                            <span class="text-black me-3">{{__('table.sum')}}:</span>
                             <span style="font-size: 25px;"> {{ number_format($order->sum,2) }} €</span>
                         </p>
                     </div>
@@ -96,3 +115,5 @@
         </div>
     </div>
 </div>
+</body>
+</html>

@@ -58,7 +58,7 @@ class PayController extends AppBaseController
         ];
 
         if (true !== env('WEBTOPAY_PROD')) {
-            $payment['test'] = 1;
+            $payment['test'] = 1; //1
         }
 
         try {

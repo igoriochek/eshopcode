@@ -36,7 +36,7 @@ return [
     'parentId' => 'Tėvo ID',
     'price' => 'Kaina',
     'priceCurrent' => 'Dabartinė kaina',
-    'pricePerItem' => 'Prekės vieneto Kaina',
+    'pricePerItem' => 'Prekės vieneto kaina',
     'proc' => 'Procentai',
     'product' => 'Produktas',
     'productId' => 'Produkto ID',

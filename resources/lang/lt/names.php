@@ -162,9 +162,20 @@ return [
     'orderStatuses' => 'Užsakymų būsenos',
     'orderStatusDetails' => 'Užsakymų būsenos informacija',
     'noOrders' => 'Jūs neatlikote jokių užsakymų',
+    'returnOrder' => 'Grąžinti užsakymą',
+
+    //Invoice
     'invoice' => 'PVM sąskaita faktūra',
     'invoicePreview' => 'Peržiūrėti PVM sąskaitą faktūrą',
-    'returnOrder' => 'Grąžinti užsakymą',
+    'seller' => 'Pardavėjas',
+    'buyer' => 'Pirkėjas',
+    'series' => 'Serija',
+    'number' => 'Nr.',
+    'reg_code' => 'Įm. kodas',
+    'vat' => 'PVM mokėtojo kodas',
+    'settlement_acc' => 'A/S',
+    'bank' => 'Bankas',
+    'bank_code' => 'Banko kodas',
 
     //Products
     'product' => 'Produktas',

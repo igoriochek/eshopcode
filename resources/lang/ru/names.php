@@ -162,9 +162,20 @@ return [
     'orderStatuses' => 'Статусы заказов',
     'orderStatusDetails' => 'Сведения о статусе заказа',
     'noOrders' => 'У вас нет заказов',
-    'invoice' => 'Счет',
-    'invoicePreview' => 'Предварительный просмотр счета',
     'returnOrder' => 'Заказ на возврат',
+
+    //Invoice
+    'invoice' => 'Счет-фактура НДС',
+    'invoicePreview' => 'Предварительный просмотр счета',
+    'seller' => 'Продавец',
+    'buyer' => 'Покупатель',
+    'series' => 'Серия',
+    'number' => '№',
+    'reg_code' => 'Код предприятия',
+    'vat' => 'НДС код',
+    'settlement_acc' => 'Р/С',
+    'bank' => 'Банк',
+    'bank_code' => 'Код банка',
 
     //Products
     'product' => 'Товар',

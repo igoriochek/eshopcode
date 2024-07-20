@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateDiscountCouponRequest;
 use App\Http\Requests\UpdateDiscountCouponRequest;
+use App\Models\DiscountCoupon;
 use App\Repositories\DiscountCouponRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
@@ -37,18 +38,17 @@ class DiscountCouponController extends AppBaseController
         return view('discount_coupons.index')
             ->with('discountCoupons', $discountCoupons);
     }
-    
+
     public function discountcouponUser(Request $request)
     {
-        $discountCoupons = $this->discountCouponRepository
-            ->all()
+        $discountCoupons = DiscountCoupon::query()
             ->where([
                 'user_id' => Auth::user()->id,
                 'used' => false
             ]);
 
         if (!empty($discountCoupons->count())) {
-            $discountCoupons = $discountCoupons->toQuery()->paginate(10);
+            $discountCoupons = $discountCoupons->paginate(10);
         }
 
         return view('user_views.discount_coupons.index')
