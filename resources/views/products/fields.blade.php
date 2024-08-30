@@ -10,6 +10,7 @@
 {{--    {!! Form::textarea('description', null, ['class' => 'form-control']) !!}--}}
 {{--</div>--}}
 
+
 <!-- Name Field -->
 @foreach (config('translatable.locales') as $locale)
     <div class="form-group col-sm-6">
