@@ -4,7 +4,7 @@
                 <th>{{__('table.activityId')}}</th>
                 <th>{{__('table.user')}}</th>
                 <th>{{__('table.email')}}</th>
-                <th>{{__('table.userType')}}</th>
+
                 <th>{{__('table.activity')}}</th>
                 <th>{{__('table.created_at')}}</th>
             </tr>
@@ -15,11 +15,11 @@
                     <td>{{ $userActivity->id ?? '-'}}</td>
                     <td>{{ $userActivity->user->name ?? '-' }}</td>
                     <td>{{ $userActivity->user->email ?? '-' }}</td>
-                    @if ($userActivity->user->type == '1')
-                        <td>{{__('table.admin')}}</td>
-                    @else
-                        <td>{{__('table.user')}}</td>
-                    @endif
+
+                 
+
+
+
                     <td>{{ $userActivity->activity ?? '-'}}</td>
                     <td>{{ $userActivity->created_at ?? '-'}}</td>
                 </tr>
