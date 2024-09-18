@@ -61,5 +61,8 @@ return [
     'visible' => 'Видимый',
     'includedComplex' => "Включен в комплекс продукт",
     'imageComplex' => "Картинка визуализации",
-
+    'includedInComplexOrder' => "Включен в комплекс продукт очередь",
+    'productComplex' => "Комплекс продукт",
+    'yes' => "Да",
+    'no' => "Нет",
 ];

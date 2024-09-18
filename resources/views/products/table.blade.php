@@ -7,6 +7,8 @@
         <th>{{__('table.count')}}</th>
         <th>{{__('table.description')}}</th>
         <th>{{__('table.image')}}</th>
+        <th>{{__('table.imageComplex')}}</th>
+        <th>{{__('table.includedComplex')}}</th>
         <th>{{__('table.video')}}</th>
             <th>{{__('table.visible')}}</th>
             <th>{{__('table.promotionId')}}</th>
@@ -23,6 +25,8 @@
             <td>{{ $product->count }}</td>
             <td>{{ $product->description }}</td>
             <td>{{ $product->image }}</td>
+            <td>{{ $product->complexProductImage }}</td>
+            <td>{{ $product->includedInComplex }}</td>
             <td>{{ $product->video }}</td>
             <td>{{ $product->visible }}</td>
             <td>{{ $product->promotion_id }}</td>

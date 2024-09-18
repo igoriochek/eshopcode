@@ -61,5 +61,8 @@ return [
     'visible' => 'Visible',
     'includedComplex' => "Included Complex",
     'imageComplex' => "Visualization image",
-
+    'includedInComplexOrder' => "Included Complex Order",
+    'productComplex' => "Complex product",
+    'yes' => "Yes",
+    'no' => "No",
 ];

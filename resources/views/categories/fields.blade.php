@@ -22,9 +22,21 @@
 
 
 <!-- Visible Field -->
-<div class="form-group col-sm-12">
+<div class="form-group col-sm-6">
     {!! Form::label('visible', __('table.visible').':', ['class' => 'form-check-label']) !!}
     {!! Form::select('visible', $visible_list, null, ['class' => 'form-control custom-select']) !!}
+</div>
+
+<!-- Included in Complex Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('includedInComplex', __('table.includedComplex').':') !!}
+    {!! Form::select('includedInComplex', $included_list, null, ['class' => 'form-control custom-select']) !!}
+</div>
+
+<!-- Included in Complex Order Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('includedInComplexOrder', __('table.includedInComplexOrder').':') !!}
+    {!! Form::number('includedInComplexOrder', null, ['class' => 'form-control']) !!}
 </div>
 
 <style>

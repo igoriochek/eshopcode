@@ -43,10 +43,17 @@
     {!! Form::label('image',__('table.image').':') !!}
     <div class="input-group">
         <div class="custom-file d-flex align-items-center">
-            {!! Form::file('image', ['class' => 'custom-file-input']) !!}
+            <div style="display: flex; justify-content: space-between;">
+                {!! Form::file('image', ['class' => 'custom-file-input']) !!}
+                <button type="button" class="btn btn-danger" style="font-size: 20px; width: 50px;"  id="clearProductImage">
+                    <i class="fa-solid fa-x"></i>
+                </button>
+            </div>
             <span for="image" class="custom-file-label">{{__('buttons.chooseFile')}}</span>
         </div>
-    </div>{{ isset($product->image) ? "<img class=\"img-thumbnail\" width=\"200\" src=\"$product->image\">" : ""  }}
+    </div>
+    {!! Form::hidden('productImageValue', '0', ['id' => 'productImageValue']) !!}
+    <div>{!! isset($product->image) ? "<img class=\"img-thumbnail\" id=\"productImageThumbnail\" width=\"200\" src=\"$product->image\">" : ""  !!}</div>
 </div>
 <div class="clearfix"></div>
 
@@ -55,10 +62,17 @@
     {!! Form::label('complexProductImage',__('table.imageComplex').':') !!}
     <div class="input-group">
         <div class="custom-file d-flex align-items-center">
-            {!! Form::file('complexProductImage', ['class' => 'custom-file-input']) !!}
+            <div style="display: flex; justify-content: space-between;">
+                {!! Form::file('complexProductImage', ['class' => 'custom-file-input']) !!}
+                <button type="button" class="btn btn-danger" style="font-size: 20px; width: 50px;"  id="clearComplexProductImage">
+                    <i class="fa-solid fa-x"></i>
+                </button>
+            </div>
             <span for="complexProductImage" class="custom-file-label">{{ __('buttons.chooseFile') }}</span>
         </div>
-    </div><div>{!! isset($product->complexProductImage) ? "<img class=\"img-thumbnail\" width=\"200\" src=\"$product->complexProductImage\">" : ""  !!}</div>
+    </div>
+    {!! Form::hidden('complexProductImageValue', '0', ['id' => 'complexProductImageValue']) !!}
+    <div>{!! isset($product->complexProductImage) ? "<img class=\"img-thumbnail\" id=\"complexProductImageThumbnail\" width=\"200\" src=\"$product->complexProductImage\">" : ""  !!}</div>
 </div>
 <div class="clearfix"></div>
 
@@ -96,10 +110,35 @@
     {!! Form::select('categories[]', $categories, null, ['class' => 'form-control custom-select', 'multiple'=>'multiple','name'=>'categories[]']) !!}
 </div>
 
+
+<!-- Included in Complex -->
 <div class="form-group col-sm-6">
     {!! Form::label('includedInComplex', __('table.includedComplex').':') !!}
     {!! Form::select('includedInComplex', $included_list, null, ['class' => 'form-control custom-select']) !!}
 </div>
+
+<script>
+    document.getElementById('clearComplexProductImage').addEventListener('click', function() {
+        document.getElementById('complexProductImage').value = '';
+        document.getElementById('complexProductImageValue').value = '1';
+        document.getElementById('complexProductImageThumbnail').style.display = 'none';
+    });
+
+    document.getElementById('clearProductImage').addEventListener('click', function() {
+        document.getElementById('image').value = '';
+        document.getElementById('productImageValue').value = '1';
+        document.getElementById('productImageThumbnail').style.display = 'none';
+    });
+
+    document.getElementById('complexProductImage').addEventListener('change', function(event) {
+        document.getElementById('complexProductImageValue').value = '0';
+    });
+
+    document.getElementById('image').addEventListener('change', function(event) {
+        document.getElementById('productImageValue').value = '0';
+    });
+
+</script>
 
 <style>
 .custom-file {

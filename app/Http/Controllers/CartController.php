@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\AddToCartRequest;
 use App\Http\Requests\CreateCartRequest;
 use App\Http\Requests\UpdateCartRequest;
+use App\Http\Requests\AddToCartComplexProductRequest;
 use App\Models\Cart;
 use App\Models\CartItem;
 use App\Models\CartStatus;
@@ -230,6 +231,56 @@ class CartController extends AppBaseController
         }
         return redirect(route('viewcart'));
     }
+
+    /**
+     * Add to cart complex product
+     *
+     * @param AddToCartComplexProductRequest $request
+     * @return void
+     */
+    public function addToCartComplexProduct(AddToCartComplexProductRequest $request)
+    {
+
+        $validated = $request->validated();
+
+        $cart = $this->cartRepository->getOrSetCart($request);
+
+        foreach ($validated['parts'] as $categoryId => $productId) {
+
+            $product = Product::find($productId);
+    
+            if ($product !== null) {
+                $cartItem = CartItem::query()
+                    ->where([
+                        'cart_id' => $cart->id,
+                        'product_id' => $product->id,
+                    ])
+                    ->first();
+    
+                if ($cartItem === null) {
+                    $cartItem = CartItem::create([
+                        'cart_id' => $cart->id,
+                        'product_id' => $product->id,
+                        'price_current' => $product->discount ?
+                            $product->price - round(($product->price * $product->discount->proc / 100), 2) :
+                            $product->price,
+                        'count' => 1,
+                        'isComplexProduct' => 1,
+                    ]);
+                    $cartItem->save();
+                } else {
+                    $cartItem->increment('count', 1);
+                    $cartItem->isComplexProduct = 1;
+                    $cartItem->save();
+                }
+            } else {
+                Flash::error('Product not found');
+            }
+        }
+        $this->cartRepository->cartSum($cart);
+        return redirect(route('viewcart'));
+    }
+
 
     private function getCart($request)
     {

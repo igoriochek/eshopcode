@@ -22,6 +22,18 @@
     <p>{{ $category->visible }}</p>
 </div>
 
+<!-- Included in Complex Field -->
+<div class="col-sm-12">
+    {!! Form::label('includedInComplex', __('table.includedComplex').':') !!}
+    <p>{{ $category->includedInComplex }}</p>
+</div>
+
+<!-- Included in Complex Order Field -->
+<div class="col-sm-12">
+    {!! Form::label('includedInComplexOrder', __('table.includedInComplexOrder').':') !!}
+    <p>{{ $category->includedInComplexOrder }}</p>
+</div>
+
 <!-- Created At Field -->
 <div class="col-sm-12">
     {!! Form::label('created_at', __('table.created_at')) !!}

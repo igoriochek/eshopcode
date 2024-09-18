@@ -28,6 +28,12 @@
     <p>{{ $product->image }}</p>
 </div>
 
+<!-- Visual Image Field -->
+<div class="col-sm-12">
+{!! Form::label('complexProductImage',__('table.imageComplex').':') !!}
+    <p>{{ $product->complexProductImage }}</p>
+</div>
+
 <!-- Video Field -->
 <div class="col-sm-12">
     {!! Form::label('video',  __('table.video').':') !!}
@@ -52,6 +58,12 @@
     <p>{{ $product->discount_id }}</p>
 </div>
 
+<!-- Included in Complex -->
+<div class="col-sm-12">
+    {!! Form::label('includedInComplex', __('table.includedComplex').':') !!}
+    <p>{{ $product->includedInComplex }}</p>
+</div>
+
 <!-- Created At Field -->
 <div class="col-sm-12">
     {!! Form::label('created_at', __('table.created_at').':') !!}
@@ -63,4 +75,6 @@
     {!! Form::label('updated_at', __('table.updated_at').':') !!}
     <p>{{ $product->updated_at }}</p>
 </div>
+
+
 

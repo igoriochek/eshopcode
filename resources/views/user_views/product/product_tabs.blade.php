@@ -63,14 +63,10 @@
                                         @endforelse
                                     </div>
                                 </li>
-                                <!-- End Single Comment  -->
                             </ul>
                         </div>
-                        <!-- End .axil-commnet-area -->
                     </div>
-                    <!-- End .col -->
                     <div class="col-lg-6 mb--40">
-                        <!-- Start Comment Respond  -->
                         <div class="comment-respond pro-des-commend-respond mt--0">
                             <h5 class="title mb--30">{{ __('names.addReview') }}</h5>
                             @auth
@@ -121,9 +117,7 @@
                                 <span class="text-muted">{{ __('names.loginToReview') }}</p>
                                 @endauth
                         </div>
-                        <!-- End Comment Respond  -->
                     </div>
-                    <!-- End .col -->
                 </div>
             </div>
         </div>

@@ -6,6 +6,9 @@
             <th scope="col" class="product-title"></th>
             <th scope="col" class="product-price">{{ __('names.price') }}</th>
             <th scope="col" class="product-quantity">{{ __('names.quantity') }}</th>
+
+            <th scope="col" class="product-title">{{ __('table.productComplex') }}</th>
+
             <th scope="col" class="product-subtotal">{{ __('names.subtotal') }}</th>
         </tr>
     </thead>
@@ -40,6 +43,17 @@
                             value="{{ $item->count }}" name="quantity" readonly>
                     </div>
                 </td>
+
+                <td class="product-quantity" data-title="{{ __('table.productComplex') }}">
+                    <div style="display: inline-flex; width: 130px; border-radius: 50px; height: 20px">
+                        @if($item->isComplexProduct == 1)
+                            <span class="fs-3 fw-bold text-muted px-0">{{ __('table.yes') }}</span>
+                        @else
+                        <span class="fs-3 text-muted px-0">{{ __('table.no') }}</span>
+                        @endif
+                    </div>
+                </td>
+                
                 <td class="product-subtotal" data-title="Subtotal">
                     <span class="currency-symbol">€</span>
                     {{ number_format($item->price_current * $item->count, 2) }}

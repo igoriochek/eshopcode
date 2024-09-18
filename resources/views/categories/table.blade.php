@@ -6,6 +6,8 @@
             <th>{{__('table.description')}}</th>
             <th>{{__('table.parentId')}}</th>
             <th>{{__('table.visible')}}</th>
+            <th>{{__('table.includedComplex')}}</th>
+            <th>{{__('table.includedInComplexOrder')}}</th>
             <th>{{__('table.action')}}</th>
         </tr>
         </thead>
@@ -16,6 +18,8 @@
                 <td>{{ $category->description }}</td>
                 <td>{{ $category->parent_id }}</td>
                 <td>{{ $category->visible }}</td>
+                <td>{{ $category->includedInComplex }}</td>
+                <td>{{ $category->includedInComplexOrder }}</td>
                 <td width="120">
                     {!! Form::open(['route' => ['categories.destroy', $category->id], 'method' => 'delete']) !!}
                     <div class='btn-group button-container'>

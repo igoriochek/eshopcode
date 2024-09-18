@@ -61,4 +61,8 @@ return [
     'visible' => 'Matomumas',
     'includedComplex' => "Įtrauktas į complex produktą",
     'imageComplex' => "Visualizacijos paveiksliukas",
+    'includedInComplexOrder' => "Įtrauktas į complex produktą tvarka",
+    'productComplex' => "Complex produktas",
+    'yes' => "Taip",
+    'no' => "Ne",
 ];

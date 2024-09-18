@@ -160,13 +160,19 @@ class ProductController extends AppBaseController
     {
         $input = $request->all();
 
-        if (isset($input['image']) &&  $input['image'] !== null) {
+        if ($request->input('productImageValue') == '1') {
+            $input['image'] = null;
+        } elseif (isset($input['image']) &&  $input['image'] !== null) {
             $imageName = time() . '.' . $request->image->extension();
             $request->image->move(public_path('images/upload'), $imageName);
             //            dd( $path);
             $input['image'] = "/images/upload/" . $imageName;
         }
-        if (isset($input['complexProductImage']) &&  $input['complexProductImage'] !== null) {
+
+        if ($request->input('complexProductImageValue') == '1') {
+            $input['complexProductImage'] = null;
+        } elseif (isset($input['complexProductImage']) &&  $input['complexProductImage'] !== null) {
+            
             $imageName = time() . '.' . $request->complexProductImage->extension();
             $request->complexProductImage->move(public_path('images/upload'), $imageName);
             //            dd( $path);

@@ -105,7 +105,14 @@ class CategoryController extends AppBaseController
      */
     public function create()
     {
-        return view('categories.create', [ 'visible_list' => $this->visible_list, 'categories' => $this->categoriesForSelector()]);
+        return view(
+            'categories.create', 
+            [ 
+                'visible_list' => $this->visible_list,
+                'included_list' => $this->included_list, 
+                'categories' => $this->categoriesForSelector()
+            ]
+        );
     }
 
     /**
@@ -165,9 +172,13 @@ class CategoryController extends AppBaseController
         }
 
 
-        return view('categories.edit', [ 'visible_list' => $this->visible_list,
+        return view('categories.edit', 
+        [ 
+            'visible_list' => $this->visible_list,
+            'included_list' => $this->included_list,
             'categories' => $this->categoriesForSelector(),
-            'category'=>$category]);
+            'category'=>$category
+        ]);
 //        )->with('category', $category);
     }
 
