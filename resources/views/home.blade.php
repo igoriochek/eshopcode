@@ -100,7 +100,7 @@
                                                         <h5 class="card-title">{{__('names.code')}}
                                                             : {{$return->code}}</h5>
                                                         <h6 class="card-subtitle mb-2 text-muted">{{__('names.createdAt')}}
-                                                            : {{$order->created_at}}</h6>
+                                                            : {{$return->created_at}}</h6>
                                                         <p>{{__('names.description')}}: {{$return->description}} </p>
                                                         <a href="{{ route('viewreturn', [$return->id]) }}">{{__('names.viewReturn')}}</a>
                                                     </div>

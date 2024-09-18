@@ -85,6 +85,12 @@ class OrderController extends AppBaseController
     {
         $input = $request->all();
 
+        // Get or create a cart for the user
+        $cart = $this->cartRepository->getOrSetCart($request);
+    
+        // Add the cart_id to the input
+        $input['cart_id'] = $cart->id;
+
         $order = $this->orderRepository->create($input);
 
         Flash::success('Order saved successfully.');
