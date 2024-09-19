@@ -49,13 +49,14 @@
                     </div>
                 </div>
             </div>
-
-            <ul class="col-lg-6 col-sm-12">
-                <li class="add-to-cart">
-                    <button type="submit" class="axil-btn btn-bg-primary">{{ __('buttons.addToCart') }}</button>
-                </li>
-            </ul>
             
+
+            <div class="product-add-to-cart-container d-flex-center">
+                <div class="product-action d-flex-center mb--0">
+                    <button type="submit" class="axil-btn btn-bg-primary">{{ __('buttons.addToCart') }}</button>
+                </div>
+            </div>
+
             {!! Form::close() !!}
         </div>
     </div>
@@ -63,6 +64,17 @@
 
 @push('styles')
 <style>
+    .content {
+        margin-bottom: 75px;
+    }
+
+    .product-add-to-cart-container {
+        width: 50%;
+        justify-content: center;
+    }
+
+
+
     .wheel-container {
         position: absolute;
         right: 3px;
@@ -70,38 +82,6 @@
         bottom: 35px;
         transform: rotate(-7deg);
     }
-
-    /* @media (max-width: 1200) {
-        .wheel-container {
-            right: -52px !important;
-        }
-    }
-
-    @media (max-width: 535px) {
-        .responsive-container {
-            width: 400px; 
-            height: 320px; 
-            position: relative;
-        }
-    }
-
-
-    @media (max-width: 440px) {
-        .responsive-container {
-            width: 300px; 
-            height: 240px; 
-            position: relative;
-        }
-    }
-
-
-    @media (max-width: 330px) {
-        .responsive-container {
-            width: 240px; 
-            height: 192px; 
-            position: relative;
-        }
-    } */
 
     .complex {
         position: absolute;
@@ -129,8 +109,8 @@
     }
 
     .complex-2 {
-        right: 3px;
-        height: 280px;
+        right: 0px;
+        height: 286px;
         bottom: 35px;
         transform: rotate(-7deg);
     }
@@ -159,20 +139,38 @@
 
 
     @media (max-width: 1200px) {
+
+        .complex-1 {
+            left: 60px;
+        }
+
         .complex-2 {
-            right: -57px;
+            right: -73px;
+        }
+
+        .complex-3-1 {
+            left: 40px;
         }
 
         .complex-3-2 {
-            right: 17px;
+            right: 6px;
         }
 
         .complex-4 {
-            right: -56px; 
+            right: -71px; 
         }
     }
 
     @media (max-width: 992px) {
+
+        .product-add-to-cart-container {
+            width: 100%;
+        }
+
+        .complex-1 {
+            height: 43%;
+        }
+
         .complex-2 {
             right: 3px;
         }
@@ -190,7 +188,7 @@
     @media (max-width: 600px) {
         .responsive-container {
             width: 350px;
-            justify-content: flex-start;
+            justify-content: center;
         }
 
         .complex {
@@ -198,7 +196,7 @@
         }
 
         .complex-1 {
-            right: -40px;
+            left: 21px;
             height: 160px;
         }
         
@@ -223,6 +221,16 @@
             right: -90px;
             height: 13px;
             top: 125px;
+        }
+    }
+
+
+    
+
+    @media (max-width: 575px) {
+        .col-sm-12 {
+            flex: 0 0 auto;
+            width: 100%;
         }
     }
 
