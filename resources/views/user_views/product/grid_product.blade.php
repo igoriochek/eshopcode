@@ -66,6 +66,7 @@
 
 @push('css')
 <style>
+
     .tp-product-action {
         background: none;
         border: none;
@@ -92,7 +93,10 @@
     }
 
     .product-content {
+        margin-left: 15px;
         width: 85%;
+        position: initial !important;
+        margin-top: 15px;
     }
 
     .product-add-action {
@@ -100,7 +104,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 20px;
+        gap: 3px;
     }
 </style>
 @endpush
