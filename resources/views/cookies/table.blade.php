@@ -1,5 +1,5 @@
 <div class="table-responsive">
-    <table class="table" id="returns-table">
+    <table class="table" id="cookies-table">
         <thead>
         <tr>
             <th>ID</th>
