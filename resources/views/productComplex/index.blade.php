@@ -109,7 +109,7 @@
     }
 
     .complex-2 {
-        right: 0px;
+        right: 3px;
         height: 286px;
         bottom: 35px;
         transform: rotate(-7deg);
@@ -125,7 +125,7 @@
     .complex-3-2 {
         height: 65px;
         position: absolute;
-        right: 80px;
+        right: 84px;
         bottom: 0px;
     }
 
