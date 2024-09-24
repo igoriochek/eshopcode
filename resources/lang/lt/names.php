@@ -249,6 +249,19 @@ return [
     'discountCouponCode' => 'Nuolaidų kupono kodas',
     'discountCouponValue' => 'Nuolaidų kupono suma',
 
+    //Invoice
+    'invoice' => 'PVM sąskaita faktūra',
+    'invoicePreview' => 'Peržiūrėti PVM sąskaitą faktūrą',
+    'seller' => 'Pardavėjas',
+    'buyer' => 'Pirkėjas',
+    'series' => 'Serija',
+    'number' => 'Nr.',
+    'reg_code' => 'Įm. kodas',
+    'vat' => 'PVM mokėtojo kodas',
+    'settlement_acc' => 'A/S',
+    'bank' => 'Bankas',
+    'bank_code' => 'Banko kodas',
+
     //Other
     'desc' => 'Aprašymas',
     'name' => 'Pavadinimas',

@@ -249,6 +249,19 @@ return [
     'discountCouponCode' => 'Код купона на скидку',
     'discountCouponValue' => 'Стоимость купона на скидку',
 
+    //Invoice
+    'invoice' => 'Счет-фактура НДС',
+    'invoicePreview' => 'Предварительный просмотр счета',
+    'seller' => 'Продавец',
+    'buyer' => 'Покупатель',
+    'series' => 'Серия',
+    'number' => '№',
+    'reg_code' => 'Код предприятия',
+    'vat' => 'НДС код',
+    'settlement_acc' => 'Р/С',
+    'bank' => 'Банк',
+    'bank_code' => 'Код банка',
+
     //Other
     'desc' => 'Описание',
     'name' => 'Имя',

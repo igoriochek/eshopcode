@@ -65,7 +65,9 @@
             @include('layouts.components.header')
         @endif
         <main class="main-content">
-            @include('layouts.components.page_banner')
+            @if (!auth()->check() || (auth()->check() && auth()->user()->type != 1))
+                @include('layouts.components.page_banner')
+            @endif
             @yield('content')
         </main>
         @include('layouts.components.footer')

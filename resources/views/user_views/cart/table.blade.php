@@ -23,7 +23,7 @@
                 </td>
                 <td class="product-thumbnail">
                     <a href="{{ route('viewproduct', $item['product']->id) }}">
-                        <img alt="{{ $item['product']->name }}" class="product-thumbnail-image"
+                        <img alt="{{ $item['product']->name }}" class="product-thumbnail-image" style="width: 112px; height: 112px;"
                             src="@if ($item['product']->image) {{ $item['product']->image }} @else {{ asset('template/images/product/small-size/2-1-112x112.png') }} @endif">
                     </a>
                 </td>

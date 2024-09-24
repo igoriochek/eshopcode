@@ -249,6 +249,19 @@ return [
     "discountCouponCode" => "Discount coupon code",
     "discountCouponValue" => "Discount coupon value",
 
+    //Invoice
+    'invoice' => 'VAT Invoice',
+    'invoicePreview' => 'Invoice Preview',
+    'seller' => 'Seller',
+    'buyer' => 'Buyer',
+    'series' => 'Series',
+    'number' => 'No.',
+    'reg_code' => 'Registration code',
+    'vat' => 'VAT',
+    'settlement_acc' => 'Settlement account',
+    'bank' => 'Bank',
+    'bank_code' => 'Bank code',
+
     //Other
     'desc' => 'Description',
     'name' => 'Name',

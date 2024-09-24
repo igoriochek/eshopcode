@@ -6,7 +6,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.6.347/pdf.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.debug.js"></script>
     <div class="container">
-        <div>
+        <div style="height: 50px;align-content: center;">
             <select name="chartType" id="chartType" onchange="updateChartType()">
                 <option value="">{{__('names.selectChartType')}}</option>
                 <option value="line">{{__('names.line')}}</option>
@@ -28,7 +28,7 @@
         <div>
             <canvas id="myChart" height="100"></canvas>
         </div>
-        <div>
+        <div style="margin-bottom: 50px;">
             <button type="button" class="btn btn-primary" onclick="downloadPDF()">{{__('buttons.downloadPDF')}}</button>
         </div>
     </div>
