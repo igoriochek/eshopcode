@@ -34,3 +34,13 @@
     <p>{{ $orderItem->updated_at }}</p>
 </div>
 
+<!-- Complex Product Field -->
+<div class="col-sm-12">
+    {!! Form::label('productComplex',  __('table.productComplex').':') !!}
+    @if($orderItem->isComplexProduct == 1)
+        <p>{{ __('table.yes') }}</p>
+    @else
+        <p>{{ __('table.no') }}</p>
+    @endif
+</div>
+

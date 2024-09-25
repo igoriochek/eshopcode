@@ -32,7 +32,8 @@ class ReturnItem extends Model
         'price_current',
         'count',
         'created_at',
-        'updated_at'
+        'updated_at',
+        'isComplexProduct'
     ];
 
     /**
@@ -48,7 +49,8 @@ class ReturnItem extends Model
         'price_current' => 'double',
         'count' => 'double',
         'created_at' => 'datetime',
-        'updated_at' => 'datetime'
+        'updated_at' => 'datetime',
+        'isComplexProduct' => 'integer'
     ];
 
     /**

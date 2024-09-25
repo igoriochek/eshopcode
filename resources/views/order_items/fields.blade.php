@@ -24,6 +24,12 @@
     {!! Form::number('count', null, ['class' => 'form-control','min' => 1]) !!}
 </div>
 
+<!-- Included in Complex -->
+<div class="form-group col-sm-6">
+    {!! Form::label('isComplexProduct', __('table.includedComplex').':') !!}
+    {!! Form::select('isComplexProduct', $included_list, null, ['class' => 'form-control custom-select']) !!}
+</div>
+
 <style>
 .form-group input {
     padding: 15px;

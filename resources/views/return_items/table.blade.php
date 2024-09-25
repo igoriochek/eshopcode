@@ -6,6 +6,7 @@
             <th>{{__('table.productName')}}</th>
             <th>{{__('table.priceCurrent')}}</th>
             <th>{{__('table.count')}}</th>
+            <th>{{ __('table.productComplex') }}</th>
             <th colspan="3">{{__('table.action')}}</th>
         </tr>
         </thead>
@@ -18,6 +19,15 @@
                 <td>{{ $returnItem->product->name }}</td>
                 <td>{{ $returnItem->price_current }}</td>
                 <td>{{ $returnItem->count }}</td>
+                <td>
+                    <div>
+                        @if($returnItem->isComplexProduct == 1)
+                            <span>{{ __('table.yes') }}</span>
+                        @else
+                        <span>{{ __('table.no') }}</span>
+                        @endif
+                    </div>
+                </td>
                 <td width="120">
                     {!! Form::open(['route' => ['returnItems.destroy', $returnItem->id], 'method' => 'delete']) !!}
                     <div class='btn-group button-container'>

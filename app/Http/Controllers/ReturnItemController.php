@@ -46,6 +46,7 @@ class ReturnItemController extends AppBaseController
     {
         return view('return_items.create')
             ->with(['orders_list' => $this->ordersForSelector(),
+            'included_list' => $this->included_list,
             'users_list' => $this->usersForSelector(),
             'returns_list' => $this->returnsForSelector(),
             'product_list' => $this->productsForSelector(),]);
@@ -109,6 +110,7 @@ class ReturnItemController extends AppBaseController
         return view('return_items.edit')->with([
             'returnItem' => $returnItem,
             'orders_list' => $this->ordersForSelector(),
+            'included_list' => $this->included_list,
             'users_list' => $this->usersForSelector(),
             'returns_list' => $this->returnsForSelector(),
             'product_list' => $this->productsForSelector(),

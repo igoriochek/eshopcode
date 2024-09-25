@@ -131,6 +131,7 @@ class PayController extends AppBaseController
                         $newOrderItem->product_id = $cartItem->product_id;
                         $newOrderItem->price_current = $cartItem->price_current;
                         $newOrderItem->count = $cartItem->count;
+                        $newOrderItem->isComplexProduct = $cartItem->isComplexProduct;
                         $newOrderItem->save();
                     }
                     $user = Auth::user();

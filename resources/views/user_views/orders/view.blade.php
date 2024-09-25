@@ -83,6 +83,7 @@
                                                         <th scope="col">{{ __('table.productName') }}</th>
                                                         <th scope="col">{{ __('table.price') }}</th>
                                                         <th scope="col">{{ __('table.count') }}</th>
+                                                        <th scope="col">{{ __('table.productComplex') }}</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -100,6 +101,15 @@
                                                             <td>{{ $item->product->name }}</td>
                                                             <td>€{{ number_format($item->price_current, 2) }}</td>
                                                             <td>{{ $item->count }}</td>
+                                                            <td>
+                                                                <div>
+                                                                    @if($item->isComplexProduct == 1)
+                                                                        <span>{{ __('table.yes') }}</span>
+                                                                    @else
+                                                                        <span>{{ __('table.no') }}</span>
+                                                                    @endif
+                                                                </div>
+                                                            </td>
                                                         </tr>
                                                     @endforeach
                                                 </tbody>

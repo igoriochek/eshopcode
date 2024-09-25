@@ -51,6 +51,7 @@ class OrderItemController extends AppBaseController
 
         return view('order_items.create')->with([
             'orderItem' => $orderItem,
+            'included_list' => $this->included_list,
             'orders_list' => $this->ordersForSelector(),
             'product_list' => $this->productsForSelector(),
         ]);
@@ -113,6 +114,7 @@ class OrderItemController extends AppBaseController
 
         return view('order_items.edit')->with([
             'orderItem' => $orderItem,
+            'included_list' => $this->included_list,
             'orders_list' => $this->ordersForSelector(),
             'product_list' => $this->productsForSelector(),
         ]);

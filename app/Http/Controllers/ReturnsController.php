@@ -381,7 +381,6 @@ class ReturnsController extends AppBaseController
 
             if (isset($orderItems)) {
                 foreach ($orderItems as $item) {
-
                     $returnItem = $this->returnItemRepository->create([
                         'order_id' => $item[0]->order_id,
                         'user_id' => $userId,
@@ -389,6 +388,7 @@ class ReturnsController extends AppBaseController
                         'product_id' => $item[0]->product_id,
                         'price_current' => $item[0]->price_current,
                         'count' => $item[0]->count,
+                        'isComplexProduct' => $item[0]->isComplexProduct,
                     ]);
                 }
             }
