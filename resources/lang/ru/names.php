@@ -262,4 +262,7 @@ return [
     'of' => 'из',
     'first' => 'Первый',
     'last' => 'Последний',
+
+    //Product complex
+    "totalPrice" => "Общая цена",
 ];

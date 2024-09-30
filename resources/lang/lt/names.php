@@ -262,4 +262,7 @@ return [
     'of' => 'iš',
     'first' => 'Pirmas',
     'last' => 'Paskutinis',
+
+    //Product complex
+    "totalPrice" => "Bendra kaina",
 ];

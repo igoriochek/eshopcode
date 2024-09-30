@@ -33,20 +33,27 @@ class ComplexProductController extends AppBaseController
      */
     public function index(Request $request)
     {
-//        $products = $this->productRepository->all();
-//        $products = Product::translatedIn(app()->getLocale())->get();
         $categories = $this->categoryRepository->all(["includedInComplex"=>1], null,null,['*'],["includedInComplexOrder", "asc"]);
         $selectorsComples = array();
-        foreach ($categories as $category) {
-            $selectorsComples[$category->id] = $this->productsComplexForSelector($category->id);
+        $selectorsComplesPrices = array();
 
+        foreach ($categories as $category) {
+            $complex = $this->productsComplexForSelector($category->id);
+            $prices = $this->productsComplexPriceForSelector($category->id);
+            
+            $selectorsComples[$category->id] = [];
+
+            foreach ($complex as $key => $complexName) {
+                $price = isset($prices[$key]) ? $prices[$key] : 'N/A';
+                $selectorsComples[$category->id][$key] = $complexName . ' - ' . '€ ' . number_format($price, 2);
+            }
+            $selectorsComplesPrices[$category->id] = $prices;
         }
-//        print_r($selectorsComples);
-//        exit();
-//        print_r($categories);
-//        exit();
+        
+
         return view('productComplex.index')
             ->with('selectorsComples', $selectorsComples)
+            ->with('selectorsComplesPrices', $selectorsComplesPrices)
             ->with('categories', $categories);
     }
 }

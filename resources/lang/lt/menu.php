@@ -43,6 +43,7 @@ return [
     'termsofservice' => 'Taisyklės',
     'policy' => 'Privatumo politika',
     'euProjects' => 'ES projektai',
-    'fbDataDeletion' => 'FB duomenų trynimas'
+    'fbDataDeletion' => 'FB duomenų trynimas',
+    'productComplex' => 'Produkto kompleksas'
 
 ];

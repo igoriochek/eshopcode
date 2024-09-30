@@ -57,6 +57,17 @@ trait forSelector
         return $c;
     }
 
+    public function productsComplexPriceForSelector($cat_id)
+    {
+        $c = array();
+        Product::whereHas('categories', function($query) use ($cat_id) {
+            $query->where('category_id', $cat_id);
+        })->where("includedInComplex", 1)->translatedIn(app()->getLocale())->get()->map(function ($item) use (&$c) {
+            $c[$item->id] = $item->price;
+        });
+        return $c;
+    }
+
     public function discountForSelector()
     {
         $c = array();

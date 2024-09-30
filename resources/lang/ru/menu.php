@@ -41,6 +41,7 @@ return [
     'termsofservice' => 'Правила',
     'policy' => 'Политика конфиденциальности',
     'euProjects' => 'ЕС проекты',
-    'fbDataDeletion' => 'Удалить данные FB'
+    'fbDataDeletion' => 'Удалить данные FB',
+    'productComplex' => 'Комплекс продуктов'
 
 ];

@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', __('menu.productComplex'))
+
 @section('content')
     <div class="container">
         <section class="content-header mt-5">
@@ -11,8 +13,8 @@
         </section>
 
         <div class="content px-3">
-            @include('flash::message')
-
+            @include('adminlte-templates::common.errors')
+            @include('flash_messages')
             <div class="clearfix"></div>
 
             <div class="row">
@@ -26,36 +28,43 @@
                 <div class="col-lg-6 col-sm-12">
                     @foreach($categories as $category)
                         <div class="form-group">
-                            {!! Form::label($category->id, $category->name . ':') !!}
+                            {!! Form::label('parts[' . $category->id . ']', $category->name . ':') !!}
                             {!! Form::select(
                                 'parts[' . $category->id . ']',
                                 $selectorsComples[$category->id],
                                 null,
-                                ['class' => 'form-control custom-select', 'placeholder' => '---',
-                                'id' => 'part_' . $category->id
-                                 ],
-
+                                ['class' => 'form-control custom-select', 'placeholder' => '---', 'id' => 'part_' . $category->id, 'data-category-id' => $category->id,]
                             ) !!}
                         </div>
                     @endforeach
                 </div>
                 
+                <div class="col-lg-6 col-sm-12" style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap;">
+                        <div class="responsive-container" style="margin-bottom: 50px;">
+                            <div id="complex1" class="complex" style="z-index: 2;"></div>
+                            <div id="complex2" class="complex" style="z-index: 1;"></div>
+                            <div id="complex3" class="complex" style="z-index: 3;"></div>
+                            <div id="complex4" class="complex" style="z-index: 4;"></div>
+                        </div>
+                        <h4>
+                            {{ __('names.totalPrice') }}: €
+                            <span id="total-price">0</span>
+                        </h4>
+                </div>
                 <div class="col-lg-6 col-sm-12" style="display: flex; justify-content: center;">
-                    <div class="responsive-container" style="margin-bottom: 50px;">
-                        <div id="complex1" class="complex" style="z-index: 2;"></div>
-                        <div id="complex2" class="complex" style="z-index: 1;"></div>
-                        <div id="complex3" class="complex" style="z-index: 3;"></div>
-                        <div id="complex4" class="complex" style="z-index: 4;"></div>
-                    </div>
+                    
                 </div>
             </div>
             
-
-            <div class="product-add-to-cart-container d-flex-center">
-                <div class="product-action d-flex-center mb--0">
-                    <button type="submit" class="axil-btn btn-bg-primary">{{ __('buttons.addToCart') }}</button>
+            <!-- <div style="display: flex; justify-content: center;"> -->
+                <div class="product-add-to-cart-container d-flex-center">
+                    <div class="product-action d-flex-center mb--0">
+                        <button type="submit" id="cart-button" class="axil-btn btn-bg-primary">{{ __('buttons.addToCart') }}</button>
+                    </div>
                 </div>
-            </div>
+
+                
+            <!-- </div> -->
 
             {!! Form::close() !!}
         </div>
@@ -323,6 +332,20 @@
 @push('scripts')
     <script >
 
+
+        document.getElementById('cart-button').addEventListener('click', function() {
+            const selectedElements = document.querySelectorAll('select[name^="parts["]');
+            let selected = true;
+
+            selectedElements.forEach(element => {
+                if(!element.value) {
+                    selected = false;
+                }
+            });
+
+        });
+
+
         //vremenno:
         const complexMap = {
             "complex1": {name: "complex1", id : "part_1"},
@@ -390,6 +413,10 @@
 
         function imageWithStyle(id, src) {
             id = id.replace("part_", "");
+            console.log("src " + src);
+            if(src === undefined) {
+                return ``;
+            }
             if (id == 3) {
                 return `<img src="${src}" class="image-style complex-${id}-1" />` + `<img src="${src}" class="image-style complex-${id}-2" />`;
             }
@@ -399,8 +426,8 @@
         async function updateValue(e) {
             var name = findNameById(event.target.id);
             var id = findNumById(event.target.id);
-            console.log("id " + id);
-            console.log("div name " + name);
+            // console.log("id " + id);
+            // console.log("div name " + name);
 
             // var img = imageWithStyle(id);
             // console.log("width" + width);
@@ -408,7 +435,7 @@
             // width = " style=\"height:" + width + "\" ";
             const selectComplex = document.getElementById(name);
 
-            console.log("div name " + selectComplex);
+            // console.log("div name " + selectComplex);
 
             var sVal = event.target.value;
 
@@ -450,13 +477,31 @@
             // }
             // );
             // const jsonObject = JSON.parse(option);
-
-
             return;
         }
 
+        var selects = document.querySelectorAll('select[data-category-id]');
+        var totalPriceElement = document.getElementById('total-price');
+        var prices = @json($selectorsComplesPrices);
 
+        function calculateTotalPrice() {
+            let totalPrice = 0;
+            selects.forEach(function (select) {
+                let selectedOption = select.value;
+                let categoryId = select.getAttribute('data-category-id');
 
+                if (selectedOption && prices[categoryId] && prices[categoryId][selectedOption]) {
+                    let price = parseFloat(prices[categoryId][selectedOption]);
+                    totalPrice += isNaN(price) ? 0 : price;
+                }
+            });
+
+            totalPriceElement.textContent = totalPrice.toFixed(2);
+        }
+
+        selects.forEach(function (select) {
+            select.addEventListener('change', calculateTotalPrice);
+        });
 
 
         var cats = [
@@ -466,10 +511,10 @@
         ]
         cats.forEach((obj) => {
             var name = obj;
-            console.log("part_id[" + name + "]");
             const selectComplex = document.getElementById("part_" + name);
             console.log("id " + selectComplex);
             selectComplex.addEventListener("change", updateValue);
+            // selectComplex.addEventListener('change', sumPrice);
             selectComplex.value ="";
         });
 

@@ -263,4 +263,6 @@ return [
     "first" => "First",
     "last" => "Last",
 
+    //Product complex
+    "totalPrice" => "Total Price",
 ];
