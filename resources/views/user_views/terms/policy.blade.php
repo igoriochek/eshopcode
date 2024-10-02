@@ -6,9 +6,6 @@
     <section class="tp-shop-area pb-120">
         <div class="container">
            <div class="row">
-                <div class="col-12 mb-4">
-                    @include('flash_messages')
-                </div>
               <div class="col-12">
                  <div class="tp-shop-main-wrapper">
                     <div class="tp-shop-items-wrapper tp-shop-item-primary">
@@ -16,14 +13,14 @@
                           <div class="tab-pane fade show active" id="grid-tab-pane" role="tabpanel" aria-labelledby="grid-tab" tabindex="0">
                              <div class="d-flex flex-column">
                                 @if($lang=="lt")
-                                    Privatumo politika (toliau – "Privatumo politika") paaiškina, kaip UAB "Dts Solutions" (toliau – "Bendrovė") renka ir tvarko svetainės https://www.eshop.dts-solutions.lt (toliau – "Svetainė") lankytojų informaciją, nurodo kokias teises Svetainės lankytojai turi bei kaip jas gali įgyvendinti. Prieš registruojantis Svetainėje rekomenduojame atidžiai perskaityti šią Privatumo politiką.<br>
+                                    Privatumo politika (toliau – "Privatumo politika") paaiškina, kaip UAB "DTS Solutions" (toliau – "Bendrovė") renka ir tvarko svetainės https://www.eshop.dts-solutions.lt (toliau – "Svetainė") lankytojų informaciją, nurodo kokias teises Svetainės lankytojai turi bei kaip jas gali įgyvendinti. Prieš registruojantis Svetainėje rekomenduojame atidžiai perskaityti šią Privatumo politiką.<br>
                                     Bendrovė yra įsipareigojusi savo veikloje atsakingai ir saugiai tvarkyti Jūsų asmens duomenis. Vadovaudamiesi, šiais esminiais principais, mes visada sieksime užtikrinti pakankamą Jūsų duomenų apsaugos lygį bei Jūsų teisių apsaugą. Mes tvarkome Asmens duomenis, pagal šią Privatumo politiką, vadovaudamiesi taikomais teisės aktais, įskaitant Bendrąjį duomenų apsaugos reglamentą (2016/679) (toliau – "BDAR") bei taikomus Lietuvos nacionalinius asmens duomenų apsaugos teisės aktus.
                                     <h6 class="mt-3 mb-2">Duomenų valdytojas</h6>
-                                    UAB "Dts Solutions"<br>
-                                    Įmonės kodas: 125690535<br>
-                                    Adresas: Latvių g. 19A-7, LT-08113 Vilnius<br>
-                                    Tel. Nr. +37052310857<br>
-                                    El. pašto adresas: info@dts-solutions.eu
+                                    UAB "DTS Solutions"<br>
+                                    Įmonės kodas: 135885245<br>
+                                    Adresas: Taikos pr. 88A, Kaunas, LT-51183, Lietuva<br>
+                                    Tel. numeris: +370 37 266145<br>
+                                    El. pašto adresas: info@dts-solutions.lt
                                     <h6 class="mt-3 mb-2">Kokią informaciją renkame, naudojame ir saugojame apie Jus?</h6>
                                     Informacija, kurią pateikia pats Svetainės lankytojas, pildydamas registracijos formą mūsų Svetainėje:
                                     <ol>
@@ -54,16 +51,16 @@
                                     <h6 class="mt-3 mb-2">Mūsų atsakingo asmens kontaktai</h6>
                                     Mes esame įsipareigoję užtikrinti Jūsų asmens duomenų apsaugą ir suteikti visą būtiną informaciją. Jeigu turite klausimų ar pastebėjimų dėl Jūsų asmens duomenų tvarkymo, prašome susisiekti su mumis Svetainėje nurodytu el. p. adresu.<br/>
                                     Ši Privatumo politika galioja nuo jos paskelbimo Svetainėje dienos. Privatumo politika nėra laikoma Bendrovės ir Jūsų susitarimu dėl Asmens duomenų tvarkymo. Šia Privatumo politika Bendrovė Jus informuoja apie Jūsų asmens duomenų tvarkymo principus Bendrovėje. Mes galime bet kada pakeisti Privatumo politiką. Privatumo politikos pakeitimai ir (ar) papildymai įsigalioja po jų paskelbimo Svetainėje momento. Rekomenduojame reguliariai peržiūrėti mūsų Privatumo politiką.<br/>
-                    
+
                                 @elseif ($lang == "ru")
-                                    Политика конфиденциальности (далее — «Политика конфиденциальности») объясняет, как ЗАО "Dts Solutions" (далее — «Компания») собирает и обрабатывает информацию о посетителях веб-сайта https://www.eshop.dts-solutions.lt (далее — "Сайт"), указывает, что права, которыми обладают посетители Сайта, и способы их реализации. Перед регистрацией на Сайте рекомендуем внимательно ознакомиться с настоящей Политикой конфиденциальности.<br/>
+                                    Политика конфиденциальности (далее — «Политика конфиденциальности») объясняет, как UAB "DTS Solutions" (далее — «Компания») собирает и обрабатывает информацию о посетителях веб-сайта https://www.eshop.dts-solutions.lt (далее — "Сайт"), указывает, что права, которыми обладают посетители Сайта, и способы их реализации. Перед регистрацией на Сайте рекомендуем внимательно ознакомиться с настоящей Политикой конфиденциальности.<br/>
                                     Компания обязуется ответственно и безопасно обращаться с вашими личными данными в своей деятельности. Основываясь на этих основных принципах, мы всегда будем стремиться обеспечить достаточный уровень защиты ваших данных и защиту ваших прав. Мы обрабатываем Персональные данные в соответствии с настоящей Политикой конфиденциальности в соответствии с применимыми правовыми актами, в том числе Общим регламентом защиты данных (2016/679) (далее — «GDPR») и применимыми национальными законами Литвы о защите персональных данных.<br />
                                     <h6 class="mt-3 mb-2">Контроллер данных</h6>
-                                    ЗАО "Dts Solutions"<br/>
-                                    Код компании: 125690535<br/>
-                                    Адрес: Latvių g. 19A-7, LT-08113 Vilnius<br/>
-                                    Тел. Нр. +37052310857<br/>
-                                    Адрес электронной почты: info@dts-solutions.eu
+                                    UAB "DTS Solutions"<br/>
+                                    Код компании: 135885245<br/>
+                                    Адрес: Taikos pr. 88A, Kaunas, LT-51183, Lietuva<br/>
+                                    Номер телефона: +370 37 266145<br/>
+                                    Адрес электронной почты: info@dts-solutions.lt
                                     <h6 class="mt-3 mb-2">Какую информацию о вас мы собираем, используем и храним?</h6>
                                     Информация, предоставленная самим посетителем Сайта при заполнении регистрационной формы на нашем Сайте:
                                     <ol>
@@ -94,16 +91,16 @@
                                     <h6 class="mt-3 mb-2">Контакты нашего ответственного лица</h6>
                                     Мы стремимся обеспечить защиту ваших личных данных и предоставить всю необходимую информацию. Если у вас есть какие-либо вопросы или замечания относительно обработки ваших персональных данных, пожалуйста, свяжитесь с нами по адресу электронной почты, указанному на Сайте. Г-н. адрес.<br/>
                                     Настоящая Политика конфиденциальности действует с момента ее публикации на Сайте. Политика конфиденциальности не считается соглашением между Компанией и Вами в отношении обработки Персональных данных. Настоящей Политикой конфиденциальности Компания информирует вас о принципах обработки ваших персональных данных в Компании. Мы можем изменить Политику конфиденциальности в любое время. Изменения и/или дополнения Политики конфиденциальности вступают в силу после их публикации на Сайте. Мы рекомендуем вам регулярно просматривать нашу Политику конфиденциальности.<br/>
-                    
+
                                 @else
-                                    The Privacy Policy (hereinafter - the "Privacy Policy") explains how UAB "Dts Solutions" (hereinafter - the "Company") collects and processes the information of visitors to the website https://www.eshop.dts-solutions.lt (hereinafter - the "Site"), indicates what rights the visitors of the Site have and how to exercise them. can implement. Before registering on the Website, we recommend that you carefully read this Privacy Policy.<br/>
+                                    The Privacy Policy (hereinafter - the "Privacy Policy") explains how UAB "DTS Solutions" (hereinafter - the "Company") collects and processes the information of visitors to the website https://www.eshop.dts-solutions.lt (hereinafter - the "Site"), indicates what rights the visitors of the Site have and how to exercise them. can implement. Before registering on the Website, we recommend that you carefully read this Privacy Policy.<br/>
                                     The company is committed to handling your personal data responsibly and securely in its activities. Based on these essential principles, we will always strive to ensure a sufficient level of protection of your data and the protection of your rights. We process Personal Data, in accordance with this Privacy Policy, in accordance with the applicable legal acts, including the General Data Protection Regulation (2016/679) (hereinafter - "GDPR") and the applicable Lithuanian national personal data protection legislation.<br/>
                                     <h6 class="mt-3 mb-2">Data Controller</h6>
-                                    UAB "Dts Solutions"<br><br/>
-                                    Registration code: 125690535<br/>
-                                    Address: Latvių g. 19A-7, LT-08113 Vilnius<br/>
-                                    Phone. No. +37052310857<br/>
-                                    Email address: info@dts-solutions.eu
+                                    UAB "DTS Solutions"<br><br/>
+                                    Registration code: 135885245<br/>
+                                    Address: Taikos pr. 88A, Kaunas, LT-51183, Lietuva<br/>
+                                    Phone number: +370 37 266145<br/>
+                                    Email address: info@dts-solutions.lt
                                     <h6 class="mt-3 mb-2">What information do we collect, use and store about you?</h6>
                                     Information provided by the Website visitor himself when filling out the registration form on our Website:
                                     <ol>
@@ -137,10 +134,10 @@
                                 @endif
                              </div>
                           </div>
-                        </div>                            
+                        </div>
                     </div>
                  </div>
-              </div>          
+              </div>
            </div>
         </div>
      </section>

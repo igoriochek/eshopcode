@@ -9,9 +9,14 @@
                       <div class="tp-header-info-item">
                          <a href="mailto:info@dts-solutions.lt">
                             <span>
-                                <i class="fa-regular fa-envelope text-primary pt-2"></i>                                  
+                                <svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                   <path d="M1 5C1 2.2 2.6 1 5 1H13C15.4 1 17 2.2 17 5V10.6C17 13.4 15.4 14.6 13 14.6H5" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                                   <path d="M13 5.40039L10.496 7.40039C9.672 8.05639 8.32 8.05639 7.496 7.40039L5 5.40039" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                                   <path d="M1 11.4004H5.8" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                                   <path d="M1 8.19922H3.4" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
                             </span> info@dts-solutions.lt
-                            
+
                          </a>
                       </div>
                       <div class="tp-header-info-item">
@@ -21,8 +26,8 @@
                                   <path fill-rule="evenodd" clip-rule="evenodd" d="M1.359 2.73916C1.59079 2.35465 2.86862 0.958795 3.7792 1.00093C4.05162 1.02426 4.29244 1.1883 4.4881 1.37943H4.48885C4.93737 1.81888 6.22423 3.47735 6.29648 3.8265C6.47483 4.68282 5.45362 5.17645 5.76593 6.03954C6.56213 7.98771 7.93402 9.35948 9.88313 10.1549C10.7455 10.4679 11.2392 9.44752 12.0956 9.62511C12.4448 9.6981 14.1042 10.9841 14.5429 11.4333V11.4333C14.7333 11.6282 14.8989 11.8698 14.9214 12.1422C14.9553 13.1016 13.4728 14.3966 13.1838 14.5621C12.502 15.0505 11.6125 15.0415 10.5281 14.5373C7.50206 13.2784 2.66618 8.53401 1.38384 5.39391C0.893174 4.31561 0.860062 3.42016 1.359 2.73916Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
                                   <path d="M9.84082 1.18318C12.5534 1.48434 14.6952 3.62393 15 6.3358" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
                                   <path d="M9.84082 3.77927C11.1378 4.03207 12.1511 5.04544 12.4039 6.34239" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                               </svg>                                   
-                            </span> +370 7 266145
+                               </svg>
+                            </span> +370 37 266145
                          </a>
                       </div>
                    </div>
@@ -68,32 +73,32 @@
                          <nav class="tp-main-menu-content">
                             <ul>
                                 <li>
-                                    <a href="{{ url('/products') }}" 
+                                    <a href="{{ url('/products') }}"
                                         class="{{ request()->is('products*') || request()->is('viewproduct*') ? 'active' : '' }}">
                                         {{ __('menu.products') }}
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('/rootcategories') }}" 
+                                    <a href="{{ url('/rootcategories') }}"
                                         class="{{ request()->is('rootcategories*') || request()->is('innercategories*') ? 'active' : '' }}">
                                         {{ __('menu.categories') }}
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('/promotions') }}" 
+                                    <a href="{{ url('/promotions') }}"
                                         class="{{ request()->is('promotions*') || request()->is('promotion*') ? 'active' : '' }}">
                                         {{ __('menu.promotions') }}
                                     </a>
                                 </li>
                                 @auth
                                     <li>
-                                        <a href="{{ url('/user/discountCoupons') }}" 
+                                        <a href="{{ url('/user/discountCoupons') }}"
                                             class="{{ request()->is('user/discountCoupons*') ? 'active' : '' }}">
                                             {{ __('menu.discountCoupons') }}
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="{{ url('/user/messenger') }}" 
+                                        <a href="{{ url('/user/messenger') }}"
                                             class="{{ request()->is('user/messenger*') ? 'active' : '' }}">
                                             {{ __('menu.messenger') }}
                                         </a>
@@ -122,12 +127,12 @@
                                         </li>
                                         <li>
                                             <a class="dropdown-item" href="{{ url('/user/rootorders') }}"
-                                            style="color: {{ 
-                                                request()->is('user/rootorders*') 
+                                            style="color: {{
+                                                request()->is('user/rootorders*')
                                                 || request()->is('user/vieworder*')
                                                 || request()->is('user/cancelorder*')
                                                 || request()->is('user/returnorder*')
-                                                ? '#0989FF' : '' 
+                                                ? '#0989FF' : ''
                                                 }}">
                                                 {{ __('menu.orders') }}
                                             </a>
@@ -158,7 +163,7 @@
                                             <path d="M7.70365 10.1018H7.74942" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
                                             <path d="M13.5343 10.1018H13.5801" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
                                         </svg>
-                                    <span class="tp-header-action-badge">{{ $cartItemCount ?? 0 }}</span>                          
+                                    <span class="tp-header-action-badge">{{ $cartItemCount ?? 0 }}</span>
                                 </a>
                                 </div>
                             @else
