@@ -35,6 +35,7 @@ return [
     'new_password' => 'New password',
     'confirm_password' => 'Confirm Password',
 
+    'default' => 'Default',
     'productNameAsc' => 'Name - Ascending',
     'productNameDesc' => 'Name - Descending',
     'priceAsc' => 'Price - Ascending',

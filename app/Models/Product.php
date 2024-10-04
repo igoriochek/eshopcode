@@ -37,6 +37,7 @@ class Product extends Model implements TranslatableContract
         'visible',
         'promotion_id',
         'discount_id',
+        'const',
         'created_at',
         'updated_at',
     ];
@@ -54,6 +55,7 @@ class Product extends Model implements TranslatableContract
         'visible' => 'integer',
         'promotion_id' => 'integer',
         'discount_id' => 'integer',
+        'const' => 'double',
         'created_at' => 'datetime',
         'updated_at' => 'datetime'
     ];
@@ -102,5 +104,9 @@ class Product extends Model implements TranslatableContract
         return $query->where('name', 'like', "%$name%");
     }
 
+    public function getComputedPriceAttribute()
+    {
+        return $this->price + $this->const;
+    }
 
 }

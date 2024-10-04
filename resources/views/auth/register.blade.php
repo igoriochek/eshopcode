@@ -8,7 +8,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-6 pt-10 pt-lg-0">
                     <div class="login-form">
-                        <h4 class="login-title">{{ __('menu.register') }}</h4>
+                        <h4 class="login-title">{{ __('auth.register') }}</h4>
                         @if (Route::has('login'))
                             <p>
                                 {{ __('auth.loginParagraph') }}

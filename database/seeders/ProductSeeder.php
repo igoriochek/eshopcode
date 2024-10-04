@@ -31,7 +31,8 @@ class ProductSeeder extends Seeder
                     'description' => "RUproduct $faker->text",
                 ],*/
                 'price' => rand(1,1000),
-                'promotion_id' => ( $i % 10 ? rand(1,10) : null )
+                'promotion_id' => ( $i % 10 ? rand(1,10) : null ),
+                'const' => rand(0, 100) / 10,
             ];
             $product = Product::create($cdata);
 

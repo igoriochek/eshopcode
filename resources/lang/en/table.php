@@ -21,6 +21,7 @@ return [
     'categories' => 'Categories',
     'code' => 'Code',
     'count' => 'Count',
+    'const' => 'Constant',
     'created_at' => 'Created At',
     'date'=> 'Date',
     'description' => 'Description',

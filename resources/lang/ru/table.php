@@ -21,6 +21,7 @@ return [
     'categories' => 'Категории',
     'code' => 'Код',
     'count' => 'Кол-ство',
+    'const' => 'Константа',
     'created_at' => 'Создано в',
     'date'=> 'Дата',
     'description' => 'Описание',

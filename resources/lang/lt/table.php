@@ -21,6 +21,7 @@ return [
     'categories' => 'Kategorijos',
     'code' => 'Kodas',
     'count' => 'Kiekis',
+    'const' => "Konstanta",
     'created_at' => 'Sukūrimo data',
     'date'=> 'Data',
     'description' => 'Aprašymas',

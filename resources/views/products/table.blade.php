@@ -11,6 +11,7 @@
             <th>{{__('table.visible')}}</th>
             <th>{{__('table.promotionId')}}</th>
             <th>{{__('table.discountId')}}</th>
+            <th>{{__('table.const')}}</th>
             <th>{{__('table.categories')}}</th>
             <th>{{__('table.action')}}</th>
         </tr>
@@ -19,7 +20,7 @@
         @foreach($products as $product)
             <tr>
                 <td>{{ $product->name }}</td>
-            <td>{{ $product->price }}</td>
+            <td>{{ $product->computed_price}}</td>
             <td>{{ $product->count }}</td>
             <td>{{ $product->description }}</td>
             <td>{{ $product->image }}</td>
@@ -27,6 +28,7 @@
             <td>{{ $product->visible }}</td>
             <td>{{ $product->promotion_id }}</td>
             <td>{{ $product->discount_id }}</td>
+            <td>{{ $product->const }}</td>
             <td>
                 @if( $product->categories != null )
                     @foreach($product->categories as $c)

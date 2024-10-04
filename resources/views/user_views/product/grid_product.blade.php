@@ -20,14 +20,14 @@
                         <span>{{ __('names.price') }}:</span>
                         @if ($product->discount)
                             <span class="new-price text-primary">
-                                €{{ number_format($product->price - round(($product->price * $product->discount->proc) / 100, 2), 2) }}
+                                €{{ number_format($product->computed_price - round(($product->computed_price * $product->discount->proc) / 100, 2), 2) }}
                             </span>
                             <span class="old-price text-primary">
-                                €{{ number_format($product->price, 2) }}
+                                €{{ number_format($product->computed_price, 2) }}
                             </span>
                         @else
                             <span class="new-price text-primary">
-                                €{{ number_format($product->price, 2) }}
+                                €{{ number_format($product->computed_price, 2) }}
                             </span>
                         @endif
                     </div>

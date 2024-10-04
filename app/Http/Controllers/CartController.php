@@ -203,7 +203,7 @@ class CartController extends AppBaseController
                 ->where([
                     'cart_id' => $cart->id,
                     'product_id' => $product->id,
-                    //'price_current' => $product->price,
+                    //'price_current' => $product->computed_price,
                 ])
                 ->first();
 
@@ -212,8 +212,8 @@ class CartController extends AppBaseController
                     'cart_id' => $cart->id,
                     'product_id' => $product->id,
                     'price_current' => $product->discount ?
-                        $product->price - (round(($product->price * $product->discount->proc / 100), 2)) :
-                        $product->price,
+                        $product->computed_price - (round(($product->computed_price * $product->discount->proc / 100), 2)) :
+                        $product->computed_price,
                     'count' => $validated['count'],
                 ]);
                 $cartItem->save();

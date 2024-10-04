@@ -7,7 +7,7 @@
 <!-- Price Field -->
 <div class="col-sm-12">
     {!! Form::label('price',  __('table.price').':') !!}
-    <p>{{ $product->price }}</p>
+    <p>{{ $product->computed_price }}</p>
 </div>
 
 <!-- Count Field -->
@@ -50,6 +50,12 @@
 <div class="col-sm-12">
     {!! Form::label('discount_id', __('table.discountId').':') !!}
     <p>{{ $product->discount_id }}</p>
+</div>
+
+<!-- Const Field -->
+<div class="col-sm-12">
+    {!! Form::label('const', __('table.const').':') !!}
+    <p>{{ $product->const }}</p>
 </div>
 
 <!-- Created At Field -->
