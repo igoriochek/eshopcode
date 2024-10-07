@@ -96,8 +96,9 @@
     <script src="{{ asset('js/custom.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.5.1/nouislider.min.js"></script>
     <script>
+        
         $(document).ready(function() {
-            $('#categories').DataTable({
+            var commonOptions = {
                 "language": {
                     "emptyTable": "No data available in table",
                     "info": "{{ __('names.showing') }} _START_ {{ __('names.to') }} _END_ {{ __('names.of') }} _TOTAL_ {{ __('names.entries') }}",
@@ -336,17 +337,48 @@
                             "button": "Create"
                         }
                     }
-                }
-            });
-        });
+                }};
+            
 
-        $(function() {
-            $("#start").datepicker();
-        });
+            $('#categories').DataTable(commonOptions);
 
-        $(function() {
-            $("#finish").datepicker();
-        });
+            $('#carts-table').DataTable($.extend({}, commonOptions, {
+                "columns": [
+                    { "data": "user" },
+                    { "data": "code" },
+                    { "data": "status" },
+                    { "data": "admin" },
+                    { "data": "action", "orderable": false, "searchable": false }
+                ]
+            }));
+            $('#orders-table').DataTable($.extend({}, commonOptions, {
+                "columns": [
+                    { "data": "user" },
+                    { "data": "status" },
+                    { "data": "action"}
+                ]
+            }));
+            $('#returns-table').DataTable($.extend({}, commonOptions, {
+                "columns": [
+                    { "data": "user" },
+                    { "data": "admin" },
+                    { "data": "orderId" },
+                    { "data": "code"},
+                    { "data": "description"},
+                    { "data": "status"},
+                    { "data": "action"}
+                ]
+            }));
+            $('#cookies-table').DataTable($.extend({}, commonOptions, {
+                "columns": [
+                    { "data": "id" },
+                    { "data": "name" },
+                    { "data": "description"},
+                    { "data": "mandatoryStatus"},
+                    { "data": "action"}
+                ]
+            }));
+        })
     </script>
     @stack('scripts')
     @livewireScripts
