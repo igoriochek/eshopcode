@@ -36,6 +36,11 @@
     {!! Form::number('count', null, ['class' => 'form-control']) !!}
 </div>
 
+<!-- Const Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('const', __('table.const').':') !!}
+    {!! Form::number('const', null, ['class' => 'form-control', 'step' => '0.01']) !!}
+</div>
 
 <!-- Image Field -->
 <div class="form-group col-sm-6">
