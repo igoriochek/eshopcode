@@ -8,7 +8,7 @@
                     <h2>{{__('names.cartDetails')}}</h2>
                 </div>
                 <div class="col-sm-6">
-                    <a class="axil-btn btn-primary float-right"
+                    <a class="btn btn-primary float-right"
                        href="{{ route('carts.index') }}">
                         {{__('buttons.back')}}
                     </a>
@@ -34,7 +34,7 @@
                     <h2>{{__('names.cartItems')}}</h2>
                 </div>
                 <div class="col-sm-6">
-                    <a class="axil-btn btn-primary float-right"
+                    <a class="btn btn-primary float-right"
                        href="{{ route('cartItems.create', ['cart_id' => $cart->id]) }}">
                         {{__('buttons.addNew')}}
                     </a>

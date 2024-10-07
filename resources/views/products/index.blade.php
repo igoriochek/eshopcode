@@ -8,7 +8,7 @@
                     <h2>{{__('names.products')}}</h2>
                 </div>
                 <div class="col-sm-6">
-                    <a class="axil-btn btn-primary float-right"
+                    <a class="btn btn-primary float-right"
                        href="{{ route('products.create') }}">
                         {{__('buttons.addNew')}}
                     </a>
@@ -39,3 +39,19 @@
 
 @endsection
 
+<style>
+    .btn.btn-primary {
+        width: auto;
+        padding: 0 30px;
+        border-radius: 6px;
+        display: inline-block;
+        font-weight: 500;
+        transition: .3s;
+        height: 60px;
+        text-align: center;
+        text-decoration: none;
+        vertical-align: middle;
+        line-height: 4;
+        font-size: 14px;
+    }
+</style>

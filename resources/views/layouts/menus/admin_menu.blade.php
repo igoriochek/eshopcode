@@ -1,20 +1,20 @@
 
-    <a class="nav-item nav-link {{ request()->is('admin/products*') ? 'active' : '' }}" href="/admin/products">
+    <a class="item {{ request()->is('admin/products*') ? 'active' : '' }}" href="/admin/products">
         <i class="fa-solid fa-grip"></i>
         {{ __('menu.products') }}
     </a>
 
-    <a class="nav-item nav-link {{ request()->is('admin/categories*') ? 'active' : '' }}" href="/admin/categories">
+    <a class="item {{ request()->is('admin/categories*') ? 'active' : '' }}" href="/admin/categories">
         <i class="fa-solid fa-sitemap"></i>
         {{ __('menu.categories') }}
     </a>
 
-    <a class="nav-item nav-link {{ request()->is('admin/promotions*') ? 'active' : '' }}" href="/admin/promotions">
+    <a class="item {{ request()->is('admin/promotions*') ? 'active' : '' }}" href="/admin/promotions">
         <i class="fa-solid fa-star"></i>
         {{ __('menu.promotions') }}
     </a>
 
-    <a class="nav-item nav-link dropdown {{
+    <a class="item dropdown {{
         request()->is('admin/discounts*') ||
         request()->is('admin/discountCoupons*')
         ? 'active' : '' }}" href="#"
@@ -22,18 +22,18 @@
         <i class="fa-solid fa-tag"></i>
         {{ __('menu.discounts') }} >
     </a>
-    <div class="axil-single-widget widget_archive collapse" id="discounts">
-        <ul class="">
+    <div class="dropdown-item collapse" id="discounts">
+        <ul>
             @include('layouts.dropdowns.admin_discount_dropdown')
         </ul>
     </div>
 
-    <a class="nav-item nav-link {{ request()->is('admin/customers*') ? 'active' : '' }}" href="/admin/customers">
+    <a class="item dropdown {{ request()->is('admin/customers*') ? 'active' : '' }}" href="/admin/customers">
         <i class="fa-solid fa-user"></i>
         {{ __('menu.users') }}
     </a>
 
-    <a class="nav-item nav-link dropdown {{
+    <a class="item dropdown {{
             request()->is('admin/carts*') ||
             request()->is('admin/cartStatuses*')
             ? 'active' : '' }}" href="#"
@@ -41,12 +41,12 @@
         <i class="fa-solid fa-cart-shopping"></i>
         {{ __('menu.carts') }} >
     </a>
-    <div class="axil-single-widget widget_archive collapse" id="carts">
+    <div class="dropdown-item collapse" id="carts">
         <ul class="">
             @include('layouts.dropdowns.admin_cart_dropdown')
         </ul>
     </div>
-    <a class="nav-item nav-link dropdown {{
+    <a class="item dropdown {{
             request()->is('admin/orders*') ||
             request()->is('admin/orderStatuses*')
             ? 'active' : '' }}" href="#"
@@ -54,13 +54,13 @@
         <i class="fa-solid fa-folder"></i>
         {{ __('menu.orders') }} >
     </a>
-    <div class="axil-single-widget widget_archive collapse" id="orders">
+    <div class="dropdown-item collapse" id="orders">
         <ul class="">
             @include('layouts.dropdowns.admin_order_dropdown')
         </ul>
     </div>
 
-    <a class="nav-item nav-link dropdown {{
+    <a class="item dropdown {{
             request()->is('admin/returns*') ||
             request()->is('admin/returnStatuses*')
             ? 'active' : '' }}" href="#"
@@ -68,22 +68,22 @@
         <i class="fa-solid fa-rotate-left"></i>
         {{ __('menu.returns') }} >
     </a>
-    <div class="axil-single-widget widget_archive collapse" id="returns">
+    <div class="dropdown-item collapse" id="returns">
         <ul class="">
             @include('layouts.dropdowns.admin_return_dropdown')
         </ul>
     </div>
 
-    <a class="nav-item nav-link {{ request()->is('admin/cookies*') ? 'active' : '' }}" href="/admin/cookies">
+    <a class="item {{ request()->is('admin/cookies*') ? 'active' : '' }}" href="/admin/cookies">
         <i class="fa-solid fa-cookie-bite"></i>
         {{ __('menu.cookies') }}
     </a>
-    <a class="nav-item nav-link {{ request()->is('admin/data_export_import*') ? 'active' : '' }}" href="/admin/data_export_import">
+    <a class="item {{ request()->is('admin/data_export_import*') ? 'active' : '' }}" href="/admin/data_export_import">
         <i class="fa-solid fa-file"></i>
         {{ __('menu.importExport') }}
     </a>
 
-    <a class="nav-item nav-link dropdown {{
+    <a class="item dropdown {{
         request()->is('admin/orders_report') ||
         request()->is('admin/returns_report') ||
         request()->is('admin/carts_report') ||
@@ -94,28 +94,29 @@
         <i class="fa-solid fa-id-card-clip"></i>
         {{ __('menu.reports') }} >
     </a>
-    <div class="axil-single-widget widget_archive collapse" id="reports">
+    <div class="dropdown-item collapse" id="reports">
         <ul class="">
             @include('layouts.dropdowns.admin_report_dropdown')
         </ul>
     </div>
 
-    <a class="nav-item nav-link {{ request()->is('admin/messenger*') ? 'active' : '' }}" href="/admin/messenger">
+    <a class="item {{ request()->is('admin/messenger*') ? 'active' : '' }}" href="/admin/messenger">
         <i class="fa-solid fa-comment"></i>
         {{ __('menu.messenger') }}
     </a>
 
     <style>
-        .axil-single-widget {
-            padding: 0px 0px 0px 25px;
-        }
-        .axil-dashboard-aside .nav-link i {
-            left: 10px;
-        }
-        .axil-dashboard-aside .nav-link {
+        .item {
             padding: 9px 10px 9px 35px;
+            width: 100%;
         }
-        .active {
-            color: #3577f0;
+
+        .dropdown-item {
+            padding: 0px 0px 0px 45px;
         }
+
+        .dropdown-item:hover {
+            background-color: white !important;
+        }
+
     </style>

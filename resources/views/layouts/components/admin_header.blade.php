@@ -13,12 +13,8 @@
         <hr class="admin-header-hr">
 
         <div class="admin-header-center-container">
-            <div class="axil-dashboard-aside" style="padding: 0px; border: 0px;">
-                <div class="axil-dashboard-nav">
-                    <div class="nav nav-tabs" role="tablist">
-                        @include('layouts.menus.admin_menu')
-                    </div>
-                </div>
+            <div class="nav nav-tabs" role="tablist">
+                @include('layouts.menus.admin_menu')
             </div>
         </div>
 

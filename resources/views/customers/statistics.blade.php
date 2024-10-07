@@ -31,7 +31,7 @@
             <canvas id="myChart" height="100"></canvas>
         </div>
         <div class="mt-5">
-            <a type="button" class="axil-btn btn-primary" onclick="downloadPDF()">{{__('buttons.downloadPDF')}}</a>
+            <a type="button" class="btn btn-primary" onclick="downloadPDF()">{{__('buttons.downloadPDF')}}</a>
         </div>
     </div>
     <script>

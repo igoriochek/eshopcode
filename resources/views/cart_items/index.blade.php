@@ -8,7 +8,7 @@
                     <h2>{{__('names.cartItems')}}</h2>
                 </div>
                 <div class="col-sm-6">
-                    <a class="axil-btn btn-primary float-right"
+                    <a class="btn btn-primary float-right"
                        href="{{ route('cartItems.create') }}">
                         {{__('buttons.addNew')}}
                     </a>

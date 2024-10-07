@@ -8,20 +8,20 @@
                     <h2>{{__('names.orderDetails')}}</h2>
                 </div>
                 <div class="col-sm-6">
-                    <a class="axil-btn btn-primary float-right"
+                    <a class="btn btn-primary float-right"
                        href="{{ route('orders.index') }}">
                         {{__('buttons.back')}}
                     </a>
                     @if($order->status->name == 'Completed')
                         <div class="btn-group" style="float: right">
                             <a href="{{ route('download_invoice', [$order->id]) }}"
-                               class='axil-btn btn-primary btn-xs'>
+                               class='btn btn-primary btn-xs'>
                                 {{__('names.invoice')}} <i class="fa-solid fa-file-invoice"></i>
                             </a>
                         </div>
                         <div class="btn-group" style="float: right">
                             <a href="{{ route('invoice', [$order->id]) }}"
-                               class='axil-btn btn-primary btn-xs'>
+                               class='btn btn-primary btn-xs'>
                                 {{__('names.invoicePreview')}} <i class="fa-solid fa-file-invoice"></i>
                             </a>
                         </div>
@@ -48,7 +48,7 @@
                     <h2>{{__('names.orderItems')}}</h2>
                 </div>
                 <div class="col-sm-6">
-                    <a class="axil-btn btn-primary float-right"
+                    <a class="btn btn-primary float-right"
                        href="{{ route('orderItems.create', ['order_id' => $order->id]) }}">
                         {{__('buttons.addNew')}}
                     </a>

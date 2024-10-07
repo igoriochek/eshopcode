@@ -48,21 +48,21 @@
             <div class="card-footer row mb-2">
                 <div class="col-sm-3 px-0">
                     <div class="button-container">
-                        <button type="button" class="axil-btn btn-primary m-2" onclick="filter()">{{__('reports.filter')}}</button>
-                        <button type="reset" class="axil-btn btn-secondary m-2" onclick="document.location='{{ route('returns_report.index') }}'">
+                        <button type="button" class="btn btn-primary m-2" onclick="filter()">{{__('reports.filter')}}</button>
+                        <button type="reset" class="btn btn-secondary m-2" onclick="document.location='{{ route('returns_report.index') }}'">
                             {{__('reports.clear')}}
                         </button>
                     </div>
                 </div>
                 <div class="col-sm-6 px-0">
                     <div class="button-container">
-                        <button type="button" class="axil-btn btn-secondary m-2" onclick="getReport('/download_pdf')">
+                        <button type="button" class="btn btn-secondary m-2" onclick="getReport('/download_pdf')">
                             {{__('reports.download')}} PDF
                         </button>
-                        <button type="button" class="axil-btn btn-secondary m-2" onclick="getReport('/download_csv')">
+                        <button type="button" class="btn btn-secondary m-2" onclick="getReport('/download_csv')">
                             {{__('reports.download')}} CSV
                         </button>
-                        <button type="button" class="axil-btn btn-secondary m-2" onclick="getReport('/email')">
+                        <button type="button" class="btn btn-secondary m-2" onclick="getReport('/email')">
                             {{__('reports.sendEmail')}}
                         </button>
                     </div>
@@ -123,5 +123,34 @@
     .button-container {
         display: flex;
         justify-content: space-between;
+    }
+    .btn.btn-primary {
+        width: auto;
+        padding: 0 30px;
+        border-radius: 6px;
+        display: inline-block;
+        font-weight: 500;
+        transition: .3s;
+        height: 60px;
+        text-align: center;
+        text-decoration: none;
+        vertical-align: middle;
+        line-height: 4;
+        font-size: 14px;
+    }
+    
+    .btn.btn-secondary {
+        width: auto;
+        padding: 0 30px;
+        border-radius: 6px;
+        display: inline-block;
+        font-weight: 500;
+        transition: .3s;
+        height: 60px;
+        text-align: center;
+        text-decoration: none;
+        vertical-align: middle;
+        line-height: 4;
+        font-size: 14px;
     }
 </style>
