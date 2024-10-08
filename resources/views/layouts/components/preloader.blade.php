@@ -1,7 +1,6 @@
 <div id="loading">
     <div id="loading-center">
        <div id="loading-center-absolute">
-          <!-- loading content here -->
           <div class="tp-preloader-content">
              <div class="tp-preloader-logo">
                 <div class="tp-preloader-circle">
