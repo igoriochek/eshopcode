@@ -109,7 +109,7 @@
                 @endauth
 
 
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="margin-left: 20px; margin-top: 2px;">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="margin-left: 20px; display: flex; align-items: center;">
                     {{ strtoupper(config('app.locale')) }}
                 </a>
                 <div class="dropdown-menu border-0 rounded-custom shadow py-0 bg-white" style="left: 93% !important">
