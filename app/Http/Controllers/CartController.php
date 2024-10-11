@@ -194,40 +194,39 @@ class CartController extends AppBaseController
 
         $product = Product::find($validated['id']);
 
-        // if isset product
-        if (null !== $product) {
+        if ($product) {
             $cart = $this->cartRepository->getOrSetCart($request);
 
-            // getOrSet CartItem
             $cartItem = CartItem::query()
                 ->where([
                     'cart_id' => $cart->id,
                     'product_id' => $product->id,
-                    //'price_current' => $product->computed_price,
                 ])
                 ->first();
+
+            $currentPrice = $product->discount ? $product->discounted_price : $product->computed_price;
 
             if (null === $cartItem) {
                 $cartItem = CartItem::create([
                     'cart_id' => $cart->id,
                     'product_id' => $product->id,
-                    'price_current' => $product->discount ?
-                        $product->computed_price - (round(($product->computed_price * $product->discount->proc / 100), 2)) :
-                        $product->computed_price,
+                    'price_current' => $currentPrice,
                     'count' => $validated['count'],
                 ]);
-                $cartItem->save();
             } else {
                 $cartItem->increment('count', $validated['count']);
-                $cartItem->save();
+                $cartItem->price_current = $currentPrice;
             }
+
+            $cartItem->save();
 
             $this->cartRepository->cartSum($cart);
 
-            Flash::success('ok');
+            Flash::success('Product added to cart successfully.');
         } else {
             Flash::error('Product not found');
         }
+
         return redirect(route('viewcart'));
     }
 

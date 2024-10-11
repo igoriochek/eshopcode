@@ -90,15 +90,28 @@ class Product extends Model implements TranslatableContract
         return $this->hasMany(Ratings::class);
     }
 
-    public function scopePriceFrom(Builder $query, $price) : Builder
+    public function scopePriceFrom(Builder $query, $price): Builder
     {
-        return $query->where('price', '>=', $price);
+        return $query->where(function ($query) use ($price) {
+            $query->whereNull('discount_id')
+                ->where('price', '>=', $price)
+                ->orWhereHas('discount', function ($query) use ($price) {
+                    $query->whereRaw('products.price - (products.price * discounts.proc / 100) >= ?', [$price]);
+                });
+        });
     }
 
-    public function scopePriceTo(Builder $query, $price) : Builder
+    public function scopePriceTo(Builder $query, $price): Builder
     {
-        return $query->where('price', '<=', $price);
+        return $query->where(function ($query) use ($price) {
+            $query->whereNull('discount_id')
+                ->where('price', '<=', $price)
+                ->orWhereHas('discount', function ($query) use ($price) {
+                    $query->whereRaw('products.price - (products.price * discounts.proc / 100) <= ?', [$price]);
+                });
+        });
     }
+    
     public function scopeNameLike(Builder $query, $name) : Builder
     {
         return $query->where('name', 'like', "%$name%");
@@ -108,5 +121,15 @@ class Product extends Model implements TranslatableContract
     {
         return $this->price + $this->const;
     }
+
+    public function getDiscountedPriceAttribute()
+    {
+        if ($this->discount) {
+            return $this->computed_price - round(($this->computed_price * $this->discount->proc) / 100, 2);
+        }
+        return $this->computed_price;
+    }
+
+    
 
 }

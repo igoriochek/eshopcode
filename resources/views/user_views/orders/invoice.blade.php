@@ -32,7 +32,7 @@
 <body>
 <h1 class="text-center capitalize ">{{__('names.invoice')}}</h1>
 <div class="text-center">{{__('table.orderId')}} {{ sprintf("%05d", $order->id) }}</div>
-<div class="text-center">2024-08-21</div>
+<div class="text-center">{{ \Carbon\Carbon::now()->format('Y-m-d') }}</div>
 <div class="text-center mb-5">
     {{__('table.status')}}: 
     @if($order->status->name == 'New' || $order->status->name == "Waiting")
@@ -59,9 +59,9 @@
         <td class="top-align">
             <span class="capitalize">{{ __('names.buyer') }}</span><br>
             <b>{{ $order->user->name }}</b><br>
-            {{ __('forms.address') }}: Ulonų g. 12, Vilnius<br>
+            {{ __('forms.address') }}: <br>
             <!-- {{ __('forms.address') }}: {{ $order->user->street }} {{ $order->user->house_flat }}, {{ $order->user->city }}<br> -->
-            {{ __('forms.phone_number') }}: +37069784236<br>
+            {{ __('forms.phone_number') }}: <br>
             <!-- {{ $order->user->phone_number }} -->
         </td>
     </tr>
@@ -92,14 +92,14 @@
                             </div>
                         </div>
                         <div class="col-md-7 mb-4 mb-md-0">
-                            <p><b>Termostato įrengimas</b></p>
+                            <p><b>{{ $orderItem->product->name }}</b></p>
                             <p class="mb-1">
-                                <span class="text-muted me-2">{{__('table.description')}}: </span><span>Termostato įrengimas</span>
+                                <span class="text-muted me-2">{{__('table.description')}}: </span><span>{{ $orderItem->product->description }}</span>
                             </p>
                         </div>
                         <div class="col-md-3 mb-4 mb-md-0 my-md-4 align-items-md-center justify-content-md-center">
                             <h5 class="mb-2">
-                                <span class="align-middle"><b>{{__('table.price')}}:</b> 30.25 € x 1</span>
+                                <span class="align-middle"><b>{{__('table.price')}}:</b> {{ $orderItem->price_current }} € x {{ $orderItem->count }}</span>
                             </h5>
                         </div>
                     </div>
@@ -120,7 +120,7 @@
 {{--                        {{ number_format((float)$order->sum, 2, '.', '') }}--}}
                         <p class="text-black float-start">
                             <span class="text-black me-3">{{__('table.sum')}}:</span>
-                            <span style="font-size: 25px;"> 30.25 €</span>
+                            <span style="font-size: 25px;"> {{ number_format($order->sum,2) }} €</span>
                         </p>
                     </div>
                 </div>
