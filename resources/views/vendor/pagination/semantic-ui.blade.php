@@ -4,7 +4,7 @@
         @if ($paginator->onFirstPage())
             <a class="icon item disabled" aria-disabled="true" aria-label="@lang('pagination.previous')"> <i class="left chevron icon"></i> </a>
         @else
-            <a href="{{ $paginator->previousPageUrl() }}" class="icon item" rel="prev" aria-label="@lang('pagination.previous')"> <i class="left chevron icon"></i> </a>
+            <a class="icon item" href="{{ $paginator->previousPageUrl() }}" rel="prev" aria-label="@lang('pagination.previous')"> <i class="left chevron icon"></i> </a>
         @endif
 
         {{-- Pagination Elements --}}
@@ -18,9 +18,9 @@
             @if (is_array($element))
                 @foreach ($element as $page => $url)
                     @if ($page == $paginator->currentPage())
-                        <a href="{{ $url }}" class="item active" aria-current="page">{{ $page }}</a>
+                        <a class="item active" href="{{ $url }}" aria-current="page">{{ $page }}</a>
                     @else
-                        <a href="{{ $url }}" class="item">{{ $page }}</a>
+                        <a class="item" href="{{ $url }}">{{ $page }}</a>
                     @endif
                 @endforeach
             @endif
@@ -28,7 +28,7 @@
 
         {{-- Next Page Link --}}
         @if ($paginator->hasMorePages())
-            <a href="{{ $paginator->nextPageUrl() }}" class="icon item" rel="next" aria-label="@lang('pagination.next')"> <i class="right chevron icon"></i> </a>
+            <a class="icon item" href="{{ $paginator->nextPageUrl() }}" rel="next" aria-label="@lang('pagination.next')"> <i class="right chevron icon"></i> </a>
         @else
             <a class="icon item disabled" aria-disabled="true" aria-label="@lang('pagination.next')"> <i class="right chevron icon"></i> </a>
         @endif

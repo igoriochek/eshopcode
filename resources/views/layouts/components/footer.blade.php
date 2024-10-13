@@ -22,7 +22,7 @@
                         <li>
                             <i class="fa-solid fa-phone"></i>
                             <h5>{{ __('footer.phone') }}:</h5>
-                            <a href="tel:37062023126">+37062023126</a>
+                            <a href="tel:+37052728439">+37052728439</a>
                         </li>
                     </ul>
                 </div>

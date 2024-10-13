@@ -6,7 +6,7 @@
                     <ul>
                         <li>
                             <i class="fa-solid fa-phone"></i>
-                            <a href="tel:37062023126">+37062023126</a>
+                            <a href="tel:+37052728439">+37052728439</a>
                         </li>
                         <li>
                             <i class="fa-solid fa-envelope"></i>

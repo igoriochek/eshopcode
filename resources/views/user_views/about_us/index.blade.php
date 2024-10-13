@@ -15,86 +15,14 @@
                                         <li>
                                             <h4 class="mb-4">{{ __('menu.aboutUs') }}</h4>
                                             @if (app()->getLocale() == 'lt')
-                                                <p style="line-height: 1.8rem">
-                                                    UAB "Consultus Magnus" – kokybiškas buhalterines ir teisines paslaugas
-                                                    teikianti įmonė.<br><br>
-                                                    Nėra tokios organizacijos, kur buhalterija ir vidaus auditas nebūtų
-                                                    svarbūs. Šitas pagrindinės vidinės veiklos, padedančios įmonėms ir
-                                                    organizacijoms veikti teisėtas ir veiksmingas.<br><br>
-                                                    Mūsų patyrę partneriai įvairiose šalyse padarys viską, kad žinotų ir
-                                                    suprastų jūsų verslą ir yra tam pasiruošę teikti platų kokybiškų
-                                                    paslaugų spektrą.<br><br>
-                                                    Turime partnerių Europos Sąjungoje ir už jos ribų, esame orientuoti į
-                                                    stiprų ir stiprų kūrimą ilgalaikius santykius su klientais, kurie siekia
-                                                    dviejų pagrindinių dalykų: profesinės kompetencijos specializuotos
-                                                    paslaugos ir išskirtiniai santykiai su klientais.<br><br>
-                                                    Siekdami padidinti konkurencingumą, pritraukti daugiau klientų ir
-                                                    efektyviau juos aptarnauti, nuspręsta suskaitmeninti apskaitos paslaugų
-                                                    ir teisinių paslaugų pardavimo procesus, skatinti ir parduoti savo
-                                                    paslaugas naudodamiesi el. prekybos sprendimais.<br><br>
-                                                    Šis projektas yra naujoviškas, nes bus sukurta elektroninė platforma
-                                                    komercija naudojant moderniausias informacines technologijas,
-                                                    suteikiančias naujų galimybių inovacijoms buhalterinės apskaitos
-                                                    produktų pardavimas.<br><br>
-                                                    Mūsų projektas leis įmonei efektyviau parduoti savo paslaugas, teikti
-                                                    greičiau ir geriau klientų aptarnavimas, sutrumpės paslaugų įgyvendinimo
-                                                    laikas, leis aptarnauti daugiau klientų, o tai užtikrins įmonės pajamų
-                                                    augimas.<br><br>
-                                                </p>
+                                                <p>UAB "Consultus Magnus" - tai šiuolaikinė konsultacinė įmonė, Lietuvoje sėkmingai dirbanti nuo 1997 m. Įmonė ypatingą dėmesį teikia paslaugų kokybei bei individualiam požiūriui į kiekvieną klientą.</p>
+                                                <p>Pagrindinės įmonės veiklos sritys yra šios: konsultacijos verslo finansavimo galimybių, paraiškų rengimo ES struktūriniams fondams, tarptautinėms ir nacionalinėms programoms srityse, galimybių studijų, investicinių projektų ir verslo planų rengimas, projektų valdymas, vadybos sistemų diegimas, konsultavimas, auditas ir mokymai, tarpininkavimas perkant / parduodant verslą bei pritraukiant investuotojus.</p>
                                             @elseif (app()->getLocale() == 'ru')
-                                                <p style="line-height: 1.8rem">
-                                                    ЗАО "Consultus Magnus" - это компания, предоставляющая
-                                                    высококачественные бухгалтерские и юридические услуги.<br><br>
-                                                    Нет такой организации, где бухгалтерия и внутренний аудит не имели бы
-                                                    значения. Это основная внутренняя деятельность, которая помогает
-                                                    предприятиям и организациям работать законно и эффективно.<br><br>
-                                                    Наши опытные партнеры в разных странах сделают все, чтобы узнать и
-                                                    понять ваш бизнес и готовы предоставить для этого широкий спектр
-                                                    качественных услуг.<br><br>
-                                                    У нас есть партнеры внутри и за пределами Европейского Союза, мы
-                                                    ориентированы на построение прочных и прочных долгосрочных отношений с
-                                                    клиентами, которые стремятся к двум основным вещам: специализированным
-                                                    услугам профессиональной компетентности и эксклюзивным отношениям с
-                                                    клиентами.<br><br>
-                                                    С целью повышения конкурентоспособности, привлечения большего количества
-                                                    клиентов и более эффективного их обслуживания было принято решение
-                                                    оцифровать процессы продаж бухгалтерских и юридических услуг, продвигать
-                                                    и продавать свои услуги с помощью решений электронной коммерции.<br><br>
-                                                    Данный проект является инновационным, поскольку позволит создать
-                                                    электронную платформу для коммерции с использованием самых современных
-                                                    информационных технологий, предоставляя новые возможности для инноваций
-                                                    в реализации бухгалтерских продуктов.<br><br>
-                                                    Наш проект позволит компании более эффективно продавать свои услуги,
-                                                    обеспечить более быстрое и качественное обслуживание клиентов, сократить
-                                                    время на реализацию услуг, позволит обслуживать больше клиентов, что
-                                                    обеспечит рост выручки компании.<br><br>
-                                                </p>
+                                                <p>UAB "Consultus Magnus" - современная консалтинговая компания, успешно работающая в Литве с 1997 г. Компания уделяет особое внимание качеству своих услуг и индивидуальному подходу к каждому клиенту.</p>
+                                                <p>Основными направлениями деятельности компании являются: консультирование в области возможностей финансирования бизнеса, подготовка заявок в структурные фонды ЕС, международные и национальные программы, подготовка технико-экономических обоснований, инвестиционных проектов и бизнес-планов, управление проектами, внедрение систем управления, консультирование, аудит и обучение, посредничество при покупке/продаже бизнеса и привлечении инвесторов.</p>
                                             @else
-                                                <p style="line-height: 1.8rem">
-                                                    UAB "Consultus Magnus" is a company providing high-quality accounting
-                                                    and legal services.<br><br>
-                                                    There is no such organization where bookkeeping and internal audit would
-                                                    not matter. This is the core internal activity that helps businesses and
-                                                    organizations operate legally and effectively.<br><br>
-                                                    Our experienced partners in different countries will do everything to
-                                                    know and understand your business and are ready to provide a wide range
-                                                    of quality services for this.<br><br>
-                                                    We have partners inside and outside the European Union, we are focused
-                                                    on building strong and strong long-term relationships with clients who
-                                                    strive for two main things: specialized services of professional
-                                                    competence and exclusive customer relationships.<br><br>
-                                                    In order to increase competitiveness, attract more customers and serve
-                                                    them more efficiently, it was decided to digitize the sales processes of
-                                                    accounting services and legal services, to promote and sell their
-                                                    services using e-commerce solutions.<br><br>
-                                                    This project is innovative because it will create an e-platform for
-                                                    commerce using the most modern information technologies, providing new
-                                                    opportunities for innovation in the sale of accounting products.<br><br>
-                                                    Our project will allow the company to sell its services more
-                                                    efficiently, provide faster and better customer service, reduce the time
-                                                    for the implementation of services, allow to serve more customers, which
-                                                    will ensure the growth of the company's revenue.<br><br>
-                                                </p>
+                                                <p>UAB "Consultus Magnus" is a modern consulting company that has been successfully operating in Lithuania since 1997.The company pays special attention to the quality of its services and an individual approach to each client.</p>
+                                                <p>The main areas of the company's activity are: consulting in the areas of business financing opportunities, preparation of applications for EU structural funds, international and national programmes, preparation of feasibility studies, investment projects and business plans, project management, implementation of management systems, consultancy, auditing and training, mediation in buying/selling a business and attracting investors.</p>
                                             @endif
                                         </li>
                                     </ul>
