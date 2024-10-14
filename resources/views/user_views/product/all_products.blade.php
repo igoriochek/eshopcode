@@ -13,11 +13,11 @@
                  <div class="tp-shop-main-wrapper">
                     
                     <div class="tp-shop-top mb-45">
-                       <div class="row">
-                          <div class="col-xl-6">
+                       <div class="row mb-3">
+                          <div class="col-xl-6 d-flex mb-3">
                              <div class="tp-shop-top-left d-flex align-items-center ">
-                                <div class="tp-shop-top-tab tp-tab">
-                                   <ul class="nav nav-tabs" id="productTab" role="tablist">
+                                <div class="tab-button">
+                                   <ul class="nav nav-pills d-flex justify-content-center" id="productTab" role="tablist">
                                       <li class="nav-item" role="presentation">
                                         <button class="nav-link active" id="grid-tab" data-bs-toggle="tab" data-bs-target="#grid-tab-pane" type="button" role="tab" aria-controls="grid-tab-pane" aria-selected="true">
                                             <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -40,7 +40,7 @@
                                     </ul>
                                 </div>
                                 <div class="tp-shop-top-result">
-                                   <p>
+                                   <p style="margin-bottom: 0px !important;">
                                         {{ __('names.showing') }}
                                         @if ($products->currentPage() !== $products->lastPage())
                                             {{ ($products->count() * $products->currentPage() - $products->count() + 1).__('–').($products->count() * $products->currentPage()) }}
@@ -57,11 +57,11 @@
                                 </div>
                              </div>
                           </div>
-                          <div class="col-xl-6">
+                          <div class="col-xl-6 mb-3">
                              <div class="tp-shop-top-right d-sm-flex align-items-center justify-content-xl-end">
                                 <div class="tp-shop-top-select">
                                     {!! Form::select('order', $order_list, $selectedOrder,
-                                        ['class' => 'w-100', 'id' => 'orderSelector', 'style' => 'cursor: pointer']) !!}
+                                        ['class' => 'form-select w-100', 'id' => 'orderSelector', 'style' => 'cursor: pointer']) !!}
                                 </div>
                              </div>
                           </div>
@@ -111,6 +111,10 @@
 
 @push('css')
     <style>
+        .form-select {
+
+        }
+
         input::-webkit-outer-spin-button,
         input::-webkit-inner-spin-button {
             -webkit-appearance: none;

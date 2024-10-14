@@ -1,4 +1,4 @@
-<section class="page-header position-relative overflow-hidden ptb-120 bg-dark" style="background: url('assets/img/page-header-bg.svg')no-repeat bottom left">
+<section class="page-header position-relative overflow-hidden ptb-120 bg-dark" style="background: url('assets/img/page-header-bg.svg')no-repeat bottom left; margin-top: 55px;">
    <div class="container">
       <div class="row">
          <div class="col-lg-8 col-md-12">
