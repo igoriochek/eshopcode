@@ -62,12 +62,12 @@
                     'class' => 'form-control w-25 text-center countInput',
                     "oninput" => "this.value = this.value < 0 ? Math.abs(this.value) : this.value"
                         ]) !!}
-                        <button type="button" class="btn btn-primary p-0 ms-2" style="border-radius: 100%; width: 29.45px;" onclick="plusValue(this)">
+                    <button type="button" class="btn btn-primary p-0 ms-2" style="border-radius: 100%; width: 29.45px;" onclick="plusValue(this)">
                         <svg width="11" height="12" viewBox="0 0 11 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M1 6H10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
                             <path d="M5.5 10.5V1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
                         </svg>
-                        </button>
+                    </button>
                 </div>
             </div>
 
