@@ -1,17 +1,18 @@
 {{-- <div class="container">
-    <ul class="description-tab nav" role="tablist">
-        <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="description-tab" data-bs-toggle="pill" data-bs-target="#description" type="button" role="tab" aria-controls="description" aria-selected="false" tabindex="-1">
-                {{ __('names.description') }}
-            </button>
-        </li>
-        <li class="nav-item" role="presentation">
-            <button class="nav-link" id="reviews-tab" data-bs-toggle="pill" data-bs-target="#reviews" type="button" role="tab" aria-controls="reviews" aria-selected="true">
-                {{ __('names.reviews').' ('.$product->ratings->count().') ' }}
-            </button>
-        </li>
-    </ul>
-    <div class="tab-content">
+
+<ul class="nav justify-content-center feature-tab-list-2 mt-4" id="nav-tab-2" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link active" href="#tab-2-1" data-bs-toggle="tab" data-bs-target="#tab-2-1" role="tab" aria-selected="false">
+            {{ __('names.description') }}
+</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="#tab-2-2" data-bs-toggle="tab" data-bs-target="#tab-2-2" role="tab" aria-selected="false">
+        {{ __('names.reviews').' ('.$product->ratings->count().') ' }}
+    </a>
+</li>
+</ul>
+<div class="tab-content">
         <div class="tab-pane fade active show" id="description" role="tabpanel" aria-labelledby="description-tab" tabindex="0">
             <div class="description-content">
                 {!! $product->description !!}
@@ -82,148 +83,150 @@
     </div>
 </div> --}}
 
-<div class="tp-product-details-tab-nav tp-tab">
-    <nav>
-       <div class="nav nav-tabs justify-content-center p-relative tp-product-tab" id="navPresentationTab" role="tablist">
-         <button class="nav-link active" id="nav-description-tab" data-bs-toggle="tab" data-bs-target="#nav-description" type="button" role="tab" aria-controls="nav-description" aria-selected="true">
+<ul class="nav justify-content-center feature-tab-list-2 mt-4" id="nav-tab-2" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link active" href="#tab-2-1" data-bs-toggle="tab" data-bs-target="#tab-2-1" role="tab" aria-selected="false">
             {{ __('names.description') }}
-        </button>
-         <button class="nav-link" id="nav-review-tab" data-bs-toggle="tab" data-bs-target="#nav-review" type="button" role="tab" aria-controls="nav-review" aria-selected="false">
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#tab-2-2" data-bs-toggle="tab" data-bs-target="#tab-2-2" role="tab" aria-selected="false">
             {{ '('.$product->ratings->count().' '.__('names.reviews').')' }}
-         </button>
+        </a>
+    </li>
+</ul>
 
-         <span id="productTabMarker" class="tp-product-details-tab-line" style="left: 393px; display: block; width: 112px;"></span>
-       </div>
-     </nav>  
-     <div class="tab-content" id="navPresentationTabContent">
-       <div class="tab-pane fade active show" id="nav-description" role="tabpanel" aria-labelledby="nav-description-tab" tabindex="0">
-          <div class="tp-product-details-desc-wrapper pt-80">
-             <div class="row justify-content-center">
-                <div class="col-xl-10">
-                    {!! $product->description !!}
+<div class="tab-content" id="nav-tabContent-2">
+    <div class="tab-pane fade pt-60 active show" id="tab-2-1" role="tabpanel">
+        <div class="row justify-content-center align-items-center justify-content-around">
+            <div class="col-md-10 col-lg-8">
+                <div class="feature-tab-info">
+                    <p>{!! $product->description !!}</p>
                 </div>
-             </div>
-          </div>
-       </div>
-       <div class="tab-pane fade" id="nav-review" role="tabpanel" aria-labelledby="nav-review-tab" tabindex="0">
-          <div class="tp-product-details-review-wrapper pt-60">
-             <div class="row">
-                <div class="col-lg-6">
-                   <div class="tp-product-details-review-statics">
-                      <!-- number -->
-                      <div class="tp-product-details-review-number d-inline-block mb-50">
-                         <div class="tp-product-details-review-summery d-flex align-items-center">
-                            <div class="tp-product-details-review-summery-value">
-                               <span>{{ number_format($average, 1) }}</span>
-                            </div>
-                            <div class="tp-product-details-review-summery-rating d-flex align-items-center">
-                                <div class="rating flex-row justify-content-start text-warning">
-                                    @for($i = 1; $i <= 5; $i++)
-                                        <i class="product-rating-star @if ($average >= $i) fa-solid fa-star
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane fade review-pane pt-60" id="tab-2-2" role="tabpanel">
+        <div class="col-lg-6 col-md-12">
+            <div class="tp-product-details-review-statics">
+                <div class="tp-product-details-review-number d-inline-block mb-50">
+                    <div class="tp-product-details-review-summery d-flex align-items-center">
+                        <div class="tp-product-details-review-summery-value">
+                            <span style="margin-right: 5px;">{{ number_format($average, 1) }}</span>
+                        </div>
+                        <div class="tp-product-details-review-summery-rating d-flex align-items-center">
+                            <div class="rating flex-row justify-content-start text-warning" style="margin-right: 5px;">
+                                @for($i = 1; $i <= 5; $i++)
+                                    <i class="product-rating-star @if ($average >= $i) fa-solid fa-star
                                             @elseif ($average >= $i - .5) fa-solid fa-star-half-stroke
                                             @else fa-regular fa-star 
                                             @endif"></i>
                                     @endfor
-                                </div>
-                               <p>{{ '('.$product->ratings->count().' '.__('names.reviews').')' }}</p>
                             </div>
-                         </div>
-                         <div class="tp-product-details-review-rating-list">
-                            <!-- single item -->
-                            <div class="tp-product-details-review-rating-item d-flex align-items-center">
-                               <span>5 {{ __('names.stars') }}</span>
-                               <div class="tp-product-details-review-rating-bar">
-                                  <span class="tp-product-details-review-rating-bar-inner" data-width="{{ $percentages[5] ?? 0 }}%" style="width: {{ $percentages[5] ?? 0 }}%;"></span>
-                               </div>
-                               <div class="tp-product-details-review-rating-percent">
-                                  <span>{{ $percentages[5] ?? 0 }}%</span>
-                               </div>
-                            </div> <!-- end single item -->
-                            
-                            <!-- single item -->
-                            <div class="tp-product-details-review-rating-item d-flex align-items-center">
-                               <span>4 {{ __('names.stars') }}</span>
-                               <div class="tp-product-details-review-rating-bar">
-                                  <span class="tp-product-details-review-rating-bar-inner" data-width="{{ $percentages[4] ?? 0 }}%" style="width: {{ $percentages[4] ?? 0 }}%;"></span>
-                               </div>
-                               <div class="tp-product-details-review-rating-percent">
-                                  <span>{{ $percentages[4] ?? 0 }}%</span>
-                               </div>
-                            </div> <!-- end single item -->
+                            <p style="margin-bottom: 0px;">{{ '('.$product->ratings->count().' '.__('names.reviews').')' }}</p>
+                        </div>
+                    </div>
+                    <div class="tp-product-details-review-rating-list">
+                        <div class="tp-product-details-review-rating-item d-flex align-items-center">
+                            <span class="rating-percentage-title">5 {{ __('names.stars') }}</span>
+                            <span class="tp-product-details-review-rating-bar-inner" data-width="{{ $percentages[5] ?? 0 }}%" style="width: {{ $percentages[5] ?? 0 }}%;"></span>
 
-                            <!-- single item -->
-                            <div class="tp-product-details-review-rating-item d-flex align-items-center">
-                               <span>3 {{ __('names.stars') }}</span>
-                               <div class="tp-product-details-review-rating-bar">
-                                  <span class="tp-product-details-review-rating-bar-inner" data-width="{{ $percentages[3] ?? 0 }}%" style="width: {{ $percentages[3] ?? 0 }}%;"></span>
-                               </div>
-                               <div class="tp-product-details-review-rating-percent">
-                                  <span>{{ $percentages[3] ?? 0 }}%</span>
-                               </div>
-                            </div> <!-- end single item -->
+                            <div class="tp-product-details-review-rating-percent">
+                                <span>{{ $percentages[5] ?? 0 }}%</span>
+                            </div>
+                        </div>
 
-                            <!-- single item -->
-                            <div class="tp-product-details-review-rating-item d-flex align-items-center">
-                               <span>2 {{ __('names.stars') }}</span>
-                               <div class="tp-product-details-review-rating-bar">
-                                  <span class="tp-product-details-review-rating-bar-inner" data-width="{{ $percentages[2] ?? 0 }}%" style="width: {{ $percentages[2] ?? 0 }}%;"></span>
-                               </div>
-                               <div class="tp-product-details-review-rating-percent">
-                                  <span>{{ $percentages[2] ?? 0 }}%</span>
-                               </div>
-                            </div> <!-- end single item -->
+                        <div class="tp-product-details-review-rating-item d-flex align-items-center">
+                            <span class="rating-percentage-title">4 {{ __('names.stars') }}</span>
+                            <span class="tp-product-details-review-rating-bar-inner" data-width="{{ $percentages[4] ?? 0 }}%" style="width: {{ $percentages[4] ?? 0 }}%;"></span>
 
-                            <!-- single item -->
-                            <div class="tp-product-details-review-rating-item d-flex align-items-center">
-                               <span>1 {{ __('names.stars') }}</span>
-                               <div class="tp-product-details-review-rating-bar">
-                                  <span class="tp-product-details-review-rating-bar-inner" data-width="{{ $percentages[1] ?? 0 }}%" style="width: {{ $percentages[1] ?? 0 }}%;"></span>
-                               </div>
-                               <div class="tp-product-details-review-rating-percent">
-                                  <span>{{ $percentages[1] ?? 0 }}%</span>
-                               </div>
-                            </div> <!-- end single item -->
-                         </div>
-                      </div>
+                            <div class="tp-product-details-review-rating-percent">
+                                <span>{{ $percentages[4] ?? 0 }}%</span>
+                            </div>
+                        </div>
 
-                      <!-- reviews -->
-                      <div class="tp-product-details-review-list pr-110">
-                         <h3 class="tp-product-details-review-title">{{ __('names.reviews') }}</h3>
-                         @forelse ($product->ratings as $rating)
-                            <div class="tp-product-details-review-avater d-flex align-items-start">
-                                <div class="tp-product-details-review-avater-content">
-                                    <div class="tp-product-details-review-avater-rating d-flex align-items-center">
-                                            <div class="rating flex-row justify-content-start">
+                        <div class="tp-product-details-review-rating-item d-flex align-items-center">
+                            <span class="rating-percentage-title">3 {{ __('names.stars') }}</span>
+                            <span class="tp-product-details-review-rating-bar-inner" data-width="{{ $percentages[3] ?? 0 }}%" style="width: {{ $percentages[3] ?? 0 }}%;"></span>
+
+                            <div class="tp-product-details-review-rating-percent">
+                                <span>{{ $percentages[3] ?? 0 }}%</span>
+                            </div>
+                        </div>
+
+                        <div class="tp-product-details-review-rating-item d-flex align-items-center">
+                            <span class="rating-percentage-title">2 {{ __('names.stars') }}</span>
+                            <span class="tp-product-details-review-rating-bar-inner" data-width="{{ $percentages[2] ?? 0 }}%" style="width: {{ $percentages[2] ?? 0 }}%;"></span>
+
+                            <div class="tp-product-details-review-rating-percent">
+                                <span>{{ $percentages[2] ?? 0 }}%</span>
+                            </div>
+                        </div>
+
+                        <div class="tp-product-details-review-rating-item d-flex align-items-center">
+                            <span class="rating-percentage-title">1 {{ __('names.stars') }}</span>
+                            <span class="tp-product-details-review-rating-bar-inner" data-width="{{ $percentages[1] ?? 0 }}%" style="width: {{ $percentages[1] ?? 0 }}%;"></span>
+
+                            <div class="tp-product-details-review-rating-percent">
+                                <span>{{ $percentages[1] ?? 0 }}%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <h2 class="tp-product-details-review-title">{{ __('names.reviews') }}</h2>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="position-relative w-100">
+                                <div class="swiper testimonialSwiper">
+                                    <div class="swiper-wrapper">
+                                        @forelse ($product->ratings as $rating)
+                                        <div class="swiper-slide">
+                                            <div class="border border-2 p-5 rounded-custom position-relative">
+                                                <div class="d-flex align-items-center" style="margin-bottom: 10px;">
+                                                    <div class="author-info">
+                                                        <h6 class="mb-0">{{ $rating->user->name }}</h6>
+                                                        <small>{{ $rating->created_at->format('F j, Y') }}</small>
+                                                    </div>
+                                                </div>
+                                                <blockquote>
+                                                    {{ $rating->description }}
+                                                </blockquote>
                                                 @for($i = 1; $i <= 5; $i++)
                                                     <i class="product-rating-star text-warning pb-1 @if ($rating->value >= $i) fa-solid fa-star
-                                                        @elseif ($rating->value >= $i - .5) fa-solid fa-star-half-stroke
-                                                        @else fa-regular fa-star 
-                                                        @endif"></i>
-                                                @endfor
+                                    @elseif ($rating->value >= $i - .5) fa-solid fa-star-half-stroke
+                                    @else fa-regular fa-star 
+                                    @endif"></i>
+                                                    @endfor
                                             </div>
-                                    </div>
-                                    <h3 class="tp-product-details-review-avater-title">{{ $rating->user->name }}</h3>
-                                    <span class="tp-product-details-review-avater-meta">{{ $rating->created_at->format('F j, Y') }}</span>
-
-                                    <div class="tp-product-details-review-avater-comment">
-                                        <p>{{ $rating->description }}</p>
+                                        </div>
+                                        @empty
+                                        <span class="text-muted">{{ __('names.noReviews') }}</span>
+                                        @endforelse
                                     </div>
                                 </div>
+
+                                <div class="swiper-nav-control">
+                                    <div class="swiper-button-next" style="right: -15px;"></div>
+                                    <div class="swiper-button-prev" style="left: -15px;"></div>
+                                </div>
                             </div>
-                        @empty
-                            <span class="text-muted">{{ __('names.noReviews') }}</span>
-                        @endforelse
-                      </div>
-                   </div>
-                </div> <!-- end col -->
-                <div class="col-lg-6">
-                   <div class="tp-product-details-review-form">
-                      <h3 class="tp-product-details-review-form-title">{{ __('names.addReview') }}</h3>
-                      <div id="review-product"></div>
-                      @auth
-                        <form class="review-product">
-                            <div class="tp-product-details-review-form-rating d-flex align-items-center mt-2">
-                                <p>{{ __('names.rating') }}:</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-md-12">
+            <div class="register-wrap p-5 bg-white shadow rounded-custom position-relative">
+                <form action="#" class="register-form position-relative z-5">
+                    <h3 class="mb-5 fw-medium">{{ __('names.addReview') }}</h3>
+                    @auth
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="input-group mb-3">
+                                <p style="margin-bottom: 0px;margin-right: 10px;">{{ __('names.rating') }}:</p>
                                 <div class="tp-product-details-review-form-rating-icon d-flex align-items-center">
                                     <div class="rating" style="gap: 5px">
                                         <input type="radio" name="rating" value="5" id="5"><label for="5">
@@ -244,45 +247,88 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="tp-product-details-review-input-wrapper">
-                                <div class="tp-product-details-review-input-box">
-                                    <div class="tp-product-details-review-input">
-                                        <textarea id="comment" name="comment" placeholder="" rows="8"></textarea>
-                                    </div>
-                                    <div class="tp-product-details-review-input-title">
-                                        <label for="comment">{{ __('names.review').'*' }}</label>
-                                    </div>
-                                </div>
+                        </div>
+                        <div class="col-12">
+                            <label for="comment">{{ __('names.review').'*' }}</label>
+                            <div class="input-group mb-3">
+                                <textarea class="form-control" id="comment" name="comment" placeholder="" rows="8" style="height: 120px"></textarea>
                             </div>
-                            <div class="tp-product-details-review-btn-wrapper">
-                                <button type="button" class="tp-product-details-review-btn" id="product-reviews-add-review-submit">
-                                    {{ __('buttons.submit') }}
-                                </button>
-                            </div>
-                        </form>
-                      @else
-                        <span class="text-muted">{{ __('names.loginToReview') }}</p>
-                      @endauth
-                   </div>
-                </div>
-             </div>
-          </div>
-       </div>
-     </div>                                                
- </div>
+                        </div>
+                        <div class="col-12">
+                            <button type="button" type="submit" class="btn btn-primary mt-4 d-block w-100" id="product-reviews-add-review-submit">
+                                {{ __('buttons.submit') }}
+                            </button>
+                        </div>
+                    </div>
+                    @else
+                    <span class="text-muted">{{ __('names.loginToReview') }}</p>
+                        @endauth
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
 <style>
+    .rating>input:checked~label::before {
+        margin-left: 3px;
+        margin-top: -3px;
+    }
+
+    .register-wrap {
+        margin-left: 20px;
+    }
+
+    .review-pane {
+        display: flex !important;
+        justify-content: center !important;
+    }
+
+    @media (max-width: 991px) {
+        .review-pane {
+            display: block !important;
+            justify-content: none !important;
+        }
+
+        .register-wrap {
+            margin-left: 0px;
+            margin-top: 20px;
+        }
+    }
+
+
+    .tp-product-details-review-title {
+        margin-top: 10px;
+    }
+
+    .tp-product-details-review-rating-list {
+        width: 135%;
+    }
+
+    .tp-product-details-review-rating-bar-inner {
+        height: 21.6px;
+        background-color: #175cff;
+        margin-right: 5px;
+        border: 3px solid #0044e3;
+        border-radius: 5px;
+    }
+
+    .rating-percentage-title {
+        white-space: nowrap;
+        margin-right: 5px;
+    }
+
     .rating {
         display: flex;
         flex-direction: row-reverse;
         justify-content: flex-end;
     }
 
-    .rating > input {
+    .rating>input {
         display: none
     }
 
-    .rating > label i {
+    .rating>label i {
         position: relative;
         width: 1em;
         cursor: pointer;
@@ -291,7 +337,7 @@
         padding-top: 4px;
     }
 
-    .rating > label::before {
+    .rating>label::before {
         content: "\2605";
         position: absolute;
         opacity: 0;
@@ -299,16 +345,30 @@
         font-size: 1.35em;
     }
 
-    .rating > label:hover:before,
-    .rating > label:hover ~ label:before {
+    .rating>label:hover:before,
+    .rating>label:hover~label:before {
         opacity: 1 !important
     }
 
-    .rating > input:checked ~ label:before {
+    .rating>input:checked~label:before {
         opacity: 1
     }
 
-    .rating:hover > input:checked ~ label:before {
+    .rating:hover>input:checked~label:before {
         opacity: 0.4
     }
 </style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var swiper = new Swiper('.testimonialSwiper', {
+            loop: true,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            slidesPerView: 1,
+            spaceBetween: 30,
+        });
+    });
+</script>
