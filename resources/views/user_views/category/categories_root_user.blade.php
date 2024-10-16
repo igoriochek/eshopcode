@@ -3,16 +3,17 @@
 @section('title', __('menu.categories'))
 
 @section('content')
-    <section class="tp-blog-grid-area pb-120">
+    <section class="tp-shop-area mt-4 pb-120">
         <div class="container">
            <div class="row">
               <div class="col-12">
-                 <div class="tp-sidebar-wrapper">
+                 <div class="tp-shop-main-wrapper">
 
                     <!-- categories start -->
                     <div class="tp-sidebar-widget widget_categories mb-35">
-                       <div class="tp-sidebar-widget-content">
-                            @include('user_views.category.category_tree')
+                       <div class="job-overview-wrap bg-light-subtle p-4 sticky-sidebar rounded-custom mt-5 mt-lg-0">
+                           <h5 class="tp-shop-widget-title no-border">{{ __('names.categories') }}</h5>
+                           @include('user_views.category.category_tree')
                        </div>
                     </div>
                     <!-- categories end -->

@@ -1,4 +1,4 @@
-<ul>
+<ul class="work-process-list list-unstyled">
     @foreach($childs as $child)
         <li>
             <a href="{{ route("innercategories", ["category_id" => $child->id ]) }}" 
