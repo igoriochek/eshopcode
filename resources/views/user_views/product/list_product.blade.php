@@ -76,6 +76,10 @@
 
 
 <style>
+    .img-fluid {
+        height: 100% !important;
+    }
+
     .product-content {
         justify-content: start;
         display: flex;

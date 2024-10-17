@@ -1,4 +1,4 @@
-<div wire:poll.1s>
+<div style="border-radius: 10px;" wire:poll.1s>
     <ul class="messenger-users list-unstyled">
         @forelse ($users ?? [] as $user)
             <li class="messenger-user-container">
@@ -23,13 +23,13 @@
                     </div>
                     @if ($user->unread)
                         <div class="messenger-user-unread-container">
-                            <div class="messenger-user-unread">{{ $user->unread }}</div>
+                            <div class="messenger-user-unread" style="padding-top: 0px; background-color: #165bfe;">{{ $user->unread }}</div>
                         </div>
                     @endif
                 </a>
             </li>
             @if (!$loop->last)
-                <hr class="messenger-users-hr my-2"/>
+                <hr class="messenger-users-hr my-2" style="height: 0px; color: #EEEEEE;"/>
             @endif
         @empty
             <div>
@@ -40,6 +40,22 @@
 </div>
 
 <style>
+
+    .messenger-user-unread {
+        padding-top: 0px;
+        background-color: #165bfe;
+    }
+
+    .messenger-users .messenger-user-container .messenger-user:hover {
+        border-radius: 10px;
+        /* border: 10px solid red; */
+    }
+
+    .messenger-user-unread {
+        background-color: #175cff;
+        padding-top: 0px;
+    }
+
     ::marker {
         unicode-bidi: isolate;
         font-variant-numeric: tabular-nums;

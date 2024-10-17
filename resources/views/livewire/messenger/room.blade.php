@@ -19,7 +19,7 @@
                 </div>
             @else
                 <div class="messenger-message-to-container">
-                    <span class="messenger-message-to">
+                    <span class="messenger-message-to" style="background-color: #175cff;">
                         {{ $message->message_text }}
                     </span>
                 </div>

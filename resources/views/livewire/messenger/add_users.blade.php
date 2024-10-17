@@ -11,7 +11,7 @@
                     </p>
                 </div>
                 <a href="{{ route('livewire.messenger.show', [$user->id]) }}" 
-                    class="tp-load-more-btn d-flex align-items-center" style="height: 40px">
+                    class="btn btn-primary d-flex align-items-center" style="height: 40px">
                     {{ __('buttons.contact') }}
                 </a>
             </div>

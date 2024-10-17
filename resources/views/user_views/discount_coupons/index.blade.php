@@ -27,8 +27,8 @@
             @endif
             @forelse($discountCoupons as $discountCoupon)
             <div class="col-xl-6">
-                <div class="bg-white cyber-about-box mb-30 p-relative d-md-flex justify-content-between align-items-center">
-                    <div class="tp-coupon-item-left d-sm-flex align-items-center">
+                <div class="bg-white cyber-about-box mb-30 p-relative d-md-flex justify-content-between align-items-center d-flex">
+                    <div class="tp-coupon-item-left d-sm-flex align-items-center" style="width: 70%">
                         <div class="tp-coupon-content">
                             <h4>
                                 {{ __('names.coupon') }}
@@ -45,7 +45,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="tp-coupon-item-right pl-20">
+                    <div class="tp-coupon-item-right pl-20" style="width: 40%">
                         <div class="tp-coupon-status d-flex align-items-center">
                             <h1 class="tp-coupon-offer mb-0">
                                 <span>{{ $discountCoupon->value }}%</span>
