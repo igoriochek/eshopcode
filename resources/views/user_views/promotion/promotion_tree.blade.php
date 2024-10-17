@@ -1,4 +1,4 @@
-<ul>
+<ul class="work-process-list list-unstyled">
     @foreach($promotions as $promotion)
         <li>
             <a href="{{ route("promotion", ["id" => $promotion->id] ) }}">
