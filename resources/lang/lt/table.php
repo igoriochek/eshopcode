@@ -33,6 +33,7 @@ return [
     'mandatoryStatus' => 'Ar privalomas',
     'name' => 'Pavadinimas',
     'noUsersFound' => 'Naudotojų nerasta',
+    'only_one' => 'Tik vienas',
     'orderId'=> 'Užsakymo ID',
     'parentId' => 'Tėvo ID',
     'price' => 'Kaina',

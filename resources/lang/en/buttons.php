@@ -17,6 +17,7 @@ return [
     'addNew' => 'Add New',
     'addNewMsg' => 'Create New Message',
     'addToCart' => 'Add To Cart',
+    'alreadyAdded' => 'Already in the cart',
     'back' => 'Back',
     'backToMainCategories' => 'Back to main categories',
     'backToAllPromotions' => 'Back to all promotions',

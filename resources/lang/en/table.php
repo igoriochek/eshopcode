@@ -33,6 +33,7 @@ return [
     'mandatoryStatus' => 'Is Mandatory',
     'name' => 'Name',
     'noUsersFound' => 'No Users Found',
+    'only_one' => "Only one",
     'orderId' => 'Order ID',
     'parentId' => 'Parent ID',
     'price' => 'Price',

@@ -51,9 +51,10 @@
                 <button type="submit" class="tp-product-action" id="add_to_cart"
                     data-tippy="{{ __('buttons.addToCart') }}" data-tippy-inertia="true"
                     data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true"
-                    data-tippy-theme="sharpborder">
+                    data-tippy-theme="sharpborder" @if($product->only_one && $product->isInCart) disabled @endif>
                     <i class="pe-7s-cart"></i>
                 </button>
+                @if(!$product->only_one)
                 <div class="quantity" style="padding-bottom: 25px;">
                     <div class="cart-plus-minus">
                         {!! Form::text('count', '1', [
@@ -63,6 +64,11 @@
                         ]) !!}
                     </div>
                 </div>
+                @else 
+                <div style="padding-bottom: 75px;">
+                    {!! Form::hidden('count', '1') !!}
+                </div>
+                @endif
             </div>
         </div>
     </div>
@@ -97,6 +103,14 @@
             border-color: #ee3231;
             color: #fff;
         }
+
+    .tp-product-action[disabled] {
+        cursor: not-allowed;
+        opacity: 0.65;
+        background-color: #6c757d;
+        border-color: #6c757d;
+        color: #fff;
+    }
 
     .product-content {
         margin-left: 15px;

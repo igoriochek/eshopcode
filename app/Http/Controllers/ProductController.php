@@ -6,6 +6,8 @@ use App\Http\Requests\CreateProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use App\Models\Product;
 use App\Models\Ratings;
+use App\Models\Cart;
+use App\Models\CartItem;
 use App\Repositories\CategoryRepository;
 use App\Repositories\ProductRepository;
 use App\Traits\ProductRatings;
@@ -121,6 +123,8 @@ class ProductController extends AppBaseController
             $product->sum = $sumAndCount['sum'];
             $product->count = $sumAndCount['count'];
             $product->average = $this->calculateAverageRating($product->sum, $product->count);
+            
+            $product->isInCart = $this->checkProductInCart($product->id);
         }
 
         return view('user_views.product.all_products')
@@ -133,8 +137,6 @@ class ProductController extends AppBaseController
                 'selCategories' => $selCategories ? explode(",", $selCategories) : array(),
                 'order_list' => $this->productsOrderSelector(),
                 'selectedOrder' => $selectedOrder,
-                //                'pricefrom' => $request->query('filter[pricefrom]') == null ? "" : $request->query('filter[pricefrom]'),
-                //                'priceto' => $request->query('filter[priceto]') == null ? "" : $request->query('filter[priceto]'),
             ]);
     }
 
@@ -230,6 +232,8 @@ class ProductController extends AppBaseController
 
         $this->logUserViewedProduct($product);
 
+        $isInCart = $this->checkProductInCart($id);
+
         return view('user_views.product.view_product')
             ->with([
                 'product' => $product,
@@ -240,7 +244,31 @@ class ProductController extends AppBaseController
                     $count,
                     $this->addRatingStarValues($productRatings)
                 ),
+                'isInCart' => $isInCart,
             ]);
+    }
+
+    private function checkProductInCart($productId)
+    {
+        $user = Auth::user();
+        if (!$user) {
+            return false;
+        }
+
+        $activeCart = Cart::where('user_id', $user->id)
+            ->where('status_id', Cart::STATUS_ON)
+            ->first();
+
+        if (!$activeCart) {
+            return false;
+        }
+
+        return CartItem::whereHas('cart', function($query) use ($activeCart) {
+                $query->where('user_id', $activeCart->user_id)
+                    ->where('status_id', Cart::STATUS_ON);
+            })
+            ->where('product_id', $productId)
+            ->exists();
     }
 
     /**

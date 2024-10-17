@@ -36,6 +36,13 @@
     {!! Form::number('count', null, ['class' => 'form-control']) !!}
 </div>
 
+<!-- Only One Field -->
+<div class="form-group col-sm-6 d-flex align-items-center">
+    {!! Form::label('only_one', __('table.only_one').':') !!}
+    &nbsp;&nbsp;
+    {!! Form::checkbox('only_one') !!}
+</div>
+
 <!-- Const Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('const', __('table.const').':') !!}

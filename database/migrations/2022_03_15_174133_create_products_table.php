@@ -18,7 +18,8 @@ class CreateProductsTable extends Migration
             $table->id('id');
 //            $table->string('name');
             $table->double('price');
-            $table->double('const')->default(0.00);
+            $table->double('const')->nullable()->default(0.00);
+            $table->enum('only_one', ['0', '1']);
             $table->integer('count')->default(0);
 //            $table->text('description');
             $table->string('image')->nullable(true);

@@ -17,6 +17,7 @@ return [
     'addNew' => 'Добавить новый',
     'addNewMsg' => 'Создать новое сообщение',
     'addToCart' => 'Добавить в корзину',
+    'alreadyAdded' => 'уже в корзине',
     'back' => 'Назад',
     'backToMainCategories' => 'Вернуться к основным категориям',
     'backToAllPromotions' => 'Вернуться ко всем акциям',

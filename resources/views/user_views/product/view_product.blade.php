@@ -5,6 +5,7 @@
 @section('parentUrl', url('/products'))
 
 @section('content')
+
     <div class="single-product-area section-space-top-100">
         <div class="container">
             <div class="row">
@@ -72,24 +73,37 @@
                             </div>
                         </div>
                         <ul>
-                            {!! Form::open(['route' => ['addtocart'], 'method' => 'post', 'class' => 'quantity-with-btn pb-9']) !!}
-                            <li class="quantity">
-                                <div class="cart-plus-minus">
-                                    {!! Form::text('count', '1', [
-                                        'class' => 'cart-plus-minus-box tp-cart-input',
-                                        'oninput' => "this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null
-                                                                                                                                                                                                                    ",
-                                    ]) !!}
-                                    <div class="dec qtybutton"><i class="fa fa-minus"></i></div>
-                                    <div class="inc qtybutton"><i class="fa fa-plus"></i></div>
-                                </div>
-                            </li>
-                            <li class="add-to-cart">
-                                <button type="submit"
-                                    class="btn btn-custom-size lg-size btn-primary px-4">{{ __('buttons.addToCart') }}</button>
-                            </li>
-                            <input type="hidden" name="id" value="{{ $product->id }}">
-                            {!! Form::close() !!}
+                            @if($product->only_one && $isInCart)
+                <li class="add-to-cart">
+                    <button type="button" class="btn btn-custom-size lg-size btn-secondary px-4" disabled>
+                        {{ __('buttons.alreadyAdded') }}
+                    </button>
+                </li>
+                @else
+                    {!! Form::open(['route' => ['addtocart'], 'method' => 'post', 'class' => 'quantity-with-btn pb-9', 'id' => 'addToCartForm']) !!}
+                    <li class="quantity">
+                        @if(!$product->only_one)
+                            <div class="cart-plus-minus">
+                                {!! Form::text('count', '1', [
+                                    'class' => 'cart-plus-minus-box tp-cart-input',
+                                    'oninput' => "this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null"
+                                ]) !!}
+                                <div class="dec qtybutton"><i class="fa fa-minus"></i></div>
+                                <div class="inc qtybutton"><i class="fa fa-plus"></i></div>
+                            </div>
+                        @else
+                            {!! Form::hidden('count', '1') !!}
+                        @endif
+                    </li>
+                    <li class="add-to-cart">
+                        <button type="submit" class="btn btn-custom-size lg-size btn-primary px-4" @if($product->only_one && $isInCart) disabled @endif>
+                            {{ __('buttons.addToCart') }}
+                        </button>
+                    </li>
+                    <input type="hidden" name="id" value="{{ $product->id }}">
+                    {!! Form::close() !!}
+                @endif
+                                        
                         </ul>
                         <div class="product-category pb-3">
                             <span class="title">{{ __('names.categories') }}: </span>

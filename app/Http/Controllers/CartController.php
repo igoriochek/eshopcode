@@ -98,7 +98,7 @@ class CartController extends AppBaseController
                 'cart_id' => $cart->id,
             ])
             ->get();
-
+            
         return view('carts.show')->with([
             'cart' => $cart,
             'cartItems' => $cartItems,
@@ -197,6 +197,18 @@ class CartController extends AppBaseController
         if ($product) {
             $cart = $this->cartRepository->getOrSetCart($request);
 
+            $existingItem = CartItem::whereHas('cart', function($query) use ($cart) {
+                    $query->where('user_id', $cart->user_id)
+                        ->where('status_id', Cart::STATUS_ON);
+                })
+                ->where('product_id', $product->id)
+                ->first();
+
+            if ($product->only_one && $existingItem) {
+                Flash::error('This product is already in your cart.');
+                return redirect()->back();
+            }
+
             $cartItem = CartItem::query()
                 ->where([
                     'cart_id' => $cart->id,
@@ -206,16 +218,27 @@ class CartController extends AppBaseController
 
             $currentPrice = $product->discount ? $product->discounted_price : $product->computed_price;
 
-            if (null === $cartItem) {
-                $cartItem = CartItem::create([
-                    'cart_id' => $cart->id,
-                    'product_id' => $product->id,
-                    'price_current' => $currentPrice,
-                    'count' => $validated['count'],
-                ]);
+            if ($product->only_one) {
+                if (null === $cartItem) {
+                    $cartItem = CartItem::create([
+                        'cart_id' => $cart->id,
+                        'product_id' => $product->id,
+                        'price_current' => $currentPrice,
+                        'count' => 1,
+                    ]);
+                }
             } else {
-                $cartItem->increment('count', $validated['count']);
-                $cartItem->price_current = $currentPrice;
+                if (null === $cartItem) {
+                    $cartItem = CartItem::create([
+                        'cart_id' => $cart->id,
+                        'product_id' => $product->id,
+                        'price_current' => $currentPrice,
+                        'count' => $validated['count'],
+                    ]);
+                } else {
+                    $cartItem->increment('count', $validated['count']);
+                    $cartItem->price_current = $currentPrice;
+                }
             }
 
             $cartItem->save();
@@ -228,6 +251,29 @@ class CartController extends AppBaseController
         }
 
         return redirect(route('viewcart'));
+    }
+
+    private function checkProductInCart($productId)
+    {
+        $user = Auth::user();
+        if (!$user) {
+            return false;
+        }
+
+        $activeCart = Cart::where('user_id', $user->id)
+            ->where('status_id', Cart::STATUS_ON)
+            ->first();
+
+        if (!$activeCart) {
+            return false;
+        }
+
+        return CartItem::whereHas('cart', function($query) use ($activeCart) {
+                $query->where('user_id', $activeCart->user_id)
+                    ->where('status_id', Cart::STATUS_ON);
+            })
+            ->where('product_id', $productId)
+            ->exists();
     }
 
     private function getCart($request)

@@ -17,6 +17,7 @@ return [
     'addNew' => 'Pridėti naują',
     'addNewMsg' => 'Sukurti naują žinutę',
     'addToCart' => 'Pridėti į krepšelį',
+    'alreadyAdded' => 'Produktas jau krepšelyje',
     'back' => 'Grįžti',
     'backToMainCategories' => 'Grįžti atgal į kategorijas',
     'backToAllPromotions' => 'Grįžti atgal į visas akcijas',
