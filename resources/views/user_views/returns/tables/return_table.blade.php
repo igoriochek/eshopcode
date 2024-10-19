@@ -1,4 +1,4 @@
-<table class="table">
+<table class="table table-start">
     <thead>
        <tr>
           <th scope="col">{{ __('names.return').' ID' }}</th>
@@ -15,8 +15,8 @@
           <td data-info="status">{{ __("status.".$return->status->name) }}</td>
           <td data-info="sum">€{{ number_format($return->sum, 2) }}</td>
           <td data-info="date">{{ $return->created_at->format('M d, Y') }}</td>
-          <td>
-              <a href="{{ route('viewreturn', [$return->id]) }}" class="tp-logout-btn">
+          <td style="text-align: end;">
+              <a href="{{ route('viewreturn', [$return->id]) }}" class="btn btn-secondary">
                   {{ __('buttons.view') }}
               </a>
           </td>
@@ -30,3 +30,14 @@
       @endforelse
     </tbody>
 </table>
+
+<style>
+    .table-start th, .table-start td {
+        text-align: start;
+        vertical-align: middle;
+    }
+
+    .table-start th {
+        font-weight: bold;
+    }
+</style>

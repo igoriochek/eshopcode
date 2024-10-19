@@ -35,7 +35,7 @@
 
             <div class="card-footer">
                 {!! Form::submit(__('buttons.save'), ['class' => 'btn btn-primary']) !!}
-                <a href="{{ route('rootorders') }}" class="btn btn-default">{{__('buttons.cancel')}}</a>
+                <a href="{{ route('rootorders') }}" class="btn btn-primary">{{__('buttons.cancel')}}</a>
             </div>
 
             {!! Form::close() !!}

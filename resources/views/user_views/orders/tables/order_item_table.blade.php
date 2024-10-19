@@ -1,4 +1,4 @@
-<table class="table">
+<table class="table table-start">
     <thead>
        <tr>
             @if ($order->status->name == 'Returned')
@@ -28,3 +28,14 @@
         @endforeach
     </tbody>
 </table>
+
+<style>
+    .table-start th, .table-start td {
+        text-align: start;
+        vertical-align: middle;
+    }
+
+    .table-start th {
+        font-weight: bold;
+    }
+</style>

@@ -3,7 +3,7 @@
 @section('title', __('menu.returns'))
 
 @section('content')
-    <section class="profile__area pb-120 pt-20">
+    <section class="contact-us ptb-120 pt-20">
         <div class="container">
            <div class="profile__inner p-relative">
               <div class="profile__shape">
@@ -20,7 +20,7 @@
                     @include('flash_messages')
                 </div>
                  <div class="col-xxl-4 col-lg-4">
-                    <div class="profile__tab mr-40">
+                    <div class="job-overview-wrap bg-light-subtle p-5 sticky-sidebar rounded-custom mt-5 mt-lg-0">
                        <nav>
                           <div class="nav nav-tabs tp-tab-menu flex-column" id="profile-tab" role="tablist">
                              <a class="nav-link" href="{{ url('/user/userprofile') }}">
@@ -43,14 +43,13 @@
                              </a>
                              <form id="logout-form" action="{{ route('logout') }}" method="POST">
                                 @csrf
-                                <button class="nav-link" type="submit" onclick="event.preventDefault(); return confirm('{{ __('messages.confirmLogout') }}');">
+                                <button class="nav-link" style="width: 100%; display: flex; justify-content: start; align-items: center;" type="submit" onclick="event.preventDefault(); return confirm('{{ __('messages.confirmLogout') }}');">
                                     <span>
-                                        <i class="fa-solid fa-right-from-bracket"></i>
+                                        <i class="fa-solid fa-right-from-bracket" style="margin-right: 4px;"></i>
                                     </span>
                                     {{ __('menu.logout') }}
                                 </button>
                              </form>
-                             <span id="marker-vertical" class="tp-tab-line d-none d-sm-inline-block"></span>
                           </div>
                        </nav>
                     </div>
@@ -58,7 +57,7 @@
                  <div class="col-xxl-8 col-lg-8">
                     <div class="profile__tab-content">
                        <div class="tab-content" id="profile-tabContent">
-                        <div class="tab-pane fade active show" id="nav-order" role="tabpanel" aria-labelledby="nav-order-tab">
+                        <div class="register-wrap p-5 bg-white shadow rounded-custom position-relative aos-init aos-animate" id="nav-order" role="tabpanel" aria-labelledby="nav-order-tab">
                             <h3 class="profile__info-title">{{ __('menu.returns') }}</h3>
                             <div class="profile__ticket table-responsive">
                                 @include('user_views.returns.tables.return_table')
@@ -73,3 +72,19 @@
     </section>
 @endsection
 
+<style>
+   .nav-tabs .nav-link.active {
+      background-color: #fafafa !important;
+      border-color: rgb(225, 226, 227) !important;
+
+   }
+
+   .nav-tabs .nav-link {
+      border-radius: 0.3125rem !important;
+      border: 1px solid rgb(225, 226, 227);
+   }
+
+   .nav-tabs {
+      --bs-nav-tabs-border-color: rgba(17, 24, 39, 0) !important;
+   }
+</style>
