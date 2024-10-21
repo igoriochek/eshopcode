@@ -3,7 +3,7 @@
 @section('title', __('menu.fbDataDeletion'))
 
 @section('content')
-    <section class="tp-shop-area pb-120">
+    <section class="our-story-section pt-60 pb-120">
         <div class="container">
             <div class="row">
                     <div class="col-12 mb-4">

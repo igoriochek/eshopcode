@@ -79,7 +79,7 @@
                                     <li><a href="{{ url('/about_us') }}" class="text-decoration-none">{{ __('menu.aboutUs') }}</a></li>
                                     <li><a href="{{ url('/termsofservice') }}" class="text-decoration-none">{{ __('menu.termsofservice') }}</a></li>
                                     <li><a href="{{ url('/policy') }}" class="text-decoration-none">{{ __('menu.policy') }}</a></li>
-                                    <li><a href="{{ url('/eu_projects') }}l" class="text-decoration-none">{{ __('menu.euProjects') }}</a></li>
+                                    <li><a href="{{ url('/eu_projects') }}" class="text-decoration-none">{{ __('menu.euProjects') }}</a></li>
                                     <li><a href="{{ url('/fbdatadeletion') }}" class="text-decoration-none">{{ __('menu.fbDataDeletion') }}</a>
                                     </li>
                                 </ul>
