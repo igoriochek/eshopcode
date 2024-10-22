@@ -168,6 +168,8 @@ class ProductController extends AppBaseController
     public function store(CreateProductRequest $request)
     {
         $input = $request->all();
+        
+        $input['const'] = $input['const'] ?? 0.00;
 
         if (isset($input['image']) &&  $input['image'] !== null) {
             $imageName = time() . '.' . $request->image->extension();
