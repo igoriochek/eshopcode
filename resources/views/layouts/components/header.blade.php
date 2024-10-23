@@ -185,7 +185,7 @@
                     </ul>
                 </div>
                 <div class="col-lg-2 text-end">
-                    <ul class="main-menu">
+                    <ul class="main-menu d-flex">
                         @auth
                         <li class="cart-block d-inline-block position-relative">
                             <a href="{{ url('/user/viewcart') }}">
