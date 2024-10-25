@@ -178,6 +178,8 @@ return [
     'noProducts' => 'Нет товаров',
     'search' => 'Поиск',
     'additionalInformation' => 'Дополнительная информация',
+    'sortBy' => 'Сортировать по',
+    'thereAre' => 'Есть',
 
     //Promotions
     'createPromotion' => 'Создать акцию',

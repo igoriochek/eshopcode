@@ -178,6 +178,8 @@ return [
     'noProducts' => 'Nėra produktų',
     'search' => 'Ieškoti',
     'additionalInformation' => 'Papildoma informacija',
+    'sortBy' => 'Rūšiuoti pagal',
+    'thereAre' => 'Yra',
 
     //Promotions
     'createPromotion' => 'Sukurti akciją',

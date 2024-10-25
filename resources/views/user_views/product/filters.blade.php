@@ -1,72 +1,132 @@
 <form method="get" action="{{ route('userproducts') }}" id="mainForm">
-    <div class="axil-shop-sidebar" style="z-index: 1000000">
-        <div class="d-lg-none">
-            <button class="sidebar-close filter-close-btn"><i class="fas fa-times"></i></button>
-        </div>
-        <div class="toggle-list product-color active">
-            <h6 class="title">{{ __('names.search') }}</h6>
+    <aside class="left-sidebar">
+        <div class="product-widget pt-3rem mb-3rem">
+            <h3 class="title">{{ __('names.search') }}</h3>
             <div class="shop-submenu">
                 <div class="d-flex"
-                    style="border: 1px solid #f0f0f0; height: 55px; border-radius: 6px; background-color: #f0f2f5;">
-                    <button type="submit" class="btn" style="width: 50px; background-color: #f0f2f5;">
-                        <i class="fa-solid fa-magnifying-glass fs-4 text-muted"></i>
+                    style="height: 55px;">
+                    <input class="form-control border-blue" type="text" name="filter[namelike]" id="filter[namelike]"
+                        placeholder="{{ __('names.product') . '...' }}" value="{{ $filter['namelike'] ?? '' }}">
+                    <button class="btn bg-primary search-btn" type="submit" style="position: inherit !important;">
+                        <i class="ion-ios-search-strong"></i>
                     </button>
-                    <input type="text" name="filter[namelike]" class="form-control fs-4" id="filter[namelike]"
-                        placeholder="{{ __('names.product') . '...' }}" value="{{ $filter['namelike'] ?? '' }}"
-                        style="width: 100%; padding-left: 10px; background-color: #f0f2f5;">
+
                 </div>
             </div>
         </div>
-        <div class="toggle-list product-price-range active">
-            <h6 class="title">{{ __('names.filterByPrice') }}</h6>
-            <div class="shop-submenu" style="">
-                <div class="mt--25">
+
+        <div class="product-widget pt-3rem mb-3rem">
+            <h3 class="title">{{ __('names.filterByPrice') }}</h3>
+            <div class="product-tag d-flex flex-wrap">
+                <div class="shop-submenu">
                     <div class="range-slider">
                         <div id="range-slider" class="slider mb-3 mt-1 mx-1" wire:ignore></div>
                     </div>
-                    <div class="flex-center mt--20">
-                        <div class="d-flex align-items-center">
+                    <div class="d-flex" style="justify-content: space-between; margin-top: 20px;">
+                        <div>
                             <span>{{ __('names.from') }}: <b class="text-dark">€</b></span>
                             <input type="text" id="filter[pricefrom]" name="filter[pricefrom]" readonly
-                                value="{{ $filter['pricefrom'] ?? '0' }}" class="px-0 fw-bold fs-4"
-                                style="width: 60px; padding-top: 1px" />
+                                value="{{ $filter['pricefrom'] ?? '0' }}" class="price-input px-0 fw-bold fs-4"
+                                style="width: 42px; padding-top: 1px" />
                         </div>
-                        <div class="d-flex align-items-center">
+                        <div>
                             <span>{{ __('names.to') }}: <b class="text-dark">€</b></span>
                             <input type="text" id="filter[priceto]" name="filter[priceto]" readonly
-                                value="{{ $filter['priceto'] ?? '0' }}" class="px-0 fw-bold fs-4"
-                                style="width: 60px; padding-top: 1px" />
+                                value="{{ $filter['priceto'] ?? '0' }}" class="price-input px-0 fw-bold fs-4"
+                                style="width: 42px; padding-top: 1px" />
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="toggle-list product-categories active">
-            <h6 class="title">{{ __('names.categories') }}</h6>
-            <div class="shop-submenu">
-                <ul>
-                    @forelse($categories as $category)
-                        <li>
-                            <input class="current-cat" type="checkbox" id="category.{{ $category->id }}"
-                                value="{{ $category->id }}" onclick="calc();"
-                                @if ($filter && isset($filter['categories.id'])) {{ in_array($category->id, $selCategories) ? "checked=\"checked\"" : '' }} @endif>
-                            <label class="form-check-label" for="category.{{ $category->id }}">
-                                {{ $category->name }}
-                            </label>
-                        </li>
-                    @empty
-                        <li>
-                            <span class="text-muted">{{ __('names.noCategories') }}</span>
-                        </li>
-                    @endforelse
-                </ul>
-            </div>
+
+        <div class="product-widget pt-3rem mb-3rem">
+            <h3 class="title">{{ __('names.categories') }}</h3>
+            <ul>
+                @forelse($categories as $category)
+                <li class="filter-check-box">
+                    <input type="checkbox" id="category.{{ $category->id }}"
+                        value="{{ $category->id }}" onclick="calc();"
+                        @if ($filter && isset($filter['categories.id'])) {{ in_array($category->id, $selCategories) ? "checked=\"checked\"" : '' }} @endif>
+                    <label for="category.{{ $category->id }}">
+                        {{ $category->name }}
+                    </label>
+                </li>
+                @empty
+                <li>
+                    <span class="text-muted">{{ __('names.noCategories') }}</span>
+                </li>
+                @endforelse
+            </ul>
         </div>
-        <button class="axil-btn btn-bg-primary" type="submit">
+        <button class="btn btn-primary rounded mt-5 mt-sm-0" type="submit">
             {{ __('buttons.filter') }}
         </button>
-    </div>
+    </aside>
+
     <input type="hidden" value="{{ implode(',', $selCategories) }}" name="filter[categories.id]"
         id="filter[categories.id]">
     <input type="hidden" id="order" name="order" value="{{ $selectedOrder }}">
 </form>
+
+<style>
+    .form-control {
+        font-size: 1.2rem;
+        border: 2px solid #0090f0;
+        border-bottom-left-radius: 3rem;
+        border-top-left-radius: 3rem;
+    }
+
+    .shop-submenu {
+        width: 100%;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .ui-state-default,
+    .ui-widget-content .ui-state-default {
+        border-radius: 100%;
+        background-color: #0090f0;
+        border-color: #0090f0;
+        top: -0.6rem;
+    }
+
+    .ui-widget.ui-widget-content {
+        border: 0px solid #c5c5c5;
+    }
+
+    .ui-widget-content {
+        background: #fafafa;
+    }
+
+    .ui-widget-header {
+        background: #0090f0;
+    }
+
+    .ui-slider-horizontal {
+        height: 0.5rem;
+    }
+
+    .slider {
+        margin-bottom: 0.25rem !important;
+    }
+
+    .ui-state-focus,
+    .ui-widget-content .ui-state-focus {
+        border: 0px solid #0090f0 !important;
+        background: #0090f0;
+    }
+
+    .price-input {
+        border: none;
+        outline: none;
+        background-color: transparent;
+        box-shadow: none;
+    }
+
+    .price-input:focus {
+        outline: none;
+        background-color: transparent;
+        box-shadow: none;
+    }
+</style>

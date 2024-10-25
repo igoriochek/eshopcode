@@ -178,6 +178,8 @@ return [
     'noProducts' => 'No Products',
     'search' => 'Search',
     'additionalInformation' => 'Additional Information',
+    'sortBy' => 'Sort by',
+    'thereAre' => 'There Are',
 
     //Promotions
     'createPromotion' => 'Create Promotion',
