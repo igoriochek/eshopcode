@@ -7,11 +7,11 @@
         <div class="container">
            <div class="row">
               @if (!$discounts->isEmpty())
-                <div class="col-12">
-                    <div class="tp-checkout-verify">
+                <div class="col-12" style="padding-left: 200px; padding-right: 200px;">
+                    <div class="register-wrap p-4 bg-white shadow rounded-custom position-relative aos-init aos-animate mb-5">
                         <div class="tp-checkout-verify-item">
-                            <p class="tp-checkout-verify-reveal">{{ __('names.selectDiscountCoupon') }}:
-                                <button type="button" class="tp-checkout-coupon-form-reveal-btn">
+                            <p class="tp-checkout-verify-reveal" style="display: flex;justify-content: center;align-items: center;">{{ __('names.selectDiscountCoupon') }}:
+                                <button type="button" class="btn btn-primary" style="margin-left: 10px;">
                                     {{ __('buttons.applyCoupon') }}
                                 </button>
                             </p>
@@ -27,7 +27,7 @@
                                                     @endforeach
                                                 </select>
                                             </div>
-                                            <button type="submit" class="tp-return-customer-btn tp-checkout-btn" style="height: 40px;">
+                                            <button type="submit" class="btn btn-primary" style="height: 40px;">
                                                 {{ __('buttons.applyCoupon') }}
                                             </button>
                                          </div>
@@ -38,48 +38,47 @@
                     </div>
                 </div>
               @endif
-              <div class="col-12">
+              <div class="col-12" style="padding-left: 200px; padding-right: 200px;">
                 {!! Form::open(['route' => ['checkout-preview'], 'method' => 'post']) !!}
                  <!-- checkout place order -->
-                 <div class="tp-checkout-place white-bg" style="border: 1px solid #E0E2E3;">
-                    <h3 class="tp-checkout-place-title">{{ __('names.yourOrder') }}</h3>
+                 <div class="register-wrap p-4 bg-white shadow rounded-custom position-relative aos-init aos-animate" style="padding-left: 30px !important;">
+                    <h3 class="tp-checkout-place-title" style="display: flex; justify-content: center;">{{ __('names.yourOrder') }}</h3>
 
                     <div class="tp-order-info-list">
-                       <ul>
+                       <div>
 
                           <!-- header -->
-                          <li class="tp-order-info-list-header">
+                          <div class="tp-order-info-list-header">
                              <h4>{{ __('names.product') }}</h4>
-                             <h4>{{ __('names.total') }}</h4>
-                          </li>
+                          </div>
 
                           @foreach($cartItems as $item)
                             <!-- item list -->
-                            <li class="tp-order-info-list-desc">
+                            <div class="tp-order-info-list-desc" style="display: flex;justify-content: space-between;">
                                 <p>{{ $item['product']->name }} 
                                     <span> {{ 'x '.$item->count }}</span>
                                 </p>
                                 <span>€{{ number_format(($item->price_current * $item->count), 2) }}</span>
-                            </li>
+                            </div>
                           @endforeach
 
                           <!-- total -->
-                          <li class="tp-order-info-list-total">
+                          <div class="tp-order-info-list-total" style="display: flex;justify-content: space-between;">
                              <span>{{ __('names.total') }}</span>
                              <span>€{{ number_format($cart->sum, 2) }}</span>
-                          </li>
-                       </ul>
+                          </div>
+                       </div>
                     </div>
                     <div class="tp-checkout-payment">
-                       <div class="tp-checkout-payment-item paypal-payment">
-                          <input type="radio" id="payment_method1" name="payment_method" value="cash-on-delivery" checked disabled>
+                       <div class="tp-checkout-payment-item paypal-payment" style="display: flex;justify-content: center; margin-top: 20px; margin-bottom: 20px;">
+                          <input type="radio" id="payment_method1" name="payment_method" value="cash-on-delivery" checked disabled style="margin-right: 5px;">
                           <label for="paypal" for="payment_method1">
                             {{ __('Paysera') }}
                         </label>
                        </div>
                     </div>
                     <div class="tp-checkout-btn-wrapper d-flex justify-content-center align-items-center">
-                       <button type="submit" class="tp-checkout-btn col-xl-3 col-lg-4 col-md-6 col-12">
+                       <button type="submit" class="btn btn-primary col-xl-3 col-lg-4 col-md-6 col-12">
                             {{ __('buttons.preview') }}
                        </button>
                     </div>
