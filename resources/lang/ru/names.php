@@ -180,6 +180,7 @@ return [
     'additionalInformation' => 'Дополнительная информация',
     'sortBy' => 'Сортировать по',
     'thereAre' => 'Есть',
+    'save' => 'Экономия',
 
     //Promotions
     'createPromotion' => 'Создать акцию',
@@ -216,6 +217,7 @@ return [
     'alreadyReviewed' => 'Вы уже оставляли отзыв об этом товаре',
     'reviewProduct' => 'Спасибо за отзыв об этом продукте',
     'yourReview' => 'Ваш отзыв',
+    'grade' => 'Оценка',
 
     //Returns
     'checkReturn' => 'Отметить, чтобы вернуться',

@@ -180,6 +180,7 @@ return [
     'additionalInformation' => 'Additional Information',
     'sortBy' => 'Sort by',
     'thereAre' => 'There Are',
+    'save' => 'Save',
 
     //Promotions
     'createPromotion' => 'Create Promotion',
@@ -216,6 +217,7 @@ return [
     'alreadyReviewed' => 'You have already left a review for this product',
     'reviewProduct' => 'Thank you for reviewing this product',
     'yourReview' => 'Your review',
+    'grade' => 'Grade',
 
     //Returns
     'checkReturn' => 'Check to Return',

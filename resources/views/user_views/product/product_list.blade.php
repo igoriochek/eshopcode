@@ -144,7 +144,6 @@
 <script>
     function incrementValue(element, event) {
         event.preventDefault();
-        console.log("Incrementing value");
         let input = element.closest('.counter-container').querySelector('.counter-input');
         let value = parseInt(input.value) || 1;
         input.value = value + 1;
@@ -152,7 +151,6 @@
 
     function decrementValue(element, event) {
         event.preventDefault();
-        console.log("Decrementing value");
         let input = element.closest('.counter-container').querySelector('.counter-input');
         let value = parseInt(input.value) || 1;
         if (value > 1) {

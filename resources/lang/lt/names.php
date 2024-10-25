@@ -180,6 +180,7 @@ return [
     'additionalInformation' => 'Papildoma informacija',
     'sortBy' => 'Rūšiuoti pagal',
     'thereAre' => 'Yra',
+    'save' => 'Sutaupykite',
 
     //Promotions
     'createPromotion' => 'Sukurti akciją',
@@ -216,6 +217,7 @@ return [
     'alreadyReviewed' => 'Jūs jau palikote atsiliepimą apie šį produktą',
     'reviewProduct' => 'Dėkojame, kad įvertinote šį produktą',
     'yourReview' => 'Jūsų atsiliepimas',
+    'grade' => 'Įvertinimas',
 
     //Returns
     'checkReturn' => 'Pasirinkite kuriuos norite grąžinti',
