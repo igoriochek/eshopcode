@@ -3,18 +3,17 @@
 @section('title', __('menu.cart'))
 
 @section('content')
-    <div class="axil-product-cart-area axil-section-gap">
-        <div class="container">
-            <div class="axil-product-cart-wrap">
-                <div class="product-table-heading">
-                    <h4 class="title">{{ __('menu.cart') }}</h4>
-                </div>
-                <div class="table-responsive">
+<section class="whish-list-section pb-6rem">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h3 class="title text-capitalize">{{ __('menu.cart') }}</h3>
+                <div class="table-responsive pt-4">
                     @include('user_views.cart.table')
                 </div>
-                <div class="cart-update-btn-area">
+                <div class="cart-update-btn-area mb-4">
                     <div class="update-btn d-flex">
-                        <a href="{{ route('userproducts') }}" class="axil-btn btn-outline">
+                        <a href="{{ route('userproducts') }}" class="btn btn-dark3">
                             {{ __('buttons.continueShopping') }}
                         </a>
                     </div>
@@ -23,9 +22,9 @@
                     <div class="col-xl-5 col-lg-7 offset-xl-7 offset-lg-5">
                         <div class="axil-order-summery mt--80">
                             <h5 class="title mb--20">{{ __('names.overview') }}</h5>
-                            <div class="summery-table-wrap">
-                                <table class="table summery-table mb--30">
-                                    <tbody>
+                            <div class="table-responsive">
+                                <table class="table mb--30">
+                                    <tbody class="thead-light">
                                         <tr class="order-total">
                                             <td>{{ __('names.total') }}</td>
                                             <td class="order-total-amount">
@@ -36,9 +35,9 @@
                                 </table>
                             </div>
                             @if (count($cartItems) > 0)
-                                <a href="{{ url('user/checkout') }}" class="axil-btn btn-bg-primary checkout-btn">
-                                    {{ __('buttons.proceedToCheckout') }}
-                                </a>
+                            <a href="{{ url('user/checkout') }}" class="btn btn-primary btn-block rounded">
+                                {{ __('buttons.proceedToCheckout') }}
+                            </a>
                             @endif
                         </div>
                     </div>
@@ -46,4 +45,5 @@
             </div>
         </div>
     </div>
+</section>
 @endsection
