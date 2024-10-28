@@ -27,7 +27,7 @@
                                     @endforeach
                                 </select>
                                 <div class="apply-btn">
-                                    <button type="submit" class="axil-btn btn-bg-primary"
+                                    <button type="submit" class="btn btn-primary btn-block rounded"
                                         style="padding-block: 14px">
                                         {{ __('buttons.applyCoupon') }}
                                     </button>

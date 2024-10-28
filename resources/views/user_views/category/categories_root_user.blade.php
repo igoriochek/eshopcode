@@ -3,13 +3,13 @@
 @section('title', __('menu.categories'))
 
 @section('content')
-    <div class="axil-single-product-area axil-section-gap bg-color-white">
+    <div class="whish-list-section pb-6rem">
         <div class="container">
             <div class="row gap-5 gap-lg-0">
                 <div class="col-12">
                     <div class="shop-sidebar">
                         <div class="single-shop-sidebar-widget color-and-item pb-1">
-                            <h4 class="title">{{ __('names.categories') }}</h4>
+                            <h3 class="title text-capitalize">{{ __('names.categories') }}</h3>
                             @include('user_views.category.category_tree')
                         </div>
                     </div>
