@@ -2,7 +2,7 @@
     <div class="admin-header-container">
         <div class="admin-header-top-container">
             <a href="{{ url('/home') }}" class="admin-header-logo">
-                <img src="{{ asset('images/dts_logo_black.png') }}" alt="" class="logo">
+                <img src="{{ asset('images/1343915950.png') }}" alt="{{ config('app.name') }}" class="logo" style="max-width: 150px">
             </a>
             <button class="admin-header-toggle-button" onclick="onClickOpenMenu()">
                 <i class="fa-sharp fa-solid fa-bars text-white"></i>

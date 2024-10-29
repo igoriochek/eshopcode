@@ -20352,7 +20352,7 @@ blockquote .user-name:before {
 /*  11. Breadcrumb
 /*----------------------------------------*/
 .breadcrumb-height {
-  height: 370px;
+  height: 200px;
 }
 .breadcrumb-heading {
   text-transform: uppercase;

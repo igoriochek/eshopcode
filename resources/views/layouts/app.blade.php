@@ -6,8 +6,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta name="description" content="Dts Solutions e-commerce.">
-    <meta name="keywords" content="dts, dts solutions, dts shop, dts solutions shop">
+    <meta name="description" content="Jodesta e-shop">
+    <meta name="keywords" content="Jodesta, Jodesta shop, Jodesta e-shop">
     @if (config('app.env') == 'production')
         <meta name="verify-paysera" content="5fcc1c8c93472d25fad9a5035e799a7f">
     @else
@@ -16,13 +16,13 @@
     <!-- Title -->
     <title>
         @hasSection('title')
-            @yield('title') - {{ config('app.name', 'Dts Solutions') }}
+            @yield('title') - {{ config('app.name', 'Jodesta') }}
         @else
-            {{ config('app.name', 'Dts Solutions') }}
+            {{ config('app.name', 'Jodesta') }}
         @endif
     </title>
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/dts_logo_black.png') }}">
+    <!-- <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/') }}"> -->
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
