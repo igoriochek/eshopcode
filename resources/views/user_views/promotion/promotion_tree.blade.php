@@ -1,29 +1,31 @@
 <ul>
     @foreach ($promotions as $promotion)
-        <li>
-            <a href="{{ route('promotion', ['id' => $promotion->id]) }}"
-                class="promotion-link {{ substr(url()->current(), -1) == "$promotion->id" ? 'active' : '' }}">
-                <span class="pe-2">▪</span>
-                {{ $promotion->name }}
-                ({{ count($promotion->products) }})
-            </a>
-        </li>
+    <li>
+        <a href="{{ route('promotion', ['id' => $promotion->id]) }}"
+            class="promotion-link {{ substr(url()->current(), -1) == "$promotion->id" ? 'active' : '' }}">
+            <i class="fa-solid fa-angle-right pe-1"></i>
+            {{ $promotion->name }}
+            ({{ count($promotion->products) }})
+        </a>
+    </li>
     @endforeach
 </ul>
 
 <style>
-    .promotion-link {
-        color: gray;
-        font-weight: 500;
-        transition: color 300ms ease;
+    ul li {
+        margin-bottom: 5px;
+        padding-bottom: 0px;
+    }
+
+    a {
+        color: #253237 !important;
+    }
+
+    a {
 
         &:hover,
         &:focus {
-            color: #3577f0;
+            color: #0090f0 !important;
         }
-    }
-
-    .active {
-        font-weight: bold;
     }
 </style>

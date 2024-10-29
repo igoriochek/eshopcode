@@ -75,6 +75,8 @@
         border: 2px solid #0090f0;
         border-bottom-left-radius: 3rem;
         border-top-left-radius: 3rem;
+        border-bottom-right-radius: 0rem;
+        border-top-right-radius: 0rem;
     }
 
     .shop-submenu {

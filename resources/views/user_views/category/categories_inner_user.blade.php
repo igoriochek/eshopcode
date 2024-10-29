@@ -12,6 +12,7 @@
                 @include('flash_messages')
             </div>
             <div class="col-lg-9">
+                <h1 class="mb-5">{{ $maincategory->name }}</h1>
                 <div class="grid-nav-wraper bg-light mb-5">
                     <div class="row align-items-center">
                         <div class="col-12 col-md-6 mb-3 mb-md-0">
@@ -123,6 +124,7 @@
                         <div class="shop-submenu">
                             @include('user_views.category.category_tree')
                         </div>
+                    </div>
                 </aside>
             </div>
         </div>
