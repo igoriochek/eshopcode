@@ -10,7 +10,7 @@
                             </p>
                             <p class="messenger-add-users-email mb-0">{{ $user->email }}</p>
                         </div>
-                        <a class="axil-btn btn-bg-primary" href="{{ route('livewire.messenger.show', [$user->id]) }}">
+                        <a class="btn btn-primary btn-block rounded" href="{{ route('livewire.messenger.show', [$user->id]) }}">
                             {{ __('buttons.contact') }}
                         </a>
                     </div>

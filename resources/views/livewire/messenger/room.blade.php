@@ -1,8 +1,8 @@
 <div wire:poll.1s='updateMessages' class="messenger-room p-4 single-shop-sidebar-widget color-and-item">
     <div>
-        <h4 class="title">
+        <h2 class="title">
             {{ __('menu.admin').' '.$user->name }}
-        </h4>
+        </h2>
     </div>
     <div class="messenger-message-box" id="messsageBox">
         @forelse ($messages ?? [] as $message)
@@ -39,10 +39,10 @@
 @push('css')
     <style>
         .messenger-room .messenger-message-box {
-            background-color: #f9f3f0;
+            background-color: #f9f9f9;
         }
         .messenger-room .messenger-message-box .messenger-message-to-container .messenger-message-to {
-            background-color: #3577f0;
+            background-color: #0090f0;
         }
     </style>
 @endpush

@@ -6,16 +6,18 @@
     <section class="pt-2">
         <div class="container">
             <div class="row mb-5">
-                <div class="col-lg-4 mt-4 mt-md-5 mt-lg-0">
-                    <div class="content-blog blog-grid">
+                <div class="col-lg-4 mt-4 mt-md-5 mt-lg-0 mb-5">
+                    <div class="brand-init style1">
                         <div class="widget">
-                            <div class="widget-title-container d-flex justify-content-between align-items-center mb-2">
-                                <h4 class="mb-1">
-                                    {{ __('names.messages') }}
-                                </h4>
-                                <a class="axil-btn btn-bg-primary" href="{{ route('livewire.messenger.add') }}">
-                                    {{ __('buttons.contact') }}
-                                </a>
+                            <div class="section-title">
+                                <div class="border-bottom cbb1 mb-4 pb-4 d-flex justify-content-between align-items-center">
+                                    <h4 class="title mb-1">
+                                        {{ __('names.messages') }}
+                                    </h4>
+                                    <a href="{{ route('livewire.messenger.add') }}" class="btn btn-primary btn-block rounded">
+                                        {{ __('buttons.contact') }}
+                                    </a>
+                                </div>
                             </div>
                             <div class="category-tree-widget-content">
                                 @include('livewire.messenger.users')
@@ -30,3 +32,9 @@
         </div>
     </section>
 </div>
+
+<style>
+    .section-title::after {
+        position: inherit !important;
+    }
+</style>

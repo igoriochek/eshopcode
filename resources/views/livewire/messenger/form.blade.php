@@ -7,9 +7,10 @@
                     class="form-control message-input"
                     placeholder="{{__('messages.typeYourMsgHere')}}"
                     wire:model="message_text"
+                    style="font-size: 14px;"
                     required
                 >
-                <button type="submit" class="axil-btn btn-bg-primary submit-btn">
+                <button type="submit" class="btn btn-primary">
                     {{ __('messages.send') }}
                 </button>
             </div>
@@ -29,8 +30,22 @@
         }
         .form-group .message-input {
             flex-grow: 1;
-            margin-right: 8px;
+            margin-right: 0px;
+            padding: 1rem 22rem 1rem 2rem;
+            border: 2px solid #0090f0;
+            border-top-left-radius: 3rem;
+            border-bottom-left-radius: 3rem;
+            border-top-right-radius: 0rem;
+            border-bottom-right-radius: 0rem;
         }
+
+        .btn {
+            border-top-left-radius: 0rem;
+            border-bottom-left-radius: 0rem;
+            border-top-right-radius: 3rem;
+            border-bottom-right-radius: 3rem;
+        }
+
         .form-group input {
             height: auto !important;
         }
@@ -39,7 +54,7 @@
             white-space: nowrap;
         }
         .search-bar {
-            padding: 0px 8px 0px 8px;
+            padding: 0px;
         }
     </style>
 @endpush
