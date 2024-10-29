@@ -48,7 +48,7 @@
                     <div class="tp-coupon-item-right pl-20" style="width: 40%">
                         <div class="tp-coupon-status d-flex align-items-center">
                             <h1 class="tp-coupon-offer mb-0">
-                                <span>{{ $discountCoupon->value }}%</span>
+                                <span>€ {{ $discountCoupon->value }} </span>
                                 {{ __('names.off') }}
                             </h1>
                         </div>

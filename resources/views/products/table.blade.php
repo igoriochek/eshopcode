@@ -21,7 +21,7 @@
                 <td>{{ $product->name }}</td>
             <td>{{ $product->price }}</td>
             <td>{{ $product->count }}</td>
-            <td>{{ $product->description }}</td>
+            <td>{{ strlen($product->description) > 50 ? substr($product->description, 0, 50) . '...' : $product->description }}</td>
             <td>{{ $product->image }}</td>
             <td>{{ $product->video }}</td>
             <td>{{ $product->visible }}</td>

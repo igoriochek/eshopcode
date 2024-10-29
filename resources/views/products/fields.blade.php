@@ -43,7 +43,9 @@
     <div class="input-group">
         <div class="custom-file">
             {!! Form::file('image', ['class' => 'custom-file-input']) !!}
-            {!! Form::label('image', __('buttons.chooseFile'), ['class' => 'custom-file-label']) !!}
+        </div>
+        <div class="input-group-append">
+            {!! Form::button(__('Remove Image'), ['type' => 'submit', 'name' => 'remove_image', 'value' => '1', 'class' => 'btn btn-danger btn-sm']) !!}
         </div>
     </div>
 </div>

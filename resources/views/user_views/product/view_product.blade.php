@@ -74,6 +74,7 @@
                         <div class="icon-content">
                             <div class="product-content pt-2">
                                 <div class="count-element" style="display: flex; justify-content: start;align-items: center; align-content: center;">
+                                    {!! Form::hidden('id', $product->id) !!}
                                     <button type="button" class="btn btn-primary p-0 me-2" style="border-radius: 100%; width: 29.45px;" onclick="minusValue(this)">
                                         <svg width="11" height="2" viewBox="0 0 11 2" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M1 1H10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
