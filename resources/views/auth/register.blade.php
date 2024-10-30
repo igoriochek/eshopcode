@@ -56,6 +56,16 @@
                                         name="password_confirmation" required autocomplete="new-password">
                                 </div>
 
+                                @if (Route::has('password.request'))
+                                    <div class="col-md-4 pt-4 pt-md-0 mt-md-0 ps-md-5">
+                                        <div class="forgotton-password_info">
+                                            <a href="{{ route('password.request') }}">
+                                                {{ __('buttons.forgotPassword') }}
+                                            </a>
+                                        </div>
+                                    </div>
+                                @endif
+
                                 <div class="col-lg-12 pt-5" style="justify-content: center; display: flex;">
                                     <button type="submit" class="btn btn-custom-size lg-size btn-primary w-100">
                                         {{ __('buttons.register') }}

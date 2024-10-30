@@ -134,15 +134,25 @@
     });
 
     function calc() {
-        var elements = document.querySelectorAll("input[type='checkbox']");
-        var value = '';
-
-        for (var i = 0; i < elements.length; i++) {
-            value += elements[i].checked == true && value ? ',' : '';
-            value += elements[i].checked == true ? elements[i].value : "";
-        }
-
-        document.getElementById("filter[categories.id]").value = value;
+        const categoryCheckboxes = document.querySelectorAll("input[type='checkbox'][id^='category.']");
+        let selectedCategories = [];
+        
+        categoryCheckboxes.forEach(checkbox => {
+            if (checkbox.checked) {
+                selectedCategories.push(checkbox.value);
+            }
+        });
+        
+        const categoryFilter = document.getElementById("filter[categories.id]");
+        categoryFilter.value = selectedCategories.join(',');
     }
+
+    document.getElementById('mainForm').addEventListener('submit', function(e) {
+        const categoryFilter = document.getElementById("filter[categories.id]");
+        
+        if (!categoryFilter.value) {
+            categoryFilter.disabled = true;
+        }
+    });
 </script>
 @endpush

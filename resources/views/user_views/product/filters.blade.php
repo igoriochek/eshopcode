@@ -63,6 +63,10 @@
                         </li>
                     @endforelse
                 </ul>
+                <div class="d-flex justify-content-start pt-4">
+                    <button type="submit"
+                        class="btn btn-custom-size lg-size btn-primary">{{ __('buttons.filter') }}</button>
+                </div>
             </div>
         </div>
 

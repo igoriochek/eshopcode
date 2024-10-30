@@ -125,7 +125,7 @@ return [
     'starts_with' => ':attribute privalo prasidėti su vienu iš: :values.',
     'string' => ':attribute privalo būti string tipo.',
     'timezone' => ':attribute turi būti tinkama laiko juosta.',
-    'unique' => ':attribute jau egzistuoja.',
+    'unique' => ':Toks el. Paštas jau egzistuoja.',
     'uploaded' => ':attribute nepavyko įkelti.',
     'url' => ':attribute privalo būti tinkamas URL.',
     'uuid' => ':attribute privalo būti tinkamas UUID.',
