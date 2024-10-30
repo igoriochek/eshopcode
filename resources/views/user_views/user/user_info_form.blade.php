@@ -27,7 +27,14 @@
         {!! Form::label('phone_number', __('forms.phone_number')) !!}
         {!! Form::text('phone_number', $user->phone_number, ['class' => 'form-control']) !!}
     </div>
-    <div class="form-group mb--40 col-lg-6">
-        <input type="submit" class="axil-btn" value="{{ __('buttons.save') }}" data-loading-text="Loading...">
+    <div class="form-group mb--40 col-lg-12 d-flex justify-content-center">
+        <input type="submit" class="btn btn-dark3 my-4" value="{{ __('buttons.save') }}" data-loading-text="Loading...">
     </div>
 {!! Form::close() !!}
+
+<style>
+    .form-control {
+        height: 40px;
+        font-size: 1.5rem;
+    }
+</style>

@@ -251,6 +251,7 @@ return [
     'new' => "New",
 
     'orderBy' => 'Order By',
+    'yourAccount' => 'Your account',
 
     //Discounts coupons
     "noDiscountCoupons" => "No discount coupons available",

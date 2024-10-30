@@ -251,6 +251,7 @@ return [
     'new' => 'Новый',
 
     'orderBy' => 'Сортировать по',
+    'yourAccount' => 'Ваш аккаунт',
 
     //Discounts coupons
     'noDiscountCoupons' => 'Нет доступных купонов на скидку',

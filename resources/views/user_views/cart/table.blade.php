@@ -66,7 +66,7 @@
         </tr>
         @empty
         <tr>
-            <td colspan="6" class="text-center">{{ __('names.emptyCart') }}</td>
+            <td colspan="7" class="text-center">{{ __('names.emptyCart') }}</td>
         </tr>
         @endforelse
     </tbody>

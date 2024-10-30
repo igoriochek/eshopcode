@@ -251,6 +251,7 @@ return [
     'new' => 'Naujos',
 
     'orderBy' => 'Rūšiuoti pagal',
+    'yourAccount' => 'Jūsų paskyra',
 
     //Discounts coupons
     'noDiscountCoupons' => 'Nėra nuolaidų kuponų',
