@@ -3,7 +3,7 @@
 @section('title', __('menu.euProjects'))
 
 @section('content')
-    <div class="axil-about-area about-style-1 axil-section-gap ">
+    <div class="about-section pb-5">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-12">
