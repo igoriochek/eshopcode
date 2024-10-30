@@ -43,4 +43,7 @@ return [
     'freshVerifyLink' => 'A fresh verification link has been sent to your email address.',
     'resendEmail' => 'Click Here to request another',
     'verifyEmail' => 'Verify Your Email Address',
+
+    'show' => 'SHOW',
+    'hide' => 'HIDE',
 ];

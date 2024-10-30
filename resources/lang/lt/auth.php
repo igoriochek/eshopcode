@@ -37,4 +37,7 @@ return [
     'passwordEnter' => 'Slaptažodis',
     'confirmPasswordEnter' => 'Patvirtinti slaptažodį',
     'loginParagraph' => 'Jau turite paskyrą?',
+
+    'show' => 'RODYTI',
+    'hide' => 'PASLĖPTI',
 ];
