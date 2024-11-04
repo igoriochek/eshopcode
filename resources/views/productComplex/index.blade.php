@@ -7,12 +7,12 @@
         <section class="content-header mt-5">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h2>{{ __('names.products') }}</h2>
+                    <h1 class=title>{{ __('names.products') }}</h1>
                 </div>
             </div>
         </section>
 
-        <div class="content px-3">
+        <div class="content px-3 py-3">
             @include('adminlte-templates::common.errors')
             @include('flash_messages')
             <div class="clearfix"></div>
@@ -22,7 +22,7 @@
                 {!! Form::open([
                     'route' => ['addtocartcomplexproduct'],
                     'method' => 'post',
-                    'class' => 'product-add-to-cart-container d-flex-center',
+                    'class' => 'product-add-to-cart-container d-flex',
                 ]) !!}
 
                 <div class="col-lg-6 col-sm-12">
@@ -33,13 +33,13 @@
                                 'parts[' . $category->id . ']',
                                 $selectorsComples[$category->id],
                                 null,
-                                ['class' => 'form-control custom-select', 'placeholder' => '---', 'id' => 'part_' . $category->id, 'data-category-id' => $category->id,]
+                                ['class' => 'btn-dropdown rounded d-flex justify-content-between shop-grid-menu', 'style' => 'height: 30px;"', 'placeholder' => '---', 'id' => 'part_' . $category->id, 'data-category-id' => $category->id,]
                             ) !!}
                         </div>
                     @endforeach
                 </div>
                 
-                <div class="col-lg-6 col-sm-12" style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap;">
+                <div class="col-lg-6 col-sm-12" style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; flex-direction: column;">
                         <div class="responsive-container" style="margin-bottom: 50px;">
                             <div id="complex1" class="complex" style="z-index: 2;"></div>
                             <div id="complex2" class="complex" style="z-index: 1;"></div>
@@ -51,20 +51,13 @@
                             <span id="total-price">0</span>
                         </h4>
                 </div>
-                <div class="col-lg-6 col-sm-12" style="display: flex; justify-content: center;">
-                    
-                </div>
             </div>
             
-            <!-- <div style="display: flex; justify-content: center;"> -->
                 <div class="product-add-to-cart-container d-flex-center">
                     <div class="product-action d-flex-center mb--0">
-                        <button type="submit" id="cart-button" class="axil-btn btn-bg-primary">{{ __('buttons.addToCart') }}</button>
+                        <button type="submit" id="cart-button" class="btn btn-primary rounded mt-5 mt-sm-0">{{ __('buttons.addToCart') }}</button>
                     </div>
                 </div>
-
-                
-            <!-- </div> -->
 
             {!! Form::close() !!}
         </div>
@@ -81,7 +74,13 @@
         width: 50%;
         justify-content: center;
     }
+    
+    /* @media (max-width: 992px) {
+        .product-add-to-cart-container {
+            
+        }
 
+    } */
 
 
     .wheel-container {
@@ -154,7 +153,7 @@
         }
 
         .complex-2 {
-            right: -73px;
+            right: -33px;
         }
 
         .complex-3-1 {
@@ -162,11 +161,11 @@
         }
 
         .complex-3-2 {
-            right: 6px;
+            right: 46px;
         }
 
         .complex-4 {
-            right: -71px; 
+            right: -31px; 
         }
     }
 
@@ -174,6 +173,8 @@
 
         .product-add-to-cart-container {
             width: 100%;
+            display: flex;
+            flex-direction: column;
         }
 
         .complex-1 {
@@ -345,8 +346,6 @@
 
         });
 
-
-        //vremenno:
         const complexMap = {
             "complex1": {name: "complex1", id : "part_1"},
             "complex2": {name: "complex2", id : "part_2"},
@@ -358,7 +357,6 @@
         const productApi = "http://127.0.0.1:8000/api/products/";
 
         function findNameById(value) {
-            console.log("findNameById " + value);
             for (const key in complexMap) {
                 if (complexMap.hasOwnProperty(key)) {
                     if (complexMap[key].id === value) {
@@ -366,11 +364,10 @@
                     }
                 }
             }
-            return null; // Return null if no matching id is found
+            return null;
         }
 
         function findNumById(value) {
-            console.log("findNumById " + value);
             for (const key in complexMap) {
                 if (complexMap.hasOwnProperty(key)) {
                     if (complexMap[key].id === value) {
@@ -378,42 +375,25 @@
                     }
                 }
             }
-            return null; // Return null if no matching id is found
+            return null;
         }
 
 
         async function fetchData(url) {
             try {
-                // Make a request to the API
                 const response = await fetch(url);
-
-                // Check if the response is OK (status code 200-299)
                 if (!response.ok) {
                     throw new Error('Network response was not ok ' + response.statusText);
                 }
-
-                // Parse the response as JSON
                 const data = await response.json();
                 return data.data;
-                // Log the data to the console (or handle it as needed)
-                // console.log(data.data);
-
-                // console.log("ttu" + data.data.id);
-                //
-                // return data.data;
-
-                // Process the data
-                // You can add code here to update your UI or perform other actions with the data
-
             } catch (error) {
-                // Handle any errors that occurred during the fetch
                 console.error('There was a problem with the fetch operation:', error);
             }
         }
 
         function imageWithStyle(id, src) {
             id = id.replace("part_", "");
-            console.log("src " + src);
             if(src === undefined) {
                 return ``;
             }
@@ -426,57 +406,11 @@
         async function updateValue(e) {
             var name = findNameById(event.target.id);
             var id = findNumById(event.target.id);
-            // console.log("id " + id);
-            // console.log("div name " + name);
-
-            // var img = imageWithStyle(id);
-            // console.log("width" + width);
-
-            // width = " style=\"height:" + width + "\" ";
             const selectComplex = document.getElementById(name);
-
-            // console.log("div name " + selectComplex);
-
             var sVal = event.target.value;
-
             var fullUrl = productApi + sVal;
-
             let data = await fetchData(fullUrl);
-
-            
-
             selectComplex.innerHTML = imageWithStyle(id, data.complexProductImage );
-
-            
-            // console.log(option);
-
-
-            // console.log('ID:', data.id);
-            // console.log('Name:', data.name);
-            // console.log('Price:', data.price);
-
-
-            // event.target.value = data.complexProductImage;
-
-            // .then(
-            //     f =>{
-            //
-            //         console.log(option);
-            //
-            //         // console.log('ID:', option.data.id);
-            //         // console.log('Name:', option.data.name);
-            //         // console.log('Price:', option.data.price);
-            //
-            //
-            //         // data = JSON.parse(option.toString());
-            //
-            //         // console.log("ttu" + option);
-            //         // selectComplex.textContent = event.target.value;
-            //         // console.log("tut");
-            //         // console.log(`Value of ${event.target.id} changed to: ${event.target.value}`);
-            // }
-            // );
-            // const jsonObject = JSON.parse(option);
             return;
         }
 
@@ -512,16 +446,9 @@
         cats.forEach((obj) => {
             var name = obj;
             const selectComplex = document.getElementById("part_" + name);
-            console.log("id " + selectComplex);
             selectComplex.addEventListener("change", updateValue);
-            // selectComplex.addEventListener('change', sumPrice);
             selectComplex.value ="";
         });
-
-
-
-
-
     </script>
 
 @endpush
