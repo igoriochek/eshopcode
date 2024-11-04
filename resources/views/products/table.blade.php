@@ -2,6 +2,7 @@
     <table class="table" id="categories">
         <thead>
         <tr>
+            <th>{{__('table.id')}}</th>
             <th>{{__('table.name')}}</th>
         <th>{{__('table.price')}}</th>
         <th>{{__('table.count')}}</th>
@@ -20,8 +21,9 @@
         <tbody>
         @foreach($products as $product)
             <tr>
+                <td>{{ $product->id }}</td>
                 <td>{{ $product->name }}</td>
-            <td>{{ $product->computed_price}}</td>
+            <td>{{ $product->price}}</td>
             <td>{{ $product->count }}</td>
             <td>{{ $product->description }}</td>
             <td>{{ $product->image }}</td>

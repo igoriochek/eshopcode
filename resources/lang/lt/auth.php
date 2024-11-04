@@ -19,22 +19,24 @@ return [
     'throttle' => 'Bandėte prisijungti per daug kartų. Bandykite dar kartą po :seconds sekundžių.',
 
     'passwordConfirmToContinue' => 'Prieš tęsdami patvirtinkite slaptažodį.',
-    'resetPassword' => 'Atstatyti slaptažodį',
-    'sendResetPasswordLink' => 'Siųsti slaptažodžio nustatymą',
+    'resetPassword' => 'Slaptažodžio keitimas',
+    'sendResetPasswordLink' => 'Siųsti',
     'resetPasswordParagraph' => 'Prisiminėte savo slaptažodį?',
+    'returnToLogin' => 'Grįžti į prisijungimą',
 
     //Login
-    'login' => 'Prisijungti',
+    'login' => 'Prisijungimas',
+    'toLogin' => 'Prisijungti',
     'loginWith' => 'Prisijungti su',
-    'rememberMe' => 'Prisimink mane',
+    'rememberMe' => 'Prisiminti mane',
     'or' => 'arba',
     'registerParagraph' => 'Neturi paskyros?',
 
     //Register
-    'register' => 'Registruoti',
+    'register' => 'Registracija',
     'name' => 'Vardas',
     'email' => 'El. paštas',
     'passwordEnter' => 'Slaptažodis',
     'confirmPasswordEnter' => 'Patvirtinti slaptažodį',
-    'loginParagraph' => 'Jau turite paskyrą?',
+    'loginParagraph' => 'Aš turiu paskyrą',
 ];

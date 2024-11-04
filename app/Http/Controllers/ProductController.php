@@ -322,7 +322,16 @@ class ProductController extends AppBaseController
         $input = $request->all();
         //        $product = $this->productRepository->update($request->all(), $id);
 
-        if (isset($input['image']) && $input['image'] !== null) {
+        if(isset($input['remove_image']) && $input['remove_image'] == '1'){
+            if($product->image && file_exists(public_path($product->image))){
+                unlink(public_path($product->image));
+            }
+            $input['image'] = null;
+        }
+        else if (isset($input['image']) && $input['image'] !== null) {
+            if($product->image && file_exists(public_path($product->image))){
+                unlink(public_path($product->image));
+            }
             $imageName = time() . '.' . $request->image->extension();
             $request->image->move(public_path('images/upload'), $imageName);
             $input['image'] = '/images/upload/' . $imageName;

@@ -9,14 +9,6 @@
                 <div class="col-lg-6 pt-10 pt-lg-0">
                     <div class="login-form">
                         <h4 class="login-title">{{ __('auth.register') }}</h4>
-                        @if (Route::has('login'))
-                            <p>
-                                {{ __('auth.loginParagraph') }}
-                                <span>
-                                    <a href="{{ route('login') }}">{{ __('auth.login') }}</a>
-                                </span>
-                            </p>
-                        @endif
                         <form method="POST" action="{{ route('register') }}" class="tp-login-option">
                             @csrf
                             <div class="row">
@@ -51,21 +43,10 @@
                                     @enderror
                                 </div>
                                 <div class="col-md-12">
-                                    <label>{{ __('auth.confirmPasswordEnter') }}*</label>
+                                    <label style="text-transform: none;">{{ __('auth.confirmPasswordEnter') }}*</label>
                                     <input id="password-confirm" type="password" class="form-control"
                                         name="password_confirmation" required autocomplete="new-password">
                                 </div>
-
-                                @if (Route::has('password.request'))
-                                    <div class="col-md-4 pt-4 pt-md-0 mt-md-0 ps-md-5">
-                                        <div class="forgotton-password_info">
-                                            <a href="{{ route('password.request') }}">
-                                                {{ __('buttons.forgotPassword') }}
-                                            </a>
-                                        </div>
-                                    </div>
-                                @endif
-
                                 <div class="col-lg-12 pt-5" style="justify-content: center; display: flex;">
                                     <button type="submit" class="btn btn-custom-size lg-size btn-primary w-100">
                                         {{ __('buttons.register') }}
@@ -74,6 +55,22 @@
 
                             </div>
                         </form>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center mt-3">
+                <div class="col-lg-6 text-center">
+                    <strong>{{ __('auth.loginParagraph') }}</strong>
+                </div>
+            </div>
+
+            <div class="row justify-content-center mt-4">
+                <div class="col-lg-6 d-flex justify-content-center">
+                    <div style="width: 80%; text-align: center;">
+                        <a href="{{ route('login') }}" class="btn btn-custom-size lg-size btn-link-light w-100" 
+                        style="border: 2px solid #ccc;">
+                            {{ __('auth.toLogin') }}
+                        </a>
                     </div>
                 </div>
             </div>

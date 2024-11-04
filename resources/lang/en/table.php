@@ -30,6 +30,7 @@ return [
     'emptyTable' => 'Table is Empty',
     'finish' => 'finish',
     'image' => 'Image',
+    'id' => 'ID',
     'mandatoryStatus' => 'Is Mandatory',
     'name' => 'Name',
     'noUsersFound' => 'No Users Found',

@@ -13,7 +13,7 @@
                             <p>
                                 {{ __('auth.registerParagraph') }}
                                 <span>
-                                    <a href="{{ route('register') }}">{{ __('menu.register') }}</a>
+                                    <a href="{{ route('register') }}">{{ __('buttons.toRegister') }}</a>
                                 </span>
                             </p>
                         @endif
@@ -21,7 +21,7 @@
                             @csrf
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <label>{{ __('auth.email') }}*</label>
+                                    <label style="text-transform: none;">{{ __('auth.email') }}*</label>
                                     <input id="email" type="email" class="@error('email') is-invalid @enderror"
                                         name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                                     @error('email')
@@ -44,7 +44,7 @@
                                 <div class="col-md-8">
                                     <div class="check-box">
                                         <input id="rememberme" type="checkbox">
-                                        <label for="rememberme">{{ __('auth.rememberMe') }}</label>
+                                        <label for="rememberme" style="text-transform: none;">{{ __('auth.rememberMe') }}</label>
                                     </div>
                                 </div>
 

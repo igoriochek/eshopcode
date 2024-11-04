@@ -26,7 +26,7 @@
                     <div class="blog-comment-item mb-8">
                         <div class="blog-comment-content" style="margin-left: 0px !important">
                             <div class="user-meta">
-                                <span><strong>{{ $rating->user->name }} - </strong>{{ $rating->created_at->format('F j, Y') }}</span>
+                                <span><strong>{{ $rating->user->name }} - </strong>{{ $rating->created_at->format('Y-m-d') }}</span>
                             </div>
                             <div class="rating-box" style="padding-bottom: 10px">
                             <ul>

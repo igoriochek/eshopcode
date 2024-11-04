@@ -51,12 +51,25 @@
 
 <!-- Image Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('image',__('table.image').':') !!}
-    <div class="input-group">
-        <div class="custom-file">
+    {!! Form::label('image', __('table.image') . ':') !!}
+    <div class="input-group align-items-center">
+        <div class="custom-file d-flex align-items-center">
             {!! Form::file('image', ['class' => 'custom-file-input']) !!}
-            {!! Form::label('image', __('buttons.chooseFile'), ['class' => 'custom-file-label']) !!}
+            {!! Form::label('image', isset($product) && $product->image ? basename($product->image) : __('buttons.chooseFile'), [
+                'class' => 'custom-file-label',
+                'style' => 'overflow: hidden;'
+            ]) !!}
         </div>
+        <div class="ml-2 d-flex align-items-center">
+            <img src="{{ isset($product) && $product->image ? asset($product->image) : asset('images/noPhoto.png') }}" 
+                 alt="Product Image" 
+                 style="height: 40px; width: 40px; object-fit: cover; margin-left: 10px">
+        </div>
+        @if(isset($product) && $product->image)
+            <div class="input-group-append" style="margin-left: 10px;">
+                {!! Form::button(__('Remove Image'), ['type' => 'submit', 'name' => 'remove_image', 'value' => '1', 'class' => 'btn btn-danger btn-sm']) !!}
+            </div>
+        @endif
     </div>
 </div>
 <div class="clearfix"></div>

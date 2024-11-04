@@ -32,6 +32,7 @@ return [
     'login' => 'Login',
     'preview' => 'Preview',
     'register' => 'Register',
+    'toRegister' => 'Register',
     'save' => 'Save',
     'showLogs' => 'Show Logs',
     'showStatistics' => 'Show Statistics',

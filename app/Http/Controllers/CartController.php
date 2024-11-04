@@ -216,7 +216,7 @@ class CartController extends AppBaseController
                 ])
                 ->first();
 
-            $currentPrice = $product->discount ? $product->discounted_price : $product->computed_price;
+            $currentPrice = $product->discount ? $product->computed_discounted_price : $product->computed_price;
 
             if ($product->only_one) {
                 if (null === $cartItem) {

@@ -124,7 +124,7 @@ class Product extends Model implements TranslatableContract
         return $this->price + $this->const;
     }
 
-    public function getDiscountedPriceAttribute()
+    public function getComputedDiscountedPriceAttribute()
     {
         if ($this->discount) {
             return $this->computed_price - round(($this->computed_price * $this->discount->proc) / 100, 2);
@@ -132,6 +132,13 @@ class Product extends Model implements TranslatableContract
         return $this->computed_price;
     }
 
+    public function getDiscountedPriceAttribute()
+    {
+        if ($this->discount) {
+            return $this->price - round(($this->price * $this->discount->proc) / 100, 2);
+        }
+        return $this->price;
+    }
     
 
 }

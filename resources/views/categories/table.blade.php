@@ -2,6 +2,7 @@
     <table class="table" id="categories">
         <thead>
         <tr>
+            <th>{{__('table.id')}}</th>
             <th>{{__('table.name')}}</th>
             <th>{{__('table.description')}}</th>
             <th>{{__('table.parentId')}}</th>
@@ -12,6 +13,7 @@
         <tbody>
         @foreach($categories as $category)
             <tr>
+                <td>{{ $category->id }}</td>
                 <td>{{ $category->name }}</td>
                 <td>{{ $category->description }}</td>
                 <td>{{ $category->parent_id }}</td>

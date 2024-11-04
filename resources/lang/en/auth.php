@@ -19,11 +19,13 @@ return [
 
     'passwordConfirmToContinue' => 'Please confirm your password before continuing.',
     'resetPassword' => 'Reset Password',
-    'sendResetPasswordLink' => 'Send Reset Password Link',
+    'sendResetPasswordLink' => 'Send',
     'resetPasswordParagraph' => 'Remembered your password?',
+    "returnToLogin" => 'Return to Login',
 
     //Login
     'login'=> 'Login',
+    'toLogin'=> 'Login',
     'loginWith' => 'Login with',
     'rememberMe' => 'Remember Me',
     'or' => 'or',
@@ -35,7 +37,7 @@ return [
     'email' => 'Email Address',
     'passwordEnter' => 'Password',
     'confirmPasswordEnter' => 'Confirm Password',
-    'loginParagraph' => "Already have an account?",
+    'loginParagraph' => "I have an account",
 
     //Verify
     'checkEmailForVerify' => 'Before proceeding, please check your email for a verification link.',

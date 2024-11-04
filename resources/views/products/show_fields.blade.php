@@ -7,7 +7,7 @@
 <!-- Price Field -->
 <div class="col-sm-12">
     {!! Form::label('price',  __('table.price').':') !!}
-    <p>{{ $product->computed_price }}</p>
+    <p>{{ $product->price }}</p>
 </div>
 
 <!-- Count Field -->

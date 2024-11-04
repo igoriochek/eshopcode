@@ -33,6 +33,7 @@ return [
     'pay' => 'Apmokėti',
     'preview' => 'Peržiūrėti',
     'register' => 'Registruotis',
+    'toRegister' => 'Registruokis',
     'save' => 'Išsaugoti',
     'showLogs' => 'Rodyti žurnalus',
     'showStatistics' => 'Rodyti statistikas',

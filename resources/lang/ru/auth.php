@@ -19,11 +19,13 @@ return [
 
     'passwordConfirmToContinue' => 'Пожалуйста, подтвердите свой пароль, прежде чем продолжить.',
     'resetPassword' => 'Сбросить пароль',
-    'sendResetPasswordLink' => 'Отправить ссылку для сброса пароля.',
+    'sendResetPasswordLink' => 'Отправить',
     'resetPasswordParagraph' => 'помните свой пароль?',
+    "returnToLogin" => 'Вернуться к входу',
 
     //Login
     'login'=> 'Войти',
+    'toLogin'=> 'Войти',
     'loginWith' => 'Войти с помощью',
     'rememberMe' => 'Запомнить меня',
     'or' => 'или',
@@ -35,7 +37,7 @@ return [
     'email' => 'Адрес электронной почты',
     'passwordEnter' => 'Пароль',
     'confirmPasswordEnter' => 'Подтвердить пароль',
-    'loginParagraph' => "Уже есть аккаунт?",
+    'loginParagraph' => "у меня есть аккаунт",
 
     //Verify
     'checkEmailForVerify' => 'Прежде чем продолжить, проверьте свою электронную почту на наличие ссылки для подтверждения.',
