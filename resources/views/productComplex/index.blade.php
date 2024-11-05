@@ -27,7 +27,7 @@
 
                 <div class="col-lg-6 col-sm-12">
                     @foreach($categories as $category)
-                        <div class="form-group">
+                        <div class="form-group py-1">
                             {!! Form::label('parts[' . $category->id . ']', $category->name . ':') !!}
                             {!! Form::select(
                                 'parts[' . $category->id . ']',
@@ -74,14 +74,6 @@
         width: 50%;
         justify-content: center;
     }
-    
-    /* @media (max-width: 992px) {
-        .product-add-to-cart-container {
-            
-        }
-
-    } */
-
 
     .wheel-container {
         position: absolute;
