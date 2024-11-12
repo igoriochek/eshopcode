@@ -8,8 +8,8 @@
                     <h2>{{__('names.productDetails')}}</h2>
                 </div>
                 <div class="col-sm-6">
-                    <a class="btn btn-primary float-right"
-                       href="{{ route('products.index') }}">
+                    <a class="btn btn-primary float-right text-font-size"
+                       href="{{ route('products.index') }}" style="display: flex;align-items: center;">
                         {{__('buttons.back')}}
                     </a>
                 </div>

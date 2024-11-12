@@ -1,7 +1,7 @@
 <ul class="dropdown-menu" aria-labelledby="navbarUserDropdown">
     <li>
         <a href="{{ url('/user/userprofile') }}"
-           style="color: {{ request()->is('user/userprofile*') ? '#a10909' : '' }}; font-size: 1.5rem;">
+           style="color: {{ request()->is('user/userprofile*') ? '#212529' : '#212529' }}; font-size: 1.5rem;">
             {{__('menu.profile')}}
         </a>
     </li>
@@ -9,7 +9,7 @@
     <li>
         <form id="logout-form" action="{{ route('logout') }}" method="POST">
             @csrf
-            <a href="{{ route('logout') }}" style="font-size: 1.5rem;"
+            <a href="{{ route('logout') }}" style="font-size: 1.5rem; color: #212529;"
                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                 {{ __('menu.logout') }}
             </a>

@@ -46,13 +46,13 @@
                     <div class='btn-group button-container'>
                         <a href="{{ route('products.show', [$product->id]) }}"
                             class='btn btn-default btn-xs'>
-                            <i class="far fa-eye" style="font-size: 20px;"></i>
+                            <i class="far fa-eye" style="font-size: 20px; margin-left: 10px !important;"></i>
                         </a>
                         <a href="{{ route('products.edit', [$product->id]) }}"
                             class='btn btn-default btn-xs'>
-                            <i class="far fa-edit" style="font-size: 20px;"></i>
+                            <i class="far fa-edit" style="font-size: 20px; margin-left: 10px !important;"></i>
                         </a>
-                        {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger', 'style' => 'font-size: 20px;', 'onclick' => "return confirm('Are you sure?')"]) !!}
+                        {!! Form::button('<i class="far fa-trash-alt" style="font-size: 20px; margin-left: 10px !important;"></i>', ['type' => 'submit', 'class' => 'btn btn-danger', 'onclick' => "return confirm('Are you sure?')"]) !!}
                     </div>
                     {!! Form::close() !!}
                 </td>
@@ -86,6 +86,9 @@
         .button-container .btn {
             flex-grow: 1;
             width: 100%;
+        }
+        .far {
+            margin-right: 10px !important;
         }
     </style>
 @endpush

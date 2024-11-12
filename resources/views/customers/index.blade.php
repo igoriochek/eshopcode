@@ -12,7 +12,7 @@
                        href="{{ route('customers.create') }}">
                         {{__('buttons.addNew')}}
                     </a>
-                    <a class="btn btn-primary float-right"
+                    <a class="btn btn-primary float-right mx-3"
                        href="{{ route('customers.statistics') }}">
                         {{__('buttons.showStatistics')}}
                     </a>

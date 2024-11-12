@@ -25,11 +25,8 @@
 </div>
 
 <style>
-.form-group input {
-    padding: 15px;
-}
-
 .form-control {
     font-size: 1.4rem;
+    height: 34px;
 }
 </style>

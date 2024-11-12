@@ -9,7 +9,7 @@
                 </div>
                 <div class="col-sm-6">
                     <a class="btn btn-primary float-right"
-                       href="{{ route('products.create') }}">
+                       href="{{ route('products.create') }}" style="display: flex;align-items: center;">
                         {{__('buttons.addNew')}}
                     </a>
                 </div>

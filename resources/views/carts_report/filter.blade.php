@@ -36,7 +36,7 @@
             <div class="col-sm-3 px-0">
                 <div class="button-container">
                     <button type="button" class="btn btn-primary m-2" onclick="filter()">{{__('reports.filter')}}</button>
-                    <button type="reset" class="axil-btn btn-secondary m-2" onclick="document.location='{{ route('carts_report.index') }}'">
+                    <button type="reset" class="btn btn-secondary m-2" onclick="document.location='{{ route('carts_report.index') }}'">
                         {{__('reports.clear')}}
                     </button>
                 </div>
@@ -92,14 +92,9 @@
 @endpush
 
 <style>
-    .form-group {
-        margin-bottom: 10px;
-        margin-top: 10px;
-        align-items: center;
-        display: flex !important;
-    }
     .form-control {
         font-size: 1.4rem;
+        height: 34px;
     }
     .card-body {
         padding: 2rem 1rem;

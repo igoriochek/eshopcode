@@ -49,3 +49,11 @@
     border: 1px solid #f1f1f1;
     border-radius: 6px;
 }
+
+.admin-import {
+    @import url('{{ asset('vendor/adminlte/dist/css/adminlte.min.css') }}');
+}
+
+.text-font-size {
+    font-size: 1.7rem !important;
+}

@@ -17,3 +17,9 @@
     {!! Form::label('isMandatory',  __('table.mandatoryStatus')) !!}
 </div> 
 
+<style>
+.form-control {
+    font-size: 1.4rem;
+    height: 34px;
+}
+</style>

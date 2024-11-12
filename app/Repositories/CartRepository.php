@@ -10,12 +10,6 @@ use App\Repositories\BaseRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-/**
- * Class CartRepository
- * @package App\Repositories
- * @version March 29, 2022, 4:14 pm UTC
-*/
-
 class CartRepository extends BaseRepository
 {
     /**

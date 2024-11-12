@@ -113,14 +113,9 @@
 
 
 <style>
-    .form-group {
-        margin-bottom: 10px;
-        margin-top: 10px;
-        align-items: center;
-        display: flex !important;
-    }
     .form-control {
         font-size: 1.4rem;
+        height: 34px;
     }
     .card-body {
         padding: 2rem 1rem;

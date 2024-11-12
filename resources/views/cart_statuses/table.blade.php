@@ -15,13 +15,13 @@
                     <div class='btn-group button-container'>
                         <a href="{{ route('cartStatuses.show', [$cartStatus->id]) }}"
                            class='btn btn-default btn-xs'>
-                            <i class="far fa-eye" style="font-size: 20px;"></i>
+                            <i class="far fa-eye" style="font-size: 20px; margin-left: 10px !important; margin-right: 10px !important; margin-top: 3px !important; margin-bottom: 3px !important;"></i>
                         </a>
                         <a href="{{ route('cartStatuses.edit', [$cartStatus->id]) }}"
                            class='btn btn-default btn-xs'>
-                            <i class="far fa-edit" style="font-size: 20px;"></i>
+                            <i class="far fa-edit" style="font-size: 20px; margin-left: 10px !important; margin-right: 10px !important; margin-top: 3px !important; margin-bottom: 3px !important;"></i>
                         </a>
-                        {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'style' => 'font-size: 20px;', 'onclick' => "return confirm('Are you sure?')"]) !!}
+                        {!! Form::button('<i class="far fa-trash-alt" style="font-size: 20px; margin-left: 10px !important; margin-right: 10px !important;"></i>', ['type' => 'submit', 'class' => 'btn btn-danger', 'style' => 'font-size: 20px;', 'onclick' => "return confirm('Are you sure?')"]) !!}
                     </div>
                     {!! Form::close() !!}
                 </td>

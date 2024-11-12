@@ -15,3 +15,10 @@
     {!! Form::label('proc', ''.__('table.proc').':') !!}
     {!! Form::number('proc', null, ['class' => 'form-control']) !!}
 </div>
+
+<style>
+.form-control {
+    font-size: 1.4rem;
+    height: 34px;
+}
+</style>

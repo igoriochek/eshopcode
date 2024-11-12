@@ -23,7 +23,7 @@
 
 <!-- Visible Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('visible', __('table.visible').':', ['class' => 'form-check-label']) !!}
+    {!! Form::label('visible', __('table.visible').':') !!}
     {!! Form::select('visible', $visible_list, null, ['class' => 'form-control custom-select']) !!}
 </div>
 
@@ -42,5 +42,6 @@
 <style>
 .form-control {
     font-size: 1.4rem;
+    height: 34px;
 }
 </style>

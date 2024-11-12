@@ -41,3 +41,10 @@
     {!! Form::label('new_password_confirmation', __('forms.confirm_password').':') !!}
     {!! Form::password('new_password_confirmation', ['class' => 'form-control']) !!}
 </div>
+
+<style>
+.form-control {
+    font-size: 1.4rem;
+    height: 34px;
+}
+</style>
