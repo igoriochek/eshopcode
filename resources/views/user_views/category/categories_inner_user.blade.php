@@ -36,7 +36,7 @@
                         </div>
                         <div class="col-12 col-md-6">
                             <div class="shop-grid-button d-flex align-items-center justify-content-end">
-                                <a href="{{ route('rootcategories') }}" class="btn btn-primary btn-block rounded">
+                                <a href="{{ route('rootcategories') }}" class="btn btn-primary btn-block rounded" style="color: white !important;">
                                     {{ __('buttons.backToMainCategories') }}
                                 </a>
                             </div>
@@ -131,3 +131,17 @@
     </div>
 </div>
 @endsection
+
+<style>
+    a {
+
+        &:hover,
+        &:focus {
+            color: white !important;
+        }
+    }
+
+    a {
+        color: white !important;
+    }
+</style>

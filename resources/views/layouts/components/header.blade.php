@@ -123,7 +123,7 @@
                         </div>
                         @else
                         <div class="cart-block d-inline-block position-relative">
-                            <a href="{{ route('login') }}" class="btn btn-primary rounded mt-5 mt-sm-0" style="color: white;">
+                            <a href="{{ route('login') }}" class="btn btn-primary rounded mt-5 mt-sm-0" style="color: white !important;">
                                 {{ __('auth.login') }}
                             </a>
                         </div>
@@ -232,7 +232,7 @@
                         </li>
                         @else
                         <li class="cart-block d-inline-block position-relative">
-                            <a href="{{ route('login') }}" class="btn btn-primary rounded mt-5 mt-sm-0" style="color: white;">
+                            <a href="{{ route('login') }}" class="btn btn-primary rounded mt-5 mt-sm-0" style="color: white !important;">
                                 {{ __('auth.login') }}
                             </a>
                         </li>
