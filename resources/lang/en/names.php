@@ -109,6 +109,24 @@ return [
     'uploadFile' => 'Upload File',
     'table' => 'Table',
 
+    //Gallery
+    'gallery' => 'Gallery',
+    'uploadImages' => 'Upload Images',
+    'upload' => 'Upload',
+    'galleryImages' => 'Gallery Images',
+    'displayingImages' => 'Displaying uploaded images',
+    'noImages' => 'No images uploaded yet',
+    'uploadedAt' => 'Uploaded at',
+    'confirmDelete' => 'Are you sure you want to delete this image?',
+    'delete' => 'Delete',
+    'imagesUploaded' => 'Images uploaded successfully',
+    'noImagesSelected' => 'No images were selected',
+    'imageDeleted' => 'Image deleted successfully',
+    'viewingImage' => 'Viewing Image',
+    'fileSize' => 'File Size',
+    'fileType' => 'File Type',
+    'backToGallery' => 'Back to Gallery',
+    
     //Homepage
     'addedAt' => 'Added at',
     'browseProducts' => 'Browse Products',

@@ -12,6 +12,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\FaceBookController;
 use App\Http\Controllers\GoogleController;
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\TwitterController;
 use App\Http\Controllers\OrdersReportController;
 use App\Http\Controllers\ReturnsReportController;
@@ -150,6 +151,13 @@ Route::group(array('prefix' => 'admin', 'middleware' => 'admin'), function () {
     Route::get('data_export_import', [DataExportImportController::class, 'index'])->name('data_export_import.index');
     Route::get('data_export_import/export', [DataExportImportController::class, 'export'])->name('data_export_import.export');
     Route::post('data_export_import/import', [DataExportImportController::class, 'import'])->name('data_export_import.import');
+
+    // gallery
+    Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery.index');
+    Route::post('/gallery', [GalleryController::class, 'store'])->name('gallery.store');
+    Route::delete('/gallery/{image}', [GalleryController::class, 'destroy'])->name('gallery.destroy');
+    Route::get('/gallery/{image}', [GalleryController::class, 'show'])->name('viewimage');
+
 });
 
 Route::group(array('prefix' => 'user', 'middleware' => ['auth', 'cookie-consent']), function () {

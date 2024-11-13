@@ -109,6 +109,25 @@ return [
     'uploadFile' => 'Įkelti failą',
     'table' => 'Lentelė',
 
+    //Gallery
+    'gallery' => 'Galerija',
+    'uploadImages' => 'Įkelti nuotraukas',
+    'upload' => 'Įkelti',
+    'galleryImages' => 'Galerijos nuotraukos',
+    'displayingImages' => 'Rodomos įkeltos nuotraukos',
+    'noImages' => 'Nėra įkeltų nuotraukų',
+    'uploadedAt' => 'Įkelta',
+    'confirmDelete' => 'Ar tikrai norite ištrinti šią nuotrauką?',
+    'delete' => 'Ištrinti',
+    'imagesUploaded' => 'Nuotraukos sėkmingai įkeltos',
+    'noImagesSelected' => 'Nėra pasirinktų nuotraukų',
+    'imageDeleted' => 'Nuotrauka sėkmingai ištrinta',
+    'viewingImage' => 'Peržiūrima nuotrauka',
+    'fileSize' => 'Failo dydis',
+    'fileType' => 'Failo tipas',
+    'backToGallery' => 'Grįžti į galeriją',
+
+    
     //Homepage
     'addedAt' => 'Pridėta',
     'browseProducts' => 'Naršyti produktus',
