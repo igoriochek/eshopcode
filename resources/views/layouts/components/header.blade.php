@@ -28,6 +28,30 @@
             @endauth
         </ul>
     </nav>
+    <nav class="header-top-nav mt-5">
+        <ul class="d-flex align-items-center" style="justify-content: space-between;">
+            @guest
+            <li>
+                <a href="{{ route('login') }}" class="btn btn-primary rounded mt-sm-0" style="color: white !important;">
+                    {{ __('auth.login') }}
+                </a>
+            </li>
+            @endguest
+            <li>
+                <a href="#" role="button" id="dropdown3" data-bs-toggle="dropdown" aria-haspopup="true" style="font-size: 1.5rem !important;"
+                    aria-expanded="false">{{ strtoupper(app()->getLocale()) }} <i class="ion ion-ios-arrow-down"></i></a>
+                <ul class="topnav-submenu dropdown-menu" aria-labelledby="dropdown3">
+                    @foreach (config('translatable.locales') as $locale)
+                    <li>
+                        <a href="{{ url('/lang/' . strtolower($locale)) }}">
+                            {{ strtoupper($locale) }}
+                        </a>
+                    </li>
+                    @endforeach
+                </ul>
+            </li>
+        </ul>
+    </nav>
 </div>
 
 <header>
@@ -122,11 +146,11 @@
                             </a>
                         </div>
                         @else
-                        <div class="cart-block d-inline-block position-relative">
+                        <!-- <div class="cart-block d-inline-block position-relative">
                             <a href="{{ route('login') }}" class="btn btn-primary rounded mt-5 mt-sm-0" style="color: white !important;">
                                 {{ __('auth.login') }}
                             </a>
-                        </div>
+                        </div> -->
                         @endauth
                     </nav>
                 </div>
