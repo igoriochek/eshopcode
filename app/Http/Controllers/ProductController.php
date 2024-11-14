@@ -8,6 +8,7 @@ use App\Models\Product;
 use App\Models\Ratings;
 use App\Models\Cart;
 use App\Models\CartItem;
+use App\Models\Category;
 use App\Repositories\CategoryRepository;
 use App\Repositories\ProductRepository;
 use App\Traits\ProductRatings;
@@ -70,7 +71,9 @@ class ProductController extends AppBaseController
         $selCategories = $filter && array_key_exists('categories.id', $filter)
             ? $filter['categories.id']
             : array();
-        $categories = $this->categoryRepository->allQuery()->get();
+        
+        $categories = Category::all();
+        $categoryTree = $this->buildCategoryTree($categories);
 
         $selectedOrder = $request->order != null ? $request->order : 0;
         $orderBy = "";
@@ -132,7 +135,7 @@ class ProductController extends AppBaseController
                 'minPrice' => floor(Product::all()->min('price')),
                 'maxPrice' => ceil(Product::all()->max('price')),
                 'products' => $products,
-                'categories' => $categories,
+                'categoryTree' => $categoryTree,
                 'filter' => $filter ? $filter : array(),
                 'selCategories' => $selCategories ? explode(",", $selCategories) : array(),
                 'order_list' => $this->productsOrderSelector(),
@@ -385,4 +388,20 @@ class ProductController extends AppBaseController
 
         return redirect(route('products.index'));
     }
+
+    private function buildCategoryTree($categories, $parentId = null)
+    {
+        $branch = [];
+        foreach ($categories as $category) {
+            if ($category->parent_id == $parentId) {
+                $children = $this->buildCategoryTree($categories, $category->id);
+                if ($children) {
+                    $category->children = $children;
+                }
+                $branch[] = $category;
+            }
+        }
+        return $branch;
+    }
+
 }

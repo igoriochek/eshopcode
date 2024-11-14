@@ -10,8 +10,9 @@
                 @include('flash_messages')
             </div>
             <div class="col-xl-3 col-lg-4 order-lg-1 order-2 pt-10 pt-lg-0">
-                @include('user_views.product.filters')
+                @include('user_views.product.filters', ['selCategories' => $selCategories])
             </div>
+
             <div class="col-xl-9 col-lg-8 order-lg-2 order-1">
                 <div class="product-topbar">
                     <ul>

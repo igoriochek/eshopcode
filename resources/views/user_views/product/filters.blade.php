@@ -48,20 +48,19 @@
             <h2 class="widgets-title mb-5">{{ __('names.categories') }}</h2>
             <div class="widgets-item">
                 <ul class="widgets-checkbox">
-                    @forelse ($categories as $category)
-                        <li>
-                            <input class="input-checkbox" type="checkbox" id="category.{{ $category->id }}"
-                                value="{{ $category->id }}" onclick="calc();"
-                                @if ($filter && isset($filter['categories.id'])) {{ in_array($category->id, $selCategories) ? "checked=\"checked\"" : '' }} @endif>
-                            <label class="label-checkbox mb-0" for="category.{{ $category->id }}">
-                                {{ $category->name }}
-                            </label>
-                        </li>
-                    @empty
+                    @if(!empty($categoryTree))
+                        @foreach($categoryTree as $category)
+                            @include('user_views.product.partials.category_checkbox', [
+                                'category' => $category, 
+                                'selCategories' => $selCategories, 
+                                'filter' => $filter ?? null
+                            ])
+                        @endforeach
+                    @else
                         <li>
                             <span class="text-muted">{{ __('names.noCategories') }}</span>
                         </li>
-                    @endforelse
+                    @endif
                 </ul>
                 <div class="d-flex justify-content-start pt-4">
                     <button type="submit"
@@ -71,8 +70,8 @@
         </div>
 
         <input type="hidden" id="filter[categories.id]" name="filter[categories.id]"
-            value="{{ implode(',', $selCategories) }}">
-        <input type="hidden" id="order" name="order" value="{{ $selectedOrder }}">
+            value="{{ implode(',', $selCategories ?? []) }}">
+        <input type="hidden" id="order" name="order" value="{{ $selectedOrder ?? '' }}">
     </div>
 </form>
 
