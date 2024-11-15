@@ -110,37 +110,21 @@
             $('#categories').DataTable({
                 "language": {
                     "emptyTable": "No data available in table",
-                    "info": "{{__("
-                    names.showing ")}} _START_ {{__("
-                    names.to ")}} _END_ {{__("
-                    names.of ")}} _TOTAL_ {{__("
-                    names.entries ")}}",
-                    "infoEmpty": "{{__("
-                    names.showing ")}}  0 {{__("
-                    names.to ")}} 0 {{__("
-                    names.of ")}} 0 {{__("
-                    names.entries ")}}",
+                    "info": "{{ __('names.showing') }} _START_ {{ __('names.to') }} _END_ {{ __('names.of') }} _TOTAL_ {{ __('names.entries') }}",
+                    "infoEmpty": "{{ __('names.showing') }}  0 {{ __('names.to') }} 0 {{ __('names.of') }} 0 {{ __('names.entries') }}",
                     "infoFiltered": "(filtered from _MAX_ total entries)",
                     "infoThousands": ",",
-                    "lengthMenu": "{{__("
-                    names.showing ")}} _MENU_ {{__("
-                    names.entries ")}}",
+                    "lengthMenu": "{{ __('names.showing') }} _MENU_ {{ __('names.entries') }}",
                     "loadingRecords": "Loading...",
                     "processing": "Processing...",
-                    "search": "{{__("
-                    names.search ")}}:",
-                    "zeroRecords": "{{__("
-                    names.zeroRecords ")}}:",
+                    "search": "{{ __('names.search') }}:",
+                    "zeroRecords": "{{ __('names.zeroRecords') }}:",
                     "thousands": ",",
                     "paginate": {
-                        "first": "{{__("
-                        names.first ")}}",
-                        "previous": "&laquo;&nbsp;{{__("
-                        pagination.previous ")}}",
-                        "next": "{{__("
-                        pagination.next ") }}&nbsp;&raquo;",
-                        "last": "{{__("
-                        names.last ")}}"
+                        "first": "{{ __('names.first') }}",
+                        "previous": "&laquo;&nbsp;{{ __('pagination.previous') }}",
+                        "next": "{{ __('pagination.next') }}&nbsp;&raquo;",
+                        "last": "{{ __('names.last') }}"
                     },
                     "aria": {
                         "sortAscending": ": activate to sort column ascending",

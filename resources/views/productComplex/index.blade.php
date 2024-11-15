@@ -345,7 +345,7 @@
             "complex4": {name: "complex4", id : "part_4"},
         }
 
-        {{--const productApi = "{{ env("APP_URL")  }}/api/products/";--}}
+        // const productApi = "{{ env("APP_URL")  }}/api/products/";
         const productApi = "http://127.0.0.1:8000/api/products/";
 
         function findNameById(value) {
@@ -372,6 +372,7 @@
 
 
         async function fetchData(url) {
+
             try {
                 const response = await fetch(url);
                 if (!response.ok) {
