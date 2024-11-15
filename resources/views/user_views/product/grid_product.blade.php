@@ -48,27 +48,27 @@
             </div>
 
             <div class="product-add-action">
-                <button type="submit" class="tp-product-action" id="add_to_cart"
-                    data-tippy="{{ __('buttons.addToCart') }}" data-tippy-inertia="true"
-                    data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true"
-                    data-tippy-theme="sharpborder" @if($product->only_one && $product->isInCart) disabled @endif>
-                    <i class="pe-7s-cart"></i>
-                </button>
                 @if(!$product->only_one)
-                <div class="quantity" style="padding-bottom: 25px;">
+                <div class="quantity" style="padding-bottom: 10px;">
                     <div class="cart-plus-minus">
                         {!! Form::text('count', '1', [
                             'class' => 'cart-plus-minus-box tp-cart-input',
                             'oninput' => "this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null
-                                                                                                ",
-                        ]) !!}
+                            ",
+                            ]) !!}
+                        </div>
                     </div>
-                </div>
-                @else 
-                <div style="padding-bottom: 75px;">
-                    {!! Form::hidden('count', '1') !!}
-                </div>
-                @endif
+                    @else 
+                    <div style="padding-bottom: 70px;">
+                        {!! Form::hidden('count', '1') !!}
+                    </div>
+                    @endif
+                    <button type="submit" class="tp-product-action" id="add_to_cart"
+                        data-tippy="{{ __('buttons.addToCart') }}" data-tippy-inertia="true"
+                        data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true"
+                        data-tippy-theme="sharpborder" @if($product->only_one && $product->isInCart) disabled @endif>
+                        <i class="pe-7s-cart"></i>
+                    </button>
             </div>
         </div>
     </div>
@@ -80,7 +80,6 @@
 <style>
 
     .tp-product-action {
-        background: none;
         border: none;
         color: inherit;
         font: inherit;

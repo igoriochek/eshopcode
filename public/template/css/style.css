@@ -19060,12 +19060,12 @@ blockquote .user-name:before {
 .product-item-wrap {
   height: 100%;
 }
-.product-item:hover .product-content .price-box {
+/* .product-item:hover .product-content .price-box {
   visibility: hidden;
   opacity: 0;
-}
+} */
 .product-item:hover .product-add-action {
-  bottom: -15px;
+  bottom: 30%;
   opacity: 1;
   visibility: visible;
 }
