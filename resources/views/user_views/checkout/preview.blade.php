@@ -27,9 +27,15 @@
                                     <td class="text-center">€{{ number_format($item->price_current * $item->count, 2) }}</td>
                                 </tr>
                                 @endforeach
+                                @foreach ($discounts as $discount)
+                                <tr class="order-product">
+                                    <td class="text-start">{{ __('names.discountCouponCode') }}: {{ $discount->code }}</td>
+                                    <td class="text-center">€ -{{ number_format($discount->value, 2) }}</td>
+                                </tr>
+                                @endforeach
                                 <tr class="order-total">
                                     <td class="text-start">{{ __('names.total') }}</td>
-                                    <td class="order-total-amount text-center">€{{ number_format($cart->sum, 2) }}</td>
+                                    <td class="order-total-amount text-center">€{{ number_format($amount, 2) }}</td>
                                 </tr>
                             </tbody>
                         </table>

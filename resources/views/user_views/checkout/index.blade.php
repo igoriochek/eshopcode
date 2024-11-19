@@ -17,9 +17,9 @@
                                 {{ __('names.selectDiscountCoupon') }}
                             </a>
                         </div>
-                        <div class="axil-checkout-coupon toggle-open" style="display: none;">
-                            <div class="input-group gap-3">
-                                <select name="discount[]" class="form-control fs-4 ps-4" style="border-radius: 6px">
+                        <div class="axil-checkout-coupon">
+                            <div class="input-group">
+                                <select name="discount[]" class="form-control border-blue fs-4 ps-4">
                                     <option value="" class="text-muted">{{ __('---') }}</option>
                                     @foreach ($discounts as $item)
                                     <option value="{{ $item->id }}">{{ $item->code }}
@@ -27,7 +27,7 @@
                                     @endforeach
                                 </select>
                                 <div class="apply-btn">
-                                    <button type="submit" class="btn btn-primary btn-block rounded"
+                                    <button type="submit" class="btn btn-primary btn-block right-side-rounded"
                                         style="padding-block: 14px">
                                         {{ __('buttons.applyCoupon') }}
                                     </button>
@@ -88,3 +88,49 @@
     </div>
 </div>
 @endsection
+
+<style>
+    .toggle-bar {
+        display: flex;
+        justify-content: center;
+    }
+    .axil-checkout-coupon {
+        margin-top: 15px;
+        display: none;
+    }
+    .axil-checkout-coupon.active {
+        display: block;
+    }
+    .form-control.border-blue {
+        border-color: #0090f0 !important;
+    }
+    .form-control {
+        font-size: 1.2rem !important;
+        border: 2px solid #0090f0 !important;
+        border-top-color: rgb(0, 144, 240) !important;
+        border-right-color: rgb(0, 144, 240) !important;
+        border-bottom-color: rgb(0, 144, 240) !important;
+        border-left-color: rgb(0, 144, 240) !important;
+        border-bottom-left-radius: 3rem !important;
+        border-top-left-radius: 3rem !important;
+        border-bottom-right-radius: 0rem !important;
+        border-top-right-radius: 0rem !important;
+    }
+    .right-side-rounded {
+        border-bottom-right-radius: 3rem !important;
+        border-top-right-radius: 3rem !important;
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const toggleButton = document.querySelector('.btn.btn-dark3');
+        const couponSection = document.querySelector('.axil-checkout-coupon');
+
+        if (toggleButton && couponSection) {
+            toggleButton.addEventListener('click', function () {
+                couponSection.classList.toggle('active');
+            });
+        }
+    });
+</script>
