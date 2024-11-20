@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Flash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+//use Laracasts\Flash\Flash;
 use Response;
 
 class CustomerController extends AppBaseController
@@ -187,15 +188,22 @@ class CustomerController extends AppBaseController
         $customer = $this->customerRepository->find($id);
 
         if (empty($customer)) {
-            Flash::error('Customer not found');
+            \Flash::error('Customer not found');
 
             return redirect(route('customers.index'));
         }
 
-        $this->customerRepository->delete($id);
+        try {
+            $this->customerRepository->delete($id);
 
-        Flash::success('Customer deleted successfully.');
+            \Flash::success('Customer deleted successfully.');
+        }
+        catch (\Exception $e) {
+            \Flash::error('Customer cannot be deleted.');
+        }
 
+
+        //vsegda dolzhno byt
         return redirect(route('customers.index'));
     }
 
