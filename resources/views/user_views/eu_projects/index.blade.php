@@ -11,131 +11,44 @@
                 </div>
                 <div class="col-lg-12">
                     <div class="about-banner-content text-center section-space-bottom-95">
-                        <div class="section-title">
+                        <div class="section-title" style="text-align: justify;">
                             @if (App()->getLocale() == 'lt')
-                                <img src="{{ asset('images/es_projektai.jpeg') }}" alt="es_projektai" class="col-md-6 col-12">
-                                <p class="short-desc mb-0" style="text-align: start;">
-                                    UAB "Jodesta" įgyvendina ES struktūrinėmis lėšomis finansuojamą projektą
-                                    Nr. 13.1.1-LVPA-K-860-01-0168
-                                    „E. komercijos modelio diegimas UAB "Bilan". Bendra projekto vertė – <b>59
-                                        930,00</b> Eur, iš kurių <b>44
-                                        947,50</b> Eur sudaro Europos regioninės plėtros fondo lėšos.
-                                    <br>Parama projekto įgyvendinimui suteikta pagal 2014–2020 metų Europos Sąjungos
-                                    fondų investicijų veiksmų
-                                    programos 13 prioriteto "Veiksmų, skirtų COVID-19 pandemijos sukeltai krizei
-                                    įveikti, skatinimas ir
-                                    pasirengimas aplinką tausojančiam, skaitmeniniam ir tvariam ekonomikos
-                                    atsigavimui" Nr. 13.1.1-LVPA-K-860
-                                    "E. komercijos modelis COVID-19". Projektas yra finansuojamas Europos regioninės
-                                    plėtros fondo lėšomis.
-                                    Finansuojama kaip Europos Sąjungos atsako į COVID-19 pandemiją priemonė.
-                                    <br>UAB "Bilan" - įmonė, teikianti kokybiškas buhalterines ir teisines
-                                    paslaugas. Pagrindinės veiklos
-                                    sritys: buhalterinės, verslo ir teisės konsultacijų paslaugos, įmonių steigimas.
-                                    Vienos labiausiai
-                                    besiplečiančių įmonės paslaugų - tai finansinės apskaitos paslaugos.
-                                    <br>Iki šiol įmonė savo paslaugas pardavinėjo tik tiesioginiu būdu, tačiau
-                                    neturėdama galimybės valdyti
-                                    verslo sandorių el. būdu (t. y. vykdyti produktų užsakymus elektroninėse
-                                    prekybos platformoje), ribojo
-                                    potencialių klientų ratą ir tuo pačiu įmonės pajamų augimą.
-                                    <br>Įmonė, siekdama padidinti konkurencingumą, pritraukti daugiau klientų ir
-                                    efektyviau juos aptarnauti,
-                                    labiau išplėsti pardavimus, nusprendė skaitmenizuoti apskaitos paslaugų
-                                    pardavimo procesus ir pardavinėti
-                                    savo paslaugas naudojantis elektroninės komercijos sprendimais.
-                                    <br>Šis projektas inovatyvus tuo, kad bus kuriama elektroninės prekybos
-                                    platforma, panaudojant pažangiausias
-                                    informacines technologijas, suteikiančias naujas galimybes inovatyviam apskaitos
-                                    produktų pardavimui.
-                                    <br>Įgyvendintas projektas leis įmonei efektyviau pardavinėti savo produktus,
-                                    užtikrins greitesnį ir
-                                    kokybiškesnį klientų aptarnavimą, sutrumpėjęs produktų pardavimo laikas leis
-                                    aptarnauti daugiau klientų, tai
-                                    užtikrins įmonės pajamų augimą.
-                                    <br>Projekto įgyvendinimo laikotarpis nuo 2022 m. kovo mėn. iki 2023 m. kovo
-                                    mėn.
-                                </p>
+                            <p><img src="{{ asset('images/finansuoja_ES.jpg') }}" alt="es_projektai" class="col-md-6 col-12"></p>
+                            <p>UAB "Jodesta" įgyvendina projektą <strong>E. pardavimo sandorių sudarymo sprendimų diegimas UAB "Jodesta"</strong> Nr. 02-033-K-0047. Bendra projekto vertė – <b>50 268,60</b> Eur, iš kurių <b>24 994,20</b> Eur sudaro Europos regioninės plėtros fondų lėšos.</p>
+                            <p>Projektas įgyvendinamas pagal Sutartyje, plėtros programos pažangos priemonės Nr. 05-001-01-05-05 "Skatinti įmones skaitmenizuotis" veiklos "Skatinti labai mažų, mažų ir vidutinių įmonių skaitmeninimą, finansuojant e. pardavimo sandorių sudarymo sprendimų diegimą, paslaugų ir produktų konfigūravimą ir vizualizaciją“ poveiklės „Skatinti labai mažų, mažų ir vidutinių įmonių skaitmeninimą, finansuojant e. pardavimo sandorių sudarymo sprendimų diegimą, paslaugų ir produktų konfigūravimą ir vizualizaciją" (Sostinės regionas) ir poveiklės „Skatinti labai mažų, mažų ir vidutinių įmonių skaitmeninimą, finansuojant e. pardavimo sandorių sudarymo sprendimų diegimą, paslaugų ir produktų konfigūravimą ir vizualizaciją“ (Vidurio ir vakarų Lietuvos regionas) projektų finansavimo sąlygų apraše, patvirtintame Lietuvos Respublikos ekonomikos ir inovacijų ministro 2022 m. liepos 15 d. įsakymu Nr. 4-877  „Dėl 2022–2030 metų plėtros programos valdytojos Lietuvos respublikos ekonomikos ir inovacijų ministerijos ekonomikos transformacijos ir konkurencingumo plėtros programos pažangos priemonės Nr. 05-001-01-05-05 „Skatinti įmones skaitmenizuotis“ aprašo patvirtinimo“, Projektų administravimo ir finansavimo taisyklėse patvirtintose Lietuvos Respublikos finansų ministro 2022 m. birželio 22 d. įsakymu Nr. 1K-237 „Dėl 2021–2027 metų Europos Sąjungos fondų investicijų programos ir Ekonomikos gaivinimo ir atsparumo didinimo plano "Naujos kartos Lietuva" įgyvendinimo, ir juose nurodytuose ES ir Lietuvos Respublikos teisės aktuose nustatytas sąlygas ir tvarką.</p>
+                            <p>Projektu siekiama įmonę skaitmenizuotis, įsidiegti e. pardavimo sandorių sudarymo sprendimus.</p>
+                            <p>UAB "Jodesta" – įmonė, dirbanti energetikos srityje. Pagrindinės veiklos kryptys – įvairios paskirties išorės bei vidaus elektros inžinerinių tinklų projektavimo, montavimo bei remonto, saulės elektrinių projektavimo ir montavimo paslaugų (toliau – produktų) pardavimas.</p>
+                            <p>Iki šiol įmonė savo produktus pardavinėjo tik tiesioginiu būdu, klientų aptarnavimo procesai, įskaitant produktų užsakymų valdymą, nėra skaitmenizuoti, todėl dabartiniai sprendimai nesudaro galimybės darbuotojams teikti paslaugas efektyviai; neturėdama galimybės valdyti verslo sandorių el. būdu (t. y. vykdyti produktų pirkimo ir pardavimo procesą internetu, įskaitant ir produktų paieškos, krepšelio (užsakymo) suformavimo, mokėjimo atlikimo bei užsakymo įvykdymo ir valdymo funkcijas ir pan.), įmonė ribojo potencialių klientų ratą ir tuo pačiu įmonės pajamų augimą.</p>
+                            <p>Įmonė, siekdama padidinti konkurencingumą, pritraukti daugiau klientų ir efektyviau juos aptarnauti, labiau išplėsti pardavimus, nusprendė įsidiegti e. pardavimo sandorių sprendimus ir pardavinėti savo produktus naudojantis elektroninės prekybos sprendimais.</p>
+                            <p>Šis projektas inovatyvus tuo, kad bus kuriama e. pardavimo sandorių sudarymo platforma, paremta pažangiausiomis informacinėmis technologijomis, suteikiančias naujas galimybes inovatyviam produktų pardavimui.</p>
+                            <p>Įgyvendintas projektas leis įmonei skaitmenizuoti pardavimų procesą, efektyviau pardavinėti savo produktus, užtikrins greitesnį ir kokybiškesnį klientų aptarnavimą, sutrumpėjęs produktų pardavimo laikas leis aptarnauti daugiau klientų, tai užtikrins didesnį produktų prieinamumą ir įmonės pajamų augimą.</p>
+                            <p>Projekto įgyvendinimo laikotarpis 2024 m. birželio 17 d. – 2025 m. birželio mėn. 17 d.</p>
+                            <p>Su projektu susijusios užklausos gali būti adresuojamos <a href="mailto:info@jodesta.lt">info@jodesta.lt</a></p>
                             @elseif(App()->getLocale() == 'en')
-                                <img src="{{ asset('images/es_projektai.jpeg') }}" alt="es_projektai" class="col-md-6 col-12">
-                                <p class="short-desc mb-0" style="text-align: start;">
-                                    UAB "Jodesta" is implementing a project funded by EU structural funds
-                                    No. 13.1.1-LVPA-K-860-01-0168
-                                    “Implementation of the E-commerce model at UAB "Bilan". The total project value is <b>59
-                                        930.00</b> EUR, of which <b>44
-                                        947.50</b> EUR consists of funds from the European Regional Development Fund.
-                                    <br>Funding for the project implementation was provided under the 2014–2020 European Union
-                                    Fund Investment Action
-                                    Program's 13 priority "Actions to mitigate the crisis caused by the COVID-19 pandemic and
-                                    prepare for an environmentally friendly, digital, and sustainable economic recovery" No. 13.1.1-LVPA-K-860
-                                    "E-commerce model COVID-19". The project is financed by the European Regional Development Fund.
-                                    Funded as part of the European Union's response to the COVID-19 pandemic.
-                                    <br>UAB "Bilan" is a company providing quality accounting and legal
-                                    services. Main activity
-                                    areas: accounting, business and legal consulting services, company formation.
-                                    One of the fastest-growing company services is financial accounting services.
-                                    <br>Until now, the company sold its services only directly, but
-                                    lacking the ability to manage
-                                    business transactions electronically (i.e., to place product orders on electronic
-                                    trading platforms), limited
-                                    the circle of potential clients and at the same time restricted the company's revenue growth.
-                                    <br>In order to increase competitiveness, attract more clients, and
-                                    serve them more efficiently,
-                                    broaden sales, the company decided to digitize the sales processes of accounting services
-                                    and sell its
-                                    services using e-commerce solutions.
-                                    <br>This project is innovative in that an e-commerce platform will be created using
-                                    advanced
-                                    information technologies, providing new opportunities for the innovative sale of accounting
-                                    products.
-                                    <br>The implemented project will allow the company to sell its products more
-                                    efficiently,
-                                    ensure faster and higher-quality customer service, and a shortened sales time for products will
-                                    enable serving more clients, which will ensure the company's revenue growth.
-                                    <br>The project implementation period is from March 2022 to March 2023.
-                                </p>
-
-                            @else  
-                                <img src="{{ asset('images/es_projektai.jpeg') }}" alt="es_projektai" class="col-md-6 col-12">
-                                <p class="short-desc mb-0" style="text-align: start;">
-                                    UAB "Jodesta" реализует проект, финансируемый структурными фондами ЕС
-                                    № 13.1.1-LVPA-K-860-01-0168
-                                    «Внедрение модели электронной торговли в UAB "Bilan". Общая стоимость проекта составляет <b>59
-                                        930,00</b> евро, из которых <b>44
-                                        947,50</b> евро составляют средства Европейского фонда регионального развития.
-                                    <br>Поддержка реализации проекта была предоставлена в рамках инвестиционной
-                                    программы фондов Европейского Союза 2014–2020 годов
-                                    приоритет 13 "Меры, направленные на преодоление кризиса, вызванного пандемией COVID-19, и
-                                    подготовка к экологически чистому, цифровому и устойчивому восстановлению экономики" № 13.1.1-LVPA-K-860
-                                    "Модель электронной торговли COVID-19". Проект финансируется средствами Европейского
-                                    фонда регионального развития.
-                                    Финансируется как часть ответа Европейского Союза на пандемию COVID-19.
-                                    <br>UAB "Bilan" — компания, предоставляющая качественные бухгалтерские и юридические
-                                    услуги. Основные области деятельности:
-                                    бухгалтерский учет, консультационные услуги в области бизнеса и права, создание компаний.
-                                    Одной из наиболее быстрорастущих услуг компании являются услуги финансового учета.
-                                    <br>До настоящего времени компания продавала свои услуги только напрямую, однако
-                                    не имея возможности управлять
-                                    бизнес-транзакциями в электронном виде (т.е. выполнять заказы продуктов на электронных
-                                    торговых платформах), ограничивала
-                                    круг потенциальных клиентов и тем самым ограничивала рост доходов компании.
-                                    <br>С целью повышения конкурентоспособности, привлечения большего количества клиентов и
-                                    более эффективного их обслуживания,
-                                    расширения продаж, компания решила цифровизировать процессы продажи бухгалтерских услуг
-                                    и продавать свои
-                                    услуги, используя решения электронной торговли.
-                                    <br>Этот проект инновационен тем, что будет создана платформа электронной торговли с
-                                    использованием передовых
-                                    информационных технологий, предоставляющих новые возможности для инновационной продажи
-                                    бухгалтерских продуктов.
-                                    <br>Реализованный проект позволит компании более эффективно продавать свои продукты,
-                                    обеспечит более быстрое и качественное обслуживание клиентов, сокращение времени продажи
-                                    продуктов позволит обслуживать больше клиентов, что обеспечит рост доходов компании.
-                                    <br>Период реализации проекта с марта 2022 года по март 2023 года.
-                                </p>
+                            <p><img src="{{ asset('images/finansuoja_ES.jpg') }}" alt="es_projektai" class="col-md-6 col-12"></p>
+                            <p>UAB "Jodesta" is implementing the project <strong>Introduction of e-sales transaction solutions in UAB "Jodesta"</strong> Nr. 02-033-K-0047. The total value of the project is EUR <b>50,268.60</b>, of which EUR <b>24,994.20</b> is financed by the European Regional Development Funds.</p>
+                            <p>The project is implemented under the Contract, under the Development Programme Progress Measure No 05-001-01-05-05 "Promoting the digitalisation of enterprises", under the activity "Promoting the digitalisation of micro, small and medium-sized enterprises by financing the implementation of e-sales transaction solutions, configuration and visualisation of services and products", under the impact of the activity "Promoting the digitalisation of micro, small and medium-sized enterprises by financing the implementation of e-sales transaction solutions, configuration and visualisation of services and products". The project description of the project "To promote the digitalisation of micro, small and medium-sized enterprises by financing the implementation of e-sales transaction solutions, configuration and visualisation of services and products" (Capital Region) and the project description of the project "To promote the digitalisation of micro, small and medium-sized enterprises by financing the implementation of e-sales transaction solutions, configuration and visualisation of services and products" (Central and Western Region) approved by the Minister of the Republic of Lithuania for Economic Affairs and Innovation in the period from 2022 to 2013 The description of the project financing and the rules for the administration and financing of projects approved by Order No 4-877 of 15 July 2022 "On the approval of the description of the progress measure No 05-001-01-05-05 "Promoting the digitalisation of enterprises" of the Development Programme Manager of the Ministry of Economy and Innovation of the Republic of Lithuania for the period 2022-2030, the rules for the administration and financing of projects approved by the Minister of Finance of the Republic of Lithuania for the period 2022-2030, the rules for the administration and financing of projects approved by the Minister of Finance of the Republic of Lithuania for the period 2022-2030 for the period 2022-2030, and the description of the project financing and financing of the project for the period 2022-2030. The conditions and procedures set out in the Regulations of the Minister of Finance of the Republic of Lithuania and the Ministry of Finance of the Republic of Lithuania on the implementation of the European Union Funds Investment Programme for the period 2021-2027 and the Economic Recovery and Resilience Improvement Plan "New Generation Lithuania", as well as the conditions and procedures laid down in the legal acts of the European Union and the Republic of Lithuania referred to in the Regulations of the Ministry of Finance of the Republic of Lithuania and the Rules of the EU and the Republic of Lithuania of the Republic of Lithuania.
+                            <p>The project aims to digitalize the company and introduce e-sales transaction solutions.</p>
+                            <p>UAB "Jodesta" is an energy company. Its main activities include the design, installation and repair of external and internal electrical engineering networks for various purposes, as well as the sale of services for the design and installation of solar power plants (hereinafter referred to as "products").</p
+                            <p>Until now, the company has been selling its products only directly, its customer service processes, including product order management, have not been digitised, and therefore current solutions do not allow employees to provide services efficiently; without the ability to manage business transactions electronically (i.e. to perform the process of buying and selling products online, including product search, basket (order) creation, payment, and order fulfillment and management, etc.), the company has been limiting the number of potential customers, and thus the growth of the company's revenues.</p>
+                            <p>In order to increase its competitiveness, attract and serve more customers more efficiently and expand its sales, the company decided to implement e-sales transaction solutions and sell its products using e-commerce solutions.</p>
+                            <p>This project is innovative in that it will develop an e-transaction platform based on cutting-edge information technology, providing new opportunities for innovative product sales.</p>
+                            <p>The project will enable the company to digitise its sales process, sell its products more efficiently, provide faster and better customer service, reduce the time needed to sell its products and serve more customers, which will lead to greater product availability and increase the company's revenue.</p>
+                            <p>Project implementation period 17 June 2024 - 17 June 2025</p>
+                            <p>Inquiries related to the project can be addressed to <a href="mailto:info@jodesta.lt">info@jodesta.lt</a></p>
+                            @else
+                            <p><img src="{{ asset('images/finansuoja_ES.jpg') }}" alt="es_projektai" class="col-md-6 col-12"></p>
+                            <p> ЗАО «Йодеста» реализует проект <strong>Внедрение решений по электронным продажам в ЗАО «Йодеста»</strong> № 02-033-K-0047. Общая стоимость проекта составляет <b>50,268.60</b> евро, из которых <b>24,994.20</b> евро финансируется Европейскими фондами регионального развития.</p>.
+                            <p>Проект реализуется в рамках Контракта, в рамках Меры прогресса Программы развития № 05-001-01-05-05 «Содействие цифровизации предприятий», в рамках деятельности «Содействие цифровизации микро, малых и средних предприятий путем финансирования внедрения решений по электронным продажам, конфигурированию и визуализации услуг и продуктов», в рамках воздействия Контракта, в рамках деятельности «Содействие цифровизации микро, малых и средних предприятий путем финансирования внедрения решений по электронным продажам, конфигурированию услуг и продуктов». Описание проекта «Содействие цифровизации микро-, малых и средних предприятий путем финансирования внедрения решений для сделок электронной продажи, конфигурации и визуализации услуг и продуктов» (Столичный регион) и описание проекта «Содействие цифровизации микро-, малых и средних предприятий путем финансирования внедрения решений для сделок электронной продажи, конфигурации и визуализации услуг и продуктов» (Центральный и Западный регион), утвержденные министром Литовской Республики по экономическим делам и инновациям в период с 2022 по 2013 гг. Описание финансирования проекта и правила администрирования и финансирования проектов, утвержденные приказом № 4-877 от 15 июля 2022 г. «Об утверждении описания мероприятия прогресса № 05-001-01-05-05 „Содействие цифровизации предприятий“ руководителя программы развития Министерства экономики и инноваций Литовской Республики на период 2022-2030 гг. Условия и процедуры, изложенные в Регламенте Министра финансов Литовской Республики и Министерства финансов Литовской Республики по реализации Инвестиционной программы фондов Европейского Союза на период 2021-2027 гг. и Плана восстановления и повышения устойчивости экономики «Литва нового поколения», а также условия и процедуры, изложенные в правовых актах Европейского Союза и Литовской Республики, упомянутых в Регламенте Министерства финансов Литовской Республики и Правилах ЕС и Литовской Республики.
+                            <p>Проект направлен на цифровизацию компании и внедрение решений по сделкам электронной продажи.</p>
+                            <p>Jodesta - энергетическая компания. Основными видами ее деятельности являются проектирование, монтаж и ремонт внешних и внутренних инженерных электрических сетей различного назначения, а также продажа услуг по проектированию и монтажу солнечных электростанций (далее - «продукция»)</p
+                            <p>До настоящего времени компания продавала свою продукцию только напрямую, процессы обслуживания клиентов, включая управление заказами на продукцию, не были оцифрованы, и поэтому существующие решения не позволяют сотрудникам эффективно оказывать услуги; без возможности управлять бизнес-операциями в электронном виде (т.е. осуществлять процесс покупки и продажи товаров онлайн, включая поиск товаров, формирование корзины (заказа), оплату, выполнение и управление заказами и т.д.) компания ограничивала количество потенциальных клиентов, а значит и рост выручки компании.</p>
+                            <Для повышения конкурентоспособности, привлечения и более эффективного обслуживания клиентов и расширения продаж компания решила внедрить решения для электронных продаж и продавать свою продукцию с помощью решений для электронной коммерции.</p>
+                            <p>Инновационность данного проекта заключается в создании платформы электронных сделок на основе самых передовых информационных технологий, предоставляющей новые возможности для реализации инновационной продукции.</p>
+                            <p>Проект позволит компании оцифровать процесс продаж, продавать продукцию более эффективно, обеспечивать более быстрое и качественное обслуживание клиентов, сократить время на продажу продукции и обслуживать большее количество клиентов, что приведет к увеличению доступности продукции и росту доходов компании.</p>
+                            <p>Период реализации проекта 17 июня 2024 года - 17 июня 2025 года</p>.
+                            <p>Запросы, связанные с проектом, можно направлять по адресу <a href="mailto:info@jodesta.lt">info@jodesta.lt</a></p>
                             @endif
-
-
                         </div>
                     </div>
                 </div>

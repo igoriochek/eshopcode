@@ -9,7 +9,7 @@
     <meta name="description" content="Jodesta e-shop">
     <meta name="keywords" content="Jodesta, Jodesta shop, Jodesta e-shop">
     @if (config('app.env') == 'production')
-        <meta name="verify-paysera" content="5fcc1c8c93472d25fad9a5035e799a7f">
+        <meta name="verify-paysera" content="8812448562c7fc4ec6048d474a284851">
     @else
         <meta name="verify-paysera" content="3ec543a10d4884d14bb56334d670650d">
     @endif
@@ -96,7 +96,7 @@
     <script src="{{ asset('js/custom.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.5.1/nouislider.min.js"></script>
     <script>
-        
+
         $(document).ready(function() {
             var commonOptions = {
                 "language": {
@@ -338,7 +338,7 @@
                         }
                     }
                 }};
-            
+
 
             $('#categories').DataTable(commonOptions);
 
