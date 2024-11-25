@@ -15,7 +15,7 @@ return [
     'email' => 'Электронная почта',
     'menu' => 'МЕНЮ',
     'account' => 'Мой аккаунт',
-    'copyright' => 'UAB "Nutika" © 2024. Все права защищены',
+    'copyright' => 'UAB "LORD-UK" © 2024. Все права защищены',
     'companycode' => "Код предприятия",
     'vatcode' => "Код НДС",
     'ac' => "Р/с",
