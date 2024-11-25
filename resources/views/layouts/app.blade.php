@@ -10,9 +10,9 @@
     <!-- Title -->
     <title>
         @hasSection('title')
-        @yield('title') - {{ config('app.name', 'Consultus Magnus') }}
+        @yield('title') - {{ config('app.name', 'LORD-UK') }}
         @else
-        {{ config('app.name', 'Consultus Magnus') }}
+        {{ config('app.name', 'LORD-UK') }}
         @endif
     </title>
     <!-- Favicon -->
@@ -56,7 +56,7 @@
 
 <body class="sidebar-mini layout-fixed layout-navbar-fixed">
     @if (auth()->check() && auth()->user()->type == 1)
-    <div class="">
+    <div>
         <div class="wrapper">
             @include('layouts.components.admin_header')
             <main class="content-wrapper px-4 py-2">

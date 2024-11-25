@@ -44,6 +44,6 @@ return [
     'policy' => 'Privatumo politika',
     'euProjects' => 'ES projektai',
     'fbDataDeletion' => 'FB duomenų trynimas',
-    'productComplex' => 'Produkto kompleksas'
+    'productComplex' => 'Produkto komplektas'
 
 ];

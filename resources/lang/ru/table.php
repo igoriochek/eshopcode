@@ -59,10 +59,10 @@ return [
     'value' => 'Значение',
     'video' => 'Видео',
     'visible' => 'Видимый',
-    'includedComplex' => "Включен в комплекс продукт",
+    'includedComplex' => "Включен в комплект продуктов",
     'imageComplex' => "Картинка визуализации",
-    'includedInComplexOrder' => "Включен в комплекс продукт очередь",
-    'productComplex' => "Комплекс продукт",
+    'includedInComplexOrder' => "Включен в комплект продуктов очередь",
+    'productComplex' => "Комплект продукт",
     'yes' => "Да",
     'no' => "Нет",
 ];

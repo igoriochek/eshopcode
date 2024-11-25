@@ -1,51 +1,3 @@
-<!-- <header class="admin-header" style="position: fixed; width: 100%;">
-    <div class="admin-header-container">
-        <div class="admin-header-top-container">
-            <a href="{{ url('/home') }}" class="admin-header-logo">
-                <img src="{{ asset('images/nutika-logo.jpeg') }}" alt="Nutika" class="logo"
-                style="max-width: 60px; max-height: 60px; z-index: -111"
-                >
-            </a>
-            <button class="admin-header-toggle-button" onclick="onClickOpenMenu()" style="background: #3577f0;">
-                <i class="fa-sharp fa-solid fa-bars text-white"></i>
-            </button>
-        </div>
-        <hr class="admin-header-hr">
-
-        <div class="admin-header-center-container">
-            <div class="nav nav-tabs" role="tablist">
-                @include('layouts.menus.admin_menu')
-            </div>
-        </div>
-
-        <hr class="admin-header-hr">
-        <div class="admin-header-bottom-container">
-            <a href="#" role="button"
-               id="navbarUserDropdown"
-               data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img src="{{ asset('images/icons/icon-account.png') }}" height="30" width="30" alt="icon-account" class="admin-header-account-icon">
-                <span class="admin-header-account-name">{{ Auth::user()->name }}</span>
-            </a>
-            @include('layouts.dropdowns.admin_dropdown')
-            <ul class="nav nav-pills">
-                <li class="nav-item dropdown nav-item-border">
-                    <a class="text-uppercase"
-                       href="#" role="button" id="dropdownLanguage" data-bs-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false">
-                        {{ app()->getLocale() }}
-                        <i class="fas fa-angle-down"></i>
-                    </a>
-                    @include('layouts.dropdowns.language_dropdown')
-                </li>
-            </ul>
-        </div>
-    </div>
-</header> -->
-
-<!-- <nav class="main-header navbar navbar-expand navbar-white navbar-light" style="display: flex; justify-content: end;">
-    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-</nav> -->
-
 <nav class="main-header navbar navbar-expand navbar-light" style="height: 56.8px;">
     <ul class="navbar-nav">
         <li class="nav-item" style=>
@@ -59,7 +11,7 @@
     <a href="{{ url('/home') }}" class="brand-link" style="height: 56.8px;display: flex;justify-content: left;align-items: center;">
         <img src="{{ asset('images/nutika-logo.jpeg') }}" alt="logo" class="brand-image img-circle elevation-3"
             style="opacity: .8">
-        <span class="brand-text font-weight-light">Nutika</span>
+        <span class="brand-text font-weight-light">LORD-UK</span>
     </a>
 
     <div class="sidebar">

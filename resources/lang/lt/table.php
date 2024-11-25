@@ -59,10 +59,10 @@ return [
     'value' => 'Vertė',
     'video' => 'Vaizdo įrašas',
     'visible' => 'Matomumas',
-    'includedComplex' => "Įtrauktas į complex produktą",
+    'includedComplex' => "Įtrauktas į komlpekto produktus",
     'imageComplex' => "Visualizacijos paveiksliukas",
-    'includedInComplexOrder' => "Įtrauktas į complex produktą tvarka",
-    'productComplex' => "Complex produktas",
+    'includedInComplexOrder' => "Įtraukto į komplekto produktus tvarka",
+    'productComplex' => "Komplekto produktas",
     'yes' => "Taip",
     'no' => "Ne",
 ];

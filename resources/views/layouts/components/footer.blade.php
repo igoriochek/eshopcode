@@ -9,7 +9,7 @@
                                 <i class="ion-ios-location-outline"></i>
                             </span>
                             <div class="media-body">
-                                <h4 class="title">Veisiejų g. 12-40, LT-66241 Druskininkai</h4>
+                                <h4 class="title">Liepų g. 83, Klaipėda</h4>
                                 <p class="text">{{ __('footer.address') }}</p>
                             </div>
                         </div>
@@ -22,7 +22,7 @@
                                 <i class="ion-ios-email-outline"></i>
                             </span>
                             <div class="media-body">
-                                <h4 class="title"><a href="mailto:example@domain.com">example@domain.com</a></h4>
+                                <h4 class="title" style="text-transform: lowercase;"><a href="mailto:info@lordvisuals.lt">info@lordvisuals.lt</a></h4>
                                 <p class="text">{{ __('footer.email') }}</p>
                             </div>
                         </div>
@@ -35,7 +35,7 @@
                                 <i class="ion-ios-telephone-outline"></i>
                             </span>
                             <div class="media-body">
-                                <h4 class="title"><a href="tel:+37068629686"> +370 686 29686</a></h4>
+                                <h4 class="title"><a href="tel:+37068530832"> +370 685 30832</a></h4>
                                 <p class="text">{{ __('footer.phone') }}</p>
                             </div>
                         </div>

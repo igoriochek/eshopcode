@@ -62,13 +62,13 @@
                     <nav class="header-top-nav">
                         <ul class="d-flex justify-content-start align-items-center">
                             <li>
-                                <a href="tel:37068629686">
-                                    <i class="fa-solid fa-phone me-1 fs-4"></i> +370 686 29686</a>
+                                <a href="tel:+37068530832">
+                                    <i class="fa-solid fa-phone me-1 fs-4"></i> +370 685 30832</a>
                                 <span class="separator">|</span>
                             </li>
                             <li>
-                                <a href="mailto:info@consultusmagnus.com">
-                                    <i class="fa-solid fa-envelope me-1 fs-4"></i>info@consultusmagnus.com</a>
+                                <a href="mailto:info@lordvisuals.lt" style="text-transform: lowercase;">
+                                    <i class="fa-solid fa-envelope me-1 fs-4"></i>info@lordvisuals.lt</a>
                             </li>
                         </ul>
                     </nav>
@@ -145,12 +145,6 @@
                                 </span>
                             </a>
                         </div>
-                        @else
-                        <!-- <div class="cart-block d-inline-block position-relative">
-                            <a href="{{ route('login') }}" class="btn btn-primary rounded mt-5 mt-sm-0" style="color: white !important;">
-                                {{ __('auth.login') }}
-                            </a>
-                        </div> -->
                         @endauth
                     </nav>
                 </div>
