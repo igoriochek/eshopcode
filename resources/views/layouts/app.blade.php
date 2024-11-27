@@ -6,8 +6,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta name="description" content="Jodesta e-shop">
-    <meta name="keywords" content="Jodesta, Jodesta shop, Jodesta e-shop">
+    <meta name="description" content="Jodesta - elektroninė parduotuvė, kurioje parduodami elektros vidaus ir lauko darbai, projektavimas, elektromobilių stotelių įrengimas ir kt.">
+    <meta name="keywords" content="Jodesta, shop, e-shop">
     @if (config('app.env') == 'production')
         <meta name="verify-paysera" content="8812448562c7fc4ec6048d474a284851">
     @else
@@ -47,7 +47,6 @@
     <link rel="stylesheet" href="{{ asset('template/css/plugins/ion.rangeSlider.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('template/css/style.css') }}">
 
-    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.5.1/nouislider.min.css" rel="stylesheet">
     @stack('css')

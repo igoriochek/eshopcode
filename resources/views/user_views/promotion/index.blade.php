@@ -47,20 +47,17 @@
                                     {{ $promotion->name }}
                                 </h5>
                                 <div class="tp-category-main-result mb-1">
-                                    <p class="mb-1">{{ __('names.showing') }}
-                                        {{ count($promotion->products) }} {{ __('names.entries') }}</p>
+                                    <p class="mb-1">{{ __('names.showing') }} 3 {{ __('names.of') }} {{ count($promotion->products) }} {{ __('names.entries') }}</p>
                                 </div>
                                 <div class="row">
                                     @forelse ($promotion->products as $product)
                                         @include('user_views.product.grid_product')
+
                                         @if ($loop->iteration > 2)
                                             @if (count($promotion->products) > 3)
-                                                <div class="tp-category-main-more text-center mt-5"
-                                                    style="margin-bottom: 2rem">
-                                                    <a href="{{ route('promotion', ['id' => $promotion->id]) }}"
-                                                        class="">
-                                                        <button class="btn btn-custom-size lg-size btn-primary"
-                                                            style="width: auto; padding: 0px 15px">{{ __('names.more_for_promotions') }}</button>
+                                                <div class="tp-category-main-more text-center mt-5" style="margin-bottom: 2rem">
+                                                    <a href="{{ route('promotion', ['id' => $promotion->id]) }}" class="">
+                                                        <button class="btn btn-custom-size lg-size btn-primary" style="width: auto; padding: 0px 15px">{{ __('names.more_for_promotions') }}</button>
                                                     </a>
                                                 </div>
                                             @endif

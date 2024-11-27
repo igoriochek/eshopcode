@@ -57,15 +57,12 @@
                                 <ul>
                                     @for ($i = 1; $i <= 5; $i++)
                                         <li style="padding-right: ;">
-                                            <i
-                                                class="
+                                            <i class="
                                                     @if ($average >= $i) fa fa-star
                                                     @elseif ($average >= $i - 0.5) fa fa-star-half-stroke
                                                     @else fa-regular fa-star-o @endif"></i>
                                         </li>
                                     @endfor
-
-
                                 </ul>
                             </div>
                             <div class="review-status ps-4" style="padding-left: 0px !important;">
@@ -103,7 +100,7 @@
                     <input type="hidden" name="id" value="{{ $product->id }}">
                     {!! Form::close() !!}
                 @endif
-                                        
+
                         </ul>
                         <div class="product-category pb-3">
                             <span class="title">{{ __('names.categories') }}: </span>
