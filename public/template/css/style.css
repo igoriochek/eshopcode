@@ -19047,10 +19047,10 @@ blockquote .user-name:before {
   -webkit-box-shadow: 0px 5px 2px -1px rgb(255, 233, 233);
           box-shadow: 0px 5px 2px -1px rgb(255, 233, 233);
   background-color: #fff;
-  position: relative;
+  /*position: relative;
   height: 100%;
   overflow: hidden;
-  z-index: 1;
+  z-index: 1;*/
   border-end-start-radius: 4px;
 }
 .product-item-wrap {
