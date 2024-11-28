@@ -106,7 +106,7 @@ return [
     'createDiscount' => 'Create Discount',
     'discounts' => 'Discounts',
     'discountDetails' => 'Discount Details',
-    'editDiscount'=> 'Edit Discount',
+    'editDiscount' => 'Edit Discount',
 
     //DiscountCoupons
     'createDiscountCoupon' => 'Create Discount Coupon',
@@ -128,7 +128,7 @@ return [
 
     //Homepage
     'addedAt' => 'Added at',
-    'browseProducts'=> 'Browse Products',
+    'browseProducts' => 'Browse Products',
     'code' => 'Code',
     'createdAt' => 'Created At',
     'dashboard' => 'Dashboard',
@@ -164,7 +164,7 @@ return [
     'createOrder' => 'Create Order',
     'createOrderItem' => 'Create Order Item',
     'createOrderStatus' => 'Create Order Status',
-    'editOrder'=> 'Edit Order',
+    'editOrder' => 'Edit Order',
     'editOrderItem' => 'Edit Order Item',
     'editOrderStatus' => 'Edit Order Status',
     'myOrders' => 'My Orders',
@@ -262,7 +262,7 @@ return [
     'returnItemDetails' => 'Return Item Details',
     'returnStatus' => 'Return Status',
     'returnStatuses' => 'Return Statuses',
-    'returnStatusDetails'=> 'Return Status Details',
+    'returnStatusDetails' => 'Return Status Details',
     'noReturns' => 'You have no returns',
 
     //User
@@ -327,6 +327,7 @@ return [
     "last" => "Last",
     'off' => 'OFF',
     'yes' => 'Yes',
-    'no' => 'No'
+    'no' => 'No',
+    'appDescription' => 'Krims kebabai online store.'
 
 ];
