@@ -3,6 +3,8 @@
 namespace App\Repositories;
 
 use App\Models\Product;
+use App\Models\ProductSize;
+use App\Models\ProductSizePrice;
 use App\Repositories\BaseRepository;
 
 /**
@@ -51,5 +53,19 @@ class ProductRepository extends BaseRepository
         $query = $this->allQuery($search, $skip, $limit);
 
         return $query->get($columns);
+    }
+
+    public function getProductSizesPrices($productId)
+    {
+        return ProductSizePrice::query()
+            ->where('product_id', $productId)
+            ->get();
+    }
+
+    public function deleteProductSizesPrices($productId)
+    {
+        ProductSizePrice::query()
+            ->where('product_id', $productId)
+            ->delete();
     }
 }

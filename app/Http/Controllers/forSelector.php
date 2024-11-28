@@ -9,6 +9,7 @@ use App\Models\Discount;
 use App\Models\Order;
 use App\Models\OrderStatus;
 use App\Models\Product;
+use App\Models\ProductSize;
 use App\Models\Promotion;
 use App\Models\Returns;
 use App\Models\ReturnStatus;
@@ -17,6 +18,15 @@ use App\Models\User;
 trait forSelector
 {
     protected $visible_list = ['invisible', 'visible'];
+
+    public function productsSizesForSelector()
+    {
+        $c = array();
+        ProductSize::translatedIn(app()->getLocale())->get()->map(function ($item) use (&$c) {
+            $c[$item->id] = $item->name;
+        });
+        return $c;
+    }
 
     public function categoriesForSelector()
     {

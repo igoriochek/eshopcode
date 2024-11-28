@@ -82,7 +82,7 @@
 <!-- hasSizes Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('hasSizes', __('table.hasSizes').':') !!}
-    {!! Form::select('hasSizes', $default, isset($product->hasSizes) ? $product->hasSizes : null, ['class' => 'form-control custom-select']) !!}
+    {!! Form::select('hasSizes', $default, isset($product->hasSizes) ? $product->hasSizes : null, ['class' => 'form-control custom-select', 'id' => 'hasSizes']) !!}
 </div>
 
 <!-- hasMeats Field -->
@@ -108,3 +108,30 @@
     {!! Form::label('hasFreeAccessories', __('table.hasFreeAccessories').':') !!}
     {!! Form::select('hasFreeAccessories', $default, isset($product->hasFreeAccessories) ? $product->hasFreeAccessories : null, ['class' => 'form-control custom-select']) !!}
 </div>
+
+<!-- Product Sizes Fields -->
+@foreach ($product_sizes as $sizeId => $product_size)
+    <!-- Product Size Price Field -->
+    <div class="form-group col-sm-6">
+        {!! Form::label("price_{$sizeId}", __('table.price').' '.$product_size.':') !!}
+        {!! Form::number("prices[{$sizeId}]", $prices[$sizeId] ?? 0, ['class' => 'form-control', 'step' => '0.01', 'data-has-sizes' => 'true']) !!}
+    </div>
+@endforeach
+
+
+@push('scripts')
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const hasSizesSelect = document.getElementById('hasSizes');
+        const sizePriceFields = document.querySelectorAll('input[data-has-sizes="true"]');
+        function toggleSizePriceFields() {
+            const hasSizesValue = hasSizesSelect.value;
+            sizePriceFields.forEach(field => {
+                field.disabled = hasSizesValue === '0';
+            });
+        }
+        toggleSizePriceFields();
+        hasSizesSelect.addEventListener('change', toggleSizePriceFields);
+    });
+</script>
+@endpush

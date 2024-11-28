@@ -153,6 +153,7 @@ class ProductController extends AppBaseController
                 'categories' => $this->categoriesForSelector(),
                 'promotions' => $this->promotionForSelector(),
                 'discounts' => $this->discountForSelector(),
+                'product_sizes' => $this->productsSizesForSelector(),
                 'default' => $this->default
             ]
         );
@@ -182,6 +183,9 @@ class ProductController extends AppBaseController
 
         //        $product = $this->productRepository->create($input);
         $product = Product::create($input);
+
+        $this->updateOrInsertProductPrices($input, $product->id);
+
         if (!empty($input['categories']))
             $this->saveCategories($input['categories'], $product->id);
 
@@ -283,6 +287,8 @@ class ProductController extends AppBaseController
     public function edit($id)
     {
         $product = $this->productRepository->find($id);
+        $productPrices = $this->productRepository->getProductSizesPrices($id);
+        $sizePrices = $productPrices->pluck('price', 'product_size_id')->toArray();
 
         if (empty($product)) {
             Flash::error('Product not found');
@@ -297,6 +303,8 @@ class ProductController extends AppBaseController
                 'categories' => $this->categoriesForSelector(),
                 'promotions' => $this->promotionForSelector(),
                 'discounts' => $this->discountForSelector(),
+                'product_sizes' => $this->productsSizesForSelector(),
+                'prices' => $sizePrices,
                 'default' => $this->default
             ]
         );
@@ -322,7 +330,6 @@ class ProductController extends AppBaseController
 
         $input = $request->all();
         //        $product = $this->productRepository->update($request->all(), $id);
-
         if (isset($input['image']) && $input['image'] !== null) {
             $imageName = time() . '.' . $request->image->extension();
             $request->image->move(public_path('images/upload'), $imageName);
@@ -334,6 +341,8 @@ class ProductController extends AppBaseController
         empty($input['promotion_id']) && $input['promotion_id'] = null;
         empty($input['discount_id']) && $input['discount_id'] = null;
 
+        $this->updateOrInsertProductPrices($input, $id);
+
         $product->update($input);
 
         $product->categories()->sync($request->categories);
@@ -343,7 +352,24 @@ class ProductController extends AppBaseController
         return redirect(route('products.index'));
     }
 
-
+    public function updateOrInsertProductPrices(array $input, int $productId)
+    {
+        if (isset($input['prices']) && is_array($input['prices']) && isset($input['hasSizes']) && $input['hasSizes'] == 1) {
+            foreach ($input['prices'] as $productSizeId => $price) {
+                DB::table('product_sizes_prices')->updateOrInsert(
+                    [
+                        'product_id' => $productId,
+                        'product_size_id' => $productSizeId
+                    ],
+                    [
+                        'price' => $price,
+                        'updated_at' => now(),
+                        'created_at' => now()
+                    ]
+                );
+            }
+        }
+    }
 
     public function saveCategories($cats, $prod_id)
     {
@@ -372,6 +398,10 @@ class ProductController extends AppBaseController
             Flash::error('Product not found');
 
             return redirect(route('products.index'));
+        }
+
+        if($product->hasSizes) {
+            $this->productRepository->deleteProductSizesPrices($id);
         }
 
         $this->productRepository->delete($id);
