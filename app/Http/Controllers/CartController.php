@@ -215,8 +215,8 @@ class CartController extends AppBaseController
                     'product_id' => $product->id,
                 ])
                 ->first();
-
-            $currentPrice = $product->discount ? $product->computed_discounted_price : $product->computed_price;
+                
+            $currentPrice = $product->discount ? $product->discounted_price : $product->price;
 
             if ($product->only_one) {
                 if (null === $cartItem) {
@@ -289,15 +289,27 @@ class CartController extends AppBaseController
             ->get();
     }
 
+    private function getProductsConstants($cart)
+    {
+        $constants = array();
+        foreach($cart as $cartItem) 
+        {
+            $constants[$cartItem->product_id] = Product::query()->where('id', $cartItem->product_id)->value('const');
+        }
+        return $constants;
+    }
+
     public function viewCart(Request $request)
     {
         $cart = $this->getCart($request);
         $cartItems = $this->getCartItemsByCart($cart);
+        $constants = $this->getProductsConstants($cartItems);
 
         return view('user_views.cart.view')
             ->with([
                 'cartItems' => $cartItems,
-                'cart' => $cart
+                'cart' => $cart,
+                'constants' => $constants,
             ]);
     }
 }

@@ -13,6 +13,7 @@ use App\Models\OrderItem;
 use App\Models\OrderStatus;
 use App\Models\ReturnItem;
 use App\Models\User;
+use App\Models\Product;
 use App\Repositories\CartRepository;
 use App\Repositories\DiscountCouponRepository;
 use App\Repositories\OrderRepository;
@@ -310,12 +311,15 @@ class OrderController extends AppBaseController
             ])
             ->get();
 
+        $constants = $this->getProductsConstants($cartItems);
+
         return view('user_views.checkout.index')
             ->with([
                 'user' => $user,
                 'cart' => $cart,
                 'cartItems' => $cartItems,
                 'discounts' => $discounts,
+                'constants' => $constants,
             ]);
     }
 
@@ -366,6 +370,8 @@ class OrderController extends AppBaseController
         $request->session()->put('appPayCartId', $cart->id);
         $request->session()->put('appPayAmount', $amount);
 
+        $constants = $this->getProductsConstants($cartItems);
+
         return view('user_views.checkout.preview')
             ->with([
                 'user' => $user,
@@ -373,7 +379,18 @@ class OrderController extends AppBaseController
                 'cartItems' => $cartItems,
                 'discounts' => $discounts ?? [],
                 'amount' => $amount,
+                'constants' => $constants,
             ]);
+    }
+
+    private function getProductsConstants($cart)
+    {
+        $constants = array();
+        foreach($cart as $cartItem) 
+        {
+            $constants[$cartItem->product_id] = Product::query()->where('id', $cartItem->product_id)->value('const');
+        }
+        return $constants;
     }
 
     public function downloadInvoicePdf($id)

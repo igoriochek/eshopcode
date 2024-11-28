@@ -6,6 +6,7 @@ use App\Models\Cart;
 use App\Models\CartItem;
 use App\Models\CartStatus;
 use App\Models\User;
+use App\Models\Product;
 use App\Repositories\BaseRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -95,9 +96,15 @@ class CartRepository extends BaseRepository
             ])
             ->get();
 
+        $constants = array();
+        foreach($cartItems as $cartItem) 
+        {
+            $constants[$cartItem->product_id] = Product::query()->where('id', $cartItem->product_id)->value('const');
+        }
+
         $sum = 0;
         foreach ($cartItems as $item) {
-            $sum += $item->price_current * $item->count;
+            $sum += $item->price_current * $item->count + $constants[$item->product_id];
         }
 
         if ($save) {

@@ -61,7 +61,7 @@
                                             </td>
                                             <td class="cart-product-total">
                                                 <span class="amount">
-                                                    €{{ number_format($item->price_current * $item->count, 2) }}
+                                                    €{{ number_format($item->price_current * $item->count + $constants[$item->product_id], 2) }}
                                                 </span>
                                             </td>
                                         </tr>
