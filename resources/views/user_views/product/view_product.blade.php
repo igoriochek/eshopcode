@@ -92,6 +92,11 @@
                             {!! Form::hidden('count', '1') !!}
                         @endif
                     </li>
+                    @if(isset($product->unit))
+                        <li class="d-flex align-items-center">
+                            <span>{{ $product->unit }}</span>
+                        </li>
+                    @endif
                     <li class="add-to-cart">
                         <button type="submit" class="btn btn-custom-size lg-size btn-primary px-4" @if($product->only_one && $isInCart) disabled @endif>
                             {{ __('buttons.addToCart') }}

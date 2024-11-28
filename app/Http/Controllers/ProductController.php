@@ -292,7 +292,6 @@ class ProductController extends AppBaseController
 
             return redirect(route('products.index'));
         }
-
         return view('products.edit')->with(
             [
                 'product' => $product,

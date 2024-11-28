@@ -52,6 +52,7 @@ return [
     'statusId' => 'Būsenos ID',
     'subTotal' => 'Tarpinė suma',
     'sum' => 'Suma',
+    'unit' => 'Matavimo vienetas',
     'userType' => 'Naudotojo tipas',
     'updated_at' => 'Atnaujinimo data',
     'used' => 'Panaudotas',

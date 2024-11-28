@@ -107,3 +107,9 @@
     {!! Form::label('categories', __('table.categories').':') !!}
     {!! Form::select('categories[]', $categories, null, ['class' => 'form-control custom-select', 'multiple'=>'multiple','name'=>'categories[]']) !!}
 </div>
+
+<!-- Measurement Unit Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label("unit", ''.__('table.unit').':') !!}
+    {!! Form::text("unit", ( isset($product->unit) ? $product->unit : null ) , ['class' => 'form-control']) !!}
+</div>

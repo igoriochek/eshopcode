@@ -52,6 +52,7 @@ return [
     'statusId' => 'Status ID',
     'subTotal' => 'Subtotal',
     'sum' => 'Sum',
+    'unit' => 'Measurement unit',
     'userType' => 'User Type',
     'updated_at' => 'Updated At',
     'used' => 'Used',

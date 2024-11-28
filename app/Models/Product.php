@@ -39,6 +39,7 @@ class Product extends Model implements TranslatableContract
         'discount_id',
         'const',
         'only_one',
+        'unit',
         'created_at',
         'updated_at',
     ];
@@ -58,6 +59,7 @@ class Product extends Model implements TranslatableContract
         'discount_id' => 'integer',
         'const' => 'double',
         'only_one' => 'boolean',
+        'unit' => 'string',
         'created_at' => 'datetime',
         'updated_at' => 'datetime'
     ];

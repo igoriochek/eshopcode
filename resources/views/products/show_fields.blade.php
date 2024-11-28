@@ -58,6 +58,14 @@
     <p>{{ $product->const }}</p>
 </div>
 
+@if(isset($product->unit))
+    <!-- Measurement Unit Field -->
+    <div class="col-sm-12">
+        {!! Form::label('unit', __('table.unit').':') !!}
+        <p>{{ $product->unit }}</p>
+    </div>
+@endif
+
 <!-- Created At Field -->
 <div class="col-sm-12">
     {!! Form::label('created_at', __('table.created_at').':') !!}
