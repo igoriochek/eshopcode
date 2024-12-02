@@ -25,6 +25,11 @@
                         €{{ number_format($product->price, 2) }}
                     </span>
                 @endif
+                @if(isset($product->unit))
+                    <span class="ms-1">
+                        {{ $product->unit }}
+                    </span>
+                @endif
             </div>
             <div class="rating-box pb-2">
                 <ul>

@@ -38,7 +38,7 @@
                 <div class="col-lg-6 pt-9 pt-lg-0">
                     <div class="single-product-content">
                         <h2 class="title mb-3">{{ $product->name }}</h2>
-                        <div class="price-box pb-3">
+                        <div class="price-box pb-3 d-flex">
                             @if ($product->discount)
                                 <span class="new-price text-danger">
                                     €{{ number_format($product->discounted_price, 2) }}
@@ -50,6 +50,9 @@
                                 <span class="new-price text-danger">
                                     €{{ number_format($product->price, 2) }}
                                 </span>
+                            @endif
+                            @if(isset($product->unit))
+                                <span class="ms-2">{{ $product->unit }}</span>
                             @endif
                         </div>
                         <div class="rating-box-wrap pb-9">
@@ -92,11 +95,6 @@
                             {!! Form::hidden('count', '1') !!}
                         @endif
                     </li>
-                    @if(isset($product->unit))
-                        <li class="d-flex align-items-center">
-                            <span>{{ $product->unit }}</span>
-                        </li>
-                    @endif
                     <li class="add-to-cart">
                         <button type="submit" class="btn btn-custom-size lg-size btn-primary px-4" @if($product->only_one && $isInCart) disabled @endif>
                             {{ __('buttons.addToCart') }}
