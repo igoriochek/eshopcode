@@ -112,10 +112,10 @@
                                     @if ($order->status->name == 'Returned')
                                     <th scope="col" class="text-center th-col">{{ __('table.status') }}</th>
                                     @endif
-                                    <th scope="col" class="text-center th-col">{{ __('table.productName') }}</th>
+                                    <th scope="col" class="text-center th-col" style="text-transform: none !important;">{{ __('table.productName') }}</th>
                                     <th scope="col" class="text-center th-col">{{ __('table.price') }}</th>
                                     <th scope="col" class="text-center th-col">{{ __('table.count') }}</th>
-                                    <th scope="col" class="text-center th-col">{{ __('table.productComplex') }}</th>
+                                    <th scope="col" class="text-center th-col" style="text-transform: none !important;">{{ __('table.productComplex') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -160,6 +160,9 @@
 
 @push('css')
 <style>
+    .btn-dark3 {
+        text-transform: none !important;
+    }
     a.axil-btn,
     button.axil-btn {
         padding: 14px 26px !important;
@@ -192,7 +195,7 @@
         background-color: #0090f0 !important;
         border-color: transparent !important;
         color: #fff !important;
-        text-transform: capitalize !important;
+        text-transform: none !important;
     }
 </style>
 @endpush

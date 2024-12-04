@@ -31,7 +31,7 @@
                                     <div class="col-12 col-md-6 mb-3 mb-md-0">
                                         <nav class="shop-grid-nav">
                                             <ul class="nav nav-pills align-items-center" id="pills-tab" role="tablist">
-                                                <li> <span class="total-products text-capitalize">
+                                                <li> <span class="total-products">
                                                         {{ __('names.showing') }}
                                                         @if ($addUsers->currentPage() !== $addUsers->lastPage())
                                                         {{ ($addUsers->count() * $addUsers->currentPage() - $addUsers->count() + 1).__('–').($addUsers->count() * $addUsers->currentPage()) }}

@@ -7,7 +7,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h3 class="title text-capitalize">{{ __('menu.cart') }}</h3>
+                <h3 class="title">{{ __('menu.cart') }}</h3>
                 <div class="table-responsive pt-4">
                     @include('user_views.cart.table')
                 </div>
@@ -47,3 +47,9 @@
     </div>
 </section>
 @endsection
+
+<style>
+    .btn-dark3 {
+        text-transform: none !important;
+    }
+</style>

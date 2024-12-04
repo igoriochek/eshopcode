@@ -195,3 +195,13 @@
         </div>
     </div>
 </footer>
+
+<style>
+    .section-title .title, .section-title2 .title {
+        text-transform: none !important;
+    }
+
+    .address-widget .title {
+        text-transform: none !important;
+    }
+</style>

@@ -1,9 +1,10 @@
-<a id="scrollUp" href="#top" style="position: fixed; z-index: 214; display: none;">
-    <i class="fas fa-arrow-up"></i>
+<a id="scrollUp" href="#top" style="position: fixed; z-index: 214; display: none; align-content: center !important;">
+    <i class="fas fa-arrow-up" style="color: #fff;"></i>
 </a>
 
 @push('css')
 <style>
+
     #scrollUp {
         bottom: 40px;
         right: 40px;
@@ -15,6 +16,7 @@
         display: none;
         opacity: 0;
         transition: opacity 0.3s ease-in-out;
+        align-content: center !important;
     }
 
     #scrollUp.show {

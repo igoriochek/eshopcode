@@ -89,29 +89,6 @@
                             </div>
                         </div>
                         {!! Form::close() !!}
-
-                        <!-- {!! Form::open([
-                        'route' => ['addtocart'],
-                        'method' => 'post',
-                        'class' => 'product-add-to-cart-container d-flex-center',
-                        ]) !!}
-
-                        <div class="pro-qty">
-                            <input type="number" name="count" value="1" min="1"
-                                class="product-add-to-cart-number"
-                                oninput="this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null">
-                        </div>
-
-                        <input type="hidden" name="id" value="{{ $product->id }}">
-
-                        <ul class="product-action d-flex-center mb--0">
-                            <li class="add-to-cart">
-                                <button type="submit"
-                                    class="axil-btn btn-bg-primary">{{ __('buttons.addToCart') }}</button>
-                            </li>
-                        </ul>
-                        {!! Form::close() !!} -->
-
                         <div class="pro-social-links mt-4">
                             <span>{{ __('names.categories') }}:</span>
                             @forelse ($product->categories as $category)
@@ -139,6 +116,10 @@
 
 @push('css')
 <style>
+    .product-single.style1 .product-head .title {
+        text-transform: none !important;
+    }
+
     .counter-container {
         display: inline-block;
         position: relative;

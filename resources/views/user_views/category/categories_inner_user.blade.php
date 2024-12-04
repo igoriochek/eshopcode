@@ -28,8 +28,13 @@
                                             href="#pills-profile" role="tab" aria-controls="pills-profile"
                                             aria-selected="false"><i class="ion-android-menu"></i></a>
                                     </li>
-                                    <li> <span class="total-products text-capitalize">
-                                            {{ __('names.thereAre') . ' ' . $products->total() . ' ' . __('names.products') }}</span>
+                                    <li>
+                                        <span class="total-products">
+                                            {{ __('names.thereAre') . ' ' . $products->total() }}
+                                        </span>
+                                        <span style="text-transform: lowercase;">
+                                            {{ ' ' . __('names.products') }}
+                                        </span>
                                     </li>
                                 </ul>
                             </nav>

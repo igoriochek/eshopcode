@@ -82,4 +82,8 @@
             text-align: right;
         }
     }
+
+    .whish-list-section .table .thead-light th {
+        text-transform: none !important;
+    }
 </style>

@@ -74,6 +74,10 @@
 
 @push('css')
 <style>
+    .product-desc .title {
+        text-transform: none !important;
+    }
+    
     .counter-container {
         display: inline-block;
         position: relative;

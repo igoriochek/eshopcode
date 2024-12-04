@@ -30,7 +30,7 @@
                                 style="width: 42px; padding-top: 1px" />
                         </div>
                         <div>
-                            <span>{{ __('names.to') }}: <b class="text-dark">€</b></span>
+                            <span class="text-capitalize">{{ __('names.to') }}: <b class="text-dark">€</b></span>
                             <input type="text" id="filter[priceto]" name="filter[priceto]" readonly
                                 value="{{ $filter['priceto'] ?? '0' }}" class="price-input px-0 fw-bold fs-4"
                                 style="width: 42px; padding-top: 1px" />
@@ -38,7 +38,11 @@
                     </div>
                 </div>
             </div>
+            <button class="btn btn-primary rounded mt-4" type="submit">
+                {{ __('buttons.filter') }}
+            </button>
         </div>
+
 
         <div class="product-widget pt-3rem mb-3rem">
             <h3 class="title">{{ __('names.categories') }}</h3>
@@ -70,6 +74,10 @@
 </form>
 
 <style>
+    .product-widget .title {
+        text-transform: none !important;
+    }
+
     .form-control {
         font-size: 1.2rem;
         border: 2px solid #0090f0;

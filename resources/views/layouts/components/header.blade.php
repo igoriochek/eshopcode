@@ -150,7 +150,7 @@
                 </div>
                 <div class="col-4 text-center">
                     <div class="logo mt-3 mb-2rem">
-                        <a href="{{ url('/products') }}"><img src="assets/img/logo/logo-dark.jpg" alt="logo"></a>
+                        <a href="{{ url('/products') }}"><img src="{{ asset('images/LordUK_logo.jpg') }}" alt="logo"></a>
                     </div>
                 </div>
                 <div class="col-4 text-end">
@@ -175,7 +175,7 @@
             <div class="row align-items-center position-relative d-none d-lg-flex">
                 <div class="col-lg-2 d-none d-lg-block">
                     <div class="logo">
-                        <a href="{{ url('/products') }}"><img src="assets/img/logo/logo-dark.jpg" alt="logo"></a>
+                        <a href="{{ url('/products') }}"><img src="{{ asset('images/LordUK_logo.jpg') }}" alt="logo"></a>
                     </div>
                 </div>
                 <div class="col-lg-8 position-static">
@@ -291,5 +291,13 @@
     .form-item-a:hover {
         display: flex;
         color: #0090f0 !important;
+    }
+
+    .offcanvas .offcanvas-menu ul li a {
+        text-transform: none !important;
+    }
+
+    .main-menu li > a {
+        text-transform: none !important;
     }
 </style>

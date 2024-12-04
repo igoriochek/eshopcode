@@ -16,3 +16,13 @@
         </div>
     </div>
 </nav>
+
+<style>
+    .breadcrumb-item a {
+        text-transform: none !important;
+    }
+
+    .breadcrumb-item.active {
+        text-transform: none !important;
+    }
+</style>

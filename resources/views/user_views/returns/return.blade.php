@@ -37,7 +37,7 @@
         background-color: #0090f0 !important;
         border-color: transparent !important;
         color: #fff !important;
-        text-transform: capitalize !important;
+        text-transform: none !important;
     }
 
     .form-control {

@@ -13,7 +13,7 @@
                         <div class="col-12 col-md-6 mb-3 mb-md-0">
                             <nav class="shop-grid-nav">
                                 <ul class="nav nav-pills align-items-center" id="pills-tab" role="tablist">
-                                    <li> <span class="total-products text-capitalize">
+                                    <li> <span class="total-products">
                                             @if (count($discountCoupons) > 0)
                                             {{ __('names.showing') }}
                                             @if ($discountCoupons->currentPage() !== $discountCoupons->lastPage())

@@ -27,8 +27,17 @@
                                             href="#pills-profile-{{ $promotion->id }}" role="tab" aria-controls="pills-profile-{{ $promotion->id }}"
                                             aria-selected="false"><i class="ion-android-menu"></i></a>
                                     </li>
-                                    <li> <span class="total-products text-capitalize">
-                                            {{ __('names.showing') . ' 3 ' . __('names.of') . ' ' . count($promotion->products) . ' ' . __('names.products') }}</span>
+                                    <li>
+                                        <span class="total-products">
+                                            @if(count($promotion->products) >= 3)
+                                                {{ __('names.showing') . ' 3 ' . __('names.of') . ' ' . count($promotion->products) }}
+                                            @else
+                                                {{ __('names.showing') . ' ' . count($promotion->products) . ' ' . __('names.of') . ' ' . count($promotion->products) }}
+                                            @endif
+                                        </span>
+                                        <span class="total-products" style="text-transform: lowercase !important; margin-left: 0px !important;">
+                                            {{ ' ' . __('names.products') }}
+                                        </span>
                                     </li>
                                 </ul>
                             </nav>

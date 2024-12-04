@@ -11,7 +11,7 @@
             <div class="col-lg-8 col-12">
                 {!! Form::open(['route' => ['pay'], 'method' => 'post']) !!}
                 <div class="axil-order-summery order-checkout-summery">
-                    <h3 class="title text-capitalize d-flex justify-content-center">{{ __('names.yourOrder') }}</h3>
+                    <h3 class="title d-flex justify-content-center">{{ __('names.yourOrder') }}</h3>
                     <div class="table-responsive">
                         <table class="table">
                             <thead class="thead-light">
@@ -63,3 +63,9 @@
     </div>
 </div>
 @endsection
+
+<style>
+    .whish-list-section .table .thead-light th {
+        text-transform: none !important;
+    }
+</style>

@@ -9,7 +9,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4" style="display: flex !important; flex-direction: column !important;">
 
     <a href="{{ url('/home') }}" class="brand-link" style="height: 56.8px;display: flex;justify-content: left;align-items: center;">
-        <img src="{{ asset('images/nutika-logo.jpeg') }}" alt="logo" class="brand-image img-circle elevation-3"
+        <img src="{{ asset('images/LordUK_logo.jpg') }}" alt="logo" class="brand-image img-circle elevation-3"
             style="opacity: .8">
         <span class="brand-text font-weight-light">LORD-UK</span>
     </a>
