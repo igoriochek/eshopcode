@@ -25,8 +25,8 @@ class LogActivity extends Model
 
     public function scopeSearch($query, $keywords)
     {
-//        return $query->where('activity', 'RLIKE', '[[:<:]]'.$keywords.'[[:>:]]');
-        return $query->where('activity', 'RLIKE', '\\b' . preg_quote($keywords, '/') . '\\b');
+        return $query->where('activity', 'RLIKE', '[[:<:]]' . addslashes($keywords) . '[[:>:]]');
+        // return $query->where('activity', 'RLIKE', '\\b' . preg_quote($keywords, '/') . '\\b');
     }
 
     /**
