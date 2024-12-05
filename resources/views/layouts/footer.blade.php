@@ -163,7 +163,7 @@
             <div class="footer-copyright py-4">
                 <div class="row align-items-center justify-content-md-between">
                     <div class="col-12 col-md-auto text-center text-md-start">
-                        <p class="mb-0">© 2023 IĮ "E. Mikucko firma"</p>
+                        <p class="mb-0">© 2023-{{ date("Y") }} IĮ "E. Mikucko firma"</p>
                     </div>
                     <div class="col-12 col-md-auto">
                         <div class="d-flex justify-content-center justify-content-md-end">
