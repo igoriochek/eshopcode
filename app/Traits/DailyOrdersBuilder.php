@@ -79,7 +79,7 @@ trait DailyOrdersBuilder
         $dailyOrdersItemsArray = [];
 
         foreach ($dailyOrdersItems as $key => $orderItem) {
-            $dailyOrdersItemsArray[$key]['name'] = $orderItem->product->name;
+            $dailyOrdersItemsArray[$key]['name'] = $orderItem->product->name ?? null;
             $dailyOrdersItemsArray[$key]['size'] = $orderItem->itemSize->name ?? null;
             $dailyOrdersItemsArray[$key]['meat'] = $orderItem->meat->name ?? null;
             $dailyOrdersItemsArray[$key]['sauce'] = $orderItem->sauce->name ?? null;
@@ -104,7 +104,7 @@ trait DailyOrdersBuilder
 
         foreach ($orderItemAccessories as $accessory) {
             if (class_exists($accessoryModel)) {
-                $accessory = $accessoryModel::where('id', $accessory)->first()->name;
+                $accessory = $accessoryModel::where('id', $accessory)->first()->name ?? null;
                 $accesoriesArray[] = $accessory;
             }
         }
@@ -204,7 +204,7 @@ trait DailyOrdersBuilder
                     $orderItem->product_meat_id = null;
                     $orderItem->product_sauce_id = null;
                     $orderItem->paid_accessories = strval($randomPaidAccessory);
-                    $orderItem->free_accessories = '278,279';
+                    $orderItem->free_accessories = '278,281';
                     $orderItem->price_current = 6.50 * $productCount + $paidAccesoryPrice;
                     $orderItem->count = $productCount;
                     $orderItem->save();
