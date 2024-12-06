@@ -15,7 +15,7 @@
                     <td>{{ $userActivity->id ?? '-'}}</td>
                     <td>{{ $userActivity->user->name ?? '-' }}</td>
                     <td>{{ $userActivity->user->email ?? '-' }}</td>
-                    @if ($userActivity->user->type == '1')
+                    @if (optional($userActivity->user)->type == '1')
                         <td>{{__('table.admin')}}</td>
                     @else
                         <td>{{__('table.user')}}</td>

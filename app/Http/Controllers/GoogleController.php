@@ -25,6 +25,13 @@ class GoogleController extends Controller
 
             $name = $this->getName($user->getName());
             $email = $this->getEmail($user->getEmail());
+            
+            $existingUser = User::where('email', $email)->first();
+            if(!$existingUser->google_id) {
+                return redirect()->route('login')->withErrors([
+                    'email' => __('auth.usedEmail')
+                ]);
+            }
 
             $saveUser = User::updateOrCreate([
                'google_id' => $user->getId(),
