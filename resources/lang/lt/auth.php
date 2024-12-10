@@ -17,6 +17,7 @@ return [
     'failed' => 'Pateikti duomenys neatitinka mūsų įrašų.',
     'password' => 'Pateiktas slaptažodis yra neteisingas.',
     'throttle' => 'Bandėte prisijungti per daug kartų. Bandykite dar kartą po :seconds sekundžių.',
+    'usedEmail' => 'Šis el. pašto adresas jau susietas su paskyra.',
 
     'login' => 'Prisijungimas',
     'register' => 'Registracija',

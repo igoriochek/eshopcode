@@ -22,6 +22,18 @@ class GoogleController extends Controller
         try{
             $user = Socialite::driver('google')->stateless()->user();
 
+            $email = $user->getEmail();
+
+            $existingUser = User::where('email', $email)->first();
+
+            if($existingUser) {
+                if(!$existingUser->google_id) {
+                    return redirect()->route('login')->withErrors([
+                        'email' => __('auth.usedEmail')
+                    ]);
+                }
+            }
+
             $saveUser = User::updateOrCreate([
                'google_id' => $user->getId(),
             ],[

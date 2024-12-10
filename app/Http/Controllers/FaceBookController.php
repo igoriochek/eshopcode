@@ -28,6 +28,16 @@ class FaceBookController extends Controller
             $name = $this->getName($user->getName());
             $email = $this->getEmail($user->getEmail());
 
+            $existingUser = User::where('email', $email)->first();
+
+            if($existingUser) {
+                if(!$existingUser->facebook_id) {
+                    return redirect()->route('login')->withErrors([
+                        'email' => __('auth.usedEmail')
+                    ]);
+                }
+            }
+
             $saveUser = User::updateOrCreate([
                 'twitter_id' => $user->getId(),
             ], [
