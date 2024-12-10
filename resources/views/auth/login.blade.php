@@ -74,7 +74,7 @@
                             </form>
                             <hr class="my-5">
                             <div class="card-login mt-40 p-0 ml-0 border-0">
-                                <a href="{{ route('facebook.login') }}" class="social-login facebook-login d-flex justify-content-center fs-6">
+                                <a href="" class="social-login facebook-login d-flex justify-content-center fs-6">
                                     <img src="{{asset('/images/theme/icons/logo-facebook.svg')}}" alt=""/>
                                     <span>{{__('auth.continueFacebook')}}</span>
                                 </a>
@@ -82,7 +82,7 @@
                                     <i class="fa-brands fa-google me-3 fs-4"></i>
                                     <span>{{__('auth.continueGoogle')}}</span>
                                 </a>
-                                <a href="{{ route('twitter.login') }}" class="social-login apple-login d-flex justify-content-center fs-6">
+                                <a href="" class="social-login apple-login d-flex justify-content-center fs-6">
                                     <img src="{{asset('/images/theme/icons/icon-twitter-white.svg')}}" alt=""/>
                                     <span>{{__('auth.continueTwitter')}}</span>
                                 </a>

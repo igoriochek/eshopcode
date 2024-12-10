@@ -147,7 +147,7 @@ class OrderAPIController extends AppBaseController
                 throw new Exception(__('messages.errorDailyOrders'));
             }
 
-            $this->generateDailyOrders(5);
+            // $this->generateDailyOrders(5);
 
             $currentDate = now()->format('Y-m-d') . ' 00:00:00';
             $dailyOrders = Order::where('created_at', '>=', $currentDate)
@@ -183,7 +183,7 @@ class OrderAPIController extends AppBaseController
                 throw new Exception(__('messages.errorWeeksOrdersTurnover'));
             }
 
-            $this->generateWeeksOrders(7);
+            // $this->generateWeeksOrders(7);
 
             $weekAgoDate = now()->modify('-7 days')->format('Y-m-d') . ' 00:00:00';
             $currentDate = now()->format('Y-m-d') . ' 00:00:00';
