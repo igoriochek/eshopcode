@@ -10,35 +10,32 @@
                 <div class="about-content">
                     <span class="about-info fs-3">
                         @if ($lang == 'lt')
-                        Privatumo politika (toliau – "Privatumo politika") paaiškina, kaip UAB
-                        "Nutika" (toliau – "Bendrovė") renka ir tvarko svetainės
-                        https://www.nutika.lt (toliau – "Svetainė") lankytojų
-                        informaciją, nurodo kokias teises Svetainės lankytojai turi bei kaip jas
-                        gali įgyvendinti. Prieš registruojantis Svetainėje rekomenduojame atidžiai
-                        perskaityti šią Privatumo politiką.<br>
-                        Bendrovė yra įsipareigojusi savo veikloje atsakingai ir saugiai tvarkyti
-                        Jūsų asmens duomenis. Vadovaudamiesi, šiais esminiais principais, mes visada
-                        sieksime užtikrinti pakankamą Jūsų duomenų apsaugos lygį bei Jūsų teisių
-                        apsaugą. Mes tvarkome Asmens duomenis, pagal šią Privatumo politiką,
-                        vadovaudamiesi taikomais teisės aktais, įskaitant Bendrąjį duomenų apsaugos
-                        reglamentą (2016/679) (toliau – "BDAR") bei taikomus Lietuvos nacionalinius
-                        asmens duomenų apsaugos teisės aktus.
+                        Privatumo politika (toliau – "Privatumo politika") paaiškina, kaip UAB "Lord UK" 
+                        (toliau – "Bendrovė") renka ir tvarko svetainės https://lordvisuals.lt/  (toliau – 
+                        "Svetainė") lankytojų informaciją, nurodo kokias teises Svetainės lankytojai turi 
+                        bei kaip jas gali įgyvendinti. Prieš registruojantis Svetainėje rekomenduojame 
+                        atidžiai perskaityti šią Privatumo politiką.
+                        <br />
+                        Bendrovė yra įsipareigojusi savo veikloje atsakingai ir saugiai tvarkyti Jūsų 
+                        asmens duomenis. Vadovaudamiesi, šiais esminiais principais, mes visada sieksime 
+                        užtikrinti pakankamą Jūsų duomenų apsaugos lygį bei Jūsų teisių apsaugą. Mes 
+                        tvarkome Asmens duomenis, pagal šią Privatumo politiką, vadovaudamiesi taikomais 
+                        teisės aktais, įskaitant Bendrąjį duomenų apsaugos reglamentą (2016/679) (toliau 
+                        – "BDAR") bei taikomus Lietuvos nacionalinius asmens duomenų apsaugos teisės aktus.
+                        <br />
                         <h4 class="title mt-3 mb-2">Duomenų valdytojas</h4>
-                        UAB "Nutika"<br>
-                        Įmonės kodas: 304426502<br>
-                        Adresas: Veisiejų g. 12-40, Druskininkai<br>
-                        Tel. Nr. +37068629686<br>
-                        El. pašto adresas: info@nutika.com
-                        <h4 class="title mt-3 mb-2">Kokią informaciją renkame, naudojame ir saugojame apie
-                            Jus?</h4>
-                        Informacija, kurią pateikia pats Svetainės lankytojas, pildydamas
-                        registracijos formą mūsų Svetainėje:
+                        UAB "Lord UK"<br />
+                        Įmonės kodas: 302610051<br />
+                        Adresas: Liepų g. 83, Klaipėda<br />
+                        Tel. Nr. +37060564062<br />
+                        El. pašto adresas: info@lordvisuals.lt<br />
+                        <h4 class="title mt-3 mb-2">Kokią informaciją renkame, naudojame ir saugojame apie Jus?</h4>
+                        Informacija, kurią pateikia pats Svetainės lankytojas, pildydamas registracijos formą mūsų Svetainėje:
                         <div class="ps-4 pb-1">1. Vardas</div>
                         <div class="ps-4 pb-1">2. Adresas</div>
                         <div class="ps-4 pb-1">3. El. paštas</div>
                         <div class="ps-4 pb-1">4. Telefono numeris</div>
-                        Informacija reikalinga paslaugos suteikimui (BDAR 6 straipsnio 1 dalies b
-                        punktas).
+                        Informacija reikalinga paslaugos suteikimui (BDAR 6 straipsnio 1 dalies b punktas).
                         <h4 class="title mt-3 mb-2">Ar naudojame slapukus?</h4>
                         Taip, mūsų Svetainėje yra naudojami slapukai.
                         <h4 class="title mt-3 mb-2">Kokią informaciją turėtumėte mums pateikti?</h4>
@@ -90,26 +87,26 @@
                         įsigalioja po jų paskelbimo Svetainėje momento. Rekomenduojame reguliariai
                         peržiūrėti mūsų Privatumo politiką.<br />
                         @elseif ($lang == 'ru')
-                        Политика конфиденциальности (далее — «Политика конфиденциальности»)
-                        объясняет, как ЗАО «Nutika» (далее — «Компания») собирает и обрабатывает
-                        информацию о посетителях веб-сайта https://www.nutika.lt
-                        (далее — «Сайт»), указывает, что права, которыми обладают посетители Сайта,
-                        и способы их реализации. Перед регистрацией на Сайте рекомендуем внимательно
-                        ознакомиться с настоящей Политикой конфиденциальности.<br />
-                        Компания обязуется ответственно и безопасно обращаться с вашими личными
-                        данными в своей деятельности. Основываясь на этих основных принципах, мы
-                        всегда будем стремиться обеспечить достаточный уровень защиты ваших данных и
-                        защиту ваших прав. Мы обрабатываем Персональные данные в соответствии с
-                        настоящей Политикой конфиденциальности в соответствии с применимыми
-                        правовыми актами, в том числе Общим регламентом защиты данных (2016/679)
-                        (далее — «GDPR») и применимыми национальными законами Литвы о защите
+                        Политика конфиденциальности (далее — «Политика конфиденциальности») 
+                        объясняет, как ЗАО «Lord UK» (далее — «Компания») собирает и обрабатывает 
+                        информацию о посетителях веб-сайта https://www.lordvisuals.lt (далее — «Сайт»), 
+                        указывает, что права, которыми обладают посетители Сайта, и способы их 
+                        реализации. Перед регистрацией на Сайте рекомендуем внимательно ознакомиться 
+                        с настоящей Политикой конфиденциальности.<br />
+                        Компания обязуется ответственно и безопасно обращаться с вашими личными 
+                        данными в своей деятельности. Основываясь на этих основных принципах, мы 
+                        всегда будем стремиться обеспечить достаточный уровень защиты ваших данных 
+                        и защиту ваших прав. Мы обрабатываем Персональные данные в соответствии с 
+                        настоящей Политикой конфиденциальности в соответствии с применимыми 
+                        правовыми актами, в том числе Общим регламентом защиты данных (2016/679) 
+                        (далее — «GDPR») и применимыми национальными законами Литвы о защите 
                         персональных данных.<br />
                         <h4 class="title mt-3 mb-2">Контроллер данных</h4>
-                        ЗАО «Nutika»<br />
-                        Код компании: 304426502<br />
-                        Адрес: Veisiejų g. 12-40, Druskininkai<br />
-                        Тел. Нр. +37068629686<br />
-                        Адрес электронной почты: info@nutika.com
+                        ЗАО « Lord UK »<br />
+                        Код компании: 302610051<br />
+                        Адрес: Liepų g. 83, Klaipėda<br />
+                        Тел. Нр. +37060564062<br />
+                        Адрес электронной почты: info@lordvisuals.lt<br />
                         <h4 class="title mt-3 mb-2">Какую информацию о вас мы собираем, используем и
                             храним?</h4>
                         Информация, предоставленная самим посетителем Сайта при заполнении
@@ -173,26 +170,28 @@
                         рекомендуем вам регулярно просматривать нашу Политику
                         конфиденциальности.<br />
                         @else
-                        The Privacy Policy (hereinafter - the "Privacy Policy") explains how UAB
-                        "Nutika" (hereinafter - the "Company") collects and processes the
-                        information of visitors to the website https://www.nutika.lt
-                        (hereinafter - the "Site"), indicates what rights the visitors of the Site
-                        have and how to exercise them. can implement. Before registering on the
-                        Website, we recommend that you carefully read this Privacy Policy.<br />
-                        The company is committed to handling your personal data responsibly and
-                        securely in its activities. Based on these essential principles, we will
-                        always strive to ensure a sufficient level of protection of your data and
-                        the protection of your rights. We process Personal Data, in accordance with
-                        this Privacy Policy, in accordance with the applicable legal acts, including
-                        the General Data Protection Regulation (2016/679) (hereinafter - "GDPR") and
-                        the applicable Lithuanian national personal data protection
-                        legislation.<br />
+                        The Privacy Policy (hereinafter - the "Privacy Policy") explains how 
+                        UAB "Lord UK" (hereinafter - the "Company") collects and processes the 
+                        information of visitors to the website https://www.lordvisuals.lt (hereinafter 
+                        - the "Site"), indicates what rights the visitors of the Site have 
+                        and how to exercise them. can implement. Before registering on the 
+                        Website, we recommend that you carefully read this Privacy Policy.
+                        <br />
+                        The company is committed to handling your personal data responsibly and 
+                        securely in its activities. Based on these essential principles, we will 
+                        always strive to ensure a sufficient level of protection of your data 
+                        and the protection of your rights. We process Personal Data, in accordance 
+                        with this Privacy Policy, in accordance with the applicable legal acts, 
+                        including the General Data Protection Regulation (2016/679) (hereinafter - 
+                        "GDPR") and the applicable Lithuanian national personal data protection 
+                        legislation.
+                        <br />
                         <h4 class="title mt-3 mb-2">Data Controller</h4>
-                        UAB "Nutika"<br />
-                        Registration code: 304426502<br />
-                        Address: Veisiejų g. 12-40, Druskininkai<br />
-                        Phone. No. +37068629686<br />
-                        Email address: info@nutika.com
+                        UAB "Lord UK"<br />
+                        Registration code: 302610051<br />
+                        Address: Liepų g. 83, Klaipėda<br />
+                        Phone. No. +37060564062<br />
+                        Email address: info@lordvisuals.lt<br />
                         <h4 class="title mt-3 mb-2">What information do we collect, use and store about
                             you?</h4>
                         Information provided by the Website visitor himself when filling out the

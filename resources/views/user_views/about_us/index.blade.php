@@ -10,80 +10,96 @@
                     <div class="about-content">
                         <span class="text-heading fs-3">
                             @if (app()->getLocale() == 'lt')
-                                UAB "Nutika" – kokybiškas buhalterines ir teisines paslaugas teikianti
-                                įmonė.<br><br>
-                                Nėra tokios organizacijos, kur buhalterija ir vidaus auditas nebūtų
-                                svarbūs. Šitas pagrindinės vidinės veiklos, padedančios įmonėms ir
-                                organizacijoms veikti teisėtas ir veiksmingas.<br><br>
-                                Mūsų patyrę partneriai įvairiose šalyse padarys viską, kad žinotų ir
-                                suprastų jūsų verslą ir yra tam pasiruošę teikti platų kokybiškų
-                                paslaugų spektrą.<br><br>
-                                Turime partnerių Europos Sąjungoje ir už jos ribų, esame orientuoti į
-                                stiprų ir stiprų kūrimą ilgalaikius santykius su klientais, kurie siekia
-                                dviejų pagrindinių dalykų: profesinės kompetencijos specializuotos
-                                paslaugos ir išskirtiniai santykiai su klientais.<br><br>
-                                Siekdami padidinti konkurencingumą, pritraukti daugiau klientų ir
-                                efektyviau juos aptarnauti, nuspręsta suskaitmeninti apskaitos paslaugų
-                                ir teisinių paslaugų pardavimo procesus, skatinti ir parduoti savo
-                                paslaugas naudodamiesi el. prekybos sprendimais.<br><br>
-                                Šis projektas yra naujoviškas, nes bus sukurta elektroninė platforma
-                                komercija naudojant moderniausias informacines technologijas,
-                                suteikiančias naujų galimybių inovacijoms buhalterinės apskaitos
-                                produktų pardavimas.<br><br>
-                                Mūsų projektas leis įmonei efektyviau parduoti savo paslaugas, teikti
-                                greičiau ir geriau klientų aptarnavimas, sutrumpės paslaugų įgyvendinimo
-                                laikas, leis aptarnauti daugiau klientų, o tai užtikrins įmonės pajamų
-                                augimas.<br><br>
+                                Mūsų įmonės sukurta unikali platforma suteikia vartotojams galimybę savarankiškai 
+                                susikonfiguruoti paspirtukus iš įvairių atsarginių dalių. Siekiame supaprastinti 
+                                surinkimo procesą ir padaryti jį kuo patogesnį savo klientams, pateikdami 
+                                novatoriškus įrankius vizualinei konfigūracijai ir komponentų pasirinkimui internetu.
+                                <br><br>
+                                Pagrindinis mūsų platformos funkcionalumas yra tas, kad vartotojai gali vizualiai 
+                                pasirinkti ir derinti įvairias paspirtuko dalis tiesiai svetainėje. Tai leidžia 
+                                jiems peržiūrėti, kaip atrodys jų unikali transporto priemonė prieš pirkdami dalis. 
+                                Toks požiūris taupo ne tik laiką, bet ir pinigus, todėl nereikia ilgai ieškoti 
+                                atsarginių dalių realiose parduotuvėse ir sumažinama dalių nesuderinamumo rizika.
+                                <br><br>
+                                Siūlome platų komponentų asortimentą: rėmai, ratai, vairas, šakės, platformos ir 
+                                kiti svarbūs paspirtukų komponentai. Klientai gali rinktis pirmaujančių gamintojų 
+                                atsargines dalis, kurios garantuoja aukštą jų būsimo paspirtuko kokybę ir patikimumą. 
+                                Mūsų platforma leidžia jums lanksčiai pritaikyti savo paspirtuko išvaizdą ir veikimą, 
+                                kad jis atitiktų jūsų individualius pageidavimus, nesvarbu, ar tai būtų atliekami 
+                                triukai riedlenčių parke, ar laisvo stiliaus mieste.
+                                <br><br>
+                                Be to, atlikę virtualų surinkimą, klientai gali gauti išsamią informaciją apie kiekvieną 
+                                pasirinktą detalę, jos charakteristikas ir suderinamumą su kitais elementais. Tai 
+                                padeda išvengti surinkimo klaidų ir suteikia pasitikėjimo, kad visi komponentai veiks 
+                                kartu be problemų.
+                                <br><br>
+                                Taip pat siūlome pasirinktų atsarginių dalių pristatymo ir gatavo paspirtuko surinkimo 
+                                paslaugas pagal kliento pageidavimą. Mūsų specialistai pagal užsakymą gali surinkti 
+                                paspirtuką, kuris užtikrina, kad jis bus tinkamai sumontuotas ir paruoštas atlikti 
+                                triukus. Stengiamės teikti aukšto lygio paslaugas ir individualų požiūrį, siūlydami 
+                                savo vartotojams unikalią patirtį kuriant savo kaskadininkų paspirtuką internete.
+                                <br><br>
                             @elseif (app()->getLocale() == 'ru')
-                                ЗАО "Nutika" - это компания, предоставляющая высококачественные
-                                бухгалтерские и юридические услуги.<br><br>
-                                Нет такой организации, где бухгалтерия и внутренний аудит не имели бы
-                                значения. Это основная внутренняя деятельность, которая помогает
-                                предприятиям и организациям работать законно и эффективно.<br><br>
-                                Наши опытные партнеры в разных странах сделают все, чтобы узнать и
-                                понять ваш бизнес и готовы предоставить для этого широкий спектр
-                                качественных услуг.<br><br>
-                                У нас есть партнеры внутри и за пределами Европейского Союза, мы
-                                ориентированы на построение прочных и прочных долгосрочных отношений с
-                                клиентами, которые стремятся к двум основным вещам: специализированным
-                                услугам профессиональной компетентности и эксклюзивным отношениям с
-                                клиентами.<br><br>
-                                С целью повышения конкурентоспособности, привлечения большего количества
-                                клиентов и более эффективного их обслуживания было принято решение
-                                оцифровать процессы продаж бухгалтерских и юридических услуг, продвигать
-                                и продавать свои услуги с помощью решений электронной коммерции.<br><br>
-                                Данный проект является инновационным, поскольку позволит создать
-                                электронную платформу для коммерции с использованием самых современных
-                                информационных технологий, предоставляя новые возможности для инноваций
-                                в реализации бухгалтерских продуктов.<br><br>
-                                Наш проект позволит компании более эффективно продавать свои услуги,
-                                обеспечить более быстрое и качественное обслуживание клиентов, сократить
-                                время на реализацию услуг, позволит обслуживать больше клиентов, что
-                                обеспечит рост выручки компании.<br><br>
+                                Наша компания создает уникальную платформу, которая предоставляет пользователям 
+                                возможность самостоятельно составлять трюковые самокаты из различных запчастей. Мы 
+                                стремимся упростить процесс сборки и сделать его максимально удобным для наших клиентов, 
+                                предоставляя инновационные инструменты для визуальной настройки и выбора компонентов онлайн.
+                                <br><br>
+                                Основной функционал нашей платформы заключается в том, что пользователи могут визуально 
+                                подбирать и комбинировать различные запчасти для самоката непосредственно на сайте. Это 
+                                позволяет им предварительно увидеть, как будет выглядеть их уникальное транспортное 
+                                средство, до того, как они приобретут детали. Такой подход экономит не только время, 
+                                но и деньги, исключая необходимость долгого поиска запчастей в реальных магазинах и 
+                                минимизируя риск несовместимости деталей. 
+                                <br><br>
+                                Мы предлагаем широкий ассортимент компонентов: рамы, колеса, рули, вилки, платформы и 
+                                другие важные узлы для трюковых самокатов. Клиенты могут выбирать запчасти от ведущих 
+                                производителей, что гарантирует высокое качество и надежность их будущего самоката. 
+                                Наша платформа позволяет гибко настраивать внешний вид и характеристики самоката в 
+                                соответствии с индивидуальными предпочтениями, будь то для выполнения трюков в скейтпарке 
+                                или для городского фристайла.
+                                <br><br>
+                                Кроме того, после завершения виртуальной сборки, клиенты могут получить подробную 
+                                информацию о каждой выбранной запчасти, её характеристиках и совместимости с другими 
+                                элементами. Это помогает избежать ошибок при сборке и предоставляет уверенность в том, 
+                                что все компоненты будут работать вместе без проблем.
+                                <br><br>
+                                Также мы предлагаем услуги доставки выбранных запчастей и сборки готового самоката по 
+                                желанию клиента. Наши специалисты могут собрать самокат на заказ, что гарантирует его 
+                                правильную настройку и готовность к выполнению трюков. Мы стремимся обеспечить высокий 
+                                уровень сервиса и индивидуальный подход, предлагая нашим пользователям уникальный опыт 
+                                создания собственного трюкового самоката онлайн.
+                                <br><br>
                             @else
-                                UAB "Nutika" is a company providing high-quality accounting and legal
-                                services.<br><br>
-                                There is no such organization where bookkeeping and internal audit would
-                                not matter. This is the core internal activity that helps businesses and
-                                organizations operate legally and effectively.<br><br>
-                                Our experienced partners in different countries will do everything to
-                                know and understand your business and are ready to provide a wide range
-                                of quality services for this.<br><br>
-                                We have partners inside and outside the European Union, we are focused
-                                on building strong and strong long-term relationships with clients who
-                                strive for two main things: specialized services of professional
-                                competence and exclusive customer relationships.<br><br>
-                                In order to increase competitiveness, attract more customers and serve
-                                them more efficiently, it was decided to digitize the sales processes of
-                                accounting services and legal services, to promote and sell their
-                                services using e-commerce solutions.<br><br>
-                                This project is innovative because it will create an e-platform for
-                                commerce using the most modern information technologies, providing new
-                                opportunities for innovation in the sale of accounting products.<br><br>
-                                Our project will allow the company to sell its services more
-                                efficiently, provide faster and better customer service, reduce the time
-                                for the implementation of services, allow to serve more customers, which
-                                will ensure the growth of the company's revenue.<br><br>
+                                The unique platform created by our company gives users the opportunity to independently 
+                                configure scooters from various spare parts. We aim to simplify the assembly process and 
+                                make it as convenient as possible for our customers by providing innovative tools for 
+                                visual configuration and component selection online.
+                                <br><br>
+                                The main functionality of our platform is that users can visually select and combine 
+                                different parts of the scooter directly on the website. This allows them to preview what 
+                                their unique vehicle will look like before purchasing parts. Such an approach saves not 
+                                only time, but also money, so there is no need to search for spare parts in real stores 
+                                for a long time, and the risk of incompatibility of parts is reduced.
+                                <br><br>
+                                We offer a wide range of components: frames, wheels, handlebars, forks, platforms and 
+                                other important scooter components. Customers can choose spare parts from leading 
+                                manufacturers that guarantee high quality and reliability of their future scooter. Our 
+                                platform gives you the flexibility to customize the look and feel of your scooter to 
+                                suit your individual preferences, whether it's doing tricks at the skate park or 
+                                freestyle around town.
+                                <br><br>
+                                In addition, after performing a virtual assembly, customers can receive detailed 
+                                information about each part selected, its characteristics and compatibility with 
+                                other elements. This helps prevent assembly errors and gives you confidence that 
+                                all the components will work together without problems.
+                                <br><br>
+                                We also offer delivery of selected spare parts and assembly of the finished scooter 
+                                according to the customer's request. Our experts can custom assemble your scooter 
+                                to ensure it is properly assembled and ready to perform tricks. We strive to provide 
+                                a high level of service and a personalized approach, offering our users a unique 
+                                experience of building their own stunt scooter online.
+                                <br><br>
                             @endif
                         </span>
                     </div>

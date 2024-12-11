@@ -62,8 +62,8 @@
                     <nav class="header-top-nav">
                         <ul class="d-flex justify-content-start align-items-center">
                             <li>
-                                <a href="tel:+37068530832">
-                                    <i class="fa-solid fa-phone me-1 fs-4"></i> +370 685 30832</a>
+                                <a href="tel:+37060564062">
+                                    <i class="fa-solid fa-phone me-1 fs-4"></i> +370 605 64062</a>
                                 <span class="separator">|</span>
                             </li>
                             <li>

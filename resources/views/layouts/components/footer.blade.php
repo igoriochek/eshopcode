@@ -35,7 +35,7 @@
                                 <i class="ion-ios-telephone-outline"></i>
                             </span>
                             <div class="media-body">
-                                <h4 class="title"><a href="tel:+37068530832"> +370 685 30832</a></h4>
+                                <h4 class="title"><a href="tel:+37060564062"> +370 605 64062</a></h4>
                                 <p class="text">{{ __('footer.phone') }}</p>
                             </div>
                         </div>
