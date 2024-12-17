@@ -21,7 +21,7 @@ return [
     'passwordConfirmToContinue' => 'Please confirm your password before continuing.',
     'resetPassword' => 'Reset Password',
     'sendResetPasswordLink' => 'Send Reset Password Link',
-    'resetPasswordParagraph' => 'Remembered your password?',
+    'resetPasswordParagraph' => 'Forgot your password?',
 
     //Login
     'login'=> 'Login',

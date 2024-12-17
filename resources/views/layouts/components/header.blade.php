@@ -7,9 +7,6 @@
     <nav class="offcanvas-menu">
         <ul>
             <li>
-                <a href="{{ url('/productComplex') }}">{{ __('menu.productComplex') }}</a>
-            </li>
-            <li>
                 <a href="{{ url('/products') }}">{{ __('menu.products') }}</a>
             </li>
             <li>
@@ -180,9 +177,6 @@
                 </div>
                 <div class="col-lg-8 position-static">
                     <ul class="main-menu d-flex">
-                        <li class="menu-item">
-                            <a href="{{ url('/productComplex') }}">{{ __('menu.productComplex') }}</a>
-                        </li>
                         <li class="menu-item">
                             <a href="{{ url('/products') }}">{{ __('menu.products') }}</a>
                         </li>

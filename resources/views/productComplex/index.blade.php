@@ -18,13 +18,11 @@
             <div class="clearfix"></div>
 
             <div class="row">
-
                 {!! Form::open([
                     'route' => ['addtocartcomplexproduct'],
                     'method' => 'post',
                     'class' => 'product-add-to-cart-container d-flex',
                 ]) !!}
-
                 <div class="col-lg-6 col-sm-12">
                     @foreach($categories as $category)
                         <div class="form-group py-1">
@@ -38,7 +36,6 @@
                         </div>
                     @endforeach
                 </div>
-                
                 <div class="col-lg-6 col-sm-12" style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; flex-direction: column;">
                         <div class="responsive-container" style="margin-bottom: 50px;">
                             <div id="complex1" class="complex" style="z-index: 2;"></div>
@@ -52,13 +49,11 @@
                         </h4>
                 </div>
             </div>
-            
                 <div class="product-add-to-cart-container d-flex-center">
                     <div class="product-action d-flex-center mb--0">
                         <button type="submit" id="cart-button" class="btn btn-primary rounded mt-5 mt-sm-0">{{ __('buttons.addToCart') }}</button>
                     </div>
                 </div>
-
             {!! Form::close() !!}
         </div>
     </div>

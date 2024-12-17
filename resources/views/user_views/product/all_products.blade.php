@@ -11,6 +11,9 @@
                 @include('flash_messages')
             </div>
             <div class="col-lg-9">
+                <div class="d-flex justify-content-center">
+                    <a class="btn btn-primary rounded mb-4 py-3" style="padding-left: 6rem !important; padding-right: 6rem !important;" href="{{ url('/productComplex') }}">{{ __('menu.productComplexBuild') }}</a>
+                </div>
                 <div class="grid-nav-wraper bg-light mb-5">
                     <div class="row align-items-center">
                         <div class="col-12 col-md-6 mb-3 mb-md-0">

@@ -22,7 +22,7 @@ return [
     'passwordConfirmToContinue' => 'Prieš tęsdami patvirtinkite slaptažodį.',
     'resetPassword' => 'Atstatyti slaptažodį',
     'sendResetPasswordLink' => 'Siųsti slaptažodžio nustatymą',
-    'resetPasswordParagraph' => 'Prisiminė savo slaptažodį?',
+    'resetPasswordParagraph' => 'Pamiršote slaptažodį?',
 
     //Login
     'login' => 'Prisijungti',

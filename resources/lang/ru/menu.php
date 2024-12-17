@@ -42,6 +42,7 @@ return [
     'policy' => 'Политика конфиденциальности',
     'euProjects' => 'ЕС проекты',
     'fbDataDeletion' => 'Удалить данные FB',
-    'productComplex' => 'Комплект продуктов'
+    'productComplex' => 'Комплект продуктов',
+    'productComplexBuild' => 'Соберите сами!'
 
 ];

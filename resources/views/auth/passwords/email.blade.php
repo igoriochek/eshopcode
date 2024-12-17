@@ -8,6 +8,11 @@
         <div class="row">
             <div class="col-12">
                 <h3 class="title">{{ __('auth.resetPassword') }}</h3>
+                @if (session('status'))
+                <div class="alert alert-success mt-3" role="alert">
+                    {{ session('status') }}
+                </div>
+                @endif
                 <form class="log-in-form" method="POST" action="{{ route('password.email') }}">
                     @csrf
                     <div class="form-group row">

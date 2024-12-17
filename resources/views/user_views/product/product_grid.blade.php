@@ -4,15 +4,15 @@
         @if ($product->discount)
         <span class="badge badge-danger cb3">{{ $product->discount->proc . '%' }}</span>
         @endif
-        <div class="product-thumbnail position-relative">
-            <a href="{{ route('viewproduct', $product->id) }}">
+        <a href="{{ route('viewproduct', $product->id) }}">
+            <div class="product-thumbnail position-relative d-flex justify-content-center align-items-center">
                 @if ($product->image)
-                <img src="{{ $product->image }}" alt="{{ $product->name }}">
+                <img class="product-image" src="{{ $product->image }}" alt="{{ $product->name }}">
                 @else
-                <img src="{{ asset('template/img/product/03.jpg') }}" alt="{{ $product->name }}">
+                <img class="product-image" src="{{ asset('template/img/product/03.jpg') }}" alt="{{ $product->name }}">
                 @endif
-            </a>
-        </div>
+            </div>
+        </a>
         <div class="product-desc pt-2rem position-relative text-center">
             <h3 class="title">
                 <a href="{{ route('viewproduct', $product->id) }}">
@@ -64,6 +64,16 @@
 
 @push('css')
 <style>
+    .product-thumbnail {
+        height: 270px;
+    }
+
+    .product-image {
+        max-height: 270px;
+        width: auto;
+        height: auto;
+    }
+
     .product-desc .title {
         text-transform: none !important;
     }

@@ -43,4 +43,5 @@ return [
     'euProjects' => 'EU Projects',
     'fbDataDeletion' => 'FB Data Deletion',
     'productComplex' => 'Product Complex',
+    'productComplexBuild' => 'Build it yourself!'
 ];
