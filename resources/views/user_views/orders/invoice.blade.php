@@ -96,3 +96,8 @@
         </div>
     </div>
 </div>
+<style>
+    *{
+        font-family:"DeJaVu Sans Mono",monospace;
+    }
+</style>
