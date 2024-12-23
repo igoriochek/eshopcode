@@ -1,4 +1,4 @@
-<nav class="breadcrumb-section bg-white pt-5 pb-6rem
+<nav class="breadcrumb-section bg-white pt-3 pb-5
     @if (request()->is('login') || request()->is('register') || request()->is('password/reset*')) d-none @endif">
     <div class="container">
         <div class="row">
@@ -14,6 +14,13 @@
                 </ol>
             </div>
         </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="d-flex justify-content-center">
+                    <a class="btn btn-primary rounded mb-4 py-3" style="padding-left: 6rem !important; padding-right: 6rem !important; color: white !important;" href="{{ url('/productComplex') }}">{{ __('menu.productComplexBuild') }}</a>
+                </div>
+            </div>
+        </div>
     </div>
 </nav>
 
@@ -25,4 +32,5 @@
     .breadcrumb-item.active {
         text-transform: none !important;
     }
+
 </style>

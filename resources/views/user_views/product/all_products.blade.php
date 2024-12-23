@@ -10,10 +10,9 @@
             <div class="col-lg-12">
                 @include('flash_messages')
             </div>
+        </div>
+        <div class="row">
             <div class="col-lg-9">
-                <div class="d-flex justify-content-center">
-                    <a class="btn btn-primary rounded mb-4 py-3" style="padding-left: 6rem !important; padding-right: 6rem !important;" href="{{ url('/productComplex') }}">{{ __('menu.productComplexBuild') }}</a>
-                </div>
                 <div class="grid-nav-wraper bg-light mb-5">
                     <div class="row align-items-center">
                         <div class="col-12 col-md-6 mb-3 mb-md-0">
@@ -155,7 +154,7 @@
             range: true,
             min: {{$minPrice}},
             max: {{$maxPrice}},
-            values: [{{$filter['pricefrom'] ?? $minPrice}}, 
+            values: [{{$filter['pricefrom'] ?? $minPrice}},
             {{$filter['priceto'] ?? $maxPrice}}],
             slide: (event, ui) => {
                 $(priceFrom).val(ui.values[0]);

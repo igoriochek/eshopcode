@@ -124,7 +124,7 @@
             </div>
             <div class="col-lg-3">
                 <aside class="left-sidebar">
-                    <div class="product-widget pt-3rem mb-3rem">
+                    <div class="product-widget mb-3rem">
                         <h3 class="title">{{ __('names.promotions') }}</h3>
                         <div class="shop-submenu">
                             @include('user_views.promotion.promotion_tree')

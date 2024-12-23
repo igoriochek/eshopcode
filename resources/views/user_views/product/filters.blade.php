@@ -1,10 +1,9 @@
 <form method="get" action="{{ route('userproducts') }}" id="mainForm">
     <aside class="left-sidebar">
-        <div class="product-widget pt-3rem mb-3rem">
+        <div class="product-widget mb-3rem">
             <h3 class="title">{{ __('names.search') }}</h3>
             <div class="shop-submenu">
-                <div class="d-flex"
-                    style="height: 55px;">
+                <div class="d-flex" style="height: 55px;">
                     <input class="form-control border-blue" type="text" name="filter[namelike]" id="filter[namelike]"
                         placeholder="{{ __('names.product') . '...' }}" value="{{ $filter['namelike'] ?? '' }}">
                     <button class="btn bg-primary search-btn" type="submit" style="position: inherit !important;">
