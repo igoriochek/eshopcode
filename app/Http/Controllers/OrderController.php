@@ -408,7 +408,8 @@ class OrderController extends AppBaseController
         }
 
         $minutes = $request->minutes ?? '00';
-        $this->cartRepository->setCartCollectTime($cart, $request->hours . ':' . $minutes);
+        $hours = $request->hours ?? '00';
+        $this->cartRepository->setCartCollectTime($cart, $hours . ':' . $minutes);
 
         $cart->place = $request->place;
         $cart->isCompanyBuying = $request->isCompanyBuying ?? false;
