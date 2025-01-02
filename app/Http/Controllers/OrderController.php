@@ -24,6 +24,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Flash;
 use Response;
+use PDF;
 
 class OrderController extends AppBaseController
 {
