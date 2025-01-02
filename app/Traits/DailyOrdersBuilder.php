@@ -46,6 +46,10 @@ trait DailyOrdersBuilder
         foreach ($dailyOrders as $key => $order) {
             $orderCompanyInfo = $dailyOrdersCompanyInfos[$order->id];
 
+            if (!$order->collect_time) {
+                continue;
+            }
+
             $collectDateTime = DateTime::createFromFormat(
                 'Y-m-d H:i:s',
                 now()->format('Y-m-d') . $order->collect_time
