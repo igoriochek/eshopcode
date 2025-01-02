@@ -2,6 +2,7 @@
 
 namespace App\Listeners;
 
+use App\Mail\InvoiceMail;
 use App\Mail\OrderCreatedMail;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
@@ -39,5 +40,13 @@ class SendOrderCreatedEmail
             $event->orderItems,
             $event->companyInfo ?? null
         ));
+
+        $customer_mail = $event->customer->email;
+        if ($customer_mail) {
+            Mail::to($customer_mail)->send(new InvoiceMail(
+                $event->order,
+                $event->orderItems
+            ));
+        }
     }
 }
