@@ -15,8 +15,15 @@
         {{ config('app.name', 'LORD-UK') }}
         @endif
     </title>
+
+    <link href="{{ asset('template/css/style.min.css') }}" rel="stylesheet">
+
+    
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/CM_logo.png') }}">
+
+    <link rel="icon" href="{{ asset('template/img/favicon/favicon.png') }}" type="image/x-icon">
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -25,6 +32,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     <!-- Styles -->
+    <link rel="stylesheet" href="{{ asset('template/css/vendor/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('template/css/vendor/remixicon.css') }}">
+    <link rel="stylesheet" href="{{ asset('template/css/vendor/aos.css') }}">
+    <link rel="stylesheet" href="{{ asset('template/css/vendor/swiper-bundle.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('template/css/vendor/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('template/css/vendor/slick.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('template/css/vendor/animate.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('template/css/vendor/jquery-range-ui.css') }}">
+
+
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/jquery-ui.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
@@ -46,6 +63,10 @@
     <link rel="stylesheet" href="{{ asset('template/css/ionicons.min.css') }}" />
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css"> -->
     <!-- <link rel="stylesheet" href="{{ asset('vendor/adminlte/dist/css/adminlte.min.css') }}"> -->
+
+    <!-- Main Style -->
+    <link rel="stylesheet" href="{{ asset('template/css/style.css') }}">
+
     @if (auth()->check() && auth()->user()->type == 1)
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
     @endif
