@@ -1,297 +1,249 @@
-<div class="offcanvas-overlay"></div>
-
-<div id="offcanvas-mobile-menu" class="offcanvas offcanvas-mobile-menu">
-    <div class="mb-4 pb-4 text-end">
-        <button class="offcanvas-close">×</button>
-    </div>
-    <nav class="offcanvas-menu">
-        <ul>
-            <li>
-                <a href="{{ url('/products') }}">{{ __('menu.products') }}</a>
-            </li>
-            <li>
-                <a href="{{ url('/rootcategories') }}">{{ __('menu.categories') }}</a>
-            </li>
-            <li>
-                <a href="{{ url('/promotions') }}">{{ __('menu.promotions') }}</a>
-            </li>
-            @auth
-            <li>
-                <a href="{{ url('/user/discountCoupons') }}">{{ __('menu.discountCoupons') }}</a>
-            </li>
-            <li>
-                <a href="{{ url('/user/messenger') }}">{{ __('menu.messenger') }}</a>
-            </li>
-            @endauth
-        </ul>
-    </nav>
-    <nav class="header-top-nav mt-5">
-        <ul class="d-flex align-items-center" style="justify-content: space-between;">
-            @guest
-            <li>
-                <a href="{{ route('login') }}" class="btn btn-primary rounded mt-sm-0" style="color: white !important;">
-                    {{ __('auth.login') }}
-                </a>
-            </li>
-            @endguest
-            <li>
-                <a href="#" role="button" id="dropdown3" data-bs-toggle="dropdown" aria-haspopup="true" style="font-size: 1.5rem !important;"
-                    aria-expanded="false">{{ strtoupper(app()->getLocale()) }} <i class="ion ion-ios-arrow-down"></i></a>
-                <ul class="topnav-submenu dropdown-menu" aria-labelledby="dropdown3">
-                    @foreach (config('translatable.locales') as $locale)
-                    <li>
-                        <a href="{{ url('/lang/' . strtolower($locale)) }}">
-                            {{ strtoupper($locale) }}
-                        </a>
-                    </li>
-                    @endforeach
-                </ul>
-            </li>
-        </ul>
-    </nav>
-</div>
-
-<header>
-    <div class="header-top border-bottom ht-nav-br-bottom bg-light py-10 d-none d-lg-block">
+<header class="bb-header">
+    <div class="top-header">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <nav class="header-top-nav">
-                        <ul class="d-flex justify-content-start align-items-center">
-                            <li>
-                                <a href="tel:+37060564062">
-                                    <i class="fa-solid fa-phone me-1 fs-4"></i> +370 605 64062</a>
-                                <span class="separator">|</span>
-                            </li>
-                            <li>
-                                <a href="mailto:info@lordvisuals.lt" style="text-transform: lowercase;">
-                                    <i class="fa-solid fa-envelope me-1 fs-4"></i>info@lordvisuals.lt</a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-                <div class="col-lg-6">
-                    <nav class="header-top-nav">
-                        <ul class="d-flex justify-content-end align-items-center">
-                            <li>
-                                <a href="#" role="button" id="dropdown3" data-bs-toggle="dropdown" aria-haspopup="true"
-                                    aria-expanded="false">{{ strtoupper(app()->getLocale()) }} <i class="ion ion-ios-arrow-down"></i></a>
-                                <ul class="topnav-submenu dropdown-menu" aria-labelledby="dropdown3">
-                                    @foreach (config('translatable.locales') as $locale)
-                                    <li>
-                                        <a href="{{ url('/lang/' . strtolower($locale)) }}">
-                                            {{ strtoupper($locale) }}
-                                        </a>
-                                    </li>
-                                    @endforeach
-                                </ul>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </div>
-    <nav id="sticky" class="header-middle nav-style3 py-3rem">
-        <div class="container">
-            <div class="row align-items-center d-lg-none">
-                <div class="col-4">
-                    <nav class="header-top-nav d-flex align-items-center">
-                        @auth
-                        <ul>
-                            <li class="me-4">
-                                <a href="#" role="button" id="dropdown4" data-bs-toggle="dropdown" aria-haspopup="true"
-                                    aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 512 512">
-                                        <path d="M256 48C148.5 48 60.1 129.5 49.2 234.1c-.8 7.2-1.2 14.5-1.2 21.9 0 7.4.4 14.7 1.2 21.9C60.1 382.5 148.5 464 256 464c114.9 0 208-93.1 208-208S370.9 48 256 48zm135.8 326.1c-22.7-8.6-59.5-21.2-82.4-28-2.4-.7-2.7-.9-2.7-10.7 0-8.1 3.3-16.3 6.6-23.3 3.6-7.5 7.7-20.2 9.2-31.6 4.2-4.9 10-14.5 13.6-32.9 3.2-16.2 1.7-22.1-.4-27.6-.2-.6-.5-1.2-.6-1.7-.8-3.8.3-23.5 3.1-38.8 1.9-10.5-.5-32.8-14.9-51.3-9.1-11.7-26.6-26-58.5-28h-17.5c-31.4 2-48.8 16.3-58 28-14.5 18.5-16.9 40.8-15 51.3 2.8 15.3 3.9 35 3.1 38.8-.2.7-.4 1.2-.6 1.8-2.1 5.5-3.7 11.4-.4 27.6 3.7 18.4 9.4 28 13.6 32.9 1.5 11.4 5.7 24 9.2 31.6 2.6 5.5 3.8 13 3.8 23.6 0 9.9-.4 10-2.6 10.7-23.7 7-58.9 19.4-80 27.8C91.6 341.4 76 299.9 76 256c0-48.1 18.7-93.3 52.7-127.3S207.9 76 256 76c48.1 0 93.3 18.7 127.3 52.7S436 207.9 436 256c0 43.9-15.6 85.4-44.2 118.1z" fill="black" />
-                                    </svg></a>
-                                <ul class="topnav-submenu dropdown-menu" aria-labelledby="dropdown4">
-                                    <li>
-                                        <a href="{{ url('/user/userprofile') }}">
-                                            {{ __('menu.profile') }}
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ url('/user/rootorders') }}">
-                                            {{ __('menu.orders') }}
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ url('/user/rootoreturns') }}">
-                                            {{ __('menu.returns') }}
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="form-item">
-                                            @csrf
-                                            <a href="{{ route('logout') }}" class="form-item-a"
-                                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                                {{ __('menu.logout') }}
-                                            </a>
-                                        </form>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <div class="cart-block position-relative">
-                            <a href="{{ url('/user/viewcart') }}">
-                                <span class="position-relative">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="2.25em" height="2.25em" viewBox="0 0 512 512">
-                                        <path fill="none" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M80 176a16 16 0 0 0-16 16v216c0 30.24 25.76 56 56 56h272c30.24 0 56-24.51 56-54.75V192a16 16 0 0 0-16-16Zm80 0v-32a96 96 0 0 1 96-96h0a96 96 0 0 1 96 96v32" />
-                                    </svg>
-                                    <span class="badge badge-light cb1">{{ $cartItemCount ?? 0 }}</span>
-                                </span>
+            <div class="row">
+                <div class="col-12">
+                    <div class="inner-top-header">
+                        <div class="col-left-bar">
+                            <a href="tel:+37064777121">
+                                +370 647 77121
+                            </a>
+                            <span class="separator">|</span>
+                            <a href="mailto:grasale.kavine@gmail.com">
+                                grasale.kavine@gmail.com
                             </a>
                         </div>
-                        @endauth
-                    </nav>
-                </div>
-                <div class="col-4 text-center">
-                    <div class="logo mt-3 mb-2rem">
-                        <a href="{{ url('/products') }}"><img src="{{ asset('images/LordUK_logo.jpg') }}" alt="logo"></a>
+                        <div class="col-right-bar">
+                            <div class="cols">
+                                <div class="custom-dropdown">
+                                    <a class="bb-dropdown-toggle" href="#">{{ strtoupper(app()->getLocale()) }}</a>
+                                    <ul class="dropdown">
+                                        @foreach (config('translatable.locales') as $locale)
+                                        <li>
+                                            <a href="{{ url('/lang/' . strtolower($locale)) }}">
+                                                {{ strtoupper($locale) }}
+                                            </a>
+                                        </li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="col-4 text-end">
-                    <div class="mobile-menu-toggle">
-                        <a href="#offcanvas-mobile-menu" class="offcanvas-toggle">
-                            <svg viewBox="0 0 800 600">
-                                <path
-                                    d="M300,220 C300,220 520,220 540,220 C740,220 640,540 520,420 C440,340 300,200 300,200"
-                                    id="top"
-                                    style="stroke: black;"></path>
-                                <path d="M300,320 L540,320" id="middle" style="stroke: black;"></path>
-                                <path
-                                    d="M300,210 C300,210 520,210 540,210 C740,210 640,530 520,410 C440,330 300,190 300,190"
-                                    id="bottom" transform="translate(480, 320) scale(1, -1) translate(-480, -318) "
-                                    style="stroke: black;">
-                                </path>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="row align-items-center position-relative d-none d-lg-flex">
-                <div class="col-lg-2 d-none d-lg-block">
-                    <div class="logo">
-                        <a href="{{ url('/products') }}"><img src="{{ asset('images/LordUK_logo.jpg') }}" alt="logo"></a>
-                    </div>
-                </div>
-                <div class="col-lg-8 position-static">
-                    <ul class="main-menu d-flex">
-                        <li class="menu-item">
-                            <a href="{{ url('/products') }}">{{ __('menu.products') }}</a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="{{ url('/rootcategories') }}">{{ __('menu.categories') }}</a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="{{ url('/promotions') }}">{{ __('menu.promotions') }}</a>
-                        </li>
-                        @auth
-                        <li class="menu-item">
-                            <a href="{{ url('/user/discountCoupons') }}">{{ __('menu.discountCoupons') }}</a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="{{ url('/user/messenger') }}">{{ __('menu.messenger') }}</a>
-                        </li>
-                        @endauth
-                    </ul>
-                </div>
-                <div class="col-lg-2 text-end">
-                    <ul class="main-menu d-flex">
-                        @auth
-                        <li class="cart-block d-inline-block position-relative">
-                            <a href="{{ url('/user/viewcart') }}">
-                                <span class="position-relative">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="2.25em" height="2.25em" viewBox="0 0 512 512">
-                                        <path fill="none" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M80 176a16 16 0 0 0-16 16v216c0 30.24 25.76 56 56 56h272c30.24 0 56-24.51 56-54.75V192a16 16 0 0 0-16-16Zm80 0v-32a96 96 0 0 1 96-96h0a96 96 0 0 1 96 96v32" />
-                                    </svg>
-                                    <span class="badge badge-primary cb1" style="right: -8px; bottom: -5px;">{{ $cartItemCount ?? 0 }}</span>
-                                </span>
-                            </a>
-                        </li>
-                        <li class="d-inline-block position-relative">
-                            <a href="#">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="2.5em" height="2.5em" viewBox="0 0 512 512">
-                                    <path d="M256 48C148.5 48 60.1 129.5 49.2 234.1c-.8 7.2-1.2 14.5-1.2 21.9 0 7.4.4 14.7 1.2 21.9C60.1 382.5 148.5 464 256 464c114.9 0 208-93.1 208-208S370.9 48 256 48zm135.8 326.1c-22.7-8.6-59.5-21.2-82.4-28-2.4-.7-2.7-.9-2.7-10.7 0-8.1 3.3-16.3 6.6-23.3 3.6-7.5 7.7-20.2 9.2-31.6 4.2-4.9 10-14.5 13.6-32.9 3.2-16.2 1.7-22.1-.4-27.6-.2-.6-.5-1.2-.6-1.7-.8-3.8.3-23.5 3.1-38.8 1.9-10.5-.5-32.8-14.9-51.3-9.1-11.7-26.6-26-58.5-28h-17.5c-31.4 2-48.8 16.3-58 28-14.5 18.5-16.9 40.8-15 51.3 2.8 15.3 3.9 35 3.1 38.8-.2.7-.4 1.2-.6 1.8-2.1 5.5-3.7 11.4-.4 27.6 3.7 18.4 9.4 28 13.6 32.9 1.5 11.4 5.7 24 9.2 31.6 2.6 5.5 3.8 13 3.8 23.6 0 9.9-.4 10-2.6 10.7-23.7 7-58.9 19.4-80 27.8C91.6 341.4 76 299.9 76 256c0-48.1 18.7-93.3 52.7-127.3S207.9 76 256 76c48.1 0 93.3 18.7 127.3 52.7S436 207.9 436 256c0 43.9-15.6 85.4-44.2 118.1z" fill="black" />
-                                </svg>
-                                <i class="ion-ios-arrow-down" style="color: black;"></i></a>
-                            <ul class="sub-menu">
-                                <li>
-                                    <a href="{{ url('/user/userprofile') }}">
-                                        {{ __('menu.profile') }}
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{ url('/user/rootorders') }}">
-                                        {{ __('menu.orders') }}
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{ url('/user/rootoreturns') }}">
-                                        {{ __('menu.returns') }}
-                                    </a>
-                                </li>
-                                <li>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="form-item">
-                                        @csrf
-                                        <a href="{{ route('logout') }}" class="form-item-a"
-                                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                            {{ __('menu.logout') }}
-                                        </a>
-                                    </form>
-                                </li>
-                            </ul>
-                        </li>
-                        @else
-                        <li class="cart-block d-inline-block position-relative">
-                            <a href="{{ route('login') }}" class="btn btn-primary rounded mt-5 mt-sm-0" style="color: white !important;">
-                                {{ __('auth.login') }}
-                            </a>
-                        </li>
-                        @endauth
-                        <ul>
                 </div>
             </div>
         </div>
-    </nav>
+    </div>
+    <div class="bottom-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="inner-bottom-header">
+                        <div class="cols bb-logo-detail">
+                            <div class="header-logo">
+                                <a href="{{ url('/products') }}">
+                                    <img src="assets/img/logo/logo.png" alt="logo" class="light">
+                                    <img src="assets/img/logo/logo-dark.png" alt="logo" class="dark">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="cols bb-icons">
+                            <div class="bb-flex-justify">
+                                <div class="bb-header-buttons">
+                                    @auth
+                                    <div class="bb-acc-drop">
+                                        <a href="javascript:void(0)"
+                                            class="bb-header-btn bb-header-user dropdown-toggle bb-user-toggle"
+                                            title="Account">
+                                            <div class="header-icon">
+                                                <svg class="svg-icon" viewBox="0 0 1024 1024" version="1.1"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M512.476 648.247c-170.169 0-308.118-136.411-308.118-304.681 0-168.271 137.949-304.681 308.118-304.681 170.169 0 308.119 136.411 308.119 304.681C820.594 511.837 682.645 648.247 512.476 648.247L512.476 648.247zM512.476 100.186c-135.713 0-246.12 109.178-246.12 243.381 0 134.202 110.407 243.381 246.12 243.381 135.719 0 246.126-109.179 246.126-243.381C758.602 209.364 648.195 100.186 512.476 100.186L512.476 100.186zM935.867 985.115l-26.164 0c-9.648 0-17.779-6.941-19.384-16.35-2.646-15.426-6.277-30.52-11.142-44.95-24.769-87.686-81.337-164.13-159.104-214.266-63.232 35.203-134.235 53.64-207.597 53.64-73.555 0-144.73-18.537-208.084-53.922-78 50.131-134.75 126.68-159.564 214.549 0 0-4.893 18.172-11.795 46.4-2.136 8.723-10.035 14.9-19.112 14.9L88.133 985.116c-9.415 0-16.693-8.214-15.47-17.452C91.698 824.084 181.099 702.474 305.51 637.615c58.682 40.472 129.996 64.267 206.966 64.267 76.799 0 147.968-23.684 206.584-63.991 124.123 64.932 213.281 186.403 232.277 329.772C952.56 976.901 945.287 985.115 935.867 985.115L935.867 985.115z" />
+                                                </svg>
+                                            </div>
+                                            <div class="bb-btn-desc">
+                                                <span class="bb-btn-stitle">{{ __('auth.account') }}</span>
+                                            </div>
+                                        </a>
+                                        <ul class="bb-dropdown-menu">
+                                            <li><a class="dropdown-item" href="{{ url('/user/userprofile') }}">{{ __('menu.profile') }}</a></li>
+                                            <li><a class="dropdown-item" href="{{ url('/user/rootorders') }}">{{ __('menu.orders') }}</a></li>
+                                            <li><a class="dropdown-item" href="{{ url('/user/rootoreturns') }}">{{ __('menu.returns') }}</a></li>
+                                            <li>
+                                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="form-item">
+                                                    @csrf
+                                                    <a href="{{ route('logout') }}" class="dropdown-item"
+                                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                                        {{ __('menu.logout') }}
+                                                    </a>
+                                                </form>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <a href="{{ url('/user/viewcart') }}" class="bb-header-btn bb-cart-toggle" title="Cart">
+                                        <div class="header-icon">
+                                            <svg class="svg-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M351.552 831.424c-35.328 0-63.968 28.64-63.968 63.968 0 35.328 28.64 63.968 63.968 63.968 35.328 0 63.968-28.64 63.968-63.968C415.52 860.064 386.88 831.424 351.552 831.424L351.552 831.424 351.552 831.424zM799.296 831.424c-35.328 0-63.968 28.64-63.968 63.968 0 35.328 28.64 63.968 63.968 63.968 35.328 0 63.968-28.64 63.968-63.968C863.264 860.064 834.624 831.424 799.296 831.424L799.296 831.424 799.296 831.424zM862.752 799.456 343.264 799.456c-46.08 0-86.592-36.448-92.224-83.008L196.8 334.592 165.92 156.128c-1.92-15.584-16.128-28.288-29.984-28.288L95.2 127.84c-17.664 0-32-14.336-32-31.968 0-17.664 14.336-32 32-32l40.736 0c46.656 0 87.616 36.448 93.28 83.008l30.784 177.792 54.464 383.488c1.792 14.848 15.232 27.36 28.768 27.36l519.488 0c17.696 0 32 14.304 32 31.968S880.416 799.456 862.752 799.456L862.752 799.456zM383.232 671.52c-16.608 0-30.624-12.8-31.872-29.632-1.312-17.632 11.936-32.928 29.504-34.208l433.856-31.968c15.936-0.096 29.344-12.608 31.104-26.816l50.368-288.224c1.28-10.752-1.696-22.528-8.128-29.792-4.128-4.672-9.312-7.04-15.36-7.04L319.04 223.84c-17.664 0-32-14.336-32-31.968 0-17.664 14.336-31.968 32-31.968l553.728 0c24.448 0 46.88 10.144 63.232 28.608 18.688 21.088 27.264 50.784 23.52 81.568l-50.4 288.256c-5.44 44.832-45.92 81.28-92 81.28L385.6 671.424C384.8 671.488 384 671.52 383.232 671.52L383.232 671.52zM383.232 671.52" />
+                                            </svg>
+                                            <span class="main-label-note-new"></span>
+                                        </div>
+                                        <div class="bb-btn-desc">
+                                            <span class="bb-btn-title"><b class="bb-cart-count">{{ $cartItemCount ?? 0 }}</b> {{ __('names.items') }}</span>
+                                            <span class="bb-btn-stitle">{{ __('names.cart') }}</span>
+                                        </div>
+                                    </a>
+                                    @else
+                                    <div class="bb-acc-drop">
+                                        <a href="javascript:void(0)"
+                                            class="bb-header-btn bb-header-user dropdown-toggle bb-user-toggle"
+                                            title="Account">
+                                            <div class="header-icon">
+                                                <svg class="svg-icon" viewBox="0 0 1024 1024" version="1.1"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M512.476 648.247c-170.169 0-308.118-136.411-308.118-304.681 0-168.271 137.949-304.681 308.118-304.681 170.169 0 308.119 136.411 308.119 304.681C820.594 511.837 682.645 648.247 512.476 648.247L512.476 648.247zM512.476 100.186c-135.713 0-246.12 109.178-246.12 243.381 0 134.202 110.407 243.381 246.12 243.381 135.719 0 246.126-109.179 246.126-243.381C758.602 209.364 648.195 100.186 512.476 100.186L512.476 100.186zM935.867 985.115l-26.164 0c-9.648 0-17.779-6.941-19.384-16.35-2.646-15.426-6.277-30.52-11.142-44.95-24.769-87.686-81.337-164.13-159.104-214.266-63.232 35.203-134.235 53.64-207.597 53.64-73.555 0-144.73-18.537-208.084-53.922-78 50.131-134.75 126.68-159.564 214.549 0 0-4.893 18.172-11.795 46.4-2.136 8.723-10.035 14.9-19.112 14.9L88.133 985.116c-9.415 0-16.693-8.214-15.47-17.452C91.698 824.084 181.099 702.474 305.51 637.615c58.682 40.472 129.996 64.267 206.966 64.267 76.799 0 147.968-23.684 206.584-63.991 124.123 64.932 213.281 186.403 232.277 329.772C952.56 976.901 945.287 985.115 935.867 985.115L935.867 985.115z" />
+                                                </svg>
+                                            </div>
+                                            <div class="bb-btn-desc">
+                                                <span class="bb-btn-stitle">{{ __('auth.login') }}</span>
+                                            </div>
+                                        </a>
+                                        <ul class="bb-dropdown-menu">
+                                            <li><a class="dropdown-item" href="{{ route('register') }}">{{ __('auth.register') }}</a></li>
+                                            <li><a class="dropdown-item" href="{{ route('login') }}">{{ __('auth.login') }}</a></li>
+                                        </ul>
+                                    </div>
+                                    @endauth
+                                    <a href="javascript:void(0)" class="bb-toggle-menu">
+                                        <div class="header-icon">
+                                            <i class="ri-menu-3-fill"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bb-main-menu-desk">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="bb-inner-menu-desk">
+                        <button class="navbar-toggler shadow-none" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <i class="ri-menu-2-line"></i>
+                        </button>
+                        <div class="bb-main-menu" id="navbarSupportedContent">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ url('/products') }}">{{ __('menu.products') }}</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ url('/rootcategories') }}">{{ __('menu.categories') }}</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ url('/promotions') }}">{{ __('menu.promotions') }}</a>
+                                </li>
+                                @auth
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ url('/user/discountCoupons') }}">{{ __('menu.discountCoupons') }}</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ url('/user/messenger') }}">{{ __('menu.messenger') }}</a>
+                                </li>
+                                @endauth
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bb-mobile-menu-overlay"></div>
+    <div id="bb-mobile-menu" class="bb-mobile-menu">
+        <div class="bb-menu-title">
+            <span class="menu_title">{{ __('menu.myMenu') }}</span>
+            <button type="button" class="bb-close-menu">×</button>
+        </div>
+        <div class="bb-menu-inner">
+            <div class="bb-menu-content">
+                <ul>
+                    <li>
+                        <a href="{{ url('/products') }}">{{ __('menu.products') }}</a>
+                    </li>
+                    <li>
+                        <a href="{{ url('/rootcategories') }}">{{ __('menu.categories') }}</a>
+                    </li>
+                    <li>
+                        <a href="{{ url('/promotions') }}">{{ __('menu.promotions') }}</a>
+                    </li>
+                    @auth
+                    <li>
+                        <a href="{{ url('/user/discountCoupons') }}">{{ __('menu.discountCoupons') }}</a>
+                    </li>
+                    <li>
+                        <a href="{{ url('/user/messenger') }}">{{ __('menu.messenger') }}</a>
+                    </li>
+                    @endauth
+                </ul>
+            </div>
+            <div class="header-res-lan-curr">
+                <div class="header-res-social">
+                    <div class="header-top-social">
+                        <ul class="mb-0">
+                            <li class="list-inline-item">
+                                <a href="https://www.facebook.com/profile.php?id=100063663756238"><i class="ri-facebook-fill"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </header>
 
-
 <style>
-    .topnav-submenu {
-        right: 0px !important;
+    .bb-mobile-menu-overlay {
+        display: none;
+        opacity: 0;
     }
 
-    .menu-item {
-        display: flex;
-        align-items: center;
-    }
-
-    .form-item {
-        text-align: left;
-        -webkit-transition: all 0.3s ease;
-        transition: all 0.3s ease;
-    }
-
-    .form-item:hover {
-        padding-left: 10px;
-        color: #0090f0 !important;
-    }
-
-    .form-item-a {
-        display: flex;
-    }
-
-    .form-item-a:hover {
-        display: flex;
-        color: #0090f0 !important;
-    }
-
-    .offcanvas .offcanvas-menu ul li a {
-        text-transform: none !important;
-    }
-
-    .main-menu li > a {
-        text-transform: none !important;
+    .bb-mobile-menu-overlay.visible {
+        display: block;
+        opacity: 1;
     }
 </style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var buttonOpenMenu = document.querySelector('.bb-toggle-menu');
+        var buttonCloseMenu = document.querySelector('.bb-close-menu');
+        var mobileMenu = document.getElementById('bb-mobile-menu');
+        var overlay = document.querySelector('.bb-mobile-menu-overlay');
+
+        buttonOpenMenu.addEventListener('click', function() {
+            mobileMenu.classList.toggle('bb-menu-open');
+            overlay.classList.toggle('visible');
+
+        });
+
+        buttonCloseMenu.addEventListener('click', function() {
+            closeMobileMenu();
+        });
+
+        overlay.addEventListener('click', function() {
+            closeMobileMenu();
+        });
+
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('bb-menu-open');
+            overlay.classList.remove('visible');
+        }
+    });
+</script>

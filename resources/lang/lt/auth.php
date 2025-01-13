@@ -41,4 +41,6 @@ return [
 
     'show' => 'RODYTI',
     'hide' => 'PASLĖPTI',
+
+    'account' => 'Paskyra',
 ];

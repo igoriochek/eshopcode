@@ -270,4 +270,6 @@ return [
 
     //Product complex
     "totalPrice" => "Общая цена",
+
+    'items' => 'предмета',
 ];

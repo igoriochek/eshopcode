@@ -47,4 +47,6 @@ return [
 
     'show' => 'SHOW',
     'hide' => 'HIDE',
+
+    'account' => 'Account',
 ];

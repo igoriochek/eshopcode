@@ -43,5 +43,6 @@ return [
     'euProjects' => 'EU Projects',
     'fbDataDeletion' => 'FB Data Deletion',
     'productComplex' => 'Product Complex',
-    'productComplexBuild' => 'Build scooter yourself!'
+    'productComplexBuild' => 'Build scooter yourself!',
+    'myMenu' => 'My Menu',
 ];

@@ -15,7 +15,7 @@ return [
     'email' => 'El. paštas',
     'menu' => 'Meniu',
     'account' => 'Mano paskyra',
-    'copyright' => 'UAB "LORD-UK" © 2024. Visos teisės saugomos',
+    'copyright' => 'UAB "Madeiva" © 2025. Visos teisės saugomos',
     'companycode' => 'Įmonės kodas',
     'vatcode' => 'PVM kodas',
     'ac' => 'A. s.',

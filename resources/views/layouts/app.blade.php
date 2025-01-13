@@ -22,8 +22,6 @@
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/CM_logo.png') }}">
 
-    <link rel="icon" href="{{ asset('template/img/favicon/favicon.png') }}" type="image/x-icon">
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -63,6 +61,7 @@
     <link rel="stylesheet" href="{{ asset('template/css/ionicons.min.css') }}" />
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css"> -->
     <!-- <link rel="stylesheet" href="{{ asset('vendor/adminlte/dist/css/adminlte.min.css') }}"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.css">
 
     <!-- Main Style -->
     <link rel="stylesheet" href="{{ asset('template/css/style.css') }}">
@@ -95,6 +94,8 @@
     </main>
     @include('layouts.components.footer')
     @endif
+
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
 
     <script src="{{ asset('js/jquery-3.6.0.min.js') }}"></script>
     <script src="{{ asset('js/jquery-ui.js') }}"></script>

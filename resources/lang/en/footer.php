@@ -15,7 +15,7 @@ return [
     'email' => 'Email',
     'menu' => 'MENU',
     'account' => 'My Account',
-    'copyright' => 'UAB "LORD-UK" © 2024. All Rights Reserved',
+    'copyright' => 'UAB "Madeiva" © 2025. All Rights Reserved',
     'companycode' => "Company Code",
     'vatcode' => "VAT",
     'ac' => "A/C",
