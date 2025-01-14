@@ -1,46 +1,8 @@
-<a id="scrollUp" href="#top" style="position: fixed; z-index: 214; display: none; align-content: center !important;">
-    <i class="fas fa-arrow-up" style="color: #fff;"></i>
+<a href="#Top" class="back-to-top result-placeholder">
+    <i class="ri-arrow-up-line"></i>
+    <div class="back-to-top-wrap active-progress">
+        <svg viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"></path>
+        </svg>
+    </div>
 </a>
-
-@push('css')
-<style>
-
-    #scrollUp {
-        bottom: 40px;
-        right: 40px;
-        background-color: #007bff;
-        color: white;
-        padding: 10px;
-        border-radius: 50%;
-        font-size: 20px;
-        display: none;
-        opacity: 0;
-        transition: opacity 0.3s ease-in-out;
-        align-content: center !important;
-    }
-
-    #scrollUp.show {
-        display: block;
-        opacity: 1;
-    }
-</style>
-@endpush
-
-@push('scripts')
-<script>
-    $(window).scroll(function() {
-        if ($(this).scrollTop() > 200) {
-            $('#scrollUp').addClass('show').fadeIn();
-        } else {
-            $('#scrollUp').removeClass('show').fadeOut();
-        }
-    });
-
-    $('#scrollUp').click(function(e) {
-        e.preventDefault();
-        $('html, body').animate({
-            scrollTop: 0
-        }, '300');
-    });
-</script>
-@endpush

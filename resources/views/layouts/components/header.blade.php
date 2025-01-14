@@ -211,7 +211,7 @@
 <style>
     .bb-mobile-menu-overlay {
         display: none;
-        opacity: 0;
+        opacity: 1;
     }
 
     .bb-mobile-menu-overlay.visible {
@@ -224,7 +224,7 @@
     document.addEventListener('DOMContentLoaded', function() {
         var buttonOpenMenu = document.querySelector('.bb-toggle-menu');
         var buttonCloseMenu = document.querySelector('.bb-close-menu');
-        var mobileMenu = document.getElementById('bb-mobile-menu');
+        var mobileMenu = document.getElementById('.bb-mobile-menu');
         var overlay = document.querySelector('.bb-mobile-menu-overlay');
 
         buttonOpenMenu.addEventListener('click', function() {
