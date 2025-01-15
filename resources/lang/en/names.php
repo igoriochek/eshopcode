@@ -181,6 +181,9 @@ return [
     'sortBy' => 'Sort by',
     'thereAre' => 'There Are',
     'save' => 'Save',
+    'outOfStock' => 'Out Of Stock',
+    'left' => 'Left',
+    'inStock' => 'In Stock',
 
     //Promotions
     'createPromotion' => 'Create Promotion',
@@ -218,6 +221,7 @@ return [
     'reviewProduct' => 'Thank you for reviewing this product',
     'yourReview' => 'Your review',
     'grade' => 'Grade',
+    'enterYourComment' => 'Enter your comment',
 
     //Returns
     'checkReturn' => 'Check to Return',

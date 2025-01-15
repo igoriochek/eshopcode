@@ -41,5 +41,6 @@ return [
     'placeOrder' => 'Place Order',
     'continueShopping' => 'Continue Shopping',
     'submit' => 'Submit',
-    'view' => 'View'
+    'view' => 'View',
+    'quickView' => 'Quick view',
 ];

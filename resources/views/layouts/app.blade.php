@@ -95,8 +95,10 @@
     @include('layouts.components.footer')
     @endif
 
+    <script src="{{ asset('template/js/vendor/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('template/js/vendor/jquery.min.js') }}"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <script src="{{ asset('js/jquery-3.6.0.min.js') }}"></script>
     <script src="{{ asset('js/jquery-ui.js') }}"></script>
@@ -106,7 +108,7 @@
     <!-- <script src="{{ asset('template/js/vendor/jquery.js') }}"></script> -->
     <script src="{{ asset('template/js/vendor/popper.min.js') }}"></script>
     <!-- <script src="{{ asset('template/js/vendor/bootstrap.min.js') }}"></script> -->
-    <script src="{{ asset('template/js/vendor/slick.min.js') }}"></script>
+    
     <script src="{{ asset('template/js/vendor/js.cookie.js') }}"></script>
     <!-- <script src="template/js/vendor/jquery.style.switcher.js"></script> -->
     <script src="{{ asset('template/js/vendor/jquery.ui.touch-punch.min.js') }}"></script>
@@ -117,26 +119,25 @@
     <script src="{{ asset('template/js/vendor/isotope.pkgd.min.js') }}"></script>
     <script src="{{ asset('template/js/vendor/counterup.js') }}"></script>
     <script src="{{ asset('template/js/vendor/waypoints.min.js') }}"></script>
-    <script src="{{ asset('template/js/main.js') }}"></script>
+    
     <script src="{{ asset('js/custom.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.5.1/nouislider.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
 
+    <script src="{{ asset('template/js/vendor/jquery-range-ui.min.js') }}"></script>
+    
 
-    <script src="{{ asset('template/js/vendor/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('template/js/vendor/jquery.min.js') }}"></script>
+    
     <script src="{{ asset('template/js/vendor/jquery.zoom.min.js') }}"></script>
     <script src="{{ asset('template/js/vendor/aos.js') }}"></script>
     <script src="{{ asset('template/js/vendor/swiper-bundle.min.js') }}"></script>
+    <script src="{{ asset('template/js/vendor/slick.min.js') }}"></script>
     <script src="{{ asset('template/js/vendor/smoothscroll.min.js') }}"></script>
     <script src="{{ asset('template/js/vendor/owl.carousel.min.js') }}"></script>
-    <script src="{{ asset('template/js/vendor/slick.min.js') }}"></script>
-    <script src="{{ asset('template/js/vendor/jquery-range-ui.min.js') }}"></script>
+
     <script src="{{ asset('template/js/vendor/tilt.jquery.min.js') }}"></script>
 
-    <!-- main-js -->
     <script src="{{ asset('template/js/main.js') }}"></script>
-
 
     @if (auth()->check() && auth()->user()->type == 1)
         <style>

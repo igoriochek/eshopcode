@@ -118,9 +118,9 @@ class ProductController extends AppBaseController
             $product->id = $product->product_id;
 
             $sumAndCount = $this->calculateRatingSumAndCount($this->getProductRatings($product->id));
-            $product->sum = $sumAndCount['sum'];
-            $product->count = $sumAndCount['count'];
-            $product->average = $this->calculateAverageRating($product->sum, $product->count);
+            $sum = $sumAndCount['sum'];
+            $count = $sumAndCount['count'];
+            $product->average = $this->calculateAverageRating($sum, $count);
         }
 
         return view('user_views.product.all_products')

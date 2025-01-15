@@ -23,3 +23,19 @@
         </div>
     </div>
 </section>
+
+<section class="section-category mb-24">
+    <div class="container">
+        <div class="row">
+            <div class="d-flex justify-content-center">
+                <div class="col-6">
+                    <a class="bb-category-box category-items-3" href="{{ url('/productComplex') }}">
+                        <div class="category-sub-contact">
+                            <h5>{{ __('menu.productComplexBuild') }}</h5>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

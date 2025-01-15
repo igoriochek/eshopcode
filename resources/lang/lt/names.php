@@ -181,6 +181,9 @@ return [
     'sortBy' => 'Rūšiuoti pagal',
     'thereAre' => 'Yra',
     'save' => 'Sutaupykite',
+    'outOfStock' => 'Išparduota',
+    'left' => 'Liko',
+    'inStock' => 'Turima',
 
     //Promotions
     'createPromotion' => 'Sukurti akciją',
@@ -218,6 +221,7 @@ return [
     'reviewProduct' => 'Dėkojame, kad įvertinote šį produktą',
     'yourReview' => 'Jūsų atsiliepimas',
     'grade' => 'Įvertinimas',
+    'enterYourComment' => 'Įveskite savo komentarą',
 
     //Returns
     'checkReturn' => 'Pasirinkite kuriuos norite grąžinti',

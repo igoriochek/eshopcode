@@ -1,71 +1,75 @@
 <form method="get" action="{{ route('userproducts') }}" id="mainForm">
-    <aside class="left-sidebar">
-        <div class="product-widget mb-3rem">
-            <h3 class="title">{{ __('names.search') }}</h3>
-            <div class="shop-submenu">
-                <div class="d-flex" style="height: 55px;">
-                    <input class="form-control border-blue" type="text" name="filter[namelike]" id="filter[namelike]"
+    <div class="bb-shop-wrap">
+        <div class="bb-sidebar-block">
+            <div class="bb-sidebar-title">
+                <h3>{{ __('names.search') }}</h3>
+            </div>
+            <div class="bb-sidebar-contact">
+                <div class="header-search">
+                    <input type="text" name="filter[namelike]" id="filter[namelike]"
                         placeholder="{{ __('names.product') . '...' }}" value="{{ $filter['namelike'] ?? '' }}">
-                    <button class="btn bg-primary search-btn" type="submit" style="position: inherit !important;">
-                        <i class="ion-ios-search-strong"></i>
-                    </button>
-
+                    <button class="search-button" type="submit"><i class="ri-search-line"></i></button>
                 </div>
             </div>
         </div>
-
-        <div class="product-widget pt-3rem mb-3rem">
-            <h3 class="title">{{ __('names.filterByPrice') }}</h3>
-            <div class="product-tag d-flex flex-wrap">
-                <div class="shop-submenu">
-                    <div class="range-slider">
-                        <div id="range-slider" class="slider mb-3 mt-1 mx-1" wire:ignore></div>
+        <div class="bb-sidebar-block">
+            <div class="bb-sidebar-title">
+                <h3>{{ __('names.filterByPrice') }}</h3>
+            </div>
+            <div class="bb-sidebar-contact">
+                <div class="range-slider">
+                    <div id="range-slider" class="slider mb-3 mt-1 mx-1" wire:ignore></div>
+                </div>
+                <div class="d-flex" style="justify-content: space-between; margin-top: 20px;">
+                    <div>
+                        <span>{{ __('names.from') }}: <b>€</b></span>
+                        <input type="text" id="filter[pricefrom]" name="filter[pricefrom]" readonly
+                            value="{{ $filter['pricefrom'] ?? '0' }}" class="price-input px-0 fw-bold fs-4"
+                            style="width: 50px; padding-top: 1px" />
                     </div>
-                    <div class="d-flex" style="justify-content: space-between; margin-top: 20px;">
-                        <div>
-                            <span>{{ __('names.from') }}: <b class="text-dark">€</b></span>
-                            <input type="text" id="filter[pricefrom]" name="filter[pricefrom]" readonly
-                                value="{{ $filter['pricefrom'] ?? '0' }}" class="price-input px-0 fw-bold fs-4"
-                                style="width: 42px; padding-top: 1px" />
-                        </div>
-                        <div>
-                            <span class="text-capitalize">{{ __('names.to') }}: <b class="text-dark">€</b></span>
-                            <input type="text" id="filter[priceto]" name="filter[priceto]" readonly
-                                value="{{ $filter['priceto'] ?? '0' }}" class="price-input px-0 fw-bold fs-4"
-                                style="width: 42px; padding-top: 1px" />
-                        </div>
+                    <div>
+                        <span class="text-capitalize">{{ __('names.to') }}: <b>€</b></span>
+                        <input type="text" id="filter[priceto]" name="filter[priceto]" readonly
+                            value="{{ $filter['priceto'] ?? '0' }}" class="price-input px-0 fw-bold fs-4"
+                            style="width: 50px; padding-top: 1px" />
                     </div>
                 </div>
+                <button class="bb-btn-2 mt-4" type="submit">
+                    {{ __('buttons.filter') }}
+                </button>
             </div>
-            <button class="btn btn-primary rounded mt-4" type="submit">
+        </div>
+        <div class="bb-sidebar-block">
+            <div class="bb-sidebar-title">
+                <h3>{{ __('names.categories') }}</h3>
+            </div>
+            <div class="bb-sidebar-contact">
+                <ul>
+                    @forelse($categories as $category)
+                    <li>
+                        <div class="bb-sidebar-block-item">
+                            <input type="checkbox" id="category.{{ $category->id }}"
+                                value="{{ $category->id }}" onclick="calc();"
+                                @if ($filter && isset($filter['categories.id'])) {{ in_array($category->id, $selCategories) ? "checked=\"checked\"" : '' }} @endif>
+                            <a href="javascript:void(0)" for="category.{{ $category->id }}">
+                                {{ $category->name }}
+                            </a>
+                            <span class="checked"></span>
+                        </div>
+                    </li>
+                    @empty
+                    <li>
+                        <span class="text-muted">{{ __('names.noCategories') }}</span>
+                    </li>
+                    @endforelse
+                </ul>
+            </div>
+            <button class="bb-btn-2 mt-4" type="submit">
                 {{ __('buttons.filter') }}
             </button>
         </div>
 
-
-        <div class="product-widget pt-3rem mb-3rem">
-            <h3 class="title">{{ __('names.categories') }}</h3>
-            <ul>
-                @forelse($categories as $category)
-                <li class="filter-check-box">
-                    <input type="checkbox" id="category.{{ $category->id }}"
-                        value="{{ $category->id }}" onclick="calc();"
-                        @if ($filter && isset($filter['categories.id'])) {{ in_array($category->id, $selCategories) ? "checked=\"checked\"" : '' }} @endif>
-                    <label for="category.{{ $category->id }}">
-                        {{ $category->name }}
-                    </label>
-                </li>
-                @empty
-                <li>
-                    <span class="text-muted">{{ __('names.noCategories') }}</span>
-                </li>
-                @endforelse
-            </ul>
-        </div>
-        <button class="btn btn-primary rounded mt-5 mt-sm-0" type="submit">
-            {{ __('buttons.filter') }}
-        </button>
-    </aside>
+    </div>
 
     <input type="hidden" value="{{ implode(',', $selCategories) }}" name="filter[categories.id]"
         id="filter[categories.id]">
@@ -73,31 +77,28 @@
 </form>
 
 <style>
-    .product-widget .title {
-        text-transform: none !important;
+    .header-search {
+        display: flex;
+        justify-content: flex-end;
     }
 
-    .form-control {
-        font-size: 1.2rem;
-        border: 2px solid #0090f0;
-        border-bottom-left-radius: 3rem;
-        border-top-left-radius: 3rem;
-        border-bottom-right-radius: 0rem;
-        border-top-right-radius: 0rem;
+    .search-button {
+        position: absolute;
+        width: 45px;
+        background: transparent;
+        box-shadow: none;
+        color: #555;
+        border: 0px;
+        height: 45px;
     }
 
-    .shop-submenu {
-        width: 100%;
-        margin-left: 10px;
-        margin-right: 10px;
-    }
 
     .ui-state-default,
     .ui-widget-content .ui-state-default {
         border-radius: 100%;
-        background-color: #0090f0;
-        border-color: #0090f0;
-        top: -0.6rem;
+        background-color: #6c7fd8;
+        border-color: #6c7fd8;
+        top: -0.5rem;
     }
 
     .ui-widget.ui-widget-content {
@@ -105,15 +106,15 @@
     }
 
     .ui-widget-content {
-        background: #fafafa;
+        background: rgb(0, 0, 0);
     }
 
     .ui-widget-header {
-        background: #0090f0;
+        background: #6c7fd8;
     }
 
     .ui-slider-horizontal {
-        height: 0.5rem;
+        height: 3px;
     }
 
     .slider {
@@ -122,20 +123,7 @@
 
     .ui-state-focus,
     .ui-widget-content .ui-state-focus {
-        border: 0px solid #0090f0 !important;
-        background: #0090f0;
-    }
-
-    .price-input {
-        border: none;
-        outline: none;
-        background-color: transparent;
-        box-shadow: none;
-    }
-
-    .price-input:focus {
-        outline: none;
-        background-color: transparent;
-        box-shadow: none;
+        border: 1px solid #6c7fd8 !important;
+        background: #fff;
     }
 </style>

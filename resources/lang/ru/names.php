@@ -181,6 +181,9 @@ return [
     'sortBy' => 'Сортировать по',
     'thereAre' => 'Есть',
     'save' => 'Экономия',
+    'outOfStock' => 'Продано',
+    'left' => 'Осталось',
+    'inStock' => 'В наличии',
 
     //Promotions
     'createPromotion' => 'Создать акцию',
@@ -218,6 +221,7 @@ return [
     'reviewProduct' => 'Спасибо за отзыв об этом продукте',
     'yourReview' => 'Ваш отзыв',
     'grade' => 'Оценка',
+    'enterYourComment' => 'Введите свой комментарий',
 
     //Returns
     'checkReturn' => 'Отметить, чтобы вернуться',
