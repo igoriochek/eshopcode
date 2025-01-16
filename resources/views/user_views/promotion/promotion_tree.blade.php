@@ -10,22 +10,3 @@
     </li>
     @endforeach
 </ul>
-
-<style>
-    ul li {
-        margin-bottom: 5px;
-        padding-bottom: 0px;
-    }
-
-    a {
-        color: #253237 !important;
-    }
-
-    a {
-
-        &:hover,
-        &:focus {
-            color: #0090f0 !important;
-        }
-    }
-</style>

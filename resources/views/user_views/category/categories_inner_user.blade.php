@@ -86,3 +86,60 @@
     </div>
 </section>
 @endsection
+
+<style>
+    .pagination .page-item.active .page-link {
+        background-color: #3d4750 !important;
+        color: #fff !important;
+        transition: all 0.3s ease-in-out !important;
+        width: 32px !important;
+        height: 32px !important;
+        padding: 0 !important;
+        font-weight: 300 !important;
+        line-height: 32px !important;
+        font-size: 15px !important;
+        display: -webkit-box !important;
+        display: -ms-flexbox !important;
+        display: flex !important;
+        text-align: center !important;
+        vertical-align: top !important;
+        -webkit-box-pack: center !important;
+        -ms-flex-pack: center !important;
+        justify-content: center !important;
+        -webkit-box-align: center !important;
+        -ms-flex-align: center !important;
+        align-items: center !important;
+        border-radius: 10px !important;
+        border: 1px solid #eee !important;
+    }
+
+    .pagination .page-item .page-link {
+
+        background: #f8f8fb;
+        transition: all 0.3s ease-in-out !important;
+        width: 32px !important;
+        height: 32px !important;
+        padding: 0 !important;
+        font-weight: 300 !important;
+        line-height: 32px !important;
+        font-size: 15px !important;
+        display: -webkit-box !important;
+        display: -ms-flexbox !important;
+        display: flex !important;
+        text-align: center !important;
+        vertical-align: top !important;
+        -webkit-box-pack: center !important;
+        -ms-flex-pack: center !important;
+        justify-content: center !important;
+        -webkit-box-align: center !important;
+        -ms-flex-align: center !important;
+        align-items: center !important;
+        border-radius: 10px !important;
+        border: 1px solid #eee !important;
+
+        &:hover {
+            background-color: #3d4750 !important;
+            color: #fff !important;
+        }
+    }
+</style>

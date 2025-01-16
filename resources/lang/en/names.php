@@ -184,6 +184,7 @@ return [
     'outOfStock' => 'Out Of Stock',
     'left' => 'Left',
     'inStock' => 'In Stock',
+    'lowercaseProducts' => 'products',
 
     //Promotions
     'createPromotion' => 'Create Promotion',

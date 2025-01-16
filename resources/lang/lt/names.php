@@ -184,6 +184,7 @@ return [
     'outOfStock' => 'Išparduota',
     'left' => 'Liko',
     'inStock' => 'Turima',
+    'lowercaseProducts' => 'produktai',
 
     //Promotions
     'createPromotion' => 'Sukurti akciją',

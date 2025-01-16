@@ -184,6 +184,7 @@ return [
     'outOfStock' => 'Продано',
     'left' => 'Осталось',
     'inStock' => 'В наличии',
+    'lowercaseProducts' => 'продукты',
 
     //Promotions
     'createPromotion' => 'Создать акцию',

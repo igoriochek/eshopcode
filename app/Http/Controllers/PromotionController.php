@@ -52,7 +52,7 @@ class PromotionController extends AppBaseController
 
     public function promotionProducts(Request $request)
     {
-        $promotion = $this->promotionRepository->allQuery(['id' => $request->id])->first();
+        $promotion = $this->promotionRepository->find($request->id);
         $products = Product::query()->where(['promotion_id' => $request->id])->paginate(12);
 
         return view('user_views.promotion.promotion_products')
