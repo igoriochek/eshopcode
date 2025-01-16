@@ -1,5 +1,4 @@
-<div wire:poll.1s>
-    <div class="axil-single-widget widget_archive">
+<div wire:poll.1s style="width: 100%;">
         <ul class="">
             @forelse ($users ?? [] as $user)
                 <li class="content">
@@ -34,7 +33,6 @@
                 </div>
             @endforelse
         </ul>
-    </div>
 </div>
 
 
@@ -86,7 +84,7 @@
         .messenger-user-unread {
             width: 19px;
             height: 19px;
-            background-color: #0090f0;
+            background-color: #6c7fd8;
             border-radius: 10px;
             color: #fff;
             display: flex;

@@ -2,71 +2,54 @@
 @section('parentTitle', __('menu.messenger'))
 @section('parentUrl', url('/user/messenger'))
 
-<div class="axil-single-product-area axil-section-gap bg-color-white">
-    <section class="pt-2">
-        <div class="container">
-            <div class="row mb-5">
-                <div class="col-lg-4 mt-4 mt-md-5 mt-lg-0 mb-5">
-                    <div class="brand-init style1">
-                        <div class="widget">
-                            <div class="section-title">
-                                <div class="border-bottom cbb1 mb-4 pb-4 d-flex justify-content-between align-items-center">
-                                    <h4 class="title mb-1">
-                                        {{ __('names.messages') }}
-                                    </h4>
-                                </div>
-                            </div>
-                            <div class="category-tree-widget-content">
-                                @include('livewire.messenger.users')
-                            </div>
+<section class="section-terms padding-tb-50">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 mb-5">
+                <div class="bb-shop-wrap">
+                    <div class="bb-sidebar-block">
+                        <div class="bb-sidebar-title">
+                            <h3>{{ __('names.messages') }}</h3>
                         </div>
+                        <a href="{{ route('livewire.messenger.add') }}" class="bb-btn-2">
+                            {{ __('buttons.contact') }}
+                        </a>
                     </div>
-                </div>
-                <div class="col-lg-8 mb-5">
-                    <div class="messenger-add-users px-4 mb-4 mb-sm-5">
-                        <div class="mb-4">
-                            <h1 class="mb-3">{{ __('names.contactUsers') }}</h1>
-                            <div class="grid-nav-wraper bg-light mb-5">
-                                <div class="row align-items-center">
-                                    <div class="col-12 col-md-6 mb-3 mb-md-0">
-                                        <nav class="shop-grid-nav">
-                                            <ul class="nav nav-pills align-items-center" id="pills-tab" role="tablist">
-                                                <li> <span class="total-products">
-                                                        {{ __('names.showing') }}
-                                                        @if ($addUsers->currentPage() !== $addUsers->lastPage())
-                                                        {{ ($addUsers->count() * $addUsers->currentPage() - $addUsers->count() + 1).__('–').($addUsers->count() * $addUsers->currentPage()) }}
-                                                        @else
-                                                        @if ($addUsers->total() - $addUsers->count() === 0)
-                                                        {{ $addUsers->count() }}
-                                                        @else
-                                                        {{ ($addUsers->total() - $addUsers->count()).__('–').$addUsers->total() }}
-                                                        @endif
-                                                        @endif
-                                                        {{ __('names.of') }}
-                                                        {{ $addUsers->total().' '.__('names.entries') }}
-                                                </li>
-                                            </ul>
-                                        </nav>
-                                    </div>
-                                </div>
-                            </div>
-                            @include('livewire.messenger.add_users')
-                        </div>
+                    <div class="bb-sidebar-block">
+                        @include('livewire.messenger.users')
                     </div>
                 </div>
             </div>
-    </section>
-</div>
-
+            <div class="col-lg-8 mb-5">
+                <div class="bb-shop-pro-inner">
+                    <div class="row mb-minus-24">
+                        <div class="section-title bb-center">
+                            <div class="section-detail">
+                                <h2 class="bb-title">{{ __('names.contactUsers') }}</h2>
+                            </div>
+                        </div>
+                        @include('livewire.messenger.add_users')
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 @push('css')
 <style>
-    .filter-results {
-        margin-left: 0px !important;
+    .bb-shop-wrap .bb-sidebar-block .bb-sidebar-title {
+        margin-bottom: 0px !important;
     }
 
-    .section-title::after {
-        position: inherit !important;
+    .bb-shop-wrap .bb-sidebar-block {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .section-title .section-detail h2 {
+        text-transform: none !important;
     }
 </style>
 @endpush
