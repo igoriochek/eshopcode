@@ -3,6 +3,11 @@
     {!! Form::open(['route' => ['addtocart'], 'method' => 'post']) !!}
     <div class="bb-pro-box">
         <div class="bb-pro-img">
+            @if ($product->discount)
+                <span class="flags">
+                    <span>{{ __('names.discount') }}</span>
+                </span>
+            @endif
             <a href="javascript:void(0)">
                 <div class="inner-img">
                     @if ($product->image)
@@ -68,10 +73,10 @@
                     <span class="new-price">€{{ number_format($product->price, 2) }}</span>
                     @endif
                     @if ($product->count <= 3 && $product->count > 0)
-                    <span class="item-left">{{ $product->count }} {{ __('names.left') }} </span>
-                    @elseif ($product->count === 0)
-                    <span class="item-left">{{ __('names.outOfStock') }}</span>
-                    @endif
+                        <span class="item-left">{{ $product->count }} {{ __('names.left') }} </span>
+                        @elseif ($product->count === 0)
+                        <span class="item-left">{{ __('names.outOfStock') }}</span>
+                        @endif
                 </div>
             </div>
         </div>

@@ -3,7 +3,7 @@
     <li class="ms-2">
         <a href="{{ route('innercategories', ['category_id' => $child->id]) }}"
             class="{{ str_contains(url()->current(), "/innercategories/$child->id") ? 'active' : '' }}
-               {{ request()->is('user/rootcategories') || request()->is('rootcategories') ? 'fs-4 my-2' : '' }}">
+               {{ request()->is('user/rootcategories') || request()->is('rootcategories') ? 'my-2' : '' }}">
             @if (count($child->innerCategories))
             <i class="fa-solid fa-angle-down pe-1"></i>
             @else
@@ -20,19 +20,3 @@
     </li>
     @endforeach
 </ul>
-
-@push('css')
-<style>
-    a {
-        color: #253237 !important;
-    }
-
-    a {
-
-        &:hover,
-        &:focus {
-            color: #0090f0 !important;
-        }
-    }
-</style>
-@endpush

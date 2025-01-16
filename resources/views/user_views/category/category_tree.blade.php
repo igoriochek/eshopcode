@@ -1,9 +1,9 @@
-<ul class="category-tree nav nav-list flex-column mb-5">
+<ul class="category-tree nav nav-list flex-column mb-3">
     @foreach ($treeCategories as $category)
     <li>
         <a href="{{ route('innercategories', ['category_id' => $category->id]) }}"
             class="{{ substr(url()->current(), -1) == "$category->id" ? 'active' : '' }}
-               {{ request()->is('user/rootcategories') || request()->is('rootcategories') ? 'fs-4 my-2' : '' }}">
+               {{ request()->is('user/rootcategories') || request()->is('rootcategories') ? 'my-2' : '' }}">
             @if (count($category->innerCategories))
             <i class="fa-solid fa-angle-down pe-1"></i>
             @else
@@ -20,24 +20,3 @@
     </li>
     @endforeach
 </ul>
-
-@push('css')
-<style>
-    ul li {
-        margin-bottom: 5px;
-        padding-bottom: 0px;
-    }
-
-    a {
-        color: #253237 !important;
-    }
-
-    a {
-        &:hover,
-        &:focus {
-            color: #0090f0 !important;
-        }
-    }
-
-</style>
-@endpush

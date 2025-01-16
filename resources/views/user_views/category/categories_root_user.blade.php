@@ -3,41 +3,29 @@
 @section('title', __('menu.categories'))
 
 @section('content')
-<div class="whish-list-section pb-6rem">
+<section class="section-terms padding-tb-50">
     <div class="container">
-        <div class="row gap-5 gap-lg-0">
+        <div class="row">
             <div class="col-12">
-                <div class="shop-sidebar">
-                    <div class="border-bottom cbb1 mb-3rem">
-                        <div class="section-title pb-4 pb-md-4 position-relative">
-                            <h2 class="title" style="border-bottom: 0px solid #e5e5e5; margin-bottom: 0px;">{{ __('names.categories') }}</h2>
+                <div class="section-title bb-center" data-aos="fade-up" data-aos-duration="1000"
+                    data-aos-delay="200">
+                    <div class="section-detail">
+                        <h2 class="bb-title">{{ __('names.categories') }}</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="desc">
+                <div class="row mb-minus-24">
+                    <div class="col-lg-12 col-md-12 mb-24">
+                        <div class="terms-detail" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                            <div class="block">
+                                @include('user_views.category.category_tree')
+                            </div>
                         </div>
                     </div>
-                    @include('user_views.category.category_tree')
                 </div>
             </div>
         </div>
     </div>
-</div>
+</section>
 @endsection
-
-@push('css')
-<style>
-    .title {
-        margin-bottom: 16px;
-    }
-
-    a {
-        color: #666666;
-
-        &:hover,
-        &:focus {
-            color: #a10909;
-        }
-    }
-
-    .active {
-        color: #a10909;
-    }
-</style>
-@endpush
