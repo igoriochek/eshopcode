@@ -3,18 +3,24 @@
 @section('title', __('menu.login'))
 
 @section('content')
-<div class="my-account pb-6rem">
+<section class="section-login padding-tb-50">
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h3 class="title">{{ __('auth.login') }}</h3>
-                <form class="log-in-form" method="POST" action="{{ route('login') }}">
-                    @csrf
-                    <div class="form-group row">
-                        <label for="email" class="col-md-3 col-form-label">{{ __('auth.email') }}</label>
-                        <div class="col-md-6">
+                <div class="section-title bb-center" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                    <div class="section-detail">
+                        <h2 class="bb-title">{{ __('auth.login') }}</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="bb-login-contact" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                    <form method="POST" action="{{ route('login') }}">
+                        @csrf
+                        <div class="bb-login-wrap">
+                            <label for="email">{{ __('auth.email') }}*</label>
                             <input id="email" type="email"
-                                class="form-control @error('email') is-invalid @enderror" name="email"
+                                class="@error('email') is-invalid @enderror" name="email" placeholder="{{ __('auth.enterYourEmail') }}"
                                 value="{{ old('email') }}" required autocomplete="email" autofocus>
                             @error('email')
                             <span class="invalid-feedback" role="alert">
@@ -22,104 +28,91 @@
                             </span>
                             @enderror
                         </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="password" class="col-md-3 col-form-label">{{ __('auth.passwordEnter') }}</label>
-                        <div class="col-md-6">
-                            <div class="input-group mb-2 mr-sm-2">
-                                <input id="password" type="password"
-                                    class="form-control @error('password') is-invalid @enderror" name="password"
-                                    required autocomplete="current-password">
-                                @error('password')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                                <div class="input-group-prepend">
-                                    <button type="button" class="input-group-text btn-dark3 show-password" onclick="togglePassword()">
-                                        {{ __('auth.show') }}
-                                    </button>
-                                </div>
+                        <div class="bb-login-wrap">
+                            <label for="password">{{ __('auth.passwordEnter') }}*</label>
+                            <input id="password" type="password"
+                                class="@error('password') is-invalid @enderror" name="password" placeholder="{{ __('auth.enterYourPassword') }}"
+                                required autocomplete="current-password">
+                            @error('password')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                        <div class="bb-login-wrap">
+                            <div class="bb-sidebar-block-item">
+                                <input type="checkbox" id="rememberme">
+                                <label for="rememberme" style="transform: translateX(-25px); margin-left: 50px;">
+                                    {{ __('auth.rememberMe') }}
+                                </label>
+                                <span class="checked"></span>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="form-group row pb-3 text-center">
-                        <div class="col-md-6 offset-md-3">
-                            <input type="checkbox" id="rememberme">
-                            <label for="rememberme" style="transform: translateX(-25px); margin-left: 25px;">
-                                {{ __('auth.rememberMe') }}
-                            </label>
+                        <div class="bb-login-wrap">
+                            <a href="{{ route('password.request') }}">{{ __('buttons.forgotPassword') }}</a>
                         </div>
-                    </div>
-
-                    <div class="form-group row pb-3 text-center">
-                        <div class="col-md-6 offset-md-3">
-                            <div class="login-form-links">
-                                <a href="{{ route('password.request') }}" class="for-get"> {{ __('buttons.forgotPassword') }}</a>
-                                <div class="sign-btn">
-                                    <button type="submit" class="btn btn-dark3">{{ __('buttons.login') }}</button>
-                                </div>
+                        <div class="bb-login-button">
+                            <button class="bb-btn-2" type="submit">{{ __('buttons.login') }}</button>
+                            <a href="{{ route('register') }}">{{ __('buttons.register') }}</a>
+                        </div>
+                        <div class="bb-login-wrap" style="display: flex;justify-content: center;margin-top: 24px;">
+                            <span class="px-4">
+                                - {{ __('auth.or') }} -
+                            </span>
+                        </div>
+                        <div class="bb-login-wrap">
+                            <div class="d-flex flex-column justify-content-center gap-4">
+                                <a href="{{ route('facebook.login') }}"
+                                    class="facebook-btn text-center" data-loading-text="Loading..."
+                                    style="padding: 8px;">
+                                    <i class="fab fa-facebook-f fa-fw me-2"></i>
+                                    {{ __('auth.loginWith') . ' Facebook' }}
+                                </a>
+                                <a href="{{ route('google.login') }}" class="google-btn text-center"
+                                    data-loading-text="Loading..." style="padding: 8px;">
+                                    <i class="fab fa-google fa-fw me-2"></i>
+                                    {{ __('auth.loginWith') . ' Google' }}
+                                </a>
                             </div>
                         </div>
-                    </div>
-                    <div class="form-group row text-center">
-                        <div class="col-12">
-                            <div class="border-top">
-                                <a href="{{ route('register') }}" class="no-account">{{ __('auth.registerParagraph') . ' ' . __('buttons.register') }}</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="d-flex justify-content-center w-100 py-3">
-                        <span class="px-4">
-                            - {{ __('auth.or') }} -
-                        </span>
-                    </div>
-                    <div class="soc-media-login">
-                        <div class="d-flex flex-column justify-content-center gap-4">
-                            <a href="{{ route('facebook.login') }}"
-                                class="axil-btn facebook-btn text-center" data-loading-text="Loading..."
-                                style="padding: 8px;">
-                                <i class="fab fa-facebook-f fa-fw me-2 text-white"></i>
-                                {{ __('auth.loginWith') . ' Facebook' }}
-                            </a>
-                            <a href="{{ route('google.login') }}" class="axil-btn google-btn text-center"
-                                data-loading-text="Loading..." style="padding: 8px;">
-                                <i class="fab fa-google fa-fw me-2 text-white"></i>
-                                {{ __('auth.loginWith') . ' Google' }}
-                            </a>
-                        </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
+</section>
 @endsection
 
 @push('css')
 <style>
+    .bb-sidebar-block-item .checked {
+        top: 4px;
+    }
+
+
     .facebook-btn {
         background-color: #4267B2;
         border: 1px solid #4267B2;
-        color: #f1f1f1;
+        color: #f1f1f1 !important;
+        border-radius: 10px;
     }
 
     .google-btn {
         background-color: #DB4437;
         border: 1px solid #DB4437;
-        color: #f1f1f1;
+        color: #f1f1f1 !important;
+        border-radius: 10px;
     }
 
     .facebook-btn,
     .google-btn {
-        transition: all 100ms ease;
+        transition: all 0.3s ease-in-out;
 
         &:hover,
         &:focus {
-            color: #f1f1f1;
-            transform: scale(1.05, 1.05);
+            color: #3d4750 !important;
+            background: transparent;
+            border-color: #3d4750;
         }
     }
 
@@ -136,18 +129,3 @@
     }
 </style>
 @endpush
-
-<script>
-    function togglePassword() {
-        const passwordField = document.getElementById("password");
-        const showButton = document.querySelector(".show-password");
-
-        if (passwordField.type === "password") {
-            passwordField.type = "text";
-            showButton.textContent = "{{ __('auth.hide') }}";
-        } else {
-            passwordField.type = "password";
-            showButton.textContent = "{{ __('auth.show') }}";
-        }
-    }
-</script>

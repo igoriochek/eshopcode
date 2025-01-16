@@ -29,6 +29,10 @@ return [
     'rememberMe' => 'Запомнить меня',
     'or' => 'или',
     'registerParagraph' => "У вас нет учетной записи?",
+    'enterYourEmail' => 'Введите вашу электронную почту',
+    'enterYourPassword' => 'Введите свой пароль',
+    'enterYourName' => 'Введите ваше имя',
+    'enterYourPasswordAgain' => 'Введите пароль еще раз',
 
     //Register
     'register' => 'Зарегистрироваться',

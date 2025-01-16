@@ -1,5 +1,4 @@
 <section class="section-breadcrumb margin-b-50">
-    @if (request()->is('login') || request()->is('register') || request()->is('password/reset*')) d-none @endif
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -24,12 +23,12 @@
     </div>
 </section>
 
-<section class="section-category mb-24">
+<section class="section-category @if (request()->is('login') || request()->is('register') || request()->is('password/reset*')) d-none @endif mb-24">
     <div class="container">
         <div class="row">
             <div class="d-flex justify-content-center">
                 <div class="col-6">
-                    <a class="bb-category-box category-items-3" href="{{ url('/productComplex') }}">
+                    <a class="bb-category-box category-items-1" href="{{ url('/productComplex') }}">
                         <div class="category-sub-contact">
                             <h5>{{ __('menu.productComplexBuild') }}</h5>
                         </div>

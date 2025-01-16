@@ -30,6 +30,10 @@ return [
     'rememberMe' => 'Prisimink mane',
     'or' => 'arba',
     'registerParagraph' => 'Neturi paskyros?',
+    'enterYourEmail' => 'Įveskite savo el. pašto adresą',
+    'enterYourPassword' => 'Įveskite savo slaptažodį',
+    'enterYourName' => 'Įveskite savo vardą',
+    'enterYourPasswordAgain' => 'Dar kartą įveskite slaptažodį',
 
     //Register
     'register' => 'Registruoti',

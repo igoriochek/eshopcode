@@ -29,6 +29,10 @@ return [
     'rememberMe' => 'Remember Me',
     'or' => 'or',
     'registerParagraph' => "Don't have an account?",
+    'enterYourEmail' => 'Enter Your Email',
+    'enterYourPassword' => 'Enter Your Password',
+    'enterYourName' => 'Enter Your Name',
+    'enterYourPasswordAgain' => 'Enter Your Password Again',
 
     //Register
     'register' => 'Register',

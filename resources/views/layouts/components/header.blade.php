@@ -96,7 +96,7 @@
                                     </a>
                                     @else
                                     <div class="bb-acc-drop">
-                                        <a href="javascript:void(0)"
+                                        <a href="{{ route('login') }}"
                                             class="bb-header-btn bb-header-user dropdown-toggle bb-user-toggle"
                                             title="Account">
                                             <div class="header-icon">
