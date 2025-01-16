@@ -9,11 +9,14 @@ use App\Models\Promotion;
 use App\Repositories\PromotionRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
+use App\Traits\ProductRatings;
 use Flash;
 use Response;
 
 class PromotionController extends AppBaseController
 {
+    use ProductRatings;
+
     /** @var PromotionRepository $promotionRepository*/
     private $promotionRepository;
     use \App\Http\Controllers\PrepareTranslations;
@@ -46,14 +49,33 @@ class PromotionController extends AppBaseController
 
     public function indexPromotions()
     {
+        
+        $promotions = $this->getPromotions();
+
+        foreach ($promotions as $promotion) {
+            foreach ($promotion->products as $product) {
+                $sumAndCount = $this->calculateRatingSumAndCount($this->getProductRatings($product->id));
+                $sum = $sumAndCount['sum'];
+                $count = $sumAndCount['count'];
+                $product->average = $this->calculateAverageRating($sum, $count);
+            }
+        }
+
         return view('user_views.promotion.index')
-            ->with('promotions', $this->getPromotions());
+            ->with('promotions', $promotions);
     }
 
     public function promotionProducts(Request $request)
     {
         $promotion = $this->promotionRepository->find($request->id);
         $products = Product::query()->where(['promotion_id' => $request->id])->paginate(12);
+        
+        foreach ($products as $product) {
+            $sumAndCount = $this->calculateRatingSumAndCount($this->getProductRatings($product->id));
+            $sum = $sumAndCount['sum'];
+            $count = $sumAndCount['count'];
+            $product->average = $this->calculateAverageRating($sum, $count);
+        }
 
         return view('user_views.promotion.promotion_products')
             ->with([

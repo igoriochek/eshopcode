@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Auth;
 use Response;
 use Spatie\QueryBuilder\QueryBuilder;
 use App\Models\Category;
+use App\Traits\ProductRatings;
 
 class CategoryController extends AppBaseController
 {
@@ -22,6 +23,7 @@ class CategoryController extends AppBaseController
 
     use \App\Http\Controllers\forSelector;
     use \App\Http\Controllers\PrepareTranslations;
+    use ProductRatings;
 
     public function __construct(CategoryRepository $categoryRepo, ProductRepository $productRepository)
     {
@@ -67,6 +69,13 @@ class CategoryController extends AppBaseController
 
         $category = $this->categoryRepository->find($request->category_id);
         $products = $category->products()->paginate(12);
+
+        foreach ($products as $product) {
+            $sumAndCount = $this->calculateRatingSumAndCount($this->getProductRatings($product->id));
+            $sum = $sumAndCount['sum'];
+            $count = $sumAndCount['count'];
+            $product->average = $this->calculateAverageRating($sum, $count);
+        }
 
         $user = Auth::user();
 

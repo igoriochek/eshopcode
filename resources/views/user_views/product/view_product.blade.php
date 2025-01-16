@@ -55,7 +55,7 @@
                                         @if ($product->discount)
                                         <div class="price">
                                             <h5>€{{ $product->price - round(($product->price * $product->discount->proc) / 100, 2) }}
-                                                <span>-{{ $product->discount }}%</span>
+                                                <span>-{{ $product->discount->proc }}%</span>
                                             </h5>
                                         </div>
                                         <div class="mrp">
