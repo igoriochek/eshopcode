@@ -1,48 +1,41 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="my-account pb-5">
+<section class="section-shop padding-b-50">
     <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="row">
-                    @include('flash::message')
-                    <hr class="my-4" />
-                    <h3 class="contact-page-title">[{{ __('names.return') }}]</h3>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="form-group col-sm-6">
-                                {!! Form::label('description', 'Description:') !!}
-                                {!! Form::textarea('description', null, ['class' => 'form-control']) !!}
+        <div class="row mb-minus-24">
+            <div class="mb-5">
+                @include('adminlte-templates::common.errors')
+                @include('flash_messages')
+            </div>
+            <div class="col-12 mb-24">
+                <div class="bb-shop-pro-inner">
+                    <div class="row mb-minus-24">
+                        <div class="section-title bb-center">
+                            <div class="section-detail" data-aos="fade-up"
+                                data-aos-duration="1000" data-aos-delay="200">
+                                <h2 class="bb-title">{{ __('names.return') }}</h2>
                             </div>
                         </div>
-                    </div>
+                        {!! Form::model($order, ['route' => ['savereturnorder', $order->id], 'method' => 'post']) !!}
+                        <div class="bb-contact-wrap" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400" style="margin-bottom: 24px;">
+                            {!! Form::label('description', 'Description:') !!}
+                            {!! Form::textarea('description', null) !!}
 
-                    <div class="card-footer">
-                        {!! Form::submit(__('buttons.save'), ['class' => 'btn btn-primary' , 'style' => 'padding: 13px 30px; height: 51px; border-radius: 5px; text-transform: capitalize;']) !!}
-                        <a href="{{ route('rootorders') }}" class="btn btn-dark3" style="padding: 13px 30px;">{{__('buttons.cancel')}}</a>
+                        </div>
+                        <div class="bb-login-button d-flex" style="justify-content: space-between;" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
+                            <button type="submit" class="bb-btn-2">
+                                {{ __('buttons.save') }}
+                            </button>
+                            <a href="{{ route('rootorders') }}" class="bb-btn-1">
+                                {{ __('buttons.cancel') }}
+                            </a>
+                        </div>
+                        {!! Form::close() !!}
                     </div>
-
-                    {!! Form::close() !!}
                 </div>
             </div>
         </div>
     </div>
-</div>
+</section>
 @endsection
-
-@push('css')
-<style>
-    .th-col {
-        background-color: #0090f0 !important;
-        border-color: transparent !important;
-        color: #fff !important;
-        text-transform: none !important;
-    }
-
-    .form-control {
-        height: 40px;
-        font-size: 1.5rem;
-    }
-</style>
-@endpush

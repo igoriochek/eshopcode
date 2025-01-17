@@ -47,6 +47,9 @@ return [
 
     'hello' => 'Sveiki',
 
+    'summary' => 'Santrauka',
+    'couponDiscount' => 'Kupono nuolaida',
+
     //Categories
     'categories' => 'Kategorijos',
     'categoryDetails' => 'Kategorijos informacija',

@@ -4,21 +4,21 @@
     <div class="bb-pro-box">
         <div class="bb-pro-img">
             @if ($product->discount)
-                <span class="flags">
-                    <span>{{ __('names.discount') }}</span>
-                </span>
+            <span class="flags">
+                <span>{{ __('names.discount') }}</span>
+            </span>
             @endif
-            <a href="javascript:void(0)">
-                <div class="inner-img">
+            <a href="{{ route('viewproduct', $product->id) }}">
+                <div class="inner-img d-flex justify-content-center align-items-center">
                     @if ($product->image)
                     <img class="main-img" src="{{ $product->image }}"
                         alt="{{ $product->name }}">
                     <img class="hover-img" src="{{ $product->image }}"
                         alt="{{ $product->name }}">
                     @else
-                    <img class="main-img" src="{{ asset('template//img/new-product/1.jpg') }}"
+                    <img class="main-img" src="{{ asset('template/img/new-product/1.jpg') }}"
                         alt="{{ $product->name }}">
-                    <img class="hover-img" src="{{ asset('template//img/new-product/1.jpg') }}"
+                    <img class="hover-img" src="{{ asset('template/img/new-product/1.jpg') }}"
                         alt="{{ $product->name }}">
                     @endif
                 </div>
@@ -86,7 +86,6 @@
     {!! Form::close() !!}
 </div>
 
-
 <div class="modal fade quickview-modal" id="bry_quickview_modal_{{ $product->id }}" tabindex="-1" role="dialog">
     {!! Form::open(['route' => ['addtocart'], 'method' => 'post']) !!}
     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -135,7 +134,7 @@
                             </div>
                             <div class="bb-quickview-qty">
                                 <div class="qty-plus-minus">
-                                    <input class="qty-input" type="text" name="count" value="1">
+                                    <input class="qty-input" type="text" name="count" value="1" max="{{ $product->count }}">
                                 </div>
                                 <div class="bb-quickview-cart">
                                     <button type="submit" type="button" class="bb-btn-1">
@@ -152,3 +151,14 @@
     <input type="hidden" name="id" value="{{ $product->id }}">
     {!! Form::close() !!}
 </div>
+
+<style>
+    .inner-img {
+        height: 270px;
+    }
+    .main-img, .hover-img {
+        max-height: 270px;
+        width: auto;
+        height: auto;
+    }
+</style>

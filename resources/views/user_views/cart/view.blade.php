@@ -3,53 +3,47 @@
 @section('title', __('menu.cart'))
 
 @section('content')
-<section class="whish-list-section pb-6rem">
+<section class="section-cart padding-tb-50">
     <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <h3 class="title">{{ __('menu.cart') }}</h3>
-                <div class="table-responsive pt-4">
-                    @include('user_views.cart.table')
-                </div>
-                <div class="cart-update-btn-area mb-4">
-                    <div class="update-btn d-flex">
-                        <a href="{{ route('userproducts') }}" class="btn btn-dark3">
-                            {{ __('buttons.continueShopping') }}
-                        </a>
+        <div class="row mb-minus-24">
+            <div class="col-lg-4 mb-24">
+                <div class="bb-cart-sidebar-block" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                    <div class="bb-sb-title">
+                        <h3>{{ __('names.overview') }}</h3>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-xl-5 col-lg-7 offset-xl-7 offset-lg-5">
-                        <div class="axil-order-summery mt--80">
-                            <h5 class="title mb--20">{{ __('names.overview') }}</h5>
-                            <div class="table-responsive">
-                                <table class="table mb--30">
-                                    <tbody class="thead-light">
-                                        <tr class="order-total">
-                                            <td>{{ __('names.total') }}</td>
-                                            <td class="order-total-amount">
-                                                €{{ $cart->sum ? number_format($cart->sum, 2) : '0.00' }}
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                    <div class="bb-sb-blok-contact">
+                        <div class="bb-cart-summary">
+                            <div class="summary-total">
+                                <ul>
+                                    <li><span class="text-left">{{ __('names.total') }}</span><span class="text-right">€{{ $cart->sum ? number_format($cart->sum, 2) : '0.00' }}</span></li>
+                                </ul>
                             </div>
-                            @if (count($cartItems) > 0)
-                            <a href="{{ url('user/checkout') }}" class="btn btn-primary btn-block rounded">
-                                {{ __('buttons.proceedToCheckout') }}
-                            </a>
-                            @endif
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="col-lg-8 mb-24">
+                <div class="bb-cart-table mb-3" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                    @include('user_views.cart.table')
+                </div>
+                @if (count($cartItems) > 0)
+                <div class="d-flex" style="justify-content: space-between;" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                    <a href="{{ url('user/checkout') }}" class="bb-btn-2 check-btn">
+                        {{ __('buttons.proceedToCheckout') }}
+                    </a>
+                    <a href="{{ route('userproducts') }}" class="bb-btn-1 check-btn">
+                        {{ __('buttons.continueShopping') }}
+                    </a>
+                </div>
+                @else
+                <div class="d-flex" style="justify-content: flex-end;" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                    <a href="{{ route('userproducts') }}" class="bb-btn-1 check-btn">
+                        {{ __('buttons.continueShopping') }}
+                    </a>
+                </div>
+                @endif
             </div>
         </div>
     </div>
 </section>
 @endsection
-
-<style>
-    .btn-dark3 {
-        text-transform: none !important;
-    }
-</style>

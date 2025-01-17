@@ -52,9 +52,9 @@
                                 <div class="bb-header-buttons">
                                     @auth
                                     <div class="bb-acc-drop">
-                                        <a href="javascript:void(0)"
+                                        <a href="{{ url('/user/userprofile') }}"
                                             class="bb-header-btn bb-header-user dropdown-toggle bb-user-toggle"
-                                            title="Account">
+                                            title="{{ __('auth.account') }}">
                                             <div class="header-icon">
                                                 <svg class="svg-icon" viewBox="0 0 1024 1024" version="1.1"
                                                     xmlns="http://www.w3.org/2000/svg">
@@ -81,7 +81,7 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <a href="{{ url('/user/viewcart') }}" class="bb-header-btn bb-cart-toggle" title="Cart">
+                                    <a href="{{ url('/user/viewcart') }}" class="bb-header-btn" title="{{ __('names.cart') }}">
                                         <div class="header-icon">
                                             <svg class="svg-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
                                                 <path

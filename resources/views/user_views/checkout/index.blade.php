@@ -3,140 +3,134 @@
 @section('title', __('names.checkout'))
 
 @section('content')
-<div class="whish-list-section pb-6rem">
+<section class="section-checkout padding-tb-50">
     <div class="container">
-        <div class="row justify-content-center">
-            @if (count($discounts) > 0)
-            <div class="col-lg-8 col-12">
-                {!! Form::open(['route' => ['checkout-preview'], 'method' => 'post']) !!}
-                <div class="axil-checkout-notice d-flex justify-content-center" style="margin-bottom: 30px;">
-                    <div class="axil-toggle-box">
-                        <div class="toggle-bar">
-                            <a href="javascript:void(0)" class="btn btn-dark3">
-                                <i class="fas fa-pencil"></i>
-                                {{ __('names.selectDiscountCoupon') }}
-                            </a>
+        <div class="row mb-minus-24 justify-content-center">
+            <div class="col-lg-8 col-12 mb-24">
+                <div class="bb-checkout-sidebar">
+                    <div class="checkout-items" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                        <div class="sub-title">
+                            <h4>{{ __('names.summary') }}</h4>
                         </div>
-                        <div class="axil-checkout-coupon">
-                            <div class="input-group">
-                                <select name="discount[]" class="form-control border-blue fs-4 ps-4">
-                                    <option value="" class="text-muted">{{ __('---') }}</option>
-                                    @foreach ($discounts as $item)
-                                    <option value="{{ $item->id }}">{{ $item->code }}
-                                        -€{{ number_format($item->value, 2) }}</option>
-                                    @endforeach
-                                </select>
-                                <div class="apply-btn">
-                                    <button type="submit" class="btn btn-primary btn-block right-side-rounded"
-                                        style="padding-block: 14px">
-                                        {{ __('buttons.applyCoupon') }}
-                                    </button>
+                        <div class="checkout-summary">
+                            <ul>
+                                <li><span class="left-item">{{ __('names.subtotal') }}</span><span>€{{ number_format($cart->sum, 2) }}</span></li>
+                                <li>
+                                    <span class="left-item">{{ __('names.couponDiscount') }}</span>
+                                    <span><a href="javascript:void(0)" class="apply drop-coupon">{{ __('names.selectDiscountCoupon') }}</a></span>
+                                </li>
+                                <li>
+                                    <div class="coupon-down-box">
+                                        {!! Form::open(['route' => ['checkout-preview'], 'method' => 'post']) !!}
+                                        <div class="custom-select">
+                                            <select name="discount[]">
+                                                <option value="" class="text-muted">{{ __('---') }}</option>
+                                                @foreach ($discounts as $item)
+                                                <option value="{{ $item->id }}">{{ $item->code }}
+                                                    -€{{ number_format($item->value, 2) }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <button class="bb-btn-2" type="submit">{{ __('buttons.applyCoupon') }}</button>
+                                        {!! Form::close() !!}
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="bb-checkout-pro">
+                            @foreach ($cartItems as $item)
+                            <div class="pro-items">
+                                <div class="image">
+                                    @if ($item['product']->image)
+                                    <img src="{{ $item['product']->image }}"
+                                        alt="{{ $item['product']->name }}">
+                                    @else
+                                    <img src="{{ asset('template/img/new-product/1.jpg') }}"
+                                        alt="{{ $item['product']->name }}">
+                                    @endif
+                                </div>
+                                <div class="items-contact">
+                                    <h4><a href="{{ route('viewproduct', $item['product']->id) }}">{{ $item['product']->name }}</a></h4>
+                                    <span class="bb-pro-rating">
+                                        @for ($i = 1; $i <= 5; $i++)
+                                            <i class="
+                                            @if ($item['product']->average >= $i) ri-star-fill
+                                            @elseif ($item['product']->average >= $i - 0.5) ri-star-half-fill
+                                            @else ri-star-line @endif"
+                                            style="
+                                            @if ($item['product']->average >= $i - 0.5) color: #fea99a; @endif"></i>
+                                            @endfor
+                                    </span>
+                                    <div class="inner-price">
+                                        @if ($item['product']->discount)
+                                        <span class="new-price">€{{ $item['product']->price - round(($item['product']->price * $item['product']->discount->proc) / 100, 2) }}</span>
+                                        <span class="old-price">€{{ number_format($item['product']->price, 2) }}</span>
+                                        @else
+                                        <span class="new-price">€{{ number_format($item['product']->price, 2) }}</span>
+                                        @endif
+                                    </div>
+                                    <div class="bb-pro-variation">
+                                        <ul>
+                                            @forelse ($item['product']->categories as $category)
+                                            <li>
+                                                <a href="{{ url("/innercategories/$category->id") }}">
+                                                    {{ $category->name }}
+                                                </a>
+                                            </li>
+                                            @empty
+                                            <span class="text-muted">{{ __('names.noCategories') }}</span>
+                                            @endforelse
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <div class="sku">
+                                        <h5>{{ 'x' . $item->count }}</h5>
+                                    </div>
                                 </div>
                             </div>
+                            @endforeach
                         </div>
                     </div>
-                </div>
-                {!! Form::close() !!}
-            </div>
-            @endif
-            <div class="col-lg-8 col-12">
-                {!! Form::open(['route' => ['checkout-preview'], 'method' => 'post']) !!}
-                <div class="axil-order-summery order-checkout-summery">
-                    <h3 class="title d-flex justify-content-center">{{ __('names.yourOrder') }}</h3>
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead class="thead-light">
-                                <tr>
-                                    <th scope="col" class="text-center">{{ __('names.product') }}</th>
-                                    <th scope="col" class="text-center">{{ __('names.subtotal') }}</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($cartItems as $item)
-                                <tr class="order-product">
-                                    <td class="text-start">{{ $item['product']->name }} {{ 'x' . $item->count }}</td>
-                                    <td class="text-center">€{{ number_format($item->price_current * $item->count, 2) }}</td>
-                                </tr>
-                                @endforeach
-                                <tr class="order-total">
-                                    <td class="text-start">{{ __('names.total') }}</td>
-                                    <td class="order-total-amount text-center">€{{ number_format($cart->sum, 2) }}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="order-payment-method">
-                        <h5 class="title mb-2 mt-4" style="justify-content: center;display: flex;">{{ __('names.paymentMethods') }}</h5>
-                        <div class="single-payment">
-                            <div class="input-group justify-content-center align-items-center" style="margin-top: 10px; margin-bottom: 20px;">
-                                <input type="radio" id="payment_method1" name="payment_method"
-                                    value="cash-on-delivery" checked>
-                                <img src="{{ asset('images/1_Paysera logo for light background.svg') }}" alt="Paypal"
-                                    width="100px" style="margin-left: 10px;">
-                            </div>
+                    <div class="checkout-items" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                        <div class="sub-title">
+                            <h4>{{ __('names.paymentMethods') }}</h4>
+                        </div>
+                        <div class="payment-img d-flex justify-content-center">
+                            <img src="{{ asset('images/1_Paysera logo for light background.svg') }}" style="width: 100px !important;" alt="payment">
                         </div>
                     </div>
-                    <div class="d-flex justify-content-center">
-                        <button type="submit" class="btn btn-primary btn-block rounded" style="width: fit-content">
-                            {{ __('buttons.preview') }}
-                        </button>
+                    {!! Form::open(['route' => ['checkout-preview'], 'method' => 'post']) !!}
+                    <div class="input-button d-flex justify-content-center" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
+                        <button type="submit" type="button" class="bb-btn-2">{{ __('buttons.preview') }}</button>
                     </div>
+                    {!! Form::close() !!}
                 </div>
-                {!! Form::close() !!}
             </div>
         </div>
     </div>
-</div>
+</section>
 @endsection
 
 <style>
-    .whish-list-section .table .thead-light th {
-        text-transform: none !important;
+    .select {
+        height: 50px;
+        align-content: center;
+        background-color: #fff;
+        border: 1px solid #eee;
+        border-radius: 10px;
     }
-    .btn-dark3 {
-        text-transform: none !important;
+
+    .custom-select .custom-select::after {
+        right: 150px !important;
     }
-    .toggle-bar {
+
+    .pro-items {
         display: flex;
-        justify-content: center;
+        align-items: center;
     }
-    .axil-checkout-coupon {
-        margin-top: 15px;
-        display: none;
-    }
-    .axil-checkout-coupon.active {
-        display: block;
-    }
-    .form-control.border-blue {
-        border-color: #0090f0 !important;
-    }
-    .form-control {
-        font-size: 1.2rem !important;
-        border: 2px solid #0090f0 !important;
-        border-top-color: rgb(0, 144, 240) !important;
-        border-right-color: rgb(0, 144, 240) !important;
-        border-bottom-color: rgb(0, 144, 240) !important;
-        border-left-color: rgb(0, 144, 240) !important;
-        border-bottom-left-radius: 3rem !important;
-        border-top-left-radius: 3rem !important;
-        border-bottom-right-radius: 0rem !important;
-        border-top-right-radius: 0rem !important;
-    }
-    .right-side-rounded {
-        border-bottom-right-radius: 3rem !important;
-        border-top-right-radius: 3rem !important;
+
+    .pro-items .d-flex.align-items-center {
+        margin-left: auto;
     }
 </style>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const toggleButton = document.querySelector('.btn.btn-dark3');
-        const couponSection = document.querySelector('.axil-checkout-coupon');
-
-        if (toggleButton && couponSection) {
-            toggleButton.addEventListener('click', function () {
-                couponSection.classList.toggle('active');
-            });
-        }
-    });
-</script>

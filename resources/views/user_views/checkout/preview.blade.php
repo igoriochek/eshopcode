@@ -5,67 +5,108 @@
 @section('parentUrl', url('/user/checkout'))
 
 @section('content')
-<div class="whish-list-section pb-6rem">
+<section class="section-checkout padding-tb-50">
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-8 col-12">
-                {!! Form::open(['route' => ['pay'], 'method' => 'post']) !!}
-                <div class="axil-order-summery order-checkout-summery">
-                    <h3 class="title d-flex justify-content-center">{{ __('names.yourOrder') }}</h3>
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead class="thead-light">
-                                <tr>
-                                    <th scope="col" class="text-center">{{ __('names.product') }}</th>
-                                    <th scope="col" class="text-center">{{ __('names.subtotal') }}</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($cartItems as $item)
-                                <tr class="order-product">
-                                    <td class="text-start">{{ $item['product']->name }} {{ 'x' . $item->count }}</td>
-                                    <td class="text-center">€{{ number_format($item->price_current * $item->count, 2) }}</td>
-                                </tr>
-                                @endforeach
+        <div class="row mb-minus-24 justify-content-center">
+            <div class="col-lg-8 col-12 mb-24">
+                <div class="bb-checkout-sidebar">
+                    <div class="checkout-items" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                        <div class="sub-title">
+                            <h4>{{ __('names.summary') }}</h4>
+                        </div>
+                        <div class="checkout-summary">
+                            <ul>
+                                <li><span class="left-item">{{ __('names.total') }}</span><span>€{{ number_format($amount, 2) }}</span></li>
                                 @foreach ($discounts as $discount)
-                                <tr class="order-product">
-                                    <td class="text-start">{{ __('names.discountCouponCode') }}: {{ $discount->code }}</td>
-                                    <td class="text-center">€ -{{ number_format($discount->value, 2) }}</td>
-                                </tr>
+                                <li>
+                                    <span class="left-item">{{ __('names.couponDiscount') }}</span>
+                                    <span>€ -{{ number_format($discount->value, 2) }}</span>
+                                </li>
                                 @endforeach
-                                <tr class="order-total">
-                                    <td class="text-start">{{ __('names.total') }}</td>
-                                    <td class="order-total-amount text-center">€{{ number_format($amount, 2) }}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="order-payment-method">
-                        <h5 class="title mb-2 mt-4" style="justify-content: center;display: flex;">{{ __('names.paymentMethods') }}</h5>
-                        <div class="single-payment">
-                            <div class="input-group justify-content-center align-items-center" style="margin-top: 10px; margin-bottom: 20px;">
-                                <input type="radio" id="payment_method1" name="payment_method"
-                                    value="cash-on-delivery" checked disabled>
-                                <img src="{{ asset('images/1_Paysera logo for light background.svg') }}" alt="Paypal"
-                                    width="100px" style="margin-left: 10px;">
+                            </ul>
+                        </div>
+                        <div class="bb-checkout-pro">
+                            @foreach ($cartItems as $item)
+                            <div class="pro-items">
+                                <div class="image">
+                                    @if ($item['product']->image)
+                                    <img src="{{ $item['product']->image }}"
+                                        alt="{{ $item['product']->name }}">
+                                    @else
+                                    <img src="{{ asset('template/img/new-product/1.jpg') }}"
+                                        alt="{{ $item['product']->name }}">
+                                    @endif
+                                </div>
+                                <div class="items-contact">
+                                    <h4><a href="{{ route('viewproduct', $item['product']->id) }}">{{ $item['product']->name }}</a></h4>
+                                    <span class="bb-pro-rating">
+                                        @for ($i = 1; $i <= 5; $i++)
+                                            <i class="
+                                            @if ($item['product']->average >= $i) ri-star-fill
+                                            @elseif ($item['product']->average >= $i - 0.5) ri-star-half-fill
+                                            @else ri-star-line @endif"
+                                            style="
+                                            @if ($item['product']->average >= $i - 0.5) color: #fea99a; @endif"></i>
+                                            @endfor
+                                    </span>
+                                    <div class="inner-price">
+                                        @if ($item['product']->discount)
+                                        <span class="new-price">€{{ $item['product']->price - round(($item['product']->price * $item['product']->discount->proc) / 100, 2) }}</span>
+                                        <span class="old-price">€{{ number_format($item['product']->price, 2) }}</span>
+                                        @else
+                                        <span class="new-price">€{{ number_format($item['product']->price, 2) }}</span>
+                                        @endif
+                                    </div>
+                                    <div class="bb-pro-variation">
+                                        <ul>
+                                            @forelse ($item['product']->categories as $category)
+                                            <li>
+                                                <a href="{{ url("/innercategories/$category->id") }}">
+                                                    {{ $category->name }}
+                                                </a>
+                                            </li>
+                                            @empty
+                                            <span class="text-muted">{{ __('names.noCategories') }}</span>
+                                            @endforelse
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <div class="sku">
+                                        <h5>{{ 'x' . $item->count }}</h5>
+                                    </div>
+                                </div>
                             </div>
+                            @endforeach
                         </div>
                     </div>
-                    <div class="d-flex justify-content-center">
-                        <button type="submit" class="btn btn-primary btn-block rounded" style="width: fit-content">
-                            {{ __('buttons.placeOrder') }}
-                        </button>
+                    <div class="checkout-items" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                        <div class="sub-title">
+                            <h4>{{ __('names.paymentMethods') }}</h4>
+                        </div>
+                        <div class="payment-img d-flex justify-content-center">
+                            <img src="{{ asset('images/1_Paysera logo for light background.svg') }}" style="width: 100px !important;" alt="payment">
+                        </div>
                     </div>
+                    {!! Form::open(['route' => ['pay'], 'method' => 'post']) !!}
+                    <div class="input-button d-flex justify-content-center" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
+                        <button type="submit" type="button" class="bb-btn-2">{{ __('buttons.placeOrder') }}</button>
+                    </div>
+                    {!! Form::close() !!}
                 </div>
-                {!! Form::close() !!}
             </div>
         </div>
     </div>
-</div>
+</section>
 @endsection
 
 <style>
-    .whish-list-section .table .thead-light th {
-        text-transform: none !important;
+    .pro-items {
+        display: flex;
+        align-items: center;
+    }
+
+    .pro-items .d-flex.align-items-center {
+        margin-left: auto;
     }
 </style>

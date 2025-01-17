@@ -21,7 +21,7 @@
         </div>
         <div class="tab-pane fade" id="reviews">
             <div class="bb-inner-tabs">
-                <div class="bb-reviews">
+                <div class="bb-reviews mb-3">
                     @forelse ($product->ratings as $rating)
                     <div class="reviews-bb-box">
                         <div class="inner-contact">
@@ -106,6 +106,7 @@
         display: inline-flex;
         flex-direction: row-reverse;
         cursor: pointer;
+        align-items: center;
     }
 
     .bb-pro-rating-custom input[type="radio"] {

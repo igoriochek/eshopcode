@@ -1,89 +1,77 @@
-<table class="table">
-    <thead class="thead-light">
+<table>
+    <thead>
         <tr>
-            <th scope="col" class="text-center"></th>
-            <th scope="col" class="text-center">{{ __('names.product') }}</th>
-            <th scope="col" class="text-center"></th>
-            <th scope="col" class="text-center">{{ __('names.price') }}</th>
-            <th scope="col" class="text-center">{{ __('names.quantity') }}</th>
-
-            <th scope="col" class="text-center">{{ __('table.productComplex') }}</th>
-
-            <th scope="col" class="text-center">{{ __('names.subtotal') }}</th>
+            <th>{{ __('names.product') }}</th>
+            <th>{{ __('names.price') }}</th>
+            <th>{{ __('names.quantity') }}</th>
+            <th>{{ __('table.productComplex') }}</th>
+            <th>{{ __('names.subtotal') }}</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
         @forelse($cartItems as $item)
         <tr>
-            <td class="text-center">
-                {!! Form::open(['route' => ['userCartItemDestroy', $item->id], 'method' => 'delete']) !!}
-                <button type="submit" class="remove-wishlist" title="{{ __('names.removeProduct') }}"
-                    onclick="return confirm('{{ __('messages.confirmDeleteProduct') }}')">
-                    <i class="fas fa-trash-alt"></i>
-                </button>
-                {!! Form::close() !!}
-            </td>
-            <td class="text-center">
-                <a href="{{ route('viewproduct', $item['product']->id) }}" title="{{ $item['product']->name }}">
-                    <img alt="{{ $item['product']->name }}" class="product-thumbnail-image"
-                        src="@if ($item['product']->image) {{ $item['product']->image }} @else /template/img/product/05.1.jpg @endif">
-            </td>
-            <td class="text-center">
+            <td>
                 <a href="{{ route('viewproduct', $item['product']->id) }}">
-                    {{ $item['product']->name }}
+                    <div class="Product-cart d-flex align-items-center">
+                        @if ($item['product']->image)
+                        <img class="custom-img" src="{{ $item['product']->image }}" alt="{{ $item['product']->name }}">
+                        @else
+                        <img class="custom-img" src="{{ asset('template/img/new-product/1.jpg') }}" alt="new-product">
+                        @endif
+                        <span>{{ $item['product']->name }}</span>
+                    </div>
                 </a>
             </td>
-            <td class="text-center" data-title="Price">
-                <span class="product-price">
-                    <span class="currency-symbol">€</span>
-                    {{ number_format($item->price_current, 2) }}
-                </span>
+            <td>
+                <span class="price">€{{ number_format($item->price_current, 2) }}</span>
             </td>
-            <td class="text-center" data-title="Qty">
-                <div style="display: inline-flex; width: 130px; border-radius: 50px; height: 20px; justify-content: center;">
-                    <span type="text" class="fs-3 fw-bold text-muted px-0 cart-item-quantity"
-                        name="quantity" readonly>
-                        {{ $item->count }}
-                    </span>
-
+            <td>
+                <span class="price">{{ $item->count }}</span>
+            </td>
+            <td>
+                @if($item->isComplexProduct == 1)
+                <span class="price">{{ __('table.yes') }}</span>
+                @else
+                <span class="price">{{ __('table.no') }}</span>
+                @endif
+            </td>
+            <td>
+                <span class="price">€{{ number_format($item->price_current * $item->count, 2) }}</span>
+            </td>
+            <td>
+                <div class="pro-remove">
+                    {!! Form::open(['route' => ['userCartItemDestroy', $item->id], 'method' => 'delete']) !!}
+                    <button class="remove-button" type="submit" title="{{ __('names.removeProduct') }}"
+                        onclick="return confirm('{{ __('messages.confirmDeleteProduct') }}')">
+                        <i class="ri-delete-bin-line"></i>
+                    </button>
+                    {!! Form::close() !!}
                 </div>
-            </td>
-
-            <td class="text-center" data-title="{{ __('table.productComplex') }}">
-                <div style="display: inline-flex; width: 130px; border-radius: 50px; height: 20px; justify-content: center;">
-                    @if($item->isComplexProduct == 1)
-                    <span class="fs-3 fw-bold text-muted px-0">{{ __('table.yes') }}</span>
-                    @else
-                    <span class="fs-3 text-muted px-0">{{ __('table.no') }}</span>
-                    @endif
-                </div>
-            </td>
-
-            <td class="text-center" data-title="Subtotal">
-                <span class="currency-symbol">€</span>
-                {{ number_format($item->price_current * $item->count, 2) }}
             </td>
         </tr>
         @empty
         <tr>
-            <td colspan="7" class="text-center">{{ __('names.emptyCart') }}</td>
+            <td colspan="7">{{ __('names.emptyCart') }}</td>
         </tr>
         @endforelse
     </tbody>
 </table>
 
 <style>
-    .cart-item-quantity {
-        text-align: start;
+    .remove-button {
+        border: 0px;
+        background: transparent;
     }
 
-    @media only screen and (max-width: 767px) {
-        .cart-item-quantity {
-            text-align: right;
-        }
+    .Product-cart {
+        height: 70px;
     }
 
-    .whish-list-section .table .thead-light th {
-        text-transform: none !important;
+    .custom-img {
+        max-height: 70px;
+        width: auto;
+        height: auto;
     }
 </style>

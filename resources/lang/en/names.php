@@ -60,6 +60,9 @@ return [
 
     'hello' => 'Hello',
 
+    'summary' => 'Summary',
+    'couponDiscount' => 'Coupon Discount',
+
     //Categories
     'categories' => 'Categories',
     'categoryDetails' => 'Category Details',

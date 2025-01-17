@@ -19,6 +19,7 @@ use App\Repositories\OrderRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Traits\ProductRatings;
 use Flash;
 use Response;
 use PDF;
@@ -27,6 +28,7 @@ class OrderController extends AppBaseController
 {
     use \App\Http\Controllers\forSelector;
     use \App\Traits\LogTranslator;
+    use ProductRatings;
 
     /** @var OrderRepository $orderRepository */
     private $orderRepository;
@@ -305,6 +307,13 @@ class OrderController extends AppBaseController
             ])
             ->get();
 
+        foreach ($cartItems as $item) {
+            $sumAndCount = $this->calculateRatingSumAndCount($this->getProductRatings($item->product->id));
+            $sum = $sumAndCount['sum'];
+            $count = $sumAndCount['count'];
+            $item->product->average = $this->calculateAverageRating($sum, $count);
+        }
+
         return view('user_views.checkout.index')
             ->with([
                 'user' => $user,
@@ -360,6 +369,13 @@ class OrderController extends AppBaseController
 
         $request->session()->put('appPayCartId', $cart->id);
         $request->session()->put('appPayAmount', $amount);
+
+        foreach ($cartItems as $item) {
+            $sumAndCount = $this->calculateRatingSumAndCount($this->getProductRatings($item->product->id));
+            $sum = $sumAndCount['sum'];
+            $count = $sumAndCount['count'];
+            $item->product->average = $this->calculateAverageRating($sum, $count);
+        }
 
         return view('user_views.checkout.preview')
             ->with([

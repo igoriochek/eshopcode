@@ -86,7 +86,7 @@
                                     'style' => 'display: flex;',
                                     ]) !!}
                                         <div class="qty-plus-minus">
-                                            <input class="qty-input" type="text" name="count" value="1">
+                                            <input class="qty-input" type="text" name="count" value="1" max="{{ $product->count }}">
                                         </div>
                                         <input type="hidden" name="id" value="{{ $product->id }}">
                                         <div class="buttons">

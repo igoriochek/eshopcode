@@ -60,6 +60,9 @@ return [
 
     'hello' => 'Здравствуйте',
 
+    'summary' => 'Резюме',
+    'couponDiscount' => 'Скидка по купону',
+
     //Categories
     'categories' => 'Категории',
     'categoryDetails' => 'Сведения о категории',

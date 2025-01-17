@@ -1,40 +1,49 @@
 {!! Form::model($user, ['route' => ['userprofilesave'], 'method' => 'patch', 'class' => 'row']) !!}
-    <div class="form-group col-lg-6">
+<div class="col-lg-6 col-12">
+    <div class="input-item">
         {!! Form::label('name', __('forms.name') )!!}
-        {!! Form::text('name', $user->name, ['class' => "form-control"]) !!}
+        {!! Form::text('name', $user->name) !!}
     </div>
-    <div class="form-group col-lg-6">
+</div>
+<div class="col-lg-6 col-12">
+    <div class="input-item">
         {!! Form::label('email', __('forms.email')) !!}
-        {!! Form::text('email', $user->email, ['class' => "form-control"]) !!}
+        {!! Form::text('email', $user->email) !!}
     </div>
-    <div class="form-group col-lg-6">
+</div>
+<div class="col-lg-6 col-12">
+    <div class="input-item">
         {!! Form::label('street', __('forms.street')) !!}
-        {!! Form::text('street', $user->street, ['class' => 'form-control']) !!}
+        {!! Form::text('street', $user->street) !!}
     </div>
-    <div class="form-group col">
+</div>
+<div class="col">
+    <div class="input-item">
         {!! Form::label('house_flat', __('forms.house_flat')) !!}
-        {!! Form::text('house_flat', $user->house_flat, ['class' => 'form-control']) !!}
+        {!! Form::text('house_flat', $user->house_flat) !!}
     </div>
-    <div class="form-group col">
+</div>
+<div class="col">
+    <div class="input-item">
         {!! Form::label('post_index', __('forms.post_index')) !!}
-        {!! Form::text('post_index', $user->post_index, ['class' => 'form-control']) !!}
+        {!! Form::text('post_index', $user->post_index) !!}
     </div>
-    <div class="form-group col-lg-6">
+</div>
+<div class="col-lg-6 col-12">
+    <div class="input-item">
         {!! Form::label('city', __('forms.city')) !!}
-        {!! Form::text('city', $user->city, ['class' => 'form-control']) !!}
+        {!! Form::text('city', $user->city) !!}
     </div>
-    <div class="form-group col-lg-6">
+</div>
+<div class="col-lg-6 col-12">
+    <div class="input-item">
         {!! Form::label('phone_number', __('forms.phone_number')) !!}
-        {!! Form::text('phone_number', $user->phone_number, ['class' => 'form-control']) !!}
+        {!! Form::text('phone_number', $user->phone_number) !!}
     </div>
-    <div class="form-group mb--40 col-lg-12 d-flex justify-content-center">
-        <input type="submit" class="btn btn-dark3 my-4" value="{{ __('buttons.save') }}" data-loading-text="Loading...">
+</div>
+<div class="col-12">
+    <div class="input-button">
+        <button type="submit" class="bb-btn-2">{{ __('buttons.save') }}</button>
     </div>
+</div>
 {!! Form::close() !!}
-
-<style>
-    .form-control {
-        height: 40px;
-        font-size: 1.5rem;
-    }
-</style>

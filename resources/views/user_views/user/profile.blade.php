@@ -3,48 +3,70 @@
 @section('title', __('menu.profile'))
 
 @section('content')
-<!-- <div class="axil-dashboard-area axil-section-gap">
+<section class="section-shop padding-b-50">
     <div class="container">
-        <div class="axil-dashboard-warp">
+        <div class="row mb-minus-24">
             <div class="mb-5">
                 @include('adminlte-templates::common.errors')
                 @include('flash_messages')
             </div>
-            <div class="row">
-                <div class="col-xl-3 col-md-4">
-                    <aside class="axil-dashboard-aside">
-                        <nav class="axil-dashboard-nav">
-                            <div class="nav nav-tabs" role="tablist">
-                                <a class="nav-item nav-link active" data-bs-toggle="tab" href="#nav-profile" role="tab" aria-selected="true"><i class="fas fa-user"></i>{{ __('menu.profile') }}</a>
-                                <a class="nav-item nav-link" href="{{ url('/user/rootorders') }}" aria-selected="false"><i class="fas fa-shopping-basket"></i>{{__('menu.orders')}}</a>
-                                <a class="nav-item nav-link" href="{{ url('/user/rootoreturns') }}" aria-selected="false"><i class="fas fa-arrow-circle-left "></i>{{ __('menu.returns') }}</a>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                    @csrf
-                                </form>
-                                <a class="nav-item nav-link" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                    <i class="fal fa-sign-out"></i>{{ __('menu.logout') }}
-                                </a>
-                            </div>
-                        </nav>
-                    </aside>
+            <div class="col-lg-3 col-12 mb-24">
+                <div class="bb-shop-wrap">
+                    <div class="bb-sidebar-block">
+                        <div class="bb-sidebar-title">
+                            <h3>{{ __('names.yourAccount') }}</h3>
+                        </div>
+                        <div class="bb-sidebar-contact">
+                            <ul>
+                                <li>
+                                    <a class="bb-btn-2" href="{{ url('/user/userprofile') }}" style="display: block;">
+                                        {{ __('menu.profile') }}
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="bb-btn-1" href="{{ url('/user/rootorders') }}" style="display: block;">
+                                        {{__('menu.orders') }}
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="bb-btn-1" href="{{ url('/user/rootoreturns') }}" style="display: block;">
+                                        {{ __('menu.returns') }}
+                                    </a>
+                                </li>
+                                <li>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                    <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="bb-btn-1" style="display: block;">{{ __('menu.logout') }}</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-xl-9 col-md-8">
-                    <div class="tab-content">
-                        <div class="tab-pane fade show active" id="nav-profile" role="tabpanel">
-                            <div class="col-lg-9">
-                                <div class="axil-dashboard-account">
-                                    <div class="account-details-form">
-                                        <div class="row">
-                                            <h3 class="col-12">{{ __('menu.userInfo') }}</h3>
-                                            @include('user_views.user.user_info_form')
-                                            <hr class="my-4" />
-                                            <h3 class="col-12">{{ __('auth.passwordEnter') }}</h3>
-                                            <div class="col-12">
-                                                @include('user_views.user.change_password_form')
-                                            </div>
-                                        </div>
+            </div>
+            <div class="col-lg-9 col-12 mb-24">
+                <div class="bb-shop-pro-inner">
+                    <div class="row mb-minus-24">
+                        <div class="col-12 mb-4">
+                            <div class="bb-checkout-contact" data-aos="fade-up" 
+                            data-aos-duration="1000" data-aos-delay="200">
+                                <div class="section-title bb-center">
+                                    <div class="section-detail">
+                                        <h2 class="bb-title">{{ __('menu.userInfo') }}</h2>
                                     </div>
                                 </div>
+                                @include('user_views.user.user_info_form')
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="bb-checkout-contact" data-aos="fade-up" 
+                            data-aos-duration="1000" data-aos-delay="400">
+                                <div class="section-title bb-center">
+                                    <div class="section-detail">
+                                        <h2 class="bb-title">{{ __('auth.passwordEnter') }}</h2>
+                                    </div>
+                                </div>
+                                @include('user_views.user.change_password_form')
                             </div>
                         </div>
                     </div>
@@ -52,81 +74,6 @@
             </div>
         </div>
     </div>
-</div> -->
+</section>
 
-<div class="my-account pb-5">
-    <div class="container">
-        <div class="row">
-            <div class="mb-5">
-                @include('adminlte-templates::common.errors')
-                @include('flash_messages')
-            </div>
-            <div class="col-12">
-                <h3 class="title">{{ __('names.yourAccount') }}</h3>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-6 col-12 mb-4">
-                <a href="">
-                    <div class="card text-center">
-                        <div class="card-body">
-                            <span class="icon">
-                                <i class="fas fa-user" style="color: #0b88ee;"></i>
-                            </span>
-                            <h4 class="sub-title" style="color: black;">
-                                {{ __('menu.profile') }}
-                            </h4>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-6 col-12 mb-4">
-                <a href="{{ url('/user/rootorders') }}">
-                    <div class="card text-center">
-                        <div class="card-body">
-                            <span class="icon">
-                                <i class="fas fa-shopping-basket"></i>
-                            </span>
-                            <h4 class="sub-title">
-                                {{__('menu.orders')}}
-                            </h4>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-6 col-12 mb-4">
-                <a href="{{ url('/user/rootoreturns') }}">
-                    <div class="card text-center">
-                        <div class="card-body">
-                            <span class="icon">
-                                <i class="fas fa-arrow-circle-left "></i>
-                            </span>
-                            <h4 class="sub-title">
-                                {{ __('menu.returns') }}
-                            </h4>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-12">
-                <div class="log-out-btn text-center">
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        @csrf
-                    </form>
-                    <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="btn btn-dark3 my-5">{{ __('menu.logout') }}</a>
-                </div>
-            </div>
-            <div class="col-12">
-                <div class="row">
-                    <hr class="my-4" />
-                    <h3 class="contact-page-title">{{ __('menu.userInfo') }}</h3>
-                    @include('user_views.user.user_info_form')
-                    <hr class="my-4" />
-                    <h3 class="contact-page-title">{{ __('auth.passwordEnter') }}</h3>
-                    <div class="col-12">
-                        @include('user_views.user.change_password_form')
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 @endsection

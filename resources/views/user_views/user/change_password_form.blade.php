@@ -1,24 +1,25 @@
 {!! Form::model($user, ['route' => ['changePassword'], 'method' => 'post', 'class' => 'row']) !!}
-    <div class="form-group col-12">
+<div class="col-12">
+    <div class="input-item">
         {!! Form::label('current_password', __('forms.current_password') )!!}
-        {!! Form::password('current_password', ['class' => "form-control"]) !!}
+        {!! Form::password('current_password') !!}
     </div>
-    <div class="form-group col-12">
+</div>
+<div class="col-12">
+    <div class="input-item">
         {!! Form::label('new_password', __('forms.new_password')) !!}
-        {!! Form::password('new_password', ['class' => "form-control"]) !!}
+        {!! Form::password('new_password') !!}
     </div>
-    <div class="form-group col-12">
+</div>
+<div class="col-12">
+    <div class="input-item">
         {!! Form::label('new_password_confirmation', __('forms.confirm_password')) !!}
-        {!! Form::password('new_password_confirmation', ['class' => "form-control"]) !!}
+        {!! Form::password('new_password_confirmation') !!}
     </div>
-    <div class="form-group mb--40 col-12 d-flex justify-content-center">
-        <input type="submit" class="btn btn-dark3 my-4" value="{{ __('buttons.save') }}" data-loading-text="Loading...">
+</div>
+<div class="col-12">
+    <div class="input-button">
+        <button type="submit" class="bb-btn-2">{{ __('buttons.save') }}</button>
     </div>
+</div>
 {!! Form::close() !!}
-
-<style>
-    .form-control {
-        height: 40px;
-        font-size: 1.5rem;
-    }
-</style>

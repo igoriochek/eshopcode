@@ -3,126 +3,102 @@
 @section('title', __('menu.returns'))
 
 @section('content')
-<div class="my-account pb-5">
+<section class="section-shop padding-b-50">
     <div class="container">
-        <div class="row">
+        <div class="row mb-minus-24">
             <div class="mb-5">
                 @include('adminlte-templates::common.errors')
                 @include('flash_messages')
             </div>
-            <div class="col-12">
-                <h3 class="title">{{ __('names.yourAccount') }}</h3>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-6 col-12 mb-4">
-                <a href="{{ url('/user/userprofile') }}">
-                    <div class="card text-center">
-                        <div class="card-body">
-                            <span class="icon">
-                                <i class="fas fa-user"></i>
-                            </span>
-                            <h4 class="sub-title">
-                                {{ __('menu.profile') }}
-                            </h4>
+            <div class="col-lg-3 col-12 mb-24">
+                <div class="bb-shop-wrap">
+                    <div class="bb-sidebar-block">
+                        <div class="bb-sidebar-title">
+                            <h3>{{ __('names.yourAccount') }}</h3>
+                        </div>
+                        <div class="bb-sidebar-contact">
+                            <ul>
+                                <li>
+                                    <a class="bb-btn-1" href="{{ url('/user/userprofile') }}" style="display: block;">
+                                        {{ __('menu.profile') }}
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="bb-btn-1" href="{{ url('/user/rootorders') }}" style="display: block;">
+                                        {{__('menu.orders') }}
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="bb-btn-2" href="{{ url('/user/rootoreturns') }}" style="display: block;">
+                                        {{ __('menu.returns') }}
+                                    </a>
+                                </li>
+                                <li>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                    <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="bb-btn-1" style="display: block;">{{ __('menu.logout') }}</a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
-                </a>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-6 col-12 mb-4">
-                <a href="{{ url('/user/rootorders') }}">
-                    <div class="card text-center">
-                        <div class="card-body">
-                            <span class="icon">
-                                <i class="fas fa-shopping-basket"></i>
-                            </span>
-                            <h4 class="sub-title">
-                                {{__('menu.orders')}}
-                            </h4>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-6 col-12 mb-4">
-                <a href="">
-                    <div class="card text-center">
-                        <div class="card-body">
-                            <span class="icon">
-                                <i class="fas fa-arrow-circle-left " style="color: #0b88ee;"></i>
-                            </span>
-                            <h4 class="sub-title" style="color: black;">
-                                {{ __('menu.returns') }}
-                            </h4>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-12">
-                <div class="log-out-btn text-center">
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        @csrf
-                    </form>
-                    <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="btn btn-dark3 my-5">{{ __('menu.logout') }}</a>
                 </div>
             </div>
-            <div class="col-12">
-                <div class="row">
-                    <hr class="my-4" />
-                    <h3 class="contact-page-title">{{ __('names.returns') }}</h3>
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead class="thead-light">
-                                <tr>
-                                    <th scope="col" class="text-center th-col">ID</th>
-                                    <th scope="col" class="text-center th-col">{{ __('table.date') }}</th>
-                                    <th scope="col" class="text-center th-col">{{ __('table.status') }}</th>
-                                    <th scope="col" class="text-center th-col">{{ __('table.sum') }}</th>
-                                    <th scope="col" class="text-center th-col"></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @forelse($returns as $return)
-                                <tr>
-                                    <th class="text-center" scope="row">
-                                        {{ $return->id }}
-                                    </th>
-                                    <td class="text-center">
-                                        {{ $return->created_at->format('M d, Y') }}
-                                    </td>
-                                    <td class="text-center">
-                                        {{ __("status.".$return->status->name) }}
-                                    </td>
-                                    <td class="text-center">
-                                        €{{ number_format($return->sum, 2) }}
-                                    </td>
-                                    <td class="text-center">
-                                        <a href="{{ route('viewreturn', [$return->id]) }}" class='btn btn-dark3'>
-                                            {{ __('buttons.view') }}
-                                        </a>
-                                    </td>
-                                </tr>
-                                @empty
-                                <tr>
-                                    <td colspan="5" style="text-align: left;">
-                                        {{ __('names.noReturns') }}
-                                    </td>
-                                </tr>
-                                @endforelse
-                            </tbody>
-                        </table>
+            <div class="col-lg-9 col-12 mb-24">
+                <div class="bb-shop-pro-inner">
+                    <div class="row mb-minus-24">
+                        <div class="section-title bb-center">
+                            <div class="section-detail" data-aos="fade-up"
+                                data-aos-duration="1000" data-aos-delay="200">
+                                <h2 class="bb-title">{{ __('names.returns') }}</h2>
+                            </div>
+                        </div>
+                        <div class="bb-cart-table" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>{{ __('table.date') }}</th>
+                                        <th>{{ __('table.status') }}</th>
+                                        <th>{{ __('table.sum') }}</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @forelse($returns as $return)
+                                    <tr>
+                                        <th>
+                                            {{ $return->id }}
+                                        </th>
+                                        <td>
+                                            {{ $return->created_at->format('M d, Y') }}
+                                        </td>
+                                        <td>
+                                            {{ __("status.".$return->status->name) }}
+                                        </td>
+                                        <td>
+                                            €{{ number_format($return->sum, 2) }}
+                                        </td>
+                                        <td>
+                                            <a href="{{ route('viewreturn', [$return->id]) }}" class='bb-btn-2'>
+                                                {{ __('buttons.view') }}
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    @empty
+                                    <tr>
+                                        <td colspan="5">
+                                            {{ __('names.noReturns') }}
+                                        </td>
+                                    </tr>
+                                    @endforelse
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</section>
 @endsection
-
-@push('css')
-<style>
-    .th-col {
-        background-color: #0090f0 !important;
-        border-color: transparent !important;
-        color: #fff !important;
-        text-transform: none !important;
-    }
-</style>
-@endpush
