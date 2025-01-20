@@ -51,9 +51,18 @@
 }
 
 .admin-import {
-    @import url('{{ asset('vendor/adminlte/dist/css/adminlte.min.css') }}');
+    @import url('{{ asset(' vendor/adminlte/dist/css/adminlte.min.css') }}');
 }
 
 .text-font-size {
-    font-size: 1.7rem !important;
+    color: var(--bs-card-color);
+}
+
+.form-control {
+    font-size: 1rem !important;
+}
+
+.dataTables_wrapper .dataTables_length {
+    padding-left: 30px;
+    padding-top: 17px;
 }

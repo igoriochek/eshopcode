@@ -75,9 +75,3 @@
     {!! Form::label('updated_at', __('table.updated_at').':', ['class' => 'text-font-size']) !!}
     <p class="text-font-size">{{ $product->updated_at }}</p>
 </div>
-
-<style>
-    .text-font-size {
-        font-size: 1.7rem !important;
-    }
-</style>

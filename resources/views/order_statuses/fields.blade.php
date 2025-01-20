@@ -3,10 +3,3 @@
     {!! Form::label('name',  __('table.name').':') !!}
     {!! Form::text('name', null, ['class' => 'form-control']) !!}
 </div>
-
-<style>
-.form-control {
-    font-size: 1.4rem;
-    height: 34px;
-}
-</style>

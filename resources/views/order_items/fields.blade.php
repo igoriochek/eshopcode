@@ -1,14 +1,14 @@
 <!-- Order Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('order_id', __('table.orderId').':') !!}
-    {!! Form::select('order_id', $orders_list, null, ['class' => 'form-control custom-select']) !!}
+    {!! Form::select('order_id', $orders_list, null, ['class' => 'form-control']) !!}
 </div>
 
 
 <!-- Product Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('product_id', __('table.productId').':') !!}
-    {!! Form::select('product_id', $product_list, null, ['class' => 'form-control custom-select']) !!}
+    {!! Form::select('product_id', $product_list, null, ['class' => 'form-control']) !!}
 </div>
 
 
@@ -27,12 +27,5 @@
 <!-- Included in Complex -->
 <div class="form-group col-sm-6">
     {!! Form::label('isComplexProduct', __('table.includedComplex').':') !!}
-    {!! Form::select('isComplexProduct', $included_list, null, ['class' => 'form-control custom-select']) !!}
+    {!! Form::select('isComplexProduct', $included_list, null, ['class' => 'form-control']) !!}
 </div>
-
-<style>
-.form-control {
-    font-size: 1.4rem;
-    height: 34px;
-}
-</style>

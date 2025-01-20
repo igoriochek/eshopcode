@@ -1,14 +1,14 @@
 <!-- Cart Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('cart_id', __('table.cartId').':') !!}
-    {!! Form::select('cart_id', $carts_list, null, ['class' => 'form-control custom-select']) !!}
+    {!! Form::select('cart_id', $carts_list, null, ['class' => 'form-control']) !!}
 </div>
 
 
 <!-- Product Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('product_id', __('table.product').':') !!}
-    {!! Form::select('product_id', $product_list, null, ['class' => 'form-control custom-select']) !!}
+    {!! Form::select('product_id', $product_list, null, ['class' => 'form-control']) !!}
 </div>
 
 
@@ -24,10 +24,3 @@
     {!! Form::label('count', __('table.count').':') !!}
     {!! Form::number('count', null, ['class' => 'form-control','min' => 1]) !!}
 </div>
-
-<style>
-.form-control {
-    font-size: 1.4rem;
-    height: 34px;
-}
-</style>

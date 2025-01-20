@@ -178,4 +178,10 @@
         font-size: 1.6rem;
         line-height: 20px;
     }
+
+    p,
+    li,
+    a {
+        color: #c2c7d0;
+    }
 </style>

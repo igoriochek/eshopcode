@@ -10,9 +10,9 @@
     <!-- Title -->
     <title>
         @hasSection('title')
-        @yield('title') - {{ config('app.name', 'LORD-UK') }}
+        @yield('title') - {{ config('app.name', 'Grasalė') }}
         @else
-        {{ config('app.name', 'LORD-UK') }}
+        {{ config('app.name', 'Grasalė') }}
         @endif
     </title>
 
@@ -141,9 +141,10 @@
 
     @if (auth()->check() && auth()->user()->type == 1)
         <style>
-            body {
-                font-size: 1.7rem !important;
+            .custom-select {
+                display: none !important;
             }
+            
         </style>
     @endif
     <script>

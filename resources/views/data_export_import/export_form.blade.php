@@ -17,11 +17,3 @@
         {!! Form::submit(__('buttons.export'), ['class' => 'btn btn-primary mt-2']) !!}
     </div>
 {!! Form::close() !!}
-
-@push('css')
-    <style>
-        .form-select {
-            font-size: 1.4rem;
-        }
-    </style>
-@endpush

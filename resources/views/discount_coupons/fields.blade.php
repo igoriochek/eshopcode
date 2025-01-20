@@ -6,7 +6,7 @@
 <!--Used Field -->
 <div class="form-group col-sm-12">
     {!! Form::label('used',__('table.used').':', ['class' => 'form-check-label']) !!}
-    {!! Form::select('used', $used_list, null, ['class' => 'form-control custom-select']) !!}
+    {!! Form::select('used', $used_list, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Proc Field -->
@@ -16,12 +16,5 @@
 </div>
 <div class="form-group col-sm-6">
     {!! Form::label('user_id', __('table.userId').':') !!}
-    {!! Form::select('user_id', $users_list, null, ['class' => 'form-control custom-select']) !!}
+    {!! Form::select('user_id', $users_list, null, ['class' => 'form-control']) !!}
 </div>
-
-<style>
-.form-control {
-    font-size: 1.4rem;
-    height: 34px;
-}
-</style>

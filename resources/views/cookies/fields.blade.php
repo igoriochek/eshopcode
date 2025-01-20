@@ -13,13 +13,6 @@
 
 <!-- Is Cookie Mandatory Field -->
 <div class="form-group col-sm-12">
-    {!! Form::checkbox('isMandatory',true, true) !!}
+    {!! Form::checkbox('isMandatory',true, true, ['style' => 'width: 20px;']) !!}
     {!! Form::label('isMandatory',  __('table.mandatoryStatus')) !!}
 </div> 
-
-<style>
-.form-control {
-    font-size: 1.4rem;
-    height: 34px;
-}
-</style>

@@ -23,8 +23,5 @@
         .form-group input {
             padding: 15px;
         }
-        .form-select {
-            font-size: 1.4rem;
-        }
     </style>
 @endpush
