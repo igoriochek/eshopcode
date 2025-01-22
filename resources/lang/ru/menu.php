@@ -22,6 +22,7 @@ return [
     'discountCoupons' => 'Купоны на скидку',
     'importExport' => 'Импорт/Экспорт',
     'messenger' => 'Чат',
+    'login' => 'Войти',
     'logout' => 'Выйти',
     'orders' => 'Заказы',
     'orderStatuses' => 'Статусы заказов',

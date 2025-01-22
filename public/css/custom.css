@@ -66,3 +66,15 @@
     padding-left: 30px;
     padding-top: 17px;
 }
+
+.show-admin {
+    display: block !important;
+    inset: auto auto 0px 0px !important;
+    transform: translate3d(0px, -70.4px, 0px) !important;
+}
+
+.show-language {
+    display: block !important;
+    inset: auto 0px 0px auto !important;
+    transform: translate3d(0.8px, -26.4px, 0px) !important;
+}

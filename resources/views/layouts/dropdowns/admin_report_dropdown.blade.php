@@ -31,6 +31,6 @@
 
 <style>
     .far {
-        margin-left: 40px !important;
+        margin-left: 20px !important;
     }
 </style>

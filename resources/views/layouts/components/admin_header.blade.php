@@ -15,7 +15,7 @@
     </a>
 
     <div class="sidebar">
-        <nav class="mt-5">
+        <nav>
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu">
                 @include('layouts.menus.admin_menu')
             </ul>
@@ -26,7 +26,7 @@
     <div class="admin-header-bottom-container" style="display: flex; justify-content: space-between; margin-bottom: 40px;">
         <a href="#" role="button"
             id="navbarUserDropdown"
-            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #c2c7d0;">
+            aria-haspopup="true" aria-expanded="false" style="color: #c2c7d0;">
             <i height="30" width="30" class="fa-solid fa-user"></i>
             <span class="admin-header-account-name">{{ Auth::user()->name }}</span>
         </a>
@@ -34,7 +34,7 @@
         <ul class="nav nav-pills" style="margin-right: 15px;">
             <li class="nav-item dropdown nav-item-border">
                 <a class="text-uppercase"
-                    href="#" role="button" id="dropdownLanguage" data-bs-toggle="dropdown"
+                    href="#" role="button" id="dropdownLanguage"
                     aria-haspopup="true" aria-expanded="false" style="color: #c2c7d0;">
                     {{ app()->getLocale() }}
                     <i class="fas fa-angle-down"></i>
@@ -43,88 +43,24 @@
             </li>
         </ul>
     </div>
-
 </aside>
-
-@push('css')
-<style>
-    .main-sidebar {
-        display: flex !important;
-        flex-direction: column !important;
-    }
-
-    #header-responsive {
-        position: fixed;
-        z-index: 1030;
-        top: 0;
-        padding: 15px;
-        background: #fff;
-        overflow-x: hidden;
-    }
-
-    body {
-        font-size: 1.3rem !important;
-    }
-
-    .sidebar ul .nav-link {
-        color: #666;
-        font-size: 1.6rem;
-        line-height: 20px;
-    }
-
-    @media (max-width: 992px) {
-        #header-responsive {
-            height: 60px;
-            width: 100%;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        body {
-            padding-top: 60px;
-        }
-    }
-</style>
-@endpush
 
 
 @push('scripts')
 <script>
-    const maxWidth = 991;
 
-    const adminHeaderContainer = document.querySelector('.admin-header-container');
-    const adminHeaderCenter = document.querySelector('.admin-header-center-container');
-    const adminHeaderBottom = document.querySelector('.admin-header-bottom-container');
-    const hrs = document.querySelectorAll('.admin-header-hr');
+    var adminDropdown = document.getElementById('adminDropdown');
+    var languageDropdown = document.getElementById('languageDropdown');
 
-    if (window.innerWidth < maxWidth) {
-        adminHeaderContainer.classList.add('container');
-        adminHeaderCenter.classList.add('hide');
-        adminHeaderBottom.classList.add('hide');
-        hrs.forEach(hr => hr.classList.add('hide'))
-    }
+    var adminDropdownButton = document.getElementById('navbarUserDropdown');
+    var languageDropdownButton = document.getElementById('dropdownLanguage');
 
-    window.addEventListener(
-        'resize',
-        event => {
-            if (window.innerWidth < maxWidth) {
-                adminHeaderContainer.classList.add('container');
-                adminHeaderCenter.classList.add('hide');
-                adminHeaderBottom.classList.add('hide');
-                hrs.forEach(hr => hr.classList.add('hide'))
-            } else {
-                adminHeaderContainer.classList.remove('container');
-                adminHeaderCenter.classList.remove('hide');
-                adminHeaderBottom.classList.remove('hide');
-                hrs.forEach(hr => hr.classList.remove('hide'))
-            }
-        },
-        true
-    );
+    adminDropdownButton.addEventListener('click', event => {
+        adminDropdown.classList.toggle('show-admin');
+    });
 
-    const onClickOpenMenu = () => {
-        adminHeaderCenter.classList.toggle('hide');
-        adminHeaderBottom.classList.toggle('hide');
-        hrs.forEach(hr => hr.classList.toggle('hide'))
-    }
+    languageDropdownButton.addEventListener('click', event => {
+        languageDropdown.classList.toggle('show-language');
+    });
 </script>
 @endpush
