@@ -314,6 +314,8 @@ class OrderController extends AppBaseController
             $item->product->average = $this->calculateAverageRating($sum, $count);
         }
 
+        
+
         return view('user_views.checkout.index')
             ->with([
                 'user' => $user,

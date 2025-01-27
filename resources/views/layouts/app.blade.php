@@ -86,6 +86,9 @@
     </div>
     
     @else
+        @if (auth()->check())
+        @include('layouts.components.cart_sidebar')
+        @endif
     @include('layouts.components.back_to_top')
     @include('layouts.components.header')
     <main class="main-wrapper">

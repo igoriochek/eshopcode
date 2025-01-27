@@ -32,7 +32,7 @@
                     </a>
                 </li>
                 <li>
-                    <button class="bb-btn-group" type="submit" id="add_to_cart">
+                    <button class="bb-btn-group" type="submit" id="add_to_cart" title="{{ __('buttons.addToCart') }}">
                         <i class="ri-shopping-bag-4-line"></i>
                     </button>
                 </li>

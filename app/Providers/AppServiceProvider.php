@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Repositories\CartRepository;
 use App\Traits\CartItems;
+use App\Traits\ProductRatings;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\URL;
@@ -13,6 +14,7 @@ use Illuminate\Support\Facades\View;
 class AppServiceProvider extends ServiceProvider
 {
     use CartItems;
+    use ProductRatings;
 
     /**
      * Register any application services.
@@ -39,13 +41,24 @@ class AppServiceProvider extends ServiceProvider
             URL::forceScheme('https');
         }
 
-        //Cart item number
+        //Cart items
         View::composer('*', function ($view) use ($cartRepository, $request) {
             if (Auth::check()) {
                 $cart = $cartRepository->getOrSetCart($request);
                 $cartItems = $this->getCartItems($cart);
 
-                $view->with('cartItemCount', $this->setAndGetCartItemCount($cartItems));
+                foreach ($cartItems as $item) {
+                    $sumAndCount = $this->calculateRatingSumAndCount($this->getProductRatings($item->product->id));
+                    $sum = $sumAndCount['sum'];
+                    $count = $sumAndCount['count'];
+                    $item->product->average = $this->calculateAverageRating($sum, $count);
+                }
+
+                $view->with([
+                    'cart' => $cart,
+                    'cartItems' => $cartItems,
+                    'cartItemCount' => $this->setAndGetCartItemCount($cartItems)
+                ]);
             }
         });
     }

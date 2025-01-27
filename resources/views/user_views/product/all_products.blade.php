@@ -3,6 +3,31 @@
 @section('title', __('menu.products'))
 
 @section('content')
+<section class="section-category padding-t-50 mb-24">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="bb-category-6-colum owl-carousel">
+                    @php $counter = 0; @endphp
+                    @forelse($categories as $category)
+                    @php $itemNumber = ($counter % 4) + 1; $counter++; @endphp
+                    <div class="bb-category-box category-items-{{ $itemNumber }}" data-aos="flip-left" data-aos-duration="1000" data-aos-delay="500">
+                        <div class="category-sub-contact">
+                            <h5><a href="{{ route('innercategories', ['category_id' => $category->id]) }}">{{ $category->name }}</a></h5>
+                            <p>{{ count($category->products) }} {{ __('names.items') }}</p>
+                        </div>
+                    </div>
+                    @empty
+                    <span class="text-muted">{{ __('names.noCategories') }}</span>
+                    @endforelse
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
 <section class="section-shop padding-b-50">
     <div class="container">
         <div class="row mb-minus-24">

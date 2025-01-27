@@ -44,6 +44,9 @@ return [
     'discountCoupon' => 'Nuolaidos kuponas',
     'acceptedOrder' => 'Ačiū. Jūsų užsakymas buvo priimtas.',
     'canceledOrder' => 'Jūsų užsakymas buvo atšauktas.',
+    'myCart' => 'Mano krepšelis',
+    'viewCart' => 'Peržiūrėti krepšelį',
+    'closeCart' => 'Uždaryti krepšelį',
 
     'hello' => 'Sveiki',
 

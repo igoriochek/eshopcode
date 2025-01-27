@@ -627,13 +627,13 @@
         $(".bb-side-cart-overlay").fadeOut();
         $(".bb-side-cart").removeClass("bb-open-cart");
     });
-    $(".cart-remove-item").on("click", function (e) {
-        $(this).parents(".cart-sidebar-list").remove();
-        var wish_product_count = $(".cart-sidebar-list").length;
-        if (wish_product_count == 0) {
-            $('.bb-cart-items').html('<p class="bb-wishlist-msg">Your Cart is empty!</p>');
-        }
-    });
+    // $(".cart-remove-item").on("click", function (e) {
+    //     $(this).parents(".cart-sidebar-list").remove();
+    //     var wish_product_count = $(".cart-sidebar-list").length;
+    //     if (wish_product_count == 0) {
+    //         $('.bb-cart-items').html('<p class="bb-wishlist-msg">{{ __('names.emptyCart') }}</p>');
+    //     }
+    // });
 
     /* Category sidebar JS */
     $(".bb-category-toggle").on("click", function (e) {
