@@ -281,6 +281,6 @@ return [
 
     //Product complex
     "totalPrice" => "Total Price",
-
+    'item' => 'Item',
     'items' => 'items',
 ];

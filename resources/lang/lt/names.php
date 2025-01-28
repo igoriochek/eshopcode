@@ -281,6 +281,6 @@ return [
 
     //Product complex
     "totalPrice" => "Bendra kaina",
-
+    'item' => 'Prekė',
     'items' => 'prekės',
 ];

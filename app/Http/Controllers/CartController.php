@@ -192,7 +192,7 @@ class CartController extends AppBaseController
     public function addToCart(AddToCartRequest $request)
     {
         $validated = $request->validated();
-
+        
         $product = Product::find($validated['id']);
 
         // if isset product
@@ -245,7 +245,7 @@ class CartController extends AppBaseController
 
         $cart = $this->cartRepository->getOrSetCart($request);
 
-        foreach ($validated['parts'] as $categoryId => $productId) {
+        foreach ($validated[__('names.item')] as $categoryId => $productId) {
 
             $product = Product::find($productId);
     

@@ -23,9 +23,10 @@ class AddToCartComplexProductRequest extends FormRequest
      */
     public function rules()
     {
+        $item = __('names.item');
         return [
-            'parts' => 'required|array',
-            'parts.*' => 'required|integer',
+            "$item" => 'required|array',
+            "$item.*" => 'required|integer',
         ];
     }
 }

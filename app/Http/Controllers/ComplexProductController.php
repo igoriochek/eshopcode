@@ -49,8 +49,8 @@ class ComplexProductController extends AppBaseController
             }
             $selectorsComplesPrices[$category->id] = $prices;
         }
-        
 
+        
         return view('productComplex.index')
             ->with('selectorsComples', $selectorsComples)
             ->with('selectorsComplesPrices', $selectorsComplesPrices)
