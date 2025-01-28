@@ -18,6 +18,7 @@ use Exception;
 use Flash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use Response;
 
 class PayController extends AppBaseController
@@ -48,6 +49,25 @@ class PayController extends AppBaseController
 
         $cents = $amountArray[1] ?? '00';
         $fullAmount = $partialAmount . $cents;
+
+        if($cartId === null || !is_numeric($cartId)){
+            Flash::error('Error during processing');
+
+            Log::error('Cart ID is null or non-numeric:\n'
+                . 'cart_id:' . print_r($cartId));
+
+            return redirect(route('carts.index'));
+        }
+
+        $cart = $this->cartRepository->find($cartId);
+        if (!$cart) {
+            Flash::error('Error during processing: Cart not found');
+
+            Log::error('Cart not found during payment processing:\n'
+                . 'cart_id:' . print_r($cartId));
+
+            return redirect(route('carts.index'));
+        }
 
         $appUrl = env('APP_URL');
         $payment = [
@@ -192,9 +212,14 @@ class PayController extends AppBaseController
 
                     return 'OK';
                 }
+            } else {
+                Log::error('Set order failed due to missing cart.');
             }
         }
 
+        Log::error('Set order failed:\n'
+            . 'card_id:' . print_r($id) . '\n'
+            . 'params:' . print_r($params) . '\n');
         return 'Error';
     }
 
