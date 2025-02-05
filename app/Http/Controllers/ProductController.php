@@ -23,6 +23,7 @@ use Response;
 use DB;
 use Spatie\QueryBuilder\QueryBuilder;
 use Spatie\QueryBuilder\AllowedFilter;
+use Log;
 
 class ProductController extends AppBaseController
 {
@@ -245,6 +246,9 @@ class ProductController extends AppBaseController
     public function userViewProduct($id)
     {
         $product = $this->productRepository->find($id);
+        if (empty($product)) {
+            Log::info("Product not found with id:" . $id);
+        }
         $productRatings = $this->getProductRatings($id);
 
         $sumAndCount = $this->calculateRatingSumAndCount($productRatings);
