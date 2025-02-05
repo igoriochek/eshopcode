@@ -50,11 +50,24 @@ class PayController extends AppBaseController
         $cents = $amountArray[1] ?? '00';
         $fullAmount = $partialAmount . $cents;
 
+        if (!Auth::check()) {
+            return redirect()->route('login');
+        }
+        $userId = Auth::user()->id;;
+        if ($userId === null || !is_numeric($userId)) {
+            Flash::error('Error during processing');
+
+            Log::error('User ID is null or non-numeric before payment redirect:\n'
+                . 'user_id:' . $userId);
+
+            return redirect(route('home'));
+        }
+
         if($cartId === null || !is_numeric($cartId)){
             Flash::error('Error during processing');
 
             Log::error('Cart ID is null or non-numeric:\n'
-                . 'cart_id:' . print_r($cartId));
+                . 'cart_id:' . $cartId);
 
             return redirect(route('carts.index'));
         }
@@ -64,7 +77,7 @@ class PayController extends AppBaseController
             Flash::error('Error during processing: Cart not found');
 
             Log::error('Cart not found during payment processing:\n'
-                . 'cart_id:' . print_r($cartId));
+                . 'cart_id:' . $cartId);
 
             return redirect(route('carts.index'));
         }
@@ -77,9 +90,9 @@ class PayController extends AppBaseController
             'amount' => $fullAmount,
             'currency' => 'EUR',
             'country' => 'LT',
-            'accepturl' => $appUrl . '/user/pay/accept/' . $cartId,
-            'cancelurl' => $appUrl . '/user/pay/cancel/' . $cartId,
-            'callbackurl' => $appUrl . '/user/pay/callback/' . $cartId,
+            'accepturl' => $appUrl . '/pay/accept/' . $userId . '/'. $cartId,
+            'cancelurl' => $appUrl . '/pay/cancel/' . $userId . '/'. $cartId,
+            'callbackurl' => $appUrl . '/pay/callback/' . $userId . '/'. $cartId,
         ];
 
         if (true !== env('WEBTOPAY_PROD')) {
@@ -87,6 +100,7 @@ class PayController extends AppBaseController
         }
 
         try {
+            Log::info('Redirecting for payment for id:' . $cartId);
             \WebToPay::redirectToPayment($payment);
         } catch (Exception $exception) {
             echo get_class($exception) . ':' . $exception->getMessage();
@@ -94,28 +108,39 @@ class PayController extends AppBaseController
         exit;
     }
 
-    public function accept(Request $request, $id)
+    public function accept(Request $request, $userId, $id)
     {
-        $this->setOrder($request, $id);
+        Log::info('Received accept callback for id:' . $id . 'and user id:' . $userId);
+        $this->setOrder($request, $userId, $id);
 
-        return view('user_views.pay.accept')
+        if (Auth::check()) {
+            return view('user_views.pay.accept')
             ->with([
                 'order' => $this->order,
                 'orderItems' => $this->orderItems,
                 'company' => $this->companyInfo
             ]);
+        } else {
+            return redirect()->route('login');
+        }
     }
 
-    public function cancel(Request $request, $id)
+    public function cancel(Request $request, $userId, $id)
     {
-        $this->setOrder($request, $id);
+        Log::info('Received cancel callback for id:' . $id . 'and user id:' . $userId);
+        $this->setOrder($request, $userId, $id);
 
-        return view('user_views.pay.cancel');
+        if (Auth::check()) {
+            return view('user_views.pay.cancel');
+        } else {
+            return redirect()->route('login');
+        }
     }
 
-    public function callback(Request $request, $id)
+    public function callback(Request $request, $userId, $id)
     {
-        return $this->setOrder($request, $id);
+        Log::info('Received callback for id:' . $id . 'and user id:' . $userId);
+        return $this->setOrder($request, $userId,  $id);
     }
 
     private function setCompany(int $id, array $companyInfo): void
@@ -129,7 +154,38 @@ class PayController extends AppBaseController
         ]);
     }
 
-    private function setOrder(Request $request, $id)
+    private function verify($user, $cart, $params){
+        if ($user->id != $cart->user_id) {
+            Log::error('User ID and Cart User ID do not match in verification (' . $user->id . '!=' . $cart->user_id . ')');
+            return false;
+        }
+
+        if ($cart->status_id != Cart::STATUS_ON) {
+            Log::error('Cart status is not ON in verification (' . $cart->status_id . ')');
+            return false;
+        }
+
+        $cart_sum_in_cents = (int) round($cart->sum * 100);
+        $payment_sum_in_cents = (int) $params['amount'];
+        if ($cart_sum_in_cents != $payment_sum_in_cents) {
+            Log::error('Cart sum and params amount do not match in verification (' . $cart_sum_in_cents . '!=' . $payment_sum_in_cents . ')');
+            return false;
+        }
+
+        if ($params['currency'] != 'EUR') {
+            Log::error('Currency is not EUR in verification (' . $params['currency'] . ')');
+            return false;
+        }
+
+        if ($params['country'] != 'LT') {
+            Log::error('Country is not LT in verification (' . $params['country'] . ')');
+            return false;
+        }
+
+        return true;
+    }
+
+    private function setOrder(Request $request, $userId, $id)
     {
         $params = [];
         parse_str(base64_decode(strtr($request->get('data'), ['-' => '+', '_' => '/'])), $params);
@@ -141,8 +197,17 @@ class PayController extends AppBaseController
             is_numeric($id)
         ) {
             $cart = $this->cartRepository->find($id);
+            $user = User::find($userId);
 
-            if ($cart) {
+            if ($cart && $user) {
+                if (!$this->verify($user, $cart, $params)) {
+                    Log::error('User and cart verification failed:\n'
+                        . 'user_id:' . $userId . '\n'
+                        . 'card_id:' . $id . '\n'
+                        . 'params:' . json_encode($params) . '\n');
+                    return 'Error';
+                }
+
                 $cartItems = CartItem::query()
                     ->where([
                         'cart_id' => $cart->id,
@@ -185,11 +250,8 @@ class PayController extends AppBaseController
                         $newOrderItem->count = $cartItem->count;
                         $newOrderItem->save();
                     }
-                    $user = Auth::user();
 
-                    if ($user) {
-                        $user->log("Created new Order ID:{$newOrder->id}");
-                    }
+                    $user->log("Created new Order ID:{$newOrder->id}");
 
                     $orderDescription = $this->createDescriptionText($newOrder, $cartItems);
                     $newOrder->description = htmlspecialchars($orderDescription);
@@ -213,13 +275,14 @@ class PayController extends AppBaseController
                     return 'OK';
                 }
             } else {
-                Log::error('Set order failed due to missing cart.');
+                Log::error('Set order failed due to missing cart (' . $id . ') or user (' . $userId . ')');
             }
         }
 
         Log::error('Set order failed:\n'
-            . 'card_id:' . print_r($id) . '\n'
-            . 'params:' . print_r($params) . '\n');
+            . 'user_id:' . $userId . '\n'
+            . 'card_id:' . $id . '\n'
+            . 'params:' . json_encode($params) . '\n');
         return 'Error';
     }
 
