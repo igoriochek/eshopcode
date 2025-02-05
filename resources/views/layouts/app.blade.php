@@ -63,8 +63,34 @@
     <!-- <link rel="stylesheet" href="{{ asset('vendor/adminlte/dist/css/adminlte.min.css') }}"> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.css">
 
-    <!-- Main Style -->
+
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('template/img/favicon.ico') }}">
+
+    <!-- CSS 
+    ========================= -->
+    <!--bootstrap min css-->
+    <link rel="stylesheet" href="{{ asset('template/css/bootstrap.min.css') }}">
+    <!--owl carousel min css-->
+    <link rel="stylesheet" href="{{ asset('template/css/owl.carousel.min.css') }}">
+    <!--slick min css-->
+    <link rel="stylesheet" href="{{ asset('template/css/slick.css') }}">
+    <!--magnific popup min css-->
+    <link rel="stylesheet" href="{{ asset('template/css/magnific-popup.css') }}">
+    <!--font awesome css-->
+    <link rel="stylesheet" href="{{ asset('template/css/font.awesome.css') }}">
+    <!--animate css-->
+    <link rel="stylesheet" href="{{ asset('template/css/animate.css') }}">
+    <!--jquery ui min css-->
+    <link rel="stylesheet" href="{{ asset('template/css/jquery-ui.min.css') }}">
+    <!--slinky menu css-->
+    <link rel="stylesheet" href="{{ asset('template/css/slinky.menu.css') }}">
+    <!--plugins css-->
+    <link rel="stylesheet" href="{{ asset('template/css/plugins.css') }}">
+    <!-- Main Style CSS -->
     <link rel="stylesheet" href="{{ asset('template/css/style.css') }}">
+    <!--modernizr min js here-->
+    <script src="{{ asset('template/js/vendor/modernizr-3.7.1.min.js') }}"></script>
+
 
     @if (auth()->check() && auth()->user()->type == 1)
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
@@ -129,8 +155,6 @@
 
     <script src="{{ asset('template/js/vendor/jquery-range-ui.min.js') }}"></script>
     
-
-    
     <script src="{{ asset('template/js/vendor/jquery.zoom.min.js') }}"></script>
     <script src="{{ asset('template/js/vendor/aos.js') }}"></script>
     <script src="{{ asset('template/js/vendor/swiper-bundle.min.js') }}"></script>
@@ -140,7 +164,39 @@
 
     <script src="{{ asset('template/js/vendor/tilt.jquery.min.js') }}"></script>
 
+    <!--jquery min js-->
+    <script src="{{ asset('template/js/vendor/jquery-3.4.1.min.js') }}"></script>
+    <!--popper min js-->
+    <script src="{{ asset('template/js/popper.js') }}"></script>
+    <!--bootstrap min js-->
+    <script src="{{ asset('template/js/bootstrap.min.js') }}"></script>
+    <!--owl carousel min js-->
+    <script src="{{ asset('template/js/owl.carousel.min.js') }}"></script>
+    <!--slick min js-->
+    <script src="{{ asset('template/js/slick.min.js') }}"></script>
+    <!--magnific popup min js-->
+    <script src="{{ asset('template/js/jquery.magnific-popup.min.js') }}"></script>
+    <!--counterup min js-->
+    <script src="{{ asset('template/js/jquery.counterup.min.js') }}"></script>
+    <!--jquery countdown min js-->
+    <script src="{{ asset('template/js/jquery.countdown.js') }}"></script>
+    <!--jquery ui min js-->
+    <script src="{{ asset('template/js/jquery.ui.js') }}"></script>
+    <!--jquery elevatezoom min js-->
+    <script src="{{ asset('template/js/jquery.elevatezoom.js') }}"></script>
+    <!--isotope packaged min js-->
+    <script src="{{ asset('template/js/isotope.pkgd.min.js') }}"></script>
+    <!--slinky menu js-->
+    <script src="{{ asset('template/js/slinky.menu.js') }}"></script>
+    <!-- Plugins JS -->
+    <script src="{{ asset('template/js/plugins.js') }}"></script>
+
+    <!-- Main JS -->
     <script src="{{ asset('template/js/main.js') }}"></script>
+
+
+
+
 
     @if (auth()->check() && auth()->user()->type == 1)
         <style>
