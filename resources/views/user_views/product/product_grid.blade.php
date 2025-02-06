@@ -1,5 +1,4 @@
-<div class="col-md-4 col-6 mb-24 bb-product-box pro-bb-content" data-aos="fade-up"
-    data-aos-duration="1000" data-aos-delay="200">
+<div class="col-md-4 col-6 mb-24 bb-product-box pro-bb-content">
     {!! Form::open(['route' => ['addtocart'], 'method' => 'post']) !!}
     <div class="bb-pro-box">
         <div class="bb-pro-img">

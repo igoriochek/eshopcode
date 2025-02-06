@@ -14,7 +14,7 @@
                 </div>
             </div>
             <div class="col-12">
-                <div class="bb-login-contact" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                <div class="bb-login-contact">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
                         <div class="bb-login-wrap">

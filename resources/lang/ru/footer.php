@@ -15,11 +15,18 @@ return [
     'email' => 'Электронная почта',
     'menu' => 'МЕНЮ',
     'account' => 'Мой аккаунт',
-    'copyright' => 'UAB "Madeiva" © 2025. Все права защищены',
+    'copyright' => 'UAB "Time2" © 2025. Все права защищены',
     'companycode' => "Код предприятия",
     'vatcode' => "Код НДС",
     'ac' => "Р/с",
     'information' => 'Информация',
-    'acceptPayments' => 'Мы принимаем оплату через'
+    'acceptPayments' => 'Мы принимаем оплату через',
+    'hours' => 'Часы',
+    'monday' => 'Пн',
+    'thursday' => 'Чт',
+    'friday' => 'Пт',
+    'saturday' => 'Сб',
+    'sunday' => 'Вс',
+    'closed' => 'Закрытый'
 
 ];

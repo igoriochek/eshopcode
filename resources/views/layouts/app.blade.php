@@ -112,10 +112,10 @@
     </div>
     
     @else
-        @if (auth()->check())
+        <!-- @if (auth()->check())
         @include('layouts.components.cart_sidebar')
-        @endif
-    @include('layouts.components.back_to_top')
+        @endif -->
+    <!-- @include('layouts.components.back_to_top') -->
     @include('layouts.components.header')
     <main class="main-wrapper">
         @include('layouts.components.page_banner')
@@ -206,13 +206,13 @@
             
         </style>
     @endif
-    @if (app()->getLocale() == 'ru')
+    <!-- @if (app()->getLocale() == 'ru')
         <style>
             h1, h2, h3, h4, h5, h6, p, span, a, div, li {
                 font-family: "Open Sans", sans-serif !important;
             }
         </style>
-    @endif
+    @endif -->
     <script>
         $(document).ready(function() {
             $('#categories').DataTable({

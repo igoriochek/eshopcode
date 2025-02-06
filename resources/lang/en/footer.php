@@ -15,11 +15,19 @@ return [
     'email' => 'Email',
     'menu' => 'MENU',
     'account' => 'My Account',
-    'copyright' => 'UAB "Madeiva" © 2025. All Rights Reserved',
+    'copyright' => 'UAB "Time2" © 2025. All Rights Reserved',
     'companycode' => "Company Code",
     'vatcode' => "VAT",
     'ac' => "A/C",
     'information' => 'Information',
-    'acceptPayments' => 'We Accept Payment Via'
+    'acceptPayments' => 'We Accept Payment Via',
+    'hours' => 'Hours',
+    'monday' => 'Mon',
+    'thursday' => 'Thu',
+    'friday' => 'Fri',
+    'saturday' => 'Sat',
+    'sunday' => 'Sun',
+    'closed' => 'Closed'
+
 
 ];
