@@ -191,6 +191,8 @@ return [
     'left' => 'Осталось',
     'inStock' => 'В наличии',
     'lowercaseProducts' => 'продукты',
+    'quantity' => 'Количество',
+    'for' => 'для',
 
     //Promotions
     'createPromotion' => 'Создать акцию',

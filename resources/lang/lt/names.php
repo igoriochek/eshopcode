@@ -191,6 +191,8 @@ return [
     'left' => 'Liko',
     'inStock' => 'Turima',
     'lowercaseProducts' => 'produktai',
+    'quantity' => 'Kiekis',
+    'for' => 'apie',
 
     //Promotions
     'createPromotion' => 'Sukurti akciją',

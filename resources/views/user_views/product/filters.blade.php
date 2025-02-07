@@ -1,61 +1,46 @@
 <form method="get" action="{{ route('userproducts') }}" id="mainForm">
-    <div class="bb-shop-wrap">
-        <div class="bb-sidebar-block">
-            <div class="bb-sidebar-title">
+    <aside class="sidebar_widget">
+        <div class="widget_inner">
+            <div class="widget_list widget_categories">
                 <h3>{{ __('names.search') }}</h3>
-            </div>
-            <div class="bb-sidebar-contact">
-                <div class="header-search">
-                    <input type="text" name="filter[namelike]" id="filter[namelike]"
-                        placeholder="{{ __('names.product') . '...' }}" value="{{ $filter['namelike'] ?? '' }}">
-                    <button class="search-button" type="submit"><i class="ri-search-line"></i></button>
+                <div class="search_container">
+                    <div class="search_box">
+                        <input type="text" name="filter[namelike]" id="filter[namelike]"
+                            placeholder="{{ __('names.product') . '...' }}" value="{{ $filter['namelike'] ?? '' }}">
+                        <button type="submit"><i class="icon-search"></i></button>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="bb-sidebar-block">
-            <div class="bb-sidebar-title">
+            <div class="widget_list widget_filter">
                 <h3>{{ __('names.filterByPrice') }}</h3>
-            </div>
-            <div class="bb-sidebar-contact">
                 <div class="range-slider">
-                    <div id="range-slider" class="slider mb-3 mt-1 mx-1" wire:ignore></div>
+                    <div id="range-slider" class="slider mx-1" wire:ignore></div>
                 </div>
-                <div class="d-flex" style="justify-content: space-between; margin-top: 20px;">
-                    <div>
-                        <span>{{ __('names.from') }}: <b>€</b></span>
+                <div class="d-flex" style="justify-content: space-between;">
+                    <button class="filter_button" type="submit">{{ __('buttons.filter') }}</button>
+                    <div class="d-flex">
+                        <p style="margin-bottom: 0; line-height: 30px;">€</p>
                         <input type="text" id="filter[pricefrom]" name="filter[pricefrom]" readonly
-                            value="{{ $filter['pricefrom'] ?? '0' }}" class="price-input px-0 fw-bold fs-4"
-                            style="width: 50px; padding-top: 1px" />
-                    </div>
-                    <div>
-                        <span class="text-capitalize">{{ __('names.to') }}: <b>€</b></span>
+                            value="{{ $filter['pricefrom'] ?? '0' }}" class="filter-price-input input-right-align"
+                            style="" />
+                        <p style="margin-bottom: 0; line-height: 30px;">-€</p>
                         <input type="text" id="filter[priceto]" name="filter[priceto]" readonly
-                            value="{{ $filter['priceto'] ?? '0' }}" class="price-input px-0 fw-bold fs-4"
-                            style="width: 50px; padding-top: 1px" />
+                            value="{{ $filter['priceto'] ?? '0' }}" class="filter-price-input input-left-align"
+                            style="" />
                     </div>
                 </div>
-                <button class="bb-btn-2 mt-4" type="submit">
-                    {{ __('buttons.filter') }}
-                </button>
             </div>
-        </div>
-        <div class="bb-sidebar-block">
-            <div class="bb-sidebar-title">
+            <div class="widget_list widget_color">
                 <h3>{{ __('names.categories') }}</h3>
-            </div>
-            <div class="bb-sidebar-contact">
-                <ul>
+                <ul style="margin-bottom: 10px;">
                     @forelse($categories as $category)
                     <li>
-                        <div class="bb-sidebar-block-item">
+                        <label class="category_label" for="category.{{ $category->id }}">
                             <input type="checkbox" id="category.{{ $category->id }}"
                                 value="{{ $category->id }}" onclick="calc();"
                                 @if ($filter && isset($filter['categories.id'])) {{ in_array($category->id, $selCategories) ? "checked=\"checked\"" : '' }} @endif>
-                            <a href="javascript:void(0)" for="category.{{ $category->id }}">
-                                {{ $category->name }}
-                            </a>
-                            <span class="checked"></span>
-                        </div>
+                            {{ $category->name }}
+                        </label>
                     </li>
                     @empty
                     <li>
@@ -63,13 +48,12 @@
                     </li>
                     @endforelse
                 </ul>
+                <div>
+                    <button class="filter_button" type="submit">{{ __('buttons.filter') }}</button>
+                </div>
             </div>
-            <button class="bb-btn-2 mt-4" type="submit">
-                {{ __('buttons.filter') }}
-            </button>
         </div>
-
-    </div>
+    </aside>
 
     <input type="hidden" value="{{ implode(',', $selCategories) }}" name="filter[categories.id]"
         id="filter[categories.id]">
@@ -77,28 +61,91 @@
 </form>
 
 <style>
-    .header-search {
+    .category_label {
+        font-size: 16px;
+        font-weight: 400;
+        cursor: pointer;
+        line-height: 12px;
+        margin-bottom: 12px;
+    }
+
+    .category_label:hover {
+        color: #79a206;
+    }
+
+    .filter-price-input {
+        background: none;
+        border: none;
+        font-size: 12px;
+        line-height: 31px;
+        width: 26px;
+        transition: all 0.3s ease 0s;
+        margin: 0;
+        font-family: inherit;
+    }
+
+    .input-right-align {
+        text-align: right;
+    }
+
+    .input-left-align {
+        text-align: left;
+    }
+
+    .filter_button {
+        height: 30px;
+        line-height: 30px;
+        padding: 0 20px;
+        text-transform: capitalize;
+        color: #ffffff;
+        background: #222222;
+        border: 0;
+        border-radius: 30px;
+        float: left;
+        transition: 0.3s;
+    }
+
+    .filter_button:hover {
+        background: #79a206;
+    }
+
+    @media only screen and (min-width: 768px) and (max-width: 991px) {
+        .search_box {
+            border: 0px solid #e1e1e1;
+            margin-bottom: 0px;
+        }
+    }
+
+    @media only screen and (max-width: 767px) {
+        .search_box {
+            border: 0px solid #e1e1e1;
+            margin-bottom: 0px;
+        }
+    }
+
+    .search_container {
         display: flex;
-        justify-content: flex-end;
+        border-radius: 30px;
+        border: 1px solid #e1e1e1;
+        background: #fff;
+        margin-right: 0px;
     }
 
-    .search-button {
-        position: absolute;
-        width: 45px;
-        background: transparent;
-        box-shadow: none;
-        color: #555;
-        border: 0px;
-        height: 45px;
+    .range-slider {
+        padding-top: 10px;
+        display: flex;
+        justify-content: center;
     }
-
 
     .ui-state-default,
     .ui-widget-content .ui-state-default {
-        border-radius: 100%;
-        background-color: #6c7fd8;
-        border-color: #6c7fd8;
-        top: -0.5rem;
+        background: #fff;
+        width: 15px;
+        height: 15px;
+        top: -7px;
+        cursor: pointer;
+        border-radius: 50%;
+        border: 2px solid #79a206;
     }
 
     .ui-widget.ui-widget-content {
@@ -106,24 +153,20 @@
     }
 
     .ui-widget-content {
-        background: rgb(0, 0, 0);
-    }
-
-    .ui-widget-header {
-        background: #6c7fd8;
+        background: #dbdbdb;
     }
 
     .ui-slider-horizontal {
-        height: 3px;
+        height: 2px;
     }
 
     .slider {
-        margin-bottom: 0.25rem !important;
+        margin-bottom: 22px;
     }
 
     .ui-state-focus,
     .ui-widget-content .ui-state-focus {
-        border: 1px solid #6c7fd8 !important;
+        border: 2px solid #79a206;
         background: #fff;
     }
 </style>

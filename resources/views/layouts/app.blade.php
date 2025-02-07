@@ -206,13 +206,11 @@
             
         </style>
     @endif
-    <!-- @if (app()->getLocale() == 'ru')
-        <style>
-            h1, h2, h3, h4, h5, h6, p, span, a, div, li {
-                font-family: "Open Sans", sans-serif !important;
-            }
-        </style>
-    @endif -->
+    <style>
+        #scrollUp {
+            align-content: center;
+        }
+    </style>
     <script>
         $(document).ready(function() {
             $('#categories').DataTable({

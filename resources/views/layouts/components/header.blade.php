@@ -30,7 +30,7 @@
                     <div class="call-support">
                         <p>
                             <a href="tel:+37067344854">
-                            +370 673 44854
+                                +370 673 44854
                             </a>
                         </p>
                     </div>
@@ -192,5 +192,17 @@
 <style>
     .offcanvas_footer ul li.instagram a {
         background: #833ab4;
+    }
+
+    .offcanvas_footer ul li a {
+        align-content: center;
+    }
+
+    .canvas_open a {
+        align-content: center;
+    }
+
+    .canvas_close a {
+        align-content: center;
     }
 </style>

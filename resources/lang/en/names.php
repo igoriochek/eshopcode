@@ -191,6 +191,8 @@ return [
     'left' => 'Left',
     'inStock' => 'In Stock',
     'lowercaseProducts' => 'products',
+    'quantity' => 'Quantity',
+    'for' => 'for',
 
     //Promotions
     'createPromotion' => 'Create Promotion',

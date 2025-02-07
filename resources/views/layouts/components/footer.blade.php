@@ -133,3 +133,9 @@
         </div>
     </div>
 </footer>
+
+<style>
+    .footer_social ul li a {
+        align-content: center;
+    }
+</style>
