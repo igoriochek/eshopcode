@@ -31,17 +31,29 @@ class PayController extends AppBaseController
     {
         $cartId = $request->session()->get('appPayCartId');
         $amount = $request->session()->get('appPayAmount');
+
+        $amountArray = explode('.', $amount);
+        $partialAmount = str_replace(",", "", $amountArray[0]);
+
+        if (isset($amountArray[1]) && strlen($amountArray[1]) === 1) {
+            $amountArray[1] = $amountArray[1] . '0';
+        }
+
+        $cents = $amountArray[1] ?? '00';
+        $fullAmount = $partialAmount . $cents;
+
+
 //        $amount = str_replace(".", "", $amount);
 //        $amount = $amount * 10;
 
 //        if (!preg_match("/\./", $amount)) {
-            if(strpos($amount, ".") == strlen($amount)-2)  $amount = $amount . "0";
-            elseif (strpos($amount, ".") === false ) $amount = $amount . "00";
+            // if(strpos($amount, ".") == strlen($amount)-2)  $amount = $amount . "0";
+            // elseif (strpos($amount, ".") === false ) $amount = $amount . "00";
 //            elseif(strpos($amount, ".") == strlen($amount)-3)  $amount = $amount . "00";
 //        }
 
 //        $amount = str_replace(".", "", $amount);
-        $amount = preg_replace("/\D/", "", $amount);
+        // $amount = preg_replace("/\D/", "", $amount);
 
 
         $appUrl = env('APP_URL');
@@ -49,7 +61,7 @@ class PayController extends AppBaseController
             'projectid' => env('WEBTOPAY_PROJECTID'),
             'sign_password' => env('WEBTOPAY_SIGN_PASSWORD'),
             'orderid' => time(),
-            'amount' => $amount,
+            'amount' => $fullAmount,
             'currency' => 'EUR',
             'country' => 'LT',
             'accepturl' => $appUrl. '/user/pay/accept/' . $cartId,
