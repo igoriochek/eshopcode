@@ -7,8 +7,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <div class="section-title bb-center" data-aos="fade-up" data-aos-duration="1000"
-                    data-aos-delay="200">
+                <div class="section-title bb-center">
                     <div class="section-detail">
                         <h2 class="bb-title">{{ __('menu.discountCoupons') }}</h2>
                     </div>
@@ -17,7 +16,7 @@
             <div class="row">
                 @forelse($discountCoupons as $discountCoupon)
                 <div class="col-md-6 my-3">
-                    <div class="desc" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                    <div class="desc">
                         <div class="brand-init style1 blog-grid d-flex justify-content-between align-items-center">
                             <div class="inner">
                                 <h5 class="mb-1">{{ __('names.discountCouponCode') }}: {{ $discountCoupon->code }}

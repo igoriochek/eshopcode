@@ -64,7 +64,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.css">
 
 
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('template/img/favicon.ico') }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/favicon.png') }}">
 
     <!-- CSS 
     ========================= -->

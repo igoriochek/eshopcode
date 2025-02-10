@@ -3,29 +3,23 @@
 @section('title', __('menu.categories'))
 
 @section('content')
-<section class="section-terms padding-tb-50">
+<div class="contact_area">
     <div class="container">
         <div class="row">
-            <div class="col-12">
-                <div class="section-title bb-center" data-aos="fade-up" data-aos-duration="1000"
-                    data-aos-delay="200">
-                    <div class="section-detail">
-                        <h2 class="bb-title">{{ __('names.categories') }}</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="desc">
-                <div class="row mb-minus-24">
-                    <div class="col-lg-12 col-md-12 mb-24">
-                        <div class="terms-detail" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
-                            <div class="block">
-                                @include('user_views.category.category_tree')
-                            </div>
-                        </div>
-                    </div>
+            <div class="col-lg-12">
+                <div class="contact_message content">
+                    <h3>{{ __('names.categories') }}</h3>
+                    @include('user_views.category.category_tree')
                 </div>
             </div>
         </div>
     </div>
-</section>
+</div>
 @endsection
+
+<style>
+    .contact_message ul li {
+        padding: 3px 0 !important;
+        border-top: 0px !important;
+    }
+</style>

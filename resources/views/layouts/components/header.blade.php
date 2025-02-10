@@ -111,7 +111,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-3 col-md-3 col-4">
                         <div class="logo">
-                            <a href="{{ url('/products') }}"><img src="assets/img/logo/logo.png" alt=""></a>
+                            <a href="{{ url('/products') }}"><img src="{{ asset('images/time2_logo.png') }}" alt=""></a>
                         </div>
                     </div>
                     <div class="col-lg-9 col-md-6 col-6">
@@ -119,7 +119,7 @@
                             <div class="header_account_area">
                                 @auth
                                 <div class="header_account-list top_links">
-                                    <a href="#"><i class="icon-users"></i></a>
+                                    <a href="{{ url('/user/userprofile') }}"><i class="icon-users"></i></a>
                                     <ul class="dropdown_links">
                                         <li><a href="{{ url('/user/userprofile') }}">{{ __('menu.profile') }}</a></li>
                                         <li><a href="{{ url('/user/rootorders') }}">{{ __('menu.orders') }}</a></li>
@@ -142,7 +142,7 @@
                                 </div>
                                 @else
                                 <div class="header_account-list top_links">
-                                    <a href="#"><i class="icon-users"></i></a>
+                                    <a href="{{ route('login') }}"><i class="icon-users"></i></a>
                                     <ul class="dropdown_links">
                                         <li><a href="{{ route('register') }}">{{ __('auth.register') }}</a></li>
                                         <li><a href="{{ route('login') }}">{{ __('auth.login') }}</a></li>

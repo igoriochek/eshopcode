@@ -65,46 +65,6 @@
 </div>
 @endsection
 
-
-<style>
-
-    .pagination .page-item.active .page-link {
-        background: #79a206 !important;
-        color: #ffffff !important;
-        margin-left: 0 !important;
-        display: inline-block !important;
-        width: 30px !important;
-        height: 30px !important;
-        line-height: 30px !important;
-        text-align: center !important;
-        border-radius: 3px !important;
-        font-weight: 400 !important;
-    }
-
-    .page-link {
-        padding: 0px !important;
-
-    }
-
-    .pagination .page-item .page-link {
-        font-weight: 400 !important;
-        display: inline-block !important;
-        width: 30px !important;
-        height: 30px !important;
-        line-height: 30px !important;
-        text-align: center !important;
-        background: #f1f1f1 !important;
-        border-radius: 3px !important;
-        margin-left: 0px !important;
-        color: #222222 !important;
-
-        &:hover {
-            background: #79a206 !important;
-            color: #ffffff !important;
-        }
-    }
-</style>
-
 @push('scripts')
 <script>
     const orderSelector = document.getElementById('orderSelector');

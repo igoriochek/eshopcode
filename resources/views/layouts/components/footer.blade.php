@@ -39,7 +39,7 @@
                 <div class="col-lg-4 col-md-5">
                     <div class="widgets_container widget_app">
                         <div class="footer_logo">
-                            <a href="{{ url('/products') }}"><img src="assets/img/logo/logo.png" alt=""></a>
+                            <a href="{{ url('/products') }}"><img src="{{ asset('images/time2_logo.png') }}" alt=""></a>
                         </div>
                         <div class="footer_social">
                             <ul>

@@ -7,7 +7,7 @@
                     <ul>
                         <li><a href="{{ route('home') }}">{{ __('menu.home') }}</a></li>
                         @hasSection('parentTitle')
-                        <li>@yield('parentTitle', 'Parent Title')</li>
+                        <li><a href="@yield('parentUrl')">@yield('parentTitle', 'Parent Title')</a></li>
                         @endif
                         <li>@yield('title', 'Title')</li>
                     </ul>
