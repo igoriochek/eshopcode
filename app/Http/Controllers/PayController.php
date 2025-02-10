@@ -194,6 +194,7 @@ class PayController extends AppBaseController
             is_array($params) &&
             isset($params['status']) &&
             $params['status'] == 2 &&
+            is_numeric($userId) &&
             is_numeric($id)
         ) {
             $cart = $this->cartRepository->find($id);
