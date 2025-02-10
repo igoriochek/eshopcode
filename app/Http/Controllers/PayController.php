@@ -279,10 +279,16 @@ class PayController extends AppBaseController
             }
         }
 
-        Log::error('Set order failed:\n'
+        // Only log error if status is 2 or if for some reason status is not set
+        if ($params['status'] == 2 || !isset($params['status'])) {
+            Log::error('Set order failed:\n'
             . 'user_id:' . $userId . '\n'
             . 'card_id:' . $id . '\n'
             . 'params:' . json_encode($params) . '\n');
+        } else {
+            Log::info('Wrong status received (' . $params['status'] . '). Ignoring error.');
+        }
+
         return 'Error';
     }
 
