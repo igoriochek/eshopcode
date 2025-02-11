@@ -35,6 +35,7 @@
                                 <li>
                                     <a href="/lang/{{ $locale }}"
                                        class="@if (app()->getLocale() == $locale)  @endif">
+                                       <img src="{{asset('/images/flag-' . $locale . '.png')}}" alt="{{$locale}}" style="max-width: 15px; display: inline-block; margin-right: 5px;"/>
                                         @if ($locale == 'en')
                                             {{__('English')}}
                                         @elseif ($locale == 'lt')
