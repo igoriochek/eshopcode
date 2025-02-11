@@ -32,17 +32,25 @@ class PayController extends AppBaseController
         $cartId = $request->session()->get('appPayCartId');
         $amount = $request->session()->get('appPayAmount');
 
-        if (!preg_match("/\./", $amount)) {
-            $amount = $amount * 100;
+        $amountArray = explode('.', $amount);
+        $partialAmount = str_replace(",", "", $amountArray[0]);
+        if (isset($amountArray[1]) && strlen($amountArray[1]) === 1) {
+            $amountArray[1] = $amountArray[1] . '0';
         }
-        $amount = preg_replace("/\D/", "", $amount);
+        $cents = $amountArray[1] ?? '00';
+        $fullAmount = $partialAmount . $cents;
+
+        // if (!preg_match("/\./", $amount)) {
+        //     $amount = $amount * 100;
+        // }
+        // $amount = preg_replace("/\D/", "", $amount);
 
         $appUrl = env('APP_URL');
         $payment = [
             'projectid' => env('WEBTOPAY_PROJECTID'),
             'sign_password' => env('WEBTOPAY_SIGN_PASSWORD'),
             'orderid' => time(),
-            'amount' => $amount,
+            'amount' => $fullAmount,
             'currency' => 'EUR',
             'country' => 'LT',
             'accepturl' => $appUrl. '/user/pay/accept/' . $cartId,
