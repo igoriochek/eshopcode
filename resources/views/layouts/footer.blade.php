@@ -93,6 +93,7 @@
                             <li>
                                 <a class="dropdown-item" href="/lang/{{ $locale }}"
                                    class="@if (app()->getLocale() == $locale)  @endif inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium leading-5 focus:outline-none transition duration-150 ease-in-out">
+                                   <img src="{{asset('/images/flag-' . $locale . '.png')}}" alt="{{$locale}}" style="max-width: 15px; display: inline-block; margin-right: 5px;"/>
                                     @if ($locale == 'en')
                                         {{ __('English') }}
                                     @elseif ($locale == 'lt')
