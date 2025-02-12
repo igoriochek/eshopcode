@@ -206,7 +206,7 @@ class PayController extends AppBaseController
                         . 'user_id:' . $userId . '\n'
                         . 'card_id:' . $id . '\n'
                         . 'params:' . json_encode($params) . '\n');
-                    return 'Error';
+                    return response('Error', 400)->header('Content-Type', 'text/plain');
                 }
 
                 $cartItems = CartItem::query()
@@ -273,7 +273,7 @@ class PayController extends AppBaseController
                     $this->order = $newOrder;
                     $this->orderItems = $cartItems;
 
-                    return 'OK';
+                    return response('OK', 200)->header('Content-Type', 'text/plain');
                 }
             } else {
                 Log::error('Set order failed due to missing cart (' . $id . ') or user (' . $userId . ')');
@@ -290,7 +290,7 @@ class PayController extends AppBaseController
             Log::info('Wrong status received (' . $params['status'] . '). Ignoring error.');
         }
 
-        return 'Error';
+        return response('Error', 400)->header('Content-Type', 'text/plain');
     }
 
     private function getAdminId()
