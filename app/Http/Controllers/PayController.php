@@ -139,6 +139,10 @@ class PayController extends AppBaseController
         $params = [];
         parse_str(base64_decode(strtr($request->get('data'), ['-' => '+', '_' => '/'])), $params);
 
+        if(isset($params['error'])){
+            Log::info("Set order params error code: ". $params["error"] . ".");
+        }
+
         if (is_array($params) &&
             isset($params['status']) &&
             $params['status'] == 1 &&
