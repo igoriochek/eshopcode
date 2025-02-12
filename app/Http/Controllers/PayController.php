@@ -158,7 +158,7 @@ class PayController extends AppBaseController
                         . 'user_id:' . $userId . '\n'
                         . 'card_id:' . $id . '\n'
                         . 'params:' . json_encode($params) . '\n');
-                    return 'Error';
+                    return response('Error', 400)->header('Content-Type', 'text/plain');
                 }
 
                 $cartItems = CartItem::query()
@@ -200,7 +200,7 @@ class PayController extends AppBaseController
                     event(new OrderCreated($newOrder->id, $newOrder->sum, $user->name, $cartItems));
 
                     Log::info("Order created for user id ".$userId." and cart id ".$id.". Sending back an OK");
-                    return 'OK';
+                    return response('OK', 200)->header('Content-Type', 'text/plain');
                 }
             }
         }
@@ -211,7 +211,7 @@ class PayController extends AppBaseController
             Log::info("Received wrong status. Ignoring error.");
         }
 
-        return 'Error';
+        return response('Error', 400)->header('Content-Type', 'text/plain');
     }
 
     private function getAdminId()
