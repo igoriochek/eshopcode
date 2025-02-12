@@ -2,20 +2,18 @@
 @section('parentTitle', __('menu.messenger'))
 @section('parentUrl', url('/user/messenger'))
 
-<section class="section-terms padding-tb-50">
+<div class="shop_area mb-100">
     <div class="container">
         <div class="row">
             <div class="col-lg-4 mb-5">
-                <div class="bb-shop-wrap">
-                    <div class="bb-sidebar-block">
-                        <div class="bb-sidebar-title">
+                <div class="blog_sidebar_widget">
+                    <div class="widget_list widget_search">
+                        <div class="widget_title">
                             <h3>{{ __('names.messages') }}</h3>
+                            <a href="{{ route('livewire.messenger.add') }}" class="contact_button">
+                                {{ __('buttons.contact') }}
+                            </a>
                         </div>
-                        <a href="{{ route('livewire.messenger.add') }}" class="bb-btn-2">
-                            {{ __('buttons.contact') }}
-                        </a>
-                    </div>
-                    <div class="bb-sidebar-block">
                         @include('livewire.messenger.users')
                     </div>
                 </div>
@@ -25,4 +23,20 @@
             </div>
         </div>
     </div>
-</section>
+</div>
+
+<style>
+    .widget_list h3 {
+        border-bottom: 0px;
+        padding-bottom: 0px;
+    }
+
+    .blog_sidebar_widget .widget_title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #e1e1e1;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+    }
+</style>

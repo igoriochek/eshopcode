@@ -4,7 +4,7 @@
                 <li class="content">
                     <a class="messenger-user" href="{{ route('livewire.messenger.show', [$user->id]) }}">
                         <div class="messenger-information-container">
-                            <span class="title" style="font-weight: bold; color: black;">{{ $user->name }}</span>
+                            <h4 style="font-weight: 500;">{{ $user->name }}</h4>
                             <div class="messenger-user-last-message-container">
                                 @if ($user->last_message->user_from == auth()->user()->id)
                                     <span class="">{{ __('names.you') }}: </span>
@@ -38,6 +38,10 @@
 
 @push('css')
     <style>
+        a:hover {
+            color: #79a206;
+        }
+
         .messenger-user {
             display: flex;
             justify-content: space-between;
@@ -84,7 +88,7 @@
         .messenger-user-unread {
             width: 19px;
             height: 19px;
-            background-color: #6c7fd8;
+            background-color: #79a206;
             border-radius: 10px;
             color: #fff;
             display: flex;

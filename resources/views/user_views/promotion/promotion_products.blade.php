@@ -12,7 +12,7 @@
                 @include('flash_messages')
             </div>
             <div class="col-lg-9 col-md-12">
-                <h3 style="margin-bottom: 25px;">>{{ $promotion->name }}</h3>
+                <h3 style="margin-bottom: 25px;">{{ $promotion->name }}</h3>
                 <div class="shop_toolbar_wrapper">
                     <div class="shop_toolbar_btn">
                         <button data-role="grid_3" type="button" class="active btn-grid-3" data-bs-toggle="tooltip"

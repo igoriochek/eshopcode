@@ -1,7 +1,7 @@
 <div wire:poll.1s='updateMessages' class="messenger-room p-4 single-shop-sidebar-widget color-and-item">
     <div class="section-title bb-center">
         <div class="section-detail">
-            <h2 class="bb-title">{{ __('menu.admin').' '.$user->name }}</h2>
+            <h2 style="font-weight: 500;">{{ __('menu.admin').' '.$user->name }}</h2>
         </div>
     </div>
     <div class="messenger-message-box" id="messsageBox">
@@ -39,7 +39,7 @@
 @push('css')
 <style>
     .messenger-room .messenger-message-box .messenger-message-to-container .messenger-message-to {
-        background-color: #6c7fd8;
+        background-color: #79a206;
     }
 </style>
 @endpush

@@ -2,54 +2,44 @@
 @section('parentTitle', __('menu.messenger'))
 @section('parentUrl', url('/user/messenger'))
 
-<section class="section-terms padding-tb-50">
+<div class="shop_area mb-100">
     <div class="container">
         <div class="row">
             <div class="col-lg-4 mb-5">
-                <div class="bb-shop-wrap">
-                    <div class="bb-sidebar-block">
-                        <div class="bb-sidebar-title">
+                <div class="blog_sidebar_widget">
+                    <div class="widget_list widget_search">
+                        <div class="widget_title">
                             <h3>{{ __('names.messages') }}</h3>
+                            <a href="{{ route('livewire.messenger.add') }}" class="contact_button">
+                                {{ __('buttons.contact') }}
+                            </a>
                         </div>
-                        <a href="{{ route('livewire.messenger.add') }}" class="bb-btn-2">
-                            {{ __('buttons.contact') }}
-                        </a>
-                    </div>
-                    <div class="bb-sidebar-block">
                         @include('livewire.messenger.users')
                     </div>
                 </div>
             </div>
             <div class="col-lg-8 mb-5">
-                <div class="bb-shop-pro-inner">
-                    <div class="row mb-minus-24">
-                        <div class="section-title bb-center">
-                            <div class="section-detail">
-                                <h2 class="bb-title">{{ __('names.contactUsers') }}</h2>
-                            </div>
-                        </div>
-                        @include('livewire.messenger.add_users')
-                    </div>
+                <h3 style="margin-bottom: 25px;">{{ __('names.contactUsers') }}</h3>
+                <div class="d-flex justify-content-center align-items-center">
+                    @include('livewire.messenger.add_users')
                 </div>
             </div>
         </div>
     </div>
-</section>
+</div>
 
-@push('css')
 <style>
-    .bb-shop-wrap .bb-sidebar-block .bb-sidebar-title {
-        margin-bottom: 0px !important;
+    .widget_list h3 {
+        border-bottom: 0px;
+        padding-bottom: 0px;
     }
 
-    .bb-shop-wrap .bb-sidebar-block {
+    .blog_sidebar_widget .widget_title {
         display: flex;
         justify-content: space-between;
         align-items: center;
-    }
-
-    .section-title .section-detail h2 {
-        text-transform: none !important;
+        border-bottom: 1px solid #e1e1e1;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
     }
 </style>
-@endpush

@@ -19,6 +19,7 @@
                                     @foreach (config('translatable.locales') as $locale)
                                     <li>
                                         <a href="{{ url('/lang/' . strtolower($locale)) }}">
+                                            <img src="{{asset('/images/flag-' . $locale . '.png')}}" alt="{{$locale}}" style="max-width: 15px; height: 10px; display: inline-block; margin-right: 5px;"/>
                                             {{ strtoupper($locale) }}
                                         </a>
                                     </li>
@@ -94,6 +95,7 @@
                                         @foreach (config('translatable.locales') as $locale)
                                         <li>
                                             <a href="{{ url('/lang/' . strtolower($locale)) }}">
+                                                <img src="{{asset('/images/flag-' . $locale . '.png')}}" alt="{{$locale}}" style="max-width: 15px; height: 10px; display: inline-block; margin-right: 5px;"/>
                                                 {{ strtoupper($locale) }}
                                             </a>
                                         </li>
