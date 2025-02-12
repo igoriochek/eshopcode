@@ -165,9 +165,6 @@ Route::group(array('prefix' => 'user', 'middleware' => ['auth', 'cookie-consent'
     Route::get('checkout', [OrderController::class, 'checkout'])->name('checkout');
     Route::post('checkout/preview', [OrderController::class, 'checkoutPreview'])->name('checkout-preview');
     Route::post('pay', [PayController::class, 'index'])->name('pay');
-    Route::get('pay/accept/{id}', [PayController::class, 'accept'])->where('id', '[0-9]+')->name('pay-accept');
-    Route::get('pay/cancel/{id}', [PayController::class, 'cancel'])->where('id', '[0-9]+')->name('pay-cancel');
-    Route::get('pay/callback/{id}', [PayController::class, 'callback'])->where('id', '[0-9]+')->name('pay-callback');
     Route::get('rootorders', [OrderController::class, 'indexOrders'])->name('rootorders');
     Route::get('rootoreturns', [ReturnsController::class, 'indexReturns'])->name('rootoreturns');
     Route::get('vieworder/{id}', [OrderController::class, 'viewOrder'])->where('id', '[0-9]+')->name('vieworder');
@@ -190,6 +187,11 @@ Route::group(array('prefix' => 'user', 'middleware' => ['auth', 'cookie-consent'
     Route::get('messenger/add', MessengerAdd::class)->name('livewire.messenger.add');
     Route::get('messenger/{id}', MessengerShow::class)->name('livewire.messenger.show');
 });
+
+// Payment
+Route::get('pay/accept/{userId}/{id}', [PayController::class, 'accept'])->where('userId', '[0-9]+')->where('id', '[0-9]+')->name('pay-accept');
+Route::get('pay/cancel/{userId}/{id}', [PayController::class, 'cancel'])->where('userId', '[0-9]+')->where('id', '[0-9]+')->name('pay-cancel');
+Route::get('pay/callback/{userId}/{id}', [PayController::class, 'callback'])->where('userId', '[0-9]+')->where('id', '[0-9]+')->name('pay-callback');
 
 Route::middleware('cookie-consent')->group(function () {
     Route::get('rootcategories', [CategoryController::class, 'userRootCategories'])->name('rootcategories');
