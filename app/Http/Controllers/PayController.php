@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Auth;
 use Response;
 use Exception;
 use Flash;
+use Log;
 
 class PayController extends AppBaseController
 {
@@ -45,6 +46,17 @@ class PayController extends AppBaseController
         $cents = $amountArray[1] ?? '00';
         $fullAmount = $partialAmount . $cents;
 
+        if (!Auth::check()) {
+            return redirect()->route('login');
+        }
+
+        $userId = Auth::user()->id;;
+        if ($userId === null || !is_numeric($userId)) {
+            Log::error('User ID is null or non-numeric before payment redirect:\n'
+                . 'user_id:' . $userId);
+            return redirect(route('home'));
+        }
+
         $appUrl = env('APP_URL');
         $payment = [
             'projectid' => env('WEBTOPAY_PROJECTID'),
@@ -53,9 +65,9 @@ class PayController extends AppBaseController
             'amount' => $fullAmount,
             'currency' => 'EUR',
             'country' => 'LT',
-            'accepturl' => $appUrl . 'user/pay/accept/' . $cartId,
-            'cancelurl' => $appUrl . 'user/pay/cancel/' . $cartId,
-            'callbackurl' => $appUrl . 'user/pay/callback/' . $cartId,
+            'accepturl' => $appUrl . '/pay/accept/' . $userId . '/'. $cartId,
+            'cancelurl' => $appUrl . '/pay/cancel/' . $userId . '/'. $cartId,
+            'callbackurl' => $appUrl . '/pay/callback/' . $userId . '/'. $cartId,
         ];
 
         if (true !== env('WEBTOPAY_PROD')) {
@@ -63,6 +75,7 @@ class PayController extends AppBaseController
         }
 
         try {
+            Log::info('Redirecting for payment for id:' . $cartId);
             \WebToPay::redirectToPayment($payment);
         } catch (Exception $exception) {
             echo get_class($exception) . ':' . $exception->getMessage();
@@ -70,24 +83,66 @@ class PayController extends AppBaseController
         exit;
     }
 
-    public function accept(Request $request, $id)
+    public function accept(Request $request, $userId, $id)
     {
-        $this->setOrder($request, $id);
-        return view('user_views.pay.accept');
+        Log::info('Received accept callback for cart id:' . $id . 'and user id: ' . $userId);
+        $this->setOrder($request, $userId, $id);
+        if (Auth::check()) {
+            return view('user_views.pay.accept');
+        } else {
+            return redirect()->route('login');
+        }
     }
 
-    public function cancel(Request $request, $id)
+    public function cancel(Request $request, $userId, $id)
     {
-        $this->setOrder($request, $id);
-        return view('user_views.pay.cancel');
+        Log::info('Received cancel callback for cart id:' . $id . 'and user id: ' . $userId);
+        $this->setOrder($request, $userId, $id);
+        if (Auth::check()) {
+            return view('user_views.pay.cancel');
+        } else {
+            return redirect()->route('login');
+        }
     }
 
-    public function callback(Request $request, $id)
+    public function callback(Request $request, $userId, $id)
     {
-        return $this->setOrder($request, $id);
+        Log::info('Received callback for cart id:' . $id . 'and user id: ' . $userId);
+        return $this->setOrder($request, $userId, $id);
     }
 
-    private function setOrder(Request $request, $id)
+    private function verify($user, $cart, $params){
+        if ($user->id != $cart->user_id) {
+            Log::error('User ID and Cart User ID do not match in verification (' . $user->id . '!=' . $cart->user_id . ')');
+            return false;
+        }
+
+        if ($cart->status_id != Cart::STATUS_ON) {
+            Log::error('Cart status is not ON in verification (' . $cart->status_id . ')');
+            return false;
+        }
+
+        $cart_sum_in_cents = (int) round($cart->sum * 100);
+        $payment_sum_in_cents = (int) $params['amount'];
+        if ($cart_sum_in_cents != $payment_sum_in_cents) {
+            Log::error('Cart sum and params amount do not match in verification (' . $cart_sum_in_cents . '!=' . $payment_sum_in_cents . ')');
+            return false;
+        }
+
+        if ($params['currency'] != 'EUR') {
+            Log::error('Currency is not EUR in verification (' . $params['currency'] . ')');
+            return false;
+        }
+
+        if ($params['country'] != 'LT') {
+            Log::error('Country is not LT in verification (' . $params['country'] . ')');
+            return false;
+        }
+
+        return true;
+    }
+
+    private function setOrder(Request $request, $userId, $id)
     {
         $params = [];
         parse_str(base64_decode(strtr($request->get('data'), ['-' => '+', '_' => '/'])), $params);
@@ -96,16 +151,26 @@ class PayController extends AppBaseController
             is_array($params) &&
             isset($params['status']) &&
             $params['status'] == 1 &&
-            is_numeric($id)
+            is_numeric($id) &&
+            is_numeric($userId)
         ) {
             $cart = $this->cartRepository->find($id);
+            $user = User::find($userId);
 
-            if ($cart) {
+            if ($cart && $user) {
                 $cartItems = CartItem::query()
                     ->where([
                         'cart_id' => $cart->id,
                     ])
                     ->get();
+
+                if (!$this->verify($user, $cart, $params)) {
+                    Log::error('User and cart verification failed:\n'
+                        . 'user_id:' . $userId . '\n'
+                        . 'card_id:' . $id . '\n'
+                        . 'params:' . json_encode($params) . '\n');
+                    return response('Error', 400)->header('Content-Type', 'text/plain');
+                }
 
                 $cart->status_id = Cart::STATUS_OFF;
                 $cart->save();
@@ -140,19 +205,22 @@ class PayController extends AppBaseController
                             $this->addUnavailableDates($cartItem);
                         }
                     }
-                    $user = Auth::user();
 
-                    if ($user) {
-                        $user->log("Created new Order ID:{$newOrder->id}");
-                    }
+                    $user->log("Created new Order ID:{$newOrder->id}");
 
                     event(new OrderCreated($newOrder->id, $newOrder->sum, $user->name, $cartItems));
 
+                    Log::info("Order created for user id ".$userId." and cart id ".$id.". Sending back an OK");
                     return 'OK';
                 }
             }
         }
 
+        if (isset($params['status']) && $params['status'] == 1){
+            Log::error("Order creation failed. Sending back an Error. Params: ".json_encode($params));
+        } else {
+            Log::info("Received wrong status. Ignoring error.");
+        }
         return 'Error';
     }
 
