@@ -200,7 +200,7 @@ class PayController extends AppBaseController
                     event(new OrderCreated($newOrder->id, $newOrder->sum, $user->name, $cartItems));
 
                     Log::info("Order created for user id ".$userId." and cart id ".$id.". Sending back an OK");
-                    return 'OK';
+                    return response('OK', 200)->header('Content-Type', 'text/plain');
                 }
             }
         }
@@ -210,7 +210,7 @@ class PayController extends AppBaseController
         } else {
             Log::info("Received wrong status. Ignoring error.");
         }
-        return 'Error';
+        return response('Error', 400)->header('Content-Type', 'text/plain');
     }
 
     private function getAdminId()
