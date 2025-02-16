@@ -193,7 +193,7 @@ class PayController extends AppBaseController
         if (
             is_array($params) &&
             isset($params['status']) &&
-            $params['status'] == 2 &&
+            $params['status'] == 1 &&
             is_numeric($userId) &&
             is_numeric($id)
         ) {
@@ -280,8 +280,8 @@ class PayController extends AppBaseController
             }
         }
 
-        // Only log error if status is 2 or if for some reason status is not set
-        if ($params['status'] == 2 || !isset($params['status'])) {
+        // Only log error if status is 1 or if for some reason status is not set
+        if ($params['status'] == 1 || !isset($params['status'])) {
             Log::error('Set order failed:\n'
             . 'user_id:' . $userId . '\n'
             . 'card_id:' . $id . '\n'
