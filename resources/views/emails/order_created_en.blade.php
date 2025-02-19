@@ -13,8 +13,8 @@ Customer name: {{ $customerName }}<br>
     |Total Sum | €{{ $orderSum }} | {{ $orderItemCountSum }} |
 @endcomponent
 
-{{-- @component('mail::button', ['url' => env('APP_URL').'/admin/orders/'.$orderId])
+@component('mail::button', ['url' => env('APP_URL').'/admin/orders/'.$orderId])
     View Order
-@endcomponent --}}
+@endcomponent
 
 @endcomponent

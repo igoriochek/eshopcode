@@ -13,8 +13,8 @@ Kliento vardas: {{ $customerName }}<br>
     |Bendra Suma | €{{ $orderSum }} | {{ $orderItemCountSum }} |
 @endcomponent
 
-{{-- @component('mail::button', ['url' => env('APP_URL').'/admin/orders/'.$orderId])
+@component('mail::button', ['url' => env('APP_URL').'/admin/orders/'.$orderId])
     Peržiūrėti Užsakymą
-@endcomponent --}}
+@endcomponent
 
 @endcomponent
