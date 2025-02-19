@@ -187,9 +187,7 @@ class PayController extends AppBaseController
                         $newOrderItem->count = $cartItem->count;
                         $newOrderItem->save();
                     }
-                    $user = Auth::user();
-
-//                  $user->log("Created new Order ID:{$params['orderid']}");
+                    
                     $user->log("Created new Order ID:{$newOrder->id}");
 
                     event(new OrderCreated($newOrder->id, $newOrder->sum, $user->name, $cartItems));
