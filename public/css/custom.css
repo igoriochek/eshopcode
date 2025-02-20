@@ -149,3 +149,42 @@
 .auth-button:hover {
     color: #79a206;
 }
+
+.cancel-button {
+    background: #222222 !important;
+    border: 0 !important;
+    color: #ffffff !important;
+    display: inline-block !important;
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    height: 38px !important;
+    line-height: 20px !important;
+    padding: 10px 15px !important;
+    text-transform: uppercase !important;
+    transition: 0.3s !important;
+    border-radius: 3px !important;
+}
+
+.cancel-button:hover {
+    background: #79a206 !important;
+    color: #ffffff !important;
+}
+
+.save-button {
+    background: #79a206 !important;
+    border: 0 !important;
+    color: #ffffff !important;
+    display: inline-block !important;
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    height: 38px !important;
+    line-height: 20px !important;
+    padding: 10px 15px !important;
+    text-transform: uppercase !important;
+    transition: 0.3s !important;
+    border-radius: 3px !important;
+}
+
+.save-button:hover {
+    background: #222222 !important;
+}

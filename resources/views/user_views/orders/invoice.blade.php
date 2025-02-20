@@ -5,7 +5,7 @@
                 <div class="col-md-12">
                     <div class="text-center">
                         <i class="far fa-building fa-4x ms-0" style="color:#8f8061 ;"></i>
-                        <p class="pt-2">UAB "Bilan"</p>
+                        <p class="pt-2">UAB "Time2"</p>
                     </div>
                 </div>
                 <div class="row">
