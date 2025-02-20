@@ -134,3 +134,18 @@
     background: #79a206;
     color: #fff;
 }
+
+.auth-button {
+    font-size: 15px;
+    float: left;
+    line-height: 39px;
+    outline: none !important;
+    transition: all 0.3s ease 0s;
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.auth-button:hover {
+    color: #79a206;
+}

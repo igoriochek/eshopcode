@@ -3,67 +3,56 @@
 @section('title', __('auth.resetPassword'))
 
 @section('content')
-<section class="section-login padding-tb-50">
+<div class="customer_login">
     <div class="container">
         <div class="row">
-            <div class="col-12">
-                <div class="section-title bb-center" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-                    <div class="section-detail">
-                        <h2 class="bb-title">{{ __('auth.resetPassword') }}</h2>
+            <div class="d-flex justify-content-center">
+                <div class="col-lg-6 col-md-6">
+                    <div class="account_form">
+                        <h2>{{ __('auth.resetPassword') }}</h2>
+                        <form method="POST" action="{{ route('password.update') }}">
+                            @csrf
+                            <p>
+                                <label for="email">{{ __('auth.email') }}<span>*</span></label>
+                                <input id="email" type="email"
+                                    class="@error('email') is-invalid @enderror" name="email" placeholder="{{ __('auth.enterYourEmail') }}"
+                                    value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </p>
+                            <p>
+                                <label for="password">{{ __('auth.passwordEnter') }}<span>*</span></label>
+                                <input id="password" type="password"
+                                    class="@error('password') is-invalid @enderror" name="password" placeholder="{{ __('auth.enterYourPassword') }}"
+                                    required autocomplete="current-password">
+                                @error('password')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </p>
+                            <p>
+                                <label for="password-confirm">{{ __('auth.confirmPasswordEnter') }}<span>*</span></label>
+                                <input id="password-confirm" type="password"
+                                    name="password_confirmation" placeholder="{{ __('auth.enterYourPasswordAgain') }}"
+                                    required autocomplete="current-password">
+                                @error('password')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </p>
+                            <div class="login_submit">
+                                <button type="submit">{{ __('auth.resetPassword') }}</button>
+                            </div>
+                        </form>
                     </div>
-                </div>
-            </div>
-            <div class="col-12">
-                <div class="bb-login-contact" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
-                    <form method="POST" action="{{ route('password.update') }}">
-                        @csrf
-                        <div class="bb-login-wrap">
-                            <label for="email">{{ __('auth.email') }}*</label>
-                            <input id="email" type="email"
-                                class="@error('email') is-invalid @enderror" name="email" placeholder="{{ __('auth.enterYourEmail') }}"
-                                value="{{ old('email') }}" required autocomplete="email" autofocus>
-                            @error('email')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                        <div class="bb-login-wrap">
-                            <label for="password">{{ __('auth.passwordEnter') }}*</label>
-                            <input id="password" type="password"
-                                class="@error('password') is-invalid @enderror" name="password" placeholder="{{ __('auth.enterYourPassword') }}"
-                                required autocomplete="current-password">
-                            @error('password')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                        <div class="bb-login-wrap">
-                            <label for="password-confirm">{{ __('auth.confirmPasswordEnter') }}*</label>
-                            <input id="password-confirm" type="password"
-                                 name="password_confirmation" placeholder="{{ __('auth.enterYourPasswordAgain') }}"
-                                required autocomplete="current-password">
-                            @error('password')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                        <div class="bb-register-button">
-                            <button class="bb-btn-2" type="submit">{{ __('auth.resetPassword') }}</button>
-                        </div>
-                    </form>
                 </div>
             </div>
         </div>
     </div>
-</section>
+</div>
 @endsection
-
-<style>
-    .bb-register-button {
-        display: flex;
-        justify-content: center;
-    }
-</style>
