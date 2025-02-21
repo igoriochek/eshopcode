@@ -21,7 +21,7 @@ return [
     'ac' => "A/C",
     'information' => 'Information',
     'acceptPayments' => 'We Accept Payment Via',
-    'hours' => 'Hours',
+    'hours' => 'Work hours',
     'monday' => 'Mon',
     'thursday' => 'Thu',
     'friday' => 'Fri',

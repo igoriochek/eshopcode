@@ -207,4 +207,8 @@
     .canvas_close a {
         align-content: center;
     }
+
+    .welcome-text a:hover {
+        color: #79a206;
+    }
 </style>

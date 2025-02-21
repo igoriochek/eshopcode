@@ -21,7 +21,7 @@ return [
     'ac' => "Р/с",
     'information' => 'Информация',
     'acceptPayments' => 'Мы принимаем оплату через',
-    'hours' => 'Часы',
+    'hours' => 'Рабочее время',
     'monday' => 'Пн',
     'thursday' => 'Чт',
     'friday' => 'Пт',

@@ -21,7 +21,7 @@ return [
     'ac' => 'A. s.',
     'information' => 'Informacija',
     'acceptPayments' => 'Priimame mokėjimus per',
-    'hours' => 'Valandos',
+    'hours' => 'Darbo valandos',
     'monday' => 'P',
     'thursday' => 'K',
     'friday' => 'Pn',
