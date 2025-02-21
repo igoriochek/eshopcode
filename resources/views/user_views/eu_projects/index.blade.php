@@ -3,22 +3,16 @@
 @section('title', __('menu.euProjects'))
 
 @section('content')
-<section class="section-about padding-tb-50">
+<section class="about_section mt-0 pt-0">
     <div class="container">
-        <div class="row mb-minus-24">
-            <div class="col-lg-6 col-12 mb-24">
-                <div class="bb-about-img">
-                    <img src="{{ asset('images/finansuoja_ES.jpg') }}" alt="financed_by_the_EU">
-                </div>
-            </div>
-            <div class="col-lg-6 col-12 mb-24">
-                <div class="bb-about-contact">
-                    <div class="section-title" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-                        <div class="section-detail">
-                            <h2 class="bb-title">{{ __('menu.euProjects') }}</h2>
-                        </div>
+        <div class="row">
+            <div class="col-12">
+                <figure>
+                    <div class="about_thumb">
+                        <img src="{{ asset('images/finansuoja_ES.jpg') }}" alt="financed_by_the_EU">
                     </div>
-                    <div class="about-inner-contact" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                    <figcaption class="about_content">
+                        <h1>{{ __('menu.euProjects') }}</h1>
                         @if (app()->getLocale() == 'lt')
                         <p>
                             UAB „LORD-UK“ įgyvendina projektą E. pardavimo sandorių sudarymo sprendimų
@@ -62,8 +56,8 @@
                             The project implementation period is 2024. June 25 - in 2025 June 25.
                         </p>
                         @endif
-                    </div>
-                </div>
+                    </figcaption>
+                </figure>
             </div>
         </div>
     </div>
