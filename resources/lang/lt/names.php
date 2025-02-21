@@ -47,6 +47,7 @@ return [
     'myCart' => 'Mano krepšelis',
     'viewCart' => 'Peržiūrėti krepšelį',
     'closeCart' => 'Uždaryti krepšelį',
+    'image' => 'Paveikslėlis',
 
     'hello' => 'Sveiki',
 
@@ -105,6 +106,7 @@ return [
     'discountCoupons' => 'Nuolaidų kuponai',
     'discountCouponDetails' => 'Nuolaidų kupono informacija',
     'editDiscountCoupon' => 'Redaguoti nuolaidos kuponą',
+    'haveACoupon' => 'Turite nuolaidų kuponą?',
 
     //Export Import
     'dataExpImp' => 'Duomenų eksportas / importas',

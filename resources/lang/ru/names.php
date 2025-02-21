@@ -57,6 +57,7 @@ return [
     'productOrderCount' => 'Количество заказов товара',
     'registrations' => 'Регистрации',
     'unpaid' => 'Не оплачено',
+    'image' => 'Изображение',
 
     'admins' => 'Администраторы',
     'users' => 'Пользователи',
@@ -105,6 +106,7 @@ return [
     'discountCoupons' => 'Купоны на скидку',
     'discountCouponDetails' => 'Информация о купоне на скидку',
     'editDiscountCoupon' => 'Редактировать купон на скидку',
+    'haveACoupon' => 'У вас есть скидочный купон?',
 
     //Export Import
     'dataExpImp' => 'Экспорт/импорт данных',

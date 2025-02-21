@@ -3,47 +3,66 @@
 @section('title', __('menu.cart'))
 
 @section('content')
-<section class="section-cart padding-tb-50">
+<div class="shopping_cart_area">
     <div class="container">
-        <div class="row mb-minus-24">
-            <div class="col-lg-4 mb-24">
-                <div class="bb-cart-sidebar-block" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-                    <div class="bb-sb-title">
-                        <h3>{{ __('names.overview') }}</h3>
+        <div class="row">
+            <div class="col-12">
+                <div class="table_desc">
+                    <div class="cart_page table-responsive">
+                        @include('user_views.cart.table')
                     </div>
-                    <div class="bb-sb-blok-contact">
-                        <div class="bb-cart-summary">
-                            <div class="summary-total">
-                                <ul>
-                                    <li><span class="text-left">{{ __('names.total') }}</span><span class="text-right">€{{ $cart->sum ? number_format($cart->sum, 2) : '0.00' }}</span></li>
-                                </ul>
+                    <div class="cart_submit">
+                        <a href="{{ route('userproducts') }}" class="continue-shopping-button">
+                            {{ __('buttons.continueShopping') }}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="coupon_area">
+            <div class="row d-flex justify-content-end">
+                <div class="col-lg-6 col-md-6">
+                    <div class="coupon_code right">
+                        <h3>{{ __('names.overview') }}</h3>
+                        <div class="coupon_inner">
+                            <div class="cart_subtotal">
+                                <p>{{ __('names.total') }}</p>
+                                <p class="cart_amount">€{{ $cart->sum ? number_format($cart->sum, 2) : '0.00' }}</p>
                             </div>
+                            @if (count($cartItems) > 0)
+                            <div class="checkout_btn">
+                                <a href="{{ url('user/checkout') }}">{{ __('buttons.proceedToCheckout') }}</a>
+                            </div>
+                            @endif
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-8 mb-24">
-                <div class="bb-cart-table mb-3" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
-                    @include('user_views.cart.table')
-                </div>
-                @if (count($cartItems) > 0)
-                <div class="d-flex" style="justify-content: space-between;" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
-                    <a href="{{ url('user/checkout') }}" class="bb-btn-2 check-btn">
-                        {{ __('buttons.proceedToCheckout') }}
-                    </a>
-                    <a href="{{ route('userproducts') }}" class="bb-btn-1 check-btn">
-                        {{ __('buttons.continueShopping') }}
-                    </a>
-                </div>
-                @else
-                <div class="d-flex" style="justify-content: flex-end;" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
-                    <a href="{{ route('userproducts') }}" class="bb-btn-1 check-btn">
-                        {{ __('buttons.continueShopping') }}
-                    </a>
-                </div>
-                @endif
-            </div>
         </div>
     </div>
-</section>
+</div>
 @endsection
+
+<style>
+    .continue-shopping-button {
+        background: #222222;
+        border: 0;
+        color: #ffffff;
+        display: inline-block;
+        font-size: 12px;
+        font-weight: 500;
+        height: 38px;
+        line-height: 18px;
+        padding: 10px 15px;
+        text-transform: uppercase;
+        transition: 0.3s;
+        border-radius: 3px;
+        margin: 0;
+        font-family: inherit;
+    }
+
+    .continue-shopping-button:hover {
+        background: #79a206;
+        color: #ffffff;
+    }
+</style>

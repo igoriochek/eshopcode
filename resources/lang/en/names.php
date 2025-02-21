@@ -47,6 +47,7 @@ return [
     'myCart' => 'My Cart',
     'viewCart' => 'View Cart',
     'closeCart' => 'Close Cart',
+    'image' => 'Image',
 
     'adminUserCount' => 'Admin User Count',
     'canceled' => 'Canceled',
@@ -105,6 +106,7 @@ return [
     'discountCoupons' => 'Discount Coupons',
     'discountCouponDetails' => 'Discount Coupon Details',
     'editDiscountCoupon' => 'Edit Discount Coupon',
+    'haveACoupon' => 'Have a discount coupon?',
 
     //Export Import
     'dataExpImp' => 'Data Export / Import',
