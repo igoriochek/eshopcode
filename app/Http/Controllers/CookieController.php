@@ -67,7 +67,7 @@ class CookieController extends AppBaseController
         $fields = [
             'name' => Str::lower($input['name']),
             'description' => $input['description'],
-            'isMandatory' => isset($input['isMandatory'])
+            'isMandatory' => isset($input['isMandatory']) ? 1 : 0
         ];
 
         $this->cookieRepository->create($fields);

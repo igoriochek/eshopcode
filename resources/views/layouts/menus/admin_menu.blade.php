@@ -173,15 +173,4 @@
     .dropdown-item:hover {
         background-color: white !important;
     }
-
-    .sidebar ul .nav-link {
-        font-size: 1.6rem;
-        line-height: 20px;
-    }
-
-    p,
-    li,
-    a {
-        color: #c2c7d0;
-    }
 </style>

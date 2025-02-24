@@ -164,8 +164,6 @@
 
     <script src="{{ asset('template/js/vendor/tilt.jquery.min.js') }}"></script>
 
-    <!--jquery min js-->
-    <script src="{{ asset('template/js/vendor/jquery-3.4.1.min.js') }}"></script>
     <!--popper min js-->
     <script src="{{ asset('template/js/popper.js') }}"></script>
     <!--bootstrap min js-->
@@ -193,9 +191,6 @@
 
     <!-- Main JS -->
     <script src="{{ asset('template/js/main.js') }}"></script>
-
-
-
 
 
     @if (auth()->check() && auth()->user()->type == 1)

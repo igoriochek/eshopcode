@@ -40,4 +40,28 @@
     font-size: 1.4rem;
     height: 34px;
 }
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+  width: auto !important;
+  height: auto !important;
+  cursor: pointer !important;
+  border-radius: 0% !important;
+  border: 1px solid #c5dbec !important;
+  background: #dfeffc !important;
+  font-weight: bold !important;
+  color: #2e6e9e !important;
+}
+
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
+  border: 1px solid #79b7e7 !important;
+  background: #f5f8f9 !important;
+  font-weight: bold !important;
+  color: #e17009 !important;
+}
+
+.ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight {
+  border: 1px solid #fad42e !important;
+  background: #fbec88 !important;
+  color: #363636 !important;
+}
 </style>
