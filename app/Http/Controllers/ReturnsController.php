@@ -199,6 +199,8 @@ class ReturnsController extends AppBaseController
             return redirect(route('returns.index'));
         }
 
+        ReturnItem::query()->where('return_id', $id)->delete();
+
         $this->returnsRepository->delete($id);
 
         Flash::success('Returns deleted successfully.');

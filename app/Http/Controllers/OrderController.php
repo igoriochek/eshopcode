@@ -206,6 +206,8 @@ class OrderController extends AppBaseController
             return redirect(route('orders.index'));
         }
 
+        OrderItem::query()->where('order_id', $id)->delete();
+
         $this->orderRepository->delete($id);
 
         Flash::success('Order deleted successfully.');

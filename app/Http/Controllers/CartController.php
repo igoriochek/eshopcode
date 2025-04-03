@@ -174,6 +174,8 @@ class CartController extends AppBaseController
             return redirect(route('carts.index'));
         }
 
+        CartItem::query()->where('cart_id', $id)->delete();
+
         $this->cartRepository->delete($id);
 
         Flash::success('Cart deleted successfully.');
