@@ -197,7 +197,7 @@ class PayController extends AppBaseController
 //                  $user->log("Created new Order ID:{$params['orderid']}");
                     $user->log("Created new Order ID:{$newOrder->id}");
 
-                    event(new OrderCreated($newOrder->id, $newOrder->sum, $user->name, $cartItems));
+                    event(new OrderCreated($user->email, $newOrder->id, $newOrder->sum, $user->name, $cartItems));
 
                     Log::info("Order created for user id ".$userId." and cart id ".$id.". Sending back an OK");
                     return response('OK', 200)->header('Content-Type', 'text/plain');

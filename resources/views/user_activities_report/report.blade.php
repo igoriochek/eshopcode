@@ -15,11 +15,17 @@
                     <td>{{ $userActivity->id ?? '-'}}</td>
                     <td>{{ $userActivity->user->name ?? '-' }}</td>
                     <td>{{ $userActivity->user->email ?? '-' }}</td>
-                    @if ($userActivity->user->type == '1')
-                        <td>{{__('table.admin')}}</td>
-                    @else
-                        <td>{{__('table.user')}}</td>
-                    @endif
+                    <td>
+                        @if ($userActivity->user)
+                            @if ($userActivity->user->type == '1')
+                                {{__('table.admin')}}
+                            @else
+                                {{__('table.user')}}
+                            @endif
+                        @else
+                            -
+                        @endif
+                    </td>
                     <td>{{ $userActivity->activity ?? '-'}}</td>
                     <td>{{ $userActivity->created_at ?? '-'}}</td>
                 </tr>

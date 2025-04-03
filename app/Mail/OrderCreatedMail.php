@@ -15,18 +15,21 @@ class OrderCreatedMail extends Mailable
     private float $orderSum;
     private string $customerName;
     private object $orderItems;
+    private string $orderLink;
+
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($orderId, $orderSum, $customerName, $orderItems)
+    public function __construct($orderId, $orderSum, $customerName, $orderItems, $orderLink)
     {
         $this->orderId = $orderId;
         $this->orderSum = $orderSum;
         $this->customerName = $customerName;
         $this->orderItems = $orderItems;
+        $this->orderLink = $orderLink;
     }
 
     private function calculateOrderItemCountSum(object $orderItems): int
@@ -58,7 +61,8 @@ class OrderCreatedMail extends Mailable
                 'customerName' => $this->customerName,
                 'orderItems' => $this->orderItems,
                 'orderSum' => $this->orderSum,
-                'orderItemCountSum' => $this->calculateOrderItemCountSum($this->orderItems)
+                'orderItemCountSum' => $this->calculateOrderItemCountSum($this->orderItems),
+                'orderLink' => $this->orderLink
             ]);
     }
 }

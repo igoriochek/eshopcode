@@ -12,6 +12,7 @@
                     <div class="col-xl-8">
                         <ul class="list-unstyled">
                             <li class="text-muted"><b>{{ __('forms.buyer') }}:</b> <span style="color:#8f8061 ;">{{ $order->user->name }}</span></li>
+                            <li class="text-muted"><b>{{ __('forms.company_name') }}:</b>{{ $order->user->company_name }}</li>
                             <li class="text-muted"><b>{{ __('forms.address') }}:</b> {{ $order->user->street }} {{ $order->user->house_flat }}, {{ $order->user->city }}</li>
                             <li class="text-muted"><b>{{ __('forms.phone_number') }}:</b> {{ $order->user->phone_number }}</li>
                         </ul>

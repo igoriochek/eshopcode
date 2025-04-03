@@ -27,11 +27,23 @@ class SendOrderCreatedEmail
      */
     public function handle($event)
     {
+        $adminLink = env('APP_URL').'/admin/orders/' . $event->orderId;
+        $userLink = env('APP_URL').'/user/vieworder/' . $event->orderId;
+
         Mail::to(env('MAIL_TO_ADDRESS'))->send(new OrderCreatedMail(
             $event->orderId,
             $event->orderSum,
             $event->customerName,
-            $event->orderItems
+            $event->orderItems,
+            $adminLink
+        ));
+
+        Mail::to($event->userEmail)->send(new OrderCreatedMail(
+            $event->orderId,
+            $event->orderSum,
+            $event->customerName,
+            $event->orderItems,
+            $userLink
         ));
     }
 }
