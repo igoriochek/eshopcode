@@ -47,6 +47,9 @@ class UserController extends Controller
         $user->post_index = $request->post_index;
         $user->city = $request->city;
         $user->phone_number = $request->phone_number;
+        $user->company_name = $request->company_name;
+        $user->registration_code = $request->registration_code;
+        $user->vat = $request->vat;
         $user->save();
 
         Flash::success(__('messages.userupdated'));

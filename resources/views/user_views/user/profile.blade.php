@@ -66,6 +66,20 @@
                                     {!! Form::label('phone_number', __('forms.phone_number')) !!}
                                     {!! Form::text('phone_number', $user->phone_number, ['class' => 'form-control']) !!}
                                 </div>
+
+                                <div class="form-group col-md-6 col-sm-12 mb-2">
+                                    {!! Form::label('company_name', __('forms.company_name')) !!}
+                                    {!! Form::text('company_name', $user->company_name, ['class' => 'form-control']) !!}
+                                </div>
+                                <div class="form-group col-md-3 col-sm-6 mb-2">
+                                    {!! Form::label('registration_code', __('forms.registration_code')) !!}
+                                    {!! Form::text('registration_code', $user->registration_code, ['class' => 'form-control']) !!}
+                                </div>
+                                <div class="form-group col-md-3 col-sm-6 mb-2">
+                                    {!! Form::label('vat', __('forms.vat')) !!}
+                                    {!! Form::text('vat', $user->vat, ['class' => 'form-control']) !!}
+                                </div>
+
                                 <div class="d-flex justify-content-center mt-4">
                                     <button type="submit" class="col-sm-3 col-md-4 col-sm-12 py-2 promotion-return-button" data-loading-text="Loading...">
                                         {{ __('buttons.save') }}

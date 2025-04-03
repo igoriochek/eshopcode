@@ -38,7 +38,9 @@ return [
     'productNameAsc' => 'Name - Ascending',
     'productNameDesc' => 'Name - Descending',
     'priceAsc' => 'Price - Ascending',
-    'priceDesc' => 'Price - Descending'
+    'priceDesc' => 'Price - Descending',
 
-
+    'company_name' => 'Company name',
+    'registration_code' => 'Registration code',
+    'vat' => 'VAT'
 ];

@@ -39,6 +39,10 @@ return [
     'productNameAsc' => 'Название - по возрастанию',
     'productNameDesc' => 'Название - по убыванию',
     'priceAsc' => 'Цена - по возрастанию',
-    'priceDesc' => 'Цена - по убыванию'
+    'priceDesc' => 'Цена - по убыванию',
+
+    'company_name' => 'Название компании',
+    'registration_code' => 'Код предприятия',
+    'vat' => 'НДС код'
 
 ];

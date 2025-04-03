@@ -27,6 +27,21 @@
 </div>
 
 <div class="col-sm-12">
+    {!! Form::label('company_name', __('forms.company_name')).":" !!}
+    <p>{{ $customer->company_name }}</p>
+</div>
+
+<div class="col-sm-12">
+    {!! Form::label('registration_code', __('forms.registration_code')).":" !!}
+    <p>{{ $customer->registration_code }}</p>
+</div>
+
+<div class="col-sm-12">
+    {!! Form::label('vat', __('forms.vat')).":" !!}
+    <p>{{ $customer->vat }}</p>
+</div>
+
+<div class="col-sm-12">
     {!! Form::label('usertype', __('forms.usertype')).":" !!}
     <p>{{ $customer->type == 1 ? __("forms.admin") : __("forms.user") }}</p>
 </div>

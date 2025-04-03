@@ -32,6 +32,22 @@
     {!! Form::label('phone_number', __('forms.phone_number').':') !!}
     {!! Form::text('phone_number', null, ['class' => 'form-control']) !!}
 </div>
+
+<div class="form-group col-sm-6">
+    {!! Form::label('company_name', __('forms.company_name').':') !!}
+    {!! Form::text('company_name', null, ['class' => 'form-control']) !!}
+</div>
+
+<div class="form-group col-sm-6">
+    {!! Form::label('registration_code', __('forms.registration_code').':') !!}
+    {!! Form::text('registration_code', null, ['class' => 'form-control']) !!}
+</div>
+
+<div class="form-group col-sm-6">
+    {!! Form::label('vat', __('forms.vat').':') !!}
+    {!! Form::text('vat', null, ['class' => 'form-control']) !!}
+</div>
+
 <div class="form-group col-sm-6">
     {!! Form::label('new_password', __('forms.new_password').':') !!}
     {!! Form::password('new_password', ['class' => 'form-control']) !!}

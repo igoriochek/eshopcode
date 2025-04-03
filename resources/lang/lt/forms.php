@@ -39,6 +39,10 @@ return [
     'productNameAsc' => 'Pavadinimas – didėjančia tvarka',
     'productNameDesc' => 'Pavadinimas – mažėjančia tvarka',
     'priceAsc' => 'Kaina – didėjančia tvarka',
-    'priceDesc' => 'Kaina – mažėjančia tvarka'
+    'priceDesc' => 'Kaina – mažėjančia tvarka',
+
+    'company_name' => 'Įmonės pavadinimas',
+    'registration_code' => 'Įmonės kodas',
+    'vat' => 'PVM mokėtojo kodas'
 
 ];
