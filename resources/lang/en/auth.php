@@ -16,7 +16,8 @@ return [
     'failed' => 'These credentials do not match our records.',
     'password' => 'The provided password is incorrect.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
-
+    'usedEmail' => 'This email is already associated with an account.',
+    
     'passwordConfirmToContinue' => 'Please confirm your password before continuing.',
     'resetPassword' => 'Reset Password',
     'sendResetPasswordLink' => 'Send Reset Password Link',
