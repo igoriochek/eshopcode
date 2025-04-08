@@ -4,6 +4,18 @@
     <p class="text-font-size">[{{ $order->user_id }}] {{ $order->user->name }}</p>
 </div>
 
+<!-- User Email Field -->
+<div class="col-sm-12">
+    {!! Form::label('email', __('table.email').':') !!}
+    <p class="text-font-size">{{ $order->user->email }}</p>
+</div>
+ 
+<!-- User Phone Number Field -->
+<div class="col-sm-12">
+    {!! Form::label('phone_number', __('table.phone_number').':') !!}
+    <p class="text-font-size">{{ $order->user->phone_number }}</p>
+</div>
+
 <!-- Status Id Field -->
 <div class="col-sm-12">
     {!! Form::label('status_id',  __('table.status').':') !!}

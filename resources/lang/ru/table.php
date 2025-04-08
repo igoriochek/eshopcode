@@ -65,4 +65,5 @@ return [
     'productComplex' => "Комплект продукт",
     'yes' => "Да",
     'no' => "Нет",
+    'phone_number' => 'Номер телефона',
 ];
