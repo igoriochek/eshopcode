@@ -66,6 +66,6 @@ return [
     'hasFreeAccessories' => 'Has free accessories',
     'hasMeats' => 'Has meats',
     'hasSauces' => 'Has sauces',
-    'color' => 'Color'
-
+    'color' => 'Color',
+    'phone_number' => 'Phone number',
 ];

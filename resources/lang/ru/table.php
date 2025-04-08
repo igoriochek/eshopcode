@@ -66,6 +66,6 @@ return [
     'hasFreeAccessories' => 'Имеет бесплатные аксессуары',
     'hasMeats' => 'Есть мясо',
     'hasSauces' => 'Есть соусы',
-    'color' => 'Цвет'
-
+    'color' => 'Цвет',
+    'phone_number' => 'Номер телефона',
 ];

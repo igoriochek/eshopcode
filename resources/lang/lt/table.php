@@ -66,6 +66,6 @@ return [
     'hasFreeAccessories' => 'Turi nemokamų priedų',
     'hasMeats' => 'Turi mėsos',
     'hasSauces' => 'Turi padažų',
-    'color' => 'Spalva'
-
+    'color' => 'Spalva',
+    'phone_number' => 'Telefono Nr.',
 ];
