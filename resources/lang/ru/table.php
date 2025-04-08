@@ -59,6 +59,6 @@ return [
     'value' => 'Значение',
     'video' => 'Видео',
     'visible' => 'Видимый',
-    'unavailableDate' => 'Недоступная дата'
-
+    'unavailableDate' => 'Недоступная дата',
+    'phone_number' => 'Номер телефона',
 ];

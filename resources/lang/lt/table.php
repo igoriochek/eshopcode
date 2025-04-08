@@ -59,6 +59,6 @@ return [
     'value' => 'Vertė',
     'video' => 'Vaizdo įrašas',
     'visible' => 'Matomumas',
-    'unavailableDate' => 'Nepasiekiama data'
-
+    'unavailableDate' => 'Nepasiekiama data',
+    'phone_number' => 'Telefono Nr.',
 ];

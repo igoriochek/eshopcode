@@ -59,6 +59,6 @@ return [
     'value' => 'Value',
     'video' => 'Video',
     'visible' => 'Visible',
-    'unavailableDate' => 'Unavailable date'
-
+    'unavailableDate' => 'Unavailable date',
+    'phone_number' => 'Phone number',
 ];
