@@ -65,4 +65,5 @@ return [
     'productComplex' => "Complex product",
     'yes' => "Yes",
     'no' => "No",
+    'phone_number' => 'Phone number',
 ];

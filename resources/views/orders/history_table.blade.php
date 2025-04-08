@@ -1,4 +1,4 @@
-<table>
+<table class="table" id="orders-table">
     <thead>
         <tr>
             <th>{{ __('table.date') }}</th>
