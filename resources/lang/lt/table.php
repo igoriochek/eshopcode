@@ -65,4 +65,5 @@ return [
     'productComplex' => "Komplekto produktas",
     'yes' => "Taip",
     'no' => "Ne",
+    'phone_number' => 'Telefono Nr.',
 ];
