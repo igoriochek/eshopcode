@@ -59,5 +59,5 @@ return [
     'value' => 'Value',
     'video' => 'Video',
     'visible' => 'Visible',
-
+    'phone_number' => 'Phone number',
 ];
