@@ -63,4 +63,5 @@ return [
     'value' => 'Vertė',
     'video' => 'Vaizdo įrašas',
     'visible' => 'Matomumas',
+    'phone_number' => 'Telefono Nr.',
 ];
