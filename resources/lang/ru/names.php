@@ -189,7 +189,7 @@ return [
     'noProducts' => 'Нет товаров',
     'search' => 'Поиск',
     'additionalInformation' => 'Дополнительная информация',
-
+    'outOfStock' => 'Нет в наличии',
     //Promotions
     'createPromotion' => 'Создать акцию',
     'editPromotion' => 'Редактировать продвижение',

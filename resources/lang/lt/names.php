@@ -189,6 +189,7 @@ return [
     'noProducts' => 'Nėra produktų',
     'search' => 'Ieškoti',
     'additionalInformation' => 'Papildoma informacija',
+    'outOfStock' => 'Išparduotas',
 
     //Promotions
     'createPromotion' => 'Sukurti akciją',

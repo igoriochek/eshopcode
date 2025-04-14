@@ -27,7 +27,8 @@
                             <div class="top-content">
                                 <div class="price">
                                     @if ($product->discount)
-                                        <span class="new-price">€{{ $product->price - (round(($product->price * $product->discount->proc / 100), 2)) }}</span>
+                                        <span
+                                            class="new-price">€{{ $product->price - round(($product->price * $product->discount->proc) / 100, 2) }}</span>
                                         <span class="old-price">€{{ $product->price }}</span>
                                     @else
                                         <span class="new-price">€{{ $product->price }}</span>
@@ -41,32 +42,34 @@
                                         <i class="flaticon-star-1"></i>
                                         <i class="flaticon-star-1"></i>
                                         <i class="flaticon-star-1"></i>
-                                        @for($i = 1; $i <= 5; $i++)
-                                            <i class="product-rating-star text-warning
+                                        @for ($i = 1; $i <= 5; $i++)
+                                            <i
+                                                class="product-rating-star text-warning
                                                 @if ($average >= $i) fa-solid fa-star
-                                                @elseif ($average >= $i - .5) fa-solid fa-star-half-stroke
-                                                @else fa-regular fa-star 
-                                                @endif"></i>
+                                                @elseif ($average >= $i - 0.5) fa-solid fa-star-half-stroke
+                                                @else fa-regular fa-star @endif"></i>
                                         @endfor
                                     </li>
                                     <li>
-                                        <span>{{ __('names.reviews').' ('.$rateCount.')' }}</span>
+                                        <span>{{ __('names.reviews') . ' (' . $rateCount . ')' }}</span>
                                     </li>
                                 </ul>
-                            </div> 
+                            </div>
                             <ul class="btns my-4">
-                                {!! Form::open(['route' => ['addtocart'], 'method' => 'post', 'class' => 'product-add-to-cart-container']) !!}
+                                @if ($product->count > 0)
+                                    {!! Form::open(['route' => ['addtocart'], 'method' => 'post', 'class' => 'product-add-to-cart-container']) !!}
                                     <li>
                                         <div class="input-counter" style="transform: translateY(18px)">
                                             <span class="minus-button"><i class="fa-solid fa-chevron-down"></i></span>
-                                            {!! Form::number('count', "1", [
-                                                'class' => 'product-add-to-cart-number pe-5', 
-                                                "min" => "1", 
-                                                "max" => "5", 
-                                                "minlength" => "1", 
-                                                "maxlength" => "5", 
-                                                "oninput" => "this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null
-                                            "]) !!}
+                                            {!! Form::number('count', '1', [
+                                                'class' => 'product-add-to-cart-number pe-5',
+                                                'min' => '1',
+                                                'max' => $product->count > 0 ? $product->count : 1,
+                                                'minlength' => '1',
+                                                'maxlength' => $product->count > 0 ? $product->count : 1,
+                                                'oninput' => "this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null
+                                                                                                                                                                                                                                                                    ",
+                                            ]) !!}
                                             <span class="plus-button"><i class="fa-solid fa-chevron-up"></i></span>
                                             <input type="hidden" name="id" value="{{ $product->id }}">
                                         </div>
@@ -74,7 +77,12 @@
                                     <li>
                                         <button type="submit" class="default-btn style5">{{ __('buttons.addToCart') }}</a>
                                     </li>
-                                {!! Form::close() !!}
+                                    {!! Form::close() !!}
+                                @else
+                                    <li>
+                                        <span class="text-muted">{{ __('names.outOfStock') }}</span>
+                                    </li>
+                                @endif
                             </ul>
                             <ul class="info-list">
                                 <li>
@@ -134,9 +142,8 @@
         $('#product-reviews-add-review-submit').click(() => {
             const value = $('input[type=radio][name=rating]:checked').val();
             const desc = $('textarea#comment').val();
-            
-            $.post("{{route('addUserRating')}}",
-                {
+
+            $.post("{{ route('addUserRating') }}", {
                     "_token": "{{ csrf_token() }}",
                     rating: value,
                     description: desc,

@@ -189,6 +189,7 @@ return [
     'noProducts' => 'No Products',
     'search' => 'Search',
     'additionalInformation' => 'Additional Information',
+    'outOfStock' => 'Out of Stock',
 
     //Promotions
     'createPromotion' => 'Create Promotion',
