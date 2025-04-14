@@ -60,9 +60,9 @@ class PayController extends AppBaseController
             'amount' => $fullAmount,
             'currency' => 'EUR',
             'country' => 'LT',
-            'accepturl' => $appUrl . '/pay/accept/' . $userId . '/'. $cartId,
-            'cancelurl' => $appUrl . '/pay/cancel/' . $userId . '/'. $cartId,
-            'callbackurl' => $appUrl . '/pay/callback/' . $userId . '/'. $cartId,
+            'accepturl' => $appUrl . '/pay/accept/' . $userId . '/' . $cartId,
+            'cancelurl' => $appUrl . '/pay/cancel/' . $userId . '/' . $cartId,
+            'callbackurl' => $appUrl . '/pay/callback/' . $userId . '/' . $cartId,
         ];
 
         if (true !== env('WEBTOPAY_PROD')) {
@@ -106,7 +106,8 @@ class PayController extends AppBaseController
         return $this->setOrder($request, $userId, $id);
     }
 
-    private function verify($user, $cart, $params){
+    private function verify($user, $cart, $params)
+    {
         if ($user->id != $cart->user_id) {
             Log::error('User ID and Cart User ID do not match in verification (' . $user->id . '!=' . $cart->user_id . ')');
             return false;
@@ -142,7 +143,8 @@ class PayController extends AppBaseController
         $params = [];
         parse_str(base64_decode(strtr($request->get('data'), ['-' => '+', '_' => '/'])), $params);
 
-        if (is_array($params) &&
+        if (
+            is_array($params) &&
             isset($params['status']) &&
             $params['status'] == 1 &&
             is_numeric($id) &&
@@ -192,21 +194,24 @@ class PayController extends AppBaseController
                         $newOrderItem->price_current = $cartItem->price_current;
                         $newOrderItem->count = $cartItem->count;
                         $newOrderItem->save();
+
+                        $cartItem->product->count -= $cartItem->count;
+                        $cartItem->product->save();
                     }
 
-//                  $user->log("Created new Order ID:{$params['orderid']}");
+                    //                  $user->log("Created new Order ID:{$params['orderid']}");
                     $user->log("Created new Order ID:{$newOrder->id}");
 
                     event(new OrderCreated($user->email, $newOrder->id, $newOrder->sum, $user->name, $cartItems));
 
-                    Log::info("Order created for user id ".$userId." and cart id ".$id.". Sending back an OK");
+                    Log::info("Order created for user id " . $userId . " and cart id " . $id . ". Sending back an OK");
                     return response('OK', 200)->header('Content-Type', 'text/plain');
                 }
             }
         }
 
-        if (isset($params['status']) && $params['status'] == 1){
-            Log::error("Order creation failed. Sending back an Error. Params: ".json_encode($params));
+        if (isset($params['status']) && $params['status'] == 1) {
+            Log::error("Order creation failed. Sending back an Error. Params: " . json_encode($params));
         } else {
             Log::info("Received wrong status. Ignoring error.");
         }

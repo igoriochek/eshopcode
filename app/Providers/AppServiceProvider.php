@@ -22,7 +22,7 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         //Change public path to htdocs
-//        $this->app->bind('path.public', fn() => base_path('htdocs'));
+        //        $this->app->bind('path.public', fn() => base_path('htdocs'));
     }
 
     /**
@@ -33,11 +33,10 @@ class AppServiceProvider extends ServiceProvider
     public function boot(CartRepository $cartRepository, Request $request)
     {
         //Force app to use https
-//        URL::forceScheme('https');
+        //        URL::forceScheme('https');
 
         //Cart item number
-        View::composer('*', function($view) use($cartRepository, $request)
-        {
+        View::composer('*', function ($view) use ($cartRepository, $request) {
             if (Auth::check()) {
                 $cart = $cartRepository->getOrSetCart($request);
                 $cartItems = $this->getCartItems($cart);
