@@ -118,31 +118,28 @@ trait DailyOrdersBuilder
 
     public function generateDailyOrders(int $quantity = 1): void
     {
+        $nextDate = now()->addDay()->format('Y-m-d');
+        $nextDateTimestamp = Carbon::parse($nextDate)->timestamp;
         $currentDateTimestamp = now()->timestamp;
+        $nextDateCacheLifespan = $nextDateTimestamp - $currentDateTimestamp;
 
-        if (!cache()->get('nextDateForDailyOrders')) {
-            $nextDate = now()->addDay()->format('Y-m-d');
-            $nextDateTimestamp = Carbon::parse($nextDate)->timestamp;
-            $nextDateCacheLifespan = $nextDateTimestamp - $currentDateTimestamp;
+        for ($i = 2; $i < $quantity + 2; $i++) {
+            $companyPurchase = $i % 2;
+            $generatedOrder = $this->generateOrder($companyPurchase);
 
-            for ($i = 2; $i < $quantity + 2; $i++) {
-                $companyPurchase = $i % 2;
-                $generatedOrder = $this->generateOrder($companyPurchase);
-
-                if ($generatedOrder && $generatedOrder->isCompanyBuying) {
-                    $this->generateCompany($generatedOrder->id);
-                }
-                if ($generatedOrder) {
-                    $this->generateOrderItems($generatedOrder->id, rand(2, 10));
-                }
-
-                $generatedOrder->sum =
-                    OrderItem::where('order_id', $generatedOrder->id)->sum('price_current');
-                $generatedOrder->save();
+            if ($generatedOrder && $generatedOrder->isCompanyBuying) {
+                $this->generateCompany($generatedOrder->id);
+            }
+            if ($generatedOrder) {
+                $this->generateOrderItems($generatedOrder->id, rand(2, 5));
             }
 
-            cache()->remember('nextDateForDailyOrders', $nextDateCacheLifespan, fn () => $nextDateTimestamp);
+            $generatedOrder->sum =
+                OrderItem::where('order_id', $generatedOrder->id)->sum('price_current');
+            $generatedOrder->save();
         }
+
+        cache()->remember('nextDateForDailyOrders', $nextDateCacheLifespan, fn() => $nextDateTimestamp);
     }
 
     private function generateOrder(int|bool $companyPurchase): Order

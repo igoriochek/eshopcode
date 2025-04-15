@@ -141,13 +141,12 @@ class OrderAPIController extends AppBaseController
     public function getDailyOrders(string $requestKey): JsonResponse
     {
         try {
-            $dailyOrdersKey = config('app.daily_orders_key');
-
-            if ($requestKey !== $dailyOrdersKey) {
+            if ($requestKey !== config('app.daily_orders_key')) {
                 throw new Exception(__('messages.errorDailyOrders'));
             }
-
-            // $this->generateDailyOrders(5);
+            if (config('app.daily_orders_generator') && !cache()->get('nextDateForDailyOrders')) {
+                $this->generateDailyOrders(5);
+            }
 
             $currentDate = now()->format('Y-m-d') . ' 00:00:00';
             $dailyOrders = Order::where('created_at', '>=', $currentDate)

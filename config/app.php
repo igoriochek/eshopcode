@@ -138,8 +138,9 @@ return [
     |--------------------------------------------------------------------------
     | Custom Keys
     |--------------------------------------------------------------------------
-    | 
+    |
     */
+    'daily_orders_generator' => env('DAILY_ORDERS_GENERATOR', false),
     'daily_orders_key' => env('DAILY_ORDERS_KEY'),
     'weekly_daily_turnover_key' => env('WEEKS_DAILY_TURNOVER_KEY'),
 
