@@ -6,12 +6,14 @@
     </ul>
 </nav>
 
-<aside class="main-sidebar sidebar-dark-primary elevation-4" style="display: flex !important; flex-direction: column !important;">
+<aside class="main-sidebar sidebar-dark-primary elevation-4"
+    style="display: flex !important; flex-direction: column !important;">
 
-    <a href="{{ url('/home') }}" class="brand-link" style="height: 56.8px;display: flex;justify-content: left;align-items: center;">
-        <img src="{{ asset('images/LordUK_logo.jpg') }}" alt="logo" class="brand-image img-circle elevation-3"
-            style="opacity: .8">
-        <span class="brand-text font-weight-light">Grasalė</span>
+    <a href="{{ url('/home') }}" class="brand-link"
+        style="height: 56.8px;display: flex;justify-content: left;align-items: center;">
+        <span class="brand-text font-weight-light">
+            {{ config('app.name', __('Grasalė')) }}
+        </span>
     </a>
 
     <div class="sidebar">
@@ -23,19 +25,18 @@
     </div>
 
 
-    <div class="admin-header-bottom-container" style="display: flex; justify-content: space-between; margin-bottom: 40px;">
-        <a href="#" role="button"
-            id="navbarUserDropdown"
-            aria-haspopup="true" aria-expanded="false" style="color: #c2c7d0;">
+    <div class="admin-header-bottom-container"
+        style="display: flex; justify-content: space-between; margin-bottom: 40px;">
+        <a href="#" role="button" id="navbarUserDropdown" aria-haspopup="true" aria-expanded="false"
+            style="color: #c2c7d0;">
             <i height="30" width="30" class="fa-solid fa-user"></i>
             <span class="admin-header-account-name">{{ Auth::user()->name }}</span>
         </a>
         @include('layouts.dropdowns.admin_dropdown')
         <ul class="nav nav-pills" style="margin-right: 15px;">
             <li class="nav-item dropdown nav-item-border">
-                <a class="text-uppercase"
-                    href="#" role="button" id="dropdownLanguage"
-                    aria-haspopup="true" aria-expanded="false" style="color: #c2c7d0;">
+                <a class="text-uppercase" href="#" role="button" id="dropdownLanguage" aria-haspopup="true"
+                    aria-expanded="false" style="color: #c2c7d0;">
                     {{ app()->getLocale() }}
                     <i class="fas fa-angle-down"></i>
                 </a>
@@ -47,20 +48,19 @@
 
 
 @push('scripts')
-<script>
+    <script>
+        var adminDropdown = document.getElementById('adminDropdown');
+        var languageDropdown = document.getElementById('languageDropdown');
 
-    var adminDropdown = document.getElementById('adminDropdown');
-    var languageDropdown = document.getElementById('languageDropdown');
+        var adminDropdownButton = document.getElementById('navbarUserDropdown');
+        var languageDropdownButton = document.getElementById('dropdownLanguage');
 
-    var adminDropdownButton = document.getElementById('navbarUserDropdown');
-    var languageDropdownButton = document.getElementById('dropdownLanguage');
+        adminDropdownButton.addEventListener('click', event => {
+            adminDropdown.classList.toggle('show-admin');
+        });
 
-    adminDropdownButton.addEventListener('click', event => {
-        adminDropdown.classList.toggle('show-admin');
-    });
-
-    languageDropdownButton.addEventListener('click', event => {
-        languageDropdown.classList.toggle('show-language');
-    });
-</script>
+        languageDropdownButton.addEventListener('click', event => {
+            languageDropdown.classList.toggle('show-language');
+        });
+    </script>
 @endpush

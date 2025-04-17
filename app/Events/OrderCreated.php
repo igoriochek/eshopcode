@@ -18,18 +18,20 @@ class OrderCreated
     public float $orderSum;
     public string $customerName;
     public object $orderItems;
+    public array $emails;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($orderId, $orderSum, $customerName, $orderItems)
+    public function __construct($orderId, $orderSum, $customerName, $orderItems, $emails)
     {
         $this->orderId = $orderId;
         $this->orderSum = $orderSum;
         $this->customerName = $customerName;
         $this->orderItems = $orderItems;
+        $this->emails = $emails;
     }
 
     /**

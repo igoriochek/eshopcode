@@ -9,6 +9,7 @@ use App\Models\CartItem;
 use App\Models\DiscountCoupon;
 use App\Models\Order;
 use App\Models\OrderItem;
+use App\Models\Product;
 use App\Models\User;
 use App\Repositories\CartRepository;
 use Exception;
@@ -32,7 +33,7 @@ class PayController extends AppBaseController
     {
         $cartId = $request->session()->get('appPayCartId');
         $amount = $request->session()->get('appPayAmount');
-        
+
         $amountArray = explode('.', $amount);
         $partialAmount = str_replace(",", "", $amountArray[0]);
 
@@ -62,9 +63,9 @@ class PayController extends AppBaseController
             'amount' => $fullAmount,
             'currency' => 'EUR',
             'country' => 'LT',
-            'accepturl' => $appUrl . '/pay/accept/' . $userId . '/'. $cartId,
-            'cancelurl' => $appUrl . '/pay/cancel/' . $userId . '/'. $cartId,
-            'callbackurl' => $appUrl . '/pay/callback/' . $userId . '/'. $cartId,
+            'accepturl' => $appUrl . '/pay/accept/' . $userId . '/' . $cartId,
+            'cancelurl' => $appUrl . '/pay/cancel/' . $userId . '/' . $cartId,
+            'callbackurl' => $appUrl . '/pay/callback/' . $userId . '/' . $cartId,
         ];
 
         if (true !== env('WEBTOPAY_PROD')) {
@@ -108,7 +109,8 @@ class PayController extends AppBaseController
         return $this->setOrder($request, $userId, $id);
     }
 
-    private function verify($user, $cart, $params){
+    private function verify($user, $cart, $params)
+    {
         if ($user->id != $cart->user_id) {
             Log::error('User ID and Cart User ID do not match in verification (' . $user->id . '!=' . $cart->user_id . ')');
             return false;
@@ -117,8 +119,20 @@ class PayController extends AppBaseController
             Log::error('Cart status is not ON in verification (' . $cart->status_id . ')');
             return false;
         }
-        $cart_sum_in_cents = (int) round($cart->sum * 100);
+
+        $discount = DiscountCoupon::select('id', 'cart_id', 'value')
+            ->where('cart_id', $cart->id)
+            ->first();
+
+        $discount_in_cents = 0;
+
+        if ($discount) {
+            $discount_in_cents = $discount->value * 100;
+        }
+
+        $cart_sum_in_cents = (int) round($cart->sum * 100 - $discount_in_cents);
         $payment_sum_in_cents = (int) $params['amount'];
+
         if ($cart_sum_in_cents != $payment_sum_in_cents) {
             Log::error('Cart sum and params amount do not match in verification (' . $cart_sum_in_cents . '!=' . $payment_sum_in_cents . ')');
             return false;
@@ -191,19 +205,31 @@ class PayController extends AppBaseController
                         $newOrderItem->count = $cartItem->count;
                         $newOrderItem->isComplexProduct = $cartItem->isComplexProduct;
                         $newOrderItem->save();
-                    }
 
+                        $product = Product::findOrFail($cartItem->product_id);
+                        $product->count -= $cartItem->count;
+                        $product->save();
+                    }
                     $user->log("Created new Order ID:{$newOrder->id}");
 
-                    event(new OrderCreated($newOrder->id, $newOrder->sum, $user->name, $cartItems));
-                    Log::info("Order created for user id ".$userId." and cart id ".$id.". Sending back an OK");
+                    $emails = [$user->email];
+                    event(new OrderCreated(
+                        $newOrder->id,
+                        $newOrder->sum,
+                        $user->name,
+                        $cartItems,
+                        $emails
+                    ));
+
+                    Log::info("Order created for user id " . $userId . " and cart id " . $id . ". Sending back an OK");
+
                     return response('OK', 200)->header('Content-Type', 'text/plain');
                 }
             }
         }
 
-        if (isset($params['status']) && $params['status'] == 1){
-            Log::error("Order creation failed. Sending back an Error. Params: ".json_encode($params));
+        if (isset($params['status']) && $params['status'] == 1) {
+            Log::error("Order creation failed. Sending back an Error. Params: " . json_encode($params));
         } else {
             Log::info("Received wrong status. Ignoring error.");
         }
