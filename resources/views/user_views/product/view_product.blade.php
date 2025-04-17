@@ -15,10 +15,10 @@
                     <div id="img-1" class="zoomWrapper single-zoom">
                         <a>
                             @if ($product->image)
-                            <img id="zoom1" src="{{ $product->image }}"
+                            <img id="zoom1" class="view_img_thumb" src="{{ $product->image }}"
                                 data-zoom-image="{{ $product->image }}" alt="{{ $product->name }}">
                             @else
-                            <img id="zoom1" src="{{ asset('template/img/product/productbig4.jpg') }}"
+                            <img id="zoom1" class="view_img_thumb" src="{{ asset('template/img/product/productbig4.jpg') }}"
                                 data-zoom-image="{{ asset('template/img/product/productbig4.jpg') }}" alt="{{ $product->name }}">
                             @endif
                         </a>
@@ -89,6 +89,17 @@
 @include('user_views.product.product_tabs')
 @endsection
 
+<style>
+    .single-zoom {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .view_img_thumb {
+        min-width: 250px;
+    }
+</style>
 
 @push('scripts')
 <script>

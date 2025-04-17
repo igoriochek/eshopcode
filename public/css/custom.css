@@ -188,3 +188,32 @@
 .save-button:hover {
     background: #222222 !important;
 }
+
+.modal_add_to_cart_button {
+    border-radius: 0;
+    border: 1px solid #222222;
+    margin-left: 10px;
+    font-size: 12px;
+    font-weight: 700;
+    height: 45px;
+    width: 230px;
+    line-height: 18px;
+    padding: 10px 15px;
+    text-transform: uppercase;
+    background: #222222;
+    color: #ffffff;
+    transition: 0.3s;
+    font-family: inherit;
+}
+
+@media only screen and (max-width: 767px) {
+    .modal_add_to_cart_button {
+        width: 160px;
+    }
+}
+
+.modal_add_to_cart_button:hover {
+    background: #79a206;
+    color: #ffffff;
+    border-color: #79a206;
+}

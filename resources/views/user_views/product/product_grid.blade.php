@@ -5,9 +5,9 @@
             <div class="product_thumb">
                 <a class="primary_img" href="{{ route('viewproduct', $product->id) }}">
                     @if ($product->image)
-                    <img src="{{ $product->image }}" alt="">
+                    <img class="thumb_img" src="{{ $product->image }}" alt="">
                     @else
-                    <img src="{{ asset('template/img/product/product1.jpg') }}" alt="">
+                    <img class="thumb_img" src="{{ asset('template/img/product/product1.jpg') }}" alt="">
                     @endif
                 </a>
                 @if ($product->discount)
@@ -121,6 +121,17 @@
 @include('user_views.product.product_modal')
 
 <style>
+    .product_thumb {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .thumb_img {
+        min-width: 150px;
+        min-height: 150px;
+    }
+
     .add_to_cart_button {
         padding: 20px 55px;
         background: #222;

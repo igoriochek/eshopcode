@@ -43,6 +43,6 @@ return [
     'euProjects' => 'EU Projects',
     'fbDataDeletion' => 'FB Data Deletion',
     'productComplex' => 'Product Complex',
-    'productComplexBuild' => 'Build dish yourself!',
+    'productComplexBuild' => 'Organize event yourself!',
     'myMenu' => 'My Menu',
 ];

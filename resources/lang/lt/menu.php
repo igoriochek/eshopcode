@@ -45,6 +45,6 @@ return [
     'euProjects' => 'ES projektai',
     'fbDataDeletion' => 'FB duomenų trynimas',
     'productComplex' => 'Produkto komplektas',
-    'productComplexBuild' => 'Susikomplektuokite patiekalą patys!',
+    'productComplexBuild' => 'Suorganizuokite renginį patys!',
     'myMenu' => 'Mano meniu',
 ];

@@ -44,6 +44,6 @@ return [
     'euProjects' => 'ЕС проекты',
     'fbDataDeletion' => 'Удалить данные FB',
     'productComplex' => 'Комплект продуктов',
-    'productComplexBuild' => 'Соберите блюдо сами!',
+    'productComplexBuild' => 'Организуйте мероприятие самостоятельно!',
     'myMenu' => 'Мое меню',
 ];

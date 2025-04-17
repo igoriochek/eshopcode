@@ -23,28 +23,28 @@
                     </div>
                     @foreach($categories as $category)
                     <div class="py-1">
-                        <div>
+                        <div class="select-container">
                             {!! Form::label( __('names.item') . '[' . $category->id . ']', $category->name . ':') !!}
-                            {!! Form::select(
-                            __('names.item') . '[' . $category->id . ']',
-                            $selectorsComples[$category->id],
-                            null,
-                            ['style' => 'height: 30px;"', 'placeholder' => '---', 'id' => 'part_' . $category->id, 'data-category-id' => $category->id,]
-                            ) !!}
+                            <div class="select">
+                                {!! Form::select(
+                                __('names.item') . '[' . $category->id . ']',
+                                $selectorsComples[$category->id],
+                                null,
+                                [ 'class' => 'select_option', 'style' => 'height: 30px;', 'placeholder' => '---', 'id' => 'part_' . $category->id, 'data-category-id' => $category->id,]
+                                ) !!}
+                            </div>
                         </div>
                     </div>
                     @endforeach
                 </div>
             </div>
             <div class="col-lg-6 col-sm-12" style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; flex-direction: column;">
-                <div class="responsive-container" style="margin-bottom: 25px;">
-                    <div class="complex" style="z-index: 1;">
-                        <img src="{{ asset('images/lekste.png') }}" class="plate-img" />
-                    </div>
-                    <div id="complex1" class="complex" style="z-index: 2;"></div>
-                    <div id="complex2" class="complex" style="z-index: 3;"></div>
-                    <div id="complex3" class="complex" style="z-index: 4;"></div>
-                    <div id="complex4" class="complex" style="z-index: 5;"></div>
+                <div class="responsive-container">
+                    <div id="complex1" class="complex" style="z-index: 1;"></div>
+                    <div id="complex2" class="complex" style="z-index: 2;"></div>
+                    <div id="complex3" class="complex" style="z-index: 3;"></div>
+                    <div id="complex4" class="complex" style="z-index: 4;"></div>
+                    <div id="complex5" class="complex" style="z-index: 5;"></div>
                 </div>
                 <h4>
                     {{ __('names.totalPrice') }}: €
@@ -53,7 +53,7 @@
             </div>
             <div class="col-lg-6 col-sm-12 d-flex justify-content-center">
                 <div class="product-action d-flex-center mt-3">
-                    <button type="submit" id="cart-button" class="bb-btn-2">{{ __('buttons.addToCart') }}</button>
+                    <button type="submit" id="cart-button" class="modal_add_to_cart_button" style="margin-left: 0px;">{{ __('buttons.addToCart') }}</button>
                 </div>
             </div>
         </div>
@@ -64,27 +64,13 @@
 
 @push('styles')
 <style>
-    .plate-img {
-        border-radius: 20px;
-        width: 100%;
-        aspect-ratio: 1 / 1;
+    .select_option {
+        width: 100% !important;
     }
 
-    .custom-select {
-        flex-wrap: wrap;
-        justify-content: flex-start;
-    }
-
-    .select {
-        height: 35px;
-        align-content: center;
-        background-color: #fff;
-        border: 1px solid #eee;
-        border-radius: 10px;
-    }
-
-    .custom-select .custom-select::after {
-        right: 25px !important;
+    .select-container {
+        display: flex;
+        flex-direction: column;
     }
 
     .content {
@@ -109,6 +95,7 @@
         width: 100%;
         height: 100%;
         display: flex;
+        align-items: center;
     }
 
     .image-style {
@@ -116,46 +103,43 @@
     }
 
     .responsive-container {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        height: auto;
         display: flex;
         justify-content: center;
-        width: 455px;
-        height: 455px;
         position: relative;
     }
 
     .complex-{{ $categories[0]->id }} {
-        height: 50%;
-        width: 50%;
-        top: 2%;
-        left: 1%
+        width: 100%;
     }
 
     .complex-{{ $categories[1]->id }} {
-        height: 50%;
-        width: 50%;
-        right: 0%;
-        top: 4%;
+        width: 20%;
+        bottom: 17.5%;
+        left: 4%;
     }
 
     .complex-{{ $categories[2]->id }} {
-        bottom: 0%;
-        height: 50%;
-        width: 50%;
-        left: 9%;
+        width: 20%;
+        bottom: 17.5%;
+        left: 28%;
     }
 
     .complex-{{ $categories[3]->id }} {
-        height: 50%;
-        width: 50%;
-        bottom: 7%;
-        right: 2%;
+        width: 20%;
+        bottom: 17.5%;
+        left: 52%;
+    }
+
+    .complex-{{ $categories[4]->id }} {
+        width: 20%;
+        bottom: 17.5%;
+        left: 76%;
     }
 
     @media (max-width: 992px) {
-
-        .responsive-container {
-            margin-top: 25px;
-        }
 
         .product-add-to-cart-container {
             width: 100%;
@@ -168,11 +152,6 @@
         .col-sm-12 {
             flex: 0 0 auto;
             width: 100%;
-        }
-        .responsive-container {
-            width: 100%;
-            aspect-ratio: 1 / 1;
-            height: auto;
         }
     }
 </style>
@@ -192,8 +171,8 @@
 
     });
 
-    // const productApi = "{{ env("APP_URL")  }}/api/products/";
-    const productApi = "http://127.0.0.1:8000/api/products/";
+    const productApi = "{{ env("APP_URL")  }}/api/products/";
+    // const productApi = "http://127.0.0.1:8000/api/products/";
 
     function findNameById(value) {
         for (const key in complexMap) {
@@ -261,7 +240,7 @@
         @endforeach
     ]
 
-    const names = ["complex1", "complex2", "complex3", "complex4"]; 
+    const names = ["complex1", "complex2", "complex3", "complex4", "complex5"]; 
     const complexMap = cats.reduce((acc, id, index) => {
         const key = names[index];
         acc[key] = { name: key, id: `part_${id}` };
@@ -275,11 +254,12 @@
     }, {});
     
 
-    var selectOptions = document.querySelectorAll('ul.select-options li');
+    var selectOptions = document.querySelectorAll('ul.list li');
     selectOptions.forEach(selectOption => {
         selectOption.addEventListener('click', function(e) {
-            const rel = selectOption.getAttribute('rel');
+            const rel = selectOption.getAttribute('data-value');
             const parentSelectDiv = selectOption.closest('.select');
+            console.log(parentSelectDiv);
             const selectId = parentSelectDiv.querySelector('select').id;
             if(currentSelectValues[selectId] != rel) {
                 calculateTotalPrice(rel, selectId);
@@ -293,6 +273,7 @@
         var name = findNameById(id);
         const selectComplex = document.getElementById(name);
         var fullUrl = productApi + sVal;
+        console.log(fullUrl);
         let data = await fetchData(fullUrl);
         selectComplex.innerHTML = imageWithStyle(id, data.complexProductImage);
         return;
