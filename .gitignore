@@ -8,6 +8,7 @@
 .env_example
 .env.backup
 .phpunit.result.cache
+.dockerignore
 docker-compose.override.yml
 docker-compose.yml
 Homestead.json
