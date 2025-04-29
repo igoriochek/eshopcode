@@ -25,7 +25,7 @@ class AppServiceProvider extends ServiceProvider
     {
         if (config('app.env') == 'production') {
             //Change public path to htdocs
-            $this->app->bind('path.public', fn () => base_path('htdocs'));
+            $this->app->bind('path.public', fn() => base_path('htdocs'));
         }
     }
 

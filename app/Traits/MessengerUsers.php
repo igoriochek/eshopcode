@@ -49,7 +49,7 @@ trait MessengerUsers
     {
         $unreadIds = $this->getUnreadIds();
 
-        return $users->map(function($user) use ($unreadIds) {
+        return $users->map(function ($user) use ($unreadIds) {
             $userUnread = $unreadIds->where('sender_id', $user->id)->first();
 
             $user->unread = $userUnread ? $userUnread->messages_count : 0;
@@ -68,8 +68,8 @@ trait MessengerUsers
                              WHERE users.id != '$authUserId'
                              AND (messages.user_from = '$authUserId'
                              OR messages.user_to = '$authUserId')"
-                             . ($this->userType == 2 ? " AND users.type = 1 " : "") .
-                             "GROUP BY users.id, users.name, users.email
+            . ($this->userType == 2 ? " AND users.type = 1 " : "") .
+            "GROUP BY users.id, users.name, users.email
                              ORDER BY MAX(messages.created_at) DESC");
         $users = collect($users);
         $users = $this->getUsersWithUnreadMessagesCount($users);

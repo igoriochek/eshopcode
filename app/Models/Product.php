@@ -25,12 +25,13 @@ use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
  */
 class Product extends Model implements TranslatableContract
 {
-    use HasFactory,Translatable;
+    use HasFactory, Translatable;
 
     public $table = 'products';
     public $translatedAttributes = ['name', 'description'];
     public $fillable = [
         'price',
+        'original_price',
         'count',
         'image',
         'video',
@@ -50,6 +51,7 @@ class Product extends Model implements TranslatableContract
      */
     protected $casts = [
         'price' => 'double',
+        'original_price' => 'double',
         'count' => 'integer',
         'image' => 'string',
         'video' => 'string',
@@ -94,19 +96,17 @@ class Product extends Model implements TranslatableContract
         return $this->hasMany(Ratings::class);
     }
 
-    public function scopePriceFrom(Builder $query, $price) : Builder
+    public function scopePriceFrom(Builder $query, $price): Builder
     {
         return $query->where('price', '>=', $price);
     }
 
-    public function scopePriceTo(Builder $query, $price) : Builder
+    public function scopePriceTo(Builder $query, $price): Builder
     {
         return $query->where('price', '<=', $price);
     }
-    public function scopeNameLike(Builder $query, $name) : Builder
+    public function scopeNameLike(Builder $query, $name): Builder
     {
         return $query->where('name', 'like', "%$name%");
     }
-
-
 }

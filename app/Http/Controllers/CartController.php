@@ -192,7 +192,7 @@ class CartController extends AppBaseController
     public function addToCart(AddToCartRequest $request)
     {
         $validated = $request->validated();
-        
+
         $product = Product::find($validated['id']);
 
         // if isset product
@@ -212,9 +212,7 @@ class CartController extends AppBaseController
                 $cartItem = CartItem::create([
                     'cart_id' => $cart->id,
                     'product_id' => $product->id,
-                    'price_current' => $product->discount ?
-                        $product->price - (round(($product->price * $product->discount->proc / 100), 2)) :
-                        $product->price,
+                    'price_current' => $product->price,
                     'count' => $validated['count'],
                 ]);
                 $cartItem->save();
@@ -248,7 +246,7 @@ class CartController extends AppBaseController
         foreach ($validated[__('names.item')] as $categoryId => $productId) {
 
             $product = Product::find($productId);
-    
+
             if ($product !== null) {
                 $cartItem = CartItem::query()
                     ->where([
@@ -256,7 +254,7 @@ class CartController extends AppBaseController
                         'product_id' => $product->id,
                     ])
                     ->first();
-    
+
                 if ($cartItem === null) {
                     $cartItem = CartItem::create([
                         'cart_id' => $cart->id,

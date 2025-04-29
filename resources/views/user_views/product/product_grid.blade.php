@@ -3,11 +3,6 @@
     {!! Form::open(['route' => ['addtocart'], 'method' => 'post']) !!}
     <div class="bb-pro-box">
         <div class="bb-pro-img">
-            @if ($product->discount)
-                <span class="flags">
-                    <span>{{ __('names.discount') }}</span>
-                </span>
-            @endif
             <a href="{{ route('viewproduct', $product->id) }}">
                 <div class="inner-img d-flex justify-content-center align-items-center">
                     @if ($product->image)
@@ -38,14 +33,14 @@
         <div class="bb-pro-contact">
             <div class="bb-pro-subtitle">
                 @forelse ($product->categories as $category)
-                    <a href="{{ url("/innercategories/$category->id") }}">
+                    <a href="{{ url("/innercategories/$category->id") }}" class="mb-2">
                         {{ $category->name }}
                         @if (!$loop->last)
                             ,
                         @endif
                     </a>
                 @empty
-                    <span class="text-muted">{{ __('names.noCategories') }}</span>
+                    <span class="text-muted mb-2">{{ __('names.noCategories') }}</span>
                 @endforelse
                 <span class="bb-pro-rating">
                     @for ($i = 1; $i <= 5; $i++)
@@ -64,11 +59,16 @@
             <div class="bb-price">
                 <div class="inner-price">
                     @if ($product->discount)
-                        <span
-                            class="new-price">€{{ $product->price - round(($product->price * $product->discount->proc) / 100, 2) }}</span>
-                        <span class="old-price">€{{ number_format($product->price, 2) }}</span>
+                        <span class="new-price">
+                            €{{ number_format($product->price, 2) }}
+                        </span>
+                        <span class="old-price">
+                            €{{ number_format($product->original_price, 2) }}
+                        </span>
                     @else
-                        <span class="new-price">€{{ number_format($product->price, 2) }}</span>
+                        <span class="new-price">
+                            €{{ number_format($product->price, 2) }}
+                        </span>
                     @endif
                     @if ($product->count <= 3 && $product->count > 0)
                         <span class="item-left">{{ $product->count }} {{ __('names.left') }} </span>

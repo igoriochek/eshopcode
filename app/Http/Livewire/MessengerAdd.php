@@ -24,7 +24,8 @@ class MessengerAdd extends Component
     {
         return User::where([
             ['id', '!=', Auth::user()->id],
-            ['type', '=', User::TYPE_ADMIN]
+            ['type', '=', User::TYPE_ADMIN],
+            ['email', '=', 'admin@madeiva.shop.lt']
         ])->get();
     }
 
@@ -36,9 +37,9 @@ class MessengerAdd extends Component
                 ->where('id', '!=', $user->id)
                 ->sortByDesc('name');
         }
-//        dd($addUsers);
-//        exit();
-        if ( count($addUsers) == 0) return $addUsers;
+        //        dd($addUsers);
+        //        exit();
+        if (count($addUsers) == 0) return $addUsers;
         return $addUsers->toQuery()->paginate(5);
     }
 

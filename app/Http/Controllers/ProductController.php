@@ -97,6 +97,23 @@ class ProductController extends AppBaseController
                 break;
         }
 
+        $products = Product::all();
+
+        foreach ($products as $product) {
+            if (!$product->original_price && $product->discount_id) {
+                $product->original_price = $product->price;
+                $product->price = $product->price - round(
+                    ($product->price * $product->discount->proc) / 100,
+                    2
+                );
+                $product->save();
+            }
+            if ($product->original_price && !$product->discount_id) {
+                $product->price = $product->original_price;
+                $product->save();
+            }
+        }
+
         $products = QueryBuilder::for(Product::class)
             ->join('products_translations', function ($join) {
                 $join->on('products.id', '=', 'products_translations.product_id')
@@ -113,6 +130,7 @@ class ProductController extends AppBaseController
             ->orderBy($orderBy, $orderByDirection)
             ->paginate(12)
             ->appends(request()->query());
+
 
         foreach ($products as $product) {
             $product->id = $product->product_id;
@@ -172,7 +190,7 @@ class ProductController extends AppBaseController
         if ($request->input('complexProductImageValue') == '1') {
             $input['complexProductImage'] = null;
         } elseif (isset($input['complexProductImage']) &&  $input['complexProductImage'] !== null) {
-            
+
             $imageName = time() . '.' . $request->complexProductImage->extension();
             $request->complexProductImage->move(public_path('images/upload'), $imageName);
             //            dd( $path);
@@ -193,6 +211,14 @@ class ProductController extends AppBaseController
     {
         $input = $this->storeEditHelper($request);
         $product = Product::create($input);
+        if ($product->discount_id) {
+            $product->original_price = $product->price;
+            $product->price = $product->price - round(
+                ($product->price * $product->discount->proc) / 100,
+                2
+            );
+            $product->save();
+        }
         if (!empty($input['categories']))
             $this->saveCategories($input['categories'], $product->id);
 
@@ -214,6 +240,17 @@ class ProductController extends AppBaseController
         $product->update($input);
 
         $product->categories()->sync($request->categories);
+
+        if ($product->discount_id) {
+            $product->original_price = $product->price;
+            $product->price = $product->price - round(
+                ($product->price * $product->discount->proc) / 100,
+                2
+            );
+            $product->save();
+        } else {
+            $product->price = $product->orginal_price;
+        }
 
         Flash::success('Product updated successfully.');
 
