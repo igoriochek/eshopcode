@@ -17,6 +17,7 @@ class OrderCreated
     public int $orderId;
     public float $orderSum;
     public string $customerName;
+    public string $customerEmail;
     public object $orderItems;
 
     /**
@@ -24,11 +25,12 @@ class OrderCreated
      *
      * @return void
      */
-    public function __construct($orderId, $orderSum, $customerName, $orderItems)
+    public function __construct($orderId, $orderSum, $customerName, $customerEmail, $orderItems)
     {
         $this->orderId = $orderId;
         $this->orderSum = $orderSum;
         $this->customerName = $customerName;
+        $this->customerEmail = $customerEmail;
         $this->orderItems = $orderItems;
     }
 

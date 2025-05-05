@@ -9,13 +9,13 @@
     |Продукт     |Цена     |Количество  |
     |:----------- |:---------:|:--------:|
     @foreach($orderItems as $orderItem)
-        | {{ $orderItem->product->name }} | €{{ $orderItem->product->price }} | {{ $orderItem->count }} |
+        | {{ $orderItem->product->name }} | €{{ $orderItem->price_current }} | {{ $orderItem->count }} |
     @endforeach
     |Общая Сумма | €{{ $orderSum }} | {{ $orderItemCountSum }} |
 @endcomponent
 
-@component('mail::button', ['url' => env('APP_URL').'/admin/orders/1'])
+{{-- @component('mail::button', ['url' => env('APP_URL').'/admin/orders/1'])
     Посмотреть Заказ
-@endcomponent
+@endcomponent --}}
 
 @endcomponent

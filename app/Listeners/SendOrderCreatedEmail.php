@@ -27,7 +27,12 @@ class SendOrderCreatedEmail
      */
     public function handle($event)
     {
-        Mail::to(env('MAIL_TO_ADDRESS'))->send(new OrderCreatedMail(
+        $users = [
+            $event->customerEmail,
+            'info@consultusmagnus.com',
+        ];
+
+        Mail::to($users)->send(new OrderCreatedMail(
             $event->orderId,
             $event->orderSum,
             $event->customerName,

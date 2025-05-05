@@ -20,7 +20,7 @@
                             </li>
                             <li>
                                 <a href="{{ url('/user/rootorders') }}" class="active">
-                                    {{__('menu.orders')}}
+                                    {{ __('menu.orders') }}
                                 </a>
                             </li>
                             <li>
@@ -31,7 +31,8 @@
                             <li>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST">
                                     @csrf
-                                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    <a href="{{ route('logout') }}"
+                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                         {{ __('menu.logout') }}
                                     </a>
                                 </form>
@@ -43,7 +44,7 @@
                                 <table class="table border">
                                     <thead>
                                         <tr>
-                                            <th scope="col">{{ __('names.order').' ID' }}</th>
+                                            <th scope="col">{{ __('names.order') . ' ID' }}</th>
                                             <th scope="col">{{ __('table.date') }}</th>
                                             <th scope="col">{{ __('table.status') }}</th>
                                             <th scope="col">{{ __('table.sum') }}</th>
@@ -60,13 +61,14 @@
                                                     {{ $order->created_at->format('M d, Y') }}
                                                 </td>
                                                 <td class="status">
-                                                    {{ __("status.".$order->status->name) }}
+                                                    {{ __('status.' . $order->status->name) }}
                                                 </td>
                                                 <td class="total">
                                                     €{{ number_format($order->sum, 2) }}
                                                 </td>
                                                 <td class="actions">
-                                                    <a href="{{ route('vieworder', [$order->id]) }}" class="btn btn-primary btn-xs">
+                                                    <a href="{{ route('vieworder', [$order->id]) }}"
+                                                        class="btn btn-primary btn-xs">
                                                         <i class="far fa-eye"></i>
                                                     </a>
                                                 </td>
@@ -88,4 +90,3 @@
         </div>
     </div>
 @endsection
-

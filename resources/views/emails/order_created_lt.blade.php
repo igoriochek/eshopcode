@@ -9,13 +9,13 @@ Data ir laikas: {{ now()->format('Y-m-d H:i') }}<br>
     |Produktas     |Kaina     |Kiekis  |
     |:----------- |:---------:|:--------:|
     @foreach($orderItems as $orderItem)
-        | {{ $orderItem->product->name }} | €{{ $orderItem->product->price }} | {{ $orderItem->count }} |
+        | {{ $orderItem->product->name }} | €{{ $orderItem->price_current }} | {{ $orderItem->count }} |
     @endforeach
     |Bendra Suma | €{{ $orderSum }} | {{ $orderItemCountSum }} |
 @endcomponent
 
-@component('mail::button', ['url' => env('APP_URL').'/admin/orders/1'])
+{{-- @component('mail::button', ['url' => env('APP_URL').'/admin/orders/1'])
     Peržiūrėti Užsakymą
-@endcomponent
+@endcomponent --}}
 
 @endcomponent
