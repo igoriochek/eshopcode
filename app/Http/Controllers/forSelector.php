@@ -22,10 +22,10 @@ trait forSelector
     public function categoriesForSelector()
     {
         $c = array();
-//        Category::all()->map(function ($item) use (&$c) {
-//            $c[$item->id] = $item->name;
-//        });
-    Category::translatedIn(app()->getLocale())->get()->map(function ($item) use (&$c) {
+        //        Category::all()->map(function ($item) use (&$c) {
+        //            $c[$item->id] = $item->name;
+        //        });
+        Category::translatedIn(app()->getLocale())->get()->map(function ($item) use (&$c) {
             $c[$item->id] = $item->name;
         });
         return $c;
@@ -34,9 +34,9 @@ trait forSelector
     public function productsForSelector()
     {
         $c = array();
-//        Product::all()->map(function ($item) use (&$c) {
-//            $c[$item->id] = $item->name;
-//        });
+        //        Product::all()->map(function ($item) use (&$c) {
+        //            $c[$item->id] = $item->name;
+        //        });
         Product::translatedIn(app()->getLocale())->get()->map(function ($item) use (&$c) {
             $c[$item->id] = $item->name;
         });
@@ -46,10 +46,10 @@ trait forSelector
     public function productsComplexForSelector($cat_id)
     {
         $c = array();
-//        Product::all()->map(function ($item) use (&$c) {
-//            $c[$item->id] = $item->name;
-//        });
-        Product::whereHas('categories', function($query) use ($cat_id) {
+        //        Product::all()->map(function ($item) use (&$c) {
+        //            $c[$item->id] = $item->name;
+        //        });
+        Product::whereHas('categories', function ($query) use ($cat_id) {
             $query->where('category_id', $cat_id);
         })->where("includedInComplex", 1)->translatedIn(app()->getLocale())->get()->map(function ($item) use (&$c) {
             $c[$item->id] = $item->name;
@@ -72,21 +72,16 @@ trait forSelector
     {
         $c = [];
 
-        $products = Product::whereHas('categories', function($query) use ($cat_id) {
-                $query->where('category_id', $cat_id);
-            })
+        $products = Product::whereHas('categories', function ($query) use ($cat_id) {
+            $query->where('category_id', $cat_id);
+        })
             ->where("includedInComplex", 1)
             ->translatedIn(app()->getLocale())
             ->with('discount')
             ->get();
 
         $products->each(function ($item) use (&$c) {
-            if ($item->discount_id && $item->discount) {
-                $discountedPrice = $item->price * (1 - ($item->discount->proc / 100));
-                $c[$item->id] = $discountedPrice;
-            } else {
-                $c[$item->id] = $item->price;
-            }
+            $c[$item->id] = $item->price;
         });
 
         return $c;
@@ -186,14 +181,14 @@ trait forSelector
         return $c;
     }
 
-    public function productOrder() {
+    public function productOrder()
+    {
         $c = array();
         $titles = ['No order', 'Product name', "Price"];
-        for( $i = 0; $i < count($titles); $i++){
+        for ($i = 0; $i < count($titles); $i++) {
             $c[$i] = $titles[$i];
         }
         return $c;
-
     }
 
     public function productsOrderSelector(): array
@@ -208,7 +203,7 @@ trait forSelector
             __('forms.priceDesc')
         ];
 
-        for($i = 0; $i < count($titles); $i++){
+        for ($i = 0; $i < count($titles); $i++) {
             $c[$i] = $titles[$i];
         }
 
