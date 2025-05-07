@@ -8,13 +8,9 @@ Customer Name: {{ $customerName }}<br>
     |Product     |Price     |Quantity  |
     |:----------- |:---------:|:--------:|
     @foreach($orderItems as $orderItem)
-        | {{ $orderItem->product->name }} | €{{ $orderItem->product->price }} | {{ $orderItem->count }} |
+        | {{ $orderItem->product->name }} | €{{ $orderItem->price_current }} | {{ $orderItem->count }} |
     @endforeach
     |Total Sum | €{{ $orderSum }} | {{ $orderItemCountSum }} |
-@endcomponent
-
-@component('mail::button', ['url' => env('APP_URL').'/admin/orders/' . $orderId])
-    View Order
 @endcomponent
 
 @endcomponent

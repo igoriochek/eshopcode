@@ -8,13 +8,9 @@ Kliento Vardas: {{ $customerName }}<br>
     |Produktas     |Kaina     |Kiekis  |
     |:----------- |:---------:|:--------:|
     @foreach($orderItems as $orderItem)
-        | {{ $orderItem->product->name }} | €{{ $orderItem->product->price }} | {{ $orderItem->count }} |
+        | {{ $orderItem->product->name }} | €{{ $orderItem->price_current }} | {{ $orderItem->count }} |
     @endforeach
     |Bendra Suma | €{{ $orderSum }} | {{ $orderItemCountSum }} |
-@endcomponent
-
-@component('mail::button', ['url' => env('APP_URL').'/admin/orders/' . $orderId])
-    Peržiūrėti Užsakymą
 @endcomponent
 
 @endcomponent
