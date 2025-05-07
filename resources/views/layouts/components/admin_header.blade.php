@@ -10,10 +10,12 @@
     style="display: flex !important; flex-direction: column !important;">
 
     <a href="{{ url('/home') }}" class="brand-link"
-        style="height: 56.8px;display: flex;justify-content: left;align-items: center;">
-        <span class="brand-text font-weight-light">
+        style="height: 56.8px; display: flex;justify-content: left;align-items: center;">
+        <img src="{{ asset('images/logo.jpeg') }}" alt="{{ config('app.name', __('Grasalė')) }}" class="img img-fluid"
+            style="max-width: 70px">
+        {{-- <span class="brand-text font-weight-light">
             {{ config('app.name', __('Grasalė')) }}
-        </span>
+        </span> --}}
     </a>
 
     <div class="sidebar">

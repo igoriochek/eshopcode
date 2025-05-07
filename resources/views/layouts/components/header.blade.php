@@ -43,10 +43,12 @@
                         <div class="cols bb-logo-detail">
                             <div class="header-logo">
                                 <a href="{{ url('/products') }}">
-                                    <span class="brand-text font-weight-light">
+                                    <img src="{{ asset('images/logo.jpeg') }}"
+                                        alt="{{ config('app.name', __('Grasalė')) }}" class="img img-fluid"
+                                        style="max-width: 70px">
+                                    {{-- <span class="brand-text font-weight-light">
                                         {{ config('app.name', __('Grasalė')) }}
-                                    </span>
-                                </a>
+                                    </span> --}} </a>
                             </div>
                         </div>
                         <div class="cols bb-icons">
