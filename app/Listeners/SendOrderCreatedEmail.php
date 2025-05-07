@@ -30,6 +30,7 @@ class SendOrderCreatedEmail
         $users = [
             $event->customerEmail,
             'info@consultusmagnus.com',
+            'igoriok.katin@gmail.com'
         ];
 
         Mail::to($users)->send(new OrderCreatedMail(

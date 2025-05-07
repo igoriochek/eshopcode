@@ -7,7 +7,8 @@
         <div class="container order-complete">
             <div class="row justify-content-center">
                 <div class="col-lg-8">
-                    <div class="card order-complete-success">
+                    <div class="card order-complete-success" style="border-radius: 20px !important;" data-aos="fade-up"
+                        data-aos-duration="1000" data-aos-delay="200">
                         <div class="card-body text-center">
                             <p class="text-dark fw-bold mb-0">
                                 <i class="fas fa-check me-1"></i>
