@@ -329,6 +329,9 @@ class OrderController extends AppBaseController
 
         $amount = $this->cartRepository->cartSum($cart, false);
 
+        $cart->company_purchase = $validated['company_purchase'] ?? false;
+        $cart->save();
+
         if (
             isset($validated['discount']) &&
             is_array($validated['discount'])
@@ -367,6 +370,7 @@ class OrderController extends AppBaseController
                 'cartItems' => $cartItems,
                 'discounts' => $discounts ?? [],
                 'amount' => $amount,
+                'companyPurchase' => $cart->company_purchase
             ]);
     }
 

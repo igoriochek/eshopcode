@@ -111,7 +111,7 @@ return [
 
     //Homepage
     'addedAt' => 'Pridėta',
-    'browseProducts'=> 'Naršyti Produktus',
+    'browseProducts' => 'Naršyti Produktus',
     'code' => 'Kodas',
     'createdAt' => 'Sukurta',
     'dashboard' => 'Valdyklė',
@@ -122,7 +122,7 @@ return [
     'loggedIn' => 'Jūs esate prisijungę!',
     'language' => 'Kalba yra',
     'myCart' => 'Mano Krepšelis',
-    'myOrders'=> 'Mano Užsakymai',
+    'myOrders' => 'Mano Užsakymai',
     'myReturns' => 'Mano Grąžinimai',
     'openMsg' => 'Atidaryti Pranešėją',
     'noProductsInCart' => 'Jūsų krepšelyje nėra jokių produktų!',
@@ -164,6 +164,7 @@ return [
     'noOrders' => 'Jūs neatlikote jokių užsakymų',
     'invoice' => 'Sąskaita faktūra',
     'invoicePreview' => 'Peržiūrėti Sąskaitą Faktūrą',
+    'companyPurchase' => 'Įmonės Pirkimas',
 
     //Products
     'product' => 'Produktas',
@@ -238,6 +239,7 @@ return [
     'createCustomer' => 'Sukurti Klientą',
     'editCustomer' => 'Redaguoti Klientą',
     'userLogs' => 'Vartotojų Žurnalai',
+    'companyInfo' => 'Įmonės informacija',
 
     'desc' => 'Aprašymas',
     'name' => 'Pavadinimas',

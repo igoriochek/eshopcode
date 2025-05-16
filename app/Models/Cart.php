@@ -15,6 +15,8 @@ use Carbon\Carbon;
  *
  * @property integer $user_id
  * @property string $code
+ * @property double $sum
+ * @property bool $company_purchase
  * @property integer $status_id
  * @property integer $admin_id
  */
@@ -40,6 +42,7 @@ class Cart extends Model
     public $fillable = [
         'user_id',
         'code',
+        'company_purchase',
         'sum',
         'status_id',
         'admin_id',
@@ -55,6 +58,7 @@ class Cart extends Model
     protected $casts = [
         'user_id' => 'integer',
         'code' => 'string',
+        'company_purchase' => 'boolean',
         'sum' => 'double',
         'status_id' => 'integer',
         'admin_id' => 'integer',

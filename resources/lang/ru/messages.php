@@ -14,10 +14,9 @@ return [
     */
 
     'userupdated' => 'Информация о пользователе успешно сохранена.',
-
     'changedpassword' => 'Пароль успешно изменен.',
     'incorrectpassword' => 'Неверный текущий пароль.',
-
+    'successUpdateUserCompany' => 'Информация о компании успешно обновлена',
 
     "nocategories" => "Нет категорий",
     "noinnercategories" => "Нет подкатегорий",

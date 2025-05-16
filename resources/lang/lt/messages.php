@@ -14,9 +14,9 @@ return [
     */
 
     'userupdated' => 'Naudotojo informacija sėkmingai išsaugota.',
-
     'changedpassword' => 'Slaptažodis sėkmingai pakeistas.',
     'incorrectpassword' => 'Neteisingas dabartinis slaptažodis.',
+    'successUpdateUserCompany' => 'Įmonės informacija sėkmingai atnaujinta',
 
     'nocategories' => 'Nėra kategorijų',
     'noinnercategories' => 'Vidinių kategorijų nėra',

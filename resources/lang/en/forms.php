@@ -2,7 +2,7 @@
 
 return [
 
-/*
+    /*
 |--------------------------------------------------------------------------
 | Names Language Lines
 |--------------------------------------------------------------------------
@@ -28,8 +28,9 @@ return [
     'userProfile' => 'User Profile',
     'admin' => "Administrator",
     'to' => 'To',
-
+    'title' => 'Title',
     'current_password' => "Current password",
     'new_password' => "New password",
     'confirm_password' => 'Confirm Password'
+
 ];

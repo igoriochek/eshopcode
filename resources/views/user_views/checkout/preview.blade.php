@@ -24,29 +24,30 @@
             </div>
         </div>
         {!! Form::open(['route' => ['pay'], 'method' => 'post']) !!}
-            <div class="row justify-content-center">
-                <div class="col-12 col-md-8 position-relative">
-                    <div class="pin-wrapper">
-                        <div class="card border-width-3 border-radius-0 border-color-hover-dark">
-                            <div class="card-body">
-                                <h6 class="fw-bold text-uppercase mb-3">{{ __('names.yourOrder') }}</h6>
-                                <table class="shop_table cart-totals mb-5 w-100">
-                                    <tbody>
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8 position-relative">
+                <div class="pin-wrapper">
+                    <div class="card border-width-3 border-radius-0 border-color-hover-dark">
+                        <div class="card-body">
+                            <h6 class="fw-bold text-uppercase mb-3">{{ __('names.yourOrder') }}</h6>
+                            <table class="shop_table cart-totals mb-5 w-100">
+                                <tbody>
                                     <tr>
                                         <td colspan="2" class="border-bottom">
                                             <strong class="text-dark">{{ __('names.product') }}</strong>
                                         </td>
                                     </tr>
-                                    @foreach($cartItems as $item)
+                                    @foreach ($cartItems as $item)
                                         <tr class="cart-item">
                                             <td>
                                                 <strong class="d-block text-dark line-height-1">
                                                     {{ $item['product']->name }}
-                                                    <span class="product-qty">x{{ $item->count }}</span>
+                                                    <span class="product-qty">x {{ $item->count }}</span>
                                                 </strong>
                                             </td>
                                             <td class="text-end align-top">
-                                                <span class="amount text-muted">€{{ $item->price_current * $item->count }}</span>
+                                                <span
+                                                    class="amount text-muted">€{{ $item->price_current * $item->count }}</span>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -57,7 +58,7 @@
                                         <td class="border-top-0 text-end">
                                             <strong>
                                                 <span class="amount font-weight-medium">
-                                                    €{{ number_format($cart->sum,2) }}
+                                                    €{{ number_format($cart->sum, 2) }}
                                                 </span>
                                             </strong>
                                         </td>
@@ -68,10 +69,11 @@
                                                 <strong class="text-dark">{{ __('names.discountCoupon') }}</strong>
                                             </td>
                                         </tr>
-                                        @foreach($discounts as $item)
+                                        @foreach ($discounts as $item)
                                             <tr class="border-bottom">
-                                                <td class="text-dark">{{ $item->code }} - {{ $item->value }}% {{ __('names.off') }}</td>
-{{--                                                <td colspan="3" style="text-align: right">-€{{ $amount * ($item->value / 100) }}</td>--}}
+                                                <td class="text-dark">{{ $item->code }} - {{ $item->value }}%
+                                                    {{ __('names.off') }}</td>
+                                                {{--                                                <td colspan="3" style="text-align: right">-€{{ $amount * ($item->value / 100) }}</td> --}}
                                                 <td colspan="3" style="text-align: right">-€{{ $item->value }}</td>
                                             </tr>
                                         @endforeach
@@ -86,31 +88,80 @@
                                             </strong>
                                         </td>
                                     </tr>
+                                    <tr class="company-purchase border-bottom">
+                                        <td colspan="2">
+                                            <div class="d-flex flex-column">
+                                                <label class="d-flex align-items-center text-muted" for="company_purchase">
+                                                    <input id="company_purchase" type="checkbox" class="me-2"
+                                                        name="company_purchase" value="{{ $cart->company_purchase }}"
+                                                        @if ($cart->company_purchase) checked @endif disabled>
+                                                    {{ __('names.companyPurchase') }}
+                                                </label>
+                                                <div class="row mb-3 mt-2 @if (!$cart->company_purchase) d-none @endif">
+                                                    <div class="col-12 mt-1">
+                                                        <span class="form-label text-dark fw-bold">
+                                                            {{ __('forms.title') }}:
+                                                        </span>
+                                                        <span>
+                                                            {{ auth()->user()->company->title ?? '' }}
+                                                        </span>
+                                                    </div>
+                                                    <div class="col-12 mt-1">
+                                                        <span class="form-label text-dark fw-bold">
+                                                            {{ __('footer.companycode') }}:
+                                                        </span>
+                                                        <span>
+                                                            {{ auth()->user()->company->code ?? '' }}
+                                                        </span>
+                                                    </div>
+                                                    <div class="col-12 mt-1">
+                                                        <span class="form-label text-dark fw-bold">
+                                                            {{ __('footer.vatcode') }}:
+                                                        </span>
+                                                        <span>
+                                                            {{ auth()->user()->company->vat ?? '' }}
+                                                        </span>
+                                                    </div>
+                                                    <div class="col-12 mt-1">
+                                                        <span class="form-label text-dark fw-bold">
+                                                            {{ __('footer.address') }}:
+                                                        </span>
+                                                        <span>
+                                                            {{ auth()->user()->company->address ?? '' }}
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
                                     <tr class="payment-methods">
                                         <td colspan="2">
-                                            <strong class="d-block text-dark mb-2">{{ __('names.paymentMethods') }}</strong>
+                                            <strong
+                                                class="d-block text-dark mb-2">{{ __('names.paymentMethods') }}</strong>
                                             <div class="d-flex flex-column">
-                                                <label class="d-flex align-items-center text-muted mb-0" for="payment_method1">
-                                                    <input id="payment_method1" type="radio" class="me-2" name="payment_method" value="cash-on-delivery" checked="" disabled>
+                                                <label class="d-flex align-items-center text-muted mb-0"
+                                                    for="payment_method1">
+                                                    <input id="payment_method1" type="radio" class="me-2"
+                                                        name="payment_method" value="cash-on-delivery" checked=""
+                                                        disabled>
                                                     {{ __('Paysera') }}
                                                 </label>
                                             </div>
                                         </td>
                                     </tr>
-                                    </tbody>
-                                </table>
-                                <div class="d-flex justify-content-center w-100">
-                                    <button type="submit" class="btn preview-button">
-                                        {{ __('buttons.placeOrder') }}
-                                        <i class="fas fa-arrow-right ms-2"></i>
-                                    </button>
-                                </div>
+                                </tbody>
+                            </table>
+                            <div class="d-flex justify-content-center w-100">
+                                <button type="submit" class="btn preview-button">
+                                    {{ __('buttons.placeOrder') }}
+                                    <i class="fas fa-arrow-right ms-2"></i>
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
         {!! Form::close() !!}
     </div>
 @endsection
-

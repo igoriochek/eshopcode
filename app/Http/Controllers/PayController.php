@@ -194,6 +194,7 @@ class PayController extends AppBaseController
                 $newOrder->admin_id = $this->getAdminId();
                 $newOrder->status_id = 2;
                 $newOrder->sum = $params['amount'] / 100;
+                $newOrder->company_purchase = $cart->company_purchase;
 
                 if ($newOrder->save()) {
 

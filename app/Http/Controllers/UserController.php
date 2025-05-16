@@ -3,11 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UpdateCompanyRequest;
+use App\Models\Company;
 use App\Models\User;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Flash;
+use Illuminate\Http\RedirectResponse;
 
 class UserController extends Controller
 {
@@ -20,14 +24,14 @@ class UserController extends Controller
     public function show()
     {
         $user = Auth::user();
-        if (!$user){
+        if (!$user) {
             Flash::success('No user found!');
             return view('home');
         }
 
 
-//        dd($user);
-//        exit();
+        //        dd($user);
+        //        exit();
         return view('user_views.user.profile', [
             'user' => $user
         ]);
@@ -71,13 +75,32 @@ class UserController extends Controller
 
             Flash::success(__('messages.changedpassword'));
 
-//            return redirect(route('userprofile'));
-        }
-        else {
+            //            return redirect(route('userprofile'));
+        } else {
             Flash::error(__('messages.incorrectpassword'));
 
-//            return redirect(route('userprofile'));
+            //            return redirect(route('userprofile'));
         }
         return redirect(route('userprofile'));
+    }
+
+    public function updateUserCompany(UpdateCompanyRequest $request): RedirectResponse
+    {
+        try {
+            $validInput = $request->validated();
+            $user = auth()->user();
+
+            if (empty($user->company)) {
+                Company::firstOrCreate(['user_id' => $user->id]);
+            }
+
+            Company::where('user_id', $user->id)->update($validInput);
+
+            session()->flash('success', __('messages.successUpdateUserCompany'));
+            return redirect()->route('userprofile');
+        } catch (Exception $exception) {
+            session()->flash('error', $exception->getMessage());
+            return back();
+        }
     }
 }

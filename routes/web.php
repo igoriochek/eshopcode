@@ -20,6 +20,7 @@ use App\Http\Controllers\UsersReportController;
 use App\Http\Controllers\UserActivitiesReportController;
 use App\Http\Controllers\ChartController;
 use App\Http\Controllers\DataExportImportController;
+use App\Http\Controllers\UserController;
 use App\Http\Livewire\MessengerIndex;
 use App\Http\Livewire\MessengerAdd;
 use App\Http\Livewire\MessengerShow;
@@ -186,6 +187,7 @@ Route::group(array('prefix' => 'user', 'middleware' => ['auth', 'cookie-consent'
     Route::get('userprofile', [\App\Http\Controllers\UserController::class, 'show'])->name('userprofile');
     Route::patch('userprofilesave', [\App\Http\Controllers\UserController::class, 'store'])->name('userprofilesave');
     Route::post('changePassword', [\App\Http\Controllers\UserController::class, 'changePassword'])->name('changePassword');
+    Route::patch('update-user-company', [UserController::class, 'updateUserCompany'])->name('updateUserCompany');
     Route::get('messenger', MessengerIndex::class)->name('livewire.messenger.index');
     Route::get('messenger/add', MessengerAdd::class)->name('livewire.messenger.add');
     Route::get('messenger/{id}', MessengerShow::class)->name('livewire.messenger.show');

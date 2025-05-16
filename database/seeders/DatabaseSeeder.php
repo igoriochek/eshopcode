@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             CategorySeeder::class,
             CookieSeeder::class,
             UserSeeder::class,
+            CompanySeeder::class,
             DiscountSeeder::class,
             DiscountCouponSeeder::class,
             PromotionSeeder::class,

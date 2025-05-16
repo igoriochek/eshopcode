@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
@@ -75,7 +76,7 @@ class User extends Authenticatable
     public static $rules = [
         'name' => 'required',
         'email' => 'required|email:rfc',
-//        'password' => 'required',
+        //        'password' => 'required',
         'phone_number' => 'nullable|numeric|digits:11',
     ];
 
@@ -113,5 +114,10 @@ class User extends Authenticatable
     public function adminOrders()
     {
         return $this->hasMany(Order::class, 'admin_id', 'id');
+    }
+
+    public function company(): HasOne
+    {
+        return $this->hasOne(Company::class, 'user_id', 'id');
     }
 }

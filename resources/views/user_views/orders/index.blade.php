@@ -1,57 +1,53 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container mb-5">
         <div class="row">
             <section class="content-header">
-                <div>
-                    <div class="row m-2">
-                        <div class="col-sm-6">
-                            <h1>{{__('names.orders')}}</h1>
-                        </div>
-                    </div>
+                <div class="mb-4 text-uppercase">
+                    <h5>{{ __('menu.orders') }}</h5>
                 </div>
             </section>
 
             <section>
 
-                <div class="content px-3">
+                <div class="content">
 
                     @include('flash::message')
 
                     <div class="clearfix"></div>
 
-                    @if($orders)
+                    @if ($orders)
                         <div class="card border-0">
                             <div class="card-body p-0">
                                 <div class="table table-responsive">
                                     <table class="table" id="categories">
                                         <thead>
-                                        <tr>
-                                            <th>{{__("names.order")}} ID</th>
-                                            {{--                                            <th>{{__('table.user')}}</th>--}}
-                                            <th>{{__('table.status')}}</th>
-                                            <th>{{__('table.sum')}}</th>
-                                            <th> </th>
-                                        </tr>
+                                            <tr>
+                                                <th>{{ __('names.order') }} ID</th>
+                                                {{--                                            <th>{{__('table.user')}}</th> --}}
+                                                <th>{{ __('table.status') }}</th>
+                                                <th>{{ __('table.sum') }}</th>
+                                                <th> </th>
+                                            </tr>
                                         </thead>
                                         <tbody>
-                                        @foreach($orders as $item)
-                                            <tr>
-                                                <td>{{ $item->id }}</td>
-                                                {{--                                                <td>{{ $item->user->name }}</td>--}}
-                                                <td>{{ __("status." . $item->status->name) }}</td>
-                                                <td>{{ number_format($item->sum,2) }} EU</td>
-                                                <td width="120">
-                                                    <div class='btn-group'>
-                                                        <a href="{{ route('vieworder', [$item->id]) }}"
-                                                           class='btn btn-default btn-xs'>
-                                                            <i class="far fa-eye"></i>
-                                                        </a>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        @endforeach
+                                            @foreach ($orders as $item)
+                                                <tr>
+                                                    <td>{{ $item->id }}</td>
+                                                    {{--                                                <td>{{ $item->user->name }}</td> --}}
+                                                    <td>{{ __('status.' . $item->status->name) }}</td>
+                                                    <td>{{ number_format($item->sum, 2) }} EU</td>
+                                                    <td width="120">
+                                                        <div class='btn-group'>
+                                                            <a href="{{ route('vieworder', [$item->id]) }}"
+                                                                class='btn btn-default btn-xs'>
+                                                                <i class="far fa-eye"></i>
+                                                            </a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>
@@ -59,7 +55,7 @@
                             </div>
                         </div>
                     @else
-                        {{__('names.noOrders')}}
+                        {{ __('names.noOrders') }}
                     @endif
                 </div>
             </section>

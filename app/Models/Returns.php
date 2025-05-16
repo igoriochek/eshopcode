@@ -7,6 +7,7 @@ use Eloquent as Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 /**
  * Class Returns
@@ -84,6 +85,11 @@ class Returns extends Model
     public function admin()
     {
         return $this->hasOne(User::class, 'id', 'admin_id');
+    }
+
+    public function order(): HasOne
+    {
+        return $this->hasOne(Order::class, 'id', 'order_id');
     }
 
     public function status()

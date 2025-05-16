@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\User;
+use App\Observers\UserObserver;
 use App\Repositories\CartRepository;
 use App\Traits\CartItems;
 use Illuminate\Http\Request;
@@ -23,7 +25,7 @@ class AppServiceProvider extends ServiceProvider
     {
         if (!env('APP_DEBUG')) {
             //Change public path to htdocs
-            $this->app->bind('path.public', fn () => base_path('htdocs'));
+            $this->app->bind('path.public', fn() => base_path('htdocs'));
         }
     }
 
@@ -34,6 +36,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(CartRepository $cartRepository, Request $request)
     {
+        User::observe(UserObserver::class);
+
         if (!env('APP_DEBUG')) {
             //Force app to use https
             URL::forceScheme('https');

@@ -9,12 +9,11 @@
                         <div>
                             @if ($product->image)
                                 <div>
-                                    <img src="{{ $product->image }}" alt="{{ $product->name }}"
-                                         class="d-block w-100"/>
+                                    <img src="{{ $product->image }}" alt="{{ $product->name }}" class="d-block w-100" />
                                 </div>
                             @else
                                 <div>
-                                    <img src="/images/noimage.jpeg" alt="" class="d-block w-100"/>
+                                    <img src="/images/noimage.jpeg" alt="" class="d-block w-100" />
                                 </div>
                             @endif
                         </div>
@@ -34,9 +33,12 @@
                                     @endif
                                 </div>
                                 <div class="review-num">
-                                    <a href="#description" class="text-decoration-none link text-color-default text-color-hover-primary" data-hash="" data-hash-offset="0" data-hash-offset-lg="75" data-hash-trigger-click=".nav-link-reviews" data-hash-trigger-click-delay="1000">
+                                    <a href="#description"
+                                        class="text-decoration-none link text-color-default text-color-hover-primary"
+                                        data-hash="" data-hash-offset="0" data-hash-offset-lg="75"
+                                        data-hash-trigger-click=".nav-link-reviews" data-hash-trigger-click-delay="1000">
                                         <span class="count text-color-inherit" itemprop="ratingCount">
-                                            {{ __('names.reviews').' ('.$rateCount.')' }}
+                                            {{ __('names.reviews') . ' (' . $rateCount . ')' }}
                                         </span>
                                     </a>
                                 </div>
@@ -47,7 +49,8 @@
                             <p class="price mb-3">
                                 @if ($product->discount)
                                     <span class="amount">€{{ $product->price }}</span>
-                                    <span class="sale">€{{ $product->price - (round(($product->price * $product->discount->proc / 100), 2)) }}</span>
+                                    <span
+                                        class="sale">€{{ $product->price - round(($product->price * $product->discount->proc) / 100, 2) }}</span>
                                 @else
                                     <span class="default-price">€{{ $product->price }}</span>
                                 @endif
@@ -67,11 +70,23 @@
                             </ul>
                             <hr>
                             {!! Form::open(['route' => ['addtocart'], 'method' => 'post', 'class' => 'product-add-to-cart-container']) !!}
-                                <input type="button" class="minus text-color-hover-light bg-color-hover-primary border-color-hover-primary" value="-">
-                                {!! Form::number('count', "1", ['class' => 'product-add-to-cart-number', "min" => "1", "max" => "5", "minlength" => "1", "maxlength" => "5", "oninput" => "this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null"]) !!}
-                                <input type="button" class="plus text-color-hover-light bg-color-hover-primary border-color-hover-primary" value="+">
-                                <input type="hidden" name="id" value="{{ $product->id }}">
-                                <input type="submit" value="{{__('buttons.addToCart')}}" class="btn product-add-to-cart-button">
+                            <input type="button"
+                                class="minus text-color-hover-light bg-color-hover-primary border-color-hover-primary"
+                                value="-">
+                            {!! Form::number('count', '1', [
+                                'class' => 'product-add-to-cart-number',
+                                'min' => '1',
+                                'max' => '5',
+                                'minlength' => '1',
+                                'maxlength' => '5',
+                                'oninput' => 'this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null',
+                            ]) !!}
+                            <input type="button"
+                                class="plus text-color-hover-light bg-color-hover-primary border-color-hover-primary"
+                                value="+">
+                            <input type="hidden" name="id" value="{{ $product->id }}">
+                            <input type="submit" value="{{ __('buttons.addToCart') }}"
+                                class="btn product-add-to-cart-button">
                             {!! Form::close() !!}
                         </div>
                     </div>
@@ -83,18 +98,16 @@
                 <div id="description" class="tabs tabs-simple tabs-simple-full-width-line tabs-product tabs-dark mb-2">
                     <ul class="nav nav-tabs justify-content-start" role="tablist">
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link active font-weight-bold text-3 text-uppercase py-2 px-3" href="#productDescription" data-bs-toggle="tab" aria-selected="true" role="tab">
+                            <a class="nav-link active font-weight-bold text-3 text-uppercase py-2 px-3"
+                                href="#productDescription" data-bs-toggle="tab" aria-selected="true" role="tab">
                                 {{ __('names.description') }}
                             </a>
                         </li>
-{{--                        <li class="nav-item" role="presentation">--}}
-{{--                            <a class="nav-link font-weight-bold text-3 text-uppercase py-2 px-3" href="#productInfo" data-bs-toggle="tab" aria-selected="false" tabindex="-1" role="tab">--}}
-{{--                                {{ __('names.additionalInformation') }}--}}
-{{--                            </a>--}}
-{{--                        </li>--}}
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link nav-link-reviews font-weight-bold text-3 text-uppercase py-2 px-3" href="#productReviews" data-bs-toggle="tab" aria-selected="false" tabindex="-1" role="tab">
-                                {{ __('names.reviews').' ('.$product->ratings->count().') ' }}
+                            <a class="nav-link nav-link-reviews font-weight-bold text-3 text-uppercase py-2 px-3"
+                                href="#productReviews" data-bs-toggle="tab" aria-selected="false" tabindex="-1"
+                                role="tab">
+                                {{ __('names.reviews') . ' (' . $product->ratings->count() . ') ' }}
                             </a>
                         </li>
                     </ul>
@@ -102,36 +115,6 @@
                         <div class="tab-pane px-0 py-3 active" id="productDescription" role="tabpanel">
                             <p>{{ $product->description }}</p>
                         </div>
-{{--                        <div class="tab-pane px-0 py-3" id="productInfo" role="tabpanel">--}}
-{{--                            <table class="table table-striped m-0">--}}
-{{--                                <tbody>--}}
-{{--                                <tr>--}}
-{{--                                    <th class="border-top-0">--}}
-{{--                                        Lorem:--}}
-{{--                                    </th>--}}
-{{--                                    <td class="border-top-0">--}}
-{{--                                        Lorem ipsum dolor sit amet--}}
-{{--                                    </td>--}}
-{{--                                </tr>--}}
-{{--                                <tr>--}}
-{{--                                    <th>--}}
-{{--                                        Lorem:--}}
-{{--                                    </th>--}}
-{{--                                    <td>--}}
-{{--                                        Lorem ipsum dolor sit amet--}}
-{{--                                    </td>--}}
-{{--                                </tr>--}}
-{{--                                <tr>--}}
-{{--                                    <th>--}}
-{{--                                        Lorem:--}}
-{{--                                    </th>--}}
-{{--                                    <td>--}}
-{{--                                        Lorem ipsum dolor sit amet--}}
-{{--                                    </td>--}}
-{{--                                </tr>--}}
-{{--                                </tbody>--}}
-{{--                            </table>--}}
-{{--                        </div>--}}
                         <div class="tab-pane px-0 py-3" id="productReviews" role="tabpanel">
                             <ul class="comments">
                                 @forelse ($product->ratings as $rating)
@@ -145,15 +128,16 @@
                                                     <span>{{ $rating->created_at->format('F j, Y') }}</span>
                                                     <span class="float-end">
                                                         <div class="pb-0 comment-rating">
-                                                            @for($i = 1; $i <= 5; $i++)
-                                                                <i class="product-rating-star @if ($rating->value >= $i) fa-solid fa-star
-                                                                   @elseif ($rating->value >= $i - .5) fa-solid fa-star-half-stroke
+                                                            @for ($i = 1; $i <= 5; $i++)
+                                                                <i
+                                                                    class="product-rating-star @if ($rating->value >= $i) fa-solid fa-star
+                                                                   @elseif ($rating->value >= $i - 0.5) fa-solid fa-star-half-stroke
                                                                    @else fa-regular fa-star @endif"></i>
                                                             @endfor
                                                         </div>
                                                     </span>
                                                 </span>
-                                                <p class="m-0 comment-description">{{ $rating->description  }}</p>
+                                                <p class="m-0 comment-description">{{ $rating->description }}</p>
                                             </div>
                                         </div>
                                     </li>
@@ -166,18 +150,9 @@
                             <div class="row">
                                 <div class="col product-review-add-review-form" id="review-product">
                                     @if (!$voted)
-                                        {{--@guest
-                                            <div class="mb-3 col-sm-6">
-                                                <label class="form-label">Name*</label>
-                                                <input type="text" class="form-control" placeholder="">
-                                            </div>
-                                            <div class="mb-3 col-sm-6">
-                                                <label class="form-label">Email</label>
-                                                <input type="email" class="form-control" placeholder="">
-                                            </div>
-                                        @endguest--}}
                                         @guest
-                                            <p class="product-reviews-add-review-description">{{ __('names.loginToReview') }}</p>
+                                            <p class="product-reviews-add-review-description">{{ __('names.loginToReview') }}
+                                            </p>
                                         @endguest
                                         @auth
                                             <div class="col-sm-12">
@@ -186,19 +161,24 @@
                                                     <span>*</span>
                                                 </label>
                                                 <div class="rating" style="gap: 5px">
-                                                    <input type="radio" name="rating" value="5" id="5"><label for="5">
+                                                    <input type="radio" name="rating" value="5"
+                                                        id="5"><label for="5">
                                                         <i class="fa-regular fa-star"></i>
                                                     </label>
-                                                    <input type="radio" name="rating" value="4" id="4"><label for="4">
+                                                    <input type="radio" name="rating" value="4"
+                                                        id="4"><label for="4">
                                                         <i class="fa-regular fa-star"></i>
                                                     </label>
-                                                    <input type="radio" name="rating" value="3" id="3"><label for="3">
+                                                    <input type="radio" name="rating" value="3"
+                                                        id="3"><label for="3">
                                                         <i class="fa-regular fa-star"></i>
                                                     </label>
-                                                    <input type="radio" name="rating" value="2" id="2"><label for="2">
+                                                    <input type="radio" name="rating" value="2"
+                                                        id="2"><label for="2">
                                                         <i class="fa-regular fa-star"></i>
                                                     </label>
-                                                    <input type="radio" name="rating" value="1" id="1"><label for="1">
+                                                    <input type="radio" name="rating" value="1"
+                                                        id="1"><label for="1">
                                                         <i class="fa-regular fa-star"></i>
                                                     </label>
                                                 </div>
@@ -219,7 +199,8 @@
                                             </div>
                                         @endauth
                                     @else
-                                        <p class="product-reviews-add-review-description">{{ __('names.alreadyReviewed') }}</p>
+                                        <p class="product-reviews-add-review-description">
+                                            {{ __('names.alreadyReviewed') }}</p>
                                     @endif
                                 </div>
                             </div>
@@ -233,18 +214,17 @@
 
 @push('scripts')
     <script>
-        $('.product-reviews-add-review-submit').click(function () {
+        $('.product-reviews-add-review-submit').click(function() {
             const value = $('input[type=radio][name=rating]:checked').val();
             const desc = $('textarea#comment').val();
             console.log(desc);
-            $.post("{{route('addUserRating')}}",
-                {
+            $.post("{{ route('addUserRating') }}", {
                     "_token": "{{ csrf_token() }}",
                     rating: value,
                     description: desc,
                     product: {{ $product->id }}
                 },
-                function (data, status) {
+                function(data, status) {
                     //alert("Data: " + data.val + "\nStatus: " + status);
                     if (data.val == "ok") {
                         // $('#vote').hide();
@@ -313,11 +293,11 @@
             justify-content: center
         }
 
-        .rating > input {
+        .rating>input {
             display: none
         }
 
-        .rating > label {
+        .rating>label {
             position: relative;
             width: 1em;
             font-size: 6vw;
@@ -325,22 +305,22 @@
             cursor: pointer
         }
 
-        .rating > label::before {
+        .rating>label::before {
             content: "\2605";
             position: absolute;
             opacity: 0
         }
 
-        .rating > label:hover:before,
-        .rating > label:hover ~ label:before {
+        .rating>label:hover:before,
+        .rating>label:hover~label:before {
             opacity: 1 !important
         }
 
-        .rating > input:checked ~ label:before {
+        .rating>input:checked~label:before {
             opacity: 1
         }
 
-        .rating:hover > input:checked ~ label:before {
+        .rating:hover>input:checked~label:before {
             opacity: 0.4
         }
     </style>

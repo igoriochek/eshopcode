@@ -28,7 +28,7 @@ return [
     'userProfile' => 'Vartotojo Profilis',
     'admin' => "Administratorius",
     'to' => 'Kam',
-
+    'title' => 'Pavadinimas',
     'current_password' => "Dabartinis slaptažodis",
     'new_password' => "Naujas slaptažodis",
     'confirm_password' => 'Patvirtinti slaptažodį'

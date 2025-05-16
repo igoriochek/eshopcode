@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class PayRequest extends FormRequest
+class UpdateCompanyRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,11 @@ class PayRequest extends FormRequest
     public function rules()
     {
         return [
-            'discount.*' => 'integer',
-            'company_purchase' => 'boolean'
+            'title' => 'nullable|string|max:100',
+            'code' => 'nullable|string|max:50',
+            'vat' => 'nullable|string|max:50',
+            'address' => 'nullable|string|max:100',
+            'user_id' => 'nullable|integer|unique:companies'
         ];
     }
 }

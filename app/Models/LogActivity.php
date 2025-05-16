@@ -25,8 +25,8 @@ class LogActivity extends Model
 
     public function scopeSearch($query, $keywords)
     {
-//        return $query->where('activity', 'RLIKE', '[[:<:]]'.$keywords.'[[:>:]]');
-        return $query->where('activity', 'RLIKE', '[[:<:]]' . addslashes($keywords) . '[[:>:]]');
+        $escapedKeywords = str_replace(['\\', '%', '_'], ['\\\\', '\\%', '\\_'], $keywords);
+        return $query->where('activity', 'LIKE', '%' . $escapedKeywords . '%');
     }
 
     /**
@@ -35,7 +35,9 @@ class LogActivity extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id', 'email', 'activity',
+        'user_id',
+        'email',
+        'activity',
     ];
 
     public function user()

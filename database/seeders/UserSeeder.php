@@ -6,6 +6,7 @@ use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
 use DB;
 use Illuminate\Support\Facades\Hash;
+
 class UserSeeder extends Seeder
 {
     /**
@@ -45,10 +46,10 @@ class UserSeeder extends Seeder
             'type' => 1,
         ]);
         DB::table('users')->insert([
-            'name' => 'andrej',
-            'email' => 'andtaress2@gmail.com',
-            'password' => Hash::make('caveman123'),
-            'type' => 1,
+            'name' => 'Andrej',
+            'email' => 'andtaress@gmail.com',
+            'password' => Hash::make('lolkekcheburek'),
+            'type' => 2
         ]);
     }
 }
