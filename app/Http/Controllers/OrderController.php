@@ -18,6 +18,7 @@ use App\Repositories\CartRepository;
 use App\Repositories\DiscountCouponRepository;
 use App\Repositories\OrderRepository;
 use App\Http\Controllers\AppBaseController;
+use App\Models\Company;
 use Barryvdh\DomPDF\Facade\Pdf as PDF;
 use Dompdf\Dompdf;
 use Illuminate\Http\Request;
@@ -317,7 +318,7 @@ class OrderController extends AppBaseController
     public function checkoutPreview(PayRequest $request)
     {
         $validated = $request->validated();
-        $user = Auth::user();
+        $user = auth()->user();
         $cart = $this->cartRepository->getOrSetCart($request);
 
         $cartItems = CartItem::query()
@@ -331,6 +332,21 @@ class OrderController extends AppBaseController
 
         $cart->company_purchase = $validated['company_purchase'] ?? false;
         $cart->save();
+
+        if (empty($user->company)) {
+            Company::firstOrCreate(['user_id' => $user->id]);
+        }
+
+        if ($cart->company_purchase) {
+            $companyInput = [
+                'title' => $validated['company_title'],
+                'code' => $validated['company_code'],
+                'vat' => $validated['company_vat'],
+                'address' => $validated['company_address'],
+                'user_id' => $user->id
+            ];
+            Company::where('user_id', $user->id)->update($companyInput);
+        }
 
         if (
             isset($validated['discount']) &&

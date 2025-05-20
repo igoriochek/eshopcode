@@ -241,6 +241,9 @@ return [
     'userLogs' => 'User Logs',
     'companyInfo' => 'Company Info',
 
+    //Company
+    'editSiteCompany' => 'Edit Site Company',
+
     'desc' => 'Description',
     'name' => 'Name',
 

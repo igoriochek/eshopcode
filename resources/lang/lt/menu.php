@@ -22,7 +22,7 @@ return [
     'discountCoupons' => 'Nuolaidų Kuponai',
     'importExport' => 'Importas/Eksportas',
     'login' => 'Prisijungti',
-    'logout'=> 'Atsijungti',
+    'logout' => 'Atsijungti',
     'messenger' => 'Susisiekite',
     'orders' => 'Užsakymai',
     'ordersReport' => 'Užsakymų Ataskaitos',
@@ -41,5 +41,6 @@ return [
     'profile' => 'Profilis',
     'termsofservice' => 'Taisyklės',
     'policy' => 'Privatumo politika',
+    'siteCompany' => 'Svetainės įmonė',
 
 ];

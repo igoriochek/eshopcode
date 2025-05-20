@@ -241,6 +241,9 @@ return [
     'userLogs' => 'Vartotojų Žurnalai',
     'companyInfo' => 'Įmonės informacija',
 
+    //Company
+    'editSiteCompany' => 'Redaguoti svetainės įmonę',
+
     'desc' => 'Aprašymas',
     'name' => 'Pavadinimas',
 

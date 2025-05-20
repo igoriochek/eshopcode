@@ -213,10 +213,11 @@ class PayController extends AppBaseController
                     $user->log("Created new Order ID:{$newOrder->id}");
 
                     event(new OrderCreated(
-                        $newOrder->id,
+                        $newOrder->order_id,
                         $newOrder->sum,
                         $user->name,
                         $user->email,
+                        $cart->company_purchase ? $user->company : collect(),
                         $cartItems
                     ));
 

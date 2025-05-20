@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Company;
 use App\Models\User;
 use App\Observers\UserObserver;
 use App\Repositories\CartRepository;
@@ -49,7 +50,10 @@ class AppServiceProvider extends ServiceProvider
                 $cart = $cartRepository->getOrSetCart($request);
                 $cartItems = $this->getCartItems($cart);
 
-                $view->with('cartItemCount', $this->setAndGetCartItemCount($cartItems));
+                $view->with([
+                    'siteCompany' => Company::where('user_id', null)->first(),
+                    'cartItemCount' => $this->setAndGetCartItemCount($cartItems)
+                ]);
             }
         });
     }

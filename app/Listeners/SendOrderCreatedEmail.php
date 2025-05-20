@@ -37,6 +37,7 @@ class SendOrderCreatedEmail
             $event->orderId,
             $event->orderSum,
             $event->customerName,
+            $event->customerCompany,
             $event->orderItems
         ));
     }

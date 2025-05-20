@@ -17,6 +17,7 @@ return [
     'changedpassword' => 'Password has been successfully changed.',
     'incorrectpassword' => 'Incorrect current password.',
     'successUpdateUserCompany' => 'Company information has been successfully updated',
+    'successUpdateSiteCompany' => 'Site company has been successfully updated',
 
     "nocategories" => "No Categories",
     "noinnercategories" => "No subcategories",

@@ -3,6 +3,13 @@
 
 Order ID: {{ $orderId }}<br>
 Customer Name: {{ $customerName }}<br>
+@if (!empty($customerCompany))
+<br>
+Company Title: {{ $customerCompany->title }}<br>
+Company Code: {{ $customerCompany->code }}<br>
+Company VAT: {{ $customerCompany->vat }}<br>
+Company Address: {{ $customerCompany->address }}<br>
+@endif
 
 @component('mail::table')
     |Product     |Price     |Quantity  |

@@ -17,6 +17,7 @@ return [
     'changedpassword' => 'Пароль успешно изменен.',
     'incorrectpassword' => 'Неверный текущий пароль.',
     'successUpdateUserCompany' => 'Информация о компании успешно обновлена',
+    'successUpdateSiteCompany' => 'Kомпания cайтa былa успешно обновленa',
 
     "nocategories" => "Нет категорий",
     "noinnercategories" => "Нет подкатегорий",

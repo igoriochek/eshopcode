@@ -122,7 +122,7 @@
                                                             {{ __('forms.title') }}
                                                         </label>
                                                         <div class="mb-2">
-                                                            <input type="text" name="title"
+                                                            <input type="text" name="company_title"
                                                                 value="{{ auth()->user()->company->title ?? '' }}"
                                                                 class="form-control py-2">
                                                         </div>
@@ -132,7 +132,7 @@
                                                             {{ __('footer.companycode') }}
                                                         </label>
                                                         <div class="mb-2">
-                                                            <input type="text" name="code"
+                                                            <input type="text" name="company_code"
                                                                 value="{{ auth()->user()->company->code ?? '' }}"
                                                                 class="form-control py-2">
                                                         </div>
@@ -142,7 +142,7 @@
                                                             {{ __('footer.vatcode') }}
                                                         </label>
                                                         <div class="mb-2">
-                                                            <input type="text" name="vat"
+                                                            <input type="text" name="company_vat"
                                                                 value="{{ auth()->user()->company->vat ?? '' }}"
                                                                 class="form-control py-2">
                                                         </div>
@@ -152,7 +152,7 @@
                                                             {{ __('footer.address') }}
                                                         </label>
                                                         <div class="mb-2">
-                                                            <input type="text" name="address"
+                                                            <input type="text" name="company_address"
                                                                 value="{{ auth()->user()->company->address ?? '' }}"
                                                                 class="form-control py-2">
                                                         </div>

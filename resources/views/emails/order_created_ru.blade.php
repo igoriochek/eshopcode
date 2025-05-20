@@ -3,6 +3,14 @@
 
 Заказа ID: {{ $orderId }}<br>
 Имя Клиента: {{ $customerName }}<br>
+@if (!empty($customerCompany))
+<br>
+Название компании: {{ $customerCompany->title }}<br>
+Код компании: {{ $customerCompany->code }}<br>
+НДС компании: {{ $customerCompany->vat }}<br>
+Адрес компании: {{ $customerCompany->address }}<br>
+@endif
+
 
 @component('mail::table')
     |Продукт     |Цена     |Количество  |

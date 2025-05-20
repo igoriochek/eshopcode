@@ -25,7 +25,11 @@ class PayRequest extends FormRequest
     {
         return [
             'discount.*' => 'integer',
-            'company_purchase' => 'boolean'
+            'company_purchase' => 'boolean',
+            'company_title' => 'nullable|string|max:100',
+            'company_code' => 'nullable|string|max:50',
+            'company_vat' => 'nullable|string|max:50',
+            'company_address' => 'nullable|string|max:100'
         ];
     }
 }

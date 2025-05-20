@@ -20,8 +20,8 @@ class CreateCompaniesTable extends Migration
             $table->string('vat', 50)->nullable();
             $table->string('address', 100)->nullable();
             $table->foreignId('user_id')
-                ->constrained()
                 ->nullable()
+                ->constrained()
                 ->onDelete('cascade');
             $table->timestamps();
         });

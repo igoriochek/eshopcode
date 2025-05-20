@@ -14,6 +14,7 @@ class OrderCreatedMail extends Mailable
     private int $orderId;
     private float $orderSum;
     private string $customerName;
+    private object $customerCompany;
     private object $orderItems;
 
     /**
@@ -21,11 +22,12 @@ class OrderCreatedMail extends Mailable
      *
      * @return void
      */
-    public function __construct($orderId, $orderSum, $customerName, $orderItems)
+    public function __construct($orderId, $orderSum, $customerName, $customerCompany, $orderItems)
     {
         $this->orderId = $orderId;
         $this->orderSum = $orderSum;
         $this->customerName = $customerName;
+        $this->customerCompany = $customerCompany;
         $this->orderItems = $orderItems;
     }
 
@@ -53,6 +55,7 @@ class OrderCreatedMail extends Mailable
             ->with([
                 'orderId' => $this->orderId,
                 'customerName' => $this->customerName,
+                'customerCompany' => $this->customerCompany,
                 'orderItems' => $this->orderItems,
                 'orderSum' => $this->orderSum,
                 'orderItemCountSum' => $this->calculateOrderItemCountSum($this->orderItems)

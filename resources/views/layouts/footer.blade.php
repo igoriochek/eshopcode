@@ -5,11 +5,10 @@
                 <h5 class="text-4 text-color-light mb-3">{{ __('footer.contactInfo') }}</h5>
                 <ul class="list list-unstyled">
                     <li class="pb-1 mb-2">
-                        <span
-                            class="d-block font-weight-normal line-height-1 text-color-light">
+                        <span class="d-block font-weight-normal line-height-1 text-color-light">
                             {{ __('footer.address') }}
                         </span>
-                        Konstitucijos pr. 7, Vilnius, Verslo centras „Europa“, 12 aukštas, LT-09308
+                        {{ $siteCompany->address ?? '-' }}
                     </li>
                     <li class="pb-1 mb-2">
                         <span class="d-block font-weight-normal line-height-1 text-color-light">
@@ -31,22 +30,19 @@
                     </li>
 
                     <li class="pb-1 mb-2">
-                        <span
-                            class="d-block font-weight-normal line-height-1 text-color-light">
+                        <span class="d-block font-weight-normal line-height-1 text-color-light">
                             {{ __('footer.companycode') }}
                         </span>
-                        302546905
+                        {{ $siteCompany->code ?? '-' }}
                     </li>
                     <li class="pb-1 mb-2">
-                        <span
-                            class="d-block font-weight-normal line-height-1 text-color-light">
+                        <span class="d-block font-weight-normal line-height-1 text-color-light">
                             {{ __('footer.vatcode') }}
                         </span>
-                        LT100005776419
+                        {{ $siteCompany->vat ?? '-' }}
                     </li>
                     <li class="pb-1 mb-2">
-                        <span
-                            class="d-block font-weight-normal line-height-1 text-color-light">
+                        <span class="d-block font-weight-normal line-height-1 text-color-light">
                             {{ __('footer.ac') }}
                         </span>
                         LT53 3500 0100 0156 4853
@@ -83,39 +79,39 @@
             </div>
             @auth
                 <div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
-                <h5 class="text-4 text-color-light mb-3">{{ __('footer.profile') }}</h5>
-                <ul class="list list-unstyled mb-0 footer-links">
-                    <li class="mb-0">
-                        <a href="{{ url('/user/viewcart') }}">
-                            {{__('menu.cart')}}
-                        </a>
-                    </li>
-                    <li class="mb-0">
-                        <a href="{{ url('/user/rootorders') }}">
-                            {{__('menu.orders')}}
-                        </a>
-                    </li>
-                    <li class="mb-0">
-                        <a href="{{ url('/user/rootoreturns') }}">
-                            {{__('menu.returns')}}
-                        </a>
-                    </li>
-                    <li class="mb-0">
-                        <a href="{{ url('/user/userprofile') }}">
-                            {{__('menu.profile')}}
-                        </a>
-                    </li>
-                    <li class="mb-0">
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                            @csrf
-                            <a href="{{ route('logout') }}"
-                               onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                {{ __('menu.logout') }}
+                    <h5 class="text-4 text-color-light mb-3">{{ __('footer.profile') }}</h5>
+                    <ul class="list list-unstyled mb-0 footer-links">
+                        <li class="mb-0">
+                            <a href="{{ url('/user/viewcart') }}">
+                                {{ __('menu.cart') }}
                             </a>
-                        </form>
-                    </li>
-                </ul>
-            </div>
+                        </li>
+                        <li class="mb-0">
+                            <a href="{{ url('/user/rootorders') }}">
+                                {{ __('menu.orders') }}
+                            </a>
+                        </li>
+                        <li class="mb-0">
+                            <a href="{{ url('/user/rootoreturns') }}">
+                                {{ __('menu.returns') }}
+                            </a>
+                        </li>
+                        <li class="mb-0">
+                            <a href="{{ url('/user/userprofile') }}">
+                                {{ __('menu.profile') }}
+                            </a>
+                        </li>
+                        <li class="mb-0">
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                                @csrf
+                                <a href="{{ route('logout') }}"
+                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    {{ __('menu.logout') }}
+                                </a>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
             @endauth
         </div>
     </div>
