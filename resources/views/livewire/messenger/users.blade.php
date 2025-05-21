@@ -8,15 +8,15 @@
                             <span class="title" style="font-weight: bold; color: black;">{{ $user->name }}</span>
                             <div class="messenger-user-last-message-container">
                                 @if ($user->last_message->user_from == auth()->user()->id)
-                                    <span class="">{{ __('names.you') }}: </span>
+                                    <span class="me-1">{{ __('names.you') }}: </span>
                                 @endif
                                 <div class="messenger-user-last-message">
                                     <span class="mb-0 last-message">{{ $user->last_message->message_text ?? '' }}</span>
                                 </div>
+                                <span class="w-100">
+                                    • {{ $user->last_message->created_at->diffForHumans(null, false, true) ?? '' }}
+                                </span>
                             </div>
-                            <span>
-                                • {{ $user->last_message->created_at->diffForHumans(null, false, true) ?? ''}}
-                            </span>
                         </div>
                         @if ($user->unread)
                             <div class="messenger-user-unread-container">
@@ -26,11 +26,11 @@
                     </a>
                 </li>
                 @if (!$loop->last)
-                    <hr class="mb-3"/>
+                    <hr class="mb-3" />
                 @endif
             @empty
                 <div>
-                    <span>{{__('table.noUsersFound')}}</span>
+                    <span>{{ __('table.noUsersFound') }}</span>
                 </div>
             @endforelse
         </ul>
@@ -47,10 +47,12 @@
             text-decoration: none;
             width: 100%;
         }
+
         .messenger-information-container {
             flex: 1;
             min-width: 0;
         }
+
         .last-message {
             display: inline-block;
             width: 100%;
@@ -58,14 +60,17 @@
             text-overflow: ellipsis;
             white-space: nowrap;
         }
+
         .axil-single-widget {
             border: 0px;
             padding: 0px;
         }
+
         .messenger-user-last-message-container {
             display: flex;
             width: 100%;
         }
+
         .messenger-user-last-message {
             padding: 0;
             margin: 0;
@@ -76,6 +81,7 @@
             overflow: hidden;
             text-overflow: ellipsis;
         }
+
         .messenger-user-unread-container {
             display: flex;
             width: 19px;
@@ -83,6 +89,7 @@
             margin-left: 11px;
             align-items: center;
         }
+
         .messenger-user-unread {
             width: 19px;
             height: 19px;

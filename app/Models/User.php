@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\UserTypes;
 use Carbon\Carbon;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -75,7 +76,7 @@ class User extends Authenticatable
     public static $rules = [
         'name' => 'required',
         'email' => 'required|email:rfc',
-//        'password' => 'required',
+        //        'password' => 'required',
         'phone_number' => 'nullable|numeric',
     ];
 
@@ -113,5 +114,10 @@ class User extends Authenticatable
     public function adminOrders()
     {
         return $this->hasMany(Order::class, 'admin_id', 'id');
+    }
+
+    public function isAdmin(): bool
+    {
+        return $this->type === UserTypes::ADMIN->value;
     }
 }

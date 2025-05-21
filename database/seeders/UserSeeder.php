@@ -2,10 +2,12 @@
 
 namespace Database\Seeders;
 
+use App\Enums\UserTypes;
 use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
-use DB;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+
 class UserSeeder extends Seeder
 {
     /**
@@ -16,11 +18,12 @@ class UserSeeder extends Seeder
     public function run()
     {
         $faker = Faker::create();
+
         DB::table('users')->insert([
             'name' => $faker->name,
             'email' => md5($faker->email),
             'password' => Hash::make($faker->password),
-            'type' => 1,
+            'type' => UserTypes::ADMIN->value,
         ]);
         DB::table('users')->insert([
             'name' => 'igor',
@@ -31,24 +34,19 @@ class UserSeeder extends Seeder
             "post_index" => "LT 02178",
             'city' => "Vilnius",
             'phone_number' => "37012345678",
-            'type' => 1,
+            'type' => UserTypes::ADMIN->value,
         ]);
         DB::table('users')->insert([
-            'name' => 'pavel',
-            'email' => 'pavel@navi.agency',
-            'password' => Hash::make('8RhNUNun2SqdMaF'),
+            'name' => 'User',
+            'email' => 'user@lordvisuals.lt',
+            'password' => Hash::make('password'),
+            'type' => UserTypes::REGISTERED_USER->value,
         ]);
         DB::table('users')->insert([
-            'name' => 'karolis',
-            'email' => 'karolis@viko.lt',
-            'password' => Hash::make('admin'),
-            'type' => 1,
-        ]);
-        DB::table('users')->insert([
-            'name' => 'andrej',
-            'email' => 'andtaress2@gmail.com',
-            'password' => Hash::make('caveman123'),
-            'type' => 1,
+            'name' => 'Admin',
+            'email' => 'admin@lordvisuals.lt',
+            'password' => Hash::make('password'),
+            'type' => UserTypes::ADMIN->value,
         ]);
     }
 }

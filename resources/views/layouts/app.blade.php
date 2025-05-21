@@ -10,13 +10,13 @@
     <!-- Title -->
     <title>
         @hasSection('title')
-        @yield('title') - {{ config('app.name', 'LORD-UK') }}
+            @yield('title') - {{ config('app.name', 'LORD-UK') }}
         @else
-        {{ config('app.name', 'LORD-UK') }}
+            {{ config('app.name', 'LORD-UK') }}
         @endif
     </title>
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/CM_logo.png') }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/LordUK_logo.jpg') }}">
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -25,19 +25,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     <!-- Styles -->
+    @if (auth()->check() && auth()->user()->type == 1)
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
+    @endif
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/jquery-ui.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('datatables/media/css/jquery.dataTables.min.css') }}" rel="stylesheet">
     <link href="{{ asset('vendor/cookie-consent/css/cookie-consent.css') }}" rel="stylesheet" type="text/css">
     <!-- <link href="{{ asset('template/css/vendor/bootstrap.min.css') }}" rel="stylesheet"> -->
-    <link href="{{ asset('template/css/vendor/font-awesome.css') }}" rel="stylesheet">
-    <link href="{{ asset('template/css/vendor/flaticon/flaticon.css') }}" rel="stylesheet">
-    <link href="{{ asset('template/css/vendor/slick.css') }}" rel="stylesheet">
-    <link href="{{ asset('template/css/vendor/slick-theme.css') }}" rel="stylesheet">
-    <link href="{{ asset('template/css/vendor/sal.css') }}" rel="stylesheet">
-    <link href="{{ asset('template/css/vendor/magnific-popup.css') }}" rel="stylesheet">
-    <link href="{{ asset('template/css/vendor/base.css') }}" rel="stylesheet">
     <link href="{{ asset('template/css/style.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
@@ -46,54 +42,40 @@
     <link rel="stylesheet" href="{{ asset('template/css/ionicons.min.css') }}" />
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css"> -->
     <!-- <link rel="stylesheet" href="{{ asset('vendor/adminlte/dist/css/adminlte.min.css') }}"> -->
-    @if (auth()->check() && auth()->user()->type == 1)
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
-    @endif
-
     @stack('css')
     @livewireStyles
 </head>
 
 <body class="sidebar-mini layout-fixed layout-navbar-fixed">
     @if (auth()->check() && auth()->user()->type == 1)
-    <div>
-        <div class="wrapper">
-            @include('layouts.components.admin_header')
-            <main class="content-wrapper px-4 py-2">
-                @yield('content')
-            </main>
+        <div>
+            <div class="wrapper">
+                @include('layouts.components.admin_header')
+                <main class="content-wrapper px-4 py-2">
+                    @yield('content')
+                </main>
+            </div>
         </div>
-    </div>
-    
     @else
-    @include('layouts.components.back_to_top')
-    @include('layouts.components.header')
-    <main class="main-wrapper">
-        @include('layouts.components.page_banner')
-        @yield('content')
-    </main>
-    @include('layouts.components.footer')
+        @include('layouts.components.back_to_top')
+        @include('layouts.components.header')
+        <main class="main-wrapper">
+            @include('layouts.components.page_banner')
+            @yield('content')
+        </main>
+        @include('layouts.components.footer')
     @endif
 
     <script src="{{ asset('js/jquery-3.6.0.min.js') }}"></script>
     <script src="{{ asset('js/jquery-ui.js') }}"></script>
     <script src="{{ asset('js/bootstrap.bundle.js') }}"></script>
     <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('template/js/vendor/modernizr.min.js') }}"></script>
+    <script src="{{ asset('template/js/vendor/modernizr-3.7.1.min.js') }}"></script>
+    <script src="{{ asset('template/js/popper.min.js') }}"></script>
+    {{-- <script src="{{ asset('template/js/plugins.min.js') }}"></script> --}}
     <!-- <script src="{{ asset('template/js/vendor/jquery.js') }}"></script> -->
-    <script src="{{ asset('template/js/vendor/popper.min.js') }}"></script>
     <!-- <script src="{{ asset('template/js/vendor/bootstrap.min.js') }}"></script> -->
-    <script src="{{ asset('template/js/vendor/slick.min.js') }}"></script>
-    <script src="{{ asset('template/js/vendor/js.cookie.js') }}"></script>
     <!-- <script src="template/js/vendor/jquery.style.switcher.js"></script> -->
-    <script src="{{ asset('template/js/vendor/jquery.ui.touch-punch.min.js') }}"></script>
-    <script src="{{ asset('template/js/vendor/jquery.countdown.min.js') }}"></script>
-    <script src="{{ asset('template/js/vendor/sal.js') }}"></script>
-    <script src="{{ asset('template/js/vendor/jquery.magnific-popup.min.js') }}"></script>
-    <script src="{{ asset('template/js/vendor/imagesloaded.pkgd.min.js') }}"></script>
-    <script src="{{ asset('template/js/vendor/isotope.pkgd.min.js') }}"></script>
-    <script src="{{ asset('template/js/vendor/counterup.js') }}"></script>
-    <script src="{{ asset('template/js/vendor/waypoints.min.js') }}"></script>
     <script src="{{ asset('template/js/main.js') }}"></script>
     <script src="{{ asset('js/custom.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.5.1/nouislider.min.js"></script>
