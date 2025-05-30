@@ -2,6 +2,7 @@
 
 namespace App\Events;
 
+use App\Models\Company;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;
@@ -18,7 +19,7 @@ class OrderCreated
     public float $orderSum;
     public string $customerName;
     public string $customerEmail;
-    public object $customerCompany;
+    public array|Company $customerCompany;
     public object $orderItems;
 
     /**

@@ -24,7 +24,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        if (!env('APP_DEBUG')) {
+        if (env('APP_ENV') == 'production') {
             //Change public path to htdocs
             $this->app->bind('path.public', fn() => base_path('htdocs'));
         }
@@ -39,7 +39,7 @@ class AppServiceProvider extends ServiceProvider
     {
         User::observe(UserObserver::class);
 
-        if (!env('APP_DEBUG')) {
+        if (env('APP_ENV') == 'production') {
             //Force app to use https
             URL::forceScheme('https');
         }

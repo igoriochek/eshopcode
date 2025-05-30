@@ -47,13 +47,13 @@
                                             </td>
                                             <td class="text-end align-top">
                                                 <span
-                                                    class="amount text-muted">€{{ $item->price_current * $item->count }}</span>
+                                                    class="amount text-muted">€{{ number_format($item->price_current * $item->count, 2) }}</span>
                                             </td>
                                         </tr>
                                     @endforeach
                                     <tr class="cart-subtotal border-bottom">
                                         <td>
-                                            <strong class="text-dark">{{ __('Subtotal') }}</strong>
+                                            <strong class="text-dark">{{ __('names.subtotal') }}</strong>
                                         </td>
                                         <td class="border-top-0 text-end">
                                             <strong>
@@ -74,7 +74,8 @@
                                                 <td class="text-dark">{{ $item->code }} - {{ $item->value }}%
                                                     {{ __('names.off') }}</td>
                                                 {{--                                                <td colspan="3" style="text-align: right">-€{{ $amount * ($item->value / 100) }}</td> --}}
-                                                <td colspan="3" style="text-align: right">-€{{ $item->value }}</td>
+                                                <td colspan="3" style="text-align: right">
+                                                    -€{{ number_format($item->value, 2) }}</td>
                                             </tr>
                                         @endforeach
                                     @endif
@@ -103,7 +104,7 @@
                                                             {{ __('forms.title') }}:
                                                         </span>
                                                         <span>
-                                                            {{ auth()->user()->company->title ?? '' }}
+                                                            {{ $company->title ?? '' }}
                                                         </span>
                                                     </div>
                                                     <div class="col-12 mt-1">
@@ -111,7 +112,7 @@
                                                             {{ __('footer.companycode') }}:
                                                         </span>
                                                         <span>
-                                                            {{ auth()->user()->company->code ?? '' }}
+                                                            {{ $company->code ?? '' }}
                                                         </span>
                                                     </div>
                                                     <div class="col-12 mt-1">
@@ -119,7 +120,7 @@
                                                             {{ __('footer.vatcode') }}:
                                                         </span>
                                                         <span>
-                                                            {{ auth()->user()->company->vat ?? '' }}
+                                                            {{ $company->vat ?? '' }}
                                                         </span>
                                                     </div>
                                                     <div class="col-12 mt-1">
@@ -127,7 +128,7 @@
                                                             {{ __('footer.address') }}:
                                                         </span>
                                                         <span>
-                                                            {{ auth()->user()->company->address ?? '' }}
+                                                            {{ $company->address ?? '' }}
                                                         </span>
                                                     </div>
                                                 </div>

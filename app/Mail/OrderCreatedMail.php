@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\Models\Company;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -14,7 +15,7 @@ class OrderCreatedMail extends Mailable
     private int $orderId;
     private float $orderSum;
     private string $customerName;
-    private object $customerCompany;
+    private array|Company $customerCompany;
     private object $orderItems;
 
     /**

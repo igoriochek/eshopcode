@@ -347,6 +347,7 @@ class OrderController extends AppBaseController
             ];
             Company::where('user_id', $user->id)->update($companyInput);
         }
+        $company = Company::where('user_id', $user->id)->first();
 
         if (
             isset($validated['discount']) &&
@@ -386,7 +387,8 @@ class OrderController extends AppBaseController
                 'cartItems' => $cartItems,
                 'discounts' => $discounts ?? [],
                 'amount' => $amount,
-                'companyPurchase' => $cart->company_purchase
+                'companyPurchase' => $cart->company_purchase,
+                'company' => $company
             ]);
     }
 

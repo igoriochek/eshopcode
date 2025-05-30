@@ -217,7 +217,7 @@ class PayController extends AppBaseController
                         $newOrder->sum,
                         $user->name,
                         $user->email,
-                        $cart->company_purchase ? $user->company : collect(),
+                        $cart->company_purchase ? $user->company : [],
                         $cartItems
                     ));
 
