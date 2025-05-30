@@ -87,7 +87,7 @@ class OrderController extends AppBaseController
 
         // Get or create a cart for the user
         $cart = $this->cartRepository->getOrSetCart($request);
-    
+
         // Add the cart_id to the input
         $input['cart_id'] = $cart->id;
 
@@ -408,10 +408,12 @@ class OrderController extends AppBaseController
 
         if ($user->id != $order->user_id) $user = User::query()->where(['id' => $order->user_id])->first();
 
-        return PDF::loadView(
+        $pdf = PDF::loadView(
             'user_views.orders.invoice',
             ['order' => $order, 'orderItems' => $orderItems]
-        )->stream('invoice.pdf');
+        );
+
+        return $pdf->stream('invoice.pdf');
     }
 
     public function invoicePreview($id)

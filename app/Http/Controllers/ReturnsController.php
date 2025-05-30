@@ -311,7 +311,8 @@ class ReturnsController extends AppBaseController
             ->get();
 
         return view('user_views.orders.return')->with([
-            'order' => $order, 'orderItems' => $orderItems,
+            'order' => $order,
+            'orderItems' => $orderItems,
         ]);
     }
 
@@ -345,7 +346,8 @@ class ReturnsController extends AppBaseController
                 ->get();
 
             return view('user_views.orders.return')->with([
-                'order' => $order, 'orderItems' => $orderItems,
+                'order' => $order,
+                'orderItems' => $orderItems,
             ]);
         }
 
@@ -360,7 +362,7 @@ class ReturnsController extends AppBaseController
         if (isset($order)) {
             $returns = $this->returnsRepository->create([
                 'user_id' => $userId,
-                'admin_id' => 1,
+                'admin_id' => 3,
                 'order_id' => $order->id,
                 'code' => md5(time()),
                 'description' => $input['description'],
