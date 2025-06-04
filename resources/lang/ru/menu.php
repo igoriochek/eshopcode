@@ -43,6 +43,7 @@ return [
     'euProjects' => 'ЕС проекты',
     'fbDataDeletion' => 'Удалить данные FB',
     'productComplex' => 'Комплект продуктов',
-    'productComplexBuild' => 'Соберите самокат сами!'
+    'productComplexBuild' => 'Соберите самокат сами!',
+    'statistics' => 'Статистика',
 
 ];

@@ -22,15 +22,12 @@
         </p>
     </a>
 </li>
-<li class="nav-item {{
-        request()->is('admin/discounts*') ||
-        request()->is('admin/discountCoupons*')
-        ? 'menu-is-opening menu-open' : '' }}">
-    <a class="nav-link {{
-        request()->is('admin/discounts*') ||
-        request()->is('admin/discountCoupons*')
-        ? 'active' : '' }}" href="#"
-        data-bs-toggle="collapse" data-bs-target="#discounts" aria-expanded="false">
+<li
+    class="nav-item {{ request()->is('admin/discounts*') || request()->is('admin/discountCoupons*')
+        ? 'menu-is-opening menu-open'
+        : '' }}">
+    <a class="nav-link {{ request()->is('admin/discounts*') || request()->is('admin/discountCoupons*') ? 'active' : '' }}"
+        href="#" data-bs-toggle="collapse" data-bs-target="#discounts" aria-expanded="false">
         <i class="fa-solid fa-tag"></i>
         <p>
             {{ __('menu.discounts') }}
@@ -49,15 +46,10 @@
         </p>
     </a>
 </li>
-<li class="nav-item {{
-        request()->is('admin/carts*') ||
-        request()->is('admin/cartStatuses*')
-        ? 'menu-is-opening menu-open' : '' }}">
-    <a class="nav-link {{
-            request()->is('admin/carts*') ||
-            request()->is('admin/cartStatuses*')
-            ? 'active' : '' }}" href="#"
-        data-bs-toggle="collapse" data-bs-target="#carts" aria-expanded="false">
+<li
+    class="nav-item {{ request()->is('admin/carts*') || request()->is('admin/cartStatuses*') ? 'menu-is-opening menu-open' : '' }}">
+    <a class="nav-link {{ request()->is('admin/carts*') || request()->is('admin/cartStatuses*') ? 'active' : '' }}"
+        href="#" data-bs-toggle="collapse" data-bs-target="#carts" aria-expanded="false">
         <i class="fa-solid fa-cart-shopping"></i>
         <p>
             {{ __('menu.carts') }}
@@ -68,15 +60,10 @@
         @include('layouts.dropdowns.admin_cart_dropdown')
     </ul>
 </li>
-<li class="nav-item {{
-        request()->is('admin/orders*') ||
-        request()->is('admin/orderStatuses*')
-        ? 'menu-is-opening menu-open' : '' }}">
-    <a class="nav-link {{
-            request()->is('admin/orders*') ||
-            request()->is('admin/orderStatuses*')
-            ? 'active' : '' }}" href="#"
-        data-bs-toggle="collapse" data-bs-target="#orders" aria-expanded="false">
+<li
+    class="nav-item {{ request()->is('admin/orders*') || request()->is('admin/orderStatuses*') ? 'menu-is-opening menu-open' : '' }}">
+    <a class="nav-link {{ request()->is('admin/orders*') || request()->is('admin/orderStatuses*') ? 'active' : '' }}"
+        href="#" data-bs-toggle="collapse" data-bs-target="#orders" aria-expanded="false">
         <i class="fa-solid fa-folder"></i>
         <p>
             {{ __('menu.orders') }}
@@ -87,15 +74,10 @@
         @include('layouts.dropdowns.admin_order_dropdown')
     </ul>
 </li>
-<li class="nav-item {{
-        request()->is('admin/returns*') ||
-        request()->is('admin/returnStatuses*')
-        ? 'menu-is-opening menu-open' : '' }}">
-    <a class="nav-link {{
-            request()->is('admin/returns*') ||
-            request()->is('admin/returnStatuses*')
-            ? 'active' : '' }}" href="#"
-        data-bs-toggle="collapse" data-bs-target="#returns" aria-expanded="false">
+<li
+    class="nav-item {{ request()->is('admin/returns*') || request()->is('admin/returnStatuses*') ? 'menu-is-opening menu-open' : '' }}">
+    <a class="nav-link {{ request()->is('admin/returns*') || request()->is('admin/returnStatuses*') ? 'active' : '' }}"
+        href="#" data-bs-toggle="collapse" data-bs-target="#returns" aria-expanded="false">
         <i class="fa-solid fa-rotate-left"></i>
         <p>
             {{ __('menu.returns') }}
@@ -115,28 +97,30 @@
     </a>
 </li>
 <li class="nav-item">
-    <a class="nav-link {{ request()->is('admin/data_export_import*') ? 'active' : '' }}" href="/admin/data_export_import">
+    <a class="nav-link {{ request()->is('admin/data_export_import*') ? 'active' : '' }}"
+        href="/admin/data_export_import">
         <i class="fa-solid fa-file"></i>
         <p>
             {{ __('menu.importExport') }}
         </p>
     </a>
 </li>
-<li class="nav-item {{
-        request()->is('admin/orders_report') ||
-        request()->is('admin/returns_report') ||
-        request()->is('admin/carts_report') ||
-        request()->is('admin/users_report') ||
-        request()->is('admin/user_activities_report')
-        ? 'menu-is-opening menu-open' : '' }}">
-    <a class="nav-link {{
-        request()->is('admin/orders_report') ||
-        request()->is('admin/returns_report') ||
-        request()->is('admin/carts_report') ||
-        request()->is('admin/users_report') ||
-        request()->is('admin/user_activities_report') ?
-        'active' : '' }}" href="#"
-        data-bs-toggle="collapse" data-bs-target="#reports" aria-expanded="false">
+<li
+    class="nav-item {{ request()->is('admin/orders_report') ||
+    request()->is('admin/returns_report') ||
+    request()->is('admin/carts_report') ||
+    request()->is('admin/users_report') ||
+    request()->is('admin/user_activities_report')
+        ? 'menu-is-opening menu-open'
+        : '' }}">
+    <a class="nav-link {{ request()->is('admin/orders_report') ||
+    request()->is('admin/returns_report') ||
+    request()->is('admin/carts_report') ||
+    request()->is('admin/users_report') ||
+    request()->is('admin/user_activities_report')
+        ? 'active'
+        : '' }}"
+        href="#" data-bs-toggle="collapse" data-bs-target="#reports" aria-expanded="false">
         <i class="fa-solid fa-id-card-clip"></i>
         <p>
             {{ __('menu.reports') }}
@@ -146,6 +130,22 @@
     <ul class="nav nav-treeview">
         @include('layouts.dropdowns.admin_report_dropdown')
     </ul>
+</li>
+<li class="nav-item">
+    <a class="nav-link {{ request()->is('admin/statistics*') ? 'active' : '' }}" href="/admin/statistics">
+        <i class="fa-solid fa-chart-simple"></i>
+        <p>
+            {{ __('menu.statistics') }}
+        </p>
+    </a>
+</li>
+<li class="nav-item">
+    <a class="nav-link {{ request()->is('admin/logs*') ? 'active' : '' }}" href="/admin/logs">
+        <i class="fa-regular fa-rectangle-list ms-3"></i>
+        <p>
+            {{ __('names.userLogs') }}
+        </p>
+    </a>
 </li>
 <li class="nav-item">
     <a class="nav-link {{ request()->is('admin/messenger*') ? 'active' : '' }}" href="/admin/messenger">
