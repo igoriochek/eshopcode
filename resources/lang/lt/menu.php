@@ -47,4 +47,6 @@ return [
     'productComplex' => 'Produkto komplektas',
     'productComplexBuild' => 'Susikomplektuokite patiekalą patys!',
     'myMenu' => 'Mano meniu',
+    'statistics' => 'Statistika',
+
 ];

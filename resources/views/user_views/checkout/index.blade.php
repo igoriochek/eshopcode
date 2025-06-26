@@ -73,10 +73,10 @@
                                             </span>
                                             <div class="inner-price">
                                                 @if ($item['product']->discount)
+                                                    {{-- <span
+                                                        class="new-price">€{{ $item['product']->price - round(($item['product']->price * $item['product']->discount->proc) / 100, 2) }}</span> --}}
                                                     <span
-                                                        class="new-price">€{{ $item['product']->price - round(($item['product']->price * $item['product']->discount->proc) / 100, 2) }}</span>
-                                                    <span
-                                                        class="old-price">€{{ number_format($item['product']->price, 2) }}</span>
+                                                        class="new-price">€{{ number_format($item['product']->price, 2) }}</span>
                                                 @else
                                                     <span
                                                         class="new-price">€{{ number_format($item['product']->price, 2) }}</span>

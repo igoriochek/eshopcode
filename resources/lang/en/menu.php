@@ -45,4 +45,6 @@ return [
     'productComplex' => 'Product Complex',
     'productComplexBuild' => 'Build dish yourself!',
     'myMenu' => 'My Menu',
+    'statistics' => 'Statistics',
+
 ];

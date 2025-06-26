@@ -46,4 +46,6 @@ return [
     'productComplex' => 'Комплект продуктов',
     'productComplexBuild' => 'Соберите блюдо сами!',
     'myMenu' => 'Мое меню',
+    'statistics' => 'Статистика',
+
 ];
