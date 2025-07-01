@@ -75,14 +75,14 @@ class User extends Authenticatable
     public static $rules = [
         'name' => 'required',
         'email' => 'required|email:rfc',
-//        'password' => 'required',
-        'phone_number' => 'nullable|numeric|digits:11',
+        //        'password' => 'required',
+        'phone_number' => 'nullable|numeric',
     ];
 
     public static $updateInfoRules = [
         'name' => 'required',
         'email' => 'required|email:rfc',
-        'phone_number' => 'nullable|numeric|digits:11',
+        'phone_number' => 'nullable|numeric',
     ];
 
     /**

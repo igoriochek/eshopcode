@@ -36,6 +36,10 @@
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.5.1/nouislider.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ asset('vendor/cookie-consent/css/cookie-consent.css') }}">
+
+    <!-- RECaptcha -->
+    {!! ReCaptcha::htmlScriptTagJsApi() !!}
+
     @stack('css')
     @livewireStyles
 </head>

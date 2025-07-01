@@ -174,6 +174,7 @@ return [
         Laravel\Socialite\SocialiteServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
+        Biscolab\ReCaptcha\ReCaptchaServiceProvider::class,
         //If you get an error Class "Meneses\LaravelMpdf\LaravelMpdfServiceProvider" not found
         //Change this line into Mccarlosen\LaravelMpdf\LaravelMpdfServiceProvider::class
         /*
@@ -246,6 +247,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'PDF' => Barryvdh\DomPDF\Facade::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+        'ReCaptcha' => Biscolab\ReCaptcha\Facades\ReCaptcha::class,
 
         'Form'      => 'Illuminate\Html\FormFacade',
         'Html'      => 'Illuminate\Html\HtmlFacade',

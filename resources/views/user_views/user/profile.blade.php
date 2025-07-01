@@ -4,7 +4,7 @@
     @include('page_header', [
         'secondPageLink' => 'userprofile',
         'secondPageName' => __('menu.profile'),
-        'hasThirdPage' => false
+        'hasThirdPage' => false,
     ])
     <div class="container py-5">
         <div class="page-content pt-20 pb-20">
@@ -17,18 +17,18 @@
                                     <ul class="nav flex-column" role="tablist">
                                         <li class="nav-item">
                                             <a class="nav-link d-flex active" id="account-detail-tab" data-bs-toggle="tab"
-                                               href="#account-detail" role="tab" aria-controls="account-detail"
-                                               aria-selected="true">
+                                                href="#account-detail" role="tab" aria-controls="account-detail"
+                                                aria-selected="true">
                                                 <i class="fi-rs-user mr-10"></i>
-                                                {{__('forms.profileSettings')}}
+                                                {{ __('forms.profileSettings') }}
                                             </a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link d-flex" id="password-settings-tab" data-bs-toggle="tab"
-                                               href="#password-settings" role="tab" aria-controls="password-settings"
-                                               aria-selected="false">
+                                                href="#password-settings" role="tab" aria-controls="password-settings"
+                                                aria-selected="false">
                                                 <i class="fi-rs-settings-sliders mr-10"></i>
-                                                {{__('forms.passwordSettings')}}
+                                                {{ __('forms.passwordSettings') }}
                                             </a>
                                         </li>
                                     </ul>
@@ -38,10 +38,11 @@
                                 @include('adminlte-templates::common.errors')
                                 @include('flash::message')
                                 <div class="tab-content account dashboard-content mt-4 mt-md-0 ps-0 ps-md-3">
-                                    <div class="tab-pane fade active show" id="account-detail" role="tabpanel" aria-labelledby="account-detail-tab">
+                                    <div class="tab-pane fade active show" id="account-detail" role="tabpanel"
+                                        aria-labelledby="account-detail-tab">
                                         <div class="card">
                                             <div class="card-header">
-                                                <h5>{{__('forms.editProfile')}}</h5>
+                                                <h5>{{ __('forms.editProfile') }}</h5>
                                             </div>
                                             <div class="divider-2 mt-10 mb-10"></div>
                                             <div class="card-body">
@@ -49,7 +50,7 @@
                                                 <form method="post" name="enq">
                                                     <div class="row">
                                                         <div class="form-group col-md-6">
-                                                            {!! Form::label('code', __('forms.name') )!!}
+                                                            {!! Form::label('code', __('forms.name')) !!}
                                                             {!! Form::text('name', $user->name, ['class' => 'form-control']) !!}
                                                         </div>
                                                         <div class="form-group col-md-6">
@@ -85,10 +86,11 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="tab-pane fade" id="password-settings" role="tabpanel" aria-labelledby="password-settings-tab">
+                                    <div class="tab-pane fade" id="password-settings" role="tabpanel"
+                                        aria-labelledby="password-settings-tab">
                                         <div class="card">
                                             <div class="card-header">
-                                                <h5>{{__('forms.editPassword')}}</h5>
+                                                <h5>{{ __('forms.editPassword') }}</h5>
                                             </div>
                                             <div class="divider-2 mt-10 mb-10"></div>
                                             <div class="card-body">
@@ -96,15 +98,15 @@
                                                 <form method="post" name="enq">
                                                     <div class="row">
                                                         <div class="form-group col-md-12">
-                                                            <label>{{__('forms.current_password')}}</label>
+                                                            <label>{{ __('forms.current_password') }}</label>
                                                             {!! Form::password('current_password', ['class' => 'form-control']) !!}
                                                         </div>
                                                         <div class="form-group col-md-6">
-                                                            <label>{{__('forms.new_password')}}</label>
+                                                            <label>{{ __('forms.new_password') }}</label>
                                                             {!! Form::password('new_password', ['class' => 'form-control']) !!}
                                                         </div>
                                                         <div class="form-group col-md-6">
-                                                            <label>{{__('forms.confirm_password')}}</label>
+                                                            <label>{{ __('forms.confirm_password') }}</label>
                                                             {!! Form::password('new_password_confirmation', ['class' => 'form-control']) !!}
                                                         </div>
                                                         <div class="d-flex justify-content-center w-100">

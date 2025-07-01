@@ -84,63 +84,63 @@ Route::group(array('prefix' => 'admin', 'middleware' => 'admin'), function () {
     // Logs
     Route::get('logs', [CustomerController::class, 'logs'])->name('customers.logs');
 
-//    Route::prefix('orders_report')->name('orders_report.')->group(function () {
-        Route::prefix('orders_report')->name('orders_report.')->group(function () {
-            Route::get('', [OrdersReportController::class, 'index'])->name('index');
-            Route::get('email', [OrdersReportController::class, 'sendEmail'])->name('email');
-            Route::get('download_pdf', [OrdersReportController::class, 'downloadPdf'])->name('download_pdf');
-            Route::get('download_csv', [OrdersReportController::class, 'downloadCsv'])->name('download_csv');
-        });
-        Route::prefix('returns_report')->name('returns_report.')->group(function () {
-            Route::get('', [ReturnsReportController::class, 'index'])->name('index');
-            Route::get('email', [ReturnsReportController::class, 'sendEmail'])->name('email');
-            Route::get('download_pdf', [ReturnsReportController::class, 'downloadPdf'])->name('download_pdf');
-            Route::get('download_csv', [ReturnsReportController::class, 'downloadCsv'])->name('download_csv');
-        });
-        Route::prefix('carts_report')->name('carts_report.')->group(function () {
-            Route::get('', [CartsReportController::class, 'index'])->name('index');
-            Route::get('email', [CartsReportController::class, 'sendEmail'])->name('email');
-            Route::get('download_pdf', [CartsReportController::class, 'downloadPdf'])->name('download_pdf');
-            Route::get('download_csv', [CartsReportController::class, 'downloadCsv'])->name('download_csv');
-        });
-        Route::prefix('users_report')->name('users_report.')->group(function () {
-            Route::get('', [UsersReportController::class, 'index'])->name('index');
-            Route::get('email', [UsersReportController::class, 'sendEmail'])->name('email');
-            Route::get('download_pdf', [UsersReportController::class, 'downloadPdf'])->name('download_pdf');
-            Route::get('download_csv', [UsersReportController::class, 'downloadCsv'])->name('download_csv');
-        });
-        Route::prefix('user_activities_report')->name('user_activities_report.')->group(function () {
-            Route::get('', [UserActivitiesReportController::class, 'index'])->name('index');
-            Route::get('email', [UserActivitiesReportController::class, 'sendEmail'])->name('email');
-            Route::get('download_pdf', [UserActivitiesReportController::class, 'downloadPdf'])->name('download_pdf');
-            Route::get('download_csv', [UserActivitiesReportController::class, 'downloadCsv'])->name('download_csv');
-        });
-//});
-    Route::prefix('orders_report')->name('orders_report.')->group( function () {
+    //    Route::prefix('orders_report')->name('orders_report.')->group(function () {
+    Route::prefix('orders_report')->name('orders_report.')->group(function () {
         Route::get('', [OrdersReportController::class, 'index'])->name('index');
         Route::get('email', [OrdersReportController::class, 'sendEmail'])->name('email');
         Route::get('download_pdf', [OrdersReportController::class, 'downloadPdf'])->name('download_pdf');
         Route::get('download_csv', [OrdersReportController::class, 'downloadCsv'])->name('download_csv');
     });
-    Route::prefix('returns_report')->name('returns_report.')->group( function () {
+    Route::prefix('returns_report')->name('returns_report.')->group(function () {
         Route::get('', [ReturnsReportController::class, 'index'])->name('index');
         Route::get('email', [ReturnsReportController::class, 'sendEmail'])->name('email');
         Route::get('download_pdf', [ReturnsReportController::class, 'downloadPdf'])->name('download_pdf');
         Route::get('download_csv', [ReturnsReportController::class, 'downloadCsv'])->name('download_csv');
     });
-    Route::prefix('carts_report')->name('carts_report.')->group( function () {
+    Route::prefix('carts_report')->name('carts_report.')->group(function () {
         Route::get('', [CartsReportController::class, 'index'])->name('index');
         Route::get('email', [CartsReportController::class, 'sendEmail'])->name('email');
         Route::get('download_pdf', [CartsReportController::class, 'downloadPdf'])->name('download_pdf');
         Route::get('download_csv', [CartsReportController::class, 'downloadCsv'])->name('download_csv');
     });
-    Route::prefix('users_report')->name('users_report.')->group( function () {
+    Route::prefix('users_report')->name('users_report.')->group(function () {
         Route::get('', [UsersReportController::class, 'index'])->name('index');
         Route::get('email', [UsersReportController::class, 'sendEmail'])->name('email');
         Route::get('download_pdf', [UsersReportController::class, 'downloadPdf'])->name('download_pdf');
         Route::get('download_csv', [UsersReportController::class, 'downloadCsv'])->name('download_csv');
     });
-    Route::prefix('user_activities_report')->name('user_activities_report.')->group( function () {
+    Route::prefix('user_activities_report')->name('user_activities_report.')->group(function () {
+        Route::get('', [UserActivitiesReportController::class, 'index'])->name('index');
+        Route::get('email', [UserActivitiesReportController::class, 'sendEmail'])->name('email');
+        Route::get('download_pdf', [UserActivitiesReportController::class, 'downloadPdf'])->name('download_pdf');
+        Route::get('download_csv', [UserActivitiesReportController::class, 'downloadCsv'])->name('download_csv');
+    });
+    //});
+    Route::prefix('orders_report')->name('orders_report.')->group(function () {
+        Route::get('', [OrdersReportController::class, 'index'])->name('index');
+        Route::get('email', [OrdersReportController::class, 'sendEmail'])->name('email');
+        Route::get('download_pdf', [OrdersReportController::class, 'downloadPdf'])->name('download_pdf');
+        Route::get('download_csv', [OrdersReportController::class, 'downloadCsv'])->name('download_csv');
+    });
+    Route::prefix('returns_report')->name('returns_report.')->group(function () {
+        Route::get('', [ReturnsReportController::class, 'index'])->name('index');
+        Route::get('email', [ReturnsReportController::class, 'sendEmail'])->name('email');
+        Route::get('download_pdf', [ReturnsReportController::class, 'downloadPdf'])->name('download_pdf');
+        Route::get('download_csv', [ReturnsReportController::class, 'downloadCsv'])->name('download_csv');
+    });
+    Route::prefix('carts_report')->name('carts_report.')->group(function () {
+        Route::get('', [CartsReportController::class, 'index'])->name('index');
+        Route::get('email', [CartsReportController::class, 'sendEmail'])->name('email');
+        Route::get('download_pdf', [CartsReportController::class, 'downloadPdf'])->name('download_pdf');
+        Route::get('download_csv', [CartsReportController::class, 'downloadCsv'])->name('download_csv');
+    });
+    Route::prefix('users_report')->name('users_report.')->group(function () {
+        Route::get('', [UsersReportController::class, 'index'])->name('index');
+        Route::get('email', [UsersReportController::class, 'sendEmail'])->name('email');
+        Route::get('download_pdf', [UsersReportController::class, 'downloadPdf'])->name('download_pdf');
+        Route::get('download_csv', [UsersReportController::class, 'downloadCsv'])->name('download_csv');
+    });
+    Route::prefix('user_activities_report')->name('user_activities_report.')->group(function () {
         Route::get('', [UserActivitiesReportController::class, 'index'])->name('index');
         Route::get('email', [UserActivitiesReportController::class, 'sendEmail'])->name('email');
         Route::get('download_pdf', [UserActivitiesReportController::class, 'downloadPdf'])->name('download_pdf');
@@ -156,46 +156,46 @@ Route::group(array('prefix' => 'admin', 'middleware' => 'admin'), function () {
     Route::patch('products/{productId}/edit_product_size_price/{sizePriceId}', [ProductSizeController::class, 'editProductSizePrice'])->name('editProductSizePrice');
 });
 
-    Route::group(array('prefix' => 'user', 'middleware' => ['auth', 'cookie-consent']), function () {
-        Route::get('/', function () {
-            return redirect()->route('userhomepage');
-        });
-//        Route::get("homepage", [App\Http\Controllers\HomeController::class, 'userhomepage'])->name('userhomepage');
-        Route::get("rootcategories", [CategoryController::class, 'userRootCategories'])->name('rootcategories');
-        Route::get("innercategories/{category_id}", [CategoryController::class, 'userInnerCategories'])->name('innercategories');
-        Route::get("categorytree", [CategoryController::class, 'userCategoryTree'])->name('categorytree');
-        Route::get("viewcategory", [CategoryController::class, 'userViewCategory'])->name('viewcategory');
-        Route::get("viewproduct/{id}", [ProductController::class, 'userViewProduct'])->where('id', '[0-9]+')->name('viewproduct');
-        Route::post('addtocart', [CartController::class, 'addToCart'])->name('addtocart');
-        //Route::get('viewCarts', [\App\Models\Cart::class, 'viewAllCarts'])->name('viewallcarts');
-        Route::get('viewcart', [CartController::class, 'viewCart'])->name('viewcart');
-        Route::delete('cartItems/destroy/{id}', [\App\Http\Controllers\CartItemController::class, 'userCartItemDestroy'])->where('id', '[0-9]+')->name('userCartItemDestroy');
-        Route::get('products', [ProductController::class, 'userProductIndex'])->name('userproducts');
-//    Route::get('viewOrders', [\App\Models\Order::class, 'viewAllOrders'])->name('viewallorders');
-        Route::get('checkout', [OrderController::class, 'checkout'])->name('checkout');
-        Route::post('checkout/preview', [OrderController::class, 'checkoutPreview'])->name('checkout-preview');
-        Route::post('pay', [PayController::class, 'index'])->name('pay');
-        Route::get('rootorders', [OrderController::class, 'indexOrders'])->name('rootorders');
-        Route::get('rootoreturns', [ReturnsController::class, 'indexReturns'])->name('rootoreturns');
-        Route::get('vieworder/{id}', [OrderController::class, 'viewOrder'])->where('id', '[0-9]+')->name('vieworder');
-        Route::get('download_invoice/{id}', [OrderController::class, 'downloadInvoicePdf'])->where('id', '[0-9]+')->name(('download_invoice'));
-        Route::get('viewreturn/{id}', [ReturnsController::class, 'viewReturn'])->where('id', '[0-9]+')->name('viewreturn');
-        Route::get('cancelnorder/{id}', [\App\Http\Controllers\ReturnsController::class, 'cancelOrder'])->where('id', '[0-9]+')->name('cancelnorder');
-        Route::get('returnorder/{id}', [\App\Http\Controllers\ReturnsController::class, 'returnOrder'])->where('id', '[0-9]+')->name('returnorder');
-        Route::post('returnorder/{id}/save', [\App\Http\Controllers\ReturnsController::class, 'saveReturnOrder'])->where('id', '[0-9]+')->name('savereturnorder');
-        Route::post('savecancelnorder/{id}/save', [\App\Http\Controllers\ReturnsController::class, 'saveCancelOrder'])->where('id', '[0-9]+')->name('savecancelnorder');
-        Route::get('promotions', [\App\Http\Controllers\PromotionController::class, 'indexPromotions'])->name('promotions');
-        Route::get('promotion/{id}', [\App\Http\Controllers\PromotionController::class, 'promotionProducts'])->name('promotion');
-        Route::get('discountCoupons', [\App\Http\Controllers\DiscountCouponController::class, 'discountcouponUser'])->name('discountCoupons');
-        Route::post('addUserRating', [\App\Http\Controllers\RatingsController::class, 'addUserRating'])->name('addUserRating');
-        Route::get('userprofile', [\App\Http\Controllers\UserController::class, 'show'])->name('userprofile');
-        Route::patch('userprofilesave', [\App\Http\Controllers\UserController::class, 'store'])->name('userprofilesave');
-        Route::post('changePassword', [\App\Http\Controllers\UserController::class, 'changePassword'])->name('changePassword');
-        Route::get('messenger', MessengerIndex::class)->name('livewire.messenger.index');
-        Route::get('messenger/add', MessengerAdd::class)->name('livewire.messenger.add');
-        Route::get('messenger/{id}', MessengerShow::class)->name('livewire.messenger.show');
-        Route::post('changeProductPrice/{id}', [ProductController::class, 'changeProductPrice'])->name('changeProductPrice');
+Route::group(array('prefix' => 'user', 'middleware' => ['auth', 'cookie-consent']), function () {
+    Route::get('/', function () {
+        return redirect()->route('userhomepage');
     });
+    //        Route::get("homepage", [App\Http\Controllers\HomeController::class, 'userhomepage'])->name('userhomepage');
+    Route::get("rootcategories", [CategoryController::class, 'userRootCategories'])->name('rootcategories');
+    Route::get("innercategories/{category_id}", [CategoryController::class, 'userInnerCategories'])->name('innercategories');
+    Route::get("categorytree", [CategoryController::class, 'userCategoryTree'])->name('categorytree');
+    Route::get("viewcategory", [CategoryController::class, 'userViewCategory'])->name('viewcategory');
+    Route::get("viewproduct/{id}", [ProductController::class, 'userViewProduct'])->where('id', '[0-9]+')->name('viewproduct');
+    Route::post('addtocart', [CartController::class, 'addToCart'])->name('addtocart');
+    //Route::get('viewCarts', [\App\Models\Cart::class, 'viewAllCarts'])->name('viewallcarts');
+    Route::get('viewcart', [CartController::class, 'viewCart'])->name('viewcart');
+    Route::delete('cartItems/destroy/{id}', [\App\Http\Controllers\CartItemController::class, 'userCartItemDestroy'])->where('id', '[0-9]+')->name('userCartItemDestroy');
+    Route::get('products', [ProductController::class, 'userProductIndex'])->name('userproducts');
+    //    Route::get('viewOrders', [\App\Models\Order::class, 'viewAllOrders'])->name('viewallorders');
+    Route::get('checkout', [OrderController::class, 'checkout'])->name('checkout');
+    Route::post('checkout/preview', [OrderController::class, 'checkoutPreview'])->name('checkout-preview');
+    Route::post('pay', [PayController::class, 'index'])->name('pay');
+    Route::get('rootorders', [OrderController::class, 'indexOrders'])->name('rootorders');
+    Route::get('rootoreturns', [ReturnsController::class, 'indexReturns'])->name('rootoreturns');
+    Route::get('vieworder/{id}', [OrderController::class, 'viewOrder'])->where('id', '[0-9]+')->name('vieworder');
+    Route::get('download_invoice/{id}', [OrderController::class, 'downloadInvoicePdf'])->where('id', '[0-9]+')->name(('download_invoice'));
+    Route::get('viewreturn/{id}', [ReturnsController::class, 'viewReturn'])->where('id', '[0-9]+')->name('viewreturn');
+    Route::get('cancelnorder/{id}', [\App\Http\Controllers\ReturnsController::class, 'cancelOrder'])->where('id', '[0-9]+')->name('cancelnorder');
+    Route::get('returnorder/{id}', [\App\Http\Controllers\ReturnsController::class, 'returnOrder'])->where('id', '[0-9]+')->name('returnorder');
+    Route::post('returnorder/{id}/save', [\App\Http\Controllers\ReturnsController::class, 'saveReturnOrder'])->where('id', '[0-9]+')->name('savereturnorder');
+    Route::post('savecancelnorder/{id}/save', [\App\Http\Controllers\ReturnsController::class, 'saveCancelOrder'])->where('id', '[0-9]+')->name('savecancelnorder');
+    Route::get('promotions', [\App\Http\Controllers\PromotionController::class, 'indexPromotions'])->name('promotions');
+    Route::get('promotion/{id}', [\App\Http\Controllers\PromotionController::class, 'promotionProducts'])->name('promotion');
+    Route::get('discountCoupons', [\App\Http\Controllers\DiscountCouponController::class, 'discountcouponUser'])->name('discountCoupons');
+    Route::post('addUserRating', [\App\Http\Controllers\RatingsController::class, 'addUserRating'])->name('addUserRating');
+    Route::get('userprofile', [\App\Http\Controllers\UserController::class, 'show'])->name('userprofile');
+    Route::patch('userprofilesave', [\App\Http\Controllers\UserController::class, 'store'])->name('userprofilesave');
+    Route::post('changePassword', [\App\Http\Controllers\UserController::class, 'changePassword'])->name('changePassword');
+    Route::get('messenger', MessengerIndex::class)->name('livewire.messenger.index');
+    Route::get('messenger/add', MessengerAdd::class)->name('livewire.messenger.add');
+    Route::get('messenger/{id}', MessengerShow::class)->name('livewire.messenger.show');
+    Route::post('changeProductPrice/{id}', [ProductController::class, 'changeProductPrice'])->name('changeProductPrice');
+});
 
 // Payment
 Route::get('pay/accept/{userId}/{id}', [PayController::class, 'accept'])->where('userId', '[0-9]+')->where('id', '[0-9]+')->name('pay-accept');

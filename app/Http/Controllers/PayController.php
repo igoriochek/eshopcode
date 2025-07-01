@@ -63,7 +63,7 @@ class PayController extends AppBaseController
             return redirect(route('home'));
         }
 
-        if($cartId === null || !is_numeric($cartId)){
+        if ($cartId === null || !is_numeric($cartId)) {
             Flash::error('Error during processing');
 
             Log::error('Cart ID is null or non-numeric:\n'
@@ -90,9 +90,9 @@ class PayController extends AppBaseController
             'amount' => $fullAmount,
             'currency' => 'EUR',
             'country' => 'LT',
-            'accepturl' => $appUrl . '/pay/accept/' . $userId . '/'. $cartId,
-            'cancelurl' => $appUrl . '/pay/cancel/' . $userId . '/'. $cartId,
-            'callbackurl' => $appUrl . '/pay/callback/' . $userId . '/'. $cartId,
+            'accepturl' => $appUrl . '/pay/accept/' . $userId . '/' . $cartId,
+            'cancelurl' => $appUrl . '/pay/cancel/' . $userId . '/' . $cartId,
+            'callbackurl' => $appUrl . '/pay/callback/' . $userId . '/' . $cartId,
         ];
 
         if (true !== env('WEBTOPAY_PROD')) {
@@ -113,16 +113,12 @@ class PayController extends AppBaseController
         Log::info('Received accept callback for id:' . $id . 'and user id:' . $userId);
         $this->setOrder($request, $userId, $id);
 
-        if (Auth::check()) {
-            return view('user_views.pay.accept')
+        return view('user_views.pay.accept')
             ->with([
                 'order' => $this->order,
                 'orderItems' => $this->orderItems,
                 'company' => $this->companyInfo
             ]);
-        } else {
-            return redirect()->route('login');
-        }
     }
 
     public function cancel(Request $request, $userId, $id)
@@ -154,7 +150,8 @@ class PayController extends AppBaseController
         ]);
     }
 
-    private function verify($user, $cart, $params){
+    private function verify($user, $cart, $params)
+    {
         if ($user->id != $cart->user_id) {
             Log::error('User ID and Cart User ID do not match in verification (' . $user->id . '!=' . $cart->user_id . ')');
             return false;
@@ -200,6 +197,9 @@ class PayController extends AppBaseController
             $cart = $this->cartRepository->find($id);
             $user = User::find($userId);
 
+            $cart->status_id = Cart::STATUS_ON;
+            $cart->save();
+
             if ($cart && $user) {
                 if (!$this->verify($user, $cart, $params)) {
                     Log::error('User and cart verification failed:\n'
@@ -235,6 +235,7 @@ class PayController extends AppBaseController
                 $newOrder->isCompanyBuying = $cart->isCompanyBuying;
                 $newOrder->phone_number = $cart->phone_number;
                 $newOrder->sum = $params['amount'] / 100;
+
 
                 if ($newOrder->save()) {
 
@@ -281,11 +282,11 @@ class PayController extends AppBaseController
         }
 
         // Only log error if status is 1 or if for some reason status is not set
-        if ($params['status'] == 1 || !isset($params['status'])) {
+        if (!isset($params['status']) || $params['status'] == 1) {
             Log::error('Set order failed:\n'
-            . 'user_id:' . $userId . '\n'
-            . 'card_id:' . $id . '\n'
-            . 'params:' . json_encode($params) . '\n');
+                . 'user_id:' . $userId . '\n'
+                . 'card_id:' . $id . '\n'
+                . 'params:' . json_encode($params) . '\n');
         } else {
             Log::info('Wrong status received (' . $params['status'] . '). Ignoring error.');
         }

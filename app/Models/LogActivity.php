@@ -13,6 +13,12 @@ class LogActivity extends Model
 
     public $table = 'log_activities';
 
+    protected $fillable = [
+        'user_id',
+        'email',
+        'activity',
+    ];
+
     public function scopeDateFrom(Builder $query, $date_from): Builder
     {
         return $query->where('created_at', '>=', Carbon::parse($date_from));
@@ -25,18 +31,9 @@ class LogActivity extends Model
 
     public function scopeSearch($query, $keywords)
     {
-        return $query->where('activity', 'RLIKE', '[[:<:]]' . addslashes($keywords) . '[[:>:]]');
-        // return $query->where('activity', 'RLIKE', '\\b' . preg_quote($keywords, '/') . '\\b');
+        $escapedKeywords = str_replace(['\\', '%', '_'], ['\\\\', '\\%', '\\_'], $keywords);
+        return $query->where('activity', 'LIKE', '%' . $escapedKeywords . '%');
     }
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'user_id', 'email', 'activity',
-    ];
 
     public function user()
     {
