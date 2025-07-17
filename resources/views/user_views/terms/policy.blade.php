@@ -24,12 +24,12 @@
                                         atidžiai perskaityti šią Privatumo politiką.
                                     </p>
                                     <p class="mb-2">
-                                        Bendrovė yra įsipareigojusi savo veikloje atsakingai ir saugiai tvarkyti Jūsų
-                                        asmens duomenis. Vadovaudamiesi, šiais esminiais principais, mes visada sieksime
-                                        užtikrinti pakankamą Jūsų duomenų apsaugos lygį bei Jūsų teisių apsaugą. Mes
-                                        tvarkome Asmens duomenis, pagal šią Privatumo politiką, vadovaudamiesi taikomais
-                                        teisės aktais, įskaitant Bendrąjį duomenų apsaugos reglamentą (2016/679) (toliau
-                                        – "BDAR") bei taikomus Lietuvos nacionalinius asmens duomenų apsaugos teisės aktus.
+                                        Bendrovė yra įsipareigojusi savo veikloje atsakingai ir saugiai tvarkyti Jūsų asmens
+                                        duomenis. Vadovaudamiesi, šiais esminiais principais, mes visada sieksime užtikrinti
+                                        pakankamą Jūsų duomenų apsaugos lygį bei Jūsų teisių apsaugą. Mes tvarkome Asmens
+                                        duomenis, pagal šią Privatumo politiką, vadovaudamiesi taikomais teisės aktais,
+                                        įskaitant Bendrąjį duomenų apsaugos reglamentą (2016/679) (toliau – "BDAR") bei
+                                        taikomus Lietuvos nacionalinius asmens duomenų apsaugos teisės aktus.
                                     </p>
                                     <div class="accordion-item">
                                         <h2 class="accordion-header" id="headingOne">
@@ -45,7 +45,7 @@
                                                 UAB "Madeiva"<br />
                                                 Įmonės kodas: 303342108<br />
                                                 Adresas: J. Jasinskio g. 10, Vilnius<br />
-                                                Tel. Nr. 370 647 77121<br />
+                                                Tel. Nr. +37064777121<br />
                                                 El. pašto adresas: grasale.kavine@gmail.com<br />
                                             </div>
                                         </div>
@@ -222,38 +222,35 @@
                                                 Mes esame įsipareigoję užtikrinti Jūsų asmens duomenų apsaugą ir suteikti
                                                 visą būtiną informaciją. Jeigu turite klausimų ar pastebėjimų dėl Jūsų
                                                 asmens duomenų tvarkymo, prašome susisiekti su mumis Svetainėje nurodytu el.
-                                                p. adresu.
+                                                p. adresu.<br />
+                                                Ši Privatumo politika galioja nuo jos paskelbimo Svetainėje dienos.
+                                                Privatumo politika nėra laikoma Bendrovės ir Jūsų susitarimu dėl Asmens
+                                                duomenų tvarkymo. Šia Privatumo politika Bendrovė Jus informuoja apie Jūsų
+                                                asmens duomenų tvarkymo principus Bendrovėje. Mes galime bet kada pakeisti
+                                                Privatumo politiką. Privatumo politikos pakeitimai ir (ar) papildymai
+                                                įsigalioja po jų paskelbimo Svetainėje momento. Rekomenduojame reguliariai
+                                                peržiūrėti mūsų Privatumo politiką.
                                             </div>
                                         </div>
                                     </div>
-
-                                    <p>
-                                        Ši Privatumo politika galioja nuo jos paskelbimo Svetainėje dienos.
-                                        Privatumo politika nėra laikoma Bendrovės ir Jūsų susitarimu dėl Asmens
-                                        duomenų tvarkymo. Šia Privatumo politika Bendrovė Jus informuoja apie Jūsų
-                                        asmens duomenų tvarkymo principus Bendrovėje. Mes galime bet kada pakeisti
-                                        Privatumo politiką. Privatumo politikos pakeitimai ir (ar) papildymai
-                                        įsigalioja po jų paskelbimo Svetainėje momento. Rekomenduojame reguliariai
-                                        peržiūrėti mūsų Privatumo politiką.
-                                    </p>
                                 @elseif (app()->getLocale() == 'ru')
                                     <p>
-                                        Политика конфиденциальности (далее — «Политика конфиденциальности»)
-                                        объясняет, как UAB "Lord UK" (далее — «Компания») собирает и обрабатывает
-                                        информацию о посетителях веб-сайта https://madeiva.shop/ (далее — «Сайт»),
-                                        указывает, что права, которыми обладают посетители Сайта, и способы их
-                                        реализации. Перед регистрацией на Сайте рекомендуем внимательно ознакомиться
-                                        с настоящей Политикой конфиденциальности.
+                                        Настоящая Политика конфиденциальности (далее – «Политика конфиденциальности»)
+                                        разъясняет, как UAB «Madeiva»
+                                        (далее – «Компания») собирает и обрабатывает информацию посетителей веб-сайта
+                                        https://madeiva.shop/ (далее – «Сайт»), определяет права посетителей Сайта
+                                        и порядок их реализации. Перед регистрацией на Сайте рекомендуем
+                                        внимательно ознакомиться с настоящей Политикой конфиденциальности.
                                     </p>
                                     <p class="mb-2">
-                                        Компания обязуется ответственно и безопасно обращаться с вашими личными
-                                        данными в своей деятельности. Основываясь на этих основных принципах, мы
-                                        всегда будем стремиться обеспечить достаточный уровень защиты ваших данных
-                                        и защиту ваших прав. Мы обрабатываем Персональные данные в соответствии с
-                                        настоящей Политикой конфиденциальности в соответствии с применимыми
-                                        правовыми актами, в том числе Общим регламентом защиты данных (2016/679)
-                                        (далее — «GDPR») и применимыми национальными законами Литвы о защите
-                                        персональных данных.</p>
+                                        Компания стремится ответственно и безопасно обращаться с вашими персональными
+                                        данными в своей деятельности. Руководствуясь этими основополагающими принципами, мы
+                                        всегда стремимся обеспечить достаточный уровень защиты ваших данных и защиты ваших
+                                        прав. Мы обрабатываем персональные данные в соответствии с настоящей Политикой
+                                        конфиденциальности, в соответствии с применимыми правовыми актами, включая Общий
+                                        регламент по защите данных (2016/679) (далее именуемый «GDPR») и применимое
+                                        литовское национальное законодательство о защите персональных данных.
+                                    </p>
                                     <div class="accordion-item">
                                         <h2 class="accordion-header" id="headingOne">
                                             <button class="accordion-button" type="button" data-bs-toggle="collapse"
@@ -268,7 +265,7 @@
                                                 UAB "Madeiva" <br />
                                                 Код компании: 303342108<br />
                                                 Адрес: J. Jasinskio g. 10, Vilnius<br />
-                                                Тел. Нр. +370 647 77121 <br />
+                                                Тел. Нр. +37064777121 <br />
                                                 Адрес электронной почты: grasale.kavine@gmail.com<br />
                                             </div>
                                         </div>
@@ -446,40 +443,40 @@
                                                 Мы стремимся обеспечить защиту ваших личных данных и предоставить всю
                                                 необходимую информацию. Если у вас есть какие-либо вопросы или замечания
                                                 относительно обработки ваших персональных данных, пожалуйста, свяжитесь с
-                                                нами по адресу электронной почты, указанному на Сайте. Г-н. адрес.
+                                                нами по адресу электронной почты, указанному на Сайте. Г-н. адрес.<br />
+                                                Настоящая Политика конфиденциальности действует с момента ее публикации на
+                                                Сайте. Политика конфиденциальности не считается соглашением между Компанией
+                                                и Вами в отношении обработки Персональных данных. Настоящей Политикой
+                                                конфиденциальности Компания информирует вас о принципах обработки ваших
+                                                персональных данных в Компании. Мы можем изменить Политику
+                                                конфиденциальности в любое время. Изменения и/или дополнения Политики
+                                                конфиденциальности вступают в силу после их публикации на Сайте. Мы
+                                                рекомендуем вам регулярно просматривать нашу Политику
+                                                конфиденциальности.
                                             </div>
                                         </div>
                                     </div>
-
-                                    <p>
-                                        Настоящая Политика конфиденциальности действует с момента ее публикации на
-                                        Сайте. Политика конфиденциальности не считается соглашением между Компанией
-                                        и Вами в отношении обработки Персональных данных. Настоящей Политикой
-                                        конфиденциальности Компания информирует вас о принципах обработки ваших
-                                        персональных данных в Компании. Мы можем изменить Политику
-                                        конфиденциальности в любое время. Изменения и/или дополнения Политики
-                                        конфиденциальности вступают в силу после их публикации на Сайте. Мы
-                                        рекомендуем вам регулярно просматривать нашу Политику
-                                        конфиденциальности.
-                                    </p>
                                 @else
                                     <p>
-                                        The Privacy Policy (next - the "Privacy Policy") explains how
-                                        UAB "Lord UK" (next - the "Company") collects and processes the
-                                        information of visitors to the website https://madeiva.shop/ (next
-                                        - the "Site"), indicates what rights the visitors of the Site have
-                                        and how to exercise them. can implement. Before registering on the
-                                        Website, we recommend that you carefully read this Privacy Policy.
+                                        The Privacy Policy (hereinafter referred to as the "Privacy Policy") explains how
+                                        UAB "Madeiva" (hereinafter referred to as the "Company") collects and processes
+                                        information from
+                                        visitors to the website https://madeiva.shop/ (hereinafter referred to as the
+                                        "Site"), specifies what rights visitors to the Site have
+                                        and how they can exercise them. Before registering on the Site, we recommend
+                                        to read this Privacy Policy carefully.
                                     </p>
                                     <p class="mb-2">
-                                        The company is committed to handling your personal data responsibly and
-                                        securely in its activities. Based on these essential principles, we will
-                                        always strive to ensure a sufficient level of protection of your data
-                                        and the protection of your rights. We process Personal Data, in accordance
-                                        with this Privacy Policy, in accordance with the applicable legal acts,
-                                        including the General Data Protection Regulation (2016/679) (next -
-                                        "GDPR") and the applicable Lithuanian national personal data protection
-                                        legislation.
+                                        The Company is committed to handling your personal
+                                        data responsibly and securely in its activities. Guided by these fundamental
+                                        principles, we will always strive to ensure
+                                        a sufficient level of protection of your data and the protection of your rights. We
+                                        process Personal
+                                        data in accordance with this Privacy Policy, in accordance with applicable legal
+                                        acts,
+                                        including the General Data Protection Regulation (2016/679) (hereinafter referred to
+                                        as the "GDPR") and
+                                        applicable Lithuanian national personal data protection legislation.
                                     </p>
                                     <div class="accordion-item">
                                         <h2 class="accordion-header" id="headingOne">
@@ -495,7 +492,7 @@
                                                 UAB "Madeiva"<br />
                                                 Registration code: 303342108<br />
                                                 Address: J. Jasinskio g. 10, Vilnius<br />
-                                                Phone. No. +370 647 77121<br />
+                                                Phone. No. +37064777121<br />
                                                 Email address: grasale.kavine@gmail.com<br />
                                             </div>
                                         </div>
@@ -676,20 +673,18 @@
                                                 We are committed to ensuring the protection of your personal data and
                                                 providing all necessary information. If you have any questions or
                                                 observations regarding the processing of your personal data, please contact
-                                                us at the e-mail address specified on the Website. Mr. address.
+                                                us at the e-mail address specified on the Website. Mr. address.<br />
+                                                This Privacy Policy is valid from the date of its publication on the
+                                                Website. The Privacy Policy is not considered an agreement between the
+                                                Company and You regarding the processing of Personal Data. With this Privacy
+                                                Policy, the Company informs you about the principles of processing your
+                                                personal data in the Company. We may change the Privacy Policy at any time.
+                                                Changes and/or additions to the Privacy Policy take effect after their
+                                                publication on the Website. We recommend that you regularly review our
+                                                Privacy Policy.
                                             </div>
                                         </div>
                                     </div>
-                                    <p>
-                                        This Privacy Policy is valid from the date of its publication on the
-                                        Website. The Privacy Policy is not considered an agreement between the
-                                        Company and You regarding the processing of Personal Data. With this Privacy
-                                        Policy, the Company informs you about the principles of processing your
-                                        personal data in the Company. We may change the Privacy Policy at any time.
-                                        Changes and/or additions to the Privacy Policy take effect after their
-                                        publication on the Website. We recommend that you regularly review our
-                                        Privacy Policy.
-                                    </p>
                                 @endif
                             </div>
                         </div>

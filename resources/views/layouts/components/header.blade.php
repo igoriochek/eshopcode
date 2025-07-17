@@ -6,7 +6,7 @@
                     <div class="inner-top-header">
                         <div class="col-left-bar">
                             <a href="tel:+37064777121">
-                                +370 647 77121
+                                +37064777121
                             </a>
                             <span class="separator">|</span>
                             <a href="mailto:grasale.kavine@gmail.com">

@@ -18,12 +18,13 @@
                                         <a href="{{ url('/promotions') }}">{{ __('menu.promotions') }}</a>
                                     </li>
                                     @auth
-                                    <li class="bb-footer-link">
-                                        <a href="{{ url('/user/discountCoupons') }}">{{ __('menu.discountCoupons') }}</a>
-                                    </li>
-                                    <li class="bb-footer-link">
-                                        <a href="{{ url('/user/messenger') }}">{{ __('menu.messenger') }}</a>
-                                    </li>
+                                        <li class="bb-footer-link">
+                                            <a
+                                                href="{{ url('/user/discountCoupons') }}">{{ __('menu.discountCoupons') }}</a>
+                                        </li>
+                                        <li class="bb-footer-link">
+                                            <a href="{{ url('/user/messenger') }}">{{ __('menu.messenger') }}</a>
+                                        </li>
                                     @endauth
                                 </ul>
                             </div>
@@ -59,33 +60,34 @@
                             <div class="bb-footer-links bb-footer-dropdown">
                                 <ul class="align-items-center">
                                     @auth
-                                    <li class="bb-footer-link">
-                                        <a href="{{ url('/user/viewcart') }}">{{ __('menu.cart') }}</a>
-                                    </li>
-                                    <li class="bb-footer-link">
-                                        <a href="{{ url('/user/rootorders') }}">{{ __('menu.orders') }}</a>
-                                    </li>
-                                    <li class="bb-footer-link">
-                                        <a href="{{ url('/user/rootoreturns') }}">{{ __('menu.returns') }}</a>
-                                    </li>
-                                    <li class="bb-footer-link">
-                                        <a href="{{ url('/user/userprofile') }}">{{ __('menu.profile') }}</a>
-                                    </li>
-                                    <li class="bb-footer-link">
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                                            @csrf
-                                            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                                {{ __('menu.logout') }}
-                                            </a>
-                                        </form>
-                                    </li>
+                                        <li class="bb-footer-link">
+                                            <a href="{{ url('/user/viewcart') }}">{{ __('menu.cart') }}</a>
+                                        </li>
+                                        <li class="bb-footer-link">
+                                            <a href="{{ url('/user/rootorders') }}">{{ __('menu.orders') }}</a>
+                                        </li>
+                                        <li class="bb-footer-link">
+                                            <a href="{{ url('/user/rootoreturns') }}">{{ __('menu.returns') }}</a>
+                                        </li>
+                                        <li class="bb-footer-link">
+                                            <a href="{{ url('/user/userprofile') }}">{{ __('menu.profile') }}</a>
+                                        </li>
+                                        <li class="bb-footer-link">
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                                                @csrf
+                                                <a href="{{ route('logout') }}"
+                                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                                    {{ __('menu.logout') }}
+                                                </a>
+                                            </form>
+                                        </li>
                                     @else
-                                    <li class="bb-footer-link">
-                                        <a href="{{ route('login') }}">{{ __('buttons.login') }}</a>
-                                    </li>
-                                    <li class="bb-footer-link">
-                                        <a href="{{ route('register') }}">{{ __('buttons.register') }}</a>
-                                    </li>
+                                        <li class="bb-footer-link">
+                                            <a href="{{ route('login') }}">{{ __('buttons.login') }}</a>
+                                        </li>
+                                        <li class="bb-footer-link">
+                                            <a href="{{ route('register') }}">{{ __('buttons.register') }}</a>
+                                        </li>
                                     @endauth
                                 </ul>
                             </div>
@@ -111,7 +113,7 @@
                                                 <i class="ri-whatsapp-line"></i>
                                             </span>
                                             <a href="tel:+37064777121">
-                                                +370 647 77121
+                                                +37064777121
                                             </a>
                                         </li>
                                         <li class="bb-footer-link bb-foo-mail">
@@ -129,7 +131,8 @@
                                 <div class="bb-footer-links bb-footer-dropdown">
                                     <ul class="align-items-center">
                                         <li class="bb-footer-link">
-                                            <a href="https://www.facebook.com/profile.php?id=100063663756238"><i class="ri-facebook-fill"></i></a>
+                                            <a href="https://www.facebook.com/profile.php?id=100063663756238"><i
+                                                    class="ri-facebook-fill"></i></a>
                                         </li>
                                     </ul>
                                 </div>
@@ -153,7 +156,8 @@
                         <div class="footer-bottom-right">
                             <div class="footer-bottom-payment d-flex justify-content-center">
                                 <div class="payment-link">
-                                    <img src="{{ asset('images/1_Paysera logo for light background.svg') }}" alt="image" width="80px">
+                                    <img src="{{ asset('images/1_Paysera logo for light background.svg') }}"
+                                        alt="image" width="80px">
                                 </div>
                             </div>
                         </div>

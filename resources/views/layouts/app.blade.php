@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta name="verify-paysera" content="df97f62a8826f8f3db216233229b51f7">
+    <meta name="verify-paysera" content="47f57af59692c08e4ad33027eed70c68">
     <!-- Title -->
     <title>
         @hasSection('title')
